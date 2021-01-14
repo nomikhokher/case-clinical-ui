@@ -19,5 +19,9 @@ module.exports = {
     '<rootDir>/libs/web/layout',
     '<rootDir>/libs/web/style',
     '<rootDir>/libs/web/ui-form',
+    '<rootDir>/libs/api/schema/feature',
+    '<rootDir>/libs/api/schema/data-access',
+    '<rootDir>/libs/api/tenant/data-access',
+    '<rootDir>/libs/api/tenant/feature',
   ],
 }

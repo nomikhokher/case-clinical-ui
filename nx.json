@@ -41,6 +41,18 @@
     "api-e2e": {
       "tags": []
     },
+    "api-schema-data-access": {
+      "tags": ["scope:api", "type:data-access"]
+    },
+    "api-schema-feature": {
+      "tags": ["scope:api", "type:feature"]
+    },
+    "api-tenant-data-access": {
+      "tags": ["scope:api", "type:data-access"]
+    },
+    "api-tenant-feature": {
+      "tags": ["scope:api", "type:feature"]
+    },
     "web": {
       "tags": []
     },

@@ -1,0 +1,24 @@
+fragment TenantDetails on Tenant {
+  id
+  createdAt
+  updatedAt
+  name
+}
+
+mutation CreateTentant($input: CreateTenantInput!) {
+  createTenant(input: $input) {
+    ...TenantDetails
+  }
+}
+
+query Tenants {
+  tenants {
+    ...TenantDetails
+  }
+}
+
+query Tenant($tenantId: String!) {
+  tenant(tenantId: $tenantId) {
+    ...TenantDetails
+  }
+}

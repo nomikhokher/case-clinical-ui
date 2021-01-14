@@ -1,0 +1,26 @@
+fragment SchemaDetails on Schema {
+  id
+  createdAt
+  updatedAt
+  publishedAt
+  stage
+  name
+}
+
+mutation CreateSchema($tenantId: String!, $input: CreateSchemaInput!) {
+  createSchema(tenantId: $tenantId, input: $input) {
+    ...SchemaDetails
+  }
+}
+
+query Schemata {
+  schemata {
+    ...SchemaDetails
+  }
+}
+
+query Schema($schemaId: String!) {
+  schema(schemaId: $schemaId) {
+    ...SchemaDetails
+  }
+}
