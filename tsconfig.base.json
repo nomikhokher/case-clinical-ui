@@ -14,7 +14,25 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@metadata/api-app-module": ["apps/api/src/app/app.module.ts"],
+      "@metadata/api/auth/data-access": ["libs/api/auth/data-access/src/index.ts"],
+      "@metadata/api/auth/feature": ["libs/api/auth/feature/src/index.ts"],
+      "@metadata/api/core/data-access": ["libs/api/core/data-access/src/index.ts"],
+      "@metadata/api/core/feature": ["libs/api/core/feature/src/index.ts"],
+      "@metadata/web/about/feature": ["libs/web/about/feature/src/index.ts"],
+      "@metadata/web/assets": ["libs/web/assets/src/index.ts"],
+      "@metadata/web/auth/data-access": ["libs/web/auth/data-access/src/index.ts"],
+      "@metadata/web/auth/feature": ["libs/web/auth/feature/src/index.ts"],
+      "@metadata/web/auth/ui": ["libs/web/auth/ui/src/index.ts"],
+      "@metadata/web/core/data-access": ["libs/web/core/data-access/src/index.ts"],
+      "@metadata/web/core/feature": ["libs/web/core/feature/src/index.ts"],
+      "@metadata/web/dashboard/feature": ["libs/web/dashboard/feature/src/index.ts"],
+      "@metadata/web/layout": ["libs/web/layout/src/index.ts"],
+      "@metadata/web/shell/feature": ["libs/web/shell/feature/src/index.ts"],
+      "@metadata/web/style": ["libs/web/style/src/index.ts"],
+      "@metadata/web/ui-form": ["libs/web/ui-form/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
