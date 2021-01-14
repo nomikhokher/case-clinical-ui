@@ -1,0 +1,214 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateSchemaInput {
+  name: String!
+}
+
+input CreateTenantInput {
+  name: String!
+}
+
+enum DataType {
+  Boolean
+  DateTime
+  Enumeration
+  Integer
+  String
+  Text
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Entity {
+  createdAt: DateTime
+  description: String
+  dynamicProperties: JSON
+  fields: [Field!]
+  foreignKeys: [ForeignKey!]
+  id: ID
+  keys: [Key!]
+  keywords: [String!]
+  name: String
+  ontologies: [Ontology!]
+  publishedAt: DateTime
+  stage: Stage
+  updatedAt: DateTime
+}
+
+type Field {
+  createdAt: DateTime
+  dataType: DataType
+  description: String
+  id: ID
+  isName: Boolean
+  isNullable: Boolean
+  keyType: FieldType
+  name: String
+  publishedAt: DateTime
+  stage: Stage
+  updatedAt: DateTime
+}
+
+enum FieldType {
+  Asset
+  Boolean
+  Color
+  Date
+  DateTime
+  Dropdown
+  Float
+  Json
+  Location
+  Markdown
+  MultiLineText
+  Number
+  Reference
+  RichText
+  SingleLineOfText
+  Slug
+  Typeahead
+}
+
+type ForeignKey {
+  createdAt: DateTime
+  description: String
+  id: ID
+  name: String
+  publishedAt: DateTime
+  relatedEntity: Entity
+  relatedField: [Field!]
+  stage: Stage
+  updatedAt: DateTime
+}
+
+type IntercomMessage {
+  payload: JSON
+  scope: String
+  type: String
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+type Key {
+  createdAt: DateTime
+  description: String
+  id: ID
+  isDrivingKey: Boolean
+  keyType: KeyType
+  name: String
+  stage: Stage
+  updatedAt: DateTime
+}
+
+enum KeyType {
+  Composite
+  Guid
+  Int
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  createSchema(input: CreateSchemaInput!, tenantId: String!): Schema
+  createTenant(input: CreateTenantInput!): Tenant
+  intercomPub(payload: JSON, scope: String, type: String!): IntercomMessage
+  login(input: LoginInput!): UserToken
+  logout: Boolean
+  register(input: RegisterInput!): UserToken
+}
+
+type Ontology {
+  createdAt: DateTime
+  description: String
+  id: ID
+  key: String
+  name: String
+  stage: Stage
+  updatedAt: DateTime
+  value: String
+}
+
+type Query {
+  me: User
+  schema(schemaId: String!): Schema
+  schemata: [Schema!]
+  tenant(tenantId: String!): Tenant
+  tenants: [Tenant!]
+  uptime: Float
+}
+
+input RegisterInput {
+  avatarUrl: String
+  email: String!
+  firstName: String
+  lastName: String
+  password: String!
+  phone: String
+  username: String
+}
+
+"""User role"""
+enum Role {
+  Admin
+  SuperAdmin
+  User
+}
+
+type Schema {
+  createdAt: DateTime
+  entities: [Entity!]
+  id: ID
+  name: String
+  publishedAt: DateTime
+  stage: Stage
+  updatedAt: DateTime
+}
+
+enum Stage {
+  DEV
+  PRODUCTION
+  UAT
+}
+
+type Subscription {
+  intercomSub(scope: String, type: String): IntercomMessage
+}
+
+type Tenant {
+  createdAt: DateTime
+  id: ID
+  name: String
+  updatedAt: DateTime
+}
+
+type User {
+  avatarUrl: String
+  bio: String
+  createdAt: DateTime
+  email: String
+  firstName: String
+  id: String
+  lastName: String
+  location: String
+  phone: String
+  role: Role
+  updatedAt: DateTime
+  username: String
+}
+
+type UserToken {
+  """JWT Bearer token"""
+  token: String!
+  user: User!
+}

@@ -1,0 +1,184 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native"]
+}
+
+model User {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  role      Role
+  developer Boolean  @default(false)
+  email     String   @unique
+  username  String   @unique
+  password  String?
+  firstName String?
+  lastName  String?
+  avatarUrl String?
+  location  String?
+  phone     String?
+  bio       String?
+  tenant    Tenant?  @relation(fields: [tenantId], references: [id])
+  tenantId  String?
+}
+
+model Tenant {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  name      String
+  users     User[]
+  schemata  Schema[]
+}
+
+enum Role {
+  SuperAdmin
+  Admin
+  User
+}
+
+enum Stage {
+  DEV
+  UAT
+  PRODUCTION
+}
+
+model Schema {
+  id          String    @id @default(cuid())
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @default(now()) @updatedAt
+  publishedAt DateTime?
+  stage       Stage     @default(DEV)
+  name        String
+  tenant      Tenant    @relation(fields: [tenantId], references: [id])
+  tenantId    String
+  entities    Entity[]
+  keywords    String[]
+}
+
+model Entity {
+  id                String       @id @default(cuid())
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @default(now()) @updatedAt
+  publishedAt       DateTime?
+  stage             Stage        @default(DEV)
+  name              String
+  description       String
+  dynamicProperties Json
+  schema            Schema       @relation(fields: [schemaId], references: [id])
+  schemaId          String
+  keys              Key[]
+  fields            Field[]
+  foreignKeys       ForeignKey[]
+  ontologies        Ontology[]
+  keywords          String[]
+}
+
+model Key {
+  id           String     @id @default(cuid())
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @default(now()) @updatedAt
+  stage        Stage      @default(DEV)
+  keyType      KeyType
+  name         String
+  description  String
+  isDrivingKey Boolean
+  entity       Entity     @relation(fields: [entityId], references: [id])
+  entityId     String
+  ontologies   Ontology[]
+  keywords     String[]
+}
+
+enum KeyType {
+  Int
+  Guid
+  Composite
+}
+
+model Field {
+  id          String       @id @default(cuid())
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @default(now()) @updatedAt
+  publishedAt DateTime?
+  stage       Stage        @default(DEV)
+  fieldType   FieldType    @default(SingleLineOfText)
+  dataType    DataType
+  name        String
+  description String
+  isName      Boolean
+  isNullable  Boolean      @default(true)
+  entity      Entity       @relation(fields: [entityId], references: [id])
+  entityId    String
+  ontologies  Ontology[]
+  foreignKeys ForeignKey[] @relation("EntityForeignKey_Fields_1toM_Fields")
+  keywords    String[]
+}
+
+enum FieldType {
+  SingleLineOfText //String  ex. Headings, Titles, Inputs
+  MultiLineText //String Description
+  Markdown //String Markdown Editor
+  Slug //String URL Friendly Identifier
+  RichText //Text Text editor with formatting
+  Number //Integer ex. ID, Quantity, etc.
+  Float //Float ex. Ratings, Price, etc.
+  Boolean //Boolean ex. True, False
+  Date //Calendar Date Picker
+  DateTime //Calendar Date Picker with Time
+  Json //Json Editor
+  Asset //Supports all file types for upload
+  Color //Supports Hex and RGBA
+  Location //Map or Geocoordinates
+  Dropdown //Static List of Values
+  Typeahead //Autocomplete select
+  Reference //Foreign Key Display
+}
+
+enum DataType {
+  String
+  Text
+  Integer
+  Boolean
+  DateTime
+  Enumeration
+}
+
+model ForeignKey {
+  id              String     @id @default(cuid())
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @default(now()) @updatedAt
+  stage           Stage      @default(DEV)
+  name            String
+  description     String
+  relatedEntity   Entity     @relation(fields: [relatedEntityId], references: [id])
+  relatedEntityId String
+  relatedField    Field      @relation("EntityForeignKey_Fields_1toM_Fields", fields: [relatedFieldId], references: [id])
+  relatedFieldId  String
+  ontologies      Ontology[]
+  keywords        String[]
+}
+
+model Ontology {
+  id           String      @id @default(cuid())
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @default(now()) @updatedAt
+  stage        Stage       @default(DEV)
+  name         String
+  key          String
+  value        String
+  description  String
+  entity       Entity      @relation(fields: [entityId], references: [id])
+  entityId     String
+  Key          Key?        @relation(fields: [keyId], references: [id])
+  keyId        String?
+  field        Field?      @relation(fields: [fieldId], references: [id])
+  fieldId      String?
+  foreignKey   ForeignKey? @relation(fields: [foreignKeyId], references: [id])
+  foreignKeyId String?
+  keywords     String[]
+}
