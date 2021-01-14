@@ -5,7 +5,7 @@ fragment TenantDetails on Tenant {
   name
 }
 
-mutation CreateTentant($input: CreateTenantInput!) {
+mutation CreateTenant($input: CreateTenantInput!) {
   createTenant(input: $input) {
     ...TenantDetails
   }

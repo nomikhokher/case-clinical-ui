@@ -1,7 +1,4 @@
-import { gql } from 'apollo-angular'
-import { Injectable } from '@angular/core'
-import * as Apollo from 'apollo-angular'
-import * as ApolloCore from '@apollo/client/core'
+import gql from 'graphql-tag'
 export type Maybe<T> = T | null
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] }
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> }
@@ -379,7 +376,7 @@ export type TenantQuery = { __typename?: 'Query' } & {
   tenant?: Maybe<{ __typename?: 'Tenant' } & TenantDetailsFragment>
 }
 
-export const UserDetailsFragmentDoc = gql`
+export const UserDetails = gql`
   fragment UserDetails on User {
     id
     firstName
@@ -389,23 +386,23 @@ export const UserDetailsFragmentDoc = gql`
     email
   }
 `
-export const UserTokenDetailsFragmentDoc = gql`
+export const UserTokenDetails = gql`
   fragment UserTokenDetails on UserToken {
     token
     user {
       ...UserDetails
     }
   }
-  ${UserDetailsFragmentDoc}
+  ${UserDetails}
 `
-export const IntercomDetailsFragmentDoc = gql`
+export const IntercomDetails = gql`
   fragment IntercomDetails on IntercomMessage {
     type
     scope
     payload
   }
 `
-export const SchemaDetailsFragmentDoc = gql`
+export const SchemaDetails = gql`
   fragment SchemaDetails on Schema {
     id
     createdAt
@@ -415,7 +412,7 @@ export const SchemaDetailsFragmentDoc = gql`
     name
   }
 `
-export const TenantDetailsFragmentDoc = gql`
+export const TenantDetails = gql`
   fragment TenantDetails on Tenant {
     id
     createdAt
@@ -423,364 +420,111 @@ export const TenantDetailsFragmentDoc = gql`
     name
   }
 `
-export const MeDocument = gql`
+export const Me = gql`
   query me {
     me {
       ...UserDetails
     }
   }
-  ${UserDetailsFragmentDoc}
+  ${UserDetails}
 `
-
-@Injectable({
-  providedIn: 'root',
-})
-export class MeGQL extends Apollo.Query<MeQuery, MeQueryVariables> {
-  document = MeDocument
-
-  constructor(apollo: Apollo.Apollo) {
-    super(apollo)
-  }
-}
-export const LogoutDocument = gql`
+export const Logout = gql`
   mutation Logout {
     logout
   }
 `
-
-@Injectable({
-  providedIn: 'root',
-})
-export class LogoutGQL extends Apollo.Mutation<LogoutMutation, LogoutMutationVariables> {
-  document = LogoutDocument
-
-  constructor(apollo: Apollo.Apollo) {
-    super(apollo)
-  }
-}
-export const LoginDocument = gql`
+export const Login = gql`
   mutation Login($input: LoginInput!) {
     login(input: $input) {
       ...UserTokenDetails
     }
   }
-  ${UserTokenDetailsFragmentDoc}
+  ${UserTokenDetails}
 `
-
-@Injectable({
-  providedIn: 'root',
-})
-export class LoginGQL extends Apollo.Mutation<LoginMutation, LoginMutationVariables> {
-  document = LoginDocument
-
-  constructor(apollo: Apollo.Apollo) {
-    super(apollo)
-  }
-}
-export const RegisterDocument = gql`
+export const Register = gql`
   mutation Register($input: RegisterInput!) {
     register(input: $input) {
       ...UserTokenDetails
     }
   }
-  ${UserTokenDetailsFragmentDoc}
+  ${UserTokenDetails}
 `
-
-@Injectable({
-  providedIn: 'root',
-})
-export class RegisterGQL extends Apollo.Mutation<RegisterMutation, RegisterMutationVariables> {
-  document = RegisterDocument
-
-  constructor(apollo: Apollo.Apollo) {
-    super(apollo)
-  }
-}
-export const UptimeDocument = gql`
+export const Uptime = gql`
   query Uptime {
     uptime
   }
 `
-
-@Injectable({
-  providedIn: 'root',
-})
-export class UptimeGQL extends Apollo.Query<UptimeQuery, UptimeQueryVariables> {
-  document = UptimeDocument
-
-  constructor(apollo: Apollo.Apollo) {
-    super(apollo)
-  }
-}
-export const IntercomPubDocument = gql`
+export const IntercomPub = gql`
   mutation IntercomPub($type: String!, $scope: String, $payload: JSON) {
     intercomPub(type: $type, scope: $scope, payload: $payload) {
       ...IntercomDetails
     }
   }
-  ${IntercomDetailsFragmentDoc}
+  ${IntercomDetails}
 `
-
-@Injectable({
-  providedIn: 'root',
-})
-export class IntercomPubGQL extends Apollo.Mutation<IntercomPubMutation, IntercomPubMutationVariables> {
-  document = IntercomPubDocument
-
-  constructor(apollo: Apollo.Apollo) {
-    super(apollo)
-  }
-}
-export const IntercomSubDocument = gql`
+export const IntercomSub = gql`
   subscription IntercomSub {
     intercomSub {
       ...IntercomDetails
     }
   }
-  ${IntercomDetailsFragmentDoc}
+  ${IntercomDetails}
 `
-
-@Injectable({
-  providedIn: 'root',
-})
-export class IntercomSubGQL extends Apollo.Subscription<IntercomSubSubscription, IntercomSubSubscriptionVariables> {
-  document = IntercomSubDocument
-
-  constructor(apollo: Apollo.Apollo) {
-    super(apollo)
-  }
-}
-export const CreateSchemaDocument = gql`
+export const CreateSchema = gql`
   mutation CreateSchema($tenantId: String!, $input: CreateSchemaInput!) {
     createSchema(tenantId: $tenantId, input: $input) {
       ...SchemaDetails
     }
   }
-  ${SchemaDetailsFragmentDoc}
+  ${SchemaDetails}
 `
-
-@Injectable({
-  providedIn: 'root',
-})
-export class CreateSchemaGQL extends Apollo.Mutation<CreateSchemaMutation, CreateSchemaMutationVariables> {
-  document = CreateSchemaDocument
-
-  constructor(apollo: Apollo.Apollo) {
-    super(apollo)
-  }
-}
-export const SchemataDocument = gql`
+export const Schemata = gql`
   query Schemata {
     schemata {
       ...SchemaDetails
     }
   }
-  ${SchemaDetailsFragmentDoc}
+  ${SchemaDetails}
 `
-
-@Injectable({
-  providedIn: 'root',
-})
-export class SchemataGQL extends Apollo.Query<SchemataQuery, SchemataQueryVariables> {
-  document = SchemataDocument
-
-  constructor(apollo: Apollo.Apollo) {
-    super(apollo)
-  }
-}
-export const SchemaDocument = gql`
+export const Schema = gql`
   query Schema($schemaId: String!) {
     schema(schemaId: $schemaId) {
       ...SchemaDetails
     }
   }
-  ${SchemaDetailsFragmentDoc}
+  ${SchemaDetails}
 `
-
-@Injectable({
-  providedIn: 'root',
-})
-export class SchemaGQL extends Apollo.Query<SchemaQuery, SchemaQueryVariables> {
-  document = SchemaDocument
-
-  constructor(apollo: Apollo.Apollo) {
-    super(apollo)
-  }
-}
-export const CreateTenantDocument = gql`
+export const CreateTenant = gql`
   mutation CreateTenant($input: CreateTenantInput!) {
     createTenant(input: $input) {
       ...TenantDetails
     }
   }
-  ${TenantDetailsFragmentDoc}
+  ${TenantDetails}
 `
-
-@Injectable({
-  providedIn: 'root',
-})
-export class CreateTenantGQL extends Apollo.Mutation<CreateTenantMutation, CreateTenantMutationVariables> {
-  document = CreateTenantDocument
-
-  constructor(apollo: Apollo.Apollo) {
-    super(apollo)
-  }
-}
-export const TenantsDocument = gql`
+export const Tenants = gql`
   query Tenants {
     tenants {
       ...TenantDetails
     }
   }
-  ${TenantDetailsFragmentDoc}
+  ${TenantDetails}
 `
-
-@Injectable({
-  providedIn: 'root',
-})
-export class TenantsGQL extends Apollo.Query<TenantsQuery, TenantsQueryVariables> {
-  document = TenantsDocument
-
-  constructor(apollo: Apollo.Apollo) {
-    super(apollo)
-  }
-}
-export const TenantDocument = gql`
+export const Tenant = gql`
   query Tenant($tenantId: String!) {
     tenant(tenantId: $tenantId) {
       ...TenantDetails
     }
   }
-  ${TenantDetailsFragmentDoc}
+  ${TenantDetails}
 `
 
-@Injectable({
-  providedIn: 'root',
-})
-export class TenantGQL extends Apollo.Query<TenantQuery, TenantQueryVariables> {
-  document = TenantDocument
-
-  constructor(apollo: Apollo.Apollo) {
-    super(apollo)
+export interface PossibleTypesResultData {
+  possibleTypes: {
+    [key: string]: string[]
   }
 }
-
-type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
-
-interface WatchQueryOptionsAlone<V> extends Omit<ApolloCore.WatchQueryOptions<V>, 'query' | 'variables'> {}
-
-interface QueryOptionsAlone<V> extends Omit<ApolloCore.QueryOptions<V>, 'query' | 'variables'> {}
-
-interface MutationOptionsAlone<T, V> extends Omit<ApolloCore.MutationOptions<T, V>, 'mutation' | 'variables'> {}
-
-interface SubscriptionOptionsAlone<V> extends Omit<ApolloCore.SubscriptionOptions<V>, 'query' | 'variables'> {}
-
-@Injectable({ providedIn: 'root' })
-export class ApolloAngularSDK {
-  constructor(
-    private meGql: MeGQL,
-    private logoutGql: LogoutGQL,
-    private loginGql: LoginGQL,
-    private registerGql: RegisterGQL,
-    private uptimeGql: UptimeGQL,
-    private intercomPubGql: IntercomPubGQL,
-    private intercomSubGql: IntercomSubGQL,
-    private createSchemaGql: CreateSchemaGQL,
-    private schemataGql: SchemataGQL,
-    private schemaGql: SchemaGQL,
-    private createTenantGql: CreateTenantGQL,
-    private tenantsGql: TenantsGQL,
-    private tenantGql: TenantGQL,
-  ) {}
-
-  me(variables?: MeQueryVariables, options?: QueryOptionsAlone<MeQueryVariables>) {
-    return this.meGql.fetch(variables, options)
-  }
-
-  meWatch(variables?: MeQueryVariables, options?: WatchQueryOptionsAlone<MeQueryVariables>) {
-    return this.meGql.watch(variables, options)
-  }
-
-  logout(variables?: LogoutMutationVariables, options?: MutationOptionsAlone<LogoutMutation, LogoutMutationVariables>) {
-    return this.logoutGql.mutate(variables, options)
-  }
-
-  login(variables: LoginMutationVariables, options?: MutationOptionsAlone<LoginMutation, LoginMutationVariables>) {
-    return this.loginGql.mutate(variables, options)
-  }
-
-  register(
-    variables: RegisterMutationVariables,
-    options?: MutationOptionsAlone<RegisterMutation, RegisterMutationVariables>,
-  ) {
-    return this.registerGql.mutate(variables, options)
-  }
-
-  uptime(variables?: UptimeQueryVariables, options?: QueryOptionsAlone<UptimeQueryVariables>) {
-    return this.uptimeGql.fetch(variables, options)
-  }
-
-  uptimeWatch(variables?: UptimeQueryVariables, options?: WatchQueryOptionsAlone<UptimeQueryVariables>) {
-    return this.uptimeGql.watch(variables, options)
-  }
-
-  intercomPub(
-    variables: IntercomPubMutationVariables,
-    options?: MutationOptionsAlone<IntercomPubMutation, IntercomPubMutationVariables>,
-  ) {
-    return this.intercomPubGql.mutate(variables, options)
-  }
-
-  intercomSub(
-    variables?: IntercomSubSubscriptionVariables,
-    options?: SubscriptionOptionsAlone<IntercomSubSubscriptionVariables>,
-  ) {
-    return this.intercomSubGql.subscribe(variables, options)
-  }
-
-  createSchema(
-    variables: CreateSchemaMutationVariables,
-    options?: MutationOptionsAlone<CreateSchemaMutation, CreateSchemaMutationVariables>,
-  ) {
-    return this.createSchemaGql.mutate(variables, options)
-  }
-
-  schemata(variables?: SchemataQueryVariables, options?: QueryOptionsAlone<SchemataQueryVariables>) {
-    return this.schemataGql.fetch(variables, options)
-  }
-
-  schemataWatch(variables?: SchemataQueryVariables, options?: WatchQueryOptionsAlone<SchemataQueryVariables>) {
-    return this.schemataGql.watch(variables, options)
-  }
-
-  schema(variables: SchemaQueryVariables, options?: QueryOptionsAlone<SchemaQueryVariables>) {
-    return this.schemaGql.fetch(variables, options)
-  }
-
-  schemaWatch(variables: SchemaQueryVariables, options?: WatchQueryOptionsAlone<SchemaQueryVariables>) {
-    return this.schemaGql.watch(variables, options)
-  }
-
-  createTenant(
-    variables: CreateTenantMutationVariables,
-    options?: MutationOptionsAlone<CreateTenantMutation, CreateTenantMutationVariables>,
-  ) {
-    return this.createTenantGql.mutate(variables, options)
-  }
-
-  tenants(variables?: TenantsQueryVariables, options?: QueryOptionsAlone<TenantsQueryVariables>) {
-    return this.tenantsGql.fetch(variables, options)
-  }
-
-  tenantsWatch(variables?: TenantsQueryVariables, options?: WatchQueryOptionsAlone<TenantsQueryVariables>) {
-    return this.tenantsGql.watch(variables, options)
-  }
-
-  tenant(variables: TenantQueryVariables, options?: QueryOptionsAlone<TenantQueryVariables>) {
-    return this.tenantGql.fetch(variables, options)
-  }
-
-  tenantWatch(variables: TenantQueryVariables, options?: WatchQueryOptionsAlone<TenantQueryVariables>) {
-    return this.tenantGql.watch(variables, options)
-  }
+const result: PossibleTypesResultData = {
+  possibleTypes: {},
 }
+export default result
