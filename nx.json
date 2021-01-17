@@ -32,6 +32,9 @@
     "api-auth-feature": {
       "tags": ["scope:api", "type:feature"]
     },
+    "api-auth-util": {
+      "tags": ["scope:api", "type:util"]
+    },
     "api-core-data-access": {
       "tags": ["scope:api", "type:data-access"]
     },
@@ -51,6 +54,12 @@
       "tags": ["scope:api", "type:data-access"]
     },
     "api-tenant-feature": {
+      "tags": ["scope:api", "type:feature"]
+    },
+    "api-user-data-access": {
+      "tags": ["scope:api", "type:data-access"]
+    },
+    "api-user-feature": {
       "tags": ["scope:api", "type:feature"]
     },
     "web": {

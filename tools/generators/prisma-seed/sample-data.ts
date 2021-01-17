@@ -2,7 +2,7 @@ import { Role, TenantCreateInput, UserCreateInput } from '@prisma/client'
 import { createSchema, createTenant, createUser } from './lib/helpers'
 
 export const users: UserCreateInput[] = [
-  createUser('superadmin', 'superadmin', 'superadmin@example.com', Role.SuperAdmin),
+  createUser('superadmin', 'superadmin', 'superadmin@example.com', Role.Admin),
   createUser('user', 'user', 'user@example.com', Role.User),
 ]
 

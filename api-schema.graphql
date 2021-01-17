@@ -160,7 +160,7 @@ input RegisterInput {
 
 """User role"""
 enum Role {
-  SuperAdmin
+  Admin
   User
 }
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { WebAuthStore } from '@metadata/web/auth/data-access'
-import { WebUiFormField } from '@metadata/web/ui-form'
+import { WebUiFormField } from '@metadata/web/ui/form'
 
 @Component({
   template: `

@@ -27,7 +27,7 @@ model User {
 }
 
 enum Role {
-  SuperAdmin
+  Admin
   User
 }
 
@@ -52,7 +52,7 @@ model Tenant {
 }
 
 enum TenantRole {
-  Admin
+  Owner
   User
 }
 

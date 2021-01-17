@@ -18,12 +18,15 @@
       "@metadata/api-app-module": ["apps/api/src/app/app.module.ts"],
       "@metadata/api/auth/data-access": ["libs/api/auth/data-access/src/index.ts"],
       "@metadata/api/auth/feature": ["libs/api/auth/feature/src/index.ts"],
+      "@metadata/api/auth/util": ["libs/api/auth/util/src/index.ts"],
       "@metadata/api/core/data-access": ["libs/api/core/data-access/src/index.ts"],
       "@metadata/api/core/feature": ["libs/api/core/feature/src/index.ts"],
       "@metadata/api/schema/data-access": ["libs/api/schema/data-access/src/index.ts"],
       "@metadata/api/schema/feature": ["libs/api/schema/feature/src/index.ts"],
       "@metadata/api/tenant/data-access": ["libs/api/tenant/data-access/src/index.ts"],
       "@metadata/api/tenant/feature": ["libs/api/tenant/feature/src/index.ts"],
+      "@metadata/api/user/data-access": ["libs/api/user/data-access/src/index.ts"],
+      "@metadata/api/user/feature": ["libs/api/user/feature/src/index.ts"],
       "@metadata/web/about/feature": ["libs/web/about/feature/src/index.ts"],
       "@metadata/web/assets": ["libs/web/assets/src/index.ts"],
       "@metadata/web/auth/data-access": ["libs/web/auth/data-access/src/index.ts"],
@@ -35,7 +38,7 @@
       "@metadata/web/layout": ["libs/web/layout/src/index.ts"],
       "@metadata/web/shell/feature": ["libs/web/shell/feature/src/index.ts"],
       "@metadata/web/style": ["libs/web/style/src/index.ts"],
-      "@metadata/web/ui-form": ["libs/web/ui-form/src/index.ts"]
+      "@metadata/web/ui/form": ["libs/web/ui/form/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

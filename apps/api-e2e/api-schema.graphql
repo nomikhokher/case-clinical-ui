@@ -158,10 +158,12 @@ input RegisterInput {
   username: String
 }
 
-"""User role"""
+"""
+User role
+"""
 enum Role {
   Admin
-  SuperAdmin
+  Admin
   User
 }
 
@@ -208,7 +210,9 @@ type User {
 }
 
 type UserToken {
-  """JWT Bearer token"""
+  """
+  JWT Bearer token
+  """
   token: String!
   user: User!
 }

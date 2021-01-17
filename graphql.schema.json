@@ -1511,12 +1511,6 @@
             "deprecationReason": null
           },
           {
-            "name": "SuperAdmin",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "User",
             "description": null,
             "isDeprecated": false,

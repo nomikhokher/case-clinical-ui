@@ -1,14 +1,8 @@
-import {
-  ApiAuthDataAccessService,
-  CtxUser,
-  GqlAuthGuard,
-  LoginInput,
-  RegisterInput,
-  User,
-  UserToken,
-} from '@metadata/api/auth/data-access'
-import { Float, Context, Query, Resolver, Mutation, Args, ResolveField, Parent } from '@nestjs/graphql'
+import { ApiAuthDataAccessService, LoginInput, RegisterInput, UserToken } from '@metadata/api/auth/data-access'
+import { CtxUser, GqlAuthGuard } from '@metadata/api/auth/util'
+import { User } from '@metadata/api/user/data-access'
 import { UseGuards } from '@nestjs/common'
+import { Args, Context, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql'
 
 @Resolver(() => UserToken)
 export class ApiAuthFeatureResolver {

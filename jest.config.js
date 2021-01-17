@@ -23,5 +23,8 @@ module.exports = {
     '<rootDir>/libs/api/schema/data-access',
     '<rootDir>/libs/api/tenant/data-access',
     '<rootDir>/libs/api/tenant/feature',
+    '<rootDir>/libs/api/user/data-access',
+    '<rootDir>/libs/api/user/feature',
+    '<rootDir>/libs/api/auth/util',
   ],
 }

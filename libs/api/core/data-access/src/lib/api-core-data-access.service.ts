@@ -1,6 +1,5 @@
-import { BadRequestException, Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common'
-import { PrismaClient, UserCreateInput } from '@prisma/client'
-import { getGravatarUrl, hashPassword } from './api-core-data-access.helper'
+import { Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common'
+import { PrismaClient } from '@prisma/client'
 
 @Injectable()
 export class ApiCoreDataAccessService extends PrismaClient implements OnModuleInit, OnModuleDestroy {
@@ -8,48 +7,23 @@ export class ApiCoreDataAccessService extends PrismaClient implements OnModuleIn
     super()
   }
 
-  public async onModuleDestroy() {
+  async onModuleDestroy() {
     await this.$disconnect()
   }
 
-  public async onModuleInit() {
+  async onModuleInit() {
     await this.$connect()
   }
 
-  async createUser(input: Partial<UserCreateInput>) {
-    const email = input.email.trim()
-    const existing = await this.findUserByEmail(email)
-    if (existing) {
-      throw new BadRequestException(`Can't create user with email ${email}`)
-    }
-    const password = hashPassword(input.password)
-
-    // The first user will get the Admin role
-    const hasSuperAdmin = await this.user.count({ where: { role: 'SuperAdmin' } })
-    const role = hasSuperAdmin ? 'User' : 'SuperAdmin'
-
-    return this.user.create({
-      data: {
-        firstName: input.firstName,
-        lastName: input.lastName,
-        email,
-        username: email,
-        avatarUrl: input.avatarUrl || getGravatarUrl(input.email.toLowerCase()),
-        password,
-        role,
-      },
-    })
-  }
-
-  public findUserByEmail(email: string) {
+  findUserByEmail(email: string) {
     return this.user.findUnique({ where: { email } })
   }
 
-  public findUserById(userId: string) {
+  findUserById(userId: string) {
     return this.user.findUnique({ where: { id: userId } })
   }
 
-  public findUserByUsername(username: string) {
+  findUserByUsername(username: string) {
     return this.user.findUnique({ where: { username } })
   }
 }

@@ -1,27 +1,25 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common'
-import { JwtService } from '@nestjs/jwt'
-import { UserCreateInput } from '@prisma/client'
+import { validatePassword } from '@metadata/api/auth/util'
 import { ApiCoreDataAccessService } from '@metadata/api/core/data-access'
 import { ApiCoreFeatureService } from '@metadata/api/core/feature'
+import { ApiUserDataAccessService } from '@metadata/api/user/data-access'
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common'
+import { JwtService } from '@nestjs/jwt'
 import { Response } from 'express'
-import { getGravatarUrl, hashPassword, validatePassword } from './api-auth-data-access.helper'
 import { LoginInput } from './dto/login.input'
 import { RegisterInput } from './dto/register.input'
-import { UserToken } from './models/user-token'
-import { Role } from './models/role'
+import { UserToken } from './models/user-token.model'
 
 @Injectable()
 export class ApiAuthDataAccessService {
   constructor(
     private readonly data: ApiCoreDataAccessService,
     private readonly core: ApiCoreFeatureService,
+    private readonly user: ApiUserDataAccessService,
     private readonly jwtService: JwtService,
   ) {}
 
   async register(payload: RegisterInput) {
-    const user = await this.createUser({
-      ...payload,
-    })
+    const user = await this.user.createUser(payload)
 
     return this.signUser(user)
   }
@@ -29,7 +27,7 @@ export class ApiAuthDataAccessService {
   async login(input: LoginInput) {
     const email = input.email.trim()
     const password = input.password.trim()
-    const user = await this.findUserByEmail(email)
+    const user = await this.data.findUserByEmail(email)
 
     if (!user) {
       throw new NotFoundException(`No user found for email: ${email}`)
@@ -50,53 +48,20 @@ export class ApiAuthDataAccessService {
   }
 
   validateUser(userId: string) {
-    return this.findUserById(userId)
+    return this.data.findUserById(userId)
   }
 
   getUserFromToken(token: string) {
     const userId = this.jwtService.decode(token)['userId']
 
-    return this.findUserById(userId)
+    return this.data.findUserById(userId)
   }
 
-  public findUserByEmail(email: string) {
-    return this.data.user.findUnique({ where: { email } })
-  }
-
-  public findUserById(userId: string) {
-    return this.data.user.findUnique({ where: { id: userId } })
-  }
-
-  public findUserByUsername(username: string) {
-    return this.data.user.findUnique({ where: { username } })
-  }
-
-  async createUser(input: Partial<UserCreateInput>) {
-    const submittedPassword = !!input.password
-    const password = input.password
-    const hashedPassword = hashPassword(password)
-    const email = input.email.trim()
-    const username = input.username || email
-
-    return this.data.user.create({
-      data: {
-        firstName: input.firstName,
-        lastName: input.lastName,
-        email,
-        phone: input.phone,
-        username,
-        avatarUrl: input.avatarUrl || getGravatarUrl(input.email.toLowerCase()),
-        password: hashedPassword,
-        role: Role.User,
-      },
-    })
-  }
-
-  public setCookie(res: Response, token: string) {
+  setCookie(res: Response, token: string) {
     return res?.cookie(this.core.cookie.name, token, this.core.cookie.options)
   }
 
-  public clearCookie(res: Response) {
+  clearCookie(res: Response) {
     return res.clearCookie(this.core.cookie.name, this.core.cookie.options)
   }
 }
