@@ -9,13 +9,13 @@ generator client {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
+  id        String       @id @default(cuid())
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @default(now()) @updatedAt
   role      Role
-  developer Boolean  @default(false)
-  email     String   @unique
-  username  String   @unique
+  developer Boolean      @default(false)
+  email     String       @unique
+  username  String       @unique
   password  String?
   firstName String?
   lastName  String?
@@ -23,21 +23,35 @@ model User {
   location  String?
   phone     String?
   bio       String?
-  tenant    Tenant?  @relation(fields: [tenantId], references: [id])
-  tenantId  String?
-}
-
-model Tenant {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
-  name      String
-  users     User[]
-  schemata  Schema[]
+  tenants   TenantUser[]
 }
 
 enum Role {
   SuperAdmin
+  User
+}
+
+model TenantUser {
+  id        String     @id @default(cuid())
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @default(now()) @updatedAt
+  role      TenantRole
+  user      User?      @relation(fields: [userId], references: [id])
+  userId    String?
+  tenant    Tenant?    @relation(fields: [tenantId], references: [id])
+  tenantId  String?
+}
+
+model Tenant {
+  id        String       @id @default(cuid())
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @default(now()) @updatedAt
+  name      String
+  users     TenantUser[]
+  schemata  Schema[]
+}
+
+enum TenantRole {
   Admin
   User
 }

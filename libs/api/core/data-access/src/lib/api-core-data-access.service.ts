@@ -25,8 +25,8 @@ export class ApiCoreDataAccessService extends PrismaClient implements OnModuleIn
     const password = hashPassword(input.password)
 
     // The first user will get the Admin role
-    const hasAdmin = await this.user.count({ where: { role: 'Admin' } })
-    const role = hasAdmin ? 'User' : 'Admin'
+    const hasSuperAdmin = await this.user.count({ where: { role: 'SuperAdmin' } })
+    const role = hasSuperAdmin ? 'User' : 'SuperAdmin'
 
     return this.user.create({
       data: {
