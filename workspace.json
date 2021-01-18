@@ -642,6 +642,78 @@
       "prefix": "style",
       "targets": {}
     },
+    "web-tenant-data-access": {
+      "projectType": "library",
+      "root": "libs/web/tenant/data-access",
+      "sourceRoot": "libs/web/tenant/data-access/src",
+      "prefix": "metadata",
+      "targets": {
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/web/tenant/data-access/tsconfig.lib.json",
+              "libs/web/tenant/data-access/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/web/tenant/data-access/**/*"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/tenant/data-access"],
+          "options": {
+            "jestConfig": "libs/web/tenant/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-tenant-feature": {
+      "projectType": "library",
+      "root": "libs/web/tenant/feature",
+      "sourceRoot": "libs/web/tenant/feature/src",
+      "prefix": "metadata",
+      "targets": {
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/web/tenant/feature/tsconfig.lib.json", "libs/web/tenant/feature/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/web/tenant/feature/**/*"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/tenant/feature"],
+          "options": {
+            "jestConfig": "libs/web/tenant/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-tenant-ui": {
+      "projectType": "library",
+      "root": "libs/web/tenant/ui",
+      "sourceRoot": "libs/web/tenant/ui/src",
+      "prefix": "metadata",
+      "targets": {
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/web/tenant/ui/tsconfig.lib.json", "libs/web/tenant/ui/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/web/tenant/ui/**/*"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/tenant/ui"],
+          "options": {
+            "jestConfig": "libs/web/tenant/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-form": {
       "projectType": "library",
       "root": "libs/web/ui/form",

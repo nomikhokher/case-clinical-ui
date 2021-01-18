@@ -29,5 +29,8 @@ module.exports = {
     '<rootDir>/libs/web/user/data-access',
     '<rootDir>/libs/web/user/feature',
     '<rootDir>/libs/web/user/ui',
+    '<rootDir>/libs/web/tenant/data-access',
+    '<rootDir>/libs/web/tenant/feature',
+    '<rootDir>/libs/web/tenant/ui',
   ],
 }

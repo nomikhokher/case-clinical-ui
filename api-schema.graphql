@@ -2,12 +2,20 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input AdminCreateTenantInput {
+  name: String!
+}
+
 input AdminCreateUserInput {
   email: String!
   firstName: String
   lastName: String
   role: Role!
   username: String
+}
+
+input AdminUpdateTenantInput {
+  name: String
 }
 
 input AdminUpdateUserInput {
@@ -151,8 +159,14 @@ input LoginInput {
 }
 
 type Mutation {
+  adminAddTenantUser(role: TenantRole!, tenantId: String!, userId: String!): TenantUser
+  adminCreateTenant(input: AdminCreateTenantInput!): Tenant
   adminCreateUser(input: AdminCreateUserInput!): User
+  adminDeleteTenant(tenantId: String!): Tenant
   adminDeleteUser(userId: String!): User
+  adminRemoveTenantUser(tenantUserId: String!): TenantUser
+  adminUpdateTenant(input: AdminUpdateTenantInput!, tenantId: String!): Tenant
+  adminUpdateTenantUserRole(role: TenantRole!, tenantUserId: String!): TenantUser
   adminUpdateUser(input: AdminUpdateUserInput!, userId: String!): User
   createSchema(input: CreateSchemaInput!, tenantId: String!): Schema
   createTenant(input: CreateTenantInput!): Tenant
@@ -174,7 +188,10 @@ type Ontology {
 }
 
 type Query {
+  adminCountTenants(paging: CorePagingInput): CorePaging
   adminCountUsers(paging: CorePagingInput): CorePaging
+  adminTenant(tenantId: String!): Tenant
+  adminTenants(paging: CorePagingInput): [Tenant!]
   adminUser(userId: String!): User
   adminUsers(paging: CorePagingInput): [User!]
   me: User
@@ -226,6 +243,21 @@ type Tenant {
   id: ID
   name: String
   updatedAt: DateTime
+  users: [TenantUser!]
+}
+
+enum TenantRole {
+  Owner
+  User
+}
+
+type TenantUser {
+  createdAt: DateTime
+  id: ID
+  role: TenantRole
+  tenant: Tenant
+  updatedAt: DateTime
+  user: User
 }
 
 type User {

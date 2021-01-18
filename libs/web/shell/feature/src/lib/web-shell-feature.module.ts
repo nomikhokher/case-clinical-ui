@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
-import { WebAuthDataAccessModule, IsLoggedInGuard } from '@metadata/web/auth/data-access'
+import { IsAdminGuard, IsLoggedInGuard, WebAuthDataAccessModule } from '@metadata/web/auth/data-access'
 import { WebCoreDataAccessModule } from '@metadata/web/core/data-access'
 import { WebLayoutComponent } from '@metadata/web/layout'
 
@@ -22,8 +22,18 @@ const routes: Routes = [
         loadChildren: () => import('@metadata/web/dashboard/feature').then((m) => m.WebDashboardFeatureModule),
       },
       {
-        path: 'users',
-        loadChildren: () => import('@metadata/web/user/feature').then((m) => m.WebUserFeatureModule),
+        path: 'admin',
+        canActivate: [IsAdminGuard],
+        children: [
+          {
+            path: 'tenants',
+            loadChildren: () => import('@metadata/web/tenant/feature').then((m) => m.WebTenantFeatureModule),
+          },
+          {
+            path: 'users',
+            loadChildren: () => import('@metadata/web/user/feature').then((m) => m.WebUserFeatureModule),
+          },
+        ],
       },
     ],
   },

@@ -1,5 +1,5 @@
 import { Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common'
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, Role } from '@prisma/client'
 
 @Injectable()
 export class ApiCoreDataAccessService extends PrismaClient implements OnModuleInit, OnModuleDestroy {
@@ -25,5 +25,13 @@ export class ApiCoreDataAccessService extends PrismaClient implements OnModuleIn
 
   findUserByUsername(username: string) {
     return this.user.findUnique({ where: { username } })
+  }
+
+  async ensureAdminUser(adminId: string): Promise<boolean> {
+    const tenant = await this.findUserById(adminId)
+    if (tenant.role !== Role.Admin) {
+      throw new Error(`This operation needs Admin access`)
+    }
+    return true
   }
 }

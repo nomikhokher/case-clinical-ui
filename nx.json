@@ -102,6 +102,15 @@
     "web-style": {
       "tags": ["scope:web", "type:style"]
     },
+    "web-tenant-data-access": {
+      "tags": ["scope:web", "type:data-access"]
+    },
+    "web-tenant-feature": {
+      "tags": ["scope:web", "type:feature"]
+    },
+    "web-tenant-ui": {
+      "tags": ["scope:web", "type:feature"]
+    },
     "web-ui-form": {
       "tags": ["scope:web", "type:ui"]
     },

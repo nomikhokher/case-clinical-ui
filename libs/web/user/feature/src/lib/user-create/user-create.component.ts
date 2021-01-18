@@ -28,7 +28,6 @@ export class UserCreateComponent {
   constructor(private readonly store: UserCreateStore) {}
 
   createUser(input: AdminCreateUserInput) {
-    console.log('input', input)
     this.store.createUserEffect(input)
   }
 }

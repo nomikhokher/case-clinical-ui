@@ -33,7 +33,7 @@ export class UserCreateStore extends ComponentStore<UserCreateState> {
           tapResponse(
             (res) => {
               this.patchState({ user: res.data.adminCreateUser, errors: res.errors, loading: false })
-              return this.router.navigate(['/users', res.data?.adminCreateUser?.id])
+              return this.router.navigate(['/admin/users', res.data?.adminCreateUser?.id])
             },
             (errors: any) =>
               this.patchState({

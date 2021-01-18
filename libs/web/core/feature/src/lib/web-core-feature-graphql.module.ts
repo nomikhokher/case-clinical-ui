@@ -39,6 +39,9 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   return {
     link,
     cache: new InMemoryCache(),
+    defaultOptions: {
+      query: { fetchPolicy: 'no-cache' },
+    },
   }
 }
 

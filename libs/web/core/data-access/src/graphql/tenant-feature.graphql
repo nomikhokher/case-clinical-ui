@@ -5,6 +5,13 @@ fragment TenantDetails on Tenant {
   name
 }
 
+fragment TenantUserDetails on TenantUser {
+  id
+  createdAt
+  updatedAt
+  role
+}
+
 mutation CreateTenant($input: CreateTenantInput!) {
   createTenant(input: $input) {
     ...TenantDetails
@@ -20,5 +27,62 @@ query Tenants {
 query Tenant($tenantId: String!) {
   tenant(tenantId: $tenantId) {
     ...TenantDetails
+  }
+}
+
+query AdminTenants($paging: CorePagingInput) {
+  tenants: adminTenants(paging: $paging) {
+    ...TenantDetails
+  }
+  count: adminCountTenants(paging: $paging) {
+    ...CorePagingDetails
+  }
+}
+
+query AdminTenant($tenantId: String!) {
+  adminTenant(tenantId: $tenantId) {
+    ...TenantDetails
+    users {
+      ...TenantUserDetails
+      user {
+        ...UserDetails
+      }
+    }
+  }
+}
+
+mutation AdminCreateTenant($input: AdminCreateTenantInput!) {
+  adminCreateTenant(input: $input) {
+    ...TenantDetails
+  }
+}
+
+mutation AdminUpdateTenant($tenantId: String!, $input: AdminUpdateTenantInput!) {
+  adminUpdateTenant(tenantId: $tenantId, input: $input) {
+    ...TenantDetails
+  }
+}
+
+mutation AdminDeleteTenant($tenantId: String!) {
+  adminDeleteTenant(tenantId: $tenantId) {
+    ...TenantDetails
+  }
+}
+
+mutation AdminAddTenantUser($tenantId: String!, $userId: String!, $role: TenantRole!) {
+  adminAddTenantUser(tenantId: $tenantId, userId: $userId, role: $role) {
+    ...TenantUserDetails
+  }
+}
+
+mutation AdminUpdateTenantUserRole($tenantUserId: String!, $role: TenantRole!) {
+  adminUpdateTenantUserRole(tenantUserId: $tenantUserId, role: $role) {
+    ...TenantUserDetails
+  }
+}
+
+mutation AdminRemoveTenantUser($tenantUserId: String!) {
+  adminRemoveTenantUser(tenantUserId: $tenantUserId) {
+    ...TenantUserDetails
   }
 }
