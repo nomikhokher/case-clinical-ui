@@ -663,6 +663,75 @@
           }
         }
       }
+    },
+    "web-user-data-access": {
+      "projectType": "library",
+      "root": "libs/web/user/data-access",
+      "sourceRoot": "libs/web/user/data-access/src",
+      "prefix": "metadata",
+      "targets": {
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/web/user/data-access/tsconfig.lib.json", "libs/web/user/data-access/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/web/user/data-access/**/*"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/user/data-access"],
+          "options": {
+            "jestConfig": "libs/web/user/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-user-feature": {
+      "projectType": "library",
+      "root": "libs/web/user/feature",
+      "sourceRoot": "libs/web/user/feature/src",
+      "prefix": "metadata",
+      "targets": {
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/web/user/feature/tsconfig.lib.json", "libs/web/user/feature/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/web/user/feature/**/*"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/user/feature"],
+          "options": {
+            "jestConfig": "libs/web/user/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-user-ui": {
+      "projectType": "library",
+      "root": "libs/web/user/ui",
+      "sourceRoot": "libs/web/user/ui/src",
+      "prefix": "metadata",
+      "targets": {
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/web/user/ui/tsconfig.lib.json", "libs/web/user/ui/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/web/user/ui/**/*"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/user/ui"],
+          "options": {
+            "jestConfig": "libs/web/user/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

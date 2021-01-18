@@ -1,9 +1,12 @@
 import { Role, TenantCreateInput, UserCreateInput } from '@prisma/client'
+import { hashSync } from 'bcryptjs'
 import { createSchema, createTenant, createUser } from './lib/helpers'
 
+const password = hashSync('123SchemaDriven', 10)
+
 export const users: UserCreateInput[] = [
-  createUser('superadmin', 'superadmin', 'superadmin@example.com', Role.Admin),
-  createUser('user', 'user', 'user@example.com', Role.User),
+  createUser('admin', 'admin', 'admin@example.com', password, Role.Admin),
+  createUser('user', 'user', 'user@example.com', password, Role.User),
 ]
 
 export const tenants: TenantCreateInput[] = [

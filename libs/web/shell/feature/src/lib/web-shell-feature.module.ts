@@ -21,6 +21,10 @@ const routes: Routes = [
         path: 'dashboard',
         loadChildren: () => import('@metadata/web/dashboard/feature').then((m) => m.WebDashboardFeatureModule),
       },
+      {
+        path: 'users',
+        loadChildren: () => import('@metadata/web/user/feature').then((m) => m.WebUserFeatureModule),
+      },
     ],
   },
   {

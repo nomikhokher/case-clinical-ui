@@ -2,6 +2,37 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input AdminCreateUserInput {
+  email: String!
+  firstName: String
+  lastName: String
+  role: Role!
+  username: String
+}
+
+input AdminUpdateUserInput {
+  avatarUrl: String
+  bio: String
+  email: String
+  firstName: String
+  lastName: String
+  location: String
+  phone: String
+  role: Role
+  username: String
+}
+
+type CorePaging {
+  limit: Int
+  skip: Int
+  total: Int
+}
+
+input CorePagingInput {
+  limit: Int = 10
+  skip: Int = 0
+}
+
 input CreateSchemaInput {
   name: String!
 }
@@ -120,6 +151,9 @@ input LoginInput {
 }
 
 type Mutation {
+  adminCreateUser(input: AdminCreateUserInput!): User
+  adminDeleteUser(userId: String!): User
+  adminUpdateUser(input: AdminUpdateUserInput!, userId: String!): User
   createSchema(input: CreateSchemaInput!, tenantId: String!): Schema
   createTenant(input: CreateTenantInput!): Tenant
   intercomPub(payload: JSON, scope: String, type: String!): IntercomMessage
@@ -140,6 +174,9 @@ type Ontology {
 }
 
 type Query {
+  adminCountUsers(paging: CorePagingInput): CorePaging
+  adminUser(userId: String!): User
+  adminUsers(paging: CorePagingInput): [User!]
   me: User
   schema(schemaId: String!): Schema
   schemata: [Schema!]
@@ -200,6 +237,7 @@ type User {
   id: String
   lastName: String
   location: String
+  name: String
   phone: String
   role: Role
   updatedAt: DateTime

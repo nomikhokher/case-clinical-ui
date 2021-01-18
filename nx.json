@@ -104,6 +104,15 @@
     },
     "web-ui-form": {
       "tags": ["scope:web", "type:ui"]
+    },
+    "web-user-data-access": {
+      "tags": ["scope:web", "type:data-access"]
+    },
+    "web-user-feature": {
+      "tags": ["scope:web", "type:feature"]
+    },
+    "web-user-ui": {
+      "tags": ["scope:web", "type:feature"]
     }
   }
 }

@@ -12,6 +12,11 @@ fragment UserDetails on User {
   username
   avatarUrl
   email
+  name
+  bio
+  location
+  phone
+  role
 }
 
 query me {

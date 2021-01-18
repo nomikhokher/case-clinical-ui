@@ -11,7 +11,7 @@ import { Component } from '@angular/core'
         [name]="appName"
       ></layout-header>
       <!-- The main area does not shrink, 'pushing down' the footer -->
-      <main class="flex-grow">
+      <main class="flex-grow h-full overflow-auto">
         <!-- This will render the routes -->
         <router-outlet></router-outlet>
       </main>
@@ -26,7 +26,10 @@ export class WebLayoutComponent {
   appLogo = '/assets/images/logo.png'
   appName = 'Web'
   footerHtml = `Copyright &copy; ${new Date().getFullYear()}`
-  linksLeft: { label: string; route: string }[] = [{ label: 'Dashboard', route: '/dashboard' }]
+  linksLeft: { label: string; route: string }[] = [
+    { label: 'Dashboard', route: '/dashboard' },
+    { label: 'User', route: '/users' },
+  ]
   linksRight: { label: string; route: string }[] = [
     { label: 'About', route: '/about' },
     { label: 'Logout', route: '/logout' },

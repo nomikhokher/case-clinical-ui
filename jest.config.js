@@ -26,5 +26,8 @@ module.exports = {
     '<rootDir>/libs/api/user/data-access',
     '<rootDir>/libs/api/user/feature',
     '<rootDir>/libs/api/auth/util',
+    '<rootDir>/libs/web/user/data-access',
+    '<rootDir>/libs/web/user/feature',
+    '<rootDir>/libs/web/user/ui',
   ],
 }
