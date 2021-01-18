@@ -96,6 +96,15 @@
     "web-layout": {
       "tags": ["scope:web", "type:layout"]
     },
+    "web-schema-data-access": {
+      "tags": ["scope:web", "type:data-access"]
+    },
+    "web-schema-feature": {
+      "tags": ["scope:web", "type:feature"]
+    },
+    "web-schema-ui": {
+      "tags": ["scope:web", "type:feature"]
+    },
     "web-shell-feature": {
       "tags": ["scope:web", "type:feature"]
     },

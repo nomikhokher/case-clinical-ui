@@ -32,5 +32,8 @@ module.exports = {
     '<rootDir>/libs/web/tenant/data-access',
     '<rootDir>/libs/web/tenant/feature',
     '<rootDir>/libs/web/tenant/ui',
+    '<rootDir>/libs/web/schema/data-access',
+    '<rootDir>/libs/web/schema/feature',
+    '<rootDir>/libs/web/schema/ui',
   ],
 }

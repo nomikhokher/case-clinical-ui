@@ -11,7 +11,6 @@ const routes: Routes = [
     component: WebLayoutComponent,
     canActivate: [IsLoggedInGuard],
     children: [
-      // Application routes here
       { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
       {
         path: 'about',
@@ -20,6 +19,10 @@ const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () => import('@metadata/web/dashboard/feature').then((m) => m.WebDashboardFeatureModule),
+      },
+      {
+        path: 'schemata',
+        loadChildren: () => import('@metadata/web/schema/feature').then((m) => m.WebSchemaFeatureModule),
       },
       {
         path: 'admin',
@@ -49,6 +52,11 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forRoot(routes), WebCoreDataAccessModule, WebAuthDataAccessModule],
+  imports: [
+    CommonModule,
+    RouterModule.forRoot(routes, { paramsInheritanceStrategy: 'always' }),
+    WebCoreDataAccessModule,
+    WebAuthDataAccessModule,
+  ],
 })
 export class WebShellFeatureModule {}

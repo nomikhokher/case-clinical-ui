@@ -1,6 +1,7 @@
 export * from './lib/api-schema-data-access.module'
 export * from './lib/api-schema-data-access.service'
 export * from './lib/dto/create-schema.input'
+export * from './lib/dto/update-schema.input'
 export * from './lib/models/data-type.enum'
 export * from './lib/models/entity.model'
 export * from './lib/models/field.model'

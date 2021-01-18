@@ -10,16 +10,20 @@ import { TenantRole } from './models/tenant-role.enum'
 export class ApiTenantDataAccessService {
   constructor(private readonly data: ApiCoreDataAccessService) {}
 
-  tenants() {
-    return this.data.tenant.findMany()
+  tenants(userId: string) {
+    return this.data.tenant.findMany({
+      where: { users: { some: { userId } } },
+    })
   }
 
-  tenant(tenantId: string) {
-    return this.data.tenant.findUnique({ where: { id: tenantId } })
+  tenant(userId: string, tenantId: string) {
+    return this.data.tenant.findFirst({ where: { id: tenantId, users: { some: { userId } } } })
   }
 
-  createTenant(input: CreateTenantInput) {
-    return this.data.tenant.create({ data: { ...input } })
+  createTenant(userId: string, input: CreateTenantInput) {
+    return this.data.tenant.create({
+      data: { ...input, users: { create: { role: TenantRole.Owner, user: { connect: { id: userId } } } } },
+    })
   }
 
   async adminTenants(adminId: string, paging: CorePagingInput) {
@@ -92,5 +96,9 @@ export class ApiTenantDataAccessService {
   async adminRemoveTenantUser(adminId: string, tenantUserId: string) {
     await this.data.ensureAdminUser(adminId)
     return this.data.tenantUser.delete({ where: { id: tenantUserId } })
+  }
+
+  tenantRole(userId: string, tenantId: string): Promise<TenantRole> {
+    return this.data.tenantUser.findFirst({ where: { userId, tenantId } }).then((t) => t.role)
   }
 }

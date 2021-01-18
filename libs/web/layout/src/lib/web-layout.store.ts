@@ -27,6 +27,7 @@ export class WebLayoutStore extends ComponentStore<WebLayoutState> {
   readonly links$ = this.select(this.auth.user$, (user) =>
     [
       { label: 'Dashboard', route: '/dashboard' },
+      { label: 'Schemata', route: '/schemata' },
       { label: 'User', route: '/admin/users', admin: true },
       { label: 'Tenants', route: '/admin/tenants', admin: true },
     ].filter((item) => (item?.admin === true ? user.role === Role.Admin : true)),

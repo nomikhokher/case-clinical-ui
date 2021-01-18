@@ -28,6 +28,7 @@ query Tenant($tenantId: String!) {
   tenant(tenantId: $tenantId) {
     ...TenantDetails
   }
+  role: tenantRole(tenantId: $tenantId)
 }
 
 query AdminTenants($paging: CorePagingInput) {

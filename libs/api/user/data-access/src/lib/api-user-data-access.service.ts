@@ -32,7 +32,7 @@ export class ApiUserDataAccessService {
   }
 
   async adminUsers(userId: string, paging: CorePagingInput) {
-    await this.ensureAdminUser(userId)
+    await this.data.ensureAdminUser(userId)
     return this.data.user.findMany({
       take: paging.limit,
       skip: paging.skip,
@@ -40,7 +40,7 @@ export class ApiUserDataAccessService {
   }
 
   async adminCountUsers(adminId: string, paging: CorePagingInput): Promise<CorePaging> {
-    await this.ensureAdminUser(adminId)
+    await this.data.ensureAdminUser(adminId)
     const total = await this.data.user.count()
     return {
       limit: paging.limit,
@@ -50,12 +50,12 @@ export class ApiUserDataAccessService {
   }
 
   async adminUser(adminId: string, userId: string) {
-    await this.ensureAdminUser(adminId)
+    await this.data.ensureAdminUser(adminId)
     return this.data.user.findUnique({ where: { id: userId } })
   }
 
   async adminCreateUser(adminId: string, input: AdminCreateUserInput) {
-    await this.ensureAdminUser(adminId)
+    await this.data.ensureAdminUser(adminId)
     const email = input.email.trim()
     const avatarUrl = getGravatarUrl(email)
     const username = this.formatUsername(email, input.username)
@@ -71,7 +71,7 @@ export class ApiUserDataAccessService {
   }
 
   async adminUpdateUser(adminId: string, userId: string, input: AdminUpdateUserInput) {
-    await this.ensureAdminUser(adminId)
+    await this.data.ensureAdminUser(adminId)
     return this.data.user.update({
       where: { id: userId },
       data: { ...input },
@@ -79,20 +79,12 @@ export class ApiUserDataAccessService {
   }
 
   async adminDeleteUser(adminId: string, userId: string) {
-    await this.ensureAdminUser(adminId)
+    await this.data.ensureAdminUser(adminId)
     return this.data.user.delete({ where: { id: userId } })
   }
 
   private formatUsername(email: string, username?: string): string {
     return username?.trim() || uniqueSuffix(email.trim().split('@')[0])
-  }
-
-  private async ensureAdminUser(adminId: string): Promise<boolean> {
-    const user = await this.data.findUserById(adminId)
-    if (user.role !== Role.Admin) {
-      throw new Error(`This operation needs Admin access`)
-    }
-    return true
   }
 
   private async ensureUsernameAvailable(username: string): Promise<boolean> {

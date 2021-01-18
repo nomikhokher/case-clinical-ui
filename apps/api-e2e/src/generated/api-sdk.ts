@@ -185,6 +185,7 @@ export type Mutation = {
   login?: Maybe<UserToken>
   logout?: Maybe<Scalars['Boolean']>
   register?: Maybe<UserToken>
+  updateSchema?: Maybe<Schema>
 }
 
 export type MutationAdminAddTenantUserArgs = {
@@ -251,6 +252,11 @@ export type MutationRegisterArgs = {
   input: RegisterInput
 }
 
+export type MutationUpdateSchemaArgs = {
+  input: UpdateSchemaInput
+  schemaId: Scalars['String']
+}
+
 export type Ontology = {
   __typename?: 'Ontology'
   createdAt?: Maybe<Scalars['DateTime']>
@@ -275,6 +281,7 @@ export type Query = {
   schema?: Maybe<Schema>
   schemata?: Maybe<Array<Schema>>
   tenant?: Maybe<Tenant>
+  tenantRole?: Maybe<TenantRole>
   tenants?: Maybe<Array<Tenant>>
   uptime?: Maybe<Scalars['Float']>
 }
@@ -307,7 +314,15 @@ export type QuerySchemaArgs = {
   schemaId: Scalars['String']
 }
 
+export type QuerySchemataArgs = {
+  tenantId: Scalars['String']
+}
+
 export type QueryTenantArgs = {
+  tenantId: Scalars['String']
+}
+
+export type QueryTenantRoleArgs = {
   tenantId: Scalars['String']
 }
 
@@ -376,6 +391,10 @@ export type TenantUser = {
   tenant?: Maybe<Tenant>
   updatedAt?: Maybe<Scalars['DateTime']>
   user?: Maybe<User>
+}
+
+export type UpdateSchemaInput = {
+  name: Scalars['String']
 }
 
 export type User = {
@@ -467,6 +486,11 @@ export type SchemaDetailsFragment = { __typename?: 'Schema' } & Pick<
   'id' | 'createdAt' | 'updatedAt' | 'publishedAt' | 'stage' | 'name'
 >
 
+export type EntityDetailsFragment = { __typename?: 'Entity' } & Pick<
+  Entity,
+  'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'keywords'
+>
+
 export type CreateSchemaMutationVariables = Exact<{
   tenantId: Scalars['String']
   input: CreateSchemaInput
@@ -476,10 +500,18 @@ export type CreateSchemaMutation = { __typename?: 'Mutation' } & {
   createSchema?: Maybe<{ __typename?: 'Schema' } & SchemaDetailsFragment>
 }
 
-export type SchemataQueryVariables = Exact<{ [key: string]: never }>
+export type SchemataQueryVariables = Exact<{
+  tenantId: Scalars['String']
+}>
 
 export type SchemataQuery = { __typename?: 'Query' } & {
-  schemata?: Maybe<Array<{ __typename?: 'Schema' } & SchemaDetailsFragment>>
+  schemata?: Maybe<
+    Array<
+      { __typename?: 'Schema' } & {
+        entities?: Maybe<Array<{ __typename?: 'Entity' } & EntityDetailsFragment>>
+      } & SchemaDetailsFragment
+    >
+  >
 }
 
 export type SchemaQueryVariables = Exact<{
@@ -515,7 +547,7 @@ export type TenantQueryVariables = Exact<{
   tenantId: Scalars['String']
 }>
 
-export type TenantQuery = { __typename?: 'Query' } & {
+export type TenantQuery = { __typename?: 'Query' } & { role: Query['tenantRole'] } & {
   tenant?: Maybe<{ __typename?: 'Tenant' } & TenantDetailsFragment>
 }
 
@@ -688,6 +720,16 @@ export const SchemaDetails = gql`
     name
   }
 `
+export const EntityDetails = gql`
+  fragment EntityDetails on Entity {
+    id
+    createdAt
+    updatedAt
+    name
+    description
+    keywords
+  }
+`
 export const TenantDetails = gql`
   fragment TenantDetails on Tenant {
     id
@@ -763,12 +805,16 @@ export const CreateSchema = gql`
   ${SchemaDetails}
 `
 export const Schemata = gql`
-  query Schemata {
-    schemata {
+  query Schemata($tenantId: String!) {
+    schemata(tenantId: $tenantId) {
       ...SchemaDetails
+      entities {
+        ...EntityDetails
+      }
     }
   }
   ${SchemaDetails}
+  ${EntityDetails}
 `
 export const Schema = gql`
   query Schema($schemaId: String!) {
@@ -799,6 +845,7 @@ export const Tenant = gql`
     tenant(tenantId: $tenantId) {
       ...TenantDetails
     }
+    role: tenantRole(tenantId: $tenantId)
   }
   ${TenantDetails}
 `
