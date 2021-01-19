@@ -16,7 +16,10 @@ import { WebSchemaFeatureComponent } from './web-schema-feature.component'
             path: '',
             loadChildren: () => import('./tenant-picker/tenant-picker.module').then((m) => m.TenantPickerModule),
           },
-
+          {
+            path: 'create',
+            loadChildren: () => import('./tenant-create/tenant-create.module').then((m) => m.TenantCreateModule),
+          },
           {
             path: ':tenantId',
             children: [

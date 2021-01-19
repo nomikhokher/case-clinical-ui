@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { Tenant } from '@metadata/web/core/data-access'
+import { WebUiFormField } from '@metadata/web/ui/form'
 
 @Component({
   selector: 'tenant-form',
@@ -23,5 +24,5 @@ import { Tenant } from '@metadata/web/core/data-access'
 export class TenantFormComponent {
   @Input() tenant: Tenant = {}
   @Output() submitForm = new EventEmitter()
-  @Input() fields = []
+  @Input() fields = [WebUiFormField.input('name', { label: 'Name', required: true })]
 }

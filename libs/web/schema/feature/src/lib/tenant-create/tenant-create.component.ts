@@ -1,6 +1,5 @@
 import { Component } from '@angular/core'
-import { AdminCreateTenantInput } from '@metadata/web/core/data-access'
-import { WebUiFormField } from '@metadata/web/ui/form'
+import { CreateTenantInput } from '@metadata/web/core/data-access'
 import { TenantCreateStore } from './tenant-create.store'
 
 @Component({
@@ -14,10 +13,9 @@ import { TenantCreateStore } from './tenant-create.store'
 })
 export class TenantCreateComponent {
   readonly vm$ = this.store.vm$
-  fields = [WebUiFormField.input('name', { label: 'Name', required: true })]
   constructor(private readonly store: TenantCreateStore) {}
 
-  createTenant(input: AdminCreateTenantInput) {
+  createTenant(input: CreateTenantInput) {
     this.store.createTenantEffect(input)
   }
 }
