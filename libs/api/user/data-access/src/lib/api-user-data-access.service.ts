@@ -1,7 +1,7 @@
 import { getGravatarUrl, hashPassword, uniqueSuffix } from '@metadata/api/auth/util'
 import { ApiCoreDataAccessService, CorePaging, CorePagingInput } from '@metadata/api/core/data-access'
 import { Injectable } from '@nestjs/common'
-import { UserCreateInput } from '@prisma/client'
+import { UserCreateInput, TenantRole } from '@prisma/client'
 import { AdminCreateUserInput } from './dto/admin-create-user.input'
 import { AdminUpdateUserInput } from './dto/admin-update-user.input'
 import { Role } from './models/role.enum'
@@ -27,6 +27,12 @@ export class ApiUserDataAccessService {
         avatarUrl: input.avatarUrl || getGravatarUrl(input.email),
         password: hashedPassword,
         role: Role.User,
+        tenants: {
+          create: {
+            tenant: { create: { name: username } },
+            role: TenantRole.Owner,
+          },
+        },
       },
     })
   }
