@@ -53,6 +53,7 @@ enum DataType {
   Boolean
   DateTime
   Enumeration
+  Float
   Integer
   String
   Text

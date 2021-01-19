@@ -2,7 +2,7 @@ import { AppModule } from '@metadata/api-app-module'
 import { INestApplication } from '@nestjs/common'
 import { Test, TestingModule } from '@nestjs/testing'
 import { CreateTenant } from '../generated/api-sdk'
-import { runGraphQLQuery, uniq } from './index'
+import { runGraphQLQueryAlice, uniq } from './index'
 
 export async function getApp(): Promise<INestApplication> {
   const moduleFixture: TestingModule = await Test.createTestingModule({
@@ -16,8 +16,8 @@ export async function getApp(): Promise<INestApplication> {
   return app
 }
 
-export async function getTenant(app) {
-  const result = await runGraphQLQuery(app, CreateTenant, { input: { name: uniq('tenant') } })
+export async function getTenantAlice(app) {
+  const result = await runGraphQLQueryAlice(app, CreateTenant, { input: { name: uniq('tenant') } })
 
   return result.body?.data?.createTenant
 }

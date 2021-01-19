@@ -2,6 +2,45 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input AdminCreateTenantInput {
+  name: String!
+}
+
+input AdminCreateUserInput {
+  email: String!
+  firstName: String
+  lastName: String
+  role: Role!
+  username: String
+}
+
+input AdminUpdateTenantInput {
+  name: String
+}
+
+input AdminUpdateUserInput {
+  avatarUrl: String
+  bio: String
+  email: String
+  firstName: String
+  lastName: String
+  location: String
+  phone: String
+  role: Role
+  username: String
+}
+
+type CorePaging {
+  limit: Int
+  skip: Int
+  total: Int
+}
+
+input CorePagingInput {
+  limit: Int = 10
+  skip: Int = 0
+}
+
 input CreateSchemaInput {
   name: String!
 }
@@ -14,6 +53,7 @@ enum DataType {
   Boolean
   DateTime
   Enumeration
+  Float
   Integer
   String
   Text
@@ -120,12 +160,22 @@ input LoginInput {
 }
 
 type Mutation {
+  adminAddTenantUser(role: TenantRole!, tenantId: String!, userId: String!): TenantUser
+  adminCreateTenant(input: AdminCreateTenantInput!): Tenant
+  adminCreateUser(input: AdminCreateUserInput!): User
+  adminDeleteTenant(tenantId: String!): Tenant
+  adminDeleteUser(userId: String!): User
+  adminRemoveTenantUser(tenantUserId: String!): TenantUser
+  adminUpdateTenant(input: AdminUpdateTenantInput!, tenantId: String!): Tenant
+  adminUpdateTenantUserRole(role: TenantRole!, tenantUserId: String!): TenantUser
+  adminUpdateUser(input: AdminUpdateUserInput!, userId: String!): User
   createSchema(input: CreateSchemaInput!, tenantId: String!): Schema
   createTenant(input: CreateTenantInput!): Tenant
   intercomPub(payload: JSON, scope: String, type: String!): IntercomMessage
   login(input: LoginInput!): UserToken
   logout: Boolean
   register(input: RegisterInput!): UserToken
+  updateSchema(input: UpdateSchemaInput!, schemaId: String!): Schema
 }
 
 type Ontology {
@@ -140,10 +190,17 @@ type Ontology {
 }
 
 type Query {
+  adminCountTenants(paging: CorePagingInput): CorePaging
+  adminCountUsers(paging: CorePagingInput): CorePaging
+  adminTenant(tenantId: String!): Tenant
+  adminTenants(paging: CorePagingInput): [Tenant!]
+  adminUser(userId: String!): User
+  adminUsers(paging: CorePagingInput): [User!]
   me: User
   schema(schemaId: String!): Schema
-  schemata: [Schema!]
+  schemata(tenantId: String!): [Schema!]
   tenant(tenantId: String!): Tenant
+  tenantRole(tenantId: String!): TenantRole
   tenants: [Tenant!]
   uptime: Float
 }
@@ -158,11 +215,8 @@ input RegisterInput {
   username: String
 }
 
-"""
-User role
-"""
+"""User role"""
 enum Role {
-  Admin
   Admin
   User
 }
@@ -192,6 +246,25 @@ type Tenant {
   id: ID
   name: String
   updatedAt: DateTime
+  users: [TenantUser!]
+}
+
+enum TenantRole {
+  Owner
+  User
+}
+
+type TenantUser {
+  createdAt: DateTime
+  id: ID
+  role: TenantRole
+  tenant: Tenant
+  updatedAt: DateTime
+  user: User
+}
+
+input UpdateSchemaInput {
+  name: String!
 }
 
 type User {
@@ -203,6 +276,7 @@ type User {
   id: String
   lastName: String
   location: String
+  name: String
   phone: String
   role: Role
   updatedAt: DateTime
@@ -210,9 +284,7 @@ type User {
 }
 
 type UserToken {
-  """
-  JWT Bearer token
-  """
+  """JWT Bearer token"""
   token: String!
   user: User!
 }

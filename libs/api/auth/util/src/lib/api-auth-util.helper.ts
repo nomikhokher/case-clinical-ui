@@ -1,6 +1,7 @@
 import { compareSync, hashSync } from 'bcryptjs'
 import { createHash } from 'crypto'
 import { Request } from 'express'
+import { ExtractJwt } from 'passport-jwt'
 
 const getHash = (str) => createHash('md5').update(str).digest('hex')
 
@@ -40,6 +41,14 @@ export function rand(items) {
 export function uniqueSuffix(input, length = 5) {
   const suffix = generateMd5Hash(Date.now() + input).slice(0, length)
   return `${input}-${suffix}`
+}
+
+export function headerAndCookieExtractor(req: Request) {
+  const token = ExtractJwt.fromAuthHeaderAsBearerToken()(req)
+  if (!token) {
+    return cookieExtractor(req)
+  }
+  return token
 }
 
 export function cookieExtractor(req: Request) {

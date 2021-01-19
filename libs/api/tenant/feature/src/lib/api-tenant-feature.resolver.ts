@@ -18,6 +18,7 @@ export class ApiTenantFeatureResolver {
   tenant(@CtxUser() user: User, @Args('tenantId') tenantId: string) {
     return this.data.tenant(user.id, tenantId)
   }
+
   @Query(() => TenantRole, { nullable: true })
   tenantRole(@CtxUser() user: User, @Args('tenantId') tenantId: string) {
     return this.data.tenantRole(user.id, tenantId)

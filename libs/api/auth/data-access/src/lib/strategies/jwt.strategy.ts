@@ -1,4 +1,4 @@
-import { cookieExtractor } from '@metadata/api/auth/util'
+import { headerAndCookieExtractor } from '@metadata/api/auth/util'
 import { Injectable, UnauthorizedException } from '@nestjs/common'
 import { PassportStrategy } from '@nestjs/passport'
 import { Strategy } from 'passport-jwt'
@@ -9,7 +9,7 @@ import { JwtDto } from '../dto/jwt.dto'
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private readonly auth: ApiAuthDataAccessService) {
     super({
-      jwtFromRequest: cookieExtractor,
+      jwtFromRequest: headerAndCookieExtractor,
       secretOrKey: process.env.JWT_SECRET,
     })
   }

@@ -68,6 +68,7 @@ export enum DataType {
   Boolean = 'Boolean',
   DateTime = 'DateTime',
   Enumeration = 'Enumeration',
+  Float = 'Float',
   Integer = 'Integer',
   String = 'String',
   Text = 'Text',

@@ -1,6 +1,7 @@
-import { Prisma, Role, TenantRole, FieldType, DataType } from '@prisma/client'
+import { DataType, Prisma, Role, TenantRole } from '@prisma/client'
 import { createHash } from 'crypto'
 
+const ucFirst = (s: string) => s.charAt(0).toUpperCase() + s.slice(1)
 const getHash = (str) => createHash('md5').update(str).digest('hex')
 export const getGravatarUrl = (email = '') => `https://www.gravatar.com/avatar/${getHash(email)}?s=460&d=mp`
 
@@ -15,6 +16,8 @@ export function createUser(
     id,
     username,
     email,
+    firstName: ucFirst(username),
+    lastName: 'Example',
     role,
     password,
     avatarUrl: getGravatarUrl(email),

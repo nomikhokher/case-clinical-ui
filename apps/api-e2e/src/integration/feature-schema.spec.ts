@@ -1,13 +1,15 @@
 import { INestApplication } from '@nestjs/common'
 import { CreateSchema, CreateSchemaInput, Schemata } from '../generated/api-sdk'
-import { runGraphQLQuery, uniq } from '../helpers'
-import { getApp, getTenant } from '../helpers/get-app'
+import { runGraphQLQueryAlice, uniq } from '../helpers'
+import { getApp, getTenantAlice } from '../helpers/get-app'
 
 describe('Schema Feature (e2e)', () => {
   let app: INestApplication
+  let tenant
 
   beforeAll(async () => {
     app = await getApp()
+    tenant = await getTenantAlice(app)
   })
   afterAll(() => app.close())
 
@@ -17,11 +19,12 @@ describe('Schema Feature (e2e)', () => {
     }
 
     it('should create a schema ', async (done) => {
-      const tenant = await getTenant(app)
-
-      return runGraphQLQuery(app, CreateSchema, { input, tenantId: tenant.id })
+      return runGraphQLQueryAlice(app, CreateSchema, { input, tenantId: tenant.id })
         .expect(200)
         .expect((res) => {
+          expect(res.body).toBeDefined()
+          expect(res.body.data).toBeDefined()
+          expect(res.body.data.createSchema).toBeDefined()
           expect(res.body.data.createSchema).toBeDefined()
           Object.keys(input).forEach((key) => {
             expect(res.body.data.createSchema[key]).toEqual(input[key])
@@ -30,10 +33,11 @@ describe('Schema Feature (e2e)', () => {
         })
     })
 
-    it('should list the schemata ', () => {
-      return runGraphQLQuery(app, Schemata, { input })
+    it('should list the schemata with this name', () => {
+      return runGraphQLQueryAlice(app, Schemata, { input, tenantId: tenant.id })
         .expect(200)
         .expect((res) => {
+          expect(res.body.data).toBeDefined()
           const schemata = res.body.data.schemata
           expect(schemata).toBeDefined()
           expect(schemata.find((t) => t.name === input.name)).toBeDefined()
