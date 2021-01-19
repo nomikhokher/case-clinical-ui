@@ -32,6 +32,9 @@
     "api-auth-feature": {
       "tags": ["scope:api", "type:feature"]
     },
+    "api-auth-util": {
+      "tags": ["scope:api", "type:util"]
+    },
     "api-core-data-access": {
       "tags": ["scope:api", "type:data-access"]
     },
@@ -51,6 +54,12 @@
       "tags": ["scope:api", "type:data-access"]
     },
     "api-tenant-feature": {
+      "tags": ["scope:api", "type:feature"]
+    },
+    "api-user-data-access": {
+      "tags": ["scope:api", "type:data-access"]
+    },
+    "api-user-feature": {
       "tags": ["scope:api", "type:feature"]
     },
     "web": {
@@ -87,14 +96,41 @@
     "web-layout": {
       "tags": ["scope:web", "type:layout"]
     },
+    "web-schema-data-access": {
+      "tags": ["scope:web", "type:data-access"]
+    },
+    "web-schema-feature": {
+      "tags": ["scope:web", "type:feature"]
+    },
+    "web-schema-ui": {
+      "tags": ["scope:web", "type:feature"]
+    },
     "web-shell-feature": {
       "tags": ["scope:web", "type:feature"]
     },
     "web-style": {
       "tags": ["scope:web", "type:style"]
     },
+    "web-tenant-data-access": {
+      "tags": ["scope:web", "type:data-access"]
+    },
+    "web-tenant-feature": {
+      "tags": ["scope:web", "type:feature"]
+    },
+    "web-tenant-ui": {
+      "tags": ["scope:web", "type:feature"]
+    },
     "web-ui-form": {
       "tags": ["scope:web", "type:ui"]
+    },
+    "web-user-data-access": {
+      "tags": ["scope:web", "type:data-access"]
+    },
+    "web-user-feature": {
+      "tags": ["scope:web", "type:feature"]
+    },
+    "web-user-ui": {
+      "tags": ["scope:web", "type:feature"]
     }
   }
 }

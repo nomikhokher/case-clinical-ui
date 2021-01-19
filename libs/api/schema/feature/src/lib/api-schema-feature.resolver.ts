@@ -1,23 +1,37 @@
-import { ApiSchemaDataAccessService, CreateSchemaInput, Schema } from '@metadata/api/schema/data-access'
+import { CtxUser, GqlAuthGuard } from '@metadata/api/auth/util'
+import {
+  ApiSchemaDataAccessService,
+  CreateSchemaInput,
+  Schema,
+  UpdateSchemaInput,
+} from '@metadata/api/schema/data-access'
+import { User } from '@metadata/api/user/data-access'
+import { UseGuards } from '@nestjs/common'
 
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql'
 
 @Resolver()
+@UseGuards(GqlAuthGuard)
 export class ApiSchemaFeatureResolver {
   constructor(private readonly data: ApiSchemaDataAccessService) {}
 
   @Query(() => [Schema], { nullable: true })
-  schemata() {
-    return this.data.schemata()
+  schemata(@CtxUser() user: User, @Args('tenantId') tenantId: string) {
+    return this.data.schemata(user.id, tenantId)
   }
 
   @Query(() => Schema, { nullable: true })
-  schema(@Args('schemaId') schemaId: string) {
-    return this.data.schema(schemaId)
+  schema(@CtxUser() user: User, @Args('schemaId') schemaId: string) {
+    return this.data.schema(user.id, schemaId)
   }
 
   @Mutation(() => Schema, { nullable: true })
-  createSchema(@Args('tenantId') tenantId: string, @Args('input') input: CreateSchemaInput) {
-    return this.data.createSchema(tenantId, input)
+  createSchema(@CtxUser() user: User, @Args('tenantId') tenantId: string, @Args('input') input: CreateSchemaInput) {
+    return this.data.createSchema(user.id, tenantId, input)
+  }
+
+  @Mutation(() => Schema, { nullable: true })
+  updateSchema(@CtxUser() user: User, @Args('schemaId') schemaId: string, @Args('input') input: UpdateSchemaInput) {
+    return this.data.updateSchema(user.id, schemaId, input)
   }
 }

@@ -7,15 +7,28 @@ fragment SchemaDetails on Schema {
   name
 }
 
+fragment EntityDetails on Entity {
+  id
+  createdAt
+  updatedAt
+  name
+  description
+  #  keys
+  keywords
+}
+
 mutation CreateSchema($tenantId: String!, $input: CreateSchemaInput!) {
   createSchema(tenantId: $tenantId, input: $input) {
     ...SchemaDetails
   }
 }
 
-query Schemata {
-  schemata {
+query Schemata($tenantId: String!) {
+  schemata(tenantId: $tenantId) {
     ...SchemaDetails
+    entities {
+      ...EntityDetails
+    }
   }
 }
 

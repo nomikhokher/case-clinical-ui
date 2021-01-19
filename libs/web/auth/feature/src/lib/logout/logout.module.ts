@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { Routes, RouterModule } from '@angular/router'
 import { WebAuthDataAccessModule } from '@metadata/web/auth/data-access'
-import { WebUiFormModule } from '@metadata/web/ui-form'
+import { WebUiFormModule } from '@metadata/web/ui/form'
 import { AuthPageModule } from '@metadata/web/auth/ui'
 import { LogoutComponent } from './logout.component'
 

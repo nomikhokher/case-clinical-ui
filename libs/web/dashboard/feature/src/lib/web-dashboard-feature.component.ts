@@ -11,11 +11,13 @@ import { WebCoreDataAccessService } from '@metadata/web/core/data-access'
         </div>
         <div class="card-footer">Server uptime: {{ uptime$ | async }}</div>
       </div>
+      <pre>{{ tenants$ | async | json }}</pre>
     </div>
   `,
 })
 export class WebDashboardFeatureComponent {
-  public uptime$ = this.data.uptimeWatch()
-  public me$ = this.data.me()
+  uptime$ = this.data.uptimeWatch()
+  me$ = this.data.me()
+  tenants$ = this.data.sdk.tenants()
   constructor(private readonly data: WebCoreDataAccessService) {}
 }

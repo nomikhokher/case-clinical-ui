@@ -18,7 +18,7 @@
     "prisma:seed": "yarn nx workspace-generator prisma-seed",
     "build": "yarn build:web && yarn build:api",
     "start": "node dist/apps/api/main.js",
-    "test:ci": "yarn prisma:apply && yarn e2e api-e2e",
+    "test:ci": "yarn prisma:apply && yarn prisma:seed --confirm && yarn e2e api-e2e",
     "docker:build": "docker build . -t metadata/api",
     "docker:run": "docker run -it -p 8000:3000 metadata/api",
     "docker:push": "docker push metadata/api",
@@ -26,6 +26,7 @@
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
     "e2e": "nx e2e",
+    "e2e:api": "nx e2e api-e2e",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",
@@ -67,6 +68,7 @@
     "@ngx-formly/core": "^5.10.8",
     "@prisma/cli": "^2.13.0",
     "@prisma/client": "^2.13.0",
+    "@tailwindcss/forms": "^0.2.1",
     "apollo-angular": "^2.1.0",
     "apollo-server-express": "^2.18.0",
     "bcryptjs": "^2.4.3",
@@ -142,7 +144,7 @@
   "lint-staged": {
     "nx.json": [
       "yarn nxpm-stack lint",
-      "yarn format:write"
+      "yarn format:write --uncommitted"
     ],
     "*.{js,json,css,scss,md,ts,html,graphql}": [
       "yarn format --uncommitted"

@@ -16,6 +16,46 @@ export type Scalars = {
   JSON: any
 }
 
+export type AdminCreateTenantInput = {
+  name: Scalars['String']
+}
+
+export type AdminCreateUserInput = {
+  email: Scalars['String']
+  firstName?: Maybe<Scalars['String']>
+  lastName?: Maybe<Scalars['String']>
+  role: Role
+  username?: Maybe<Scalars['String']>
+}
+
+export type AdminUpdateTenantInput = {
+  name?: Maybe<Scalars['String']>
+}
+
+export type AdminUpdateUserInput = {
+  avatarUrl?: Maybe<Scalars['String']>
+  bio?: Maybe<Scalars['String']>
+  email?: Maybe<Scalars['String']>
+  firstName?: Maybe<Scalars['String']>
+  lastName?: Maybe<Scalars['String']>
+  location?: Maybe<Scalars['String']>
+  phone?: Maybe<Scalars['String']>
+  role?: Maybe<Role>
+  username?: Maybe<Scalars['String']>
+}
+
+export type CorePaging = {
+  __typename?: 'CorePaging'
+  limit?: Maybe<Scalars['Int']>
+  skip?: Maybe<Scalars['Int']>
+  total?: Maybe<Scalars['Int']>
+}
+
+export type CorePagingInput = {
+  limit?: Maybe<Scalars['Int']>
+  skip?: Maybe<Scalars['Int']>
+}
+
 export type CreateSchemaInput = {
   name: Scalars['String']
 }
@@ -28,6 +68,7 @@ export enum DataType {
   Boolean = 'Boolean',
   DateTime = 'DateTime',
   Enumeration = 'Enumeration',
+  Float = 'Float',
   Integer = 'Integer',
   String = 'String',
   Text = 'Text',
@@ -130,12 +171,63 @@ export type LoginInput = {
 
 export type Mutation = {
   __typename?: 'Mutation'
+  adminAddTenantUser?: Maybe<TenantUser>
+  adminCreateTenant?: Maybe<Tenant>
+  adminCreateUser?: Maybe<User>
+  adminDeleteTenant?: Maybe<Tenant>
+  adminDeleteUser?: Maybe<User>
+  adminRemoveTenantUser?: Maybe<TenantUser>
+  adminUpdateTenant?: Maybe<Tenant>
+  adminUpdateTenantUserRole?: Maybe<TenantUser>
+  adminUpdateUser?: Maybe<User>
   createSchema?: Maybe<Schema>
   createTenant?: Maybe<Tenant>
   intercomPub?: Maybe<IntercomMessage>
   login?: Maybe<UserToken>
   logout?: Maybe<Scalars['Boolean']>
   register?: Maybe<UserToken>
+  updateSchema?: Maybe<Schema>
+}
+
+export type MutationAdminAddTenantUserArgs = {
+  role: TenantRole
+  tenantId: Scalars['String']
+  userId: Scalars['String']
+}
+
+export type MutationAdminCreateTenantArgs = {
+  input: AdminCreateTenantInput
+}
+
+export type MutationAdminCreateUserArgs = {
+  input: AdminCreateUserInput
+}
+
+export type MutationAdminDeleteTenantArgs = {
+  tenantId: Scalars['String']
+}
+
+export type MutationAdminDeleteUserArgs = {
+  userId: Scalars['String']
+}
+
+export type MutationAdminRemoveTenantUserArgs = {
+  tenantUserId: Scalars['String']
+}
+
+export type MutationAdminUpdateTenantArgs = {
+  input: AdminUpdateTenantInput
+  tenantId: Scalars['String']
+}
+
+export type MutationAdminUpdateTenantUserRoleArgs = {
+  role: TenantRole
+  tenantUserId: Scalars['String']
+}
+
+export type MutationAdminUpdateUserArgs = {
+  input: AdminUpdateUserInput
+  userId: Scalars['String']
 }
 
 export type MutationCreateSchemaArgs = {
@@ -161,6 +253,11 @@ export type MutationRegisterArgs = {
   input: RegisterInput
 }
 
+export type MutationUpdateSchemaArgs = {
+  input: UpdateSchemaInput
+  schemaId: Scalars['String']
+}
+
 export type Ontology = {
   __typename?: 'Ontology'
   createdAt?: Maybe<Scalars['DateTime']>
@@ -175,19 +272,58 @@ export type Ontology = {
 
 export type Query = {
   __typename?: 'Query'
+  adminCountTenants?: Maybe<CorePaging>
+  adminCountUsers?: Maybe<CorePaging>
+  adminTenant?: Maybe<Tenant>
+  adminTenants?: Maybe<Array<Tenant>>
+  adminUser?: Maybe<User>
+  adminUsers?: Maybe<Array<User>>
   me?: Maybe<User>
   schema?: Maybe<Schema>
   schemata?: Maybe<Array<Schema>>
   tenant?: Maybe<Tenant>
+  tenantRole?: Maybe<TenantRole>
   tenants?: Maybe<Array<Tenant>>
   uptime?: Maybe<Scalars['Float']>
+}
+
+export type QueryAdminCountTenantsArgs = {
+  paging?: Maybe<CorePagingInput>
+}
+
+export type QueryAdminCountUsersArgs = {
+  paging?: Maybe<CorePagingInput>
+}
+
+export type QueryAdminTenantArgs = {
+  tenantId: Scalars['String']
+}
+
+export type QueryAdminTenantsArgs = {
+  paging?: Maybe<CorePagingInput>
+}
+
+export type QueryAdminUserArgs = {
+  userId: Scalars['String']
+}
+
+export type QueryAdminUsersArgs = {
+  paging?: Maybe<CorePagingInput>
 }
 
 export type QuerySchemaArgs = {
   schemaId: Scalars['String']
 }
 
+export type QuerySchemataArgs = {
+  tenantId: Scalars['String']
+}
+
 export type QueryTenantArgs = {
+  tenantId: Scalars['String']
+}
+
+export type QueryTenantRoleArgs = {
   tenantId: Scalars['String']
 }
 
@@ -204,7 +340,6 @@ export type RegisterInput = {
 /** User role */
 export enum Role {
   Admin = 'Admin',
-  SuperAdmin = 'SuperAdmin',
   User = 'User',
 }
 
@@ -241,6 +376,26 @@ export type Tenant = {
   id?: Maybe<Scalars['ID']>
   name?: Maybe<Scalars['String']>
   updatedAt?: Maybe<Scalars['DateTime']>
+  users?: Maybe<Array<TenantUser>>
+}
+
+export enum TenantRole {
+  Owner = 'Owner',
+  User = 'User',
+}
+
+export type TenantUser = {
+  __typename?: 'TenantUser'
+  createdAt?: Maybe<Scalars['DateTime']>
+  id?: Maybe<Scalars['ID']>
+  role?: Maybe<TenantRole>
+  tenant?: Maybe<Tenant>
+  updatedAt?: Maybe<Scalars['DateTime']>
+  user?: Maybe<User>
+}
+
+export type UpdateSchemaInput = {
+  name: Scalars['String']
 }
 
 export type User = {
@@ -253,6 +408,7 @@ export type User = {
   id?: Maybe<Scalars['String']>
   lastName?: Maybe<Scalars['String']>
   location?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
   phone?: Maybe<Scalars['String']>
   role?: Maybe<Role>
   updatedAt?: Maybe<Scalars['DateTime']>
@@ -272,7 +428,7 @@ export type UserTokenDetailsFragment = { __typename?: 'UserToken' } & Pick<UserT
 
 export type UserDetailsFragment = { __typename?: 'User' } & Pick<
   User,
-  'id' | 'firstName' | 'lastName' | 'username' | 'avatarUrl' | 'email'
+  'id' | 'firstName' | 'lastName' | 'username' | 'avatarUrl' | 'email' | 'name' | 'bio' | 'location' | 'phone' | 'role'
 >
 
 export type MeQueryVariables = Exact<{ [key: string]: never }>
@@ -303,6 +459,8 @@ export type UptimeQueryVariables = Exact<{ [key: string]: never }>
 
 export type UptimeQuery = { __typename?: 'Query' } & Pick<Query, 'uptime'>
 
+export type CorePagingDetailsFragment = { __typename?: 'CorePaging' } & Pick<CorePaging, 'limit' | 'skip' | 'total'>
+
 export type IntercomDetailsFragment = { __typename?: 'IntercomMessage' } & Pick<
   IntercomMessage,
   'type' | 'scope' | 'payload'
@@ -329,6 +487,11 @@ export type SchemaDetailsFragment = { __typename?: 'Schema' } & Pick<
   'id' | 'createdAt' | 'updatedAt' | 'publishedAt' | 'stage' | 'name'
 >
 
+export type EntityDetailsFragment = { __typename?: 'Entity' } & Pick<
+  Entity,
+  'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'keywords'
+>
+
 export type CreateSchemaMutationVariables = Exact<{
   tenantId: Scalars['String']
   input: CreateSchemaInput
@@ -338,10 +501,18 @@ export type CreateSchemaMutation = { __typename?: 'Mutation' } & {
   createSchema?: Maybe<{ __typename?: 'Schema' } & SchemaDetailsFragment>
 }
 
-export type SchemataQueryVariables = Exact<{ [key: string]: never }>
+export type SchemataQueryVariables = Exact<{
+  tenantId: Scalars['String']
+}>
 
 export type SchemataQuery = { __typename?: 'Query' } & {
-  schemata?: Maybe<Array<{ __typename?: 'Schema' } & SchemaDetailsFragment>>
+  schemata?: Maybe<
+    Array<
+      { __typename?: 'Schema' } & {
+        entities?: Maybe<Array<{ __typename?: 'Entity' } & EntityDetailsFragment>>
+      } & SchemaDetailsFragment
+    >
+  >
 }
 
 export type SchemaQueryVariables = Exact<{
@@ -353,6 +524,11 @@ export type SchemaQuery = { __typename?: 'Query' } & {
 }
 
 export type TenantDetailsFragment = { __typename?: 'Tenant' } & Pick<Tenant, 'id' | 'createdAt' | 'updatedAt' | 'name'>
+
+export type TenantUserDetailsFragment = { __typename?: 'TenantUser' } & Pick<
+  TenantUser,
+  'id' | 'createdAt' | 'updatedAt' | 'role'
+>
 
 export type CreateTenantMutationVariables = Exact<{
   input: CreateTenantInput
@@ -372,8 +548,129 @@ export type TenantQueryVariables = Exact<{
   tenantId: Scalars['String']
 }>
 
-export type TenantQuery = { __typename?: 'Query' } & {
+export type TenantQuery = { __typename?: 'Query' } & { role: Query['tenantRole'] } & {
   tenant?: Maybe<{ __typename?: 'Tenant' } & TenantDetailsFragment>
+}
+
+export type AdminTenantsQueryVariables = Exact<{
+  paging?: Maybe<CorePagingInput>
+}>
+
+export type AdminTenantsQuery = { __typename?: 'Query' } & {
+  tenants?: Maybe<Array<{ __typename?: 'Tenant' } & TenantDetailsFragment>>
+  count?: Maybe<{ __typename?: 'CorePaging' } & CorePagingDetailsFragment>
+}
+
+export type AdminTenantQueryVariables = Exact<{
+  tenantId: Scalars['String']
+}>
+
+export type AdminTenantQuery = { __typename?: 'Query' } & {
+  adminTenant?: Maybe<
+    { __typename?: 'Tenant' } & {
+      users?: Maybe<
+        Array<
+          { __typename?: 'TenantUser' } & {
+            user?: Maybe<{ __typename?: 'User' } & UserDetailsFragment>
+          } & TenantUserDetailsFragment
+        >
+      >
+    } & TenantDetailsFragment
+  >
+}
+
+export type AdminCreateTenantMutationVariables = Exact<{
+  input: AdminCreateTenantInput
+}>
+
+export type AdminCreateTenantMutation = { __typename?: 'Mutation' } & {
+  adminCreateTenant?: Maybe<{ __typename?: 'Tenant' } & TenantDetailsFragment>
+}
+
+export type AdminUpdateTenantMutationVariables = Exact<{
+  tenantId: Scalars['String']
+  input: AdminUpdateTenantInput
+}>
+
+export type AdminUpdateTenantMutation = { __typename?: 'Mutation' } & {
+  adminUpdateTenant?: Maybe<{ __typename?: 'Tenant' } & TenantDetailsFragment>
+}
+
+export type AdminDeleteTenantMutationVariables = Exact<{
+  tenantId: Scalars['String']
+}>
+
+export type AdminDeleteTenantMutation = { __typename?: 'Mutation' } & {
+  adminDeleteTenant?: Maybe<{ __typename?: 'Tenant' } & TenantDetailsFragment>
+}
+
+export type AdminAddTenantUserMutationVariables = Exact<{
+  tenantId: Scalars['String']
+  userId: Scalars['String']
+  role: TenantRole
+}>
+
+export type AdminAddTenantUserMutation = { __typename?: 'Mutation' } & {
+  adminAddTenantUser?: Maybe<{ __typename?: 'TenantUser' } & TenantUserDetailsFragment>
+}
+
+export type AdminUpdateTenantUserRoleMutationVariables = Exact<{
+  tenantUserId: Scalars['String']
+  role: TenantRole
+}>
+
+export type AdminUpdateTenantUserRoleMutation = { __typename?: 'Mutation' } & {
+  adminUpdateTenantUserRole?: Maybe<{ __typename?: 'TenantUser' } & TenantUserDetailsFragment>
+}
+
+export type AdminRemoveTenantUserMutationVariables = Exact<{
+  tenantUserId: Scalars['String']
+}>
+
+export type AdminRemoveTenantUserMutation = { __typename?: 'Mutation' } & {
+  adminRemoveTenantUser?: Maybe<{ __typename?: 'TenantUser' } & TenantUserDetailsFragment>
+}
+
+export type AdminUsersQueryVariables = Exact<{
+  paging?: Maybe<CorePagingInput>
+}>
+
+export type AdminUsersQuery = { __typename?: 'Query' } & {
+  users?: Maybe<Array<{ __typename?: 'User' } & UserDetailsFragment>>
+  count?: Maybe<{ __typename?: 'CorePaging' } & CorePagingDetailsFragment>
+}
+
+export type AdminUserQueryVariables = Exact<{
+  userId: Scalars['String']
+}>
+
+export type AdminUserQuery = { __typename?: 'Query' } & {
+  adminUser?: Maybe<{ __typename?: 'User' } & UserDetailsFragment>
+}
+
+export type AdminCreateUserMutationVariables = Exact<{
+  input: AdminCreateUserInput
+}>
+
+export type AdminCreateUserMutation = { __typename?: 'Mutation' } & {
+  adminCreateUser?: Maybe<{ __typename?: 'User' } & UserDetailsFragment>
+}
+
+export type AdminUpdateUserMutationVariables = Exact<{
+  userId: Scalars['String']
+  input: AdminUpdateUserInput
+}>
+
+export type AdminUpdateUserMutation = { __typename?: 'Mutation' } & {
+  adminUpdateUser?: Maybe<{ __typename?: 'User' } & UserDetailsFragment>
+}
+
+export type AdminDeleteUserMutationVariables = Exact<{
+  userId: Scalars['String']
+}>
+
+export type AdminDeleteUserMutation = { __typename?: 'Mutation' } & {
+  adminDeleteUser?: Maybe<{ __typename?: 'User' } & UserDetailsFragment>
 }
 
 export const UserDetails = gql`
@@ -384,6 +681,11 @@ export const UserDetails = gql`
     username
     avatarUrl
     email
+    name
+    bio
+    location
+    phone
+    role
   }
 `
 export const UserTokenDetails = gql`
@@ -394,6 +696,13 @@ export const UserTokenDetails = gql`
     }
   }
   ${UserDetails}
+`
+export const CorePagingDetails = gql`
+  fragment CorePagingDetails on CorePaging {
+    limit
+    skip
+    total
+  }
 `
 export const IntercomDetails = gql`
   fragment IntercomDetails on IntercomMessage {
@@ -412,12 +721,30 @@ export const SchemaDetails = gql`
     name
   }
 `
+export const EntityDetails = gql`
+  fragment EntityDetails on Entity {
+    id
+    createdAt
+    updatedAt
+    name
+    description
+    keywords
+  }
+`
 export const TenantDetails = gql`
   fragment TenantDetails on Tenant {
     id
     createdAt
     updatedAt
     name
+  }
+`
+export const TenantUserDetails = gql`
+  fragment TenantUserDetails on TenantUser {
+    id
+    createdAt
+    updatedAt
+    role
   }
 `
 export const Me = gql`
@@ -479,12 +806,16 @@ export const CreateSchema = gql`
   ${SchemaDetails}
 `
 export const Schemata = gql`
-  query Schemata {
-    schemata {
+  query Schemata($tenantId: String!) {
+    schemata(tenantId: $tenantId) {
       ...SchemaDetails
+      entities {
+        ...EntityDetails
+      }
     }
   }
   ${SchemaDetails}
+  ${EntityDetails}
 `
 export const Schema = gql`
   query Schema($schemaId: String!) {
@@ -515,8 +846,129 @@ export const Tenant = gql`
     tenant(tenantId: $tenantId) {
       ...TenantDetails
     }
+    role: tenantRole(tenantId: $tenantId)
   }
   ${TenantDetails}
+`
+export const AdminTenants = gql`
+  query AdminTenants($paging: CorePagingInput) {
+    tenants: adminTenants(paging: $paging) {
+      ...TenantDetails
+    }
+    count: adminCountTenants(paging: $paging) {
+      ...CorePagingDetails
+    }
+  }
+  ${TenantDetails}
+  ${CorePagingDetails}
+`
+export const AdminTenant = gql`
+  query AdminTenant($tenantId: String!) {
+    adminTenant(tenantId: $tenantId) {
+      ...TenantDetails
+      users {
+        ...TenantUserDetails
+        user {
+          ...UserDetails
+        }
+      }
+    }
+  }
+  ${TenantDetails}
+  ${TenantUserDetails}
+  ${UserDetails}
+`
+export const AdminCreateTenant = gql`
+  mutation AdminCreateTenant($input: AdminCreateTenantInput!) {
+    adminCreateTenant(input: $input) {
+      ...TenantDetails
+    }
+  }
+  ${TenantDetails}
+`
+export const AdminUpdateTenant = gql`
+  mutation AdminUpdateTenant($tenantId: String!, $input: AdminUpdateTenantInput!) {
+    adminUpdateTenant(tenantId: $tenantId, input: $input) {
+      ...TenantDetails
+    }
+  }
+  ${TenantDetails}
+`
+export const AdminDeleteTenant = gql`
+  mutation AdminDeleteTenant($tenantId: String!) {
+    adminDeleteTenant(tenantId: $tenantId) {
+      ...TenantDetails
+    }
+  }
+  ${TenantDetails}
+`
+export const AdminAddTenantUser = gql`
+  mutation AdminAddTenantUser($tenantId: String!, $userId: String!, $role: TenantRole!) {
+    adminAddTenantUser(tenantId: $tenantId, userId: $userId, role: $role) {
+      ...TenantUserDetails
+    }
+  }
+  ${TenantUserDetails}
+`
+export const AdminUpdateTenantUserRole = gql`
+  mutation AdminUpdateTenantUserRole($tenantUserId: String!, $role: TenantRole!) {
+    adminUpdateTenantUserRole(tenantUserId: $tenantUserId, role: $role) {
+      ...TenantUserDetails
+    }
+  }
+  ${TenantUserDetails}
+`
+export const AdminRemoveTenantUser = gql`
+  mutation AdminRemoveTenantUser($tenantUserId: String!) {
+    adminRemoveTenantUser(tenantUserId: $tenantUserId) {
+      ...TenantUserDetails
+    }
+  }
+  ${TenantUserDetails}
+`
+export const AdminUsers = gql`
+  query AdminUsers($paging: CorePagingInput) {
+    users: adminUsers(paging: $paging) {
+      ...UserDetails
+    }
+    count: adminCountUsers(paging: $paging) {
+      ...CorePagingDetails
+    }
+  }
+  ${UserDetails}
+  ${CorePagingDetails}
+`
+export const AdminUser = gql`
+  query AdminUser($userId: String!) {
+    adminUser(userId: $userId) {
+      ...UserDetails
+    }
+  }
+  ${UserDetails}
+`
+export const AdminCreateUser = gql`
+  mutation AdminCreateUser($input: AdminCreateUserInput!) {
+    adminCreateUser(input: $input) {
+      ...UserDetails
+    }
+  }
+  ${UserDetails}
+`
+export const AdminUpdateUser = gql`
+  mutation AdminUpdateUser($userId: String!, $input: AdminUpdateUserInput!) {
+    adminUpdateUser(userId: $userId, input: $input) {
+      ...UserDetails
+    }
+  }
+  ${UserDetails}
+`
+export const AdminDeleteUser = gql`
+  mutation AdminDeleteUser($userId: String!) {
+    adminDeleteUser(userId: $userId) {
+      ...UserDetails
+    }
+  }
+  ${UserDetails}
 `
 
 export interface PossibleTypesResultData {

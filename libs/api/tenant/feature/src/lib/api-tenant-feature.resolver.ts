@@ -1,22 +1,31 @@
-import { ApiTenantDataAccessService, CreateTenantInput, Tenant } from '@metadata/api/tenant/data-access'
+import { CtxUser, GqlAuthGuard } from '@metadata/api/auth/util'
+import { ApiTenantDataAccessService, CreateTenantInput, Tenant, TenantRole } from '@metadata/api/tenant/data-access'
+import { User } from '@metadata/api/user/data-access'
+import { UseGuards } from '@nestjs/common'
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql'
 
 @Resolver()
+@UseGuards(GqlAuthGuard)
 export class ApiTenantFeatureResolver {
   constructor(private readonly data: ApiTenantDataAccessService) {}
 
   @Query(() => [Tenant], { nullable: true })
-  tenants() {
-    return this.data.tenants()
+  tenants(@CtxUser() user: User) {
+    return this.data.tenants(user.id)
   }
 
   @Query(() => Tenant, { nullable: true })
-  tenant(@Args('tenantId') tenantId: string) {
-    return this.data.tenant(tenantId)
+  tenant(@CtxUser() user: User, @Args('tenantId') tenantId: string) {
+    return this.data.tenant(user.id, tenantId)
+  }
+
+  @Query(() => TenantRole, { nullable: true })
+  tenantRole(@CtxUser() user: User, @Args('tenantId') tenantId: string) {
+    return this.data.tenantRole(user.id, tenantId)
   }
 
   @Mutation(() => Tenant, { nullable: true })
-  createTenant(@Args('input') input: CreateTenantInput) {
-    return this.data.createTenant(input)
+  createTenant(@CtxUser() user: User, @Args('input') input: CreateTenantInput) {
+    return this.data.createTenant(user.id, input)
   }
 }

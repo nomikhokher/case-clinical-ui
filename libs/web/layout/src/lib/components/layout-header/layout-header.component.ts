@@ -10,18 +10,18 @@ import { Component, Input } from '@angular/core'
           {{ name }}
         </a>
         <div class="flex">
-          <layout-header-links [links]="linksLeft"></layout-header-links>
+          <layout-header-links [links]="links"></layout-header-links>
         </div>
       </div>
       <div class="flex">
-        <layout-header-links [links]="linksRight"></layout-header-links>
+        <layout-header-links [links]="profile"></layout-header-links>
       </div>
     </nav>
   `,
 })
 export class LayoutHeaderComponent {
-  @Input() linksLeft: { label: string; route: string }[] = [{ label: 'Dashboard', route: '/dashboard' }]
-  @Input() linksRight: { label: string; route: string }[] = [{ label: 'About', route: '/about' }]
+  @Input() links: { label: string; route: string }[] = [{ label: 'Dashboard', route: '/dashboard' }]
+  @Input() profile: { label: string; route: string }[] = []
   @Input() logo: string
   @Input() name: string
 }

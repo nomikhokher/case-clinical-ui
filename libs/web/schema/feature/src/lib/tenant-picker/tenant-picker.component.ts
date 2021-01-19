@@ -1,0 +1,25 @@
+import { Component, OnInit } from '@angular/core'
+import { TenantPickerStore } from './tenant-picker.store'
+
+@Component({
+  template: `
+    <ng-container *ngIf="vm$ | async as vm">
+      <schema-header title="Select the Tenant"></schema-header>
+      <ng-container *ngIf="vm.loading">
+        <div class="flex py-36 animate-pulse justify-center align-center">LOADING...</div>
+      </ng-container>
+      <ng-container *ngIf="!vm.loading">
+        <select-tenant-list [tenants]="vm.tenants"></select-tenant-list>
+      </ng-container>
+    </ng-container>
+  `,
+  providers: [TenantPickerStore],
+})
+export class TenantPickerComponent implements OnInit {
+  readonly vm$ = this.store.vm$
+  constructor(private readonly store: TenantPickerStore) {}
+
+  ngOnInit(): void {
+    this.store.loadTenantsEffect()
+  }
+}
