@@ -1,4 +1,4 @@
-import { Prisma, Role, TenantRole } from '@prisma/client'
+import { Prisma, Role, TenantRole, FieldType, DataType } from '@prisma/client'
 import { createHash } from 'crypto'
 
 const getHash = (str) => createHash('md5').update(str).digest('hex')
@@ -38,6 +38,62 @@ export function createTenant(
   }
 }
 
-export function createSchema(name: string): Prisma.SchemaCreateWithoutTenantInput {
-  return { name }
+export function createSchema(
+  name: string,
+  entities: Prisma.EntityCreateWithoutSchemaInput[],
+): Prisma.SchemaCreateWithoutTenantInput {
+  return { name, entities: { create: entities } }
+}
+
+export function createField(
+  dataType: DataType,
+  name: string,
+  isName: boolean,
+  isNullable: boolean,
+  description: string,
+): Prisma.FieldCreateWithoutEntityInput {
+  return {
+    name,
+    isName,
+    dataType,
+    description,
+    isNullable,
+  }
+}
+
+export function createOntology(key: string, value: string): Prisma.OntologyCreateWithoutEntityInput {
+  return {
+    key,
+    value,
+    name: `Default name for ${key}`,
+    description: `Default description for ${key}`,
+  }
+}
+
+export function createEntity(
+  name: string,
+  description: string,
+  keywords: string[],
+  {
+    keys,
+    fields,
+    foreignKeys,
+    ontologies,
+  }: {
+    keys?: Prisma.KeyCreateWithoutEntityInput[]
+    fields?: Prisma.FieldCreateWithoutEntityInput[]
+    foreignKeys?: Prisma.ForeignKeyCreateWithoutRelatedEntityInput[]
+    ontologies?: Prisma.OntologyCreateWithoutEntityInput[]
+  },
+): Prisma.EntityCreateWithoutSchemaInput {
+  return {
+    name,
+    description,
+    dynamicProperties: {},
+    keywords,
+    keys: { create: keys },
+    fields: { create: fields },
+    foreignKeys: { create: foreignKeys },
+    ontologies: { create: ontologies },
+  }
 }
