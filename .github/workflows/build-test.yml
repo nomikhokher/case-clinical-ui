@@ -31,7 +31,7 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-        operating-system: [ubuntu-latest]
+        operating-system: [ubuntu-20.04]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
