@@ -4,7 +4,7 @@ import { TenantPickerStore } from './tenant-picker.store'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <schema-header title="Select the Tenant"></schema-header>
+      <schema-header title="Select the Tenant" linkPath="create" linkTitle="Create Tenant"></schema-header>
       <ng-container *ngIf="vm.loading">
         <div class="flex py-36 animate-pulse justify-center align-center">LOADING...</div>
       </ng-container>
