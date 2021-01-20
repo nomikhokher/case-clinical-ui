@@ -59,8 +59,57 @@ export type CorePagingInput = {
   skip?: Maybe<Scalars['Int']>
 }
 
-export type CreateSchemaInput = {
+export type CreateSchemaEntityFieldInput = {
+  dataType: DataType
+  description: Scalars['String']
+  id?: Maybe<Scalars['String']>
+  isName: Scalars['Boolean']
+  isNullable: Scalars['Boolean']
   name: Scalars['String']
+}
+
+export type CreateSchemaEntityForeignKeyInput = {
+  id?: Maybe<Scalars['String']>
+  name: Scalars['String']
+  relatedEntity: CreateSchemaRelatedEntityInput
+  relatedField: CreateSchemaEntityFieldInput
+}
+
+export type CreateSchemaEntityInput = {
+  description: Scalars['String']
+  fields: Array<CreateSchemaEntityFieldInput>
+  foreignKeys: Array<CreateSchemaEntityForeignKeyInput>
+  id?: Maybe<Scalars['String']>
+  keys: Array<CreateSchemaEntityKeyInput>
+  name: Scalars['String']
+  ontologies: Array<CreateSchemaEntityOntologyInput>
+}
+
+export type CreateSchemaEntityKeyInput = {
+  description: Scalars['String']
+  id?: Maybe<Scalars['String']>
+  isDrivingKey: Scalars['Boolean']
+  keyType: KeyType
+  name: Scalars['String']
+}
+
+export type CreateSchemaEntityOntologyInput = {
+  id?: Maybe<Scalars['String']>
+  key: Scalars['String']
+  value: Scalars['String']
+}
+
+export type CreateSchemaInput = {
+  entities: Array<CreateSchemaEntityInput>
+  id?: Maybe<Scalars['String']>
+  name: Scalars['String']
+  stage: Stage
+}
+
+export type CreateSchemaRelatedEntityInput = {
+  id?: Maybe<Scalars['String']>
+  name: Scalars['String']
+  ontologies: Array<CreateSchemaEntityOntologyInput>
 }
 
 export type CreateTenantInput = {
@@ -491,10 +540,27 @@ export type SchemaDetailsFragment = { __typename?: 'Schema' } & Pick<
   'id' | 'createdAt' | 'updatedAt' | 'publishedAt' | 'stage' | 'name'
 >
 
+export type FieldDetailsFragment = { __typename?: 'Field' } & Pick<
+  Field,
+  'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'dataType' | 'isName' | 'isNullable'
+>
+
+export type KeyDetailsFragment = { __typename?: 'Key' } & Pick<Key, 'id' | 'keyType' | 'isDrivingKey' | 'name'>
+
+export type OntologyDetailsFragment = { __typename?: 'Ontology' } & Pick<Ontology, 'id' | 'key' | 'value'>
+
+export type ForeignKeyDetailsFragment = { __typename?: 'ForeignKey' } & Pick<ForeignKey, 'id' | 'name'> & {
+    relatedField?: Maybe<Array<{ __typename?: 'Field' } & FieldDetailsFragment>>
+    relatedEntity?: Maybe<{ __typename?: 'Entity' } & EntityDetailsFragment>
+  }
+
 export type EntityDetailsFragment = { __typename?: 'Entity' } & Pick<
   Entity,
   'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'keywords'
->
+> & {
+    keys?: Maybe<Array<{ __typename?: 'Key' } & KeyDetailsFragment>>
+    fields?: Maybe<Array<{ __typename?: 'Field' } & FieldDetailsFragment>>
+  }
 
 export type CreateSchemaMutationVariables = Exact<{
   tenantId: Scalars['String']
@@ -510,13 +576,7 @@ export type SchemataQueryVariables = Exact<{
 }>
 
 export type SchemataQuery = { __typename?: 'Query' } & {
-  schemata?: Maybe<
-    Array<
-      { __typename?: 'Schema' } & {
-        entities?: Maybe<Array<{ __typename?: 'Entity' } & EntityDetailsFragment>>
-      } & SchemaDetailsFragment
-    >
-  >
+  schemata?: Maybe<Array<{ __typename?: 'Schema' } & SchemaDetailsFragment>>
 }
 
 export type SchemaQueryVariables = Exact<{
@@ -524,7 +584,11 @@ export type SchemaQueryVariables = Exact<{
 }>
 
 export type SchemaQuery = { __typename?: 'Query' } & {
-  schema?: Maybe<{ __typename?: 'Schema' } & SchemaDetailsFragment>
+  schema?: Maybe<
+    { __typename?: 'Schema' } & {
+      entities?: Maybe<Array<{ __typename?: 'Entity' } & EntityDetailsFragment>>
+    } & SchemaDetailsFragment
+  >
 }
 
 export type TenantDetailsFragment = { __typename?: 'Tenant' } & Pick<Tenant, 'id' | 'createdAt' | 'updatedAt' | 'name'>
@@ -725,6 +789,33 @@ export const SchemaDetailsFragmentDoc = gql`
     name
   }
 `
+export const OntologyDetailsFragmentDoc = gql`
+  fragment OntologyDetails on Ontology {
+    id
+    key
+    value
+  }
+`
+export const FieldDetailsFragmentDoc = gql`
+  fragment FieldDetails on Field {
+    id
+    createdAt
+    updatedAt
+    name
+    description
+    dataType
+    isName
+    isNullable
+  }
+`
+export const KeyDetailsFragmentDoc = gql`
+  fragment KeyDetails on Key {
+    id
+    keyType
+    isDrivingKey
+    name
+  }
+`
 export const EntityDetailsFragmentDoc = gql`
   fragment EntityDetails on Entity {
     id
@@ -732,8 +823,30 @@ export const EntityDetailsFragmentDoc = gql`
     updatedAt
     name
     description
+    keys {
+      ...KeyDetails
+    }
+    fields {
+      ...FieldDetails
+    }
     keywords
   }
+  ${KeyDetailsFragmentDoc}
+  ${FieldDetailsFragmentDoc}
+`
+export const ForeignKeyDetailsFragmentDoc = gql`
+  fragment ForeignKeyDetails on ForeignKey {
+    id
+    name
+    relatedField {
+      ...FieldDetails
+    }
+    relatedEntity {
+      ...EntityDetails
+    }
+  }
+  ${FieldDetailsFragmentDoc}
+  ${EntityDetailsFragmentDoc}
 `
 export const TenantDetailsFragmentDoc = gql`
   fragment TenantDetails on Tenant {
@@ -901,13 +1014,9 @@ export const SchemataDocument = gql`
   query Schemata($tenantId: String!) {
     schemata(tenantId: $tenantId) {
       ...SchemaDetails
-      entities {
-        ...EntityDetails
-      }
     }
   }
   ${SchemaDetailsFragmentDoc}
-  ${EntityDetailsFragmentDoc}
 `
 
 @Injectable({
@@ -924,9 +1033,13 @@ export const SchemaDocument = gql`
   query Schema($schemaId: String!) {
     schema(schemaId: $schemaId) {
       ...SchemaDetails
+      entities {
+        ...EntityDetails
+      }
     }
   }
   ${SchemaDetailsFragmentDoc}
+  ${EntityDetailsFragmentDoc}
 `
 
 @Injectable({

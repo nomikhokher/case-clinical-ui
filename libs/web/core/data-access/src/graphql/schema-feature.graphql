@@ -7,13 +7,53 @@ fragment SchemaDetails on Schema {
   name
 }
 
+fragment FieldDetails on Field {
+  id
+  createdAt
+  updatedAt
+  name
+  description
+  dataType
+  isName
+  isNullable
+}
+
+fragment KeyDetails on Key {
+  id
+  keyType
+  isDrivingKey
+  name
+}
+
+fragment OntologyDetails on Ontology {
+  id
+  key
+  value
+}
+
+fragment ForeignKeyDetails on ForeignKey {
+  id
+  name
+  relatedField {
+    ...FieldDetails
+  }
+  relatedEntity {
+    ...EntityDetails
+  }
+}
+
 fragment EntityDetails on Entity {
   id
   createdAt
   updatedAt
   name
   description
-  #  keys
+  keys {
+    ...KeyDetails
+  }
+  fields {
+    ...FieldDetails
+  }
   keywords
 }
 
@@ -26,14 +66,14 @@ mutation CreateSchema($tenantId: String!, $input: CreateSchemaInput!) {
 query Schemata($tenantId: String!) {
   schemata(tenantId: $tenantId) {
     ...SchemaDetails
-    entities {
-      ...EntityDetails
-    }
   }
 }
 
 query Schema($schemaId: String!) {
   schema(schemaId: $schemaId) {
     ...SchemaDetails
+    entities {
+      ...EntityDetails
+    }
   }
 }

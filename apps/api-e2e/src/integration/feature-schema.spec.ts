@@ -1,5 +1,5 @@
 import { INestApplication } from '@nestjs/common'
-import { CreateSchema, CreateSchemaInput, Schemata } from '../generated/api-sdk'
+import { CreateSchema, CreateSchemaInput, Schemata, Stage } from '../generated/api-sdk'
 import { runGraphQLQueryAlice, uniq } from '../helpers'
 import { getApp, getTenantAlice } from '../helpers/get-app'
 
@@ -16,6 +16,8 @@ describe('Schema Feature (e2e)', () => {
   describe('create-list-schema', () => {
     const input: CreateSchemaInput = {
       name: uniq('schema'),
+      stage: Stage.Dev,
+      entities: [],
     }
 
     it('should create a schema ', async (done) => {

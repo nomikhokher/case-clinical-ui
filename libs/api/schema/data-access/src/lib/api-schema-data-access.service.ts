@@ -1,12 +1,13 @@
 import { ApiCoreDataAccessService } from '@metadata/api/core/data-access'
 import { Injectable, UnauthorizedException } from '@nestjs/common'
-import { SchemaInclude } from '@prisma/client'
+import { Prisma } from '@prisma/client'
+import { formatEntities } from './api-schema-data-access.helper'
 import { CreateSchemaInput } from './dto/create-schema.input'
 import { UpdateSchemaInput } from './dto/update-schema.input'
 
 @Injectable()
 export class ApiSchemaDataAccessService {
-  private readonly schemaInclude: SchemaInclude = {
+  private readonly schemaInclude: Prisma.SchemaInclude = {
     entities: {
       include: {
         keys: true,
@@ -46,7 +47,10 @@ export class ApiSchemaDataAccessService {
     return this.data.schema.create({
       data: {
         tenant: { connect: { id: tenantId } },
+        id: input.id,
         name: input.name,
+        stage: input.stage,
+        entities: formatEntities(input.stage, input.entities),
       },
     })
   }

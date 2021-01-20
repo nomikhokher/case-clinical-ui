@@ -41,8 +41,57 @@ input CorePagingInput {
   skip: Int = 0
 }
 
-input CreateSchemaInput {
+input CreateSchemaEntityFieldInput {
+  dataType: DataType!
+  description: String!
+  id: String
+  isName: Boolean!
+  isNullable: Boolean!
   name: String!
+}
+
+input CreateSchemaEntityForeignKeyInput {
+  id: String
+  name: String!
+  relatedEntity: CreateSchemaRelatedEntityInput!
+  relatedField: CreateSchemaEntityFieldInput!
+}
+
+input CreateSchemaEntityInput {
+  description: String!
+  fields: [CreateSchemaEntityFieldInput!]!
+  foreignKeys: [CreateSchemaEntityForeignKeyInput!]!
+  id: String
+  keys: [CreateSchemaEntityKeyInput!]!
+  name: String!
+  ontologies: [CreateSchemaEntityOntologyInput!]!
+}
+
+input CreateSchemaEntityKeyInput {
+  description: String!
+  id: String
+  isDrivingKey: Boolean!
+  keyType: KeyType!
+  name: String!
+}
+
+input CreateSchemaEntityOntologyInput {
+  id: String
+  key: String!
+  value: String!
+}
+
+input CreateSchemaInput {
+  entities: [CreateSchemaEntityInput!]!
+  id: String
+  name: String!
+  stage: Stage!
+}
+
+input CreateSchemaRelatedEntityInput {
+  id: String
+  name: String!
+  ontologies: [CreateSchemaEntityOntologyInput!]!
 }
 
 input CreateTenantInput {

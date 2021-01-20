@@ -101,7 +101,7 @@ model Key {
   stage        Stage      @default(DEV)
   keyType      KeyType
   name         String
-  description  String
+  description  String?
   isDrivingKey Boolean
   entity       Entity     @relation(fields: [entityId], references: [id])
   entityId     String
@@ -170,7 +170,7 @@ model ForeignKey {
   updatedAt       DateTime   @default(now()) @updatedAt
   stage           Stage      @default(DEV)
   name            String
-  description     String
+  description     String?
   relatedEntity   Entity     @relation(fields: [relatedEntityId], references: [id])
   relatedEntityId String
   relatedField    Field      @relation("EntityForeignKey_Fields_1toM_Fields", fields: [relatedFieldId], references: [id])
@@ -184,10 +184,10 @@ model Ontology {
   createdAt    DateTime    @default(now())
   updatedAt    DateTime    @default(now()) @updatedAt
   stage        Stage       @default(DEV)
-  name         String
+  name         String?
   key          String
   value        String
-  description  String
+  description  String?
   entity       Entity      @relation(fields: [entityId], references: [id])
   entityId     String
   Key          Key?        @relation(fields: [keyId], references: [id])
