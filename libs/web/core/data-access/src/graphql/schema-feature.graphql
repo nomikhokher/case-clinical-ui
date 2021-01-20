@@ -38,7 +38,7 @@ fragment ForeignKeyDetails on ForeignKey {
     ...FieldDetails
   }
   relatedEntity {
-    ...EntityDetails
+    ...EntitySummaryDetails
   }
 }
 
@@ -57,9 +57,20 @@ fragment EntityDetails on Entity {
   keywords
 }
 
+fragment EntitySummaryDetails on EntitySummary {
+  id
+  createdAt
+  updatedAt
+  name
+  description
+}
+
 mutation CreateSchema($tenantId: String!, $input: CreateSchemaInput!) {
   createSchema(tenantId: $tenantId, input: $input) {
     ...SchemaDetails
+    entities {
+      ...EntityDetails
+    }
   }
 }
 

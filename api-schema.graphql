@@ -129,6 +129,16 @@ type Entity {
   updatedAt: DateTime
 }
 
+type EntitySummary {
+  createdAt: DateTime
+  description: String
+  id: ID
+  name: String
+  publishedAt: DateTime
+  stage: Stage
+  updatedAt: DateTime
+}
+
 type Field {
   createdAt: DateTime
   dataType: DataType
@@ -169,7 +179,7 @@ type ForeignKey {
   id: ID
   name: String
   publishedAt: DateTime
-  relatedEntity: Entity
+  relatedEntity: EntitySummary
   relatedField: [Field!]
   stage: Stage
   updatedAt: DateTime

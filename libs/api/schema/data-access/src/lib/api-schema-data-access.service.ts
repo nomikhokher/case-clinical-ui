@@ -52,6 +52,7 @@ export class ApiSchemaDataAccessService {
         stage: input.stage,
         entities: formatEntities(input.stage, input.entities),
       },
+      include: { entities: true },
     })
   }
 

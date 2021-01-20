@@ -140,6 +140,17 @@ export type Entity = {
   updatedAt?: Maybe<Scalars['DateTime']>
 }
 
+export type EntitySummary = {
+  __typename?: 'EntitySummary'
+  createdAt?: Maybe<Scalars['DateTime']>
+  description?: Maybe<Scalars['String']>
+  id?: Maybe<Scalars['ID']>
+  name?: Maybe<Scalars['String']>
+  publishedAt?: Maybe<Scalars['DateTime']>
+  stage?: Maybe<Stage>
+  updatedAt?: Maybe<Scalars['DateTime']>
+}
+
 export type Field = {
   __typename?: 'Field'
   createdAt?: Maybe<Scalars['DateTime']>
@@ -182,7 +193,7 @@ export type ForeignKey = {
   id?: Maybe<Scalars['ID']>
   name?: Maybe<Scalars['String']>
   publishedAt?: Maybe<Scalars['DateTime']>
-  relatedEntity?: Maybe<Entity>
+  relatedEntity?: Maybe<EntitySummary>
   relatedField?: Maybe<Array<Field>>
   stage?: Maybe<Stage>
   updatedAt?: Maybe<Scalars['DateTime']>
@@ -548,7 +559,7 @@ export type OntologyDetailsFragment = { __typename?: 'Ontology' } & Pick<Ontolog
 
 export type ForeignKeyDetailsFragment = { __typename?: 'ForeignKey' } & Pick<ForeignKey, 'id' | 'name'> & {
     relatedField?: Maybe<Array<{ __typename?: 'Field' } & FieldDetailsFragment>>
-    relatedEntity?: Maybe<{ __typename?: 'Entity' } & EntityDetailsFragment>
+    relatedEntity?: Maybe<{ __typename?: 'EntitySummary' } & EntitySummaryDetailsFragment>
   }
 
 export type EntityDetailsFragment = { __typename?: 'Entity' } & Pick<
@@ -559,13 +570,22 @@ export type EntityDetailsFragment = { __typename?: 'Entity' } & Pick<
     fields?: Maybe<Array<{ __typename?: 'Field' } & FieldDetailsFragment>>
   }
 
+export type EntitySummaryDetailsFragment = { __typename?: 'EntitySummary' } & Pick<
+  EntitySummary,
+  'id' | 'createdAt' | 'updatedAt' | 'name' | 'description'
+>
+
 export type CreateSchemaMutationVariables = Exact<{
   tenantId: Scalars['String']
   input: CreateSchemaInput
 }>
 
 export type CreateSchemaMutation = { __typename?: 'Mutation' } & {
-  createSchema?: Maybe<{ __typename?: 'Schema' } & SchemaDetailsFragment>
+  createSchema?: Maybe<
+    { __typename?: 'Schema' } & {
+      entities?: Maybe<Array<{ __typename?: 'Entity' } & EntityDetailsFragment>>
+    } & SchemaDetailsFragment
+  >
 }
 
 export type SchemataQueryVariables = Exact<{
@@ -805,6 +825,29 @@ export const FieldDetails = gql`
     isNullable
   }
 `
+export const EntitySummaryDetails = gql`
+  fragment EntitySummaryDetails on EntitySummary {
+    id
+    createdAt
+    updatedAt
+    name
+    description
+  }
+`
+export const ForeignKeyDetails = gql`
+  fragment ForeignKeyDetails on ForeignKey {
+    id
+    name
+    relatedField {
+      ...FieldDetails
+    }
+    relatedEntity {
+      ...EntitySummaryDetails
+    }
+  }
+  ${FieldDetails}
+  ${EntitySummaryDetails}
+`
 export const KeyDetails = gql`
   fragment KeyDetails on Key {
     id
@@ -830,20 +873,6 @@ export const EntityDetails = gql`
   }
   ${KeyDetails}
   ${FieldDetails}
-`
-export const ForeignKeyDetails = gql`
-  fragment ForeignKeyDetails on ForeignKey {
-    id
-    name
-    relatedField {
-      ...FieldDetails
-    }
-    relatedEntity {
-      ...EntityDetails
-    }
-  }
-  ${FieldDetails}
-  ${EntityDetails}
 `
 export const TenantDetails = gql`
   fragment TenantDetails on Tenant {
@@ -915,9 +944,13 @@ export const CreateSchema = gql`
   mutation CreateSchema($tenantId: String!, $input: CreateSchemaInput!) {
     createSchema(tenantId: $tenantId, input: $input) {
       ...SchemaDetails
+      entities {
+        ...EntityDetails
+      }
     }
   }
   ${SchemaDetails}
+  ${EntityDetails}
 `
 export const Schemata = gql`
   query Schemata($tenantId: String!) {

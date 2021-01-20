@@ -1,10 +1,8 @@
 import { Field as GraphQLField, ID, ObjectType } from '@nestjs/graphql'
-import { EntitySummary } from './entity-summary.model'
-import { Field } from './field.model'
 import { Stage } from './stage.enum'
 
 @ObjectType()
-export class ForeignKey {
+export class EntitySummary {
   @GraphQLField(() => ID, { nullable: true })
   id?: string
 
@@ -25,15 +23,4 @@ export class ForeignKey {
 
   @GraphQLField({ nullable: true })
   description?: string
-
-  // Related fields
-  @GraphQLField(() => [Field], { nullable: true })
-  relatedField?: Field[]
-
-  @GraphQLField(() => EntitySummary, { nullable: true })
-  relatedEntity?: EntitySummary
-
-  // Handled by Resolve
-  ontologies
-  keywords
 }
