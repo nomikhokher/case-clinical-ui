@@ -2452,6 +2452,13 @@
     optional "0.1.4"
     tslib "2.1.0"
 
+"@ngneat/dialog@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@ngneat/dialog/-/dialog-1.4.0.tgz#d2d9818202be63208db25e2a805cc1aa02f9f6e8"
+  integrity sha512-yfCS+UlP4yIfVsGgoUIJK5ocKO/0o/xFuUhLikKQ4n/B2oDFRb8r9hG0n+fJuGfCak+CRDanZ+YBDJeTiI2lmw==
+  dependencies:
+    tslib "^1.10.0"
+
 "@ngneat/spectator@6.1.3":
   version "6.1.3"
   resolved "https://registry.yarnpkg.com/@ngneat/spectator/-/spectator-6.1.3.tgz#ffe081fa8ae72817ec11d1a97240ee10a482b8d3"

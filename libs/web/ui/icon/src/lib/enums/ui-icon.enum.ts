@@ -5,10 +5,12 @@ export enum UiIcon {
   euro = 'euro',
   github = 'github',
   key = 'key',
+  'menu' = 'menu',
   'minusCircle' = 'minusCircle',
   moon = 'moon',
   'plusCircle' = 'plusCircle',
   spinner = 'spinner',
   sun = 'sun',
+  table = 'table',
   trash = 'trash',
 }
