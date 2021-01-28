@@ -40,7 +40,7 @@
     "setup": "yarn nx workspace-generator workspace-setup",
     "start": "yarn prisma:db-push && node dist/apps/api/main.js",
     "test": "nx test",
-    "test:ci": "yarn prisma:apply && yarn e2e api-e2e",
+    "test:ci": "yarn prisma:apply && yarn prisma:seed --confirm && yarn e2e api-e2e",
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator"
   },
