@@ -1,23 +1,14 @@
-import { AppModule } from '@schema-driven/api-app-module'
-import { Test, TestingModule } from '@nestjs/testing'
 import { INestApplication } from '@nestjs/common'
 import * as request from 'supertest'
+import { getApp } from '../helpers/get-app'
 
 describe('CoreModule (e2e)', () => {
   let app: INestApplication
 
-  beforeEach(async () => {
-    const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [AppModule],
-    }).compile()
-
-    app = moduleFixture.createNestApplication()
-    await app.init()
+  beforeAll(async () => {
+    app = await getApp()
   })
-
-  afterEach(async () => {
-    return app.close()
-  })
+  afterAll(() => app.close())
 
   it('/graphql (POST)', () => {
     return request(app.getHttpServer())

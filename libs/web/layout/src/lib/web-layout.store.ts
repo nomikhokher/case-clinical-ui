@@ -23,7 +23,7 @@ export class WebLayoutStore extends ComponentStore<WebLayoutState> {
     super({
       theme: 'dark',
       logo: '/assets/images/logo.png',
-      footerHtml: `Copyright &copy; ${new Date().getFullYear()}`,
+      footerHtml: `Schema-Driven &copy; ${new Date().getFullYear()}`,
       links: [
         { label: 'Dashboard', route: '/dashboard' },
         { label: 'Schemata', route: '/schemata' },

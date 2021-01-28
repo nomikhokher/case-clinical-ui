@@ -22,7 +22,7 @@ function cookieExtractor(req: Request) {
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private readonly auth: ApiAuthDataAccessService) {
     super({
-      jwtFromRequest: cookieExtractor,
+      jwtFromRequest: headerAndCookieExtractor,
       secretOrKey: process.env.JWT_SECRET,
     })
   }

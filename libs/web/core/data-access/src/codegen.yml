@@ -3,6 +3,12 @@ schema: 'api-schema.graphql'
 documents:
   - 'libs/web/core/data-access/src/graphql/**/*.graphql'
 generates:
+  apps/api-e2e/src/generated/api-sdk.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-document-nodes'
+      - 'fragment-matcher'
   libs/web/core/data-access/src/generated/graphql.ts:
     config:
       sdkClass: true
