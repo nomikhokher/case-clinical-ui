@@ -1,2 +1,6 @@
 export * from './lib/admin-user-form/admin-user-form.module'
 export * from './lib/admin-user-table/admin-user-table.module'
+export * from './lib/admin-tenant-form/tenant-form.module'
+export * from './lib/admin-tenant-table/tenant-table.module'
+export * from './lib/admin-tenant-user-form/tenant-user-form.module'
+export * from './lib/admin-tenant-user-table/tenant-user-table.module'

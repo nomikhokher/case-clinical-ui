@@ -1,0 +1,28 @@
+import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { Tenant } from '@schema-driven/web/core/data-access'
+import { WebUiFormField } from '@schema-driven/web/ui/form'
+
+@Component({
+  selector: 'admin-tenant-form',
+  template: `
+    <div class="shadow overflow-hidden sm:rounded-lg">
+      <div class="bg-white px-6 py-4">
+        <ui-form #form [model]="tenant" [fields]="fields" (submitForm)="submitForm.emit($event)">
+          <button
+            *ngIf="form.form && fields.length"
+            [disabled]="!form?.form?.valid"
+            type="submit"
+            class="flex mx-auto bg-indigo-600 disabled:cursor-not-allowed disabled:opacity-50 justify-center px-12 py-2 border border-transparent shadow-sm text-lg font-medium rounded-md text-gray-300  hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Save
+          </button>
+        </ui-form>
+      </div>
+    </div>
+  `,
+})
+export class TenantFormComponent {
+  @Input() tenant: Tenant = {}
+  @Output() submitForm = new EventEmitter()
+  @Input() fields = [WebUiFormField.input('name', { label: 'Name', required: true })]
+}

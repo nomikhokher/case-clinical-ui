@@ -243,6 +243,48 @@
         }
       }
     },
+    "api-tenant-data-access": {
+      "root": "libs/api/tenant/data-access",
+      "sourceRoot": "libs/api/tenant/data-access/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api/tenant/data-access/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api/tenant/data-access"],
+          "options": {
+            "jestConfig": "libs/api/tenant/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-tenant-feature": {
+      "root": "libs/api/tenant/feature",
+      "sourceRoot": "libs/api/tenant/feature/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api/tenant/feature/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api/tenant/feature"],
+          "options": {
+            "jestConfig": "libs/api/tenant/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "api-user-data-access": {
       "root": "libs/api/user/data-access",
       "sourceRoot": "libs/api/user/data-access/src",

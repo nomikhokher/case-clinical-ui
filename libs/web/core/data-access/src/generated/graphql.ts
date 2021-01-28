@@ -39,12 +39,20 @@ export type AccountUpdateProfileInput = {
   phone?: Maybe<Scalars['String']>
 }
 
+export type AdminCreateTenantInput = {
+  name: Scalars['String']
+}
+
 export type AdminCreateUserInput = {
   email: Scalars['String']
   firstName?: Maybe<Scalars['String']>
   lastName?: Maybe<Scalars['String']>
   role: Role
   username?: Maybe<Scalars['String']>
+}
+
+export type AdminUpdateTenantInput = {
+  name?: Maybe<Scalars['String']>
 }
 
 export type AdminUpdateUserInput = {
@@ -74,6 +82,10 @@ export type CorePaging = {
 export type CorePagingInput = {
   limit?: Maybe<Scalars['Int']>
   skip?: Maybe<Scalars['Int']>
+}
+
+export type CreateTenantInput = {
+  name: Scalars['String']
 }
 
 export type Email = {
@@ -110,10 +122,17 @@ export type Mutation = {
   accountUpdatePassword?: Maybe<Scalars['Boolean']>
   accountUpdateProfile?: Maybe<User>
   accountUpdateUsername?: Maybe<User>
+  adminAddTenantUser?: Maybe<TenantUser>
+  adminCreateTenant?: Maybe<Tenant>
   adminCreateUser?: Maybe<User>
+  adminDeleteTenant?: Maybe<Tenant>
   adminDeleteUser?: Maybe<User>
+  adminRemoveTenantUser?: Maybe<TenantUser>
   adminSetUserPassword?: Maybe<User>
+  adminUpdateTenant?: Maybe<Tenant>
+  adminUpdateTenantUserRole?: Maybe<TenantUser>
   adminUpdateUser?: Maybe<User>
+  createTenant?: Maybe<Tenant>
   intercomPub?: Maybe<IntercomMessage>
   login?: Maybe<AuthToken>
   logout?: Maybe<Scalars['Boolean']>
@@ -152,12 +171,30 @@ export type MutationAccountUpdateUsernameArgs = {
   username: Scalars['String']
 }
 
+export type MutationAdminAddTenantUserArgs = {
+  role: TenantRole
+  tenantId: Scalars['String']
+  userId: Scalars['String']
+}
+
+export type MutationAdminCreateTenantArgs = {
+  input: AdminCreateTenantInput
+}
+
 export type MutationAdminCreateUserArgs = {
   input: AdminCreateUserInput
 }
 
+export type MutationAdminDeleteTenantArgs = {
+  tenantId: Scalars['String']
+}
+
 export type MutationAdminDeleteUserArgs = {
   userId: Scalars['String']
+}
+
+export type MutationAdminRemoveTenantUserArgs = {
+  tenantUserId: Scalars['String']
 }
 
 export type MutationAdminSetUserPasswordArgs = {
@@ -165,9 +202,23 @@ export type MutationAdminSetUserPasswordArgs = {
   userId: Scalars['String']
 }
 
+export type MutationAdminUpdateTenantArgs = {
+  input: AdminUpdateTenantInput
+  tenantId: Scalars['String']
+}
+
+export type MutationAdminUpdateTenantUserRoleArgs = {
+  role: TenantRole
+  tenantUserId: Scalars['String']
+}
+
 export type MutationAdminUpdateUserArgs = {
   input: AdminUpdateUserInput
   userId: Scalars['String']
+}
+
+export type MutationCreateTenantArgs = {
+  input: CreateTenantInput
 }
 
 export type MutationIntercomPubArgs = {
@@ -189,10 +240,16 @@ export type Query = {
   accountEmails?: Maybe<Array<Email>>
   accountProfile?: Maybe<User>
   accountUsernameAvailable?: Maybe<Scalars['Boolean']>
+  adminCountTenants?: Maybe<CorePaging>
   adminCountUsers?: Maybe<CorePaging>
+  adminTenant?: Maybe<Tenant>
+  adminTenants?: Maybe<Array<Tenant>>
   adminUser?: Maybe<User>
   adminUsers?: Maybe<Array<User>>
   me?: Maybe<User>
+  tenant?: Maybe<Tenant>
+  tenantRole?: Maybe<TenantRole>
+  tenants?: Maybe<Array<Tenant>>
   uptime?: Maybe<Scalars['Float']>
 }
 
@@ -200,7 +257,19 @@ export type QueryAccountUsernameAvailableArgs = {
   username: Scalars['String']
 }
 
+export type QueryAdminCountTenantsArgs = {
+  paging?: Maybe<CorePagingInput>
+}
+
 export type QueryAdminCountUsersArgs = {
+  paging?: Maybe<CorePagingInput>
+}
+
+export type QueryAdminTenantArgs = {
+  tenantId: Scalars['String']
+}
+
+export type QueryAdminTenantsArgs = {
   paging?: Maybe<CorePagingInput>
 }
 
@@ -210,6 +279,14 @@ export type QueryAdminUserArgs = {
 
 export type QueryAdminUsersArgs = {
   paging?: Maybe<CorePagingInput>
+}
+
+export type QueryTenantArgs = {
+  tenantId: Scalars['String']
+}
+
+export type QueryTenantRoleArgs = {
+  tenantId: Scalars['String']
 }
 
 export type RegisterInput = {
@@ -224,6 +301,7 @@ export type RegisterInput = {
 
 export enum Role {
   Admin = 'Admin',
+  SuperAdmin = 'SuperAdmin',
   User = 'User',
 }
 
@@ -235,6 +313,30 @@ export type Subscription = {
 export type SubscriptionIntercomSubArgs = {
   scope?: Maybe<Scalars['String']>
   type?: Maybe<Scalars['String']>
+}
+
+export type Tenant = {
+  __typename?: 'Tenant'
+  createdAt?: Maybe<Scalars['DateTime']>
+  id?: Maybe<Scalars['ID']>
+  name?: Maybe<Scalars['String']>
+  updatedAt?: Maybe<Scalars['DateTime']>
+  users?: Maybe<Array<TenantUser>>
+}
+
+export enum TenantRole {
+  Owner = 'Owner',
+  User = 'User',
+}
+
+export type TenantUser = {
+  __typename?: 'TenantUser'
+  createdAt?: Maybe<Scalars['DateTime']>
+  id?: Maybe<Scalars['ID']>
+  role?: Maybe<TenantRole>
+  tenant?: Maybe<Tenant>
+  updatedAt?: Maybe<Scalars['DateTime']>
+  user?: Maybe<User>
 }
 
 export type User = {
@@ -392,6 +494,114 @@ export type IntercomSubSubscription = { __typename?: 'Subscription' } & {
   intercomSub?: Maybe<{ __typename?: 'IntercomMessage' } & IntercomDetailsFragment>
 }
 
+export type TenantDetailsFragment = { __typename?: 'Tenant' } & Pick<Tenant, 'id' | 'createdAt' | 'updatedAt' | 'name'>
+
+export type TenantUserDetailsFragment = { __typename?: 'TenantUser' } & Pick<
+  TenantUser,
+  'id' | 'createdAt' | 'updatedAt' | 'role'
+>
+
+export type CreateTenantMutationVariables = Exact<{
+  input: CreateTenantInput
+}>
+
+export type CreateTenantMutation = { __typename?: 'Mutation' } & {
+  createTenant?: Maybe<{ __typename?: 'Tenant' } & TenantDetailsFragment>
+}
+
+export type TenantsQueryVariables = Exact<{ [key: string]: never }>
+
+export type TenantsQuery = { __typename?: 'Query' } & {
+  tenants?: Maybe<Array<{ __typename?: 'Tenant' } & TenantDetailsFragment>>
+}
+
+export type TenantQueryVariables = Exact<{
+  tenantId: Scalars['String']
+}>
+
+export type TenantQuery = { __typename?: 'Query' } & { role: Query['tenantRole'] } & {
+  tenant?: Maybe<{ __typename?: 'Tenant' } & TenantDetailsFragment>
+}
+
+export type AdminTenantsQueryVariables = Exact<{
+  paging?: Maybe<CorePagingInput>
+}>
+
+export type AdminTenantsQuery = { __typename?: 'Query' } & {
+  tenants?: Maybe<Array<{ __typename?: 'Tenant' } & TenantDetailsFragment>>
+  count?: Maybe<{ __typename?: 'CorePaging' } & CorePagingDetailsFragment>
+}
+
+export type AdminTenantQueryVariables = Exact<{
+  tenantId: Scalars['String']
+}>
+
+export type AdminTenantQuery = { __typename?: 'Query' } & {
+  adminTenant?: Maybe<
+    { __typename?: 'Tenant' } & {
+      users?: Maybe<
+        Array<
+          { __typename?: 'TenantUser' } & {
+            user?: Maybe<{ __typename?: 'User' } & UserDetailsFragment>
+          } & TenantUserDetailsFragment
+        >
+      >
+    } & TenantDetailsFragment
+  >
+}
+
+export type AdminCreateTenantMutationVariables = Exact<{
+  input: AdminCreateTenantInput
+}>
+
+export type AdminCreateTenantMutation = { __typename?: 'Mutation' } & {
+  adminCreateTenant?: Maybe<{ __typename?: 'Tenant' } & TenantDetailsFragment>
+}
+
+export type AdminUpdateTenantMutationVariables = Exact<{
+  tenantId: Scalars['String']
+  input: AdminUpdateTenantInput
+}>
+
+export type AdminUpdateTenantMutation = { __typename?: 'Mutation' } & {
+  adminUpdateTenant?: Maybe<{ __typename?: 'Tenant' } & TenantDetailsFragment>
+}
+
+export type AdminDeleteTenantMutationVariables = Exact<{
+  tenantId: Scalars['String']
+}>
+
+export type AdminDeleteTenantMutation = { __typename?: 'Mutation' } & {
+  adminDeleteTenant?: Maybe<{ __typename?: 'Tenant' } & TenantDetailsFragment>
+}
+
+export type AdminAddTenantUserMutationVariables = Exact<{
+  tenantId: Scalars['String']
+  userId: Scalars['String']
+  role: TenantRole
+}>
+
+export type AdminAddTenantUserMutation = { __typename?: 'Mutation' } & {
+  adminAddTenantUser?: Maybe<{ __typename?: 'TenantUser' } & TenantUserDetailsFragment>
+}
+
+export type AdminUpdateTenantUserRoleMutationVariables = Exact<{
+  tenantUserId: Scalars['String']
+  role: TenantRole
+}>
+
+export type AdminUpdateTenantUserRoleMutation = { __typename?: 'Mutation' } & {
+  adminUpdateTenantUserRole?: Maybe<{ __typename?: 'TenantUser' } & TenantUserDetailsFragment>
+}
+
+export type AdminRemoveTenantUserMutationVariables = Exact<{
+  tenantUserId: Scalars['String']
+}>
+
+export type AdminRemoveTenantUserMutation = { __typename?: 'Mutation' } & {
+  adminRemoveTenantUser?: Maybe<{ __typename?: 'TenantUser' } & TenantUserDetailsFragment>
+}
+
 export type UserDetailsFragment = { __typename?: 'User' } & Pick<
   User,
   'id' | 'firstName' | 'lastName' | 'name' | 'username' | 'avatarUrl' | 'email' | 'location' | 'phone' | 'bio' | 'role'
@@ -474,6 +684,22 @@ export const IntercomDetailsFragmentDoc = gql`
     type
     scope
     payload
+  }
+`
+export const TenantDetailsFragmentDoc = gql`
+  fragment TenantDetails on Tenant {
+    id
+    createdAt
+    updatedAt
+    name
+  }
+`
+export const TenantUserDetailsFragmentDoc = gql`
+  fragment TenantUserDetails on TenantUser {
+    id
+    createdAt
+    updatedAt
+    role
   }
 `
 export const UserDetailsFragmentDoc = gql`
@@ -863,6 +1089,246 @@ export class IntercomSubGQL extends Apollo.Subscription<IntercomSubSubscription,
     super(apollo)
   }
 }
+export const CreateTenantDocument = gql`
+  mutation CreateTenant($input: CreateTenantInput!) {
+    createTenant(input: $input) {
+      ...TenantDetails
+    }
+  }
+  ${TenantDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class CreateTenantGQL extends Apollo.Mutation<CreateTenantMutation, CreateTenantMutationVariables> {
+  document = CreateTenantDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const TenantsDocument = gql`
+  query Tenants {
+    tenants {
+      ...TenantDetails
+    }
+  }
+  ${TenantDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class TenantsGQL extends Apollo.Query<TenantsQuery, TenantsQueryVariables> {
+  document = TenantsDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const TenantDocument = gql`
+  query Tenant($tenantId: String!) {
+    tenant(tenantId: $tenantId) {
+      ...TenantDetails
+    }
+    role: tenantRole(tenantId: $tenantId)
+  }
+  ${TenantDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class TenantGQL extends Apollo.Query<TenantQuery, TenantQueryVariables> {
+  document = TenantDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const AdminTenantsDocument = gql`
+  query AdminTenants($paging: CorePagingInput) {
+    tenants: adminTenants(paging: $paging) {
+      ...TenantDetails
+    }
+    count: adminCountTenants(paging: $paging) {
+      ...CorePagingDetails
+    }
+  }
+  ${TenantDetailsFragmentDoc}
+  ${CorePagingDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AdminTenantsGQL extends Apollo.Query<AdminTenantsQuery, AdminTenantsQueryVariables> {
+  document = AdminTenantsDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const AdminTenantDocument = gql`
+  query AdminTenant($tenantId: String!) {
+    adminTenant(tenantId: $tenantId) {
+      ...TenantDetails
+      users {
+        ...TenantUserDetails
+        user {
+          ...UserDetails
+        }
+      }
+    }
+  }
+  ${TenantDetailsFragmentDoc}
+  ${TenantUserDetailsFragmentDoc}
+  ${UserDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AdminTenantGQL extends Apollo.Query<AdminTenantQuery, AdminTenantQueryVariables> {
+  document = AdminTenantDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const AdminCreateTenantDocument = gql`
+  mutation AdminCreateTenant($input: AdminCreateTenantInput!) {
+    adminCreateTenant(input: $input) {
+      ...TenantDetails
+    }
+  }
+  ${TenantDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AdminCreateTenantGQL extends Apollo.Mutation<
+  AdminCreateTenantMutation,
+  AdminCreateTenantMutationVariables
+> {
+  document = AdminCreateTenantDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const AdminUpdateTenantDocument = gql`
+  mutation AdminUpdateTenant($tenantId: String!, $input: AdminUpdateTenantInput!) {
+    adminUpdateTenant(tenantId: $tenantId, input: $input) {
+      ...TenantDetails
+    }
+  }
+  ${TenantDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AdminUpdateTenantGQL extends Apollo.Mutation<
+  AdminUpdateTenantMutation,
+  AdminUpdateTenantMutationVariables
+> {
+  document = AdminUpdateTenantDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const AdminDeleteTenantDocument = gql`
+  mutation AdminDeleteTenant($tenantId: String!) {
+    adminDeleteTenant(tenantId: $tenantId) {
+      ...TenantDetails
+    }
+  }
+  ${TenantDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AdminDeleteTenantGQL extends Apollo.Mutation<
+  AdminDeleteTenantMutation,
+  AdminDeleteTenantMutationVariables
+> {
+  document = AdminDeleteTenantDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const AdminAddTenantUserDocument = gql`
+  mutation AdminAddTenantUser($tenantId: String!, $userId: String!, $role: TenantRole!) {
+    adminAddTenantUser(tenantId: $tenantId, userId: $userId, role: $role) {
+      ...TenantUserDetails
+    }
+  }
+  ${TenantUserDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AdminAddTenantUserGQL extends Apollo.Mutation<
+  AdminAddTenantUserMutation,
+  AdminAddTenantUserMutationVariables
+> {
+  document = AdminAddTenantUserDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const AdminUpdateTenantUserRoleDocument = gql`
+  mutation AdminUpdateTenantUserRole($tenantUserId: String!, $role: TenantRole!) {
+    adminUpdateTenantUserRole(tenantUserId: $tenantUserId, role: $role) {
+      ...TenantUserDetails
+    }
+  }
+  ${TenantUserDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AdminUpdateTenantUserRoleGQL extends Apollo.Mutation<
+  AdminUpdateTenantUserRoleMutation,
+  AdminUpdateTenantUserRoleMutationVariables
+> {
+  document = AdminUpdateTenantUserRoleDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const AdminRemoveTenantUserDocument = gql`
+  mutation AdminRemoveTenantUser($tenantUserId: String!) {
+    adminRemoveTenantUser(tenantUserId: $tenantUserId) {
+      ...TenantUserDetails
+    }
+  }
+  ${TenantUserDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AdminRemoveTenantUserGQL extends Apollo.Mutation<
+  AdminRemoveTenantUserMutation,
+  AdminRemoveTenantUserMutationVariables
+> {
+  document = AdminRemoveTenantUserDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
 export const AdminUsersDocument = gql`
   query AdminUsers($paging: CorePagingInput) {
     users: adminUsers(paging: $paging) {
@@ -1020,6 +1486,17 @@ export class ApolloAngularSDK {
     private uptimeGql: UptimeGQL,
     private intercomPubGql: IntercomPubGQL,
     private intercomSubGql: IntercomSubGQL,
+    private createTenantGql: CreateTenantGQL,
+    private tenantsGql: TenantsGQL,
+    private tenantGql: TenantGQL,
+    private adminTenantsGql: AdminTenantsGQL,
+    private adminTenantGql: AdminTenantGQL,
+    private adminCreateTenantGql: AdminCreateTenantGQL,
+    private adminUpdateTenantGql: AdminUpdateTenantGQL,
+    private adminDeleteTenantGql: AdminDeleteTenantGQL,
+    private adminAddTenantUserGql: AdminAddTenantUserGQL,
+    private adminUpdateTenantUserRoleGql: AdminUpdateTenantUserRoleGQL,
+    private adminRemoveTenantUserGql: AdminRemoveTenantUserGQL,
     private adminUsersGql: AdminUsersGQL,
     private adminUserGql: AdminUserGQL,
     private adminCreateUserGql: AdminCreateUserGQL,
@@ -1163,6 +1640,90 @@ export class ApolloAngularSDK {
     options?: SubscriptionOptionsAlone<IntercomSubSubscriptionVariables>,
   ) {
     return this.intercomSubGql.subscribe(variables, options)
+  }
+
+  createTenant(
+    variables: CreateTenantMutationVariables,
+    options?: MutationOptionsAlone<CreateTenantMutation, CreateTenantMutationVariables>,
+  ) {
+    return this.createTenantGql.mutate(variables, options)
+  }
+
+  tenants(variables?: TenantsQueryVariables, options?: QueryOptionsAlone<TenantsQueryVariables>) {
+    return this.tenantsGql.fetch(variables, options)
+  }
+
+  tenantsWatch(variables?: TenantsQueryVariables, options?: WatchQueryOptionsAlone<TenantsQueryVariables>) {
+    return this.tenantsGql.watch(variables, options)
+  }
+
+  tenant(variables: TenantQueryVariables, options?: QueryOptionsAlone<TenantQueryVariables>) {
+    return this.tenantGql.fetch(variables, options)
+  }
+
+  tenantWatch(variables: TenantQueryVariables, options?: WatchQueryOptionsAlone<TenantQueryVariables>) {
+    return this.tenantGql.watch(variables, options)
+  }
+
+  adminTenants(variables?: AdminTenantsQueryVariables, options?: QueryOptionsAlone<AdminTenantsQueryVariables>) {
+    return this.adminTenantsGql.fetch(variables, options)
+  }
+
+  adminTenantsWatch(
+    variables?: AdminTenantsQueryVariables,
+    options?: WatchQueryOptionsAlone<AdminTenantsQueryVariables>,
+  ) {
+    return this.adminTenantsGql.watch(variables, options)
+  }
+
+  adminTenant(variables: AdminTenantQueryVariables, options?: QueryOptionsAlone<AdminTenantQueryVariables>) {
+    return this.adminTenantGql.fetch(variables, options)
+  }
+
+  adminTenantWatch(variables: AdminTenantQueryVariables, options?: WatchQueryOptionsAlone<AdminTenantQueryVariables>) {
+    return this.adminTenantGql.watch(variables, options)
+  }
+
+  adminCreateTenant(
+    variables: AdminCreateTenantMutationVariables,
+    options?: MutationOptionsAlone<AdminCreateTenantMutation, AdminCreateTenantMutationVariables>,
+  ) {
+    return this.adminCreateTenantGql.mutate(variables, options)
+  }
+
+  adminUpdateTenant(
+    variables: AdminUpdateTenantMutationVariables,
+    options?: MutationOptionsAlone<AdminUpdateTenantMutation, AdminUpdateTenantMutationVariables>,
+  ) {
+    return this.adminUpdateTenantGql.mutate(variables, options)
+  }
+
+  adminDeleteTenant(
+    variables: AdminDeleteTenantMutationVariables,
+    options?: MutationOptionsAlone<AdminDeleteTenantMutation, AdminDeleteTenantMutationVariables>,
+  ) {
+    return this.adminDeleteTenantGql.mutate(variables, options)
+  }
+
+  adminAddTenantUser(
+    variables: AdminAddTenantUserMutationVariables,
+    options?: MutationOptionsAlone<AdminAddTenantUserMutation, AdminAddTenantUserMutationVariables>,
+  ) {
+    return this.adminAddTenantUserGql.mutate(variables, options)
+  }
+
+  adminUpdateTenantUserRole(
+    variables: AdminUpdateTenantUserRoleMutationVariables,
+    options?: MutationOptionsAlone<AdminUpdateTenantUserRoleMutation, AdminUpdateTenantUserRoleMutationVariables>,
+  ) {
+    return this.adminUpdateTenantUserRoleGql.mutate(variables, options)
+  }
+
+  adminRemoveTenantUser(
+    variables: AdminRemoveTenantUserMutationVariables,
+    options?: MutationOptionsAlone<AdminRemoveTenantUserMutation, AdminRemoveTenantUserMutationVariables>,
+  ) {
+    return this.adminRemoveTenantUserGql.mutate(variables, options)
   }
 
   adminUsers(variables?: AdminUsersQueryVariables, options?: QueryOptionsAlone<AdminUsersQueryVariables>) {

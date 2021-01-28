@@ -24,6 +24,8 @@
       "@schema-driven/api/core/data-access": ["libs/api/core/data-access/src/index.ts"],
       "@schema-driven/api/core/feature": ["libs/api/core/feature/src/index.ts"],
       "@schema-driven/api/core/util": ["libs/api/core/util/src/index.ts"],
+      "@schema-driven/api/tenant/data-access": ["libs/api/tenant/data-access/src/index.ts"],
+      "@schema-driven/api/tenant/feature": ["libs/api/tenant/feature/src/index.ts"],
       "@schema-driven/api/user/data-access": ["libs/api/user/data-access/src/index.ts"],
       "@schema-driven/api/user/feature": ["libs/api/user/feature/src/index.ts"],
       "@schema-driven/web/about/feature": ["libs/web/about/feature/src/index.ts"],

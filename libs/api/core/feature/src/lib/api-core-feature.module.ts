@@ -1,11 +1,12 @@
 import { GraphQLIntercomModule } from '@kikstart-playground/graphql-intercom'
 import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
-import { PubSub } from 'graphql-subscriptions'
-import { join } from 'path'
 import { ApiAccountFeatureModule } from '@schema-driven/api/account/feature'
 import { ApiAuthFeatureModule } from '@schema-driven/api/auth/feature'
+import { ApiTenantFeatureModule } from '@schema-driven/api/tenant/feature'
 import { ApiUserFeatureModule } from '@schema-driven/api/user/feature'
+import { PubSub } from 'graphql-subscriptions'
+import { join } from 'path'
 
 import { ApiCoreFeatureController } from './api-core-feature.controller'
 import { ApiCoreFeatureResolver } from './api-core-feature.resolver'
@@ -27,6 +28,7 @@ import { ApiCoreFeatureService } from './api-core-feature.service'
     GraphQLIntercomModule.forRoot({ pubSub: new PubSub() }),
     ApiAccountFeatureModule,
     ApiAuthFeatureModule,
+    ApiTenantFeatureModule,
     ApiUserFeatureModule,
   ],
   controllers: [ApiCoreFeatureController],

@@ -35,5 +35,7 @@ module.exports = {
     '<rootDir>/libs/web/ui/page',
     '<rootDir>/libs/web/ui/page-header',
     '<rootDir>/libs/web/ui/sidebar-page',
+    '<rootDir>/libs/api/tenant/data-access',
+    '<rootDir>/libs/api/tenant/feature',
   ],
 }

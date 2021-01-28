@@ -19,6 +19,11 @@ import { WebAdminFeatureComponent } from './web-admin-feature.component'
             loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then((m) => m.AdminDashboardModule),
           },
           {
+            path: 'tenants',
+            loadChildren: () =>
+              import('./admin-tenant/admin-tenant-feature.module').then((m) => m.AdminTenantFeatureModule),
+          },
+          {
             path: 'users',
             loadChildren: () => import('./admin-user/admin-user-feature.module').then((m) => m.AdminUserFeatureModule),
           },

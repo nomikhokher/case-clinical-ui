@@ -22,12 +22,20 @@ input AccountUpdateProfileInput {
   phone: String
 }
 
+input AdminCreateTenantInput {
+  name: String!
+}
+
 input AdminCreateUserInput {
   email: String!
   firstName: String
   lastName: String
   role: Role!
   username: String
+}
+
+input AdminUpdateTenantInput {
+  name: String
 }
 
 input AdminUpdateUserInput {
@@ -55,6 +63,10 @@ type CorePaging {
 input CorePagingInput {
   limit: Int = 10
   skip: Int = 0
+}
+
+input CreateTenantInput {
+  name: String!
 }
 
 """
@@ -98,10 +110,17 @@ type Mutation {
   accountUpdatePassword(input: AccountUpdatePasswordInput!): Boolean
   accountUpdateProfile(input: AccountUpdateProfileInput!): User
   accountUpdateUsername(username: String!): User
+  adminAddTenantUser(role: TenantRole!, tenantId: String!, userId: String!): TenantUser
+  adminCreateTenant(input: AdminCreateTenantInput!): Tenant
   adminCreateUser(input: AdminCreateUserInput!): User
+  adminDeleteTenant(tenantId: String!): Tenant
   adminDeleteUser(userId: String!): User
+  adminRemoveTenantUser(tenantUserId: String!): TenantUser
   adminSetUserPassword(password: String!, userId: String!): User
+  adminUpdateTenant(input: AdminUpdateTenantInput!, tenantId: String!): Tenant
+  adminUpdateTenantUserRole(role: TenantRole!, tenantUserId: String!): TenantUser
   adminUpdateUser(input: AdminUpdateUserInput!, userId: String!): User
+  createTenant(input: CreateTenantInput!): Tenant
   intercomPub(payload: JSON, scope: String, type: String!): IntercomMessage
   login(input: LoginInput!): AuthToken
   logout: Boolean
@@ -112,10 +131,16 @@ type Query {
   accountEmails: [Email!]
   accountProfile: User
   accountUsernameAvailable(username: String!): Boolean
+  adminCountTenants(paging: CorePagingInput): CorePaging
   adminCountUsers(paging: CorePagingInput): CorePaging
+  adminTenant(tenantId: String!): Tenant
+  adminTenants(paging: CorePagingInput): [Tenant!]
   adminUser(userId: String!): User
   adminUsers(paging: CorePagingInput): [User!]
   me: User
+  tenant(tenantId: String!): Tenant
+  tenantRole(tenantId: String!): TenantRole
+  tenants: [Tenant!]
   uptime: Float
 }
 
@@ -131,11 +156,34 @@ input RegisterInput {
 
 enum Role {
   Admin
+  SuperAdmin
   User
 }
 
 type Subscription {
   intercomSub(scope: String, type: String): IntercomMessage
+}
+
+type Tenant {
+  createdAt: DateTime
+  id: ID
+  name: String
+  updatedAt: DateTime
+  users: [TenantUser!]
+}
+
+enum TenantRole {
+  Owner
+  User
+}
+
+type TenantUser {
+  createdAt: DateTime
+  id: ID
+  role: TenantRole
+  tenant: Tenant
+  updatedAt: DateTime
+  user: User
 }
 
 type User {
