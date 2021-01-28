@@ -243,6 +243,48 @@
         }
       }
     },
+    "api-schema-data-access": {
+      "root": "libs/api/schema/data-access",
+      "sourceRoot": "libs/api/schema/data-access/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api/schema/data-access/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api/schema/data-access"],
+          "options": {
+            "jestConfig": "libs/api/schema/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-schema-feature": {
+      "root": "libs/api/schema/feature",
+      "sourceRoot": "libs/api/schema/feature/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api/schema/feature/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api/schema/feature"],
+          "options": {
+            "jestConfig": "libs/api/schema/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "api-tenant-data-access": {
       "root": "libs/api/tenant/data-access",
       "sourceRoot": "libs/api/tenant/data-access/src",
@@ -717,6 +759,72 @@
           "outputs": ["coverage/libs/web/layout"],
           "options": {
             "jestConfig": "libs/web/layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-schema-data-access": {
+      "projectType": "library",
+      "root": "libs/web/schema/data-access",
+      "sourceRoot": "libs/web/schema/data-access/src",
+      "prefix": "schema-driven",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/schema/data-access/src/**/*.ts", "libs/web/schema/data-access/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/schema/data-access"],
+          "options": {
+            "jestConfig": "libs/web/schema/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-schema-feature": {
+      "projectType": "library",
+      "root": "libs/web/schema/feature",
+      "sourceRoot": "libs/web/schema/feature/src",
+      "prefix": "schema-driven",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/schema/feature/src/**/*.ts", "libs/web/schema/feature/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/schema/feature"],
+          "options": {
+            "jestConfig": "libs/web/schema/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-schema-ui": {
+      "projectType": "library",
+      "root": "libs/web/schema/ui",
+      "sourceRoot": "libs/web/schema/ui/src",
+      "prefix": "schema-driven",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/schema/ui/src/**/*.ts", "libs/web/schema/ui/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/schema/ui"],
+          "options": {
+            "jestConfig": "libs/web/schema/ui/jest.config.js",
             "passWithNoTests": true
           }
         }

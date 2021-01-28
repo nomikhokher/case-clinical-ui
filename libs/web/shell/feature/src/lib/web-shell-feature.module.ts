@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
-import { WebAuthDataAccessModule, IsLoggedInGuard } from '@schema-driven/web/auth/data-access'
+import { IsAdminGuard, IsLoggedInGuard, WebAuthDataAccessModule } from '@schema-driven/web/auth/data-access'
 import { WebLayoutComponent } from '@schema-driven/web/layout'
 
 const routes: Routes = [
@@ -22,11 +22,16 @@ const routes: Routes = [
       },
       {
         path: 'admin',
+        canActivate: [IsAdminGuard],
         loadChildren: () => import('@schema-driven/web/admin/feature').then((m) => m.WebAdminFeatureModule),
       },
       {
         path: 'dashboard',
         loadChildren: () => import('@schema-driven/web/dashboard/feature').then((m) => m.WebDashboardFeatureModule),
+      },
+      {
+        path: 'schemata',
+        loadChildren: () => import('@schema-driven/web/schema/feature').then((m) => m.WebSchemaFeatureModule),
       },
       {
         path: 'not-found',

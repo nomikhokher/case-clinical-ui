@@ -53,6 +53,12 @@
     "api-e2e": {
       "tags": []
     },
+    "api-schema-data-access": {
+      "tags": ["scope:api", "type:data-access"]
+    },
+    "api-schema-feature": {
+      "tags": ["scope:api", "type:feature"]
+    },
     "api-tenant-data-access": {
       "tags": ["scope:api", "type:data-access"]
     },
@@ -110,6 +116,15 @@
     },
     "web-layout": {
       "tags": ["scope:web", "type:layout"]
+    },
+    "web-schema-data-access": {
+      "tags": ["scope:web", "type:data-access"]
+    },
+    "web-schema-feature": {
+      "tags": ["scope:web", "type:feature"]
+    },
+    "web-schema-ui": {
+      "tags": ["scope:web", "type:feature"]
     },
     "web-shell-feature": {
       "tags": ["scope:web", "type:feature"]

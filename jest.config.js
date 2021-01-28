@@ -37,5 +37,10 @@ module.exports = {
     '<rootDir>/libs/web/ui/sidebar-page',
     '<rootDir>/libs/api/tenant/data-access',
     '<rootDir>/libs/api/tenant/feature',
+    '<rootDir>/libs/api/schema/data-access',
+    '<rootDir>/libs/api/schema/feature',
+    '<rootDir>/libs/web/schema/data-access',
+    '<rootDir>/libs/web/schema/feature',
+    '<rootDir>/libs/web/schema/ui',
   ],
 }

@@ -6,16 +6,11 @@ import { WebUiFormField } from '@schema-driven/web/ui/form'
   selector: 'admin-tenant-form',
   template: `
     <div class="shadow overflow-hidden sm:rounded-lg">
-      <div class="bg-white px-6 py-4">
+      <div class="bg-gray-50 dark:bg-gray-800 px-6 py-4">
         <ui-form #form [model]="tenant" [fields]="fields" (submitForm)="submitForm.emit($event)">
-          <button
-            *ngIf="form.form && fields.length"
-            [disabled]="!form?.form?.valid"
-            type="submit"
-            class="flex mx-auto bg-indigo-600 disabled:cursor-not-allowed disabled:opacity-50 justify-center px-12 py-2 border border-transparent shadow-sm text-lg font-medium rounded-md text-gray-300  hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            Save
-          </button>
+          <div class="text-right">
+            <ui-button type="submit" label="Save"> </ui-button>
+          </div>
         </ui-form>
       </div>
     </div>

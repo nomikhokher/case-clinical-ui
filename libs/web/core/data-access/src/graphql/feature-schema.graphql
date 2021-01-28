@@ -1,0 +1,90 @@
+fragment SchemaDetails on Schema {
+  id
+  createdAt
+  updatedAt
+  publishedAt
+  stage
+  name
+}
+
+fragment FieldDetails on Field {
+  id
+  createdAt
+  updatedAt
+  name
+  description
+  dataType
+  isName
+  isNullable
+}
+
+fragment KeyDetails on Key {
+  id
+  keyType
+  isDrivingKey
+  name
+}
+
+fragment OntologyDetails on Ontology {
+  id
+  key
+  value
+}
+
+fragment ForeignKeyDetails on ForeignKey {
+  id
+  name
+  relatedField {
+    ...FieldDetails
+  }
+  relatedEntity {
+    ...EntitySummaryDetails
+  }
+}
+
+fragment EntityDetails on Entity {
+  id
+  createdAt
+  updatedAt
+  name
+  description
+  keys {
+    ...KeyDetails
+  }
+  fields {
+    ...FieldDetails
+  }
+  keywords
+}
+
+fragment EntitySummaryDetails on EntitySummary {
+  id
+  createdAt
+  updatedAt
+  name
+  description
+}
+
+mutation CreateSchema($tenantId: String!, $input: CreateSchemaInput!) {
+  createSchema(tenantId: $tenantId, input: $input) {
+    ...SchemaDetails
+    entities {
+      ...EntityDetails
+    }
+  }
+}
+
+query Schemata($tenantId: String!) {
+  schemata(tenantId: $tenantId) {
+    ...SchemaDetails
+  }
+}
+
+query Schema($schemaId: String!) {
+  schema(schemaId: $schemaId) {
+    ...SchemaDetails
+    entities {
+      ...EntityDetails
+    }
+  }
+}

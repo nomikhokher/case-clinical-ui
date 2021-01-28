@@ -84,8 +84,71 @@ export type CorePagingInput = {
   skip?: Maybe<Scalars['Int']>
 }
 
+export type CreateSchemaEntityFieldInput = {
+  dataType: DataType
+  description: Scalars['String']
+  id?: Maybe<Scalars['String']>
+  isName: Scalars['Boolean']
+  isNullable: Scalars['Boolean']
+  name: Scalars['String']
+}
+
+export type CreateSchemaEntityForeignKeyInput = {
+  id?: Maybe<Scalars['String']>
+  name: Scalars['String']
+  relatedEntity: CreateSchemaRelatedEntityInput
+  relatedField: CreateSchemaEntityFieldInput
+}
+
+export type CreateSchemaEntityInput = {
+  description: Scalars['String']
+  fields: Array<CreateSchemaEntityFieldInput>
+  foreignKeys: Array<CreateSchemaEntityForeignKeyInput>
+  id?: Maybe<Scalars['String']>
+  keys: Array<CreateSchemaEntityKeyInput>
+  name: Scalars['String']
+  ontologies: Array<CreateSchemaEntityOntologyInput>
+}
+
+export type CreateSchemaEntityKeyInput = {
+  description: Scalars['String']
+  id?: Maybe<Scalars['String']>
+  isDrivingKey: Scalars['Boolean']
+  keyType: KeyType
+  name: Scalars['String']
+}
+
+export type CreateSchemaEntityOntologyInput = {
+  id?: Maybe<Scalars['String']>
+  key: Scalars['String']
+  value: Scalars['String']
+}
+
+export type CreateSchemaInput = {
+  entities?: Maybe<Array<CreateSchemaEntityInput>>
+  id?: Maybe<Scalars['String']>
+  name: Scalars['String']
+  stage?: Maybe<Stage>
+}
+
+export type CreateSchemaRelatedEntityInput = {
+  id?: Maybe<Scalars['String']>
+  name: Scalars['String']
+  ontologies: Array<CreateSchemaEntityOntologyInput>
+}
+
 export type CreateTenantInput = {
   name: Scalars['String']
+}
+
+export enum DataType {
+  Boolean = 'Boolean',
+  DateTime = 'DateTime',
+  Enumeration = 'Enumeration',
+  Float = 'Float',
+  Integer = 'Integer',
+  String = 'String',
+  Text = 'Text',
 }
 
 export type Email = {
@@ -99,11 +162,105 @@ export type Email = {
   verified?: Maybe<Scalars['Boolean']>
 }
 
+export type Entity = {
+  __typename?: 'Entity'
+  createdAt?: Maybe<Scalars['DateTime']>
+  description?: Maybe<Scalars['String']>
+  dynamicProperties?: Maybe<Scalars['JSON']>
+  fields?: Maybe<Array<Field>>
+  foreignKeys?: Maybe<Array<ForeignKey>>
+  id?: Maybe<Scalars['ID']>
+  keys?: Maybe<Array<Key>>
+  keywords?: Maybe<Array<Scalars['String']>>
+  name?: Maybe<Scalars['String']>
+  ontologies?: Maybe<Array<Ontology>>
+  publishedAt?: Maybe<Scalars['DateTime']>
+  stage?: Maybe<Stage>
+  updatedAt?: Maybe<Scalars['DateTime']>
+}
+
+export type EntitySummary = {
+  __typename?: 'EntitySummary'
+  createdAt?: Maybe<Scalars['DateTime']>
+  description?: Maybe<Scalars['String']>
+  id?: Maybe<Scalars['ID']>
+  name?: Maybe<Scalars['String']>
+  publishedAt?: Maybe<Scalars['DateTime']>
+  stage?: Maybe<Stage>
+  updatedAt?: Maybe<Scalars['DateTime']>
+}
+
+export type Field = {
+  __typename?: 'Field'
+  createdAt?: Maybe<Scalars['DateTime']>
+  dataType?: Maybe<DataType>
+  description?: Maybe<Scalars['String']>
+  id?: Maybe<Scalars['ID']>
+  isName?: Maybe<Scalars['Boolean']>
+  isNullable?: Maybe<Scalars['Boolean']>
+  keyType?: Maybe<FieldType>
+  name?: Maybe<Scalars['String']>
+  publishedAt?: Maybe<Scalars['DateTime']>
+  stage?: Maybe<Stage>
+  updatedAt?: Maybe<Scalars['DateTime']>
+}
+
+export enum FieldType {
+  Asset = 'Asset',
+  Boolean = 'Boolean',
+  Color = 'Color',
+  Date = 'Date',
+  DateTime = 'DateTime',
+  Dropdown = 'Dropdown',
+  Float = 'Float',
+  Json = 'Json',
+  Location = 'Location',
+  Markdown = 'Markdown',
+  MultiLineText = 'MultiLineText',
+  Number = 'Number',
+  Reference = 'Reference',
+  RichText = 'RichText',
+  SingleLineOfText = 'SingleLineOfText',
+  Slug = 'Slug',
+  Typeahead = 'Typeahead',
+}
+
+export type ForeignKey = {
+  __typename?: 'ForeignKey'
+  createdAt?: Maybe<Scalars['DateTime']>
+  description?: Maybe<Scalars['String']>
+  id?: Maybe<Scalars['ID']>
+  name?: Maybe<Scalars['String']>
+  publishedAt?: Maybe<Scalars['DateTime']>
+  relatedEntity?: Maybe<EntitySummary>
+  relatedField?: Maybe<Array<Field>>
+  stage?: Maybe<Stage>
+  updatedAt?: Maybe<Scalars['DateTime']>
+}
+
 export type IntercomMessage = {
   __typename?: 'IntercomMessage'
   payload?: Maybe<Scalars['JSON']>
   scope?: Maybe<Scalars['String']>
   type?: Maybe<Scalars['String']>
+}
+
+export type Key = {
+  __typename?: 'Key'
+  createdAt?: Maybe<Scalars['DateTime']>
+  description?: Maybe<Scalars['String']>
+  id?: Maybe<Scalars['ID']>
+  isDrivingKey?: Maybe<Scalars['Boolean']>
+  keyType?: Maybe<KeyType>
+  name?: Maybe<Scalars['String']>
+  stage?: Maybe<Stage>
+  updatedAt?: Maybe<Scalars['DateTime']>
+}
+
+export enum KeyType {
+  Composite = 'Composite',
+  Guid = 'Guid',
+  Int = 'Int',
 }
 
 export type LoginInput = {
@@ -132,11 +289,13 @@ export type Mutation = {
   adminUpdateTenant?: Maybe<Tenant>
   adminUpdateTenantUserRole?: Maybe<TenantUser>
   adminUpdateUser?: Maybe<User>
+  createSchema?: Maybe<Schema>
   createTenant?: Maybe<Tenant>
   intercomPub?: Maybe<IntercomMessage>
   login?: Maybe<AuthToken>
   logout?: Maybe<Scalars['Boolean']>
   register?: Maybe<AuthToken>
+  updateSchema?: Maybe<Schema>
 }
 
 export type MutationAccountCreateEmailArgs = {
@@ -217,6 +376,11 @@ export type MutationAdminUpdateUserArgs = {
   userId: Scalars['String']
 }
 
+export type MutationCreateSchemaArgs = {
+  input: CreateSchemaInput
+  tenantId: Scalars['String']
+}
+
 export type MutationCreateTenantArgs = {
   input: CreateTenantInput
 }
@@ -235,6 +399,23 @@ export type MutationRegisterArgs = {
   input: RegisterInput
 }
 
+export type MutationUpdateSchemaArgs = {
+  input: UpdateSchemaInput
+  schemaId: Scalars['String']
+}
+
+export type Ontology = {
+  __typename?: 'Ontology'
+  createdAt?: Maybe<Scalars['DateTime']>
+  description?: Maybe<Scalars['String']>
+  id?: Maybe<Scalars['ID']>
+  key?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
+  stage?: Maybe<Stage>
+  updatedAt?: Maybe<Scalars['DateTime']>
+  value?: Maybe<Scalars['String']>
+}
+
 export type Query = {
   __typename?: 'Query'
   accountEmails?: Maybe<Array<Email>>
@@ -247,6 +428,8 @@ export type Query = {
   adminUser?: Maybe<User>
   adminUsers?: Maybe<Array<User>>
   me?: Maybe<User>
+  schema?: Maybe<Schema>
+  schemata?: Maybe<Array<Schema>>
   tenant?: Maybe<Tenant>
   tenantRole?: Maybe<TenantRole>
   tenants?: Maybe<Array<Tenant>>
@@ -281,6 +464,14 @@ export type QueryAdminUsersArgs = {
   paging?: Maybe<CorePagingInput>
 }
 
+export type QuerySchemaArgs = {
+  schemaId: Scalars['String']
+}
+
+export type QuerySchemataArgs = {
+  tenantId: Scalars['String']
+}
+
 export type QueryTenantArgs = {
   tenantId: Scalars['String']
 }
@@ -303,6 +494,23 @@ export enum Role {
   Admin = 'Admin',
   SuperAdmin = 'SuperAdmin',
   User = 'User',
+}
+
+export type Schema = {
+  __typename?: 'Schema'
+  createdAt?: Maybe<Scalars['DateTime']>
+  entities?: Maybe<Array<Entity>>
+  id?: Maybe<Scalars['ID']>
+  name?: Maybe<Scalars['String']>
+  publishedAt?: Maybe<Scalars['DateTime']>
+  stage?: Maybe<Stage>
+  updatedAt?: Maybe<Scalars['DateTime']>
+}
+
+export enum Stage {
+  Dev = 'DEV',
+  Production = 'PRODUCTION',
+  Uat = 'UAT',
 }
 
 export type Subscription = {
@@ -337,6 +545,10 @@ export type TenantUser = {
   tenant?: Maybe<Tenant>
   updatedAt?: Maybe<Scalars['DateTime']>
   user?: Maybe<User>
+}
+
+export type UpdateSchemaInput = {
+  name: Scalars['String']
 }
 
 export type User = {
@@ -492,6 +704,71 @@ export type IntercomSubSubscriptionVariables = Exact<{ [key: string]: never }>
 
 export type IntercomSubSubscription = { __typename?: 'Subscription' } & {
   intercomSub?: Maybe<{ __typename?: 'IntercomMessage' } & IntercomDetailsFragment>
+}
+
+export type SchemaDetailsFragment = { __typename?: 'Schema' } & Pick<
+  Schema,
+  'id' | 'createdAt' | 'updatedAt' | 'publishedAt' | 'stage' | 'name'
+>
+
+export type FieldDetailsFragment = { __typename?: 'Field' } & Pick<
+  Field,
+  'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'dataType' | 'isName' | 'isNullable'
+>
+
+export type KeyDetailsFragment = { __typename?: 'Key' } & Pick<Key, 'id' | 'keyType' | 'isDrivingKey' | 'name'>
+
+export type OntologyDetailsFragment = { __typename?: 'Ontology' } & Pick<Ontology, 'id' | 'key' | 'value'>
+
+export type ForeignKeyDetailsFragment = { __typename?: 'ForeignKey' } & Pick<ForeignKey, 'id' | 'name'> & {
+    relatedField?: Maybe<Array<{ __typename?: 'Field' } & FieldDetailsFragment>>
+    relatedEntity?: Maybe<{ __typename?: 'EntitySummary' } & EntitySummaryDetailsFragment>
+  }
+
+export type EntityDetailsFragment = { __typename?: 'Entity' } & Pick<
+  Entity,
+  'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'keywords'
+> & {
+    keys?: Maybe<Array<{ __typename?: 'Key' } & KeyDetailsFragment>>
+    fields?: Maybe<Array<{ __typename?: 'Field' } & FieldDetailsFragment>>
+  }
+
+export type EntitySummaryDetailsFragment = { __typename?: 'EntitySummary' } & Pick<
+  EntitySummary,
+  'id' | 'createdAt' | 'updatedAt' | 'name' | 'description'
+>
+
+export type CreateSchemaMutationVariables = Exact<{
+  tenantId: Scalars['String']
+  input: CreateSchemaInput
+}>
+
+export type CreateSchemaMutation = { __typename?: 'Mutation' } & {
+  createSchema?: Maybe<
+    { __typename?: 'Schema' } & {
+      entities?: Maybe<Array<{ __typename?: 'Entity' } & EntityDetailsFragment>>
+    } & SchemaDetailsFragment
+  >
+}
+
+export type SchemataQueryVariables = Exact<{
+  tenantId: Scalars['String']
+}>
+
+export type SchemataQuery = { __typename?: 'Query' } & {
+  schemata?: Maybe<Array<{ __typename?: 'Schema' } & SchemaDetailsFragment>>
+}
+
+export type SchemaQueryVariables = Exact<{
+  schemaId: Scalars['String']
+}>
+
+export type SchemaQuery = { __typename?: 'Query' } & {
+  schema?: Maybe<
+    { __typename?: 'Schema' } & {
+      entities?: Maybe<Array<{ __typename?: 'Entity' } & EntityDetailsFragment>>
+    } & SchemaDetailsFragment
+  >
 }
 
 export type TenantDetailsFragment = { __typename?: 'Tenant' } & Pick<Tenant, 'id' | 'createdAt' | 'updatedAt' | 'name'>
@@ -685,6 +962,84 @@ export const IntercomDetailsFragmentDoc = gql`
     scope
     payload
   }
+`
+export const SchemaDetailsFragmentDoc = gql`
+  fragment SchemaDetails on Schema {
+    id
+    createdAt
+    updatedAt
+    publishedAt
+    stage
+    name
+  }
+`
+export const OntologyDetailsFragmentDoc = gql`
+  fragment OntologyDetails on Ontology {
+    id
+    key
+    value
+  }
+`
+export const FieldDetailsFragmentDoc = gql`
+  fragment FieldDetails on Field {
+    id
+    createdAt
+    updatedAt
+    name
+    description
+    dataType
+    isName
+    isNullable
+  }
+`
+export const EntitySummaryDetailsFragmentDoc = gql`
+  fragment EntitySummaryDetails on EntitySummary {
+    id
+    createdAt
+    updatedAt
+    name
+    description
+  }
+`
+export const ForeignKeyDetailsFragmentDoc = gql`
+  fragment ForeignKeyDetails on ForeignKey {
+    id
+    name
+    relatedField {
+      ...FieldDetails
+    }
+    relatedEntity {
+      ...EntitySummaryDetails
+    }
+  }
+  ${FieldDetailsFragmentDoc}
+  ${EntitySummaryDetailsFragmentDoc}
+`
+export const KeyDetailsFragmentDoc = gql`
+  fragment KeyDetails on Key {
+    id
+    keyType
+    isDrivingKey
+    name
+  }
+`
+export const EntityDetailsFragmentDoc = gql`
+  fragment EntityDetails on Entity {
+    id
+    createdAt
+    updatedAt
+    name
+    description
+    keys {
+      ...KeyDetails
+    }
+    fields {
+      ...FieldDetails
+    }
+    keywords
+  }
+  ${KeyDetailsFragmentDoc}
+  ${FieldDetailsFragmentDoc}
 `
 export const TenantDetailsFragmentDoc = gql`
   fragment TenantDetails on Tenant {
@@ -1089,6 +1444,71 @@ export class IntercomSubGQL extends Apollo.Subscription<IntercomSubSubscription,
     super(apollo)
   }
 }
+export const CreateSchemaDocument = gql`
+  mutation CreateSchema($tenantId: String!, $input: CreateSchemaInput!) {
+    createSchema(tenantId: $tenantId, input: $input) {
+      ...SchemaDetails
+      entities {
+        ...EntityDetails
+      }
+    }
+  }
+  ${SchemaDetailsFragmentDoc}
+  ${EntityDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class CreateSchemaGQL extends Apollo.Mutation<CreateSchemaMutation, CreateSchemaMutationVariables> {
+  document = CreateSchemaDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const SchemataDocument = gql`
+  query Schemata($tenantId: String!) {
+    schemata(tenantId: $tenantId) {
+      ...SchemaDetails
+    }
+  }
+  ${SchemaDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class SchemataGQL extends Apollo.Query<SchemataQuery, SchemataQueryVariables> {
+  document = SchemataDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const SchemaDocument = gql`
+  query Schema($schemaId: String!) {
+    schema(schemaId: $schemaId) {
+      ...SchemaDetails
+      entities {
+        ...EntityDetails
+      }
+    }
+  }
+  ${SchemaDetailsFragmentDoc}
+  ${EntityDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class SchemaGQL extends Apollo.Query<SchemaQuery, SchemaQueryVariables> {
+  document = SchemaDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
 export const CreateTenantDocument = gql`
   mutation CreateTenant($input: CreateTenantInput!) {
     createTenant(input: $input) {
@@ -1486,6 +1906,9 @@ export class ApolloAngularSDK {
     private uptimeGql: UptimeGQL,
     private intercomPubGql: IntercomPubGQL,
     private intercomSubGql: IntercomSubGQL,
+    private createSchemaGql: CreateSchemaGQL,
+    private schemataGql: SchemataGQL,
+    private schemaGql: SchemaGQL,
     private createTenantGql: CreateTenantGQL,
     private tenantsGql: TenantsGQL,
     private tenantGql: TenantGQL,
@@ -1640,6 +2063,29 @@ export class ApolloAngularSDK {
     options?: SubscriptionOptionsAlone<IntercomSubSubscriptionVariables>,
   ) {
     return this.intercomSubGql.subscribe(variables, options)
+  }
+
+  createSchema(
+    variables: CreateSchemaMutationVariables,
+    options?: MutationOptionsAlone<CreateSchemaMutation, CreateSchemaMutationVariables>,
+  ) {
+    return this.createSchemaGql.mutate(variables, options)
+  }
+
+  schemata(variables: SchemataQueryVariables, options?: QueryOptionsAlone<SchemataQueryVariables>) {
+    return this.schemataGql.fetch(variables, options)
+  }
+
+  schemataWatch(variables: SchemataQueryVariables, options?: WatchQueryOptionsAlone<SchemataQueryVariables>) {
+    return this.schemataGql.watch(variables, options)
+  }
+
+  schema(variables: SchemaQueryVariables, options?: QueryOptionsAlone<SchemaQueryVariables>) {
+    return this.schemaGql.fetch(variables, options)
+  }
+
+  schemaWatch(variables: SchemaQueryVariables, options?: WatchQueryOptionsAlone<SchemaQueryVariables>) {
+    return this.schemaGql.watch(variables, options)
   }
 
   createTenant(

@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
 import { ApiAccountFeatureModule } from '@schema-driven/api/account/feature'
 import { ApiAuthFeatureModule } from '@schema-driven/api/auth/feature'
+import { ApiSchemaFeatureModule } from '@schema-driven/api/schema/feature'
 import { ApiTenantFeatureModule } from '@schema-driven/api/tenant/feature'
 import { ApiUserFeatureModule } from '@schema-driven/api/user/feature'
 import { PubSub } from 'graphql-subscriptions'
@@ -28,6 +29,7 @@ import { ApiCoreFeatureService } from './api-core-feature.service'
     GraphQLIntercomModule.forRoot({ pubSub: new PubSub() }),
     ApiAccountFeatureModule,
     ApiAuthFeatureModule,
+    ApiSchemaFeatureModule,
     ApiTenantFeatureModule,
     ApiUserFeatureModule,
   ],
