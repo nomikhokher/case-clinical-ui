@@ -4,7 +4,12 @@ import { Args, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { CtxUser, GqlAuthGuard } from '@schema-driven/api/auth/util'
 import {
   ApiSchemaDataAccessService,
+  CreateSchemaEntityFieldInput,
+  CreateSchemaEntityInput,
   CreateSchemaInput,
+  Entity,
+  Field,
+  FieldDataType,
   Schema,
   UpdateSchemaInput,
 } from '@schema-driven/api/schema/data-access'
@@ -25,6 +30,11 @@ export class ApiSchemaFeatureResolver {
     return this.data.schema(user.id, schemaId)
   }
 
+  @Query(() => [FieldDataType], { nullable: true })
+  fieldDataTypes() {
+    return this.data.fieldDataTypes()
+  }
+
   @Mutation(() => Schema, { nullable: true })
   createSchema(@CtxUser() user: User, @Args('tenantId') tenantId: string, @Args('input') input: CreateSchemaInput) {
     return this.data.createSchema(user.id, tenantId, input)
@@ -33,5 +43,23 @@ export class ApiSchemaFeatureResolver {
   @Mutation(() => Schema, { nullable: true })
   updateSchema(@CtxUser() user: User, @Args('schemaId') schemaId: string, @Args('input') input: UpdateSchemaInput) {
     return this.data.updateSchema(user.id, schemaId, input)
+  }
+
+  @Mutation(() => Entity, { nullable: true })
+  createSchemaEntity(
+    @CtxUser() user: User,
+    @Args('schemaId') schemaId: string,
+    @Args('input') input: CreateSchemaEntityInput,
+  ) {
+    return this.data.createSchemaEntity(user.id, schemaId, input)
+  }
+
+  @Mutation(() => Field, { nullable: true })
+  createEntityField(
+    @CtxUser() user: User,
+    @Args('entityId') entityId: string,
+    @Args('input') input: CreateSchemaEntityFieldInput,
+  ) {
+    return this.data.createEntityField(user.id, entityId, input)
   }
 }

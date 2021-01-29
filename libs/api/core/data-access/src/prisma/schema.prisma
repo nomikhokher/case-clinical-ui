@@ -99,8 +99,8 @@ model Entity {
   publishedAt       DateTime?
   stage             Stage        @default(DEV)
   name              String
-  description       String
-  dynamicProperties Json
+  description       String?
+  dynamicProperties Json?
   schema            Schema       @relation(fields: [schemaId], references: [id])
   schemaId          String
   keys              Key[]
@@ -140,8 +140,8 @@ model Field {
   fieldType   FieldType    @default(SingleLineOfText)
   dataType    DataType
   name        String
-  description String
-  isName      Boolean
+  description String?
+  isName      Boolean      @default(false)
   isNullable  Boolean      @default(true)
   entity      Entity       @relation(fields: [entityId], references: [id])
   entityId    String

@@ -12,18 +12,18 @@ export class CreateSchemaEntityInput {
   @Field()
   name: string
 
-  @Field()
-  description: string
+  @Field({ nullable: true })
+  description?: string
 
-  @Field(() => [CreateSchemaEntityFieldInput])
-  fields: CreateSchemaEntityFieldInput[]
+  @Field(() => [CreateSchemaEntityFieldInput], { nullable: true })
+  fields?: CreateSchemaEntityFieldInput[]
 
-  @Field(() => [CreateSchemaEntityKeyInput])
-  keys: CreateSchemaEntityKeyInput[]
+  @Field(() => [CreateSchemaEntityKeyInput], { nullable: true })
+  keys?: CreateSchemaEntityKeyInput[]
 
-  @Field(() => [CreateSchemaEntityOntologyInput])
-  ontologies: CreateSchemaEntityOntologyInput[]
+  @Field(() => [CreateSchemaEntityOntologyInput], { nullable: true })
+  ontologies?: CreateSchemaEntityOntologyInput[]
 
-  @Field(() => [CreateSchemaEntityForeignKeyInput])
-  foreignKeys: CreateSchemaEntityForeignKeyInput[]
+  @Field(() => [CreateSchemaEntityForeignKeyInput], { nullable: true })
+  foreignKeys?: CreateSchemaEntityForeignKeyInput[]
 }

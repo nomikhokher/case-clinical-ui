@@ -1,19 +1,20 @@
 import { Component, Input } from '@angular/core'
-import { DataType, Field } from '@schema-driven/web/core/data-access'
+import { DataType, FieldType } from '@schema-driven/web/core/data-access'
 
 @Component({
   selector: 'entity-field-icon',
   template: `
-    <div [class]="classes" [title]="field?.dataType">
+    <div [class]="classes" [title]="field">
       {{ label }}
     </div>
   `,
 })
 export class EntityFieldIconComponent {
-  @Input() field: Field
+  @Input() data: DataType
+  @Input() field: FieldType
 
   getColor() {
-    switch (this.field.dataType) {
+    switch (this.data) {
       case DataType.Boolean:
         return 'bg-yellow-300 text-yellow-700'
       case DataType.DateTime:
@@ -29,10 +30,38 @@ export class EntityFieldIconComponent {
     }
   }
 
+  get label() {
+    switch (this.field) {
+      case FieldType.Boolean:
+        return 'BO'
+      case FieldType.DateTime:
+        return 'DT'
+      case FieldType.SingleLineOfText:
+        return 'SL'
+      case FieldType.MultiLineText:
+        return 'ML'
+      case FieldType.Float:
+        return 'FT'
+      default:
+        return this.field?.slice(0, 1) || '?'
+    }
+  }
+
   get classes() {
     return `h-10 w-10 text-xl rounded flex items-center justify-center ${this.getColor()}`
   }
-  get label() {
-    return this.field?.dataType?.slice(0, 1) || '?'
-  }
 }
+
+//
+// { data: DataType.String, field: FieldType.SingleLineOfText },
+// { data: DataType.String, field: FieldType.MultiLineText },
+// { data: DataType.String, field: FieldType.Markdown },
+// { data: DataType.String, field: FieldType.Slug },
+// { data: DataType.Text, field: FieldType.RichText },
+// { data: DataType.Integer, field: FieldType.Number },
+// { data: DataType.Float, field: FieldType.Float },
+// { data: DataType.Boolean, field: FieldType.Boolean },
+// // We have no DataType.Date
+// { data: DataType.DateTime, field: FieldType.DateTime },
+// // We have no DataType.Json
+// { data: DataType.Enumeration, field: FieldType.Dropdown },

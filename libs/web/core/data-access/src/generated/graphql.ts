@@ -86,10 +86,10 @@ export type CorePagingInput = {
 
 export type CreateSchemaEntityFieldInput = {
   dataType: DataType
-  description: Scalars['String']
+  description?: Maybe<Scalars['String']>
   id?: Maybe<Scalars['String']>
-  isName: Scalars['Boolean']
-  isNullable: Scalars['Boolean']
+  isName?: Maybe<Scalars['Boolean']>
+  isNullable?: Maybe<Scalars['Boolean']>
   name: Scalars['String']
 }
 
@@ -101,13 +101,13 @@ export type CreateSchemaEntityForeignKeyInput = {
 }
 
 export type CreateSchemaEntityInput = {
-  description: Scalars['String']
-  fields: Array<CreateSchemaEntityFieldInput>
-  foreignKeys: Array<CreateSchemaEntityForeignKeyInput>
+  description?: Maybe<Scalars['String']>
+  fields?: Maybe<Array<CreateSchemaEntityFieldInput>>
+  foreignKeys?: Maybe<Array<CreateSchemaEntityForeignKeyInput>>
   id?: Maybe<Scalars['String']>
-  keys: Array<CreateSchemaEntityKeyInput>
+  keys?: Maybe<Array<CreateSchemaEntityKeyInput>>
   name: Scalars['String']
-  ontologies: Array<CreateSchemaEntityOntologyInput>
+  ontologies?: Maybe<Array<CreateSchemaEntityOntologyInput>>
 }
 
 export type CreateSchemaEntityKeyInput = {
@@ -205,6 +205,15 @@ export type Field = {
   updatedAt?: Maybe<Scalars['DateTime']>
 }
 
+export type FieldDataType = {
+  __typename?: 'FieldDataType'
+  data?: Maybe<DataType>
+  description?: Maybe<Scalars['String']>
+  field?: Maybe<FieldType>
+  id?: Maybe<Scalars['ID']>
+  name?: Maybe<Scalars['String']>
+}
+
 export enum FieldType {
   Asset = 'Asset',
   Boolean = 'Boolean',
@@ -289,7 +298,9 @@ export type Mutation = {
   adminUpdateTenant?: Maybe<Tenant>
   adminUpdateTenantUserRole?: Maybe<TenantUser>
   adminUpdateUser?: Maybe<User>
+  createEntityField?: Maybe<Field>
   createSchema?: Maybe<Schema>
+  createSchemaEntity?: Maybe<Entity>
   createTenant?: Maybe<Tenant>
   intercomPub?: Maybe<IntercomMessage>
   login?: Maybe<AuthToken>
@@ -376,9 +387,19 @@ export type MutationAdminUpdateUserArgs = {
   userId: Scalars['String']
 }
 
+export type MutationCreateEntityFieldArgs = {
+  entityId: Scalars['String']
+  input: CreateSchemaEntityFieldInput
+}
+
 export type MutationCreateSchemaArgs = {
   input: CreateSchemaInput
   tenantId: Scalars['String']
+}
+
+export type MutationCreateSchemaEntityArgs = {
+  input: CreateSchemaEntityInput
+  schemaId: Scalars['String']
 }
 
 export type MutationCreateTenantArgs = {
@@ -427,6 +448,7 @@ export type Query = {
   adminTenants?: Maybe<Array<Tenant>>
   adminUser?: Maybe<User>
   adminUsers?: Maybe<Array<User>>
+  fieldDataTypes?: Maybe<Array<FieldDataType>>
   me?: Maybe<User>
   schema?: Maybe<Schema>
   schemata?: Maybe<Array<Schema>>
@@ -738,19 +760,6 @@ export type EntitySummaryDetailsFragment = { __typename?: 'EntitySummary' } & Pi
   'id' | 'createdAt' | 'updatedAt' | 'name' | 'description'
 >
 
-export type CreateSchemaMutationVariables = Exact<{
-  tenantId: Scalars['String']
-  input: CreateSchemaInput
-}>
-
-export type CreateSchemaMutation = { __typename?: 'Mutation' } & {
-  createSchema?: Maybe<
-    { __typename?: 'Schema' } & {
-      entities?: Maybe<Array<{ __typename?: 'Entity' } & EntityDetailsFragment>>
-    } & SchemaDetailsFragment
-  >
-}
-
 export type SchemataQueryVariables = Exact<{
   tenantId: Scalars['String']
 }>
@@ -769,6 +778,45 @@ export type SchemaQuery = { __typename?: 'Query' } & {
       entities?: Maybe<Array<{ __typename?: 'Entity' } & EntityDetailsFragment>>
     } & SchemaDetailsFragment
   >
+}
+
+export type FieldDataTypesQueryVariables = Exact<{ [key: string]: never }>
+
+export type FieldDataTypesQuery = { __typename?: 'Query' } & {
+  fieldDataTypes?: Maybe<
+    Array<{ __typename?: 'FieldDataType' } & Pick<FieldDataType, 'id' | 'data' | 'field' | 'name' | 'description'>>
+  >
+}
+
+export type CreateSchemaMutationVariables = Exact<{
+  tenantId: Scalars['String']
+  input: CreateSchemaInput
+}>
+
+export type CreateSchemaMutation = { __typename?: 'Mutation' } & {
+  createSchema?: Maybe<
+    { __typename?: 'Schema' } & {
+      entities?: Maybe<Array<{ __typename?: 'Entity' } & EntityDetailsFragment>>
+    } & SchemaDetailsFragment
+  >
+}
+
+export type CreateSchemaEntityMutationVariables = Exact<{
+  schemaId: Scalars['String']
+  input: CreateSchemaEntityInput
+}>
+
+export type CreateSchemaEntityMutation = { __typename?: 'Mutation' } & {
+  createSchemaEntity?: Maybe<{ __typename?: 'Entity' } & EntityDetailsFragment>
+}
+
+export type CreateEntityFieldMutationVariables = Exact<{
+  entityId: Scalars['String']
+  input: CreateSchemaEntityFieldInput
+}>
+
+export type CreateEntityFieldMutation = { __typename?: 'Mutation' } & {
+  createEntityField?: Maybe<{ __typename?: 'Field' } & FieldDetailsFragment>
 }
 
 export type TenantDetailsFragment = { __typename?: 'Tenant' } & Pick<Tenant, 'id' | 'createdAt' | 'updatedAt' | 'name'>
@@ -1444,29 +1492,6 @@ export class IntercomSubGQL extends Apollo.Subscription<IntercomSubSubscription,
     super(apollo)
   }
 }
-export const CreateSchemaDocument = gql`
-  mutation CreateSchema($tenantId: String!, $input: CreateSchemaInput!) {
-    createSchema(tenantId: $tenantId, input: $input) {
-      ...SchemaDetails
-      entities {
-        ...EntityDetails
-      }
-    }
-  }
-  ${SchemaDetailsFragmentDoc}
-  ${EntityDetailsFragmentDoc}
-`
-
-@Injectable({
-  providedIn: 'root',
-})
-export class CreateSchemaGQL extends Apollo.Mutation<CreateSchemaMutation, CreateSchemaMutationVariables> {
-  document = CreateSchemaDocument
-
-  constructor(apollo: Apollo.Apollo) {
-    super(apollo)
-  }
-}
 export const SchemataDocument = gql`
   query Schemata($tenantId: String!) {
     schemata(tenantId: $tenantId) {
@@ -1504,6 +1529,95 @@ export const SchemaDocument = gql`
 })
 export class SchemaGQL extends Apollo.Query<SchemaQuery, SchemaQueryVariables> {
   document = SchemaDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const FieldDataTypesDocument = gql`
+  query FieldDataTypes {
+    fieldDataTypes {
+      id
+      data
+      field
+      name
+      description
+    }
+  }
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class FieldDataTypesGQL extends Apollo.Query<FieldDataTypesQuery, FieldDataTypesQueryVariables> {
+  document = FieldDataTypesDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const CreateSchemaDocument = gql`
+  mutation CreateSchema($tenantId: String!, $input: CreateSchemaInput!) {
+    createSchema(tenantId: $tenantId, input: $input) {
+      ...SchemaDetails
+      entities {
+        ...EntityDetails
+      }
+    }
+  }
+  ${SchemaDetailsFragmentDoc}
+  ${EntityDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class CreateSchemaGQL extends Apollo.Mutation<CreateSchemaMutation, CreateSchemaMutationVariables> {
+  document = CreateSchemaDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const CreateSchemaEntityDocument = gql`
+  mutation CreateSchemaEntity($schemaId: String!, $input: CreateSchemaEntityInput!) {
+    createSchemaEntity(schemaId: $schemaId, input: $input) {
+      ...EntityDetails
+    }
+  }
+  ${EntityDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class CreateSchemaEntityGQL extends Apollo.Mutation<
+  CreateSchemaEntityMutation,
+  CreateSchemaEntityMutationVariables
+> {
+  document = CreateSchemaEntityDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const CreateEntityFieldDocument = gql`
+  mutation CreateEntityField($entityId: String!, $input: CreateSchemaEntityFieldInput!) {
+    createEntityField(entityId: $entityId, input: $input) {
+      ...FieldDetails
+    }
+  }
+  ${FieldDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class CreateEntityFieldGQL extends Apollo.Mutation<
+  CreateEntityFieldMutation,
+  CreateEntityFieldMutationVariables
+> {
+  document = CreateEntityFieldDocument
 
   constructor(apollo: Apollo.Apollo) {
     super(apollo)
@@ -1906,9 +2020,12 @@ export class ApolloAngularSDK {
     private uptimeGql: UptimeGQL,
     private intercomPubGql: IntercomPubGQL,
     private intercomSubGql: IntercomSubGQL,
-    private createSchemaGql: CreateSchemaGQL,
     private schemataGql: SchemataGQL,
     private schemaGql: SchemaGQL,
+    private fieldDataTypesGql: FieldDataTypesGQL,
+    private createSchemaGql: CreateSchemaGQL,
+    private createSchemaEntityGql: CreateSchemaEntityGQL,
+    private createEntityFieldGql: CreateEntityFieldGQL,
     private createTenantGql: CreateTenantGQL,
     private tenantsGql: TenantsGQL,
     private tenantGql: TenantGQL,
@@ -2065,13 +2182,6 @@ export class ApolloAngularSDK {
     return this.intercomSubGql.subscribe(variables, options)
   }
 
-  createSchema(
-    variables: CreateSchemaMutationVariables,
-    options?: MutationOptionsAlone<CreateSchemaMutation, CreateSchemaMutationVariables>,
-  ) {
-    return this.createSchemaGql.mutate(variables, options)
-  }
-
   schemata(variables: SchemataQueryVariables, options?: QueryOptionsAlone<SchemataQueryVariables>) {
     return this.schemataGql.fetch(variables, options)
   }
@@ -2086,6 +2196,38 @@ export class ApolloAngularSDK {
 
   schemaWatch(variables: SchemaQueryVariables, options?: WatchQueryOptionsAlone<SchemaQueryVariables>) {
     return this.schemaGql.watch(variables, options)
+  }
+
+  fieldDataTypes(variables?: FieldDataTypesQueryVariables, options?: QueryOptionsAlone<FieldDataTypesQueryVariables>) {
+    return this.fieldDataTypesGql.fetch(variables, options)
+  }
+
+  fieldDataTypesWatch(
+    variables?: FieldDataTypesQueryVariables,
+    options?: WatchQueryOptionsAlone<FieldDataTypesQueryVariables>,
+  ) {
+    return this.fieldDataTypesGql.watch(variables, options)
+  }
+
+  createSchema(
+    variables: CreateSchemaMutationVariables,
+    options?: MutationOptionsAlone<CreateSchemaMutation, CreateSchemaMutationVariables>,
+  ) {
+    return this.createSchemaGql.mutate(variables, options)
+  }
+
+  createSchemaEntity(
+    variables: CreateSchemaEntityMutationVariables,
+    options?: MutationOptionsAlone<CreateSchemaEntityMutation, CreateSchemaEntityMutationVariables>,
+  ) {
+    return this.createSchemaEntityGql.mutate(variables, options)
+  }
+
+  createEntityField(
+    variables: CreateEntityFieldMutationVariables,
+    options?: MutationOptionsAlone<CreateEntityFieldMutation, CreateEntityFieldMutationVariables>,
+  ) {
+    return this.createEntityFieldGql.mutate(variables, options)
   }
 
   createTenant(

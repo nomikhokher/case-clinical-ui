@@ -1,5 +1,6 @@
 import { Component, TemplateRef } from '@angular/core'
 import { DialogService } from '@ngneat/dialog'
+import { CreateSchemaEntityInput, DataType, FieldType, KeyType } from '@schema-driven/web/core/data-access'
 import { SchemaDetailStore } from './schema-detail.store'
 
 @Component({
@@ -51,14 +52,12 @@ import { SchemaDetailStore } from './schema-detail.store'
     </ng-container>
 
     <ng-template #modalTpl let-ref>
-      <div class="p-2 pt-10 flex-grow flex">
-        <div class="flex-grow flex flex-col">
-          <div class="flex-grow">
-            <div class="text-gray-500">TBD: Add Entity Form</div>
-          </div>
-          <div class="text-right">
+      <div class="flex-grow flex flex-col">
+        <div class="text-lg font-semibold tracking-wider px-4 py-3">Add Entity</div>
+        <div class="flex-grow">
+          <entity-form (submitForm)="submitForm($event); ref.close()">
             <ui-button (click)="ref.close()" label="Close"></ui-button>
-          </div>
+          </entity-form>
         </div>
       </div>
     </ng-template>
@@ -72,5 +71,13 @@ export class SchemaDetailComponent {
 
   openDialog(tpl: TemplateRef<any>) {
     this.dialog.open(tpl)
+  }
+
+  submitForm(input: CreateSchemaEntityInput) {
+    this.store.createSchemaEntityEffect(input)
+  }
+
+  selectType(type: string) {
+    console.log(type)
   }
 }
