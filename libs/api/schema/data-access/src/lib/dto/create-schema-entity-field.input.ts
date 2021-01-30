@@ -9,15 +9,15 @@ export class CreateSchemaEntityFieldInput {
   @Field()
   name: string
 
-  @Field()
-  description: string
+  @Field({ nullable: true })
+  description?: string
 
   @Field(() => DataType)
   dataType: DataType
 
-  @Field()
-  isName: boolean
+  @Field({ nullable: true })
+  isName?: boolean
 
-  @Field()
-  isNullable: boolean
+  @Field({ nullable: true })
+  isNullable?: boolean
 }

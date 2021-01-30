@@ -67,10 +67,10 @@ input CorePagingInput {
 
 input CreateSchemaEntityFieldInput {
   dataType: DataType!
-  description: String!
+  description: String
   id: String
-  isName: Boolean!
-  isNullable: Boolean!
+  isName: Boolean
+  isNullable: Boolean
   name: String!
 }
 
@@ -82,13 +82,13 @@ input CreateSchemaEntityForeignKeyInput {
 }
 
 input CreateSchemaEntityInput {
-  description: String!
-  fields: [CreateSchemaEntityFieldInput!]!
-  foreignKeys: [CreateSchemaEntityForeignKeyInput!]!
+  description: String
+  fields: [CreateSchemaEntityFieldInput!]
+  foreignKeys: [CreateSchemaEntityForeignKeyInput!]
   id: String
-  keys: [CreateSchemaEntityKeyInput!]!
+  keys: [CreateSchemaEntityKeyInput!]
   name: String!
-  ontologies: [CreateSchemaEntityOntologyInput!]!
+  ontologies: [CreateSchemaEntityOntologyInput!]
 }
 
 input CreateSchemaEntityKeyInput {
@@ -187,6 +187,14 @@ type Field {
   updatedAt: DateTime
 }
 
+type FieldDataType {
+  data: DataType
+  description: String
+  field: FieldType
+  id: ID
+  name: String
+}
+
 enum FieldType {
   Asset
   Boolean
@@ -272,7 +280,9 @@ type Mutation {
   adminUpdateTenant(input: AdminUpdateTenantInput!, tenantId: String!): Tenant
   adminUpdateTenantUserRole(role: TenantRole!, tenantUserId: String!): TenantUser
   adminUpdateUser(input: AdminUpdateUserInput!, userId: String!): User
+  createEntityField(entityId: String!, input: CreateSchemaEntityFieldInput!): Field
   createSchema(input: CreateSchemaInput!, tenantId: String!): Schema
+  createSchemaEntity(input: CreateSchemaEntityInput!, schemaId: String!): Entity
   createTenant(input: CreateTenantInput!): Tenant
   intercomPub(payload: JSON, scope: String, type: String!): IntercomMessage
   login(input: LoginInput!): AuthToken
@@ -302,6 +312,7 @@ type Query {
   adminTenants(paging: CorePagingInput): [Tenant!]
   adminUser(userId: String!): User
   adminUsers(paging: CorePagingInput): [User!]
+  fieldDataTypes: [FieldDataType!]
   me: User
   schema(schemaId: String!): Schema
   schemata(tenantId: String!): [Schema!]

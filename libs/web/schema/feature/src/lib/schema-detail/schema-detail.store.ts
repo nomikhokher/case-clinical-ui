@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { ApolloAngularSDK, Schema } from '@schema-driven/web/core/data-access'
 import { ComponentStore, tapResponse } from '@ngrx/component-store'
-import { pluck, switchMap, tap } from 'rxjs/operators'
+import { ApolloAngularSDK, CreateSchemaEntityInput, Schema } from '@schema-driven/web/core/data-access'
+import { pluck, switchMap, tap, withLatestFrom } from 'rxjs/operators'
 
 export interface SchemaDetailState {
   errors?: any
@@ -33,6 +33,20 @@ export class SchemaDetailStore extends ComponentStore<SchemaDetailState> {
         this.sdk.schema({ schemaId }).pipe(
           tapResponse(
             (res) => this.patchState({ schema: res.data.schema, errors: res.errors, loading: false }),
+            (errors) => this.patchState({ errors }),
+          ),
+        ),
+      ),
+    ),
+  )
+
+  readonly createSchemaEntityEffect = this.effect<CreateSchemaEntityInput>((input$) =>
+    input$.pipe(
+      withLatestFrom(this.schema$),
+      switchMap(([input, schema]) =>
+        this.sdk.createSchemaEntity({ schemaId: schema.id, input }).pipe(
+          tapResponse(
+            () => this.loadSchemaEffect(schema.id),
             (errors) => this.patchState({ errors }),
           ),
         ),

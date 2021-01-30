@@ -1,14 +1,21 @@
-import { ApiCoreDataAccessService } from '@schema-driven/api/core/data-access'
+import { addWarning } from '@angular-devkit/build-angular/src/utils/webpack-diagnostics'
 import { Injectable, UnauthorizedException } from '@nestjs/common'
 import { Prisma } from '@prisma/client'
+import { ApiCoreDataAccessService } from '@schema-driven/api/core/data-access'
 import { formatEntities } from './api-schema-data-access.helper'
+import { CreateSchemaEntityFieldInput } from './dto/create-schema-entity-field.input'
+import { CreateSchemaEntityInput } from './dto/create-schema-entity.input'
 import { CreateSchemaInput } from './dto/create-schema.input'
 import { UpdateSchemaInput } from './dto/update-schema.input'
+import { DataType } from './models/data-type.enum'
+import { FieldDataType } from './models/field-data-type.model'
+import { FieldType } from './models/field-type.enum'
 
 @Injectable()
 export class ApiSchemaDataAccessService {
   private readonly schemaInclude: Prisma.SchemaInclude = {
     entities: {
+      orderBy: { name: 'asc' },
       include: {
         keys: true,
         fields: true,
@@ -27,6 +34,73 @@ export class ApiSchemaDataAccessService {
     },
   }
   constructor(private readonly data: ApiCoreDataAccessService) {}
+
+  fieldDataTypes(): FieldDataType[] {
+    return [
+      {
+        data: DataType.String,
+        field: FieldType.SingleLineOfText,
+        name: 'Single line text',
+        description: 'Headings and titles',
+      },
+      {
+        data: DataType.String,
+        field: FieldType.MultiLineText,
+        name: 'Multi line text',
+        description: 'Description',
+      },
+      {
+        data: DataType.String,
+        field: FieldType.Markdown,
+        name: 'Markdown',
+        description: 'Markdown editor',
+      },
+      {
+        data: DataType.String,
+        field: FieldType.Slug,
+        name: 'Slug',
+        description: 'URL friendly identifier',
+      },
+      {
+        data: DataType.Text,
+        field: FieldType.RichText,
+        name: 'Rich text',
+        description: 'Text editor with formatting',
+      },
+      {
+        data: DataType.Integer,
+        field: FieldType.Number,
+        name: 'Number',
+        description: 'ID, quantity, etc',
+      },
+      {
+        data: DataType.Float,
+        field: FieldType.Float,
+        name: 'Float',
+        description: 'Ratings, price, etc',
+      },
+      {
+        data: DataType.Boolean,
+        field: FieldType.Boolean,
+        name: 'Boolean',
+        description: 'True or false',
+      },
+      // We have no DataType.Date
+      {
+        data: DataType.DateTime,
+        field: FieldType.DateTime,
+        name: 'Date and time',
+        description: 'Calendar date picker w/ time',
+      },
+      // We have no DataType.Json
+      {
+        data: DataType.Enumeration,
+        field: FieldType.Dropdown,
+        name: 'Dropdown',
+        description: 'Dropdown list of values',
+      },
+    ].map((item) => ({ ...item, id: `${item.data}_${item.field}` }))
+  }
 
   schemata(userId: string, tenantId: string) {
     return this.data.schema.findMany({
@@ -61,6 +135,33 @@ export class ApiSchemaDataAccessService {
     return this.data.schema.update({
       where: { id: schemaId },
       data: { name: input.name },
+    })
+  }
+
+  async createSchemaEntity(userId: string, schemaId: string, input: CreateSchemaEntityInput) {
+    await this.ensureSchemaAccess(userId, schemaId)
+    return this.data.entity.create({
+      data: {
+        schemaId,
+        name: input.name,
+        description: input.description,
+        dynamicProperties: {},
+      },
+    })
+  }
+
+  async createEntityField(userId: string, entityId: string, input: CreateSchemaEntityFieldInput) {
+    const schema = await this.data.entity.findUnique({ where: { id: entityId } }).schema()
+    await this.ensureSchemaAccess(userId, schema.id)
+    return this.data.field.create({
+      data: {
+        entityId,
+        name: input.name,
+        description: input.description,
+        dataType: input.dataType,
+        isName: input.isName,
+        isNullable: input.isNullable,
+      },
     })
   }
 

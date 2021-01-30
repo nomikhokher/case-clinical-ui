@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core'
 import { Tenant } from '@schema-driven/web/core/data-access'
 
 @Component({
-  selector: 'select-tenant-list',
+  selector: 'tenant-select-list',
   template: `
     <div class="grid  grid-cols-3 gap-6">
       <ng-container *ngFor="let tenant of tenants">

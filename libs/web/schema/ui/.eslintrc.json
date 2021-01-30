@@ -9,11 +9,11 @@
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
-          { "type": "attribute", "prefix": "schema-driven", "style": "camelCase" }
+          { "type": "attribute", "prefix": ["entity", "field", "schema", "tenant"], "style": "camelCase" }
         ],
         "@angular-eslint/component-selector": [
           "error",
-          { "type": "element", "prefix": "schema-driven", "style": "kebab-case" }
+          { "type": "element", "prefix": ["entity", "field", "schema", "tenant"], "style": "kebab-case" }
         ]
       }
     },

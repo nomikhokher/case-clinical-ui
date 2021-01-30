@@ -65,15 +65,6 @@ fragment EntitySummaryDetails on EntitySummary {
   description
 }
 
-mutation CreateSchema($tenantId: String!, $input: CreateSchemaInput!) {
-  createSchema(tenantId: $tenantId, input: $input) {
-    ...SchemaDetails
-    entities {
-      ...EntityDetails
-    }
-  }
-}
-
 query Schemata($tenantId: String!) {
   schemata(tenantId: $tenantId) {
     ...SchemaDetails
@@ -86,5 +77,36 @@ query Schema($schemaId: String!) {
     entities {
       ...EntityDetails
     }
+  }
+}
+
+query FieldDataTypes {
+  fieldDataTypes {
+    id
+    data
+    field
+    name
+    description
+  }
+}
+
+mutation CreateSchema($tenantId: String!, $input: CreateSchemaInput!) {
+  createSchema(tenantId: $tenantId, input: $input) {
+    ...SchemaDetails
+    entities {
+      ...EntityDetails
+    }
+  }
+}
+
+mutation CreateSchemaEntity($schemaId: String!, $input: CreateSchemaEntityInput!) {
+  createSchemaEntity(schemaId: $schemaId, input: $input) {
+    ...EntityDetails
+  }
+}
+
+mutation CreateEntityField($entityId: String!, $input: CreateSchemaEntityFieldInput!) {
+  createEntityField(entityId: $entityId, input: $input) {
+    ...FieldDetails
   }
 }

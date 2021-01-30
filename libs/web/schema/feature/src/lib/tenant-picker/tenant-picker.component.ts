@@ -9,7 +9,7 @@ import { TenantPickerStore } from './tenant-picker.store'
         <div class="flex py-36 animate-pulse justify-center align-center">LOADING...</div>
       </ng-container>
       <ng-container *ngIf="!vm.loading">
-        <select-tenant-list [tenants]="vm.tenants"></select-tenant-list>
+        <tenant-select-list [tenants]="vm.tenants"></tenant-select-list>
       </ng-container>
     </ng-container>
   `,

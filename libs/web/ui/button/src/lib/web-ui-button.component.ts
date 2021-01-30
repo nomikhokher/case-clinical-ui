@@ -20,9 +20,24 @@ export class WebUiButtonComponent {
   @Input() disabled?: boolean
   @Input() label: string
   @Input() type = 'button'
+  @Input() color: 'indigo' | 'gray' | 'red' = 'indigo'
   @Output() click = new EventEmitter()
 
+  getColor() {
+    const color = (name) =>
+      `text-${name}-300 bg-${name}-800 border-${name}-600 hover:bg-${name}-800  focus:ring-${name}-500`
+    switch (this.color) {
+      case 'indigo':
+        return color('indigo')
+      case 'red':
+        return color('red')
+      case 'gray':
+      default:
+        return color('gray')
+    }
+  }
+
   get classes(): string {
-    return 'inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-300 bg-indigo-900 border-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+    return `inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium  disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-offset-2 ${this.getColor()}`
   }
 }
