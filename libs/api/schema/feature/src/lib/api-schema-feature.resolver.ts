@@ -11,9 +11,11 @@ import {
   Field,
   FieldDataType,
   Schema,
+  UpdateSchemaEntityFieldInput,
   UpdateSchemaInput,
 } from '@schema-driven/api/schema/data-access'
 import { User } from '@schema-driven/api/user/data-access'
+import { UpdateSchemaEntityInput } from '../../../data-access/src/lib/dto/update-schema-entity.input'
 
 @Resolver()
 @UseGuards(GqlAuthGuard)
@@ -54,6 +56,15 @@ export class ApiSchemaFeatureResolver {
     return this.data.createSchemaEntity(user.id, schemaId, input)
   }
 
+  @Mutation(() => Entity, { nullable: true })
+  updateSchemaEntity(
+    @CtxUser() user: User,
+    @Args('entityId') entityId: string,
+    @Args('input') input: UpdateSchemaEntityInput,
+  ) {
+    return this.data.updateSchemaEntity(user.id, entityId, input)
+  }
+
   @Mutation(() => Field, { nullable: true })
   createEntityField(
     @CtxUser() user: User,
@@ -61,5 +72,19 @@ export class ApiSchemaFeatureResolver {
     @Args('input') input: CreateSchemaEntityFieldInput,
   ) {
     return this.data.createEntityField(user.id, entityId, input)
+  }
+
+  @Mutation(() => Field, { nullable: true })
+  updateEntityField(
+    @CtxUser() user: User,
+    @Args('fieldId') fieldId: string,
+    @Args('input') input: UpdateSchemaEntityFieldInput,
+  ) {
+    return this.data.updateEntityField(user.id, fieldId, input)
+  }
+
+  @Mutation(() => Field, { nullable: true })
+  deleteEntityField(@CtxUser() user: User, @Args('fieldId') fieldId: string) {
+    return this.data.deleteEntityField(user.id, fieldId)
   }
 }
