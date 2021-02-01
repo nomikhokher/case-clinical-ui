@@ -1,4 +1,3 @@
-import { addWarning } from '@angular-devkit/build-angular/src/utils/webpack-diagnostics'
 import { Injectable, UnauthorizedException } from '@nestjs/common'
 import { Prisma } from '@prisma/client'
 import { ApiCoreDataAccessService } from '@schema-driven/api/core/data-access'
@@ -6,6 +5,7 @@ import { formatEntities } from './api-schema-data-access.helper'
 import { CreateSchemaEntityFieldInput } from './dto/create-schema-entity-field.input'
 import { CreateSchemaEntityInput } from './dto/create-schema-entity.input'
 import { CreateSchemaInput } from './dto/create-schema.input'
+import { UpdateSchemaEntityFieldInput } from './dto/update-schema-entity-field.input'
 import { UpdateSchemaInput } from './dto/update-schema.input'
 import { DataType } from './models/data-type.enum'
 import { FieldDataType } from './models/field-data-type.model'
@@ -18,7 +18,7 @@ export class ApiSchemaDataAccessService {
       orderBy: { name: 'asc' },
       include: {
         keys: true,
-        fields: true,
+        fields: { orderBy: { id: 'asc' } },
         foreignKeys: {
           include: {
             relatedEntity: {
@@ -150,6 +150,18 @@ export class ApiSchemaDataAccessService {
     })
   }
 
+  async updateSchemaEntity(userId: string, entityId: string, input: UpdateSchemaEntityFieldInput) {
+    const schema = await this.data.entity.findUnique({ where: { id: entityId } }).schema()
+    await this.ensureSchemaAccess(userId, schema.id)
+    return this.data.entity.update({
+      where: { id: entityId },
+      data: {
+        name: input.name,
+        description: input.description,
+      },
+    })
+  }
+
   async createEntityField(userId: string, entityId: string, input: CreateSchemaEntityFieldInput) {
     const schema = await this.data.entity.findUnique({ where: { id: entityId } }).schema()
     await this.ensureSchemaAccess(userId, schema.id)
@@ -163,6 +175,34 @@ export class ApiSchemaDataAccessService {
         isNullable: input.isNullable,
       },
     })
+  }
+
+  async updateEntityField(userId: string, fieldId: string, input: UpdateSchemaEntityFieldInput) {
+    const schema = await this.data.field
+      .findUnique({ where: { id: fieldId } })
+      .entity()
+      .schema()
+    await this.ensureSchemaAccess(userId, schema.id)
+
+    return this.data.field.update({
+      where: { id: fieldId },
+      data: {
+        name: input.name,
+        description: input.description,
+        isName: input.isName,
+        isNullable: input.isNullable,
+      },
+    })
+  }
+
+  async deleteEntityField(userId: string, fieldId: string) {
+    const schema = await this.data.field
+      .findUnique({ where: { id: fieldId } })
+      .entity()
+      .schema()
+    await this.ensureSchemaAccess(userId, schema.id)
+
+    return this.data.field.delete({ where: { id: fieldId } })
   }
 
   private async ensureSchemaAccess(userId: string, schemaId: string): Promise<boolean> {

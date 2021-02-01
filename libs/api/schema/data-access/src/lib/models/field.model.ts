@@ -21,7 +21,7 @@ export class Field {
   stage?: Stage
 
   @GraphQLField(() => FieldType, { nullable: true })
-  keyType?: FieldType
+  fieldType?: FieldType
 
   @GraphQLField(() => DataType, { nullable: true })
   dataType?: DataType

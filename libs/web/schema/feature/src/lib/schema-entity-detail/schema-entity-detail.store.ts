@@ -5,7 +5,9 @@ import {
   ApolloAngularSDK,
   CreateSchemaEntityFieldInput,
   Entity,
+  Field,
   FieldDataType,
+  UpdateSchemaEntityFieldInput,
 } from '@schema-driven/web/core/data-access'
 import { pluck, switchMap, tap, withLatestFrom } from 'rxjs/operators'
 import { SchemaDetailStore } from '../schema-detail/schema-detail.store'
@@ -73,6 +75,34 @@ export class SchemaEntityDetailStore extends ComponentStore<SchemaEntityDetailSt
       withLatestFrom(this.entity$),
       switchMap(([input, entity]) =>
         this.sdk.createEntityField({ entityId: entity.id, input }).pipe(
+          withLatestFrom(this.schema$),
+          tapResponse(
+            ([_, schema]) => this.schema.loadSchemaEffect(schema.id),
+            (errors) => this.patchState({ errors }),
+          ),
+        ),
+      ),
+    ),
+  )
+
+  readonly updateSchemaEntityFieldEffect = this.effect<[string, UpdateSchemaEntityFieldInput]>((input$) =>
+    input$.pipe(
+      switchMap(([fieldId, input]) =>
+        this.sdk.updateEntityField({ fieldId, input }).pipe(
+          withLatestFrom(this.schema$),
+          tapResponse(
+            ([_, schema]) => this.schema.loadSchemaEffect(schema.id),
+            (errors) => this.patchState({ errors }),
+          ),
+        ),
+      ),
+    ),
+  )
+
+  readonly deleteSchemaEntityFieldEffect = this.effect<Field>((field$) =>
+    field$.pipe(
+      switchMap((field) =>
+        this.sdk.deleteEntityField({ fieldId: field.id }).pipe(
           withLatestFrom(this.schema$),
           tapResponse(
             ([_, schema]) => this.schema.loadSchemaEffect(schema.id),

@@ -14,6 +14,7 @@ fragment FieldDetails on Field {
   name
   description
   dataType
+  fieldType
   isName
   isNullable
 }
@@ -105,8 +106,26 @@ mutation CreateSchemaEntity($schemaId: String!, $input: CreateSchemaEntityInput!
   }
 }
 
+mutation UpdateSchemaEntity($entityId: String!, $input: UpdateSchemaEntityInput!) {
+  updateSchemaEntity(entityId: $entityId, input: $input) {
+    ...EntityDetails
+  }
+}
+
 mutation CreateEntityField($entityId: String!, $input: CreateSchemaEntityFieldInput!) {
   createEntityField(entityId: $entityId, input: $input) {
+    ...FieldDetails
+  }
+}
+
+mutation UpdateEntityField($fieldId: String!, $input: UpdateSchemaEntityFieldInput!) {
+  updateEntityField(fieldId: $fieldId, input: $input) {
+    ...FieldDetails
+  }
+}
+
+mutation DeleteEntityField($fieldId: String!) {
+  deleteEntityField(fieldId: $fieldId) {
     ...FieldDetails
   }
 }

@@ -195,10 +195,10 @@ export type Field = {
   createdAt?: Maybe<Scalars['DateTime']>
   dataType?: Maybe<DataType>
   description?: Maybe<Scalars['String']>
+  fieldType?: Maybe<FieldType>
   id?: Maybe<Scalars['ID']>
   isName?: Maybe<Scalars['Boolean']>
   isNullable?: Maybe<Scalars['Boolean']>
-  keyType?: Maybe<FieldType>
   name?: Maybe<Scalars['String']>
   publishedAt?: Maybe<Scalars['DateTime']>
   stage?: Maybe<Stage>
@@ -302,11 +302,14 @@ export type Mutation = {
   createSchema?: Maybe<Schema>
   createSchemaEntity?: Maybe<Entity>
   createTenant?: Maybe<Tenant>
+  deleteEntityField?: Maybe<Field>
   intercomPub?: Maybe<IntercomMessage>
   login?: Maybe<AuthToken>
   logout?: Maybe<Scalars['Boolean']>
   register?: Maybe<AuthToken>
+  updateEntityField?: Maybe<Field>
   updateSchema?: Maybe<Schema>
+  updateSchemaEntity?: Maybe<Entity>
 }
 
 export type MutationAccountCreateEmailArgs = {
@@ -406,6 +409,10 @@ export type MutationCreateTenantArgs = {
   input: CreateTenantInput
 }
 
+export type MutationDeleteEntityFieldArgs = {
+  fieldId: Scalars['String']
+}
+
 export type MutationIntercomPubArgs = {
   payload?: Maybe<Scalars['JSON']>
   scope?: Maybe<Scalars['String']>
@@ -420,9 +427,19 @@ export type MutationRegisterArgs = {
   input: RegisterInput
 }
 
+export type MutationUpdateEntityFieldArgs = {
+  fieldId: Scalars['String']
+  input: UpdateSchemaEntityFieldInput
+}
+
 export type MutationUpdateSchemaArgs = {
   input: UpdateSchemaInput
   schemaId: Scalars['String']
+}
+
+export type MutationUpdateSchemaEntityArgs = {
+  entityId: Scalars['String']
+  input: UpdateSchemaEntityInput
 }
 
 export type Ontology = {
@@ -567,6 +584,18 @@ export type TenantUser = {
   tenant?: Maybe<Tenant>
   updatedAt?: Maybe<Scalars['DateTime']>
   user?: Maybe<User>
+}
+
+export type UpdateSchemaEntityFieldInput = {
+  description?: Maybe<Scalars['String']>
+  isName?: Maybe<Scalars['Boolean']>
+  isNullable?: Maybe<Scalars['Boolean']>
+  name?: Maybe<Scalars['String']>
+}
+
+export type UpdateSchemaEntityInput = {
+  description?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
 }
 
 export type UpdateSchemaInput = {
@@ -735,7 +764,7 @@ export type SchemaDetailsFragment = { __typename?: 'Schema' } & Pick<
 
 export type FieldDetailsFragment = { __typename?: 'Field' } & Pick<
   Field,
-  'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'dataType' | 'isName' | 'isNullable'
+  'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'dataType' | 'fieldType' | 'isName' | 'isNullable'
 >
 
 export type KeyDetailsFragment = { __typename?: 'Key' } & Pick<Key, 'id' | 'keyType' | 'isDrivingKey' | 'name'>
@@ -810,6 +839,15 @@ export type CreateSchemaEntityMutation = { __typename?: 'Mutation' } & {
   createSchemaEntity?: Maybe<{ __typename?: 'Entity' } & EntityDetailsFragment>
 }
 
+export type UpdateSchemaEntityMutationVariables = Exact<{
+  entityId: Scalars['String']
+  input: UpdateSchemaEntityInput
+}>
+
+export type UpdateSchemaEntityMutation = { __typename?: 'Mutation' } & {
+  updateSchemaEntity?: Maybe<{ __typename?: 'Entity' } & EntityDetailsFragment>
+}
+
 export type CreateEntityFieldMutationVariables = Exact<{
   entityId: Scalars['String']
   input: CreateSchemaEntityFieldInput
@@ -817,6 +855,23 @@ export type CreateEntityFieldMutationVariables = Exact<{
 
 export type CreateEntityFieldMutation = { __typename?: 'Mutation' } & {
   createEntityField?: Maybe<{ __typename?: 'Field' } & FieldDetailsFragment>
+}
+
+export type UpdateEntityFieldMutationVariables = Exact<{
+  fieldId: Scalars['String']
+  input: UpdateSchemaEntityFieldInput
+}>
+
+export type UpdateEntityFieldMutation = { __typename?: 'Mutation' } & {
+  updateEntityField?: Maybe<{ __typename?: 'Field' } & FieldDetailsFragment>
+}
+
+export type DeleteEntityFieldMutationVariables = Exact<{
+  fieldId: Scalars['String']
+}>
+
+export type DeleteEntityFieldMutation = { __typename?: 'Mutation' } & {
+  deleteEntityField?: Maybe<{ __typename?: 'Field' } & FieldDetailsFragment>
 }
 
 export type TenantDetailsFragment = { __typename?: 'Tenant' } & Pick<Tenant, 'id' | 'createdAt' | 'updatedAt' | 'name'>
@@ -1036,6 +1091,7 @@ export const FieldDetailsFragmentDoc = gql`
     name
     description
     dataType
+    fieldType
     isName
     isNullable
   }
@@ -1601,6 +1657,28 @@ export class CreateSchemaEntityGQL extends Apollo.Mutation<
     super(apollo)
   }
 }
+export const UpdateSchemaEntityDocument = gql`
+  mutation UpdateSchemaEntity($entityId: String!, $input: UpdateSchemaEntityInput!) {
+    updateSchemaEntity(entityId: $entityId, input: $input) {
+      ...EntityDetails
+    }
+  }
+  ${EntityDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class UpdateSchemaEntityGQL extends Apollo.Mutation<
+  UpdateSchemaEntityMutation,
+  UpdateSchemaEntityMutationVariables
+> {
+  document = UpdateSchemaEntityDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
 export const CreateEntityFieldDocument = gql`
   mutation CreateEntityField($entityId: String!, $input: CreateSchemaEntityFieldInput!) {
     createEntityField(entityId: $entityId, input: $input) {
@@ -1618,6 +1696,50 @@ export class CreateEntityFieldGQL extends Apollo.Mutation<
   CreateEntityFieldMutationVariables
 > {
   document = CreateEntityFieldDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const UpdateEntityFieldDocument = gql`
+  mutation UpdateEntityField($fieldId: String!, $input: UpdateSchemaEntityFieldInput!) {
+    updateEntityField(fieldId: $fieldId, input: $input) {
+      ...FieldDetails
+    }
+  }
+  ${FieldDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class UpdateEntityFieldGQL extends Apollo.Mutation<
+  UpdateEntityFieldMutation,
+  UpdateEntityFieldMutationVariables
+> {
+  document = UpdateEntityFieldDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const DeleteEntityFieldDocument = gql`
+  mutation DeleteEntityField($fieldId: String!) {
+    deleteEntityField(fieldId: $fieldId) {
+      ...FieldDetails
+    }
+  }
+  ${FieldDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class DeleteEntityFieldGQL extends Apollo.Mutation<
+  DeleteEntityFieldMutation,
+  DeleteEntityFieldMutationVariables
+> {
+  document = DeleteEntityFieldDocument
 
   constructor(apollo: Apollo.Apollo) {
     super(apollo)
@@ -2025,7 +2147,10 @@ export class ApolloAngularSDK {
     private fieldDataTypesGql: FieldDataTypesGQL,
     private createSchemaGql: CreateSchemaGQL,
     private createSchemaEntityGql: CreateSchemaEntityGQL,
+    private updateSchemaEntityGql: UpdateSchemaEntityGQL,
     private createEntityFieldGql: CreateEntityFieldGQL,
+    private updateEntityFieldGql: UpdateEntityFieldGQL,
+    private deleteEntityFieldGql: DeleteEntityFieldGQL,
     private createTenantGql: CreateTenantGQL,
     private tenantsGql: TenantsGQL,
     private tenantGql: TenantGQL,
@@ -2223,11 +2348,32 @@ export class ApolloAngularSDK {
     return this.createSchemaEntityGql.mutate(variables, options)
   }
 
+  updateSchemaEntity(
+    variables: UpdateSchemaEntityMutationVariables,
+    options?: MutationOptionsAlone<UpdateSchemaEntityMutation, UpdateSchemaEntityMutationVariables>,
+  ) {
+    return this.updateSchemaEntityGql.mutate(variables, options)
+  }
+
   createEntityField(
     variables: CreateEntityFieldMutationVariables,
     options?: MutationOptionsAlone<CreateEntityFieldMutation, CreateEntityFieldMutationVariables>,
   ) {
     return this.createEntityFieldGql.mutate(variables, options)
+  }
+
+  updateEntityField(
+    variables: UpdateEntityFieldMutationVariables,
+    options?: MutationOptionsAlone<UpdateEntityFieldMutation, UpdateEntityFieldMutationVariables>,
+  ) {
+    return this.updateEntityFieldGql.mutate(variables, options)
+  }
+
+  deleteEntityField(
+    variables: DeleteEntityFieldMutationVariables,
+    options?: MutationOptionsAlone<DeleteEntityFieldMutation, DeleteEntityFieldMutationVariables>,
+  ) {
+    return this.deleteEntityFieldGql.mutate(variables, options)
   }
 
   createTenant(

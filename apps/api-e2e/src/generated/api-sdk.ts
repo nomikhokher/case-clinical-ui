@@ -83,10 +83,10 @@ export type CorePagingInput = {
 
 export type CreateSchemaEntityFieldInput = {
   dataType: DataType
-  description: Scalars['String']
+  description?: Maybe<Scalars['String']>
   id?: Maybe<Scalars['String']>
-  isName: Scalars['Boolean']
-  isNullable: Scalars['Boolean']
+  isName?: Maybe<Scalars['Boolean']>
+  isNullable?: Maybe<Scalars['Boolean']>
   name: Scalars['String']
 }
 
@@ -98,13 +98,13 @@ export type CreateSchemaEntityForeignKeyInput = {
 }
 
 export type CreateSchemaEntityInput = {
-  description: Scalars['String']
-  fields: Array<CreateSchemaEntityFieldInput>
-  foreignKeys: Array<CreateSchemaEntityForeignKeyInput>
+  description?: Maybe<Scalars['String']>
+  fields?: Maybe<Array<CreateSchemaEntityFieldInput>>
+  foreignKeys?: Maybe<Array<CreateSchemaEntityForeignKeyInput>>
   id?: Maybe<Scalars['String']>
-  keys: Array<CreateSchemaEntityKeyInput>
+  keys?: Maybe<Array<CreateSchemaEntityKeyInput>>
   name: Scalars['String']
-  ontologies: Array<CreateSchemaEntityOntologyInput>
+  ontologies?: Maybe<Array<CreateSchemaEntityOntologyInput>>
 }
 
 export type CreateSchemaEntityKeyInput = {
@@ -192,14 +192,23 @@ export type Field = {
   createdAt?: Maybe<Scalars['DateTime']>
   dataType?: Maybe<DataType>
   description?: Maybe<Scalars['String']>
+  fieldType?: Maybe<FieldType>
   id?: Maybe<Scalars['ID']>
   isName?: Maybe<Scalars['Boolean']>
   isNullable?: Maybe<Scalars['Boolean']>
-  keyType?: Maybe<FieldType>
   name?: Maybe<Scalars['String']>
   publishedAt?: Maybe<Scalars['DateTime']>
   stage?: Maybe<Stage>
   updatedAt?: Maybe<Scalars['DateTime']>
+}
+
+export type FieldDataType = {
+  __typename?: 'FieldDataType'
+  data?: Maybe<DataType>
+  description?: Maybe<Scalars['String']>
+  field?: Maybe<FieldType>
+  id?: Maybe<Scalars['ID']>
+  name?: Maybe<Scalars['String']>
 }
 
 export enum FieldType {
@@ -286,13 +295,18 @@ export type Mutation = {
   adminUpdateTenant?: Maybe<Tenant>
   adminUpdateTenantUserRole?: Maybe<TenantUser>
   adminUpdateUser?: Maybe<User>
+  createEntityField?: Maybe<Field>
   createSchema?: Maybe<Schema>
+  createSchemaEntity?: Maybe<Entity>
   createTenant?: Maybe<Tenant>
+  deleteEntityField?: Maybe<Field>
   intercomPub?: Maybe<IntercomMessage>
   login?: Maybe<AuthToken>
   logout?: Maybe<Scalars['Boolean']>
   register?: Maybe<AuthToken>
+  updateEntityField?: Maybe<Field>
   updateSchema?: Maybe<Schema>
+  updateSchemaEntity?: Maybe<Entity>
 }
 
 export type MutationAccountCreateEmailArgs = {
@@ -373,13 +387,27 @@ export type MutationAdminUpdateUserArgs = {
   userId: Scalars['String']
 }
 
+export type MutationCreateEntityFieldArgs = {
+  entityId: Scalars['String']
+  input: CreateSchemaEntityFieldInput
+}
+
 export type MutationCreateSchemaArgs = {
   input: CreateSchemaInput
   tenantId: Scalars['String']
 }
 
+export type MutationCreateSchemaEntityArgs = {
+  input: CreateSchemaEntityInput
+  schemaId: Scalars['String']
+}
+
 export type MutationCreateTenantArgs = {
   input: CreateTenantInput
+}
+
+export type MutationDeleteEntityFieldArgs = {
+  fieldId: Scalars['String']
 }
 
 export type MutationIntercomPubArgs = {
@@ -396,9 +424,19 @@ export type MutationRegisterArgs = {
   input: RegisterInput
 }
 
+export type MutationUpdateEntityFieldArgs = {
+  fieldId: Scalars['String']
+  input: UpdateSchemaEntityFieldInput
+}
+
 export type MutationUpdateSchemaArgs = {
   input: UpdateSchemaInput
   schemaId: Scalars['String']
+}
+
+export type MutationUpdateSchemaEntityArgs = {
+  entityId: Scalars['String']
+  input: UpdateSchemaEntityInput
 }
 
 export type Ontology = {
@@ -424,6 +462,7 @@ export type Query = {
   adminTenants?: Maybe<Array<Tenant>>
   adminUser?: Maybe<User>
   adminUsers?: Maybe<Array<User>>
+  fieldDataTypes?: Maybe<Array<FieldDataType>>
   me?: Maybe<User>
   schema?: Maybe<Schema>
   schemata?: Maybe<Array<Schema>>
@@ -542,6 +581,18 @@ export type TenantUser = {
   tenant?: Maybe<Tenant>
   updatedAt?: Maybe<Scalars['DateTime']>
   user?: Maybe<User>
+}
+
+export type UpdateSchemaEntityFieldInput = {
+  description?: Maybe<Scalars['String']>
+  isName?: Maybe<Scalars['Boolean']>
+  isNullable?: Maybe<Scalars['Boolean']>
+  name?: Maybe<Scalars['String']>
+}
+
+export type UpdateSchemaEntityInput = {
+  description?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
 }
 
 export type UpdateSchemaInput = {
@@ -710,7 +761,7 @@ export type SchemaDetailsFragment = { __typename?: 'Schema' } & Pick<
 
 export type FieldDetailsFragment = { __typename?: 'Field' } & Pick<
   Field,
-  'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'dataType' | 'isName' | 'isNullable'
+  'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'dataType' | 'fieldType' | 'isName' | 'isNullable'
 >
 
 export type KeyDetailsFragment = { __typename?: 'Key' } & Pick<Key, 'id' | 'keyType' | 'isDrivingKey' | 'name'>
@@ -735,19 +786,6 @@ export type EntitySummaryDetailsFragment = { __typename?: 'EntitySummary' } & Pi
   'id' | 'createdAt' | 'updatedAt' | 'name' | 'description'
 >
 
-export type CreateSchemaMutationVariables = Exact<{
-  tenantId: Scalars['String']
-  input: CreateSchemaInput
-}>
-
-export type CreateSchemaMutation = { __typename?: 'Mutation' } & {
-  createSchema?: Maybe<
-    { __typename?: 'Schema' } & {
-      entities?: Maybe<Array<{ __typename?: 'Entity' } & EntityDetailsFragment>>
-    } & SchemaDetailsFragment
-  >
-}
-
 export type SchemataQueryVariables = Exact<{
   tenantId: Scalars['String']
 }>
@@ -766,6 +804,71 @@ export type SchemaQuery = { __typename?: 'Query' } & {
       entities?: Maybe<Array<{ __typename?: 'Entity' } & EntityDetailsFragment>>
     } & SchemaDetailsFragment
   >
+}
+
+export type FieldDataTypesQueryVariables = Exact<{ [key: string]: never }>
+
+export type FieldDataTypesQuery = { __typename?: 'Query' } & {
+  fieldDataTypes?: Maybe<
+    Array<{ __typename?: 'FieldDataType' } & Pick<FieldDataType, 'id' | 'data' | 'field' | 'name' | 'description'>>
+  >
+}
+
+export type CreateSchemaMutationVariables = Exact<{
+  tenantId: Scalars['String']
+  input: CreateSchemaInput
+}>
+
+export type CreateSchemaMutation = { __typename?: 'Mutation' } & {
+  createSchema?: Maybe<
+    { __typename?: 'Schema' } & {
+      entities?: Maybe<Array<{ __typename?: 'Entity' } & EntityDetailsFragment>>
+    } & SchemaDetailsFragment
+  >
+}
+
+export type CreateSchemaEntityMutationVariables = Exact<{
+  schemaId: Scalars['String']
+  input: CreateSchemaEntityInput
+}>
+
+export type CreateSchemaEntityMutation = { __typename?: 'Mutation' } & {
+  createSchemaEntity?: Maybe<{ __typename?: 'Entity' } & EntityDetailsFragment>
+}
+
+export type UpdateSchemaEntityMutationVariables = Exact<{
+  entityId: Scalars['String']
+  input: UpdateSchemaEntityInput
+}>
+
+export type UpdateSchemaEntityMutation = { __typename?: 'Mutation' } & {
+  updateSchemaEntity?: Maybe<{ __typename?: 'Entity' } & EntityDetailsFragment>
+}
+
+export type CreateEntityFieldMutationVariables = Exact<{
+  entityId: Scalars['String']
+  input: CreateSchemaEntityFieldInput
+}>
+
+export type CreateEntityFieldMutation = { __typename?: 'Mutation' } & {
+  createEntityField?: Maybe<{ __typename?: 'Field' } & FieldDetailsFragment>
+}
+
+export type UpdateEntityFieldMutationVariables = Exact<{
+  fieldId: Scalars['String']
+  input: UpdateSchemaEntityFieldInput
+}>
+
+export type UpdateEntityFieldMutation = { __typename?: 'Mutation' } & {
+  updateEntityField?: Maybe<{ __typename?: 'Field' } & FieldDetailsFragment>
+}
+
+export type DeleteEntityFieldMutationVariables = Exact<{
+  fieldId: Scalars['String']
+}>
+
+export type DeleteEntityFieldMutation = { __typename?: 'Mutation' } & {
+  deleteEntityField?: Maybe<{ __typename?: 'Field' } & FieldDetailsFragment>
 }
 
 export type TenantDetailsFragment = { __typename?: 'Tenant' } & Pick<Tenant, 'id' | 'createdAt' | 'updatedAt' | 'name'>
@@ -985,6 +1088,7 @@ export const FieldDetails = gql`
     name
     description
     dataType
+    fieldType
     isName
     isNullable
   }
@@ -1216,18 +1320,6 @@ export const IntercomSub = gql`
   }
   ${IntercomDetails}
 `
-export const CreateSchema = gql`
-  mutation CreateSchema($tenantId: String!, $input: CreateSchemaInput!) {
-    createSchema(tenantId: $tenantId, input: $input) {
-      ...SchemaDetails
-      entities {
-        ...EntityDetails
-      }
-    }
-  }
-  ${SchemaDetails}
-  ${EntityDetails}
-`
 export const Schemata = gql`
   query Schemata($tenantId: String!) {
     schemata(tenantId: $tenantId) {
@@ -1247,6 +1339,69 @@ export const Schema = gql`
   }
   ${SchemaDetails}
   ${EntityDetails}
+`
+export const FieldDataTypes = gql`
+  query FieldDataTypes {
+    fieldDataTypes {
+      id
+      data
+      field
+      name
+      description
+    }
+  }
+`
+export const CreateSchema = gql`
+  mutation CreateSchema($tenantId: String!, $input: CreateSchemaInput!) {
+    createSchema(tenantId: $tenantId, input: $input) {
+      ...SchemaDetails
+      entities {
+        ...EntityDetails
+      }
+    }
+  }
+  ${SchemaDetails}
+  ${EntityDetails}
+`
+export const CreateSchemaEntity = gql`
+  mutation CreateSchemaEntity($schemaId: String!, $input: CreateSchemaEntityInput!) {
+    createSchemaEntity(schemaId: $schemaId, input: $input) {
+      ...EntityDetails
+    }
+  }
+  ${EntityDetails}
+`
+export const UpdateSchemaEntity = gql`
+  mutation UpdateSchemaEntity($entityId: String!, $input: UpdateSchemaEntityInput!) {
+    updateSchemaEntity(entityId: $entityId, input: $input) {
+      ...EntityDetails
+    }
+  }
+  ${EntityDetails}
+`
+export const CreateEntityField = gql`
+  mutation CreateEntityField($entityId: String!, $input: CreateSchemaEntityFieldInput!) {
+    createEntityField(entityId: $entityId, input: $input) {
+      ...FieldDetails
+    }
+  }
+  ${FieldDetails}
+`
+export const UpdateEntityField = gql`
+  mutation UpdateEntityField($fieldId: String!, $input: UpdateSchemaEntityFieldInput!) {
+    updateEntityField(fieldId: $fieldId, input: $input) {
+      ...FieldDetails
+    }
+  }
+  ${FieldDetails}
+`
+export const DeleteEntityField = gql`
+  mutation DeleteEntityField($fieldId: String!) {
+    deleteEntityField(fieldId: $fieldId) {
+      ...FieldDetails
+    }
+  }
+  ${FieldDetails}
 `
 export const CreateTenant = gql`
   mutation CreateTenant($input: CreateTenantInput!) {

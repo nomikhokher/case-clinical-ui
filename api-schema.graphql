@@ -177,10 +177,10 @@ type Field {
   createdAt: DateTime
   dataType: DataType
   description: String
+  fieldType: FieldType
   id: ID
   isName: Boolean
   isNullable: Boolean
-  keyType: FieldType
   name: String
   publishedAt: DateTime
   stage: Stage
@@ -284,11 +284,14 @@ type Mutation {
   createSchema(input: CreateSchemaInput!, tenantId: String!): Schema
   createSchemaEntity(input: CreateSchemaEntityInput!, schemaId: String!): Entity
   createTenant(input: CreateTenantInput!): Tenant
+  deleteEntityField(fieldId: String!): Field
   intercomPub(payload: JSON, scope: String, type: String!): IntercomMessage
   login(input: LoginInput!): AuthToken
   logout: Boolean
   register(input: RegisterInput!): AuthToken
+  updateEntityField(fieldId: String!, input: UpdateSchemaEntityFieldInput!): Field
   updateSchema(input: UpdateSchemaInput!, schemaId: String!): Schema
+  updateSchemaEntity(entityId: String!, input: UpdateSchemaEntityInput!): Entity
 }
 
 type Ontology {
@@ -378,6 +381,18 @@ type TenantUser {
   tenant: Tenant
   updatedAt: DateTime
   user: User
+}
+
+input UpdateSchemaEntityFieldInput {
+  description: String
+  isName: Boolean
+  isNullable: Boolean
+  name: String
+}
+
+input UpdateSchemaEntityInput {
+  description: String
+  name: String
 }
 
 input UpdateSchemaInput {
