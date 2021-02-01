@@ -19,6 +19,7 @@ import { ApiCoreFeatureService } from './api-core-feature.service'
       autoSchemaFile: join(process.cwd(), 'api-schema.graphql'),
       context: ({ req, res }) => ({ req, res }),
       installSubscriptionHandlers: true,
+      introspection: true,
       playground: {
         settings: {
           'request.credentials': 'include',

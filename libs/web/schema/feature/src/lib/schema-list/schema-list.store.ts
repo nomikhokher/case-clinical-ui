@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { CorePagingInput } from '@schema-driven/api/core/data-access'
+import { CorePagingInput } from '@schema-driven/web/core/data-access'
 import { ApolloAngularSDK, Schema, Tenant, TenantRole } from '@schema-driven/web/core/data-access'
 import { ComponentStore, tapResponse } from '@ngrx/component-store'
 import { pluck, switchMap, tap, withLatestFrom } from 'rxjs/operators'
