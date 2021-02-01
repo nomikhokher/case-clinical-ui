@@ -1,0 +1,14 @@
+version: '3'
+services:
+  api:
+    image: schema-driven/api
+    ports:
+      - 8000:3000
+    environment:
+      DATABASE_URL: postgresql://prisma:prisma@postgres:5432/prisma?schema=schema-driven-api2678523
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: prisma
+      POSTGRES_USER: prisma
+      POSTGRES_PASSWORD: prisma
