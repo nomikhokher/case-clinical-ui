@@ -27,11 +27,13 @@ export class WebLayoutStore extends ComponentStore<WebLayoutState> {
       links: [
         { label: 'Dashboard', route: '/dashboard' },
         { label: 'Schemata', route: '/schemata' },
+        { label: 'Development', route: '/dev', role: Role.Admin },
         { label: 'Admin', route: '/admin', role: Role.Admin },
       ],
       profileLinks: [
         { label: 'Dashboard', route: '/dashboard' },
         { label: 'Your Account', route: '/account' },
+        { label: 'Development', route: '/dev', role: Role.Admin },
         { label: 'Admin', route: '/admin', role: Role.Admin },
         { label: 'About', route: '/about' },
         { label: 'Logout', route: '/logout' },

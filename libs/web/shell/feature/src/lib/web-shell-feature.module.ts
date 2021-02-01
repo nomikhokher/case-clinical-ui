@@ -30,6 +30,10 @@ const routes: Routes = [
         loadChildren: () => import('@schema-driven/web/dashboard/feature').then((m) => m.WebDashboardFeatureModule),
       },
       {
+        path: 'dev',
+        loadChildren: () => import('@schema-driven/web/dev/feature').then((m) => m.WebDevFeatureModule),
+      },
+      {
         path: 'schemata',
         loadChildren: () => import('@schema-driven/web/schema/feature').then((m) => m.WebSchemaFeatureModule),
       },

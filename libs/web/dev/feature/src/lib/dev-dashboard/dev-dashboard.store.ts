@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { ComponentStore, tapResponse } from '@ngrx/component-store'
-import { ApolloAngularSDK } from '@<%= npmScope %>/web/core/data-access'
+import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { of } from 'rxjs'
 import { switchMap, tap } from 'rxjs/operators'
 
@@ -9,26 +9,26 @@ export interface Item {
   name?: string
 }
 
-interface <%= className %>State {
+interface DevDashboardState {
   items?: Item[]
   loading?: boolean
 }
 
 @Injectable()
-export class <%= className %>Store extends ComponentStore<<%= className %>State> {
+export class DevDashboardStore extends ComponentStore<DevDashboardState> {
   constructor(private readonly sdk: ApolloAngularSDK) {
     super({})
     this.loadItemsEffect()
   }
 
   readonly items$ = this.select(this.state$, (s) => s.items)
-  readonly vm$ = this.select(this.items$, items => ({ items }))
+  readonly vm$ = this.select(this.items$, (items) => ({ items }))
 
   readonly loadItemsEffect = this.effect(($) =>
     $.pipe(
       tap(() => this.patchState({ loading: true })),
       switchMap(() =>
-        of([ { id: Date.now().toString(), name: 'Item 1' }]).pipe(
+        of([{ id: Date.now().toString(), name: 'Item 1' }]).pipe(
           tapResponse(
             (res) => this.patchState({ items: res }),
             (e: any) => console.error('An error occurred', e),

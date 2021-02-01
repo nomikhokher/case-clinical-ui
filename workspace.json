@@ -716,6 +716,72 @@
         }
       }
     },
+    "web-dev-data-access": {
+      "projectType": "library",
+      "root": "libs/web/dev/data-access",
+      "sourceRoot": "libs/web/dev/data-access/src",
+      "prefix": "schema-driven",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/dev/data-access/src/**/*.ts", "libs/web/dev/data-access/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/dev/data-access"],
+          "options": {
+            "jestConfig": "libs/web/dev/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-dev-feature": {
+      "projectType": "library",
+      "root": "libs/web/dev/feature",
+      "sourceRoot": "libs/web/dev/feature/src",
+      "prefix": "schema-driven",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/dev/feature/src/**/*.ts", "libs/web/dev/feature/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/dev/feature"],
+          "options": {
+            "jestConfig": "libs/web/dev/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-dev-ui": {
+      "projectType": "library",
+      "root": "libs/web/dev/ui",
+      "sourceRoot": "libs/web/dev/ui/src",
+      "prefix": "schema-driven",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/dev/ui/src/**/*.ts", "libs/web/dev/ui/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/dev/ui"],
+          "options": {
+            "jestConfig": "libs/web/dev/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-e2e": {
       "root": "apps/web-e2e",
       "sourceRoot": "apps/web-e2e/src",
