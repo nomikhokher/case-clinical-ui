@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { CorePagingInput } from '@schema-driven/api/core/data-access'
+import { CorePagingInput } from '@schema-driven/web/core/data-access'
 import { ApolloAngularSDK, Tenant } from '@schema-driven/web/core/data-access'
 import { ComponentStore, tapResponse } from '@ngrx/component-store'
 import { switchMap, tap, withLatestFrom } from 'rxjs/operators'
