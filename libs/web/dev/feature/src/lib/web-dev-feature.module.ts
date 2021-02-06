@@ -20,6 +20,7 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
           },
           { path: 'code', loadChildren: () => import('./dev-code/dev-code.module').then((m) => m.DevCodeModule) },
           { path: 'forms', loadChildren: () => import('./dev-forms/dev-forms.module').then((m) => m.DevFormsModule) },
+          { path: 'json', loadChildren: () => import('./dev-json/dev-json.module').then((m) => m.DevJsonModule) },
           {
             path: 'layout',
             loadChildren: () => import('./dev-layout/dev-layout.module').then((m) => m.DevLayoutModule),

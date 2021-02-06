@@ -153,6 +153,9 @@
     "web-ui-icon": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-json": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-layout": {
       "tags": ["scope:web", "type:ui"]
     },

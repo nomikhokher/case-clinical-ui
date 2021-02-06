@@ -1013,6 +1013,28 @@
         }
       }
     },
+    "web-ui-json": {
+      "projectType": "library",
+      "root": "libs/web/ui/json",
+      "sourceRoot": "libs/web/ui/json/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/json/src/**/*.ts", "libs/web/ui/json/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/json"],
+          "options": {
+            "jestConfig": "libs/web/ui/json/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-layout": {
       "projectType": "library",
       "root": "libs/web/ui/layout",
