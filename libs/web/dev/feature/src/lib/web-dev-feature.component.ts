@@ -13,5 +13,6 @@ export class WebDevFeatureComponent {
     { label: 'Code', path: 'code', icon: '' },
     { label: 'Forms', path: 'forms', icon: '' },
     { label: 'Layout', path: 'layout', icon: '' },
+    { label: 'Toasts', path: 'toasts', icon: '' },
   ]
 }

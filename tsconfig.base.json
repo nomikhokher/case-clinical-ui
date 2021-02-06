@@ -59,7 +59,8 @@
       "@schema-driven/web/ui/loader": ["libs/web/ui/loader/src/index.ts"],
       "@schema-driven/web/ui/page": ["libs/web/ui/page/src/index.ts"],
       "@schema-driven/web/ui/page-header": ["libs/web/ui/page-header/src/index.ts"],
-      "@schema-driven/web/ui/sidebar-page": ["libs/web/ui/sidebar-page/src/index.ts"]
+      "@schema-driven/web/ui/sidebar-page": ["libs/web/ui/sidebar-page/src/index.ts"],
+      "@schema-driven/web/ui/toast": ["libs/web/ui/toast/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -47,5 +47,6 @@ module.exports = {
     '<rootDir>/libs/web/dev/ui',
     '<rootDir>/libs/web/ui/layout',
     '<rootDir>/libs/web/ui/code',
+    '<rootDir>/libs/web/ui/toast',
   ],
 }

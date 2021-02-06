@@ -167,6 +167,9 @@
     },
     "web-ui-sidebar-page": {
       "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-toast": {
+      "tags": ["scope:web", "type:ui"]
     }
   },
   "plugins": {

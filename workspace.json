@@ -1122,6 +1122,28 @@
           }
         }
       }
+    },
+    "web-ui-toast": {
+      "projectType": "library",
+      "root": "libs/web/ui/toast",
+      "sourceRoot": "libs/web/ui/toast/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/toast/src/**/*.ts", "libs/web/ui/toast/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/toast"],
+          "options": {
+            "jestConfig": "libs/web/ui/toast/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
