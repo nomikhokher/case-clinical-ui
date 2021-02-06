@@ -47,6 +47,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^11.0.0",
+    "@angular/cdk": "^11.1.2",
     "@angular/common": "^11.0.0",
     "@angular/compiler": "^11.0.0",
     "@angular/core": "^11.0.0",
@@ -55,6 +56,7 @@
     "@angular/platform-browser-dynamic": "^11.0.0",
     "@angular/router": "^11.0.0",
     "@apollo/client": "^3.2.9",
+    "@ctrl/ngx-numbered-codeblock": "^4.0.0",
     "@kikstart-playground/graphql-intercom": "1.4.1",
     "@nestjs/common": "^7.0.0",
     "@nestjs/config": "^0.5.0",
@@ -82,6 +84,7 @@
     "joi": "^17.2.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "prismjs": "^1.23.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.3",
     "supertest": "^5.0.0",

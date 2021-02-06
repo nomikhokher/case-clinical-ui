@@ -10,6 +10,7 @@ import { Component } from '@angular/core'
 export class WebDevFeatureComponent {
   links = [
     { label: 'Dashboard', path: 'dashboard', icon: '' },
+    { label: 'Code', path: 'code', icon: '' },
     { label: 'Forms', path: 'forms', icon: '' },
     { label: 'Layout', path: 'layout', icon: '' },
   ]

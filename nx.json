@@ -144,6 +144,9 @@
     "web-ui-button": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-code": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-form": {
       "tags": ["scope:web", "type:ui"]
     },

@@ -52,6 +52,7 @@
       "@schema-driven/web/shell/feature": ["libs/web/shell/feature/src/index.ts"],
       "@schema-driven/web/style": ["libs/web/style/src/index.ts"],
       "@schema-driven/web/ui/button": ["libs/web/ui/button/src/index.ts"],
+      "@schema-driven/web/ui/code": ["libs/web/ui/code/src/index.ts"],
       "@schema-driven/web/ui/form": ["libs/web/ui/form/src/index.ts"],
       "@schema-driven/web/ui/icon": ["libs/web/ui/icon/src/index.ts"],
       "@schema-driven/web/ui/layout": ["libs/web/ui/layout/src/index.ts"],
