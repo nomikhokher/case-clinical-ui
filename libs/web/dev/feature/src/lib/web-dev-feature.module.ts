@@ -19,6 +19,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             loadChildren: () => import('./dev-dashboard/dev-dashboard.module').then((m) => m.DevDashboardModule),
           },
           { path: 'forms', loadChildren: () => import('./dev-forms/dev-forms.module').then((m) => m.DevFormsModule) },
+          {
+            path: 'layout',
+            loadChildren: () => import('./dev-layout/dev-layout.module').then((m) => m.DevLayoutModule),
+          },
         ],
       },
     ]),

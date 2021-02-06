@@ -45,5 +45,6 @@ module.exports = {
     '<rootDir>/libs/web/dev/data-access',
     '<rootDir>/libs/web/dev/feature',
     '<rootDir>/libs/web/dev/ui',
+    '<rootDir>/libs/web/ui/layout',
   ],
 }
