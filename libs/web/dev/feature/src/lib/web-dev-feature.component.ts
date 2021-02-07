@@ -10,10 +10,13 @@ import { Component } from '@angular/core'
 export class WebDevFeatureComponent {
   links = [
     { label: 'Dashboard', path: 'dashboard', icon: '' },
-    { label: 'Code', path: 'code', icon: '' },
     { label: 'Forms', path: 'forms', icon: '' },
-    { label: 'Json', path: 'json', icon: '' },
+    { label: 'Layouts' },
     { label: 'Layout', path: 'layout', icon: '' },
+    { label: 'Notification' },
     { label: 'Toasts', path: 'toasts', icon: '' },
+    { label: 'Formatting' },
+    { label: 'Syntax Highlight', path: 'code', icon: '' },
+    { label: 'JSON Formatter', path: 'json', icon: '' },
   ]
 }
