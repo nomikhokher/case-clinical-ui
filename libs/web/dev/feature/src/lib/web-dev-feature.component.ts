@@ -11,8 +11,10 @@ export class WebDevFeatureComponent {
   links = [
     { label: 'Dashboard', path: 'dashboard', icon: '' },
     { label: 'Forms', path: 'forms', icon: '' },
-    { label: 'Layouts' },
+    { label: 'Screen Layout' },
     { label: 'Layout', path: 'layout', icon: '' },
+    { label: 'Content Layout' },
+    { label: 'Data Table', path: 'table', icon: '' },
     { label: 'Notification' },
     { label: 'Toasts', path: 'toasts', icon: '' },
     { label: 'Formatting' },

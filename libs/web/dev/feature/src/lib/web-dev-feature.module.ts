@@ -25,6 +25,7 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             path: 'layout',
             loadChildren: () => import('./dev-layout/dev-layout.module').then((m) => m.DevLayoutModule),
           },
+          { path: 'table', loadChildren: () => import('./dev-table/dev-table.module').then((m) => m.DevTableModule) },
           { path: 'toasts', loadChildren: () => import('./dev-toast/dev-toast.module').then((m) => m.DevToastModule) },
         ],
       },
