@@ -9,7 +9,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
       </a>
     </ng-container>
     <ng-container *ngIf="!routerLink">
-      <button (click)="click.emit($event)" [class]="classes" [disabled]="disabled" [type]="type">
+      <button (click)="handleClick($event)" [class]="classes" [disabled]="disabled" [type]="type">
         {{ label }}
       </button>
     </ng-container>
@@ -22,6 +22,7 @@ export class WebUiButtonComponent {
   @Input() type = 'button'
   @Input() color: 'indigo' | 'gray' | 'red' = 'indigo'
   @Output() click = new EventEmitter()
+  @Output() handler = new EventEmitter()
 
   getColor() {
     const color = (name) =>
@@ -39,5 +40,14 @@ export class WebUiButtonComponent {
 
   get classes(): string {
     return `inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium  disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-offset-2 ${this.getColor()}`
+  }
+
+  handleClick($event: MouseEvent) {
+    if (this.click) {
+      this.click.emit($event)
+    }
+    if (this.handler) {
+      this.handler.emit($event)
+    }
   }
 }

@@ -6,6 +6,7 @@
 >
   <i class="text-gray-400" [ngClass]="to.addonLeft.class" *ngIf="to.addonLeft.class"></i>
   <span *ngIf="to.addonLeft.text" class="text-gray-400">{{ to.addonLeft.text }}</span>
+  <ui-icon *ngIf="to.addonLeft.icon" class="text-gray-400" [icon]="to.addonLeft.icon"></ui-icon>
 </div>
 
 <ng-container #fieldComponent></ng-container>
@@ -18,4 +19,5 @@
 >
   <i class="text-gray-400" [ngClass]="to.addonRight.class" *ngIf="to.addonRight.class"></i>
   <span *ngIf="to.addonRight.text" class="text-gray-400">{{ to.addonRight.text }}</span>
+  <ui-icon *ngIf="to.addonRight.icon" class="text-gray-400" [icon]="to.addonRight.icon"></ui-icon>
 </div>

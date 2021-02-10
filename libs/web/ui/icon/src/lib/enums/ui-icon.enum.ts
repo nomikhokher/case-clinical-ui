@@ -1,6 +1,7 @@
 export enum UiIcon {
   at = 'at',
   check = 'check',
+  clipboard = 'clipboard',
   dollar = 'dollar',
   euro = 'euro',
   github = 'github',

@@ -5,11 +5,20 @@ export function addonsExtension(field: FormlyFieldConfig): any {
     return
   }
 
-  if (field.templateOptions.addonLeft || field.templateOptions.addonRight) {
+  if (field.templateOptions.addonLeft) {
+    const paddingLeft = field.templateOptions.addonLeft?.paddingLeft || '2.5rem'
     field.wrappers = [...(field.wrappers || []), 'addons']
     field.templateOptions.attributes = {
       ...(field.templateOptions?.attributes || {}),
-      style: 'padding-left: 2.5rem;',
+      style: `padding-left: ${paddingLeft};`,
+    }
+  }
+  if (field.templateOptions.addonRight) {
+    const padding = field.templateOptions.addonRight?.paddingRight || '2.5rem'
+    field.wrappers = [...(field.wrappers || []), 'addons']
+    field.templateOptions.attributes = {
+      ...(field.templateOptions?.attributes || {}),
+      style: `padding-right: ${padding};`,
     }
   }
 }

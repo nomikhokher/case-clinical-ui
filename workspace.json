@@ -716,6 +716,72 @@
         }
       }
     },
+    "web-dev-data-access": {
+      "projectType": "library",
+      "root": "libs/web/dev/data-access",
+      "sourceRoot": "libs/web/dev/data-access/src",
+      "prefix": "schema-driven",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/dev/data-access/src/**/*.ts", "libs/web/dev/data-access/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/dev/data-access"],
+          "options": {
+            "jestConfig": "libs/web/dev/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-dev-feature": {
+      "projectType": "library",
+      "root": "libs/web/dev/feature",
+      "sourceRoot": "libs/web/dev/feature/src",
+      "prefix": "schema-driven",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/dev/feature/src/**/*.ts", "libs/web/dev/feature/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/dev/feature"],
+          "options": {
+            "jestConfig": "libs/web/dev/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-dev-ui": {
+      "projectType": "library",
+      "root": "libs/web/dev/ui",
+      "sourceRoot": "libs/web/dev/ui/src",
+      "prefix": "schema-driven",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/dev/ui/src/**/*.ts", "libs/web/dev/ui/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/dev/ui"],
+          "options": {
+            "jestConfig": "libs/web/dev/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-e2e": {
       "root": "apps/web-e2e",
       "sourceRoot": "apps/web-e2e/src",
@@ -881,6 +947,28 @@
         }
       }
     },
+    "web-ui-code": {
+      "projectType": "library",
+      "root": "libs/web/ui/code",
+      "sourceRoot": "libs/web/ui/code/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/code/src/**/*.ts", "libs/web/ui/code/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/code"],
+          "options": {
+            "jestConfig": "libs/web/ui/code/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-form": {
       "projectType": "library",
       "root": "libs/web/ui/form",
@@ -920,6 +1008,50 @@
           "outputs": ["coverage/libs/web/ui/icon"],
           "options": {
             "jestConfig": "libs/web/ui/icon/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-json": {
+      "projectType": "library",
+      "root": "libs/web/ui/json",
+      "sourceRoot": "libs/web/ui/json/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/json/src/**/*.ts", "libs/web/ui/json/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/json"],
+          "options": {
+            "jestConfig": "libs/web/ui/json/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-layout": {
+      "projectType": "library",
+      "root": "libs/web/ui/layout",
+      "sourceRoot": "libs/web/ui/layout/src",
+      "prefix": "layout",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/layout/src/**/*.ts", "libs/web/ui/layout/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/layout"],
+          "options": {
+            "jestConfig": "libs/web/ui/layout/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -1008,6 +1140,50 @@
           "outputs": ["coverage/libs/web/ui/sidebar-page"],
           "options": {
             "jestConfig": "libs/web/ui/sidebar-page/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-table": {
+      "projectType": "library",
+      "root": "libs/web/ui/table",
+      "sourceRoot": "libs/web/ui/table/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/table/src/**/*.ts", "libs/web/ui/table/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/table"],
+          "options": {
+            "jestConfig": "libs/web/ui/table/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-toast": {
+      "projectType": "library",
+      "root": "libs/web/ui/toast",
+      "sourceRoot": "libs/web/ui/toast/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/toast/src/**/*.ts", "libs/web/ui/toast/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/toast"],
+          "options": {
+            "jestConfig": "libs/web/ui/toast/jest.config.js",
             "passWithNoTests": true
           }
         }

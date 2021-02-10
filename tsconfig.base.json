@@ -42,6 +42,9 @@
       "@schema-driven/web/core/data-access": ["libs/web/core/data-access/src/index.ts"],
       "@schema-driven/web/core/feature": ["libs/web/core/feature/src/index.ts"],
       "@schema-driven/web/dashboard/feature": ["libs/web/dashboard/feature/src/index.ts"],
+      "@schema-driven/web/dev/data-access": ["libs/web/dev/data-access/src/index.ts"],
+      "@schema-driven/web/dev/feature": ["libs/web/dev/feature/src/index.ts"],
+      "@schema-driven/web/dev/ui": ["libs/web/dev/ui/src/index.ts"],
       "@schema-driven/web/layout": ["libs/web/layout/src/index.ts"],
       "@schema-driven/web/schema/data-access": ["libs/web/schema/data-access/src/index.ts"],
       "@schema-driven/web/schema/feature": ["libs/web/schema/feature/src/index.ts"],
@@ -49,12 +52,17 @@
       "@schema-driven/web/shell/feature": ["libs/web/shell/feature/src/index.ts"],
       "@schema-driven/web/style": ["libs/web/style/src/index.ts"],
       "@schema-driven/web/ui/button": ["libs/web/ui/button/src/index.ts"],
+      "@schema-driven/web/ui/code": ["libs/web/ui/code/src/index.ts"],
       "@schema-driven/web/ui/form": ["libs/web/ui/form/src/index.ts"],
       "@schema-driven/web/ui/icon": ["libs/web/ui/icon/src/index.ts"],
+      "@schema-driven/web/ui/json": ["libs/web/ui/json/src/index.ts"],
+      "@schema-driven/web/ui/layout": ["libs/web/ui/layout/src/index.ts"],
       "@schema-driven/web/ui/loader": ["libs/web/ui/loader/src/index.ts"],
       "@schema-driven/web/ui/page": ["libs/web/ui/page/src/index.ts"],
       "@schema-driven/web/ui/page-header": ["libs/web/ui/page-header/src/index.ts"],
-      "@schema-driven/web/ui/sidebar-page": ["libs/web/ui/sidebar-page/src/index.ts"]
+      "@schema-driven/web/ui/sidebar-page": ["libs/web/ui/sidebar-page/src/index.ts"],
+      "@schema-driven/web/ui/table": ["libs/web/ui/table/src/index.ts"],
+      "@schema-driven/web/ui/toast": ["libs/web/ui/toast/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

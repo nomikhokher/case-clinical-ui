@@ -42,5 +42,13 @@ module.exports = {
     '<rootDir>/libs/web/schema/data-access',
     '<rootDir>/libs/web/schema/feature',
     '<rootDir>/libs/web/schema/ui',
+    '<rootDir>/libs/web/dev/data-access',
+    '<rootDir>/libs/web/dev/feature',
+    '<rootDir>/libs/web/dev/ui',
+    '<rootDir>/libs/web/ui/layout',
+    '<rootDir>/libs/web/ui/code',
+    '<rootDir>/libs/web/ui/toast',
+    '<rootDir>/libs/web/ui/json',
+    '<rootDir>/libs/web/ui/table',
   ],
 }
