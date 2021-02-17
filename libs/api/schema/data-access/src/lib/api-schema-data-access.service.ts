@@ -146,6 +146,13 @@ export class ApiSchemaDataAccessService {
         name: input.name,
         description: input.description,
         dynamicProperties: {},
+        fields: {
+          create: [
+            { name: 'id', dataType: DataType.String, fieldType: FieldType.SingleLineOfText },
+            { name: 'createdAt', dataType: DataType.DateTime, fieldType: FieldType.DateTime },
+            { name: 'updatedAT', dataType: DataType.DateTime, fieldType: FieldType.DateTime },
+          ],
+        },
       },
     })
   }
