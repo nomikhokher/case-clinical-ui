@@ -15,6 +15,7 @@
     "build:api": "nx build api --prod",
     "build:web": "nx build web --prod",
     "dep-graph": "nx dep-graph",
+    "dev:sdk": "yarn sdk:web --watch",
     "dev:api": "nx serve api",
     "dev:web": "nx serve web --hmr",
     "docker:build": "docker build . -t schema-driven/api",

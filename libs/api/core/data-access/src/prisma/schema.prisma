@@ -108,6 +108,28 @@ model Entity {
   foreignKeys       ForeignKey[]
   ontologies        Ontology[]
   keywords          String[]
+  relations         Relation[]   @relation("Relation_belongsTo_Entity")
+  related           Relation[]   @relation("Relation_belongsTo_RelatedEntity")
+}
+
+model Relation {
+  id          String       @id @default(cuid())
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @default(now()) @updatedAt
+  type        RelationType
+  name        String
+  description String?
+  entity      Entity       @relation(name: "Relation_belongsTo_Entity", fields: [entityId], references: [id])
+  entityId    String
+  related     Entity       @relation(name: "Relation_belongsTo_RelatedEntity", fields: [relatedId], references: [id])
+  relatedId   String
+}
+
+enum RelationType {
+  ManyToMany
+  ManyToOne
+  OneToMany
+  OneToOne
 }
 
 model Key {

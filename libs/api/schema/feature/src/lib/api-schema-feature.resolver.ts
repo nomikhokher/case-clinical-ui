@@ -6,16 +6,19 @@ import {
   ApiSchemaDataAccessService,
   CreateSchemaEntityFieldInput,
   CreateSchemaEntityInput,
+  CreateSchemaEntityRelationInput,
   CreateSchemaInput,
   Entity,
   Field,
   FieldDataType,
+  Relation,
   Schema,
   UpdateSchemaEntityFieldInput,
+  UpdateSchemaEntityInput,
+  UpdateSchemaEntityRelationInput,
   UpdateSchemaInput,
 } from '@schema-driven/api/schema/data-access'
 import { User } from '@schema-driven/api/user/data-access'
-import { UpdateSchemaEntityInput } from '../../../data-access/src/lib/dto/update-schema-entity.input'
 
 @Resolver()
 @UseGuards(GqlAuthGuard)
@@ -86,5 +89,28 @@ export class ApiSchemaFeatureResolver {
   @Mutation(() => Field, { nullable: true })
   deleteEntityField(@CtxUser() user: User, @Args('fieldId') fieldId: string) {
     return this.data.deleteEntityField(user.id, fieldId)
+  }
+
+  @Mutation(() => Relation, { nullable: true })
+  createEntityRelation(
+    @CtxUser() user: User,
+    @Args('entityId') entityId: string,
+    @Args('input') input: CreateSchemaEntityRelationInput,
+  ) {
+    return this.data.createEntityRelation(user.id, entityId, input)
+  }
+
+  @Mutation(() => Relation, { nullable: true })
+  updateEntityRelation(
+    @CtxUser() user: User,
+    @Args('relationId') relationId: string,
+    @Args('input') input: UpdateSchemaEntityRelationInput,
+  ) {
+    return this.data.updateEntityRelation(user.id, relationId, input)
+  }
+
+  @Mutation(() => Relation, { nullable: true })
+  deleteEntityRelation(@CtxUser() user: User, @Args('relationId') relationId: string) {
+    return this.data.deleteEntityRelation(user.id, relationId)
   }
 }

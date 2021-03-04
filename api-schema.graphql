@@ -105,6 +105,14 @@ input CreateSchemaEntityOntologyInput {
   value: String!
 }
 
+input CreateSchemaEntityRelationInput {
+  description: String
+  id: String
+  name: String!
+  relatedId: String!
+  type: RelationType!
+}
+
 input CreateSchemaInput {
   entities: [CreateSchemaEntityInput!]
   id: String
@@ -159,6 +167,8 @@ type Entity {
   name: String
   ontologies: [Ontology!]
   publishedAt: DateTime
+  related: [Relation!]
+  relations: [Relation!]
   stage: Stage
   updatedAt: DateTime
 }
@@ -281,15 +291,18 @@ type Mutation {
   adminUpdateTenantUserRole(role: TenantRole!, tenantUserId: String!): TenantUser
   adminUpdateUser(input: AdminUpdateUserInput!, userId: String!): User
   createEntityField(entityId: String!, input: CreateSchemaEntityFieldInput!): Field
+  createEntityRelation(entityId: String!, input: CreateSchemaEntityRelationInput!): Relation
   createSchema(input: CreateSchemaInput!, tenantId: String!): Schema
   createSchemaEntity(input: CreateSchemaEntityInput!, schemaId: String!): Entity
   createTenant(input: CreateTenantInput!): Tenant
   deleteEntityField(fieldId: String!): Field
+  deleteEntityRelation(relationId: String!): Relation
   intercomPub(payload: JSON, scope: String, type: String!): IntercomMessage
   login(input: LoginInput!): AuthToken
   logout: Boolean
   register(input: RegisterInput!): AuthToken
   updateEntityField(fieldId: String!, input: UpdateSchemaEntityFieldInput!): Field
+  updateEntityRelation(input: UpdateSchemaEntityRelationInput!, relationId: String!): Relation
   updateSchema(input: UpdateSchemaInput!, schemaId: String!): Schema
   updateSchemaEntity(entityId: String!, input: UpdateSchemaEntityInput!): Entity
 }
@@ -333,6 +346,24 @@ input RegisterInput {
   password: String!
   phone: String
   username: String
+}
+
+type Relation {
+  createdAt: DateTime
+  description: String
+  entity: Entity
+  id: ID
+  name: String
+  related: Entity
+  type: RelationType
+  updatedAt: DateTime
+}
+
+enum RelationType {
+  ManyToMany
+  ManyToOne
+  OneToMany
+  OneToOne
 }
 
 enum Role {
@@ -391,6 +422,11 @@ input UpdateSchemaEntityFieldInput {
 }
 
 input UpdateSchemaEntityInput {
+  description: String
+  name: String
+}
+
+input UpdateSchemaEntityRelationInput {
   description: String
   name: String
 }
