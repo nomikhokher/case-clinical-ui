@@ -55,6 +55,9 @@ fragment EntityDetails on Entity {
   fields {
     ...FieldDetails
   }
+  relations {
+    ...RelationDetails
+  }
   keywords
 }
 
@@ -62,6 +65,15 @@ fragment EntitySummaryDetails on EntitySummary {
   id
   createdAt
   updatedAt
+  name
+  description
+}
+
+fragment RelationDetails on Relation {
+  id
+  createdAt
+  updatedAt
+  type
   name
   description
 }
@@ -127,5 +139,23 @@ mutation UpdateEntityField($fieldId: String!, $input: UpdateSchemaEntityFieldInp
 mutation DeleteEntityField($fieldId: String!) {
   deleteEntityField(fieldId: $fieldId) {
     ...FieldDetails
+  }
+}
+
+mutation CreateEntityRelation($entityId: String!, $input: CreateSchemaEntityRelationInput!) {
+  createEntityRelation(entityId: $entityId, input: $input) {
+    ...RelationDetails
+  }
+}
+
+mutation UpdateEntityRelation($relationId: String!, $input: UpdateSchemaEntityRelationInput!) {
+  updateEntityRelation(relationId: $relationId, input: $input) {
+    ...RelationDetails
+  }
+}
+
+mutation DeleteEntityRelation($relationId: String!) {
+  deleteEntityRelation(relationId: $relationId) {
+    ...RelationDetails
   }
 }

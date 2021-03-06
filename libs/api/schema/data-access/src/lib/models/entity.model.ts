@@ -4,6 +4,7 @@ import { Field } from './field.model'
 import { ForeignKey } from './foreign-key.model'
 import { Key } from './key.model'
 import { Ontology } from './ontology.model'
+import { Relation } from './relation.model'
 import { Stage } from './stage.enum'
 
 @ObjectType()
@@ -48,5 +49,10 @@ export class Entity {
   @GraphQLField(() => [Ontology], { nullable: true })
   ontologies?: Ontology[]
 
+  @GraphQLField(() => [Relation], { nullable: true })
+  relations: Relation[] = []
+
+  @GraphQLField(() => [Relation], { nullable: true })
+  related: Relation[]
   schema
 }

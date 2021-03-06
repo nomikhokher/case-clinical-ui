@@ -4,9 +4,11 @@ import { ComponentStore, tapResponse } from '@ngrx/component-store'
 import {
   ApolloAngularSDK,
   CreateSchemaEntityFieldInput,
+  CreateSchemaEntityRelationInput,
   Entity,
   Field,
   FieldDataType,
+  Relation,
   UpdateSchemaEntityFieldInput,
 } from '@schema-driven/web/core/data-access'
 import { pluck, switchMap, tap, withLatestFrom } from 'rxjs/operators'
@@ -35,20 +37,14 @@ export class SchemaEntityDetailStore extends ComponentStore<SchemaEntityDetailSt
   readonly loading$ = this.select((s) => s.loading)
   readonly types$ = this.select((s) => s.types)
   readonly schema$ = this.select(this.schema.schema$, (schema) => schema)
-
+  readonly info$ = this.select(this.errors$, this.loading$, (errors, loading) => ({ errors, loading }))
   readonly entity$ = this.select((s) => s.entity)
-  readonly vm$ = this.select(
-    this.errors$,
-    this.loading$,
-    this.entity$,
-    this.types$,
-    (errors, loading, entity, types) => ({
-      errors,
-      loading,
-      entity,
-      types,
-    }),
-  )
+  readonly vm$ = this.select(this.info$, this.entity$, this.types$, this.schema$, (info, entity, types, schema) => ({
+    info,
+    entity,
+    types,
+    schema,
+  }))
 
   readonly loadSchemaEntityEffect = this.effect<string>((entityId$) =>
     entityId$.pipe(
@@ -103,6 +99,35 @@ export class SchemaEntityDetailStore extends ComponentStore<SchemaEntityDetailSt
     field$.pipe(
       switchMap((field) =>
         this.sdk.deleteEntityField({ fieldId: field.id }).pipe(
+          withLatestFrom(this.schema$),
+          tapResponse(
+            ([_, schema]) => this.schema.loadSchemaEffect(schema.id),
+            (errors) => this.patchState({ errors }),
+          ),
+        ),
+      ),
+    ),
+  )
+
+  readonly createSchemaEntityRelationEffect = this.effect<CreateSchemaEntityRelationInput>((input$) =>
+    input$.pipe(
+      withLatestFrom(this.entity$),
+      switchMap(([input, entity]) =>
+        this.sdk.createEntityRelation({ entityId: entity.id, input }).pipe(
+          withLatestFrom(this.schema$),
+          tapResponse(
+            ([_, schema]) => this.schema.loadSchemaEffect(schema.id),
+            (errors) => this.patchState({ errors }),
+          ),
+        ),
+      ),
+    ),
+  )
+
+  readonly deleteSchemaEntityRelationEffect = this.effect<Relation>((relation$) =>
+    relation$.pipe(
+      switchMap((relation) =>
+        this.sdk.deleteEntityRelation({ relationId: relation.id }).pipe(
           withLatestFrom(this.schema$),
           tapResponse(
             ([_, schema]) => this.schema.loadSchemaEffect(schema.id),

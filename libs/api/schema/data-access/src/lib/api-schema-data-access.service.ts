@@ -3,9 +3,11 @@ import { Prisma } from '@prisma/client'
 import { ApiCoreDataAccessService } from '@schema-driven/api/core/data-access'
 import { formatEntities } from './api-schema-data-access.helper'
 import { CreateSchemaEntityFieldInput } from './dto/create-schema-entity-field.input'
+import { CreateSchemaEntityRelationInput } from './dto/create-schema-entity-relation.input'
 import { CreateSchemaEntityInput } from './dto/create-schema-entity.input'
 import { CreateSchemaInput } from './dto/create-schema.input'
 import { UpdateSchemaEntityFieldInput } from './dto/update-schema-entity-field.input'
+import { UpdateSchemaEntityRelationInput } from './dto/update-schema-entity-relation.input'
 import { UpdateSchemaInput } from './dto/update-schema.input'
 import { DataType } from './models/data-type.enum'
 import { FieldDataType } from './models/field-data-type.model'
@@ -30,6 +32,7 @@ export class ApiSchemaDataAccessService {
           },
         },
         ontologies: true,
+        relations: { include: { entity: true } },
       },
     },
   }
@@ -146,6 +149,13 @@ export class ApiSchemaDataAccessService {
         name: input.name,
         description: input.description,
         dynamicProperties: {},
+        fields: {
+          create: [
+            { name: 'id', dataType: DataType.String, fieldType: FieldType.SingleLineOfText },
+            { name: 'createdAt', dataType: DataType.DateTime, fieldType: FieldType.DateTime },
+            { name: 'updatedAT', dataType: DataType.DateTime, fieldType: FieldType.DateTime },
+          ],
+        },
       },
     })
   }
@@ -211,5 +221,43 @@ export class ApiSchemaDataAccessService {
       throw new UnauthorizedException('Access to schema denied')
     }
     return true
+  }
+
+  async createEntityRelation(userId: string, entityId: string, input: CreateSchemaEntityRelationInput) {
+    const schema = await this.data.entity.findUnique({ where: { id: entityId } }).schema()
+    await this.ensureSchemaAccess(userId, schema.id)
+    return this.data.relation.create({
+      data: {
+        entityId,
+        id: input.id,
+        type: input.type,
+        name: input.name,
+        description: input.description,
+        relatedId: input.relatedId,
+      },
+    })
+  }
+
+  async updateEntityRelation(userId: string, relationId: string, input: UpdateSchemaEntityRelationInput) {
+    const schema = await this.data.relation
+      .findUnique({ where: { id: relationId } })
+      .entity()
+      .schema()
+    await this.ensureSchemaAccess(userId, schema.id)
+
+    return this.data.relation.update({
+      where: { id: relationId },
+      data: { name: input.name, description: input.description },
+    })
+  }
+
+  async deleteEntityRelation(userId: string, relationId: string) {
+    const schema = await this.data.relation
+      .findUnique({ where: { id: relationId } })
+      .entity()
+      .schema()
+    await this.ensureSchemaAccess(userId, schema.id)
+
+    return this.data.relation.delete({ where: { id: relationId } })
   }
 }

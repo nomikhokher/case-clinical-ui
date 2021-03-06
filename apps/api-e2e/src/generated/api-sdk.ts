@@ -121,6 +121,14 @@ export type CreateSchemaEntityOntologyInput = {
   value: Scalars['String']
 }
 
+export type CreateSchemaEntityRelationInput = {
+  description?: Maybe<Scalars['String']>
+  id?: Maybe<Scalars['String']>
+  name: Scalars['String']
+  relatedId: Scalars['String']
+  type: RelationType
+}
+
 export type CreateSchemaInput = {
   entities?: Maybe<Array<CreateSchemaEntityInput>>
   id?: Maybe<Scalars['String']>
@@ -172,6 +180,8 @@ export type Entity = {
   name?: Maybe<Scalars['String']>
   ontologies?: Maybe<Array<Ontology>>
   publishedAt?: Maybe<Scalars['DateTime']>
+  related?: Maybe<Array<Relation>>
+  relations?: Maybe<Array<Relation>>
   stage?: Maybe<Stage>
   updatedAt?: Maybe<Scalars['DateTime']>
 }
@@ -296,15 +306,18 @@ export type Mutation = {
   adminUpdateTenantUserRole?: Maybe<TenantUser>
   adminUpdateUser?: Maybe<User>
   createEntityField?: Maybe<Field>
+  createEntityRelation?: Maybe<Relation>
   createSchema?: Maybe<Schema>
   createSchemaEntity?: Maybe<Entity>
   createTenant?: Maybe<Tenant>
   deleteEntityField?: Maybe<Field>
+  deleteEntityRelation?: Maybe<Relation>
   intercomPub?: Maybe<IntercomMessage>
   login?: Maybe<AuthToken>
   logout?: Maybe<Scalars['Boolean']>
   register?: Maybe<AuthToken>
   updateEntityField?: Maybe<Field>
+  updateEntityRelation?: Maybe<Relation>
   updateSchema?: Maybe<Schema>
   updateSchemaEntity?: Maybe<Entity>
 }
@@ -392,6 +405,11 @@ export type MutationCreateEntityFieldArgs = {
   input: CreateSchemaEntityFieldInput
 }
 
+export type MutationCreateEntityRelationArgs = {
+  entityId: Scalars['String']
+  input: CreateSchemaEntityRelationInput
+}
+
 export type MutationCreateSchemaArgs = {
   input: CreateSchemaInput
   tenantId: Scalars['String']
@@ -408,6 +426,10 @@ export type MutationCreateTenantArgs = {
 
 export type MutationDeleteEntityFieldArgs = {
   fieldId: Scalars['String']
+}
+
+export type MutationDeleteEntityRelationArgs = {
+  relationId: Scalars['String']
 }
 
 export type MutationIntercomPubArgs = {
@@ -427,6 +449,11 @@ export type MutationRegisterArgs = {
 export type MutationUpdateEntityFieldArgs = {
   fieldId: Scalars['String']
   input: UpdateSchemaEntityFieldInput
+}
+
+export type MutationUpdateEntityRelationArgs = {
+  input: UpdateSchemaEntityRelationInput
+  relationId: Scalars['String']
 }
 
 export type MutationUpdateSchemaArgs = {
@@ -526,6 +553,25 @@ export type RegisterInput = {
   username?: Maybe<Scalars['String']>
 }
 
+export type Relation = {
+  __typename?: 'Relation'
+  createdAt?: Maybe<Scalars['DateTime']>
+  description?: Maybe<Scalars['String']>
+  entity?: Maybe<Entity>
+  id?: Maybe<Scalars['ID']>
+  name?: Maybe<Scalars['String']>
+  related?: Maybe<Entity>
+  type?: Maybe<RelationType>
+  updatedAt?: Maybe<Scalars['DateTime']>
+}
+
+export enum RelationType {
+  ManyToMany = 'ManyToMany',
+  ManyToOne = 'ManyToOne',
+  OneToMany = 'OneToMany',
+  OneToOne = 'OneToOne',
+}
+
 export enum Role {
   Admin = 'Admin',
   SuperAdmin = 'SuperAdmin',
@@ -591,6 +637,11 @@ export type UpdateSchemaEntityFieldInput = {
 }
 
 export type UpdateSchemaEntityInput = {
+  description?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
+}
+
+export type UpdateSchemaEntityRelationInput = {
   description?: Maybe<Scalars['String']>
   name?: Maybe<Scalars['String']>
 }
@@ -779,11 +830,17 @@ export type EntityDetailsFragment = { __typename?: 'Entity' } & Pick<
 > & {
     keys?: Maybe<Array<{ __typename?: 'Key' } & KeyDetailsFragment>>
     fields?: Maybe<Array<{ __typename?: 'Field' } & FieldDetailsFragment>>
+    relations?: Maybe<Array<{ __typename?: 'Relation' } & RelationDetailsFragment>>
   }
 
 export type EntitySummaryDetailsFragment = { __typename?: 'EntitySummary' } & Pick<
   EntitySummary,
   'id' | 'createdAt' | 'updatedAt' | 'name' | 'description'
+>
+
+export type RelationDetailsFragment = { __typename?: 'Relation' } & Pick<
+  Relation,
+  'id' | 'createdAt' | 'updatedAt' | 'type' | 'name' | 'description'
 >
 
 export type SchemataQueryVariables = Exact<{
@@ -869,6 +926,32 @@ export type DeleteEntityFieldMutationVariables = Exact<{
 
 export type DeleteEntityFieldMutation = { __typename?: 'Mutation' } & {
   deleteEntityField?: Maybe<{ __typename?: 'Field' } & FieldDetailsFragment>
+}
+
+export type CreateEntityRelationMutationVariables = Exact<{
+  entityId: Scalars['String']
+  input: CreateSchemaEntityRelationInput
+}>
+
+export type CreateEntityRelationMutation = { __typename?: 'Mutation' } & {
+  createEntityRelation?: Maybe<{ __typename?: 'Relation' } & RelationDetailsFragment>
+}
+
+export type UpdateEntityRelationMutationVariables = Exact<{
+  relationId: Scalars['String']
+  input: UpdateSchemaEntityRelationInput
+}>
+
+export type UpdateEntityRelationMutation = { __typename?: 'Mutation' } & {
+  updateEntityRelation?: Maybe<{ __typename?: 'Relation' } & RelationDetailsFragment>
+}
+
+export type DeleteEntityRelationMutationVariables = Exact<{
+  relationId: Scalars['String']
+}>
+
+export type DeleteEntityRelationMutation = { __typename?: 'Mutation' } & {
+  deleteEntityRelation?: Maybe<{ __typename?: 'Relation' } & RelationDetailsFragment>
 }
 
 export type TenantDetailsFragment = { __typename?: 'Tenant' } & Pick<Tenant, 'id' | 'createdAt' | 'updatedAt' | 'name'>
@@ -1124,6 +1207,16 @@ export const KeyDetails = gql`
     name
   }
 `
+export const RelationDetails = gql`
+  fragment RelationDetails on Relation {
+    id
+    createdAt
+    updatedAt
+    type
+    name
+    description
+  }
+`
 export const EntityDetails = gql`
   fragment EntityDetails on Entity {
     id
@@ -1137,10 +1230,14 @@ export const EntityDetails = gql`
     fields {
       ...FieldDetails
     }
+    relations {
+      ...RelationDetails
+    }
     keywords
   }
   ${KeyDetails}
   ${FieldDetails}
+  ${RelationDetails}
 `
 export const TenantDetails = gql`
   fragment TenantDetails on Tenant {
@@ -1402,6 +1499,30 @@ export const DeleteEntityField = gql`
     }
   }
   ${FieldDetails}
+`
+export const CreateEntityRelation = gql`
+  mutation CreateEntityRelation($entityId: String!, $input: CreateSchemaEntityRelationInput!) {
+    createEntityRelation(entityId: $entityId, input: $input) {
+      ...RelationDetails
+    }
+  }
+  ${RelationDetails}
+`
+export const UpdateEntityRelation = gql`
+  mutation UpdateEntityRelation($relationId: String!, $input: UpdateSchemaEntityRelationInput!) {
+    updateEntityRelation(relationId: $relationId, input: $input) {
+      ...RelationDetails
+    }
+  }
+  ${RelationDetails}
+`
+export const DeleteEntityRelation = gql`
+  mutation DeleteEntityRelation($relationId: String!) {
+    deleteEntityRelation(relationId: $relationId) {
+      ...RelationDetails
+    }
+  }
+  ${RelationDetails}
 `
 export const CreateTenant = gql`
   mutation CreateTenant($input: CreateTenantInput!) {

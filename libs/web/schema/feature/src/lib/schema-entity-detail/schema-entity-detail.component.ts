@@ -2,9 +2,12 @@ import { Component, TemplateRef } from '@angular/core'
 import { DialogService } from '@ngneat/dialog'
 import {
   CreateSchemaEntityFieldInput,
+  CreateSchemaEntityRelationInput,
   Entity,
   Field,
   FieldDataType,
+  Relation,
+  Schema,
   UpdateSchemaEntityFieldInput,
 } from '@schema-driven/web/core/data-access'
 import { SchemaEntityDetailStore } from './schema-entity-detail.store'
@@ -12,10 +15,10 @@ import { SchemaEntityDetailStore } from './schema-entity-detail.store'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <ng-container *ngIf="vm.errors">
-        <pre class="bg-gray-300 text-red-800 rounded-md p-4">{{ vm.errors | json }}</pre>
+      <ng-container *ngIf="vm?.info?.errors">
+        <pre class="bg-gray-300 text-red-800 rounded-md p-4">{{ vm?.info?.errors | json }}</pre>
       </ng-container>
-      <ng-container *ngIf="!vm.errors">
+      <ng-container *ngIf="!vm?.info?.errors">
         <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
           <div class="py-3 md:py-6 md:px-2 lg:py-0 lg:px-0 lg:col-span-8">
             <div
@@ -83,6 +86,39 @@ import { SchemaEntityDetailStore } from './schema-entity-detail.store'
                 </div>
               </ng-container>
             </div>
+
+            <div class="flex flex-col space-y-3 mt-3" *ngIf="vm.entity?.relations?.length">
+              <ng-container *ngFor="let relation of vm.entity?.relations">
+                <div class="px-4 py-4 shadow rounded-md dark:bg-gray-800 dark:text-gray-300 ">
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-3">
+                      <entity-relation-icon [type]="relation.type"></entity-relation-icon>
+                      <div class="">
+                        <div class="text-lg font-semibold">
+                          {{ relation?.name }}
+                        </div>
+                        <div class="flex items-center space-x-2">
+                          <div class="text-gray-500">
+                            {{ relation?.description }}
+                          </div>
+                          <span class="px-2 bg-gray-400 rounded-full text-gray-700 text-xs">
+                            {{ relation?.type }}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex space-x-2">
+                      <button (click)="openDialog(editRelationTpl, { relation: relation, schema: vm?.schema })">
+                        <ui-icon icon="pencil"></ui-icon>
+                      </button>
+                      <button (click)="deleteRelation(relation)">
+                        <ui-icon class="text-gray-500" icon="trash"></ui-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
           </div>
 
           <div class="md:px-2 lg:px-0 lg:col-span-4">
@@ -106,6 +142,17 @@ import { SchemaEntityDetailStore } from './schema-entity-detail.store'
                   </div>
                 </button>
               </ng-container>
+
+              <button
+                (click)="openDialog(createRelationTpl, { relation: {}, schema: vm?.schema })"
+                class="w-full dark:bg-gray-800 dark:text-gray-400 text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center"
+              >
+                <entity-relation-icon></entity-relation-icon>
+                <div class="flex flex-col space-x-2 items-start justify-start overflow-hidden">
+                  <div class="ml-2 text-sm truncate font-medium">Relation</div>
+                  <div class="text-xs truncate text-gray-600">Content Relationship</div>
+                </div>
+              </button>
             </nav>
           </div>
         </div>
@@ -167,6 +214,40 @@ import { SchemaEntityDetailStore } from './schema-entity-detail.store'
             </div>
           </div>
         </ng-template>
+        <ng-template #createRelationTpl let-ref>
+          <div class="flex-grow flex flex-col">
+            <div class="text-lg font-semibold tracking-wider px-4 py-3 flex space-x-4 items-center justify-between">
+              <div class="flex items-center space-x-4">
+                <entity-relation-icon></entity-relation-icon>
+                <div>Create Relation</div>
+              </div>
+              <div class="font-light text-gray-600"></div>
+            </div>
+            <div class="flex-grow">
+              <relation-form
+                [schema]="ref.data?.schema"
+                [relation]="ref.data.relation"
+                (submitForm)="submitCreateRelationForm($event); ref.close()"
+              >
+                <ui-button color="gray" (click)="ref.close()" label="Close"></ui-button>
+              </relation-form>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template #editRelationTpl let-ref>
+          <div class="flex-grow flex flex-col">
+            <div class="text-lg font-semibold tracking-wider px-4 py-3 flex space-x-4 items-center justify-between">
+              <div class="flex items-center space-x-4">
+                <entity-relation-icon [type]="ref.data?.relation.type"></entity-relation-icon>
+                <div>Edit Relation</div>
+              </div>
+              <div class="font-light text-gray-600">{{ ref.data?.relation?.name }}</div>
+            </div>
+            <div class="flex-grow">
+              <pre>TBD: {{ ref.data?.relation | json }}</pre>
+            </div>
+          </div>
+        </ng-template>
       </ng-container>
     </ng-container>
   `,
@@ -177,8 +258,17 @@ export class SchemaEntityDetailComponent {
 
   constructor(private readonly store: SchemaEntityDetailStore, private readonly dialog: DialogService) {}
 
-  openDialog(tpl: TemplateRef<any>, { entity, field, type }: { entity?: Entity; field?: Field; type?: FieldDataType }) {
-    this.dialog.open(tpl, { data: { entity, field, type }, closeButton: false })
+  openDialog(
+    tpl: TemplateRef<any>,
+    {
+      schema,
+      entity,
+      field,
+      type,
+      relation,
+    }: { entity?: Entity; schema?: Schema; field?: Field; type?: FieldDataType; relation?: Relation },
+  ) {
+    this.dialog.open(tpl, { data: { schema, entity, field, type, relation }, closeButton: false })
   }
 
   submitCreateFieldForm(
@@ -200,5 +290,15 @@ export class SchemaEntityDetailComponent {
     if (confirm('Are you sure?')) {
       this.store.deleteSchemaEntityFieldEffect(field)
     }
+  }
+
+  deleteRelation(relation: Relation) {
+    if (confirm('Are you sure?')) {
+      this.store.deleteSchemaEntityRelationEffect(relation)
+    }
+  }
+
+  submitCreateRelationForm({ id, type, description, name, relatedId }: CreateSchemaEntityRelationInput) {
+    this.store.createSchemaEntityRelationEffect({ id, type, description, name, relatedId })
   }
 }
