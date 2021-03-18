@@ -90,6 +90,7 @@ model Schema {
   tenantId    String
   entities    Entity[]
   keywords    String[]
+  enums       Enum[]    @relation("Enum_belongsTo_Schema")
 }
 
 model Entity {
@@ -130,6 +131,17 @@ enum RelationType {
   ManyToOne
   OneToMany
   OneToOne
+}
+
+model Enum {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
+  name        String
+  description String?
+  values      String[]
+  schema      Schema   @relation(name: "Enum_belongsTo_Schema", fields: [schemaId], references: [id])
+  schemaId    String
 }
 
 model Key {

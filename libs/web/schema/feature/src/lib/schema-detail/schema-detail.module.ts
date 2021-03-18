@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
-import { EntityFormModule } from '@schema-driven/web/schema/ui'
+import { EntityFormModule, EnumFormModule } from '@schema-driven/web/schema/ui'
 import { WebUiButtonModule } from '@schema-driven/web/ui/button'
 import { WebUiIconModule } from '@schema-driven/web/ui/icon'
 import { WebUiPageHeaderModule } from '@schema-driven/web/ui/page-header'
@@ -13,9 +13,14 @@ const routes: Routes = [
     component: SchemaDetailComponent,
     children: [
       {
-        path: ':entityId',
+        path: 'entities/:entityId',
         loadChildren: () =>
           import('../schema-entity-detail/schema-entity-detail.module').then((m) => m.SchemaEntityDetailModule),
+      },
+      {
+        path: 'enums/:enumId',
+        loadChildren: () =>
+          import('../schema-enum-detail/schema-enum-detail.module').then((m) => m.SchemaEnumDetailModule),
       },
     ],
   },
@@ -30,6 +35,7 @@ const routes: Routes = [
     WebUiIconModule,
     WebUiButtonModule,
     EntityFormModule,
+    EnumFormModule,
   ],
 })
 export class SchemaDetailModule {}

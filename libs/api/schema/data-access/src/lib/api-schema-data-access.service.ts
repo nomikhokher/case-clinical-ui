@@ -2,10 +2,12 @@ import { Injectable, UnauthorizedException } from '@nestjs/common'
 import { Prisma } from '@prisma/client'
 import { ApiCoreDataAccessService } from '@schema-driven/api/core/data-access'
 import { formatEntities } from './api-schema-data-access.helper'
+import { CreateSchemaEnumInput } from './dto/create-schema-enum.input'
 import { CreateSchemaEntityFieldInput } from './dto/create-schema-entity-field.input'
 import { CreateSchemaEntityRelationInput } from './dto/create-schema-entity-relation.input'
 import { CreateSchemaEntityInput } from './dto/create-schema-entity.input'
 import { CreateSchemaInput } from './dto/create-schema.input'
+import { UpdateSchemaEnumInput } from './dto/update-schema-enum.input'
 import { UpdateSchemaEntityFieldInput } from './dto/update-schema-entity-field.input'
 import { UpdateSchemaEntityRelationInput } from './dto/update-schema-entity-relation.input'
 import { UpdateSchemaInput } from './dto/update-schema.input'
@@ -35,6 +37,7 @@ export class ApiSchemaDataAccessService {
         relations: { include: { entity: true } },
       },
     },
+    enums: true,
   }
   constructor(private readonly data: ApiCoreDataAccessService) {}
 
@@ -259,5 +262,35 @@ export class ApiSchemaDataAccessService {
     await this.ensureSchemaAccess(userId, schema.id)
 
     return this.data.relation.delete({ where: { id: relationId } })
+  }
+
+  async createSchemaEnum(userId: string, schemaId: string, input: CreateSchemaEnumInput) {
+    await this.ensureSchemaAccess(userId, schemaId)
+    return this.data.enum.create({
+      data: {
+        schemaId,
+        id: input.id,
+        name: input.name,
+        description: input.description,
+        values: input.values,
+      },
+    })
+  }
+
+  async updateSchemaEnum(userId: string, enumId: string, input: UpdateSchemaEnumInput) {
+    const schema = await this.data.enum.findUnique({ where: { id: enumId } }).schema()
+    await this.ensureSchemaAccess(userId, schema.id)
+
+    return this.data.enum.update({
+      where: { id: enumId },
+      data: { name: input.name, description: input.description, values: input.values },
+    })
+  }
+
+  async deleteSchemaEnum(userId: string, enumId: string) {
+    const schema = await this.data.enum.findUnique({ where: { id: enumId } }).schema()
+    await this.ensureSchemaAccess(userId, schema.id)
+
+    return this.data.enum.delete({ where: { id: enumId } })
   }
 }

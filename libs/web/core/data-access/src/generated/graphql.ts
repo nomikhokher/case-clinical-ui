@@ -132,6 +132,13 @@ export type CreateSchemaEntityRelationInput = {
   type: RelationType
 }
 
+export type CreateSchemaEnumInput = {
+  description?: Maybe<Scalars['String']>
+  id?: Maybe<Scalars['String']>
+  name: Scalars['String']
+  values?: Maybe<Array<Scalars['String']>>
+}
+
 export type CreateSchemaInput = {
   entities?: Maybe<Array<CreateSchemaEntityInput>>
   id?: Maybe<Scalars['String']>
@@ -198,6 +205,16 @@ export type EntitySummary = {
   publishedAt?: Maybe<Scalars['DateTime']>
   stage?: Maybe<Stage>
   updatedAt?: Maybe<Scalars['DateTime']>
+}
+
+export type Enum = {
+  __typename?: 'Enum'
+  createdAt?: Maybe<Scalars['DateTime']>
+  description?: Maybe<Scalars['String']>
+  id?: Maybe<Scalars['ID']>
+  name?: Maybe<Scalars['String']>
+  updatedAt?: Maybe<Scalars['DateTime']>
+  values?: Maybe<Array<Scalars['String']>>
 }
 
 export type Field = {
@@ -312,9 +329,11 @@ export type Mutation = {
   createEntityRelation?: Maybe<Relation>
   createSchema?: Maybe<Schema>
   createSchemaEntity?: Maybe<Entity>
+  createSchemaEnum?: Maybe<Enum>
   createTenant?: Maybe<Tenant>
   deleteEntityField?: Maybe<Field>
   deleteEntityRelation?: Maybe<Relation>
+  deleteSchemaEnum?: Maybe<Enum>
   intercomPub?: Maybe<IntercomMessage>
   login?: Maybe<AuthToken>
   logout?: Maybe<Scalars['Boolean']>
@@ -323,6 +342,7 @@ export type Mutation = {
   updateEntityRelation?: Maybe<Relation>
   updateSchema?: Maybe<Schema>
   updateSchemaEntity?: Maybe<Entity>
+  updateSchemaEnum?: Maybe<Enum>
 }
 
 export type MutationAccountCreateEmailArgs = {
@@ -423,6 +443,11 @@ export type MutationCreateSchemaEntityArgs = {
   schemaId: Scalars['String']
 }
 
+export type MutationCreateSchemaEnumArgs = {
+  input: CreateSchemaEnumInput
+  schemaId: Scalars['String']
+}
+
 export type MutationCreateTenantArgs = {
   input: CreateTenantInput
 }
@@ -433,6 +458,10 @@ export type MutationDeleteEntityFieldArgs = {
 
 export type MutationDeleteEntityRelationArgs = {
   relationId: Scalars['String']
+}
+
+export type MutationDeleteSchemaEnumArgs = {
+  enumId: Scalars['String']
 }
 
 export type MutationIntercomPubArgs = {
@@ -467,6 +496,11 @@ export type MutationUpdateSchemaArgs = {
 export type MutationUpdateSchemaEntityArgs = {
   entityId: Scalars['String']
   input: UpdateSchemaEntityInput
+}
+
+export type MutationUpdateSchemaEnumArgs = {
+  enumId: Scalars['String']
+  input: UpdateSchemaEnumInput
 }
 
 export type Ontology = {
@@ -585,6 +619,7 @@ export type Schema = {
   __typename?: 'Schema'
   createdAt?: Maybe<Scalars['DateTime']>
   entities?: Maybe<Array<Entity>>
+  enums?: Maybe<Array<Enum>>
   id?: Maybe<Scalars['ID']>
   name?: Maybe<Scalars['String']>
   publishedAt?: Maybe<Scalars['DateTime']>
@@ -647,6 +682,12 @@ export type UpdateSchemaEntityInput = {
 export type UpdateSchemaEntityRelationInput = {
   description?: Maybe<Scalars['String']>
   name?: Maybe<Scalars['String']>
+}
+
+export type UpdateSchemaEnumInput = {
+  description?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
+  values?: Maybe<Array<Scalars['String']>>
 }
 
 export type UpdateSchemaInput = {
@@ -846,6 +887,11 @@ export type RelationDetailsFragment = { __typename?: 'Relation' } & Pick<
   'id' | 'createdAt' | 'updatedAt' | 'type' | 'name' | 'description'
 >
 
+export type EnumDetailsFragment = { __typename?: 'Enum' } & Pick<
+  Enum,
+  'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'values'
+>
+
 export type SchemataQueryVariables = Exact<{
   tenantId: Scalars['String']
 }>
@@ -862,6 +908,7 @@ export type SchemaQuery = { __typename?: 'Query' } & {
   schema?: Maybe<
     { __typename?: 'Schema' } & {
       entities?: Maybe<Array<{ __typename?: 'Entity' } & EntityDetailsFragment>>
+      enums?: Maybe<Array<{ __typename?: 'Enum' } & EnumDetailsFragment>>
     } & SchemaDetailsFragment
   >
 }
@@ -883,6 +930,7 @@ export type CreateSchemaMutation = { __typename?: 'Mutation' } & {
   createSchema?: Maybe<
     { __typename?: 'Schema' } & {
       entities?: Maybe<Array<{ __typename?: 'Entity' } & EntityDetailsFragment>>
+      enums?: Maybe<Array<{ __typename?: 'Enum' } & EnumDetailsFragment>>
     } & SchemaDetailsFragment
   >
 }
@@ -955,6 +1003,32 @@ export type DeleteEntityRelationMutationVariables = Exact<{
 
 export type DeleteEntityRelationMutation = { __typename?: 'Mutation' } & {
   deleteEntityRelation?: Maybe<{ __typename?: 'Relation' } & RelationDetailsFragment>
+}
+
+export type CreateSchemaEnumMutationVariables = Exact<{
+  schemaId: Scalars['String']
+  input: CreateSchemaEnumInput
+}>
+
+export type CreateSchemaEnumMutation = { __typename?: 'Mutation' } & {
+  createSchemaEnum?: Maybe<{ __typename?: 'Enum' } & EnumDetailsFragment>
+}
+
+export type UpdateSchemaEnumMutationVariables = Exact<{
+  enumId: Scalars['String']
+  input: UpdateSchemaEnumInput
+}>
+
+export type UpdateSchemaEnumMutation = { __typename?: 'Mutation' } & {
+  updateSchemaEnum?: Maybe<{ __typename?: 'Enum' } & EnumDetailsFragment>
+}
+
+export type DeleteSchemaEnumMutationVariables = Exact<{
+  enumId: Scalars['String']
+}>
+
+export type DeleteSchemaEnumMutation = { __typename?: 'Mutation' } & {
+  deleteSchemaEnum?: Maybe<{ __typename?: 'Enum' } & EnumDetailsFragment>
 }
 
 export type TenantDetailsFragment = { __typename?: 'Tenant' } & Pick<Tenant, 'id' | 'createdAt' | 'updatedAt' | 'name'>
@@ -1241,6 +1315,16 @@ export const EntityDetailsFragmentDoc = gql`
   ${KeyDetailsFragmentDoc}
   ${FieldDetailsFragmentDoc}
   ${RelationDetailsFragmentDoc}
+`
+export const EnumDetailsFragmentDoc = gql`
+  fragment EnumDetails on Enum {
+    id
+    createdAt
+    updatedAt
+    name
+    description
+    values
+  }
 `
 export const TenantDetailsFragmentDoc = gql`
   fragment TenantDetails on Tenant {
@@ -1671,10 +1755,14 @@ export const SchemaDocument = gql`
       entities {
         ...EntityDetails
       }
+      enums {
+        ...EnumDetails
+      }
     }
   }
   ${SchemaDetailsFragmentDoc}
   ${EntityDetailsFragmentDoc}
+  ${EnumDetailsFragmentDoc}
 `
 
 @Injectable({
@@ -1716,10 +1804,14 @@ export const CreateSchemaDocument = gql`
       entities {
         ...EntityDetails
       }
+      enums {
+        ...EnumDetails
+      }
     }
   }
   ${SchemaDetailsFragmentDoc}
   ${EntityDetailsFragmentDoc}
+  ${EnumDetailsFragmentDoc}
 `
 
 @Injectable({
@@ -1903,6 +1995,63 @@ export class DeleteEntityRelationGQL extends Apollo.Mutation<
   DeleteEntityRelationMutationVariables
 > {
   document = DeleteEntityRelationDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const CreateSchemaEnumDocument = gql`
+  mutation CreateSchemaEnum($schemaId: String!, $input: CreateSchemaEnumInput!) {
+    createSchemaEnum(schemaId: $schemaId, input: $input) {
+      ...EnumDetails
+    }
+  }
+  ${EnumDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class CreateSchemaEnumGQL extends Apollo.Mutation<CreateSchemaEnumMutation, CreateSchemaEnumMutationVariables> {
+  document = CreateSchemaEnumDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const UpdateSchemaEnumDocument = gql`
+  mutation UpdateSchemaEnum($enumId: String!, $input: UpdateSchemaEnumInput!) {
+    updateSchemaEnum(enumId: $enumId, input: $input) {
+      ...EnumDetails
+    }
+  }
+  ${EnumDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class UpdateSchemaEnumGQL extends Apollo.Mutation<UpdateSchemaEnumMutation, UpdateSchemaEnumMutationVariables> {
+  document = UpdateSchemaEnumDocument
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo)
+  }
+}
+export const DeleteSchemaEnumDocument = gql`
+  mutation DeleteSchemaEnum($enumId: String!) {
+    deleteSchemaEnum(enumId: $enumId) {
+      ...EnumDetails
+    }
+  }
+  ${EnumDetailsFragmentDoc}
+`
+
+@Injectable({
+  providedIn: 'root',
+})
+export class DeleteSchemaEnumGQL extends Apollo.Mutation<DeleteSchemaEnumMutation, DeleteSchemaEnumMutationVariables> {
+  document = DeleteSchemaEnumDocument
 
   constructor(apollo: Apollo.Apollo) {
     super(apollo)
@@ -2317,6 +2466,9 @@ export class ApolloAngularSDK {
     private createEntityRelationGql: CreateEntityRelationGQL,
     private updateEntityRelationGql: UpdateEntityRelationGQL,
     private deleteEntityRelationGql: DeleteEntityRelationGQL,
+    private createSchemaEnumGql: CreateSchemaEnumGQL,
+    private updateSchemaEnumGql: UpdateSchemaEnumGQL,
+    private deleteSchemaEnumGql: DeleteSchemaEnumGQL,
     private createTenantGql: CreateTenantGQL,
     private tenantsGql: TenantsGQL,
     private tenantGql: TenantGQL,
@@ -2561,6 +2713,27 @@ export class ApolloAngularSDK {
     options?: MutationOptionsAlone<DeleteEntityRelationMutation, DeleteEntityRelationMutationVariables>,
   ) {
     return this.deleteEntityRelationGql.mutate(variables, options)
+  }
+
+  createSchemaEnum(
+    variables: CreateSchemaEnumMutationVariables,
+    options?: MutationOptionsAlone<CreateSchemaEnumMutation, CreateSchemaEnumMutationVariables>,
+  ) {
+    return this.createSchemaEnumGql.mutate(variables, options)
+  }
+
+  updateSchemaEnum(
+    variables: UpdateSchemaEnumMutationVariables,
+    options?: MutationOptionsAlone<UpdateSchemaEnumMutation, UpdateSchemaEnumMutationVariables>,
+  ) {
+    return this.updateSchemaEnumGql.mutate(variables, options)
+  }
+
+  deleteSchemaEnum(
+    variables: DeleteSchemaEnumMutationVariables,
+    options?: MutationOptionsAlone<DeleteSchemaEnumMutation, DeleteSchemaEnumMutationVariables>,
+  ) {
+    return this.deleteSchemaEnumGql.mutate(variables, options)
   }
 
   createTenant(

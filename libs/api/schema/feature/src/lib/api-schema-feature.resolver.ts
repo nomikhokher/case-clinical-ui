@@ -4,6 +4,7 @@ import { Args, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { CtxUser, GqlAuthGuard } from '@schema-driven/api/auth/util'
 import {
   ApiSchemaDataAccessService,
+  CreateSchemaEnumInput,
   CreateSchemaEntityFieldInput,
   CreateSchemaEntityInput,
   CreateSchemaEntityRelationInput,
@@ -13,12 +14,14 @@ import {
   FieldDataType,
   Relation,
   Schema,
+  UpdateSchemaEnumInput,
   UpdateSchemaEntityFieldInput,
   UpdateSchemaEntityInput,
   UpdateSchemaEntityRelationInput,
   UpdateSchemaInput,
 } from '@schema-driven/api/schema/data-access'
 import { User } from '@schema-driven/api/user/data-access'
+import { Enum } from '../../../data-access/src/lib/models/enum.model'
 
 @Resolver()
 @UseGuards(GqlAuthGuard)
@@ -112,5 +115,24 @@ export class ApiSchemaFeatureResolver {
   @Mutation(() => Relation, { nullable: true })
   deleteEntityRelation(@CtxUser() user: User, @Args('relationId') relationId: string) {
     return this.data.deleteEntityRelation(user.id, relationId)
+  }
+
+  @Mutation(() => Enum, { nullable: true })
+  createSchemaEnum(
+    @CtxUser() user: User,
+    @Args('schemaId') schemaId: string,
+    @Args('input') input: CreateSchemaEnumInput,
+  ) {
+    return this.data.createSchemaEnum(user.id, schemaId, input)
+  }
+
+  @Mutation(() => Enum, { nullable: true })
+  updateSchemaEnum(@CtxUser() user: User, @Args('enumId') enumId: string, @Args('input') input: UpdateSchemaEnumInput) {
+    return this.data.updateSchemaEnum(user.id, enumId, input)
+  }
+
+  @Mutation(() => Enum, { nullable: true })
+  deleteSchemaEnum(@CtxUser() user: User, @Args('enumId') enumId: string) {
+    return this.data.deleteSchemaEnum(user.id, enumId)
   }
 }
