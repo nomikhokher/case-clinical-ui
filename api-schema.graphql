@@ -113,6 +113,13 @@ input CreateSchemaEntityRelationInput {
   type: RelationType!
 }
 
+input CreateSchemaEnumInput {
+  description: String
+  id: String
+  name: String!
+  values: [String!]
+}
+
 input CreateSchemaInput {
   entities: [CreateSchemaEntityInput!]
   id: String
@@ -181,6 +188,15 @@ type EntitySummary {
   publishedAt: DateTime
   stage: Stage
   updatedAt: DateTime
+}
+
+type Enum {
+  createdAt: DateTime
+  description: String
+  id: ID
+  name: String
+  updatedAt: DateTime
+  values: [String!]
 }
 
 type Field {
@@ -294,9 +310,11 @@ type Mutation {
   createEntityRelation(entityId: String!, input: CreateSchemaEntityRelationInput!): Relation
   createSchema(input: CreateSchemaInput!, tenantId: String!): Schema
   createSchemaEntity(input: CreateSchemaEntityInput!, schemaId: String!): Entity
+  createSchemaEnum(input: CreateSchemaEnumInput!, schemaId: String!): Enum
   createTenant(input: CreateTenantInput!): Tenant
   deleteEntityField(fieldId: String!): Field
   deleteEntityRelation(relationId: String!): Relation
+  deleteSchemaEnum(enumId: String!): Enum
   intercomPub(payload: JSON, scope: String, type: String!): IntercomMessage
   login(input: LoginInput!): AuthToken
   logout: Boolean
@@ -305,6 +323,7 @@ type Mutation {
   updateEntityRelation(input: UpdateSchemaEntityRelationInput!, relationId: String!): Relation
   updateSchema(input: UpdateSchemaInput!, schemaId: String!): Schema
   updateSchemaEntity(entityId: String!, input: UpdateSchemaEntityInput!): Entity
+  updateSchemaEnum(enumId: String!, input: UpdateSchemaEnumInput!): Enum
 }
 
 type Ontology {
@@ -375,6 +394,7 @@ enum Role {
 type Schema {
   createdAt: DateTime
   entities: [Entity!]
+  enums: [Enum!]
   id: ID
   name: String
   publishedAt: DateTime
@@ -429,6 +449,12 @@ input UpdateSchemaEntityInput {
 input UpdateSchemaEntityRelationInput {
   description: String
   name: String
+}
+
+input UpdateSchemaEnumInput {
+  description: String
+  name: String
+  values: [String!]
 }
 
 input UpdateSchemaInput {

@@ -7,6 +7,7 @@ import { UiFormCheckboxModule } from './types/checkbox/ui-form-checkbox.module'
 import { UiFormInputModule } from './types/input/ui-form-input.module'
 import { UiFormMulticheckboxModule } from './types/multicheckbox/ui-form-multicheckbox.module'
 import { UiFormRadioModule } from './types/radio/ui-form-radio.module'
+import { UiFormRepeatModule } from './types/repeat/ui-form-repeat.module'
 import { UiFormSelectModule } from './types/select/ui-form-select.module'
 import { UiFormTextareaModule } from './types/textarea/ui-form-textarea.module'
 
@@ -30,6 +31,7 @@ import { UiFormFieldModule } from './wrappers/form-field/ui-form-field.module'
     UiFormInputModule,
     UiFormMulticheckboxModule,
     UiFormRadioModule,
+    UiFormRepeatModule,
     UiFormSelectModule,
     UiFormTextareaModule,
     // Validators

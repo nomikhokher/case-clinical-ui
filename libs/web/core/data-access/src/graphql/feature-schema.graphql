@@ -78,6 +78,15 @@ fragment RelationDetails on Relation {
   description
 }
 
+fragment EnumDetails on Enum {
+  id
+  createdAt
+  updatedAt
+  name
+  description
+  values
+}
+
 query Schemata($tenantId: String!) {
   schemata(tenantId: $tenantId) {
     ...SchemaDetails
@@ -89,6 +98,9 @@ query Schema($schemaId: String!) {
     ...SchemaDetails
     entities {
       ...EntityDetails
+    }
+    enums {
+      ...EnumDetails
     }
   }
 }
@@ -108,6 +120,9 @@ mutation CreateSchema($tenantId: String!, $input: CreateSchemaInput!) {
     ...SchemaDetails
     entities {
       ...EntityDetails
+    }
+    enums {
+      ...EnumDetails
     }
   }
 }
@@ -157,5 +172,22 @@ mutation UpdateEntityRelation($relationId: String!, $input: UpdateSchemaEntityRe
 mutation DeleteEntityRelation($relationId: String!) {
   deleteEntityRelation(relationId: $relationId) {
     ...RelationDetails
+  }
+}
+mutation CreateSchemaEnum($schemaId: String!, $input: CreateSchemaEnumInput!) {
+  createSchemaEnum(schemaId: $schemaId, input: $input) {
+    ...EnumDetails
+  }
+}
+
+mutation UpdateSchemaEnum($enumId: String!, $input: UpdateSchemaEnumInput!) {
+  updateSchemaEnum(enumId: $enumId, input: $input) {
+    ...EnumDetails
+  }
+}
+
+mutation DeleteSchemaEnum($enumId: String!) {
+  deleteSchemaEnum(enumId: $enumId) {
+    ...EnumDetails
   }
 }
