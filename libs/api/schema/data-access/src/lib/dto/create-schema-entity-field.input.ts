@@ -1,4 +1,5 @@
 import { Field, InputType } from '@nestjs/graphql'
+import { FieldType } from '../models/field-type.enum'
 import { DataType } from '../models/data-type.enum'
 
 @InputType()
@@ -14,6 +15,9 @@ export class CreateSchemaEntityFieldInput {
 
   @Field(() => DataType)
   dataType: DataType
+
+  @Field(() => FieldType)
+  fieldType: FieldType
 
   @Field({ nullable: true })
   isName?: boolean

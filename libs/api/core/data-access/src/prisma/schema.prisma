@@ -212,6 +212,7 @@ enum DataType {
   Boolean
   DateTime
   Enumeration
+  Json
 }
 
 model ForeignKey {

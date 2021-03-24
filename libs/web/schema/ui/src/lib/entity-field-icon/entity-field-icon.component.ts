@@ -23,6 +23,8 @@ export class EntityFieldIconComponent {
         return 'bg-blue-300 text-blue-700'
       case DataType.Float:
         return 'bg-pink-300 text-pink-700'
+      case DataType.Json:
+        return 'bg-indigo-300 text-indigo-700'
       case DataType.String:
         return 'bg-green-300 text-green-700'
       default:
@@ -38,6 +40,8 @@ export class EntityFieldIconComponent {
         return 'DT'
       case FieldType.SingleLineOfText:
         return 'SL'
+      case FieldType.Json:
+        return 'JS'
       case FieldType.MultiLineText:
         return 'ML'
       case FieldType.Float:
