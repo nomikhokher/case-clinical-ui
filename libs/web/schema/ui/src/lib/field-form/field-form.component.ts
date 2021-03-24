@@ -32,5 +32,9 @@ export class FieldFormComponent {
       label: 'Use as title field',
       description: `Displays this field's value instead of the ID in relations`,
     }),
+    WebUiFormField.checkbox('isNullable', {
+      label: 'Field can have null values',
+      description: `Determines whether the field accepts null values`,
+    }),
   ]
 }
