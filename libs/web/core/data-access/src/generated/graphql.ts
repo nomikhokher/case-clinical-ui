@@ -87,6 +87,7 @@ export type CorePagingInput = {
 export type CreateSchemaEntityFieldInput = {
   dataType: DataType
   description?: Maybe<Scalars['String']>
+  fieldType: FieldType
   id?: Maybe<Scalars['String']>
   isName?: Maybe<Scalars['Boolean']>
   isNullable?: Maybe<Scalars['Boolean']>
@@ -162,6 +163,7 @@ export enum DataType {
   Enumeration = 'Enumeration',
   Float = 'Float',
   Integer = 'Integer',
+  Json = 'Json',
   String = 'String',
   Text = 'Text',
 }

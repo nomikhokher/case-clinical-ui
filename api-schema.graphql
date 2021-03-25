@@ -68,6 +68,7 @@ input CorePagingInput {
 input CreateSchemaEntityFieldInput {
   dataType: DataType!
   description: String
+  fieldType: FieldType!
   id: String
   isName: Boolean
   isNullable: Boolean
@@ -143,6 +144,7 @@ enum DataType {
   Enumeration
   Float
   Integer
+  Json
   String
   Text
 }

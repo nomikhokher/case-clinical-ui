@@ -272,10 +272,17 @@ export class SchemaEntityDetailComponent {
   }
 
   submitCreateFieldForm(
-    { name, description, dataType, isName, isNullable }: CreateSchemaEntityFieldInput,
+    { name, description, dataType, fieldType, isName, isNullable }: CreateSchemaEntityFieldInput,
     type: FieldDataType,
   ) {
-    this.store.createSchemaEntityFieldEffect({ name, description, dataType: type.data, isName, isNullable })
+    this.store.createSchemaEntityFieldEffect({
+      name,
+      description,
+      dataType: type.data,
+      fieldType: type.field,
+      isName,
+      isNullable,
+    })
   }
 
   submitUpdateFieldForm(fieldId: string, { name, description, isName, isNullable }: UpdateSchemaEntityFieldInput) {

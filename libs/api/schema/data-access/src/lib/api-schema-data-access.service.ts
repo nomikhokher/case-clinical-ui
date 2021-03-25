@@ -98,7 +98,12 @@ export class ApiSchemaDataAccessService {
         name: 'Date and time',
         description: 'Calendar date picker w/ time',
       },
-      // We have no DataType.Json
+      {
+        data: DataType.Json,
+        field: FieldType.Json,
+        name: 'Json',
+        description: 'Json object',
+      },
       {
         data: DataType.Enumeration,
         field: FieldType.Dropdown,
@@ -184,6 +189,7 @@ export class ApiSchemaDataAccessService {
         name: input.name,
         description: input.description,
         dataType: input.dataType,
+        fieldType: input.fieldType,
         isName: input.isName,
         isNullable: input.isNullable,
       },
