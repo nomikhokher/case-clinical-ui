@@ -1,15 +1,19 @@
 import { INestApplication } from '@nestjs/common'
-import { CreateSchema, CreateSchemaInput, Schemata, Stage } from '../generated/api-sdk'
+import { CreateSchema, CreateSchemaEntityInput, CreateSchemaInput, Schemata, Stage } from '../generated/api-sdk'
 import { runGraphQLQueryAlice, uniq } from '../helpers'
 import { getApp, getTenantAlice } from '../helpers/get-app'
+
+import { createSchemaLargeFixture, createSchemaSmallFixture } from '../fixtures/create-schema-large-fixture'
 
 describe('Schema Feature (e2e)', () => {
   let app: INestApplication
   let tenant
+  let largeTenant
 
   beforeAll(async () => {
     app = await getApp()
     tenant = await getTenantAlice(app)
+    largeTenant = await getTenantAlice(app, 'large-tenant')
   })
   afterAll(() => app.close())
 
@@ -27,7 +31,6 @@ describe('Schema Feature (e2e)', () => {
           expect(res.body).toBeDefined()
           expect(res.body.data).toBeDefined()
           expect(res.body.data.createSchema).toBeDefined()
-          expect(res.body.data.createSchema).toBeDefined()
           Object.keys(input).forEach((key) => {
             expect(res.body.data.createSchema[key]).toEqual(input[key])
           })
@@ -43,6 +46,25 @@ describe('Schema Feature (e2e)', () => {
           const schemata = res.body.data.schemata
           expect(schemata).toBeDefined()
           expect(schemata.find((t) => t.name === input.name)).toBeDefined()
+        })
+    })
+  })
+
+  describe('importing schemas', () => {
+    const input: CreateSchemaInput = {
+      name: uniq('large-schema'),
+      stage: Stage.Dev,
+      entities: createSchemaLargeFixture,
+    }
+
+    it('should import existing schema', () => {
+      return runGraphQLQueryAlice(app, CreateSchema, { input, tenantId: largeTenant.id })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toBeDefined()
+          expect(res.body.data).toBeDefined()
+          expect(res.body.data.createSchema).toBeDefined()
+          return res
         })
     })
   })

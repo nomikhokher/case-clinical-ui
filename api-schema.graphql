@@ -69,17 +69,23 @@ input CreateSchemaEntityFieldInput {
   dataType: DataType!
   description: String
   fieldType: FieldType!
+  foreignKeys: String
   id: String
   isName: Boolean
   isNullable: Boolean
+  keywords: [String!]
   name: String!
+  ontologies: [CreateSchemaEntityOntologyInput!]
 }
 
 input CreateSchemaEntityForeignKeyInput {
+  description: String
   id: String
+  keywords: [String!]
   name: String!
-  relatedEntity: CreateSchemaRelatedEntityInput!
-  relatedField: CreateSchemaEntityFieldInput!
+  ontologies: [CreateSchemaEntityOntologyInput!]
+  relatedEntity: CreateSchemaRelatedEntityInput
+  relatedField: CreateSchemaEntityFieldInput
 }
 
 input CreateSchemaEntityInput {
@@ -90,20 +96,26 @@ input CreateSchemaEntityInput {
   keys: [CreateSchemaEntityKeyInput!]
   name: String!
   ontologies: [CreateSchemaEntityOntologyInput!]
+  related: [CreateSchemaEntityRelationInput!]
+  relations: [CreateSchemaEntityRelationInput!]
 }
 
 input CreateSchemaEntityKeyInput {
-  description: String!
+  description: String
   id: String
   isDrivingKey: Boolean!
   keyType: KeyType!
   name: String!
+  ontologies: [CreateSchemaEntityOntologyInput!]
 }
 
 input CreateSchemaEntityOntologyInput {
+  description: String
   id: String
-  key: String!
-  value: String!
+  key: String
+  keywords: [String!]
+  name: String
+  value: String
 }
 
 input CreateSchemaEntityRelationInput {

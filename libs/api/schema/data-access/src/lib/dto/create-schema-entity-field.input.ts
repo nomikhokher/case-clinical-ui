@@ -1,6 +1,7 @@
-import { Field, InputType } from '@nestjs/graphql'
+import { Field as GraphQLField, Field, InputType } from '@nestjs/graphql'
 import { FieldType } from '../models/field-type.enum'
 import { DataType } from '../models/data-type.enum'
+import { CreateSchemaEntityOntologyInput } from './create-schema-entity-ontology.input'
 
 @InputType()
 export class CreateSchemaEntityFieldInput {
@@ -13,6 +14,9 @@ export class CreateSchemaEntityFieldInput {
   @Field({ nullable: true })
   description?: string
 
+  @Field({ nullable: true })
+  foreignKeys?: string
+
   @Field(() => DataType)
   dataType: DataType
 
@@ -24,4 +28,10 @@ export class CreateSchemaEntityFieldInput {
 
   @Field({ nullable: true })
   isNullable?: boolean
+
+  @GraphQLField(() => [String], { nullable: true })
+  keywords?: string[]
+
+  @GraphQLField(() => [CreateSchemaEntityOntologyInput], { nullable: true })
+  ontologies?: CreateSchemaEntityOntologyInput[]
 }

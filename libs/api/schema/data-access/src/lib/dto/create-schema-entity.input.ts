@@ -3,6 +3,7 @@ import { CreateSchemaEntityFieldInput } from './create-schema-entity-field.input
 import { CreateSchemaEntityForeignKeyInput } from './create-schema-entity-foreign-key.input'
 import { CreateSchemaEntityKeyInput } from './create-schema-entity-key.input'
 import { CreateSchemaEntityOntologyInput } from './create-schema-entity-ontology.input'
+import { CreateSchemaEntityRelationInput } from './create-schema-entity-relation.input'
 
 @InputType()
 export class CreateSchemaEntityInput {
@@ -26,4 +27,10 @@ export class CreateSchemaEntityInput {
 
   @Field(() => [CreateSchemaEntityForeignKeyInput], { nullable: true })
   foreignKeys?: CreateSchemaEntityForeignKeyInput[]
+
+  @Field(() => [CreateSchemaEntityRelationInput], { nullable: true })
+  relations?: CreateSchemaEntityRelationInput[]
+
+  @Field(() => [CreateSchemaEntityRelationInput], { nullable: true })
+  related?: CreateSchemaEntityRelationInput[]
 }

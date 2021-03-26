@@ -1,6 +1,7 @@
 import { ApiCoreUtilService } from '@schema-driven/api/core/util'
 import { Logger } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
+import * as bodyParser from 'body-parser'
 import * as cookieParser from 'cookie-parser'
 
 import { AppModule } from './app/app.module'
@@ -9,6 +10,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule)
   const config = app.get(ApiCoreUtilService)
   const globalPrefix = 'api'
+  app.use(bodyParser.json({ limit: '10mb' }))
   app.setGlobalPrefix(globalPrefix)
   app.enableCors({
     credentials: true,

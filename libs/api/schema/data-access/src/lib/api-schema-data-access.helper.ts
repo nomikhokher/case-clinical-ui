@@ -13,7 +13,7 @@ export function formatFields(fields: CreateSchemaEntityFieldInput[] = []): Prism
   }
   return {
     create: fields.map((field) => ({
-      id: field.id,
+      id: field.id ? field.id : undefined,
       name: field.name,
       description: field.description,
       dataType: field.dataType,
@@ -30,7 +30,7 @@ export function formatKeys(keys: CreateSchemaEntityKeyInput[]): Prisma.KeyCreate
   return {
     create: keys.map((item) => {
       return {
-        id: item.id,
+        id: item.id ? item.id : undefined,
         keyType: item.keyType,
         isDrivingKey: item.isDrivingKey,
         name: item.name,
@@ -48,8 +48,8 @@ export function formatOntologies(
   return {
     create: ontologies.map((item) => {
       return {
-        id: item.id,
-        key: item.key,
+        id: item.id ? item.id : undefined,
+        key: item.key ? item.key : undefined,
         value: item.value,
       }
     }),
@@ -65,10 +65,10 @@ export function formatForeignKeys(
   return {
     create: foreignKeys.map((item) => {
       return {
-        id: item.id,
+        id: item.id ? item.id : undefined,
         name: item.name,
-        relatedField: { create: undefined },
-        relatedEntity: { create: undefined },
+        relatedField: item?.relatedEntity?.id ? { create: item?.relatedEntity?.id } : undefined,
+        relatedEntity: item?.relatedEntity?.id ? { create: item?.relatedEntity?.id } : undefined,
       }
     }),
   }

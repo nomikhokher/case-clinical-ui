@@ -85,17 +85,23 @@ export type CreateSchemaEntityFieldInput = {
   dataType: DataType
   description?: Maybe<Scalars['String']>
   fieldType: FieldType
+  foreignKeys?: Maybe<Scalars['String']>
   id?: Maybe<Scalars['String']>
   isName?: Maybe<Scalars['Boolean']>
   isNullable?: Maybe<Scalars['Boolean']>
+  keywords?: Maybe<Array<Scalars['String']>>
   name: Scalars['String']
+  ontologies?: Maybe<Array<CreateSchemaEntityOntologyInput>>
 }
 
 export type CreateSchemaEntityForeignKeyInput = {
+  description?: Maybe<Scalars['String']>
   id?: Maybe<Scalars['String']>
+  keywords?: Maybe<Array<Scalars['String']>>
   name: Scalars['String']
-  relatedEntity: CreateSchemaRelatedEntityInput
-  relatedField: CreateSchemaEntityFieldInput
+  ontologies?: Maybe<Array<CreateSchemaEntityOntologyInput>>
+  relatedEntity?: Maybe<CreateSchemaRelatedEntityInput>
+  relatedField?: Maybe<CreateSchemaEntityFieldInput>
 }
 
 export type CreateSchemaEntityInput = {
@@ -106,20 +112,26 @@ export type CreateSchemaEntityInput = {
   keys?: Maybe<Array<CreateSchemaEntityKeyInput>>
   name: Scalars['String']
   ontologies?: Maybe<Array<CreateSchemaEntityOntologyInput>>
+  related?: Maybe<Array<CreateSchemaEntityRelationInput>>
+  relations?: Maybe<Array<CreateSchemaEntityRelationInput>>
 }
 
 export type CreateSchemaEntityKeyInput = {
-  description: Scalars['String']
+  description?: Maybe<Scalars['String']>
   id?: Maybe<Scalars['String']>
   isDrivingKey: Scalars['Boolean']
   keyType: KeyType
   name: Scalars['String']
+  ontologies?: Maybe<Array<CreateSchemaEntityOntologyInput>>
 }
 
 export type CreateSchemaEntityOntologyInput = {
+  description?: Maybe<Scalars['String']>
   id?: Maybe<Scalars['String']>
-  key: Scalars['String']
-  value: Scalars['String']
+  key?: Maybe<Scalars['String']>
+  keywords?: Maybe<Array<Scalars['String']>>
+  name?: Maybe<Scalars['String']>
+  value?: Maybe<Scalars['String']>
 }
 
 export type CreateSchemaEntityRelationInput = {
