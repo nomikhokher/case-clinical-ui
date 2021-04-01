@@ -171,6 +171,9 @@
     "web-ui-sidebar-page": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-tab": {
+      "tags": []
+    },
     "web-ui-table": {
       "tags": ["scope:web", "type:ui"]
     },
