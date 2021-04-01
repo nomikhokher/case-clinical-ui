@@ -19,6 +19,7 @@ export class WebDevFeatureComponent {
     { label: 'Toasts', path: 'toasts', icon: '' },
     { label: 'Navigation' },
     { label: 'Tabs', path: 'tabs', icon: '' },
+    { label: 'Breadcrumbs', path: 'breadcrumbs', icon: '' },
     { label: 'Formatting' },
     { label: 'Syntax Highlight', path: 'code', icon: '' },
     { label: 'JSON Formatter', path: 'json', icon: '' },
