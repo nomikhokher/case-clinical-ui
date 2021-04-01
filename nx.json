@@ -141,6 +141,9 @@
     "web-style": {
       "tags": ["scope:web", "type:style"]
     },
+    "web-ui-breadcrumbs": {
+      "tags": []
+    },
     "web-ui-button": {
       "tags": ["scope:web", "type:ui"]
     },

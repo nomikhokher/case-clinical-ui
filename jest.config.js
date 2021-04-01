@@ -51,5 +51,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/json',
     '<rootDir>/libs/web/ui/table',
     '<rootDir>/libs/web/ui/tab',
+    '<rootDir>/libs/web/ui/breadcrumbs',
   ],
 }

@@ -925,6 +925,28 @@
       "prefix": "style",
       "targets": {}
     },
+    "web-ui-breadcrumbs": {
+      "projectType": "library",
+      "root": "libs/web/ui/breadcrumbs",
+      "sourceRoot": "libs/web/ui/breadcrumbs/src",
+      "prefix": "schema-driven",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/breadcrumbs/src/**/*.ts", "libs/web/ui/breadcrumbs/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/breadcrumbs"],
+          "options": {
+            "jestConfig": "libs/web/ui/breadcrumbs/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-button": {
       "projectType": "library",
       "root": "libs/web/ui/button",
