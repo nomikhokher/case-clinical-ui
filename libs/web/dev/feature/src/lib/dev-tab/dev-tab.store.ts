@@ -1,16 +1,17 @@
-import { Injectable } from '@angular/core'
+import { Injectable, ɵisListLikeIterable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
 import { WebUiToastService } from '@schema-driven/web/ui/toast'
 
 export interface Tabs {
   name: string
-  isactive: boolean
-  tabHandler?: (Tabs) => void
+  active?: boolean
   content?: any
+  icon?: string
+  notification?: number
 }
 
 interface DevTabsState {
-  demos?: Tabs[]
+  tabOptions?: Tabs[]
 }
 
 @Injectable()
@@ -23,31 +24,20 @@ export class DevTabsStore extends ComponentStore<DevTabsState> {
 
   constructor(private readonly toast: WebUiToastService) {
     super({
-      demos: [],
+      tabOptions: [],
     })
 
     this.patchState({
-      demos: [
-        { name: 'Home', isactive: true, tabHandler: this.onTabHandler, content: this.home },
-        { name: 'About', isactive: false, tabHandler: this.onTabHandler, content: this.about },
-        { name: 'Services', isactive: false, tabHandler: this.onTabHandler, content: this.services },
-        { name: 'Carrer', isactive: false, tabHandler: this.onTabHandler, content: this.carrer },
-        { name: 'Contact us', isactive: false, tabHandler: this.onTabHandler, content: this.contact },
+      tabOptions: [
+        { name: 'Home', content: this.home, notification: 52 },
+        { name: 'About', content: this.about, notification: 2 },
+        { name: 'Services', content: this.services, notification: 6 },
+        { name: 'Carrer', content: this.carrer },
+        { name: 'Contact us', content: this.contact },
       ],
     })
   }
 
-  readonly demos$ = this.select(this.state$, (s) => s.demos)
-  readonly vm$ = this.select(this.demos$, (demos) => ({ demos }))
-
-  onTabHandler = (tab: Tabs) => {
-    this.demos$.subscribe((res) => {
-      res.forEach((res) => {
-        if (res.isactive == true) {
-          res.isactive = false
-        }
-      })
-    })
-    tab.isactive = true
-  }
+  readonly tabOptions$ = this.select(this.state$, (s) => s.tabOptions)
+  readonly vm$ = this.select(this.tabOptions$, (tabOptions) => ({ tabOptions }))
 }
