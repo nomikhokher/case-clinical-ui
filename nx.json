@@ -141,6 +141,9 @@
     "web-style": {
       "tags": ["scope:web", "type:style"]
     },
+    "web-ui-breadcrumbs": {
+      "tags": []
+    },
     "web-ui-button": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -170,6 +173,9 @@
     },
     "web-ui-sidebar-page": {
       "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-tab": {
+      "tags": []
     },
     "web-ui-table": {
       "tags": ["scope:web", "type:ui"]
