@@ -2763,20 +2763,20 @@
   resolved "https://registry.yarnpkg.com/@nxpm/ci/-/ci-4.11.1.tgz#92ea655926c3a3f67d66ba791b87f6b532b39e39"
   integrity sha512-3qgTpb2KopGCjISBIP1UULiA7g3p8GtDDGturI/yr8FtD6wocbLMaTosriQctGIyP92Sdx4hTbUoDLw4NrqKrg==
 
-"@nxpm/cli@^4.1.2":
-  version "4.11.1"
-  resolved "https://registry.yarnpkg.com/@nxpm/cli/-/cli-4.11.1.tgz#8b94d2d3b33526677dc8b2981f6e02d394cbe234"
-  integrity sha512-JzKeHKhHTMULvqRpO9qqy4t72oWxg+II4ec5AxBPU1pqQjGQbIGCSLmBont+ZVwQHmnSfSDWpc9JyI5+y5llvw==
+"@nxpm/cli@^4.19.0":
+  version "4.19.0"
+  resolved "https://registry.yarnpkg.com/@nxpm/cli/-/cli-4.19.0.tgz#a6b9c214dcd43749c5fac253fc8cf8dd61d95546"
+  integrity sha512-IY4IpIjicn/E+/zG/5HGzHfRai8nR2FgmlTsHRLKb+z/QYRiu+D262Tw3bXuWhwUIu9XK1FhNtTBLLaKsOcYjw==
   dependencies:
     chalk "^4.1.0"
     fs-extra "^9.0.1"
     tslib "^2.0.3"
     yargs "^16.1.0"
 
-"@nxpm/stack@^4.11.1":
-  version "4.11.1"
-  resolved "https://registry.yarnpkg.com/@nxpm/stack/-/stack-4.11.1.tgz#39a84772e708cf991a05c259ed8bb7d87a5e8990"
-  integrity sha512-nOwz0m+jd/frlaVqm+RvLxs57LxI34ZcXZC7r7/AVlWOwdt2o0HX5bngGHGLykClBGuVj/X5qtl/QIY6fX5xnQ==
+"@nxpm/stack@^4.19.0":
+  version "4.19.0"
+  resolved "https://registry.yarnpkg.com/@nxpm/stack/-/stack-4.19.0.tgz#92fb474ff4d2cb14163148e8230052a3ec1aba43"
+  integrity sha512-/i5nV5QYMMIyOl9b8fL57bNxHtLHh/tOv5EiyrRS9XwBk2vrwyS/cBFlpIjynJqLzcy37cO38GSTsgHKYXe2Hw==
   dependencies:
     "@nrwl/angular" "^11.0.0"
     "@nrwl/nest" "^11.0.0"
