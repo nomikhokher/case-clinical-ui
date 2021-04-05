@@ -925,6 +925,28 @@
       "prefix": "style",
       "targets": {}
     },
+    "web-ui-alert": {
+      "projectType": "library",
+      "root": "libs/web/ui/alert",
+      "sourceRoot": "libs/web/ui/alert/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/alert/src/**/*.ts", "libs/web/ui/alert/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/alert"],
+          "options": {
+            "jestConfig": "libs/web/ui/alert/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-breadcrumbs": {
       "projectType": "library",
       "root": "libs/web/ui/breadcrumbs",
