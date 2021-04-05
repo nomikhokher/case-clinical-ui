@@ -32,6 +32,7 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             path: 'breadcrumbs',
             loadChildren: () => import('./dev-breadcrumbs/dev-breadcrumbs.module').then((m) => m.DevBreadcrumbsModule),
           },
+          { path: 'alerts', loadChildren: () => import('./dev-alert/dev-alert.module').then((m) => m.DevAlertModule) },
         ],
       },
     ]),
