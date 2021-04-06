@@ -52,6 +52,7 @@
       "@schema-driven/web/shell/feature": ["libs/web/shell/feature/src/index.ts"],
       "@schema-driven/web/style": ["libs/web/style/src/index.ts"],
       "@schema-driven/web/ui/alert": ["libs/web/ui/alert/src/index.ts"],
+      "@schema-driven/web/ui/avatar": ["libs/web/ui/avatar/src/index.ts"],
       "@schema-driven/web/ui/breadcrumbs": ["libs/web/ui/breadcrumbs/src/index.ts"],
       "@schema-driven/web/ui/button": ["libs/web/ui/button/src/index.ts"],
       "@schema-driven/web/ui/code": ["libs/web/ui/code/src/index.ts"],
