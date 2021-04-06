@@ -17,6 +17,8 @@ export class WebDevFeatureComponent {
     { label: 'Data Table', path: 'table', icon: '' },
     { label: 'Notification' },
     { label: 'Toasts', path: 'toasts', icon: '' },
+    { label: 'Elements' },
+    { label: 'Avatar', path: 'avatars', icon: '' },
     { label: 'Feedback' },
     { label: 'Alert', path: 'alerts', icon: '' },
     { label: 'Navigation' },
