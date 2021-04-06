@@ -15,4 +15,9 @@ export enum UiIcon {
   sun = 'sun',
   table = 'table',
   trash = 'trash',
+  dismiss = 'dismiss',
+  exclamation = 'exclamation',
+  x_circle = 'x_circle',
+  check_circle = 'check_circle',
+  information_circle = 'information_circle',
 }
