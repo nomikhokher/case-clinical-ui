@@ -25,6 +25,7 @@ export class WebDevFeatureComponent {
     { label: 'Feeds', path: 'feeds', icon: '' },
     { label: 'Navigation' },
     { label: 'Tabs', path: 'tabs', icon: '' },
+    { label: 'Steps', path: 'steps', icon: '' },
     { label: 'Breadcrumbs', path: 'breadcrumbs', icon: '' },
     { label: 'Formatting' },
     { label: 'Syntax Highlight', path: 'code', icon: '' },
