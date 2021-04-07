@@ -1233,6 +1233,28 @@
         }
       }
     },
+    "web-ui-step": {
+      "projectType": "library",
+      "root": "libs/web/ui/step",
+      "sourceRoot": "libs/web/ui/step/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/step/src/**/*.ts", "libs/web/ui/step/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/step"],
+          "options": {
+            "jestConfig": "libs/web/ui/step/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-tab": {
       "projectType": "library",
       "root": "libs/web/ui/tab",

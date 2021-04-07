@@ -55,5 +55,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/alert',
     '<rootDir>/libs/web/ui/avatar',
     '<rootDir>/libs/web/ui/feed',
+    '<rootDir>/libs/web/ui/step',
   ],
 }

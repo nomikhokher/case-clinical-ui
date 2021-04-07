@@ -183,6 +183,9 @@
     "web-ui-sidebar-page": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-step": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-tab": {
       "tags": ["scope:web", "type:ui"]
     },
