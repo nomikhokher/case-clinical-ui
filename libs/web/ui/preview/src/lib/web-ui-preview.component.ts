@@ -52,7 +52,6 @@ export class WebUiPreviewComponent {
   @Input() lang?: string
 
   ngOnInit() {
-    this.code = '<ui-step></ui-step>'
     this.lang = 'html'
   }
 
