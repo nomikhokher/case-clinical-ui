@@ -174,13 +174,22 @@
     "web-ui-loader": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-narrow-avatar-list": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-page": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-page-header": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-preview": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-sidebar-page": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-step": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-tab": {
