@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
 import { WebUiIconModule } from '@schema-driven/web/ui/icon'
-import { WebUiAlertComponent } from './web-ui-alert.component'
+import { WebUiFeedComponent } from './web-ui-feed.component'
 
 @NgModule({
   imports: [CommonModule, RouterModule, WebUiIconModule],
-  declarations: [WebUiAlertComponent],
-  exports: [WebUiAlertComponent],
+  declarations: [WebUiFeedComponent],
+  exports: [WebUiFeedComponent],
 })
-export class WebUiAlertModule {}
+export class WebUiFeedModule {}

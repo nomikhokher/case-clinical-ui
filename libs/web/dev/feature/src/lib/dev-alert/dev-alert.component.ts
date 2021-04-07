@@ -7,53 +7,54 @@ import { DevAlertStore } from './dev-alert.store'
       <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800">
         <pre class="text-xs dark:text-gray-500">{{ __usage() | json }}</pre>
       </div>
-
       <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
         Component: libs/web/dev/feature/src/lib/dev-alert/dev-alert.component.ts
       </code>
 
       <ui-alert
-        [dismiss]="true"
         class="mb-4 mt-4"
-        subject="Attention"
-        message="This is just a dummy message"
-        bg_color="success"
-        [list]="_list()"
-        [actionLink]="_actionLink()"
+        subject="Attention needed"
+        message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam quo totam eius aperiam dolorum."
+        bg_color="warning"
+        icon="exclamation"
+        [icon_show]="true"
       ></ui-alert>
 
       <ui-alert
-        [show]="false"
-        class="mb-4 mt-4"
-        subject="Attention"
-        message="This is just a dummy message"
-        bg_color="bg-indigo-500"
-        [list]="_list()"
-      ></ui-alert>
-
-      <ui-alert
+        icon="x_circle"
         [icon_show]="true"
         class="mb-4 mt-4"
-        subject="Done"
-        message="This is just a dummy message"
-        bg_color="warning"
-        [list]="_list()"
-      ></ui-alert>
-
-      <ui-alert
-        class="mb-4 mt-4"
-        subject="Error"
-        message="This is just a dummy message"
+        subject="There were 2 errors with your submission"
         bg_color="danger"
         [list]="_list()"
       ></ui-alert>
 
       <ui-alert
+        [icon_show]="true"
+        icon="check_circle"
         class="mb-4 mt-4"
-        subject="Error"
-        message="This is just a dummy message"
+        subject="Order completed"
+        message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam."
+        bg_color="success"
+        [actionLink]="_actionLink()"
+      ></ui-alert>
+
+      <ui-alert
+        class="mb-4 mt-4"
+        [icon_show]="true"
+        icon="information_circle"
+        message="A new software update is available. See what’s new in version 2.0.4."
         bg_color="info"
-        [list]="_list()"
+      ></ui-alert>
+
+      <ui-alert class="mb-4 mt-4" [message]="htmlstring" bg_color="warning" [accent_border]="true"></ui-alert>
+
+      <ui-alert
+        icon="check_circle"
+        [icon_show]="true"
+        class="mb-4 mt-4"
+        message="Successfully updated"
+        bg_color="success"
       ></ui-alert>
     </ng-container>
   `,
@@ -61,21 +62,28 @@ import { DevAlertStore } from './dev-alert.store'
 })
 export class DevAlertComponent {
   readonly vm$ = this.store.vm$
+  htmlstring = 'You have no credits left. <a href="#"><u>Upgrade your account to add more credits</u></a>'
   constructor(private readonly store: DevAlertStore) {}
   _list() {
-    return ['This is a dummy list message', 'This is a dummy list message', 'This is a dummy list message']
+    return [
+      'Your password must be at least 8 characters',
+      'Your password must include at least one pro wrestling finishing move',
+    ]
   }
 
   _actionLink() {
     return [
       {
-        title: 'View Report',
-        click_event: () => {
+        title: 'View status',
+        click_event: (child) => {
           console.log('event triggered')
         },
       },
       {
-        title: 'Delete Report',
+        title: 'Dismiss',
+        click_event: (child) => {
+          child.show = false
+        },
       },
     ]
   }

@@ -53,5 +53,7 @@ module.exports = {
     '<rootDir>/libs/web/ui/tab',
     '<rootDir>/libs/web/ui/breadcrumbs',
     '<rootDir>/libs/web/ui/alert',
+    '<rootDir>/libs/web/ui/avatar',
+    '<rootDir>/libs/web/ui/feed',
   ],
 }

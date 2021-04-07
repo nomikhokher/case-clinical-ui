@@ -16,4 +16,5 @@ import { UiIcon } from './enums/ui-icon.enum'
 export class WebUiIconComponent {
   @Input() icon!: UiIcon | string
   @Input() size: 'lg' | 'md' | 'sm' | 'xs' = 'md'
+  @Input() class?: string
 }

@@ -947,6 +947,28 @@
         }
       }
     },
+    "web-ui-avatar": {
+      "projectType": "library",
+      "root": "libs/web/ui/avatar",
+      "sourceRoot": "libs/web/ui/avatar/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/avatar/src/**/*.ts", "libs/web/ui/avatar/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/avatar"],
+          "options": {
+            "jestConfig": "libs/web/ui/avatar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-breadcrumbs": {
       "projectType": "library",
       "root": "libs/web/ui/breadcrumbs",
@@ -1008,6 +1030,28 @@
           "outputs": ["coverage/libs/web/ui/code"],
           "options": {
             "jestConfig": "libs/web/ui/code/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-feed": {
+      "projectType": "library",
+      "root": "libs/web/ui/feed",
+      "sourceRoot": "libs/web/ui/feed/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/feed/src/**/*.ts", "libs/web/ui/feed/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/feed"],
+          "options": {
+            "jestConfig": "libs/web/ui/feed/jest.config.js",
             "passWithNoTests": true
           }
         }

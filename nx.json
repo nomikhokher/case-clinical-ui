@@ -144,6 +144,9 @@
     "web-ui-alert": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-avatar": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-breadcrumbs": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -151,6 +154,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-code": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-feed": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-form": {
