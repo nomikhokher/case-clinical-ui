@@ -39,6 +39,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
           },
           { path: 'feeds', loadChildren: () => import('./dev-feed/dev-feed.module').then((m) => m.DevFeedModule) },
           { path: 'steps', loadChildren: () => import('./dev-step/dev-step.module').then((m) => m.DevStepModule) },
+          {
+            path: 'lists',
+            loadChildren: () =>
+              import('./dev-stacked-lists/dev-stacked-lists.module').then((m) => m.DevStackedListsModule),
+          },
         ],
       },
     ]),

@@ -1167,6 +1167,31 @@
         }
       }
     },
+    "web-ui-narrow-avatar-list": {
+      "projectType": "library",
+      "root": "libs/web/ui/narrow-avatar-list",
+      "sourceRoot": "libs/web/ui/narrow-avatar-list/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/narrow-avatar-list/src/**/*.ts",
+              "libs/web/ui/narrow-avatar-list/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/narrow-avatar-list"],
+          "options": {
+            "jestConfig": "libs/web/ui/narrow-avatar-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-page": {
       "projectType": "library",
       "root": "libs/web/ui/page",
