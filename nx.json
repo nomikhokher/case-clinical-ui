@@ -180,7 +180,13 @@
     "web-ui-page-header": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-preview": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-sidebar-page": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-step": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-tab": {
