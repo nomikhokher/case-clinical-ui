@@ -7,11 +7,7 @@ import { DevAlertComponent } from './dev-alert.component'
 
 @NgModule({
   declarations: [DevAlertComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([{ path: '', component: DevAlertComponent }]),
-    WebUiAlertModule,
-    WebUiIconModule,
-  ],
+  imports: [CommonModule, RouterModule.forChild([{ path: '', component: DevAlertComponent }]), WebUiAlertModule],
+  exports: [DevAlertComponent],
 })
 export class DevAlertModule {}

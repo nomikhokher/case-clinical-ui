@@ -20,4 +20,6 @@ export enum UiIcon {
   x_circle = 'x_circle',
   check_circle = 'check_circle',
   information_circle = 'information_circle',
+  user = 'user',
+  thumb_up = 'thumb_up',
 }

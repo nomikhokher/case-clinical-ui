@@ -37,6 +37,7 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             path: 'avatars',
             loadChildren: () => import('./dev-avatar/dev-avatar.module').then((m) => m.DevAvatarModule),
           },
+          { path: 'feeds', loadChildren: () => import('./dev-feed/dev-feed.module').then((m) => m.DevFeedModule) },
         ],
       },
     ]),

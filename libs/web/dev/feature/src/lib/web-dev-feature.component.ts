@@ -21,6 +21,8 @@ export class WebDevFeatureComponent {
     { label: 'Avatar', path: 'avatars', icon: '' },
     { label: 'Feedback' },
     { label: 'Alert', path: 'alerts', icon: '' },
+    { label: 'Lists' },
+    { label: 'Feeds', path: 'feeds', icon: '' },
     { label: 'Navigation' },
     { label: 'Tabs', path: 'tabs', icon: '' },
     { label: 'Breadcrumbs', path: 'breadcrumbs', icon: '' },

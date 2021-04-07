@@ -56,6 +56,7 @@
       "@schema-driven/web/ui/breadcrumbs": ["libs/web/ui/breadcrumbs/src/index.ts"],
       "@schema-driven/web/ui/button": ["libs/web/ui/button/src/index.ts"],
       "@schema-driven/web/ui/code": ["libs/web/ui/code/src/index.ts"],
+      "@schema-driven/web/ui/feed": ["libs/web/ui/feed/src/index.ts"],
       "@schema-driven/web/ui/form": ["libs/web/ui/form/src/index.ts"],
       "@schema-driven/web/ui/icon": ["libs/web/ui/icon/src/index.ts"],
       "@schema-driven/web/ui/json": ["libs/web/ui/json/src/index.ts"],
