@@ -4,9 +4,9 @@ import { DevAvatarStore } from './dev-avatar.store'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800">
-        <pre class="text-xs dark:text-gray-500">{{ vm.items | json }}</pre>
-      </div>
+      <ui-preview>
+        <ui-avatar mode="img" [payload]="payload" radius="circle" [size]="14"></ui-avatar>
+      </ui-preview>
       <div class="p-4 mt-4 shadow rounded-lg">
         <ui-avatar mode="img" [payload]="payload" radius="circle" [size]="14"></ui-avatar>
       </div>

@@ -48,4 +48,6 @@ import { Component, Input } from '@angular/core'
 })
 export class WebUiStepComponent {
   @Input() mode?: any
+
+  public name: string = 'ali'
 }

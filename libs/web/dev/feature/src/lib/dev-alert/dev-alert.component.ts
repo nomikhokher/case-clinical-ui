@@ -1,6 +1,7 @@
-import { Component } from '@angular/core'
+import { Component, ViewChild, ViewChildren, QueryList } from '@angular/core'
+import { WebUiAlertComponent } from '@schema-driven/web/ui/alert'
+import { WebUiPreviewComponent } from '@schema-driven/web/ui/preview'
 import { DevAlertStore } from './dev-alert.store'
-
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
@@ -11,57 +12,85 @@ import { DevAlertStore } from './dev-alert.store'
         Component: libs/web/dev/feature/src/lib/dev-alert/dev-alert.component.ts
       </code>
 
-      <ui-alert
-        class="mb-4 mt-4"
-        subject="Attention needed"
-        message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam quo totam eius aperiam dolorum."
-        bg_color="warning"
-        icon="exclamation"
-        [icon_show]="true"
-      ></ui-alert>
+      <ui-preview>
+        <ui-alert
+          class="mb-4 mt-4"
+          subject="Attention needed"
+          message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam quo totam eius aperiam dolorum."
+          bg_color="warning"
+          icon="exclamation"
+          [icon_show]="true"
+        ></ui-alert>
+      </ui-preview>
 
-      <ui-alert
-        icon="x_circle"
-        [icon_show]="true"
-        class="mb-4 mt-4"
-        subject="There were 2 errors with your submission"
-        bg_color="danger"
-        [list]="_list()"
-      ></ui-alert>
+      <ui-preview>
+        <ui-alert
+          icon="x_circle"
+          [icon_show]="true"
+          class="mb-4 mt-4"
+          subject="There were 2 errors with your submission"
+          bg_color="danger"
+          [list]="_list()"
+        ></ui-alert>
+      </ui-preview>
+      <ui-preview>
+        <ui-alert
+          [icon_show]="true"
+          icon="check_circle"
+          class="mb-4 mt-4"
+          subject="Order completed"
+          message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam."
+          bg_color="success"
+          [actionLink]="_actionLink()"
+        ></ui-alert>
+      </ui-preview>
+      <ui-preview>
+        <ui-alert
+          class="mb-4 mt-4"
+          [icon_show]="true"
+          icon="information_circle"
+          message="A new software update is available. See what’s new in version 2.0.4."
+          bg_color="info"
+        ></ui-alert>
+      </ui-preview>
+      <ui-preview [component_preview]="component_preview">
+        <ui-alert
+          icon="check_circle"
+          [icon_show]="true"
+          class="mb-4 mt-4 desh"
+          [message]="htmlstring"
+          bg_color="warning"
+          [accent_border]="true"
+        ></ui-alert>
+      </ui-preview>
 
-      <ui-alert
-        [icon_show]="true"
-        icon="check_circle"
-        class="mb-4 mt-4"
-        subject="Order completed"
-        message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam."
-        bg_color="success"
-        [actionLink]="_actionLink()"
-      ></ui-alert>
-
-      <ui-alert
-        class="mb-4 mt-4"
-        [icon_show]="true"
-        icon="information_circle"
-        message="A new software update is available. See what’s new in version 2.0.4."
-        bg_color="info"
-      ></ui-alert>
-
-      <ui-alert class="mb-4 mt-4" [message]="htmlstring" bg_color="warning" [accent_border]="true"></ui-alert>
-
-      <ui-alert
-        icon="check_circle"
-        [icon_show]="true"
-        class="mb-4 mt-4"
-        message="Successfully updated"
-        bg_color="success"
-      ></ui-alert>
+      <ui-preview [component_preview]="component_preview">
+        <ui-alert
+          icon="check_circle"
+          [icon_show]="true"
+          class="mb-4 mt-4"
+          message="Successfully updated"
+          bg_color="success"
+        ></ui-alert>
+      </ui-preview>
     </ng-container>
   `,
   providers: [DevAlertStore],
 })
 export class DevAlertComponent {
   readonly vm$ = this.store.vm$
+
+  @ViewChild(WebUiPreviewComponent) component_preview: WebUiPreviewComponent
+  @ViewChildren(WebUiAlertComponent) items: QueryList<WebUiAlertComponent>
+
+  ngAfterViewInit() {
+    //console.log(this.component_preview);
+    console.log({
+      items: this.items,
+    })
+    // this.render_html_code();
+  }
+
   htmlstring = 'You have no credits left. <a href="#"><u>Upgrade your account to add more credits</u></a>'
   constructor(private readonly store: DevAlertStore) {}
   _list() {
