@@ -1367,6 +1367,31 @@
           }
         }
       }
+    },
+    "web-ui-two-column-stacked-list": {
+      "projectType": "library",
+      "root": "libs/web/ui/two-column-stacked-list",
+      "sourceRoot": "libs/web/ui/two-column-stacked-list/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/two-column-stacked-list/src/**/*.ts",
+              "libs/web/ui/two-column-stacked-list/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/two-column-stacked-list"],
+          "options": {
+            "jestConfig": "libs/web/ui/two-column-stacked-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
