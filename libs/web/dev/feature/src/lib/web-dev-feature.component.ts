@@ -31,5 +31,7 @@ export class WebDevFeatureComponent {
     { label: 'Formatting' },
     { label: 'Syntax Highlight', path: 'code', icon: '' },
     { label: 'JSON Formatter', path: 'json', icon: '' },
+    { label: 'Buttons' },
+    { label: 'Buttons', path: 'buttons', icon: '' },
   ]
 }

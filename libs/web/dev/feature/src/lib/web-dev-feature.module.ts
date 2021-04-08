@@ -44,6 +44,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             loadChildren: () =>
               import('./dev-stacked-lists/dev-stacked-lists.module').then((m) => m.DevStackedListsModule),
           },
+          {
+            path: 'buttons',
+            loadChildren: () => import('./dev-button/dev-button.module').then((m) => m.DevButtonModule),
+          },
         ],
       },
     ]),
