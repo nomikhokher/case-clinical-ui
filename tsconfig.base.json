@@ -62,6 +62,7 @@
       "@schema-driven/web/ui/json": ["libs/web/ui/json/src/index.ts"],
       "@schema-driven/web/ui/layout": ["libs/web/ui/layout/src/index.ts"],
       "@schema-driven/web/ui/loader": ["libs/web/ui/loader/src/index.ts"],
+      "@schema-driven/web/ui/narrow-avatar-list": ["libs/web/ui/narrow-avatar-list/src/index.ts"],
       "@schema-driven/web/ui/page": ["libs/web/ui/page/src/index.ts"],
       "@schema-driven/web/ui/page-header": ["libs/web/ui/page-header/src/index.ts"],
       "@schema-driven/web/ui/preview": ["libs/web/ui/preview/src/index.ts"],
@@ -69,7 +70,8 @@
       "@schema-driven/web/ui/step": ["libs/web/ui/step/src/index.ts"],
       "@schema-driven/web/ui/tab": ["libs/web/ui/tab/src/index.ts"],
       "@schema-driven/web/ui/table": ["libs/web/ui/table/src/index.ts"],
-      "@schema-driven/web/ui/toast": ["libs/web/ui/toast/src/index.ts"]
+      "@schema-driven/web/ui/toast": ["libs/web/ui/toast/src/index.ts"],
+      "@schema-driven/web/ui/two-column-stacked-list": ["libs/web/ui/two-column-stacked-list/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

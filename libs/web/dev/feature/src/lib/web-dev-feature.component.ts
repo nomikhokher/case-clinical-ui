@@ -23,6 +23,7 @@ export class WebDevFeatureComponent {
     { label: 'Alert', path: 'alerts', icon: '' },
     { label: 'Lists' },
     { label: 'Feeds', path: 'feeds', icon: '' },
+    { label: 'Stacked List', path: 'lists', icon: '' },
     { label: 'Navigation' },
     { label: 'Tabs', path: 'tabs', icon: '' },
     { label: 'Steps', path: 'steps', icon: '' },
