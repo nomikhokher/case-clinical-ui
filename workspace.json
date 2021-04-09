@@ -1079,6 +1079,28 @@
         }
       }
     },
+    "web-ui-group-button": {
+      "projectType": "library",
+      "root": "libs/web/ui/group-button",
+      "sourceRoot": "libs/web/ui/group-button/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/group-button/src/**/*.ts", "libs/web/ui/group-button/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/group-button"],
+          "options": {
+            "jestConfig": "libs/web/ui/group-button/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-icon": {
       "projectType": "library",
       "root": "libs/web/ui/icon",
@@ -1096,6 +1118,28 @@
           "outputs": ["coverage/libs/web/ui/icon"],
           "options": {
             "jestConfig": "libs/web/ui/icon/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-icon-button": {
+      "projectType": "library",
+      "root": "libs/web/ui/icon-button",
+      "sourceRoot": "libs/web/ui/icon-button/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/icon-button/src/**/*.ts", "libs/web/ui/icon-button/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/icon-button"],
+          "options": {
+            "jestConfig": "libs/web/ui/icon-button/jest.config.js",
             "passWithNoTests": true
           }
         }

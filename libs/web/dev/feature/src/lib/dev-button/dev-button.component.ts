@@ -63,6 +63,18 @@ import { DevButtonStore } from './dev-button.store'
         ></ui-button>
       </div>
     </ui-preview>
+
+    <ui-preview code="<ui-group-button></ui-group-button>">
+      <div class="my-4">
+        <ui-group-button></ui-group-button>
+      </div>
+    </ui-preview>
+
+    <ui-preview code="<ui-icon-button></ui-icon-button>">
+      <div class="my-4">
+        <ui-icon-button></ui-icon-button>
+      </div>
+    </ui-preview>
   `,
   providers: [DevButtonStore],
 })
