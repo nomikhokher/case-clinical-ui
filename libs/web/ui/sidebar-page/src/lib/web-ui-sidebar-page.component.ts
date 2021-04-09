@@ -2,52 +2,51 @@ import { Component, Input } from '@angular/core'
 
 export interface WebUiSidebarPageLink {
   label: string
-  icon: string
-  path: string
+  children: [
+    {
+      label: string
+      icon: string
+      path: string
+      show?: boolean
+    },
+  ]
 }
-export interface WebUiSidebarPageHeader {
-  label: string
-}
+// export interface WebUiSidebarPageHeader {
+//   label: string
+// }
 
 @Component({
   selector: 'ui-sidebar-page',
+  styles: [
+    `
+      #sideApp::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      #sideApp::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+      }
+
+      #sideApp::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: #a8a8a8;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+      }
+
+      #sideApp::-webkit-scrollbar-thumb:window-inactive {
+        background: rgba(255, 0, 0, 0.4);
+      }
+    `,
+  ],
   template: `
-    <div class="h-auto flex overflow-hidden bg-gray-100">
+    <div id="main">
       <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
       <div class="fixed inset-0 flex z-40 md:hidden" role="dialog" aria-modal="true">
-        <!--
-      Off-canvas menu overlay, show/hide based on off-canvas menu state.
-
-      Entering: "transition-opacity ease-linear duration-300"
-        From: "opacity-0"
-        To: "opacity-100"
-      Leaving: "transition-opacity ease-linear duration-300"
-        From: "opacity-100"
-        To: "opacity-0"
-    -->
         <div class="fixed inset-0 bg-gray-600 bg-opacity-75" aria-hidden="true"></div>
-
-        <!--
-      Off-canvas menu, show/hide based on off-canvas menu state.
-
-      Entering: "transition ease-in-out duration-300 transform"
-        From: "-translate-x-full"
-        To: "translate-x-0"
-      Leaving: "transition ease-in-out duration-300 transform"
-        From: "translate-x-0"
-        To: "-translate-x-full"
-    -->
         <div class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-indigo-700">
-          <!--
-          Close button, show/hide based on off-canvas menu state.
-
-          Entering: "ease-in-out duration-300"
-            From: "opacity-0"
-            To: "opacity-100"
-          Leaving: "ease-in-out duration-300"
-            From: "opacity-100"
-            To: "opacity-0"
-           -->
           <div class="absolute top-0 right-0 -mr-12 pt-2">
             <button
               type="button"
@@ -75,63 +74,42 @@ export interface WebUiSidebarPageHeader {
             />
           </div>
           <div class="mt-5 flex-1 h-0 overflow-y-auto">
-            <nav class="px-2 space-y-1">
+            <nav class="flex-1 px-2 space-y-1">
               <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-indigo-600" -->
               <ng-container *ngFor="let link of links">
-                <ng-container *ngIf="link.path">
-                  <a
-                    [routerLink]="link.path"
-                    class="text-indigo-100 hover:bg-indigo-600 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
-                  >
+                <div
+                  class="text-gray-700 mt-4 flex justify-between rounded-md w-56 px-2 py-2 cursor-pointer hover:bg-indigo-600"
+                  (click)="menuOpen(link)"
+                >
+                  <a class="text-indigo-100 group flex items-center px-2 py-2 text-sm font-medium">
+                    {{ link.label }}
+                  </a>
+                  <div class="rounded-full border border-indigo w-7 m-1 h-7 flex items-center justify-center bg-indigo">
+                    <!-- icon by feathericons.com -->
                     <svg
-                      class="text-indigo-300 group-hover:text-gray-300 mr-3 h-6 w-6"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
                       aria-hidden="true"
+                      data-reactid="281"
+                      fill="none"
+                      height="24"
+                      stroke="white"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewbox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                      />
+                      <polyline points="18 15 12 9 6 15" *ngIf="!link.show"></polyline>
+                      <polyline points="6 9 12 15 18 9" *ngIf="link.show"></polyline>
                     </svg>
-                    {{ link.label }}
-                  </a>
-                </ng-container>
+                  </div>
+                </div>
 
-                <ng-container *ngIf="!link.path">
-                  <a
-                    class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
-                  >
-                    {{ link.label }}
-                  </a>
-                </ng-container>
-              </ng-container>
-            </nav>
-          </div>
-        </div>
-
-        <div class="flex-shrink-0 w-14" aria-hidden="true">
-          <!-- Dummy element to force sidebar to shrink to fit close icon -->
-        </div>
-      </div>
-
-      <!-- Static sidebar for desktop -->
-      <div class="hidden bg-indigo-700 md:flex md:flex-shrink-0">
-        <div class="flex flex-col w-64 ">
-          <!-- Sidebar component, swap this element with another sidebar if you like -->
-          <div class="flex flex-col flex-grow pt-1 pb-4 overflow-y-auto h-screen fixed w-64">
-            <div class="mt-5 flex-1 flex flex-col">
-              <nav class="flex-1 px-2 space-y-1">
-                <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-indigo-600" -->
-                <ng-container *ngFor="let link of links">
-                  <ng-container *ngIf="link.path">
+                <ng-container *ngIf="link.show">
+                  <ng-container *ngFor="let children of link.children">
                     <a
-                      [routerLink]="link.path"
-                      class="text-indigo-100 hover:bg-indigo-600 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                      [routerLink]="children.path"
+                      class="text-indigo-100 hover:bg-indigo-600 hover:text-white group flex items-center w-56  px-2 py-2 text-sm font-medium rounded-md"
                     >
                       <svg
                         class="text-indigo-300 group-hover:text-gray-300 mr-3 h-6 w-6"
@@ -148,45 +126,125 @@ export interface WebUiSidebarPageHeader {
                           d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                         />
                       </svg>
-                      {{ link.label }}
-                    </a>
-                  </ng-container>
 
-                  <ng-container *ngIf="!link.path">
-                    <a
-                      class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
-                    >
-                      {{ link.label }}
+                      {{ children.label }}
                     </a>
                   </ng-container>
                 </ng-container>
-              </nav>
-            </div>
+              </ng-container>
+            </nav>
+          </div>
+
+          <div class="flex-shrink-0 w-14" aria-hidden="true">
+            <!-- Dummy element to force sidebar to shrink to fit close icon -->
           </div>
         </div>
       </div>
-      <div class="flex flex-col w-0 flex-1 overflow-hidden">
-        <section class="flex-1 focus:outline-none" tabindex="0">
-          <div class="py-6">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              <h1 class="text-2xl font-semibold text-gray-900">Dashboard</h1>
-            </div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              <!-- Replace with your content -->
-              <div class="py-4">
-                <div class="rounded-lg">
-                  <router-outlet></router-outlet>
+      <aside
+        id="sideApp"
+        class="hidden w-64 text-white hidden bg-indigo-700 md:flex md:flex-shrink-0 fixed inset-y-0 top-16 overflow-x-hidden overflow-y-auto"
+      >
+        <div class="min-h-full">
+          <!-- Extract: menu_items -->
+          <div class="flex-1 flex flex-col">
+            <nav class="flex-1 px-2 space-y-1">
+              <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-indigo-600" -->
+              <ng-container *ngFor="let link of links">
+                <div
+                  class="text-gray-700 mt-4 flex justify-between rounded-md w-56 px-2 py-2 cursor-pointer hover:bg-indigo-600"
+                  (click)="menuOpen(link)"
+                >
+                  <a class="text-indigo-100 group flex items-center px-2 py-2 text-sm font-medium">
+                    {{ link.label }}
+                  </a>
+                  <div class="rounded-full border border-indigo w-7 m-1 h-7 flex items-center justify-center bg-indigo">
+                    <!-- icon by feathericons.com -->
+                    <svg
+                      aria-hidden="true"
+                      data-reactid="281"
+                      fill="none"
+                      height="24"
+                      stroke="white"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewbox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <polyline points="18 15 12 9 6 15" *ngIf="!link.show"></polyline>
+                      <polyline points="6 9 12 15 18 9" *ngIf="link.show"></polyline>
+                    </svg>
+                  </div>
                 </div>
+
+                <ng-container *ngIf="link.show">
+                  <ng-container *ngFor="let children of link.children">
+                    <a
+                      [routerLink]="children.path"
+                      class="text-indigo-100 hover:bg-indigo-600 hover:text-white group flex items-center w-56  px-2 py-2 text-sm font-medium rounded-md"
+                    >
+                      <svg
+                        class="text-indigo-300 group-hover:text-gray-300 mr-3 h-6 w-6"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                        />
+                      </svg>
+
+                      {{ children.label }}
+                    </a>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+            </nav>
+          </div>
+        </div>
+      </aside>
+      <section class="pt-4 sm:pl-64 bg-white h-auto main-section">
+        <section class="flex-1 focus:outline-none" tabindex="0">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            <h1 class="text-2xl font-semibold text-gray-900">Dashboard</h1>
+          </div>
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            <!-- Replace with your content -->
+            <div class="py-4">
+              <div class="rounded-lg">
+                <ng-content></ng-content>
               </div>
-              <!-- /End replace -->
             </div>
+            <!-- /End replace -->
           </div>
         </section>
-      </div>
+      </section>
     </div>
   `,
 })
 export class WebUiSidebarPageComponent {
   @Input() headerTitle: string
-  @Input() links: WebUiSidebarPageLink | WebUiSidebarPageHeader[] = []
+  @Input() links: WebUiSidebarPageLink[] = []
+
+  public menuList: boolean = false
+
+  menuOpen(link): void {
+    link.show = link.show ? false : true
+  }
+  ngOnInit() {
+    this.links = this.links.map((value) => {
+      if (value.children) {
+        for (let i = 0; i < value.children.length; i++) {
+          value.children[i].show = true
+        }
+      }
+      return value
+    })
+  }
 }
