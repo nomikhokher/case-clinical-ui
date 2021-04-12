@@ -4,7 +4,7 @@ import { DevStepStore } from './dev-step.store'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <ui-preview>
+      <ui-preview [code]="code" [lang]="lang">
         <ui-step></ui-step>
       </ui-preview>
     </ng-container>
