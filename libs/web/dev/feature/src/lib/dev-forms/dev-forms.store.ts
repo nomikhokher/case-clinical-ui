@@ -21,6 +21,17 @@ const demos: Demo[] = [
     fields: [WebUiFormField.email('email', { label: 'Email', placeholder: 'you@example.com' })],
   },
   {
+    name: 'Input without border',
+    model: {},
+    fields: [
+      WebUiFormField.email('email', {
+        label: 'Email',
+        placeholder: 'you@example.com',
+        border: 'border-t-0 border-l-0 border-r-0 border-b-1 border-gray-900 bg-transparent',
+      }),
+    ],
+  },
+  {
     name: 'Input with label and help text',
     model: {},
     fields: [
