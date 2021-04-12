@@ -1,11 +1,18 @@
 import { Component } from '@angular/core'
 import { DevStepStore } from './dev-step.store'
 
+type StepItems = {
+  id: number
+  stepActive?: boolean
+  stepTitle: string
+  stepDetails: string
+}
+
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
       <ui-preview>
-        <ui-step></ui-step>
+        <ui-step [stepIems]="stepIems"></ui-step>
       </ui-preview>
     </ng-container>
   `,
@@ -18,6 +25,33 @@ export class DevStepComponent {
   }
 
   code_toggle = false
+
+  public stepIems: StepItems[] = [
+    {
+      id: 1,
+      stepActive: true,
+      stepTitle: 'Step 1',
+      stepDetails: 'Job details',
+    },
+    {
+      id: 2,
+      stepActive: false,
+      stepTitle: 'Step 2',
+      stepDetails: 'Job details',
+    },
+    {
+      id: 3,
+      stepActive: false,
+      stepTitle: 'Step 3',
+      stepDetails: 'Job details',
+    },
+    {
+      id: 4,
+      stepActive: false,
+      stepTitle: 'Step 4',
+      stepDetails: 'Job details',
+    },
+  ]
 
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevStepStore) {}
