@@ -10,6 +10,9 @@ import { <%= className %>Store } from './<%= fileName %>.store';
       <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
         Component: <%= target %>/<%= fileName %>/<%= fileName %>.component.ts
       </code>
+      <ui-preview>
+        <!-- INSERT YOUR UI-COMPONENT HERE  -->
+      </ui-preview>
     </ng-container>
   `,
   providers: [<%= className %>Store],

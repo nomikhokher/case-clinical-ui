@@ -1,0 +1,87 @@
+import { Component } from '@angular/core'
+import { DevButtonStore } from './dev-button.store'
+
+@Component({
+  template: `
+    <ng-container *ngIf="vm$ | async as vm">
+      <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800">
+        <pre class="text-xs dark:text-gray-500">{{ vm.items | json }}</pre>
+      </div>
+      <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
+        Component: libs/web/dev/feature/src/lib/dev-button/dev-button.component.ts
+      </code>
+    </ng-container>
+
+    <ui-preview code="<ui-button></ui-button>">
+      <div class="my-4">
+        <ui-button label="Indigo" type="button" color="indigo"></ui-button>
+      </div>
+    </ui-preview>
+
+    <ui-preview code="<ui-button></ui-button>">
+      <div class="my-4">
+        <ui-button label="red" type="button" color="red"></ui-button>
+      </div>
+    </ui-preview>
+
+    <ui-preview code="<ui-button></ui-button>">
+      <div class="my-4">
+        <ui-button label="Gray" type="button" color="gray"></ui-button>
+      </div>
+    </ui-preview>
+
+    <ui-preview code="<ui-button></ui-button>">
+      <div class="my-4">
+        <ui-button [disabled]="true" label="Disabled" type="button" color="red"></ui-button>
+      </div>
+    </ui-preview>
+
+    <ui-preview code="<ui-button></ui-button>">
+      <div class="my-4">
+        <ui-button
+          label="Border 3D "
+          type="button"
+          color="indigo"
+          border="border-b-4 border-red-400 rounded"
+        ></ui-button>
+      </div>
+    </ui-preview>
+
+    <ui-preview code="<ui-button></ui-button>">
+      <div class="my-4">
+        <ui-button label="Rounded Full " type="button" color="red" border="rounded-full"></ui-button>
+      </div>
+    </ui-preview>
+
+    <ui-preview code="<ui-button></ui-button>">
+      <div class="my-4">
+        <ui-button
+          label="Transparent"
+          type="button"
+          color="transparent"
+          border="border border-blue-500 hover:border-transparent text-blue-700 rounded"
+        ></ui-button>
+      </div>
+    </ui-preview>
+
+    <ui-preview code="<ui-group-button></ui-group-button>">
+      <div class="my-4">
+        <ui-group-button></ui-group-button>
+      </div>
+    </ui-preview>
+
+    <ui-preview code="<ui-icon-button></ui-icon-button>">
+      <div class="my-4">
+        <ui-icon-button></ui-icon-button>
+      </div>
+    </ui-preview>
+  `,
+  providers: [DevButtonStore],
+})
+export class DevButtonComponent {
+  readonly vm$ = this.store.vm$
+
+  public type = 'button'
+
+  constructor(private readonly store: DevButtonStore) {}
+}

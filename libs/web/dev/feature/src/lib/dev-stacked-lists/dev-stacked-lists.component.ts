@@ -1,12 +1,6 @@
 import { Component } from '@angular/core'
 import { DevStackedListsStore } from './dev-stacked-lists.store'
-
-type StackedList = {
-  id: number
-  name: string
-  email: string
-  img?: string
-}
+import { StackedList, TwoColumnStackedList } from './type.model'
 
 @Component({
   template: `
@@ -20,6 +14,10 @@ type StackedList = {
     </ng-container>
     <ui-preview code="<ui-narrow-avatar-list></ui-narrow-avatar-list>">
       <ui-narrow-avatar-list [stackedList]="stackedList"></ui-narrow-avatar-list>
+    </ui-preview>
+
+    <ui-preview code="<ui-two-column-stacked-list></ui-two-column-stacked-list>">
+      <ui-two-column-stacked-list [twoColumnStackedList]="twoColumnStackedList"></ui-two-column-stacked-list>
     </ui-preview>
   `,
   providers: [DevStackedListsStore],
@@ -46,6 +44,33 @@ export class DevStackedListsComponent {
       name: 'Hammad Hassan',
       email: 'hh@yahoo.com',
       img: 'user',
+    },
+  ]
+
+  public twoColumnStackedList: TwoColumnStackedList[] = [
+    {
+      id: 1,
+      name: 'Hammad Hassan',
+      email: 'hh@yahoo.com',
+      img: 'user',
+      date: 'January 7, 2020',
+      status: 'Completed phone screening',
+    },
+    {
+      id: 2,
+      name: 'Hammad Hassan',
+      email: 'hh@yahoo.com',
+      img: 'user',
+      date: 'January 7, 2020',
+      status: 'Completed phone screening',
+    },
+    {
+      id: 3,
+      name: 'Hammad Hassan',
+      email: 'hh@yahoo.com',
+      img: 'user',
+      date: 'January 7, 2020',
+      status: 'Completed phone screening',
     },
   ]
 }
