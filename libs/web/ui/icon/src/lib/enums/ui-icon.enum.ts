@@ -22,4 +22,5 @@ export enum UiIcon {
   information_circle = 'information_circle',
   user = 'user',
   thumb_up = 'thumb_up',
+  heroicon = 'heroicon',
 }
