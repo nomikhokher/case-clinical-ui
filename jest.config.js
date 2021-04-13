@@ -62,5 +62,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/group-button',
     '<rootDir>/libs/web/ui/icon-button',
     '<rootDir>/libs/web/ui/dropdown',
+    '<rootDir>/libs/web/ui/badge',
   ],
 }

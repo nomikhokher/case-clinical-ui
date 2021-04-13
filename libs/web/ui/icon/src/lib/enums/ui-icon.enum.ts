@@ -23,4 +23,6 @@ export enum UiIcon {
   user = 'user',
   thumb_up = 'thumb_up',
   heroicon = 'heroicon',
+  dot = 'dot',
+  remove = 'remove',
 }

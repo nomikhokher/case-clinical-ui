@@ -147,6 +147,9 @@
     "web-ui-avatar": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-badge": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-breadcrumbs": {
       "tags": ["scope:web", "type:ui"]
     },

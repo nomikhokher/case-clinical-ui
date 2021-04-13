@@ -159,3 +159,19 @@ export const uiIconMap: Map<UiIcon, string> = new Map<UiIcon, string>()
   </svg>
 `,
   )
+  .set(
+    UiIcon.dot,
+    `
+    <svg class="-ml-1 mr-1.5 text-indigo-400" fill="currentColor" viewBox="0 0 8 8">
+    <circle cx="4" cy="4" r="3" />
+    </svg>
+`,
+  )
+  .set(
+    UiIcon.remove,
+    `
+    <svg stroke="currentColor" fill="none" viewBox="0 0 8 8">
+    <path stroke-linecap="round" stroke-width="1.5" d="M1 1l6 6m0-6L1 7" />
+  </svg>
+`,
+  )

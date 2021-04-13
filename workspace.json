@@ -969,6 +969,28 @@
         }
       }
     },
+    "web-ui-badge": {
+      "projectType": "library",
+      "root": "libs/web/ui/badge",
+      "sourceRoot": "libs/web/ui/badge/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/badge/src/**/*.ts", "libs/web/ui/badge/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/badge"],
+          "options": {
+            "jestConfig": "libs/web/ui/badge/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-breadcrumbs": {
       "projectType": "library",
       "root": "libs/web/ui/breadcrumbs",
