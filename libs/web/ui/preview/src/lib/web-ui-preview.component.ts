@@ -7,7 +7,7 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core'
         <li class="md:flex-1" (click)="code_toggle = false">
           <!-- Completed Step -->
           <a
-            class="group pl-4 py-2 flex flex-col border-l-4 {{
+            class="cursor-pointer group pl-4 py-2 flex flex-col border-l-4 {{
               code_toggle ? 'border-white' : 'border-black'
             }} hover:border-black md:pl-0 md:pt-4 md:pb-0 md:border-l-0 md:border-t-4"
           >
@@ -19,7 +19,7 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core'
         <li class="md:flex-1" (click)="code_toggle = true">
           <!-- Upcoming Step -->
           <a
-            class="group pl-4 py-2 flex flex-col border-l-4 {{
+            class="cursor-pointer group pl-4 py-2 flex flex-col border-l-4 {{
               code_toggle ? 'border-black' : 'border-white'
             }} hover:border-black md:pl-0 md:pt-4 md:pb-0 md:border-l-0 md:border-t-4"
           >
