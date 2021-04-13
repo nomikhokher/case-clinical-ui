@@ -156,6 +156,9 @@
     "web-ui-code": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-dropdown": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-feed": {
       "tags": ["scope:web", "type:ui"]
     },

@@ -13,47 +13,55 @@ import { DevButtonStore } from './dev-button.store'
     </ng-container>
 
     <ui-preview code="<ui-button></ui-button>">
+      <h1>Simple Button</h1>
       <div class="my-4">
         <ui-button label="Indigo" type="button" color="indigo"></ui-button>
       </div>
     </ui-preview>
 
     <ui-preview code="<ui-button></ui-button>">
+      <h1>Red Button</h1>
       <div class="my-4">
         <ui-button label="red" type="button" color="red"></ui-button>
       </div>
     </ui-preview>
 
     <ui-preview code="<ui-button></ui-button>">
+      <h1>Gray Button</h1>
+
       <div class="my-4">
         <ui-button label="Gray" type="button" color="gray"></ui-button>
       </div>
     </ui-preview>
 
     <ui-preview code="<ui-button></ui-button>">
+      <h1>Disabled Button</h1>
+
       <div class="my-4">
         <ui-button [disabled]="true" label="Disabled" type="button" color="red"></ui-button>
       </div>
     </ui-preview>
-
+    <h1>3D Button</h1>
     <ui-preview code="<ui-button></ui-button>">
-      <div class="my-4">
-        <ui-button
-          label="Border 3D "
-          type="button"
-          color="indigo"
-          border="border-b-4 border-red-400 rounded"
-        ></ui-button>
-      </div>
+      <ui-button
+        label="Border 3D "
+        type="button"
+        color="green"
+        border="border-b-4 border-green-900 rounded"
+      ></ui-button>
     </ui-preview>
 
     <ui-preview code="<ui-button></ui-button>">
+      <h1>Pill Button</h1>
+
       <div class="my-4">
         <ui-button label="Rounded Full " type="button" color="red" border="rounded-full"></ui-button>
       </div>
     </ui-preview>
 
     <ui-preview code="<ui-button></ui-button>">
+      <h1>Outline Button</h1>
+
       <div class="my-4">
         <ui-button
           label="Transparent"
@@ -65,12 +73,14 @@ import { DevButtonStore } from './dev-button.store'
     </ui-preview>
 
     <ui-preview code="<ui-group-button></ui-group-button>">
+      <h1>Groups Button</h1>
       <div class="my-4">
         <ui-group-button></ui-group-button>
       </div>
     </ui-preview>
 
     <ui-preview code="<ui-icon-button></ui-icon-button>">
+      <h1>Icons Button</h1>
       <div class="my-4">
         <ui-icon-button></ui-icon-button>
       </div>
