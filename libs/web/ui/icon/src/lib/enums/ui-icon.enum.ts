@@ -25,4 +25,6 @@ export enum UiIcon {
   heroicon = 'heroicon',
   dot = 'dot',
   remove = 'remove',
+  chevronLeft = 'chevronLeft',
+  chevronRight = 'chevronRight',
 }
