@@ -35,12 +35,6 @@ import { Component, Input } from '@angular/core'
 })
 export class WebUiGroupButtonComponent {
   @Input() buttons: any
-  @Input() dropDownMenus: [{ id?: string; name: string }]
-  public dropDownToggle: boolean = false
 
   ngOnInit() {}
-
-  menuToggle() {
-    this.dropDownToggle = !this.dropDownToggle
-  }
 }

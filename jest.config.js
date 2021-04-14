@@ -63,5 +63,7 @@ module.exports = {
     '<rootDir>/libs/web/ui/icon-button',
     '<rootDir>/libs/web/ui/dropdown',
     '<rootDir>/libs/web/ui/badge',
+    '<rootDir>/libs/web/ui/dropdown-button',
+    '<rootDir>/libs/web/ui/checkbox-dropdown-button',
   ],
 }

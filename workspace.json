@@ -1035,6 +1035,31 @@
         }
       }
     },
+    "web-ui-checkbox-dropdown-button": {
+      "projectType": "library",
+      "root": "libs/web/ui/checkbox-dropdown-button",
+      "sourceRoot": "libs/web/ui/checkbox-dropdown-button/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/checkbox-dropdown-button/src/**/*.ts",
+              "libs/web/ui/checkbox-dropdown-button/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/checkbox-dropdown-button"],
+          "options": {
+            "jestConfig": "libs/web/ui/checkbox-dropdown-button/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-code": {
       "projectType": "library",
       "root": "libs/web/ui/code",
@@ -1074,6 +1099,28 @@
           "outputs": ["coverage/libs/web/ui/dropdown"],
           "options": {
             "jestConfig": "libs/web/ui/dropdown/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-dropdown-button": {
+      "projectType": "library",
+      "root": "libs/web/ui/dropdown-button",
+      "sourceRoot": "libs/web/ui/dropdown-button/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/dropdown-button/src/**/*.ts", "libs/web/ui/dropdown-button/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/dropdown-button"],
+          "options": {
+            "jestConfig": "libs/web/ui/dropdown-button/jest.config.js",
             "passWithNoTests": true
           }
         }

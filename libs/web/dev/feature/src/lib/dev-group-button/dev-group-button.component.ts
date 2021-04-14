@@ -18,12 +18,19 @@ export interface DropDownMenu {
       <ui-preview>
         <ui-group-button [buttons]="vm.buttons"></ui-group-button>
       </ui-preview>
+      <ui-preview>
+        <ui-dropdown-button [dropDownMenus]="dropDownMenu"></ui-dropdown-button>
+      </ui-preview>
+      <ui-preview>
+        <ui-checkbox-dropdown-button [dropDownMenus]="dropDownMenu"></ui-checkbox-dropdown-button>
+      </ui-preview>
     </ng-container>
   `,
   providers: [DevGroupButtonStore],
 })
 export class DevGroupButtonComponent {
   readonly vm$ = this.store.vm$
+
   readonly dropDownMenu: DropDownMenu[] = [
     {
       id: '1',
@@ -38,6 +45,7 @@ export class DevGroupButtonComponent {
       name: 'Days',
     },
   ]
+
   constructor(private readonly store: DevGroupButtonStore) {}
 
   ngOnInit() {}
