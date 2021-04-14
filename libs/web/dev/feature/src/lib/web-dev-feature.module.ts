@@ -38,6 +38,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             loadChildren: () => import('./dev-dropdown/dev-dropdown.module').then((m) => m.DevDropdownModule),
           },
           {
+            path: 'badges',
+            loadChildren: () => import('./dev-badge/dev-badge.module').then((m) => m.DevBadgeModule),
+          },
+          {
             path: 'avatars',
             loadChildren: () => import('./dev-avatar/dev-avatar.module').then((m) => m.DevAvatarModule),
           },
@@ -51,6 +55,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
           {
             path: 'buttons',
             loadChildren: () => import('./dev-button/dev-button.module').then((m) => m.DevButtonModule),
+          },
+          {
+            path: 'group-button',
+            loadChildren: () =>
+              import('./dev-group-button/dev-group-button.module').then((m) => m.DevGroupButtonModule),
           },
         ],
       },

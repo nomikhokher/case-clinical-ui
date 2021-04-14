@@ -159,3 +159,35 @@ export const uiIconMap: Map<UiIcon, string> = new Map<UiIcon, string>()
   </svg>
 `,
   )
+  .set(
+    UiIcon.dot,
+    `
+    <svg class="-ml-1 mr-1.5 text-indigo-400" fill="currentColor" viewBox="0 0 8 8">
+    <circle cx="4" cy="4" r="3" />
+    </svg>
+`,
+  )
+  .set(
+    UiIcon.remove,
+    `
+    <svg stroke="currentColor" fill="none" viewBox="0 0 8 8">
+    <path stroke-linecap="round" stroke-width="1.5" d="M1 1l6 6m0-6L1 7" />
+  </svg>
+`,
+  )
+  .set(
+    UiIcon.chevronLeft,
+    `
+    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+    </svg>
+`,
+  )
+  .set(
+    UiIcon.chevronRight,
+    `
+    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+  </svg>
+`,
+  )

@@ -147,16 +147,25 @@
     "web-ui-avatar": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-badge": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-breadcrumbs": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-button": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-checkbox-dropdown-button": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-code": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-dropdown": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-dropdown-button": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-feed": {
