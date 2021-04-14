@@ -34,6 +34,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
           },
           { path: 'alerts', loadChildren: () => import('./dev-alert/dev-alert.module').then((m) => m.DevAlertModule) },
           {
+            path: 'dropdown',
+            loadChildren: () => import('./dev-dropdown/dev-dropdown.module').then((m) => m.DevDropdownModule),
+          },
+          {
             path: 'avatars',
             loadChildren: () => import('./dev-avatar/dev-avatar.module').then((m) => m.DevAvatarModule),
           },

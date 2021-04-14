@@ -61,5 +61,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/two-column-stacked-list',
     '<rootDir>/libs/web/ui/group-button',
     '<rootDir>/libs/web/ui/icon-button',
+    '<rootDir>/libs/web/ui/dropdown',
   ],
 }
