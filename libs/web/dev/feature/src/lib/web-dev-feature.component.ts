@@ -36,6 +36,7 @@ export class WebDevFeatureComponent {
       children: [
         { label: 'Avatar', path: 'avatars', icon: '' },
         { label: 'Dropdown', path: 'dropdown', icon: '' },
+        { label: 'badge', path: 'badges', icon: '' },
       ],
     },
 
@@ -69,6 +70,12 @@ export class WebDevFeatureComponent {
       ],
     },
 
-    { label: 'Buttons', children: [{ label: 'Buttons', path: 'buttons', icon: '' }] },
+    {
+      label: 'Buttons',
+      children: [
+        { label: 'Buttons', path: 'buttons', icon: '' },
+        { label: 'Group Buttons', path: 'group-button', icon: '' },
+      ],
+    },
   ]
 }
