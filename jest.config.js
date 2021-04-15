@@ -65,5 +65,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/badge',
     '<rootDir>/libs/web/ui/dropdown-button',
     '<rootDir>/libs/web/ui/checkbox-dropdown-button',
+    '<rootDir>/libs/web/ui/modal',
   ],
 }

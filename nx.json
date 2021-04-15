@@ -192,6 +192,9 @@
     "web-ui-loader": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-modal": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-narrow-avatar-list": {
       "tags": ["scope:web", "type:ui"]
     },
