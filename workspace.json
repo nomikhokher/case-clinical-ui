@@ -1302,6 +1302,28 @@
         }
       }
     },
+    "web-ui-modal": {
+      "projectType": "library",
+      "root": "libs/web/ui/modal",
+      "sourceRoot": "libs/web/ui/modal/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/modal/src/**/*.ts", "libs/web/ui/modal/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/modal"],
+          "options": {
+            "jestConfig": "libs/web/ui/modal/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-narrow-avatar-list": {
       "projectType": "library",
       "root": "libs/web/ui/narrow-avatar-list",
