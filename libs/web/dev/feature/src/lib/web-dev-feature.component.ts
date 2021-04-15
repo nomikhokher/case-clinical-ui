@@ -77,5 +77,9 @@ export class WebDevFeatureComponent {
         { label: 'Group Buttons', path: 'group-button', icon: '' },
       ],
     },
+    {
+      label: 'Overlays',
+      children: [{ label: 'Modal', path: 'modals', icon: '' }],
+    },
   ]
 }

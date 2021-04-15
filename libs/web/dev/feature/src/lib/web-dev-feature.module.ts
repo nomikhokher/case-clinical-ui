@@ -61,6 +61,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             loadChildren: () =>
               import('./dev-group-button/dev-group-button.module').then((m) => m.DevGroupButtonModule),
           },
+          {
+            path: 'modals',
+            loadChildren: () => import('./dev-modal/dev-modal.module').then((m) => m.DevModalModule),
+          },
         ],
       },
     ]),
