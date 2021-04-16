@@ -68,6 +68,8 @@
       "@schema-driven/web/ui/json": ["libs/web/ui/json/src/index.ts"],
       "@schema-driven/web/ui/layout": ["libs/web/ui/layout/src/index.ts"],
       "@schema-driven/web/ui/loader": ["libs/web/ui/loader/src/index.ts"],
+      "@schema-driven/web/ui/main-page": ["libs/web/ui/main-page/src/index.ts"],
+      "@schema-driven/web/ui/modal": ["libs/web/ui/modal/src/index.ts"],
       "@schema-driven/web/ui/narrow-avatar-list": ["libs/web/ui/narrow-avatar-list/src/index.ts"],
       "@schema-driven/web/ui/page": ["libs/web/ui/page/src/index.ts"],
       "@schema-driven/web/ui/page-header": ["libs/web/ui/page-header/src/index.ts"],
