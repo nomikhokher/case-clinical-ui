@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
-import { WebUiSidebarPageModule } from '@schema-driven/web/ui/sidebar-page'
+import { WebUiMainPageModule } from '@schema-driven/web/ui/main-page'
 import { WebAccountFeatureComponent } from './web-account-feature.component'
 
 @NgModule({
@@ -30,7 +30,7 @@ import { WebAccountFeatureComponent } from './web-account-feature.component'
         ],
       },
     ]),
-    WebUiSidebarPageModule,
+    WebUiMainPageModule,
   ],
 })
 export class WebAccountFeatureModule {}

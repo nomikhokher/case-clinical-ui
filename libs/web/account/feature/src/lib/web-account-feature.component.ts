@@ -2,9 +2,9 @@ import { Component } from '@angular/core'
 
 @Component({
   template: `
-    <ui-sidebar-page headerTitle="Account" [links]="links">
+    <ui-main-page headerTitle="Account" [links]="links">
       <router-outlet></router-outlet>
-    </ui-sidebar-page>
+    </ui-main-page>
   `,
 })
 export class WebAccountFeatureComponent {

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
-import { WebUiSidebarPageModule } from '@schema-driven/web/ui/sidebar-page'
+import { WebUiMainPageModule } from '@schema-driven/web/ui/main-page'
 import { WebDevFeatureComponent } from './web-dev-feature.component'
 
 @NgModule({
@@ -13,7 +13,6 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: '',
         component: WebDevFeatureComponent,
         children: [
-          { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
           {
             path: 'dashboard',
             loadChildren: () => import('./dev-dashboard/dev-dashboard.module').then((m) => m.DevDashboardModule),
@@ -68,7 +67,7 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         ],
       },
     ]),
-    WebUiSidebarPageModule,
+    WebUiMainPageModule,
   ],
 })
 export class WebDevFeatureModule {}

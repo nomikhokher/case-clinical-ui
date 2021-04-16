@@ -52,11 +52,4 @@ export class DevModalComponent {
   readonly vm$ = this.store.vm$
 
   constructor(private readonly store: DevModalStore) {}
-
-  outSideClicked(value) {
-    console.log(value)
-    value = false
-    console.log(value)
-    return false
-  }
 }
