@@ -121,6 +121,17 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+
+            {
+              label: 'Notifications',
+              path: 'notifications',
+              img: 'https://tailwindui.com/img/category-thumbnails-refresh/overlays/notifications.png',
+              childs: [
+                {
+                  name: 'Notifications',
+                },
+              ],
+            },
           ],
         },
         {

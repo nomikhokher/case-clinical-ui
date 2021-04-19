@@ -64,6 +64,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             path: 'modals',
             loadChildren: () => import('./dev-modal/dev-modal.module').then((m) => m.DevModalModule),
           },
+          {
+            path: 'notifications',
+            loadChildren: () =>
+              import('./dev-notification/dev-notification.module').then((m) => m.DevNotificationModule),
+          },
         ],
       },
     ]),
