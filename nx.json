@@ -201,6 +201,12 @@
     "web-ui-narrow-avatar-list": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-notification": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-notification-image": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-page": {
       "tags": ["scope:web", "type:ui"]
     },

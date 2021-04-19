@@ -145,7 +145,6 @@ export class WebUiMainPageComponent {
               this.childName = newArr.name
               break
             }
-            break
           }
         }
       }

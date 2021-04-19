@@ -1371,6 +1371,53 @@
         }
       }
     },
+    "web-ui-notification": {
+      "projectType": "library",
+      "root": "libs/web/ui/notification",
+      "sourceRoot": "libs/web/ui/notification/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/notification/src/**/*.ts", "libs/web/ui/notification/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/notification"],
+          "options": {
+            "jestConfig": "libs/web/ui/notification/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-notification-image": {
+      "projectType": "library",
+      "root": "libs/web/ui/notification-image",
+      "sourceRoot": "libs/web/ui/notification-image/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/notification-image/src/**/*.ts",
+              "libs/web/ui/notification-image/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/notification-image"],
+          "options": {
+            "jestConfig": "libs/web/ui/notification-image/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-page": {
       "projectType": "library",
       "root": "libs/web/ui/page",
