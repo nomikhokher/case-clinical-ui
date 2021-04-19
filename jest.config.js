@@ -67,5 +67,7 @@ module.exports = {
     '<rootDir>/libs/web/ui/checkbox-dropdown-button',
     '<rootDir>/libs/web/ui/modal',
     '<rootDir>/libs/web/ui/main-page',
+    '<rootDir>/libs/web/ui/notification',
+    '<rootDir>/libs/web/ui/notification-image',
   ],
 }

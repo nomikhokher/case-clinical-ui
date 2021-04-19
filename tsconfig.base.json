@@ -71,6 +71,8 @@
       "@schema-driven/web/ui/main-page": ["libs/web/ui/main-page/src/index.ts"],
       "@schema-driven/web/ui/modal": ["libs/web/ui/modal/src/index.ts"],
       "@schema-driven/web/ui/narrow-avatar-list": ["libs/web/ui/narrow-avatar-list/src/index.ts"],
+      "@schema-driven/web/ui/notification": ["libs/web/ui/notification/src/index.ts"],
+      "@schema-driven/web/ui/notification-image": ["libs/web/ui/notification-image/src/index.ts"],
       "@schema-driven/web/ui/page": ["libs/web/ui/page/src/index.ts"],
       "@schema-driven/web/ui/page-header": ["libs/web/ui/page-header/src/index.ts"],
       "@schema-driven/web/ui/preview": ["libs/web/ui/preview/src/index.ts"],
