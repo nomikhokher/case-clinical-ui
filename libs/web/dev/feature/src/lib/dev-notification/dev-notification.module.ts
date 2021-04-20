@@ -5,7 +5,7 @@ import { DevNotificationComponent } from './dev-notification.component'
 import { WebUiPreviewModule } from '@schema-driven/web/ui/preview'
 import { WebUiNotificationModule } from '@schema-driven/web/ui/notification'
 import { WebUiNotificationImageModule } from '@schema-driven/web/ui/notification-image'
-
+import { WebUiButtonModule } from '@schema-driven/web/ui/button'
 @NgModule({
   declarations: [DevNotificationComponent],
   imports: [
@@ -14,6 +14,7 @@ import { WebUiNotificationImageModule } from '@schema-driven/web/ui/notification
     WebUiPreviewModule,
     WebUiNotificationModule,
     WebUiNotificationImageModule,
+    WebUiButtonModule,
   ],
 })
 export class DevNotificationModule {}
