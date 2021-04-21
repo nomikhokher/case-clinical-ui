@@ -142,28 +142,28 @@ export class DevNotificationComponent {
   closeBtn?: boolean
   show: boolean = false
 
-  public subTimeout: any
+  public subTimeout: ReturnType<typeof setTimeout> | any
 
   constructor(private readonly store: DevNotificationStore) {}
 
   showFn() {
     this.show = true
-  }
-
-  closeAction(value: boolean) {
-    this.show = value
-  }
-
-  ngDoCheck() {
-    if (this.show) {
-      this.subTimeout = setTimeout(() => {
+    if (!this.subTimeout) {
+      this.subTimeout = window.setTimeout(() => {
         this.show = false
       }, 5000)
     }
   }
 
+  closeAction(value: boolean) {
+    this.show = value
+    window.clearTimeout(this.subTimeout)
+    this.subTimeout = undefined
+  }
+
   ngOnDestroy() {
     clearTimeout(this.subTimeout)
+    this.subTimeout = undefined
   }
 
   public leftSectionButton: ButtonReply[] = [
