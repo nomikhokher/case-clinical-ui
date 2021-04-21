@@ -53,7 +53,7 @@ import { Component, Input } from '@angular/core'
             <div class="h-full flex flex-col py-6 bg-white shadow-xl overflow-y-scroll">
               <div class="px-4 sm:px-6">
                 <div class="flex items-start justify-between">
-                  <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Panel title</h2>
+                  <h2 class="text-lg font-medium text-gray-900" id="slide-over-title"></h2>
                   <ng-container *ngIf="!closeButtonOutSide">
                     <div class="ml-3 h-7 flex items-center">
                       <button
@@ -78,13 +78,13 @@ import { Component, Input } from '@angular/core'
                       </button>
                     </div>
                   </ng-container>
+
                   <ng-container *ngIf="closeButtonOutSide">
                     <div class="absolute top-0 left-0 -ml-8 pt-4 pr-2 flex sm:-ml-10 sm:pr-4">
                       <button
                         class="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
                       >
                         <span class="sr-only">Close panel</span>
-                        <!-- Heroicon name: outline/x -->
                         <svg
                           class="h-6 w-6"
                           xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +108,9 @@ import { Component, Input } from '@angular/core'
 
               <div class="mt-6 relative flex-1 px-4 sm:px-6">
                 <div class="absolute inset-0 px-4 sm:px-6">
-                  <div class="h-full border-2 border-dashed border-gray-200" aria-hidden="true"></div>
+                  <div class="h-full border-2 border-dashed border-gray-200" aria-hidden="true">
+                    <ng-content select="#mainSlideOver"></ng-content>
+                  </div>
                 </div>
               </div>
             </div>
