@@ -132,6 +132,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Slide-overs',
+              path: 'slideovers',
+              img: 'https://tailwindui.com/img/category-thumbnails-refresh/overlays/notifications.png',
+              childs: [
+                {
+                  name: 'Slide-overs',
+                },
+              ],
+            },
           ],
         },
         {
