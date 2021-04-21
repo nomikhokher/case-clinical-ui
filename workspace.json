@@ -1506,6 +1506,28 @@
         }
       }
     },
+    "web-ui-slide-over": {
+      "projectType": "library",
+      "root": "libs/web/ui/slide-over",
+      "sourceRoot": "libs/web/ui/slide-over/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/slide-over/src/**/*.ts", "libs/web/ui/slide-over/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/slide-over"],
+          "options": {
+            "jestConfig": "libs/web/ui/slide-over/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-step": {
       "projectType": "library",
       "root": "libs/web/ui/step",

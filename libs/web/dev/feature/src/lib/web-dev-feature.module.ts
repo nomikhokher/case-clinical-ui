@@ -69,6 +69,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             loadChildren: () =>
               import('./dev-notification/dev-notification.module').then((m) => m.DevNotificationModule),
           },
+          {
+            path: 'slideovers',
+            loadChildren: () => import('./dev-slide-over/dev-slide-over.module').then((m) => m.DevSlideOverModule),
+          },
         ],
       },
     ]),
