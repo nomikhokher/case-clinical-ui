@@ -38,6 +38,7 @@ import { Component, Input } from '@angular/core'
 </section> -->
 
     <!-- This example requires Tailwind CSS v2.0+ -->
+
     <section
       class="fixed inset-0 overflow-hidden z-50"
       aria-labelledby="slide-over-title"
@@ -47,7 +48,6 @@ import { Component, Input } from '@angular/core'
       <div class="absolute inset-0 overflow-hidden">
         <!-- Background overlay, show/hide based on slide-over state. -->
         <div class="absolute inset-0" [ngClass]="overlay ? overlay : ''" aria-hidden="true"></div>
-
         <div class="fixed inset-y-0 right-0 pl-10 max-w-full flex">
           <div class="w-screen" [ngClass]="width ? width : 'max-w-md'">
             <div class="h-full flex flex-col py-6 bg-white shadow-xl overflow-y-scroll">
@@ -105,6 +105,7 @@ import { Component, Input } from '@angular/core'
                   </ng-container>
                 </div>
               </div>
+
               <div class="mt-6 relative flex-1 px-4 sm:px-6">
                 <div class="absolute inset-0 px-4 sm:px-6">
                   <div class="h-full border-2 border-dashed border-gray-200" aria-hidden="true"></div>

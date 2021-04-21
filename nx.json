@@ -222,6 +222,9 @@
     "web-ui-slide-over": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-slide-over-layout": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-step": {
       "tags": ["scope:web", "type:ui"]
     },

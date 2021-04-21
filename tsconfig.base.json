@@ -78,6 +78,7 @@
       "@schema-driven/web/ui/preview": ["libs/web/ui/preview/src/index.ts"],
       "@schema-driven/web/ui/sidebar-page": ["libs/web/ui/sidebar-page/src/index.ts"],
       "@schema-driven/web/ui/slide-over": ["libs/web/ui/slide-over/src/index.ts"],
+      "@schema-driven/web/ui/slide-over-layout": ["libs/web/ui/slide-over-layout/src/index.ts"],
       "@schema-driven/web/ui/step": ["libs/web/ui/step/src/index.ts"],
       "@schema-driven/web/ui/tab": ["libs/web/ui/tab/src/index.ts"],
       "@schema-driven/web/ui/table": ["libs/web/ui/table/src/index.ts"],

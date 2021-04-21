@@ -70,5 +70,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/notification',
     '<rootDir>/libs/web/ui/notification-image',
     '<rootDir>/libs/web/ui/slide-over',
+    '<rootDir>/libs/web/ui/slide-over-layout',
   ],
 }

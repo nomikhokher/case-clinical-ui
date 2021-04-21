@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router'
 import { DevSlideOverComponent } from './dev-slide-over.component'
 import { WebUiPreviewModule } from '@schema-driven/web/ui/preview'
 import { WebUiSlideOverModule } from '@schema-driven/web/ui/slide-over'
+import { WebUiSlideOverLayoutModule } from '@schema-driven/web/ui/slide-over-layout'
 
 @NgModule({
   declarations: [DevSlideOverComponent],
@@ -12,6 +13,7 @@ import { WebUiSlideOverModule } from '@schema-driven/web/ui/slide-over'
     RouterModule.forChild([{ path: '', component: DevSlideOverComponent }]),
     WebUiPreviewModule,
     WebUiSlideOverModule,
+    WebUiSlideOverLayoutModule,
   ],
 })
 export class DevSlideOverModule {}
