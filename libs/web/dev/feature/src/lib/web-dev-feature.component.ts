@@ -46,15 +46,55 @@ export class WebDevFeatureComponent {
         },
 
         {
-          name: 'Screen Layout',
+          name: 'Layout',
           childs: [
             {
-              label: 'Layout',
-              path: 'layout',
+              label: 'Containers',
+              path: 'containers',
               img: 'https://tailwindui.com/img/category-thumbnails-refresh/layout/containers.png',
               childs: [
                 {
                   name: 'Containers',
+                },
+              ],
+            },
+            {
+              label: 'Panels',
+              path: 'panels',
+              img: 'https://tailwindui.com/img/category-thumbnails-refresh/layout/containers.png',
+              childs: [
+                {
+                  name: 'Panels',
+                },
+              ],
+            },
+            {
+              label: 'List containers',
+              path: 'list-containers',
+              img: 'https://tailwindui.com/img/category-thumbnails-refresh/layout/containers.png',
+              childs: [
+                {
+                  name: 'List containers',
+                },
+              ],
+            },
+            {
+              label: 'Media Objects',
+              path: 'Media Objects',
+              img: 'https://tailwindui.com/img/category-thumbnails-refresh/layout/containers.png',
+              childs: [
+                {
+                  name: 'media-objects',
+                },
+              ],
+            },
+            {
+              label: 'Dividers',
+              path: 'dividers',
+              img: 'https://tailwindui.com/img/category-thumbnails-refresh/layout/containers.png',
+              childs: [
+                {
+                  name: 'Dividers',
                 },
               ],
             },
