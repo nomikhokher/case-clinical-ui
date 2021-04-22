@@ -31,9 +31,23 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core'
     </nav>
     <div class="{{ code_toggle ? 'bg-black' : 'bg-white' }} rounded-md">
       <div class="mt-2 p-4">
-        <div *ngIf="!code_toggle" #child_dom ngModel>
-          <!-- PREVIEW COMPONENT -->
-          <ng-content></ng-content>
+        <div *ngIf="!code_toggle" #child_dom class="relative border dark:border-indigo-700">
+          <div
+            class="relative sr-only sm:not-sr-only sm:border-l sm:bg-gray-100 sm:absolute sm:right-0 sm:inset-y-0 sm:flex sm:items-center sm:w-4"
+            style="touch-action: none; cursor: ew-resize;"
+            [ngStyle]="{ cursor: ew - resize }"
+          >
+            <div class="absolute right-0"></div>
+            <svg class="h-4 w-4 text-gray-600 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5h2v14H8zM14 5h2v14h-2z"></path>
+            </svg>
+          </div>
+
+          <div class="p-8 bg-white">
+            <div class="max-w-7xl mx-auto">
+              <ng-content></ng-content>
+            </div>
+          </div>
         </div>
         <div *ngIf="code_toggle">
           <!-- COMPONENT CODE -->
