@@ -58,6 +58,7 @@
       "@schema-driven/web/ui/button": ["libs/web/ui/button/src/index.ts"],
       "@schema-driven/web/ui/checkbox-dropdown-button": ["libs/web/ui/checkbox-dropdown-button/src/index.ts"],
       "@schema-driven/web/ui/code": ["libs/web/ui/code/src/index.ts"],
+      "@schema-driven/web/ui/container": ["libs/web/ui/container/src/index.ts"],
       "@schema-driven/web/ui/dropdown": ["libs/web/ui/dropdown/src/index.ts"],
       "@schema-driven/web/ui/dropdown-button": ["libs/web/ui/dropdown-button/src/index.ts"],
       "@schema-driven/web/ui/feed": ["libs/web/ui/feed/src/index.ts"],

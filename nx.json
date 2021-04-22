@@ -162,6 +162,9 @@
     "web-ui-code": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-container": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-dropdown": {
       "tags": ["scope:web", "type:ui"]
     },
