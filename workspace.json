@@ -1104,6 +1104,50 @@
         }
       }
     },
+    "web-ui-divider": {
+      "projectType": "library",
+      "root": "libs/web/ui/divider",
+      "sourceRoot": "libs/web/ui/divider/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/divider/src/**/*.ts", "libs/web/ui/divider/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/divider"],
+          "options": {
+            "jestConfig": "libs/web/ui/divider/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-divider-toolbar": {
+      "projectType": "library",
+      "root": "libs/web/ui/divider-toolbar",
+      "sourceRoot": "libs/web/ui/divider-toolbar/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/divider-toolbar/src/**/*.ts", "libs/web/ui/divider-toolbar/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/divider-toolbar"],
+          "options": {
+            "jestConfig": "libs/web/ui/divider-toolbar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-dropdown": {
       "projectType": "library",
       "root": "libs/web/ui/dropdown",

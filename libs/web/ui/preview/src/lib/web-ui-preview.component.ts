@@ -34,8 +34,7 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core'
         <div *ngIf="!code_toggle" #child_dom class="relative border dark:border-indigo-700">
           <div
             class="relative sr-only sm:not-sr-only sm:border-l sm:bg-gray-100 sm:absolute sm:right-0 sm:inset-y-0 sm:flex sm:items-center sm:w-4"
-            style="touch-action: none; cursor: ew-resize;"
-            [ngStyle]="{ cursor: ew - resize }"
+            style="cursor: ew-resize;"
           >
             <div class="absolute right-0"></div>
             <svg class="h-4 w-4 text-gray-600 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
@@ -50,7 +49,6 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core'
           </div>
         </div>
         <div *ngIf="code_toggle">
-          <!-- COMPONENT CODE -->
           <ui-code [copyButton]="true" [code]="code" [language]="lang"></ui-code>
         </div>
       </div>
