@@ -22,6 +22,6 @@ import { DevContainerStore } from './dev-container.store'
 })
 export class DevContainerComponent {
   readonly vm$ = this.store.vm$
-  public readonly narrowContainer: boolean = true
+  public readonly narrowContainer: boolean = false
   constructor(private readonly store: DevContainerStore) {}
 }
