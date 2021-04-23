@@ -165,6 +165,12 @@
     "web-ui-container": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-divider": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-divider-toolbar": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-dropdown": {
       "tags": ["scope:web", "type:ui"]
     },

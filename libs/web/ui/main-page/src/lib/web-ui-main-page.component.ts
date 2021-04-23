@@ -107,7 +107,7 @@ import { Router } from '@angular/router'
                       </div>
                       <figcaption class="py-3 px-4">
                         <p class="text-sm font-medium text-gray-900 mb-1">{{ children.label }}</p>
-                        <p class="text-xs font-medium text-gray-500">9 components</p>
+                        <p class="text-xs font-medium text-gray-500">components</p>
                       </figcaption>
                     </figure>
                   </a>
