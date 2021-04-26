@@ -1390,6 +1390,28 @@
         }
       }
     },
+    "web-ui-media-object": {
+      "projectType": "library",
+      "root": "libs/web/ui/media-object",
+      "sourceRoot": "libs/web/ui/media-object/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/media-object/src/**/*.ts", "libs/web/ui/media-object/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/media-object"],
+          "options": {
+            "jestConfig": "libs/web/ui/media-object/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-modal": {
       "projectType": "library",
       "root": "libs/web/ui/modal",

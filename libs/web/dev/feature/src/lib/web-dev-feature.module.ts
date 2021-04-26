@@ -32,6 +32,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             path: 'dividers',
             loadChildren: () => import('./dev-divider/dev-divider.module').then((m) => m.DevDividerModule),
           },
+          {
+            path: 'media-objects',
+            loadChildren: () =>
+              import('./dev-media-object/dev-media-object.module').then((m) => m.DevMediaObjectModule),
+          },
           { path: 'table', loadChildren: () => import('./dev-table/dev-table.module').then((m) => m.DevTableModule) },
           { path: 'toasts', loadChildren: () => import('./dev-toast/dev-toast.module').then((m) => m.DevToastModule) },
           { path: 'tabs', loadChildren: () => import('./dev-tab/dev-tab.module').then((m) => m.DevTabModule) },
