@@ -50,7 +50,7 @@ import { Component, Input } from '@angular/core'
       </ng-container>
 
       <ng-container *ngIf="data">
-        <ng-container>
+        <ng-container *ngIf="horizontalDirection == 'lefts'">
           <div class="mr-4 flex-shrink-0">
             <svg
               class="h-12 w-12 border border-gray-300 bg-white text-gray-300"
@@ -72,9 +72,9 @@ import { Component, Input } from '@angular/core'
             </div>
           </div>
         </ng-container>
-        <!-- 
-        <ng-container>
-        <div class="ml-4 flex-shrink-0">
+
+        <ng-container *ngIf="horizontalDirection == 'rights'">
+          <div class="ml-4 flex-shrink-0">
             <h4 class="text-lg font-bold">{{ data.name }}</h4>
             <p class="mt-1">{{ data.des }}</p>
             <div class="ml-4 flex-shrink-0">
@@ -94,8 +94,7 @@ import { Component, Input } from '@angular/core'
               <path vector-effect="non-scaling-stroke" stroke-width="1" d="M0 0l200 200M0 200L200 0" />
             </svg>
           </div>
-          
-        </ng-container> -->
+        </ng-container>
       </ng-container>
     </div>
   `,
