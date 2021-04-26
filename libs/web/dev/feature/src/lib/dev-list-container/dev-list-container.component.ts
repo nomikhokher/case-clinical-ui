@@ -13,19 +13,17 @@ import { DevListContainerStore } from './dev-list-container.store'
       <ui-preview>
         <ui-list-container [classNames]="''" [roundedDividers]="">
           <ng-container class="roundedDividers">
-          <p class="py-4">Simple with dividers</p>
-          <p class="py-4">Simple with dividers</p>
+            <p class="py-4">Simple with dividers</p>
+            <p class="py-4">Simple with dividers</p>
           </ng-container>
-         
         </ui-list-container>
       </ui-preview>
       <ui-preview>
         <ui-list-container [classNames]="''" [roundedDividers]="roundedDividers">
-        <ng-container class="roundedDividersNot">
-        <p class="py-4">Simple with dividers</p>
-          <p class="py-4">Simple with dividers</p>
-        </ng-container>
-         
+          <ng-container class="roundedDividersNot">
+            <p class="py-4">Simple with dividers</p>
+            <p class="py-4">Simple with dividers</p>
+          </ng-container>
         </ui-list-container>
       </ui-preview>
     </ng-container>
@@ -34,7 +32,7 @@ import { DevListContainerStore } from './dev-list-container.store'
 })
 export class DevListContainerComponent {
   readonly vm$ = this.store.vm$
-  public classNames:string;
-  public roundedDividers:boolean = true;
+  public classNames: string
+  public roundedDividers: boolean = true
   constructor(private readonly store: DevListContainerStore) {}
 }

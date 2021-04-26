@@ -70,6 +70,7 @@
       "@schema-driven/web/ui/icon-button": ["libs/web/ui/icon-button/src/index.ts"],
       "@schema-driven/web/ui/json": ["libs/web/ui/json/src/index.ts"],
       "@schema-driven/web/ui/layout": ["libs/web/ui/layout/src/index.ts"],
+      "@schema-driven/web/ui/list-container": ["libs/web/ui/list-container/src/index.ts"],
       "@schema-driven/web/ui/loader": ["libs/web/ui/loader/src/index.ts"],
       "@schema-driven/web/ui/main-page": ["libs/web/ui/main-page/src/index.ts"],
       "@schema-driven/web/ui/media-object": ["libs/web/ui/media-object/src/index.ts"],
@@ -87,8 +88,7 @@
       "@schema-driven/web/ui/tab": ["libs/web/ui/tab/src/index.ts"],
       "@schema-driven/web/ui/table": ["libs/web/ui/table/src/index.ts"],
       "@schema-driven/web/ui/toast": ["libs/web/ui/toast/src/index.ts"],
-      "@schema-driven/web/ui/two-column-stacked-list": ["libs/web/ui/two-column-stacked-list/src/index.ts"],
-      "@schema-driven/web/ui/list-container": ["libs/web/ui/list-container/src/index.ts"]
+      "@schema-driven/web/ui/two-column-stacked-list": ["libs/web/ui/two-column-stacked-list/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
