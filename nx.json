@@ -204,6 +204,9 @@
     "web-ui-main-page": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-media-object": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-modal": {
       "tags": ["scope:web", "type:ui"]
     },

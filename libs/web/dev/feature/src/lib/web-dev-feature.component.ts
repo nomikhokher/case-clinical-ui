@@ -80,7 +80,7 @@ export class WebDevFeatureComponent {
             },
             {
               label: 'Working.......',
-              path: 'Media Objects',
+              path: 'media-objects',
               img: '/assets/images/media-objects.png',
               childs: [
                 {
