@@ -69,7 +69,7 @@ export class WebDevFeatureComponent {
               ],
             },
             {
-              label: 'Working.......',
+              label: 'List Containers',
               path: 'list-containers',
               img: '/assets/images/list-containers.png',
               childs: [
@@ -79,7 +79,7 @@ export class WebDevFeatureComponent {
               ],
             },
             {
-              label: 'Working.......',
+              label: 'Media Objects',
               path: 'media-objects',
               img: '/assets/images/media-objects.png',
               childs: [

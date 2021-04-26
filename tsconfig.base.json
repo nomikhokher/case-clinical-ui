@@ -87,7 +87,8 @@
       "@schema-driven/web/ui/tab": ["libs/web/ui/tab/src/index.ts"],
       "@schema-driven/web/ui/table": ["libs/web/ui/table/src/index.ts"],
       "@schema-driven/web/ui/toast": ["libs/web/ui/toast/src/index.ts"],
-      "@schema-driven/web/ui/two-column-stacked-list": ["libs/web/ui/two-column-stacked-list/src/index.ts"]
+      "@schema-driven/web/ui/two-column-stacked-list": ["libs/web/ui/two-column-stacked-list/src/index.ts"],
+      "@schema-driven/web/ui/list-container": ["libs/web/ui/list-container/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
