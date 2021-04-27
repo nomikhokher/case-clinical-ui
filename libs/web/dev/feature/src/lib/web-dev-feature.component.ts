@@ -28,7 +28,21 @@ export class WebDevFeatureComponent {
             },
           ],
         },
-
+        {
+          name: 'Data Display',
+          childs: [
+            {
+              label: 'Stats',
+              path: 'stats',
+              img: '/assets/images/stats.png',
+              childs: [
+                {
+                  name: 'Stats',
+                },
+              ],
+            },
+          ],
+        },
         {
           name: 'Forms',
           childs: [

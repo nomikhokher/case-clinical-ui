@@ -240,6 +240,9 @@
     "web-ui-slide-over-layout": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-stats": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-step": {
       "tags": ["scope:web", "type:ui"]
     },

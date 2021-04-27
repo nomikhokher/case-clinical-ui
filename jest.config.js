@@ -76,5 +76,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/divider-toolbar',
     '<rootDir>/libs/web/ui/media-object',
     '<rootDir>/libs/web/ui/list-container',
+    '<rootDir>/libs/web/ui/stats',
   ],
 }
