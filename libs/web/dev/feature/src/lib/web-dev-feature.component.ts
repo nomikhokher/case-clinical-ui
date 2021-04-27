@@ -19,7 +19,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Dashboard',
               path: 'dashboard',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/application-shells/stacked.png',
+              img: '/assets/images/stacked.png',
               childs: [
                 {
                   name: 'Stacked Layouts',
@@ -35,7 +35,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Forms',
               path: 'forms',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/forms/form-layouts.png',
+              img: '/assets/images/form-layouts.png',
               childs: [
                 {
                   name: 'Form Layouts',
@@ -46,15 +46,55 @@ export class WebDevFeatureComponent {
         },
 
         {
-          name: 'Screen Layout',
+          name: 'Layout',
           childs: [
             {
-              label: 'Layout',
-              path: 'layout',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/layout/containers.png',
+              label: 'Containers',
+              path: 'containers',
+              img: '/assets/images/containers.png',
               childs: [
                 {
                   name: 'Containers',
+                },
+              ],
+            },
+            {
+              label: 'Working.......',
+              path: 'panels',
+              img: '/assets/images/panels.png',
+              childs: [
+                {
+                  name: 'Panels',
+                },
+              ],
+            },
+            {
+              label: 'Working.......',
+              path: 'list-containers',
+              img: '/assets/images/list-containers.png',
+              childs: [
+                {
+                  name: 'List containers',
+                },
+              ],
+            },
+            {
+              label: 'Working.......',
+              path: 'media-objects',
+              img: '/assets/images/media-objects.png',
+              childs: [
+                {
+                  name: 'media-objects',
+                },
+              ],
+            },
+            {
+              label: 'Dividers',
+              path: 'dividers',
+              img: '/assets/images/dividers.png',
+              childs: [
+                {
+                  name: 'Dividers',
                 },
               ],
             },
@@ -67,7 +107,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Data Table',
               path: 'table',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/layout/containers.png',
+              img: '/assets/images/tables.png',
               childs: [
                 {
                   name: 'Data Table Layout',
@@ -83,7 +123,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Toasts',
               path: 'toasts',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/overlays/notifications.png',
+              img: '/assets/images/notifications.png',
               childs: [
                 {
                   name: 'Notifications',
@@ -99,7 +139,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Alert',
               path: 'alerts',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/feedback/alerts.png',
+              img: '/assets/images/alerts.png',
               childs: [
                 {
                   name: 'Alerts',
@@ -114,7 +154,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Modal',
               path: 'modals',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/overlays/modals.png',
+              img: '/assets/images/modals.png',
               childs: [
                 {
                   name: 'Modals',
@@ -125,7 +165,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Notifications',
               path: 'notifications',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/overlays/notifications.png',
+              img: '/assets/images/notifications.png',
               childs: [
                 {
                   name: 'Notifications',
@@ -135,7 +175,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Slide-overs',
               path: 'slideovers',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/overlays/notifications.png',
+              img: '/assets/images/notifications.png',
               childs: [
                 {
                   name: 'Slide-overs',
@@ -150,7 +190,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Avatars',
               path: 'avatars',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/elements/avatars.png',
+              img: '/assets/images/avatars.png',
               childs: [
                 {
                   name: 'Avatars',
@@ -160,7 +200,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Dropdown',
               path: 'dropdown',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/elements/dropdowns.png',
+              img: '/assets/images/dropdowns.png',
               childs: [
                 {
                   name: 'Dropdowns',
@@ -170,7 +210,7 @@ export class WebDevFeatureComponent {
             {
               label: 'badge',
               path: 'badges',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/elements/badges.png',
+              img: '/assets/images/badges.png',
               childs: [
                 {
                   name: 'Badges',
@@ -180,7 +220,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Buttons',
               path: 'buttons',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/elements/buttons.png',
+              img: '/assets/images/buttons.png',
               childs: [
                 {
                   name: 'Buttons',
@@ -190,7 +230,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Group Buttons',
               path: 'group-button',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/elements/button-groups.png',
+              img: '/assets/images/button-groups.png',
               childs: [
                 {
                   name: 'Button Groups',
@@ -205,7 +245,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Steps',
               path: 'steps',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/navigation/steps.png',
+              img: '/assets/images/steps.png',
               childs: [
                 {
                   name: 'Steps',
@@ -215,7 +255,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Breadcrumbs',
               path: 'breadcrumbs',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/navigation/breadcrumbs.png',
+              img: '/assets/images/breadcrumbs.png',
               childs: [
                 {
                   name: 'Breadcrumbs',
@@ -225,7 +265,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Tabs',
               path: 'code',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/navigation/tabs.png',
+              img: '/assets/images/tabs.png',
               childs: [
                 {
                   name: 'Tabs',
@@ -256,7 +296,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Feeds',
               path: 'feeds',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/lists/feeds.png',
+              img: '/assets/images/feeds.png',
               childs: [
                 {
                   name: 'Feeds',
@@ -266,10 +306,20 @@ export class WebDevFeatureComponent {
             {
               label: 'Stacked List',
               path: 'lists',
-              img: 'https://tailwindui.com/img/category-thumbnails-refresh/lists/stacked-lists.png',
+              img: '/assets/images/stacked-lists.png',
               childs: [
                 {
                   name: 'Stacked Lists',
+                },
+              ],
+            },
+            {
+              label: 'Working....',
+              path: 'grid-lists',
+              img: '/assets/images/grid-lists.png',
+              childs: [
+                {
+                  name: 'Grid Lists',
                 },
               ],
             },

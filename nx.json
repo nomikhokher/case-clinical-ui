@@ -162,6 +162,15 @@
     "web-ui-code": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-container": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-divider": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-divider-toolbar": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-dropdown": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -193,6 +202,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-main-page": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-media-object": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-modal": {

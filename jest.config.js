@@ -71,5 +71,9 @@ module.exports = {
     '<rootDir>/libs/web/ui/notification-image',
     '<rootDir>/libs/web/ui/slide-over',
     '<rootDir>/libs/web/ui/slide-over-layout',
+    '<rootDir>/libs/web/ui/container',
+    '<rootDir>/libs/web/ui/divider',
+    '<rootDir>/libs/web/ui/divider-toolbar',
+    '<rootDir>/libs/web/ui/media-object',
   ],
 }
