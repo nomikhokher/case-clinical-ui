@@ -198,6 +198,9 @@
     "web-ui-layout": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-list-container": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-loader": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -235,6 +238,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-slide-over-layout": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-stats": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-step": {
