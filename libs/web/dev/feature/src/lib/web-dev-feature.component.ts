@@ -28,7 +28,21 @@ export class WebDevFeatureComponent {
             },
           ],
         },
-
+        {
+          name: 'Data Display',
+          childs: [
+            {
+              label: 'Stats',
+              path: 'stats',
+              img: '/assets/images/stats.png',
+              childs: [
+                {
+                  name: 'Stats',
+                },
+              ],
+            },
+          ],
+        },
         {
           name: 'Forms',
           childs: [
@@ -69,7 +83,7 @@ export class WebDevFeatureComponent {
               ],
             },
             {
-              label: 'Working.......',
+              label: 'List Containers',
               path: 'list-containers',
               img: '/assets/images/list-containers.png',
               childs: [
@@ -79,7 +93,7 @@ export class WebDevFeatureComponent {
               ],
             },
             {
-              label: 'Working.......',
+              label: 'Media Objects',
               path: 'media-objects',
               img: '/assets/images/media-objects.png',
               childs: [

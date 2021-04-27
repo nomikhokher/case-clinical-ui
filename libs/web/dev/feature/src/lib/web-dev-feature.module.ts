@@ -37,6 +37,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             loadChildren: () =>
               import('./dev-media-object/dev-media-object.module').then((m) => m.DevMediaObjectModule),
           },
+          {
+            path: 'list-containers',
+            loadChildren: () =>
+              import('./dev-list-container/dev-list-container.module').then((m) => m.DevListContainerModule),
+          },
           { path: 'table', loadChildren: () => import('./dev-table/dev-table.module').then((m) => m.DevTableModule) },
           { path: 'toasts', loadChildren: () => import('./dev-toast/dev-toast.module').then((m) => m.DevToastModule) },
           { path: 'tabs', loadChildren: () => import('./dev-tab/dev-tab.module').then((m) => m.DevTabModule) },
@@ -86,6 +91,7 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             path: 'slideovers',
             loadChildren: () => import('./dev-slide-over/dev-slide-over.module').then((m) => m.DevSlideOverModule),
           },
+          { path: 'stats', loadChildren: () => import('./dev-stats/dev-stats.module').then((m) => m.DevStatsModule) },
         ],
       },
     ]),
