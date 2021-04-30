@@ -5,10 +5,12 @@ import { sampleUsers } from './sample-data/sample-users'
 import { Schema } from './schema'
 
 export default async function (host: Tree, schema: Schema) {
+  /*
   if (!schema.confirm) {
     console.warn(`Seeding database cancelled`)
     return
   }
+  */
 
   const seeder = new Seeder(schema)
 
