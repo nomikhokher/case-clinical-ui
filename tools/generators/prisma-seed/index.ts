@@ -11,7 +11,7 @@ export default async function (host: Tree, schema: Schema) {
     return
   }
   */
- 
+
   const seeder = new Seeder(schema)
 
   // Clean up existing data
