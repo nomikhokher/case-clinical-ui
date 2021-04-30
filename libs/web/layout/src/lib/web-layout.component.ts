@@ -5,6 +5,7 @@ import { WebLayoutStore } from './web-layout.store'
   template: `
     <ng-container *ngIf="vm$ | async as vm">
       <div class="flex flex-col h-full dark:bg-gray-900 text-gray-900 dark:text-gray-300">
+        <layout-wrapper (themeModeChange)="themeModeChange($event)"></layout-wrapper>
         <div>
           <layout-header
             [logo]="vm?.layout?.logo"
@@ -29,4 +30,9 @@ export class WebLayoutComponent {
   vm$ = this.layoutStore.vm$
 
   constructor(private readonly layoutStore: WebLayoutStore) {}
+
+  themeModeChange(themeValue) {
+    localStorage.setItem('mode', themeValue)
+    this.layoutStore.updateThemeMode(themeValue)
+  }
 }

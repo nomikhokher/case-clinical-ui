@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core'
   selector: 'ui-slide-over-layout',
   template: `
     <section
-      class="fixed inset-0 overflow-hidden z-50"
+      class="fixed inset-0 overflow-hidden z-10"
       aria-labelledby="slide-over-title"
       role="dialog"
       aria-modal="true"
