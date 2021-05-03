@@ -8,9 +8,6 @@ import { DevAlertStore } from './dev-alert.store'
       <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800">
         <pre class="text-xs dark:text-gray-500">{{ __usage() | json }}</pre>
       </div>
-      <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
-        Component: libs/web/dev/feature/src/lib/dev-alert/dev-alert.component.ts
-      </code>
 
       <ui-preview>
         <ui-alert
@@ -80,6 +77,21 @@ import { DevAlertStore } from './dev-alert.store'
 export class DevAlertComponent {
   readonly vm$ = this.store.vm$
 
+  public data = [
+    {
+      display: false,
+      image: 'https://images.com/iajkrgRAa',
+      zoom: {
+        toggle: true,
+        child_id: 244,
+      },
+      childs: [
+        {
+          hello: 'Hello World',
+        },
+      ],
+    },
+  ]
   @ViewChild(WebUiPreviewComponent) component_preview: WebUiPreviewComponent
   @ViewChildren(WebUiAlertComponent) items: QueryList<WebUiAlertComponent>
 
