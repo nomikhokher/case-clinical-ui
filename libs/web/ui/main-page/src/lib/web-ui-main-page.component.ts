@@ -4,7 +4,7 @@ import { Router } from '@angular/router'
 @Component({
   selector: 'ui-main-page',
   template: `
-    <div class="flex-auto ">
+    <div>
       <div class="max-w-container mx-auto px-20 sm:px-6 lg:px-28 pt-16 pb-24 space-y-8">
         <ng-container *ngIf="!menuList">
           <section class="flex-1 focus:outline-none" tabindex="0">
