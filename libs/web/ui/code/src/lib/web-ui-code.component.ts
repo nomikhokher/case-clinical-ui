@@ -14,11 +14,11 @@ export type UiCodeLanguage = 'html' | 'graphql' | 'javascript' | 'json' | 'markd
 @Component({
   selector: 'ui-code',
   template: `
-    <div class="relative">
-      <ngx-numbered-codeblock [code]="code" [languague]="language" [lineNumbers]="false"></ngx-numbered-codeblock>
+    <div class="relative rounded-t-none">
+      <ngx-numbered-codeblock [code]="code" [languague]="language" [lineNumbers]="true"></ngx-numbered-codeblock>
       <div
         *ngIf="copyButton"
-        class="absolute top-0 right-0 w-5 h-5 opacity-50 hover:opacity-100 flex justify-center items-center"
+        class="absolute top-4 right-4 w-5 h-5 opacity-50 hover:opacity-100 flex justify-center items-center"
       >
         <button [cdkCopyToClipboard]="code" (cdkCopyToClipboardCopied)="copyDone($event)">
           <ui-icon icon="clipboard"></ui-icon>
