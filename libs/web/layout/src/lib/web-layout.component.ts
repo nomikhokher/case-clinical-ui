@@ -416,8 +416,8 @@ import { WebLayoutStore } from './web-layout.store'
 export class WebLayoutComponent {
   vm$ = this.layoutStore.vm$
 
-  public layout: string = 'classy'
-  public showMenu = false
+  public layout: string = 'dense'
+  public showMenu: boolean = false
 
   constructor(private readonly layoutStore: WebLayoutStore) {}
 
