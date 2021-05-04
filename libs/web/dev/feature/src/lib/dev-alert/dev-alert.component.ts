@@ -9,7 +9,7 @@ import { DevAlertStore } from './dev-alert.store'
         <pre class="text-xs dark:text-gray-500">{{ __usage() | json }}</pre>
       </div>
 
-      <ui-preview>
+      <ui-preview [component_props]="[{ name: 'settings', value: {} }]">
         <ui-alert
           class="mb-4 mt-4"
           subject="Attention needed"
