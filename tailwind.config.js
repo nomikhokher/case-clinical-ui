@@ -3,14 +3,20 @@ module.exports = {
   purge: {
     content: ['./apps/**/*.{html,ts}', './libs/**/*.{html,ts}'],
   },
-  // darkMode: 'class', // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+      },
+    },
   },
   variants: {
     extend: {
       opacity: ['disabled'],
       cursor: ['disabled'],
+      width: ['hover'],
+      zIndex: ['hover'],
     },
   },
   plugins: [require('@tailwindcss/forms')],

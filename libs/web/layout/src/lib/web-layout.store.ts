@@ -10,7 +10,7 @@ export interface WebLayoutLink {
 }
 
 export interface WebLayoutState {
-  theme: 'dark' | 'light'
+  theme: 'dark' | 'light' | 'auto'
   logo: string
   footerHtml: string
   links: WebLayoutLink[]
@@ -21,7 +21,7 @@ export interface WebLayoutState {
 export class WebLayoutStore extends ComponentStore<WebLayoutState> {
   constructor(private readonly authStore: WebAuthStore) {
     super({
-      theme: 'dark',
+      theme: 'light',
       logo: '/assets/images/logo.png',
       footerHtml: `Schema-Driven &copy; ${new Date().getFullYear()}`,
       links: [
@@ -42,6 +42,7 @@ export class WebLayoutStore extends ComponentStore<WebLayoutState> {
   }
 
   readonly user$ = this.authStore.user$
+
   readonly links$ = this.select(this.authStore.user$, this.state$, (user, state) => ({
     main: state.links.filter((l) => (l.role ? l.role === user.role : l)),
     profile: state.profileLinks.filter((l) => (l.role ? l.role === user.role : l)),
@@ -52,9 +53,15 @@ export class WebLayoutStore extends ComponentStore<WebLayoutState> {
     footerHtml,
     theme,
   }))
+
   readonly vm$ = this.select(this.user$, this.links$, this.layout$, (user, links, layout) => ({
     user,
     links,
     layout,
+  }))
+
+  readonly updateThemeMode = this.updater((state, theme: 'dark' | 'light' | 'auto') => ({
+    ...state,
+    theme,
   }))
 }

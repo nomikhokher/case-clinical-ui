@@ -1,11 +1,11 @@
-import { User } from '@schema-driven/web/core/data-access'
 import { Component, Input } from '@angular/core'
+import { User } from '@schema-driven/web/core/data-access'
 
 @Component({
-  selector: 'layout-header',
+  selector: 'empty-header-layout',
   template: `
     <header
-      class="flex-none relative z-50 text-sm leading-6 font-medium bg-white ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5"
+      class="flex-none relative text-sm leading-6 font-medium bg-white ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5"
     >
       <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-28 flex items-center ">
         <a href="/components" class="flex-none text-gray-900">
@@ -84,9 +84,12 @@ import { Component, Input } from '@angular/core'
         </div>
       </div>
     </header>
+    <main class="flex-1 h-full overflow-auto">
+      <router-outlet></router-outlet>
+    </main>
   `,
 })
-export class LayoutHeaderComponent {
+export class EmptyHeaderComponent {
   public showMenu = false
   @Input() notificationsLink?: string
   @Input() user?: User
