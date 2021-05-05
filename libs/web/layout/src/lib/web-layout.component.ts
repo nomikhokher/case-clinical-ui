@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, ElementRef, ViewChild } from '@angular/core'
 import { WebLayoutStore } from './web-layout.store'
 
 @Component({
@@ -47,6 +47,15 @@ import { WebLayoutStore } from './web-layout.store'
             [profileLinks]="vm.links?.profile"
           >
           </enterprise-header-layout>
+
+          <centered-header-layout
+            *ngIf="layout === 'centered'"
+            [logo]="vm?.layout?.logo"
+            [links]="vm?.links?.main"
+            [user]="vm?.user"
+            [profileLinks]="vm.links?.profile"
+          >
+          </centered-header-layout>
 
           <compact-header-layout
             *ngIf="layout === 'compact'"
@@ -104,7 +113,12 @@ import { WebLayoutStore } from './web-layout.store'
           </svg>
         </div>
 
-        <ui-slide-over-layout [slideOverHeader]="slideOverHeader" *ngIf="settingsDrawer">
+        <ui-slide-over-layout
+          [slideOverHeader]="slideOverHeader"
+          *ngIf="settingsDrawer"
+          #sideOverlay
+          (click)="clickOutside($event)"
+        >
           <section id="headerSlideOverLayout">
             <div class="py-6 px-4 bg-indigo-700 sm:px-6">
               <div class="flex flex-row items-center text-white bg-primary">
@@ -359,6 +373,28 @@ import { WebLayoutStore } from './web-layout.store'
 
                 <div class="col-span-2"></div>
 
+                <!-- Centered -->
+                <div class="flex flex-col cursor-pointer" (click)="setLayout('centered')">
+                  <div class="flex h-20 rounded-md overflow-hidden border-2 hover:opacity-80">
+                    <div class="flex flex-col flex-auto my-1 mx-2 border rounded-md overflow-hidden">
+                      <div class="flex items-center h-3 bg-gray-100 dark:bg-gray-800">
+                        <div class="flex ml-1.5">
+                          <div class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                          <div class="w-3 h-1 ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                          <div class="w-3 h-1 ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                          <div class="w-3 h-1 ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                        </div>
+                        <div class="flex items-center justify-end ml-auto mr-1.5">
+                          <div class="w-1 h-1 ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                          <div class="w-1 h-1 ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                        </div>
+                      </div>
+                      <div class="flex flex-auto border-t bg-gray-50 dark:bg-gray-900"></div>
+                    </div>
+                  </div>
+                  <div class="mt-2 text-md font-medium text-center text-secondary">Centered</div>
+                </div>
+
                 <!-- Enterprise -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('enterprise')">
                   <div class="flex flex-col h-20 rounded-md overflow-hidden border-2 hover:opacity-80">
@@ -416,8 +452,10 @@ import { WebLayoutStore } from './web-layout.store'
 export class WebLayoutComponent {
   vm$ = this.layoutStore.vm$
 
-  public layout: string = 'dense'
+  public layout: string = 'classy'
   public showMenu: boolean = false
+
+  @ViewChild('sideOverlay') modalOverlay: ElementRef
 
   constructor(private readonly layoutStore: WebLayoutStore) {}
 
@@ -451,5 +489,10 @@ export class WebLayoutComponent {
 
   toggle() {
     this.settingsDrawer = !this.settingsDrawer
+  }
+
+  clickOutside(event: Event) {
+    const target = event.target || event.srcElement
+    this.settingsDrawer = this.modalOverlay.nativeElement == event.target
   }
 }
