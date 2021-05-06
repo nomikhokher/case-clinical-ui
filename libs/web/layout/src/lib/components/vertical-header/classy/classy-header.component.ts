@@ -89,8 +89,8 @@ import { User } from '@schema-driven/web/core/data-access'
               />
             </div>
             <div class="ml-4 flex-1 flex flex-col sm:mt-4 sm:ml-0 sm:items-center">
-              <div class="text-indigo-100 text-2xl sm:hidden">William</div>
-              <div class="text-indigo-100 text-xl sm:text-sm">william@gmail.com</div>
+              <div class="theme-color-900 text-indigo-100 text-2xl sm:hidden">William</div>
+              <div class="theme-color-900 text-indigo-100 text-xl sm:text-sm">william@gmail.com</div>
             </div>
           </div>
 
