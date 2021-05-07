@@ -3,6 +3,19 @@
 @import 'tailwindcss/utilities';
 @import '~prismjs/themes/prism-okaidia.css';
 
+:root {
+  --theme-color-50: #eef2ff;
+  --theme-color-100: #e0e7ff;
+  --theme-color-200: #c7d2fe;
+  --theme-color-300: #a5b4fc;
+  --theme-color-400: #818cf8;
+  --theme-color-500: #6366f1;
+  --theme-color-600: #4f46e5;
+  --theme-color-700: #4338ca;
+  --theme-color-800: #3730a3;
+  --theme-color-900: #312e81;
+}
+
 html,
 body {
   height: 100vh;
@@ -10,4 +23,84 @@ body {
 
 ngneat-dialog .ngneat-dialog-backdrop .ngneat-dialog-content {
   @apply bg-gray-50 text-gray-700 dark:bg-gray-200 dark:text-gray-300 flex;
+}
+
+.theme-color-50 {
+  color: var(--theme-color-50) !important;
+}
+
+.theme-color-100 {
+  color: var(--theme-color-100) !important;
+}
+
+.theme-color-200 {
+  color: var(--theme-color-200) !important;
+}
+
+.theme-color-300 {
+  color: var(--theme-color-300) !important;
+}
+
+.theme-color-400 {
+  color: var(--theme-color-400) !important;
+}
+
+.theme-color-500 {
+  color: var(--theme-color-500) !important;
+}
+
+.theme-color-600 {
+  color: var(--theme-color-600) !important;
+}
+
+.theme-color-700 {
+  color: var(--theme-color-700) !important;
+}
+
+.theme-color-800 {
+  color: var(--theme-color-800) !important;
+}
+
+.theme-color-900 {
+  color: var(--theme-color-900) !important;
+}
+
+.theme-bg-50 {
+  background-color: var(--theme-color-50) !important;
+}
+
+.theme-bg-100 {
+  background-color: var(--theme-color-100) !important;
+}
+
+.theme-bg-200 {
+  background-color: var(--theme-color-200) !important;
+}
+
+.theme-bg-300 {
+  background-color: var(--theme-color-300) !important;
+}
+
+.theme-bg-400 {
+  background-color: var(--theme-color-400) !important;
+}
+
+.theme-bg-500 {
+  background-color: var(--theme-color-500) !important;
+}
+
+.theme-bg-600 {
+  background-color: var(--theme-color-600) !important;
+}
+
+.theme-bg-700 {
+  background-color: var(--theme-color-700) !important;
+}
+
+.theme-bg-800 {
+  background-color: var(--theme-color-800) !important;
+}
+
+.theme-bg-900 {
+  background-color: var(--theme-color-900) !important;
 }

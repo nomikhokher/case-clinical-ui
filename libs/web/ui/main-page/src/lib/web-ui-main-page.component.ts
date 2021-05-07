@@ -49,7 +49,7 @@ import { Router } from '@angular/router'
           <ng-container *ngFor="let link of links">
             <section id="product-marketing" class="divide-y divide-gray-200">
               <header class="pb-6">
-                <h2 class="text-2xl font-extrabold text-gray-900">{{ link.heading }}</h2>
+                <h2 class="text-2xl font-extrabold theme-color-600 dark:theme-color-600">{{ link.heading }}</h2>
                 <p class="text-sm text-gray-500 mt-2">
                   {{ link.title }}
                 </p>
