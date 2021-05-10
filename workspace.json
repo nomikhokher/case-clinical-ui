@@ -1236,6 +1236,28 @@
         }
       }
     },
+    "web-ui-grid-list": {
+      "projectType": "library",
+      "root": "libs/web/ui/grid-list",
+      "sourceRoot": "libs/web/ui/grid-list/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/grid-list/src/**/*.ts", "libs/web/ui/grid-list/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/grid-list"],
+          "options": {
+            "jestConfig": "libs/web/ui/grid-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-group-button": {
       "projectType": "library",
       "root": "libs/web/ui/group-button",

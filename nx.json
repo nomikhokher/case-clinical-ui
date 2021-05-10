@@ -183,6 +183,9 @@
     "web-ui-form": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-grid-list": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-group-button": {
       "tags": ["scope:web", "type:ui"]
     },
