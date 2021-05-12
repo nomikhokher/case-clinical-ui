@@ -7,24 +7,24 @@ import { DevAvatarStore } from './dev-avatar.store'
       <ui-preview>
         <ui-avatar mode="img" [payload]="payload" radius="circle" [size]="14"></ui-avatar>
       </ui-preview>
-      <div class="p-4 mt-4 shadow rounded-lg">
+      <ui-preview>
         <ui-avatar mode="img" [payload]="payload" radius="circle" [size]="14"></ui-avatar>
-      </div>
-      <div class="p-4 mt-4 shadow rounded-lg">
+      </ui-preview>
+      <ui-preview>
         <ui-avatar mode="img" [payload]="payload" radius="circle" [size]="14" [badge]="badge"></ui-avatar>
-      </div>
-      <div class="p-4 mt-4 shadow rounded-lg">
+      </ui-preview>
+      <ui-preview>
         <ui-avatar mode="img" [payload]="payload" radius="rounded" [size]="14"></ui-avatar>
-      </div>
-      <div class="p-4 mt-4 shadow rounded-lg">
+      </ui-preview>
+      <ui-preview>
         <ui-avatar mode="img" [payload]="payload" radius="rounded" [size]="14" [badge]="badge"></ui-avatar>
-      </div>
-      <div class="p-4 mt-4 shadow rounded-lg">
+      </ui-preview>
+      <ui-preview>
         <ui-avatar mode="text" [payload]="'MB'" radius="circle" [size]="14"></ui-avatar>
-      </div>
-      <div class="p-4 mt-4 shadow rounded-lg">
+      </ui-preview>
+      <ui-preview>
         <ui-avatar mode="text" [payload]="'CB'" radius="circle" [size]="14" [badge]="badge"></ui-avatar>
-      </div>
+      </ui-preview>
       <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
         Component: libs/web/dev/feature/src/lib/dev-avatar/dev-avatar.component.ts
       </code>

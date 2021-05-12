@@ -4,11 +4,9 @@ import { DevBreadcrumbsStore } from './dev-breadcrumbs.store'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800 flex space-x-6">
-        <ng-container>
-          <ui-breadcrumbs [crumbs]="vm.crumbs"></ui-breadcrumbs>
-        </ng-container>
-      </div>
+      <ui-preview [component_props]="[{ name: 'crumbs', value: vm.crumbs }]">
+        <ui-breadcrumbs [crumbs]="vm.crumbs"></ui-breadcrumbs>
+      </ui-preview>
     </ng-container>
   `,
   providers: [DevBreadcrumbsStore],

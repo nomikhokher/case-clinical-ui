@@ -193,14 +193,18 @@ export class WebUiPreviewComponent {
     for (const value of vars.attributes()) {
       if (vars.is_ng(value.name)) {
         if (!vars.is_exist(vars.extract_name(value))) {
-          vars.html += ' \n\t' + '[' + vars.extract_name(value) + ']'
+          if (!value.value.includes('[object Object]')) {
+            vars.html += ' \n\t' + '[' + vars.extract_name(value) + ']'
+          }
         } else {
-          vars.html += ' \n\t' + vars.extract_name(value)
+          if (!value.value.includes('[object Object]')) {
+            vars.html += ' \n\t' + vars.extract_name(value)
+          }
         }
-        if (value.value.includes('[object Object]')) {
-          //console.log({JSON : JSON.parse(value.value)});
+
+        if (!value.value.includes('[object Object]')) {
+          vars.html += '=' + '"' + value.textContent + '"' + ' '
         }
-        vars.html += '=' + '"' + value.textContent + '"' + ' '
       }
     }
     this.code = vars.inject()
