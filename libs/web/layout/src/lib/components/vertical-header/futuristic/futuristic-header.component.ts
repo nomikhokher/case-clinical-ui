@@ -72,7 +72,7 @@ import { User } from '@schema-driven/web/core/data-access'
               >
                 <p class="py-3 px-3.5 truncate">
                   <span class="block mb-0.5 text-xs text-gray-500">Signed in as</span>
-                  <span class="font-semibold">mrhammaddev@gmail.com</span>
+                  <span class="font-semibold">{{ user?.email }}</span>
                 </p>
                 <div class="py-1.5 px-3.5">
                   <ng-container *ngFor="let link of profileLinks">
@@ -109,7 +109,7 @@ import { User } from '@schema-driven/web/core/data-access'
         <header
           class="flex-none w-full relative text-sm leading-6 font-medium bg-white ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5"
         >
-          <div class="px-4 sm:px-6 lg:px-28">
+          <div class="px-4">
             <div class="flex justify-between">
               <div class="">
                 <svg

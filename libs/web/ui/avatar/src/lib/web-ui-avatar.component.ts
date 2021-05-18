@@ -71,7 +71,8 @@ export class WebUiAvatarComponent {
   @Input() radius?: string
   @Input() size?: number
   @Input() badge?: any
-
+  @Input() width?: string
+  @Input() height?: string
   ngOnInit() {}
 
   __radius() {
@@ -79,6 +80,9 @@ export class WebUiAvatarComponent {
   }
 
   __size() {
+    if (this.width !== undefined || this.height !== undefined) {
+      return (this.width ? 'w-' + this.width : '') + ' ' + (this.height ? 'h-' + this.height : '')
+    }
     return this.size !== undefined ? 'h-' + this.size.toString() + ' ' + 'w-' + this.size.toString() : 'h-10 w-10'
   }
 

@@ -7,15 +7,27 @@ import { User } from '@schema-driven/web/core/data-access'
     <div class="flex flex-auto justify-center w-full sm:p-4 md:p-8 bg-gray-200 dark:bg-card">
       <div class="flex flex-col flex-auto min-w-0 max-w-360 sm:rounded-xl shadow-2xl dark:shadow-none overflow-hidden">
         <header
-          class="flex-none relative text-sm leading-6 font-medium bg-white ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5"
+          class="flex-none relative text-sm leading-6 font-medium bg-white dark:bg-gray-600 ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5"
         >
-          <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-28 flex items-center ">
+          <div class="max-w-container mx-auto px-4 flex items-center ">
             <a href="/components" class="flex-none text-gray-900">
-              <img *ngIf="logo" [attr.src]="logo" [attr.loading]="'lazy'" class="h-12" alt="App Logo" />
+              <ui-avatar
+                *ngIf="logo"
+                width="36"
+                height="12"
+                mode="text"
+                [payload]="'metadata'"
+                radius="rounded"
+                [size]="14"
+                class="font-bold"
+              ></ui-avatar>
             </a>
             <div class="ml-auto flex items-center">
               <ng-container *ngFor="let link of profileLinks">
-                <a class="hidden sm:block hover:text-gray-900 mx-4" [routerLink]="link.route">
+                <a
+                  class="hidden sm:block text-gray-600 dark:text-gray-200 hover:text-black dark:hover:text-white mx-4"
+                  [routerLink]="link.route"
+                >
                   {{ link.label }}
                 </a>
               </ng-container>
@@ -52,7 +64,7 @@ import { User } from '@schema-driven/web/core/data-access'
               >
                 <p class="py-3 px-3.5 truncate">
                   <span class="block mb-0.5 text-xs text-gray-500">Signed in as</span>
-                  <span class="font-semibold">mrhammaddev@gmail.com</span>
+                  <span class="font-semibold">{{ user?.email }}</span>
                 </p>
                 <div class="py-1.5 px-3.5">
                   <ng-container *ngFor="let link of profileLinks">
@@ -86,7 +98,7 @@ import { User } from '@schema-driven/web/core/data-access'
             </div>
           </div>
         </header>
-        <main class="flex-1 h-full overflow-auto bg-white">
+        <main class="flex-1 h-full overflow-auto bg-white dark:bg-gray-900">
           <router-outlet></router-outlet>
         </main>
       </div>

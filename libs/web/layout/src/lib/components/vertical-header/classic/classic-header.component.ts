@@ -47,7 +47,7 @@ import { User } from '@schema-driven/web/core/data-access'
         <header
           class="flex-none w-full relative text-sm leading-6 font-medium bg-white ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5"
         >
-          <div class="px-4 sm:px-6 lg:px-28">
+          <div class="px-4">
             <div class="flex justify-between">
               <div class="">
                 <svg
