@@ -14,7 +14,7 @@ import { Component, Input } from '@angular/core'
         <div class="absolute inset-0" aria-hidden="true"></div>
         <div class="fixed inset-y-0 right-0 pl-10 max-w-full flex">
           <div class="w-screen" [ngClass]="width ? width : 'max-w-md'">
-            <div class="h-full divide-y divide-gray-200 flex flex-col bg-white shadow-xl">
+            <div class="h-full divide-y divide-gray-200 flex flex-col bg-white dark:bg-gray-800 shadow-xl">
               <div class="flex-1 h-0 overflow-y-auto">
                 <ng-container *ngIf="slideOverHeader">
                   <ng-content select="#headerSlideOverLayout"></ng-content>

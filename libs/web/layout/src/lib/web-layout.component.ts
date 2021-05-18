@@ -15,6 +15,7 @@ import colors from 'tailwindcss/colors'
             [user]="vm?.user"
             [profileLinks]="vm.links?.profile"
           ></empty-header-layout>
+
           <classy-header-layout
             *ngIf="layout === 'classy'"
             [logo]="vm?.layout?.logo"
@@ -22,6 +23,7 @@ import colors from 'tailwindcss/colors'
             [user]="vm?.user"
             [profileLinks]="vm.links?.profile"
           ></classy-header-layout>
+
           <classic-header-layout
             *ngIf="layout === 'classic'"
             [logo]="vm?.layout?.logo"
@@ -163,14 +165,14 @@ import colors from 'tailwindcss/colors'
                   style="background:#eceeef"
                   (click)="setScheme('auto')"
                 >
-                  <div class="flex items-center overflow-hidden">
+                  <div class="flex items-center overflow-hidden dark:text-black">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path
                         d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"
                       />
                     </svg>
                   </div>
-                  <div class="flex items-center ml-2 font-medium leading-5">Auto</div>
+                  <div class="flex items-center ml-2 font-medium leading-5 dark:text-black">Auto</div>
                 </div>
                 <!-- Dark -->
                 <div
@@ -178,12 +180,12 @@ import colors from 'tailwindcss/colors'
                   style="background:#eceeef"
                   (click)="setScheme('dark')"
                 >
-                  <div class="flex items-center overflow-hidden">
+                  <div class="flex items-center overflow-hidden dark:text-black">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                     </svg>
                   </div>
-                  <div class="flex items-center ml-2 font-medium leading-5">Dark</div>
+                  <div class="flex items-center ml-2 font-medium leading-5 dark:text-black">Dark</div>
                 </div>
                 <!-- Light -->
                 <div
@@ -191,7 +193,7 @@ import colors from 'tailwindcss/colors'
                   style="background:#eceeef"
                   (click)="setScheme('light')"
                 >
-                  <div class="flex items-center overflow-hidden">
+                  <div class="flex items-center overflow-hidden dark:text-black">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path
                         fill-rule="evenodd"
@@ -200,7 +202,7 @@ import colors from 'tailwindcss/colors'
                       />
                     </svg>
                   </div>
-                  <div class="flex items-center ml-2 font-medium leading-5">Light</div>
+                  <div class="flex items-center ml-2 font-medium leading-5 dark:text-black">Light</div>
                 </div>
               </div>
 
@@ -490,27 +492,27 @@ export class WebLayoutComponent {
   }
 
   public themes: { color: string; hashCode: string }[] = [
-    { color: 'gray', hashCode: '#18181b' },
-    { color: 'red', hashCode: '#7f1d1d' },
-    { color: 'yellow', hashCode: '#713f12' },
-    { color: 'green', hashCode: '#14532d' },
-    { color: 'blue', hashCode: '#1e3a8a' },
-    { color: 'indigo', hashCode: '#312e81' },
-    { color: 'purple', hashCode: '#581c87' },
-    { color: 'pink', hashCode: '#831843' },
-    { color: 'rose', hashCode: '#881337' },
-    { color: 'fuchsia', hashCode: '#701a75' },
-    { color: 'violet', hashCode: '#4c1d95' },
-    { color: 'lightBlue', hashCode: '#0c4a6e' },
-    { color: 'cyan', hashCode: '#164e63' },
-    { color: 'teal', hashCode: '#134e4a' },
-    { color: 'emerald', hashCode: '#064e3b' },
-    { color: 'lime', hashCode: '#365314' },
-    { color: 'orange', hashCode: '#7c2d12' },
-    { color: 'warmGray', hashCode: '#1c1917' },
-    { color: 'trueGray', hashCode: '#171717' },
-    { color: 'coolGray', hashCode: '#111827' },
-    { color: 'blueGray', hashCode: '#0f172a' },
+    { color: 'gray', hashCode: '#52525B' },
+    { color: 'red', hashCode: '#DC2626' },
+    { color: 'yellow', hashCode: '#CA8A04' },
+    { color: 'green', hashCode: '#16A34A' },
+    { color: 'blue', hashCode: '#2563EB' },
+    { color: 'indigo', hashCode: '#4F46E5' },
+    { color: 'purple', hashCode: '#9333EA' },
+    { color: 'pink', hashCode: '#DB2777' },
+    { color: 'rose', hashCode: '#E11D48' },
+    { color: 'fuchsia', hashCode: '#C026D3' },
+    { color: 'violet', hashCode: '#7C3AED' },
+    { color: 'lightBlue', hashCode: '#0284C7' },
+    { color: 'cyan', hashCode: '#0891B2' },
+    { color: 'teal', hashCode: '#0D9488' },
+    { color: 'emerald', hashCode: '#059669' },
+    { color: 'lime', hashCode: '#65A30D' },
+    { color: 'orange', hashCode: '#EA580C' },
+    { color: 'warmGray', hashCode: '#57534E' },
+    { color: 'trueGray', hashCode: '#525252' },
+    { color: 'coolGray', hashCode: '#4B5563' },
+    { color: 'blueGray', hashCode: '#475569' },
   ]
 
   ngOnInit() {}
