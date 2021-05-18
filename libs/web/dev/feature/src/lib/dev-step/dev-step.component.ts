@@ -11,7 +11,7 @@ type StepItems = {
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <ui-preview>
+      <ui-preview [component_props]="[{ name: 'stepIems', value: stepIems }]">
         <ui-step [stepIems]="stepIems"></ui-step>
       </ui-preview>
     </ng-container>

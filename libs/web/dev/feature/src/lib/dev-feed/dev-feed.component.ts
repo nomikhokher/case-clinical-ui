@@ -22,7 +22,9 @@ type FeedsLists = {
         Component: libs/web/dev/feature/src/lib/dev-feed/dev-feed.component.ts
       </code>
       <div class="my-8">
-        <ui-feed [feedsListing]="feedsListing"></ui-feed>
+        <ui-preview [component_props]="[{ name: 'feedsListing', value: feedsListing }]">
+          <ui-feed [feedsListing]="feedsListing"></ui-feed>
+        </ui-preview>
       </div>
     </ng-container>
   `,

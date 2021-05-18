@@ -50,7 +50,7 @@ import { User } from '@schema-driven/web/core/data-access'
           >
             <p class="py-3 px-3.5 truncate">
               <span class="block mb-0.5 text-xs text-gray-500">Signed in as</span>
-              <span class="font-semibold">mrhammaddev@gmail.com</span>
+              <span class="font-semibold">{{ user?.email }}</span>
             </p>
             <div class="py-1.5 px-3.5">
               <ng-container *ngFor="let link of profileLinks">

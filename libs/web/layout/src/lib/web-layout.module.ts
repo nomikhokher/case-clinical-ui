@@ -12,6 +12,7 @@ import { ThinHeaderLayoutModule } from './components/vertical-header/thin/thin-h
 import { DenseHeaderLayoutModule } from './components/vertical-header/dense/dense-header.module'
 import { CompactHeaderLayoutModule } from './components/vertical-header/compact/compact-header.module'
 import { EnterpriseHeaderLayoutModule } from './components/horizontal-header/enterprise/enterprise-header.module'
+import { CenteredHeaderLayoutModule } from './components/horizontal-header/centered/centered-header.module'
 import { ModernHeaderLayoutModule } from './components/horizontal-header/modern/modern-header.module'
 import { FuturisticHeaderLayoutModule } from './components/vertical-header/futuristic/futuristic-header.module'
 
@@ -31,6 +32,7 @@ import { FuturisticHeaderLayoutModule } from './components/vertical-header/futur
     CompactHeaderLayoutModule,
     EnterpriseHeaderLayoutModule,
     ModernHeaderLayoutModule,
+    CenteredHeaderLayoutModule,
   ],
 })
 export class WebLayoutModule {}

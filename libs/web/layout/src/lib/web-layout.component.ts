@@ -1,5 +1,6 @@
-import { Component } from '@angular/core'
+import { Component, ElementRef, ViewChild } from '@angular/core'
 import { WebLayoutStore } from './web-layout.store'
+import colors from 'tailwindcss/colors'
 
 @Component({
   template: `
@@ -14,6 +15,7 @@ import { WebLayoutStore } from './web-layout.store'
             [user]="vm?.user"
             [profileLinks]="vm.links?.profile"
           ></empty-header-layout>
+
           <classy-header-layout
             *ngIf="layout === 'classy'"
             [logo]="vm?.layout?.logo"
@@ -21,6 +23,7 @@ import { WebLayoutStore } from './web-layout.store'
             [user]="vm?.user"
             [profileLinks]="vm.links?.profile"
           ></classy-header-layout>
+
           <classic-header-layout
             *ngIf="layout === 'classic'"
             [logo]="vm?.layout?.logo"
@@ -47,6 +50,15 @@ import { WebLayoutStore } from './web-layout.store'
             [profileLinks]="vm.links?.profile"
           >
           </enterprise-header-layout>
+
+          <centered-header-layout
+            *ngIf="layout === 'centered'"
+            [logo]="vm?.layout?.logo"
+            [links]="vm?.links?.main"
+            [user]="vm?.user"
+            [profileLinks]="vm.links?.profile"
+          >
+          </centered-header-layout>
 
           <compact-header-layout
             *ngIf="layout === 'compact'"
@@ -104,9 +116,14 @@ import { WebLayoutStore } from './web-layout.store'
           </svg>
         </div>
 
-        <ui-slide-over-layout [slideOverHeader]="slideOverHeader" *ngIf="settingsDrawer">
+        <ui-slide-over-layout
+          [slideOverHeader]="slideOverHeader"
+          #sideOverlay
+          (click)="clickOutside($event)"
+          *ngIf="settingsDrawer"
+        >
           <section id="headerSlideOverLayout">
-            <div class="py-6 px-4 bg-indigo-700 sm:px-6">
+            <div class="py-6 px-4 theme-bg-700 sm:px-6">
               <div class="flex flex-row items-center text-white bg-primary">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
                   <path
@@ -124,15 +141,17 @@ import { WebLayoutStore } from './web-layout.store'
             <div class="flex flex-col p-6">
               <!-- Theme -->
               <div class="text-md font-semibold text-secondary">THEME</div>
-              <div class="grid grid-cols-3 gap-3 mt-6">
+              <div class="grid grid-cols-2 gap-2 mt-6">
                 <ng-container *ngFor="let theme of themes">
                   <div
-                    class="flex items-center px-4 py-3 rounded-full cursor-pointer bg-hover"
+                    class="flex items-center px-4 py-3 cursor-pointer bg-hover"
                     style="background:#eceeef"
+                    [style.color]="theme.hashCode && theme.hashCode"
+                    (click)="setTheme(theme.color)"
                   >
-                    <div class="w-4 h-4 rounded-full" [style.background-color]="theme[1].primary"></div>
-                    <div class="ml-2.5 font-medium leading-5" [class.text-secondary]="theme !== theme[0]">
-                      {{ theme[0] | titlecase }}
+                    <div class="w-4 h-4 rounded-full" [style.background-color]="theme.hashCode"></div>
+                    <div class="ml-2.5 font-medium leading-5">
+                      {{ theme.color | titlecase }}
                     </div>
                   </div>
                 </ng-container>
@@ -142,39 +161,39 @@ import { WebLayoutStore } from './web-layout.store'
               <div class="grid grid-cols-3 gap-3 justify-items-start mt-6">
                 <!-- Auto -->
                 <div
-                  class="flex items-center py-3 pl-5 pr-6 rounded-full cursor-pointer"
+                  class="flex items-center py-3 pl-5 pr-6 cursor-pointer"
                   style="background:#eceeef"
                   (click)="setScheme('auto')"
                 >
-                  <div class="flex items-center rounded-full overflow-hidden">
+                  <div class="flex items-center overflow-hidden dark:text-black">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path
                         d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"
                       />
                     </svg>
                   </div>
-                  <div class="flex items-center ml-2 font-medium leading-5">Auto</div>
+                  <div class="flex items-center ml-2 font-medium leading-5 dark:text-black">Auto</div>
                 </div>
                 <!-- Dark -->
                 <div
-                  class="flex items-center py-3 pl-5 pr-6 rounded-full cursor-pointer"
+                  class="flex items-center py-3 pl-5 pr-6 cursor-pointer"
                   style="background:#eceeef"
                   (click)="setScheme('dark')"
                 >
-                  <div class="flex items-center rounded-full overflow-hidden">
+                  <div class="flex items-center overflow-hidden dark:text-black">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                     </svg>
                   </div>
-                  <div class="flex items-center ml-2 font-medium leading-5">Dark</div>
+                  <div class="flex items-center ml-2 font-medium leading-5 dark:text-black">Dark</div>
                 </div>
                 <!-- Light -->
                 <div
-                  class="flex items-center py-3 pl-5 pr-6 rounded-full cursor-pointer"
+                  class="flex items-center py-3 pl-5 pr-6 cursor-pointer"
                   style="background:#eceeef"
                   (click)="setScheme('light')"
                 >
-                  <div class="flex items-center rounded-full overflow-hidden">
+                  <div class="flex items-center overflow-hidden dark:text-black">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path
                         fill-rule="evenodd"
@@ -183,7 +202,7 @@ import { WebLayoutStore } from './web-layout.store'
                       />
                     </svg>
                   </div>
-                  <div class="flex items-center ml-2 font-medium leading-5">Light</div>
+                  <div class="flex items-center ml-2 font-medium leading-5 dark:text-black">Light</div>
                 </div>
               </div>
 
@@ -193,7 +212,7 @@ import { WebLayoutStore } from './web-layout.store'
               <div class="grid grid-cols-3 gap-3 mt-6">
                 <!-- Empty -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('empty')">
-                  <div class="flex flex-col h-20 rounded-md overflow-hidden border-2 hover:opacity-80">
+                  <div class="flex flex-col h-20 overflow-hidden border-2 hover:opacity-80">
                     <div class="flex flex-col flex-auto bg-gray-50 dark:bg-gray-900"></div>
                   </div>
                   <div class="mt-2 text-md font-medium text-center text-secondary">Empty</div>
@@ -201,7 +220,7 @@ import { WebLayoutStore } from './web-layout.store'
 
                 <!-- Classic -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('classic')">
-                  <div class="flex h-20 rounded-md overflow-hidden border-2 hover:opacity-80">
+                  <div class="flex h-20 overflow-hidden border-2 hover:opacity-80">
                     <div class="w-8 bg-gray-100 dark:bg-gray-800">
                       <div class="mt-3 mx-1.5 space-y-1">
                         <div class="h-1 rounded-sm bg-gray-300 dark:bg-gray-700"></div>
@@ -227,7 +246,7 @@ import { WebLayoutStore } from './web-layout.store'
 
                 <!-- Classy -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('classy')">
-                  <div class="flex h-20 rounded-md overflow-hidden border-2 hover:opacity-80">
+                  <div class="flex h-20 overflow-hidden border-2 hover:opacity-80">
                     <div class="w-8 bg-gray-100 dark:bg-gray-800">
                       <div class="flex items-center mt-1 mx-1">
                         <div class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-700"></div>
@@ -256,7 +275,7 @@ import { WebLayoutStore } from './web-layout.store'
 
                 <!-- Compact -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('compact')">
-                  <div class="flex h-20 rounded-md overflow-hidden border-2 hover:opacity-80">
+                  <div class="flex h-20 overflow-hidden border-2 hover:opacity-80">
                     <div class="w-5 bg-gray-100 dark:bg-gray-800">
                       <div class="w-3 h-3 mt-2 mx-auto rounded-sm bg-gray-300 dark:bg-gray-700"></div>
                       <div class="flex flex-col items-center w-full mt-2 space-y-1">
@@ -281,7 +300,7 @@ import { WebLayoutStore } from './web-layout.store'
 
                 <!-- Dense -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('dense')">
-                  <div class="flex h-20 rounded-md overflow-hidden border-2 hover:opacity-80">
+                  <div class="flex h-20 overflow-hidden border-2 hover:opacity-80">
                     <div class="w-4 bg-gray-100 dark:bg-gray-800">
                       <div class="w-2 h-2 mt-2 mx-auto rounded-sm bg-gray-300 dark:bg-gray-700"></div>
                       <div class="flex flex-col items-center w-full mt-2 space-y-1">
@@ -306,7 +325,7 @@ import { WebLayoutStore } from './web-layout.store'
 
                 <!-- Futuristic -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('futuristic')">
-                  <div class="flex h-20 rounded-md overflow-hidden border-2 hover:opacity-80">
+                  <div class="flex h-20 overflow-hidden border-2 hover:opacity-80">
                     <div class="w-8 bg-gray-100 dark:bg-gray-800">
                       <div class="flex flex-col flex-auto h-full py-3 px-1.5 space-y-1">
                         <div class="h-1 rounded-sm bg-gray-300 dark:bg-gray-700"></div>
@@ -332,7 +351,7 @@ import { WebLayoutStore } from './web-layout.store'
 
                 <!-- Thin -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('thin')">
-                  <div class="flex h-20 rounded-md overflow-hidden border-2 hover:opacity-80">
+                  <div class="flex h-20 overflow-hidden border-2 hover:opacity-80">
                     <div class="w-3 bg-gray-100 dark:bg-gray-800">
                       <div class="w-1.5 h-1.5 mt-2 mx-auto rounded-sm bg-gray-300 dark:bg-gray-700"></div>
                       <div class="flex flex-col items-center w-full mt-2 space-y-1">
@@ -359,9 +378,31 @@ import { WebLayoutStore } from './web-layout.store'
 
                 <div class="col-span-2"></div>
 
+                <!-- Centered -->
+                <div class="flex flex-col cursor-pointer" (click)="setLayout('centered')">
+                  <div class="flex h-20 overflow-hidden border-2 hover:opacity-80">
+                    <div class="flex flex-col flex-auto my-1 mx-2 border overflow-hidden">
+                      <div class="flex items-center h-3 bg-gray-100 dark:bg-gray-800">
+                        <div class="flex ml-1.5">
+                          <div class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                          <div class="w-3 h-1 ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                          <div class="w-3 h-1 ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                          <div class="w-3 h-1 ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                        </div>
+                        <div class="flex items-center justify-end ml-auto mr-1.5">
+                          <div class="w-1 h-1 ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                          <div class="w-1 h-1 ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                        </div>
+                      </div>
+                      <div class="flex flex-auto border-t bg-gray-50 dark:bg-gray-900"></div>
+                    </div>
+                  </div>
+                  <div class="mt-2 text-md font-medium text-center text-secondary">Centered</div>
+                </div>
+
                 <!-- Enterprise -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('enterprise')">
-                  <div class="flex flex-col h-20 rounded-md overflow-hidden border-2 hover:opacity-80">
+                  <div class="flex flex-col h-20 overflow-hidden border-2 hover:opacity-80">
                     <div class="flex items-center h-3 px-2 bg-gray-100 dark:bg-gray-800">
                       <div class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700"></div>
                       <div class="flex items-center justify-end ml-auto space-x-1">
@@ -385,7 +426,7 @@ import { WebLayoutStore } from './web-layout.store'
 
                 <!-- Modern -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('modern')">
-                  <div class="flex flex-col h-20 rounded-md overflow-hidden border-2 hover:opacity-80">
+                  <div class="flex flex-col h-20 overflow-hidden border-2 hover:opacity-80">
                     <div class="flex items-center h-4 px-2 border-b bg-gray-100 dark:bg-gray-800">
                       <div class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700"></div>
                       <div class="flex items-center h-3 ml-2 space-x-1">
@@ -416,14 +457,26 @@ import { WebLayoutStore } from './web-layout.store'
 export class WebLayoutComponent {
   vm$ = this.layoutStore.vm$
 
-  public layout: string = 'dense'
+  public layout: string = 'classy'
   public showMenu: boolean = false
+
+  @ViewChild('sideOverlay') modalOverlay: ElementRef
 
   constructor(private readonly layoutStore: WebLayoutStore) {}
 
   setScheme(themeValue) {
     localStorage.setItem('mode', themeValue)
     this.layoutStore.updateThemeMode(themeValue)
+  }
+
+  setTheme(themeColor) {
+    let rootSelecttor = document.querySelector(':root') as any
+
+    let arr = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]
+
+    for (let x = 0; x < arr.length; x++) {
+      rootSelecttor.style.setProperty('--theme-color-' + arr[x], colors[themeColor][arr[x]])
+    }
   }
 
   setLayout(layout) {
@@ -438,18 +491,38 @@ export class WebLayoutComponent {
     this.showMenu = !this.showMenu
   }
 
-  public themes: [string, any][] = [
-    ['amber', { primary: '#f59e0b', accent: '#1e293b', warn: '#dc2626' }],
-    ['brand', { primary: '#2196f3', accent: '#1e293b', warn: '#dc2626' }],
-    ['default', { primary: '#4f46e5', accent: '#1e293b', warn: '#dc2626' }],
-    ['indigo', { primary: '#0d9488', accent: '#1e293b', warn: '#dc2626' }],
-    ['purple', { primary: '#9333ea', accent: '#1e293b', warn: '#dc2626' }],
-    ['rose', { primary: '#f43f5e', accent: '#1e293b', warn: '#dc2626' }],
+  public themes: { color: string; hashCode: string }[] = [
+    { color: 'gray', hashCode: '#52525B' },
+    { color: 'red', hashCode: '#DC2626' },
+    { color: 'yellow', hashCode: '#CA8A04' },
+    { color: 'green', hashCode: '#16A34A' },
+    { color: 'blue', hashCode: '#2563EB' },
+    { color: 'indigo', hashCode: '#4F46E5' },
+    { color: 'purple', hashCode: '#9333EA' },
+    { color: 'pink', hashCode: '#DB2777' },
+    { color: 'rose', hashCode: '#E11D48' },
+    { color: 'fuchsia', hashCode: '#C026D3' },
+    { color: 'violet', hashCode: '#7C3AED' },
+    { color: 'lightBlue', hashCode: '#0284C7' },
+    { color: 'cyan', hashCode: '#0891B2' },
+    { color: 'teal', hashCode: '#0D9488' },
+    { color: 'emerald', hashCode: '#059669' },
+    { color: 'lime', hashCode: '#65A30D' },
+    { color: 'orange', hashCode: '#EA580C' },
+    { color: 'warmGray', hashCode: '#57534E' },
+    { color: 'trueGray', hashCode: '#525252' },
+    { color: 'coolGray', hashCode: '#4B5563' },
+    { color: 'blueGray', hashCode: '#475569' },
   ]
 
   ngOnInit() {}
 
   toggle() {
     this.settingsDrawer = !this.settingsDrawer
+  }
+
+  clickOutside(event: Event) {
+    const target = event.target
+    this.settingsDrawer = this.modalOverlay.nativeElement == event.target
   }
 }
