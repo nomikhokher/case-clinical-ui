@@ -5,10 +5,10 @@ import { User } from '@schema-driven/web/core/data-access'
   selector: 'empty-header-layout',
   template: `
     <header
-      class="flex-none relative text-sm leading-6 font-medium bg-white ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5"
+      class="flex-none relative text-sm leading-6 font-medium dark:bg-gray-600 text-gray-900 dark:text-gray-300 dark:ring-white ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5"
     >
       <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-28 flex items-center ">
-        <a href="/components" class="flex-none text-gray-900">
+        <a href="/components" class="flex-none">
           <img *ngIf="logo" [attr.src]="logo" [attr.loading]="'lazy'" class="h-12" alt="App Logo" />
         </a>
         <div class="ml-auto flex items-center">
@@ -33,7 +33,7 @@ import { User } from '@schema-driven/web/core/data-access'
               </svg>
             </span>
             <span class="flex sm:hidden -my-1 w-8 h-8 rounded-lg items-center justify-center">
-              <svg width="20" height="20" fill="none" class="text-gray-900">
+              <svg width="20" height="20" fill="none">
                 <path
                   d="M3.75 4.75h12.5M3.75 9.75h12.5M3.75 14.75h12.5"
                   stroke="currentColor"
@@ -84,7 +84,7 @@ import { User } from '@schema-driven/web/core/data-access'
         </div>
       </div>
     </header>
-    <main class="flex-1 h-full overflow-auto">
+    <main class="flex-1 h-full overflow-auto bg-white dark:bg-gray-900">
       <router-outlet></router-outlet>
     </main>
   `,

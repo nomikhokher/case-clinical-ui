@@ -63,7 +63,7 @@ import { User } from '@schema-driven/web/core/data-access'
             </div>
           </div>
         </header>
-        <main class="flex-1 h-full overflow-auto">
+        <main class="flex-1 h-full overflow-auto bg-white dark:bg-gray-900">
           <router-outlet></router-outlet>
         </main>
       </section>
