@@ -99,7 +99,7 @@ import { User } from '@schema-driven/web/core/data-access'
         <div
           class="flex flex-col flex-auto w-full sm:max-w-360 sm:shadow-lg sm:rounded-lg sm:overflow-hidden bg-white dark:bg-gray-900"
         >
-          <main class="flex-1 h-full overflow-auto">
+          <main class="flex-1 h-full overflow-auto bg-white dark:bg-gray-900">
             <router-outlet></router-outlet>
           </main>
         </div>
