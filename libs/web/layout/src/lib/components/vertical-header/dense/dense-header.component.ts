@@ -40,10 +40,8 @@ import { User } from '@schema-driven/web/core/data-access'
           </ng-container>
         </div>
       </aside>
-      <section class="sm:pl-24">
-        <header
-          class="flex-none w-full relative text-sm leading-6 font-medium bg-white ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5"
-        >
+      <section class="sm:pl-24 bg-white dark:bg-gray-600 dark:text-gray-300">
+        <header class="flex-none w-full relative text-sm leading-6 font-medium py-5">
           <div class="px-4">
             <div class="flex justify-between">
               <div class="">
@@ -63,7 +61,8 @@ import { User } from '@schema-driven/web/core/data-access'
             </div>
           </div>
         </header>
-        <main class="flex-1 h-full overflow-auto bg-white dark:bg-gray-900">
+        <hr />
+        <main class="flex-1 h-full overflow-auto dark:bg-gray-900">
           <router-outlet></router-outlet>
         </main>
       </section>

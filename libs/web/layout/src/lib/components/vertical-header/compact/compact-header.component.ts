@@ -49,10 +49,8 @@ import { User } from '@schema-driven/web/core/data-access'
         class="hidden w-64 text-gray-900 leading-6 bg-indigo-600 fixed inset-y-0 left-36 z-50 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
       ></aside>
 
-      <section class="sm:pl-36">
-        <header
-          class="flex-none w-full relative text-sm leading-6 font-medium bg-white ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5"
-        >
+      <section class="sm:pl-36 bg-white dark:bg-gray-600 dark:text-gray-300">
+        <header class="flex-none w-full relative text-sm leading-6 font-medium py-5">
           <div class="px-4">
             <div class="flex justify-between">
               <div class="">
@@ -72,7 +70,8 @@ import { User } from '@schema-driven/web/core/data-access'
             </div>
           </div>
         </header>
-        <main class="flex-1 h-full overflow-auto bg-white dark:bg-gray-900">
+        <hr />
+        <main class="flex-1 h-full overflow-auto dark:bg-gray-900">
           <router-outlet></router-outlet>
         </main>
       </section>
