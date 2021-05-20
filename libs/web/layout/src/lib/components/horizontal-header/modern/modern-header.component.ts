@@ -3,10 +3,10 @@ import { User } from '@schema-driven/web/core/data-access'
 
 @Component({
   selector: 'modern-header-layout',
-  template: ` <div class="flex flex-col flex-auto items-center w-full min-w-0 bg-gray-200 dark:bg-card">
+  template: ` <div class="flex flex-col flex-auto items-center w-full min-w-0 bg-gray-200 dark:bg-gray-900">
     <div class="relative w-full h-16 sm:h-20 md:h-36 overflow-hidden dark:shadow-none print:hidden">
       <header
-        class="flex-none relative text-sm leading-6 font-medium bg-white ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5"
+        class="flex-none relative text-sm leading-6 font-medium bg-white dark:bg-gray-700 dark:text-gray-300 py-5"
       >
         <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-28 flex items-center ">
           <div class="ml-auto flex items-center">
@@ -82,9 +82,10 @@ import { User } from '@schema-driven/web/core/data-access'
           </div>
         </div>
       </header>
+      <hr />
     </div>
     <div class="flex flex-auto justify-center w-full sm:p-6 md:p-8">
-      <main class="flex-1 h-full overflow-auto bg-white dark:bg-gray-900">
+      <main class="flex-1 h-full overflow-auto bg-white dark:bg-gray-700 rounded">
         <router-outlet></router-outlet>
       </main>
     </div>

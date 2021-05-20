@@ -7,6 +7,7 @@ export interface WebLayoutLink {
   label: string
   route: string
   role?: Role
+  icon?: string
 }
 
 export interface WebLayoutState {
@@ -31,12 +32,12 @@ export class WebLayoutStore extends ComponentStore<WebLayoutState> {
         { label: 'Admin', route: '/admin', role: Role.Admin },
       ],
       profileLinks: [
-        { label: 'Dashboard', route: '/dashboard' },
-        { label: 'Your Account', route: '/account' },
-        { label: 'Development', route: '/dev', role: Role.Admin },
-        { label: 'Admin', route: '/admin', role: Role.Admin },
-        { label: 'About', route: '/about' },
-        { label: 'Logout', route: '/logout' },
+        { label: 'Dashboard', route: '/dashboard', icon: 'dashboard' },
+        { label: 'Your Account', route: '/account', icon: 'account' },
+        { label: 'Development', route: '/dev', role: Role.Admin, icon: 'development' },
+        { label: 'Admin', route: '/admin', role: Role.Admin, icon: 'user' },
+        { label: 'About', route: '/about', icon: 'about' },
+        { label: 'Logout', route: '/logout', icon: 'logout' },
       ],
     })
   }

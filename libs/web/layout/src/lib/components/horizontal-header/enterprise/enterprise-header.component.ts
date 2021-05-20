@@ -4,29 +4,16 @@ import { User } from '@schema-driven/web/core/data-access'
 @Component({
   selector: 'enterprise-header-layout',
   template: `
-    <div class="flex flex-col flex-auto items-center w-full min-w-0 bg-gray-200 dark:bg-card">
+    <div class="flex flex-col flex-auto items-center w-full min-w-0 bg-gray-200 dark:bg-gray-900">
       <div
         class="relative flex flex-col flex-0 justify-center w-full h-16 sm:h-20 md:h-36 overflow-hidden z-49 shadow dark:shadow-none print:hidden"
       >
-        <div class="relative dark flex flex-auto justify-center w-full px-4 md:px-8 bg-gray-800 dark:bg-gray-900">
-          <div class="flex items-center w-full max-w-360 h-16 sm:h-20">
+        <div class="relative dark flex flex-auto justify-center w-full px-4 md:px-8 bg-indigo-600 dark:bg-gray-900">
+          <div class="flex items-center justify-between w-full max-w-360 h-16 sm:h-20">
             <div class="flex items-center">
               <a href="/components" class="flex-none text-gray-900">
                 <img *ngIf="logo" [attr.src]="logo" [attr.loading]="'lazy'" class="w-24" alt="App Logo" />
               </a>
-            </div>
-          </div>
-        </div>
-        <header
-          class="flex-none relative text-sm leading-6 font-medium bg-white ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5"
-        >
-          <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-28 flex items-center ">
-            <div class="ml-auto flex items-center">
-              <ng-container *ngFor="let link of profileLinks">
-                <a class="hidden sm:block hover:text-gray-900 mx-4" [routerLink]="link.route">
-                  {{ link.label }}
-                </a>
-              </ng-container>
             </div>
             <div class="relative sm:border-l -mr-1.5 sm:ml-2 sm:mr-0 sm:pl-6 border-gray-200">
               <button type="button" class="font-medium flex items-center" aria-expanded="true" (click)="openMenu()">
@@ -56,7 +43,7 @@ import { User } from '@schema-driven/web/core/data-access'
               </button>
               <div
                 *ngIf="showMenu"
-                class="absolute top-full right-0 w-60 mt-3 -mr-0.5 sm:-mr-3.5 bg-white rounded-lg shadow-md ring-1 ring-gray-900 ring-opacity-5 font-normal text-sm text-gray-900 divide-y divide-gray-100"
+                class="absolute top-full z-50 right-0 w-60 mt-3 -mr-0.5 sm:-mr-3.5 bg-white rounded-lg shadow-md ring-1 ring-gray-900 ring-opacity-5 font-normal text-sm text-gray-900 divide-y divide-gray-100"
               >
                 <p class="py-3 px-3.5 truncate">
                   <span class="block mb-0.5 text-xs text-gray-500">Signed in as</span>
@@ -93,13 +80,26 @@ import { User } from '@schema-driven/web/core/data-access'
               </div>
             </div>
           </div>
+        </div>
+        <header
+          class="flex-none relative text-sm leading-6 font-medium bg-white dark:bg-gray-600 dark:text-gray-300 ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5"
+        >
+          <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-28 flex items-center ">
+            <div class="ml-auto flex items-center">
+              <ng-container *ngFor="let link of profileLinks">
+                <a class="hidden sm:block hover:text-gray-900 mx-4" [routerLink]="link.route">
+                  {{ link.label }}
+                </a>
+              </ng-container>
+            </div>
+          </div>
         </header>
       </div>
       <div class="flex flex-auto justify-center w-full sm:p-6 md:p-8">
         <div
-          class="flex flex-col flex-auto w-full sm:max-w-360 sm:shadow-lg sm:rounded-lg sm:overflow-hidden bg-white dark:bg-gray-900"
+          class="flex flex-col flex-auto w-full sm:max-w-360 sm:shadow-lg sm:rounded-lg sm:overflow-hidden bg-white dark:bg-gray-700"
         >
-          <main class="flex-1 h-full overflow-auto bg-white dark:bg-gray-900">
+          <main class="flex-1 h-full overflow-auto">
             <router-outlet></router-outlet>
           </main>
         </div>
