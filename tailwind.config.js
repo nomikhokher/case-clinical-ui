@@ -87,7 +87,7 @@ module.exports = {
         },
       }
 
-      addUtilities(newUtilities, ['dark'])
+      addUtilities(newUtilities, ['dark', 'hover'])
     }),
   ],
 }

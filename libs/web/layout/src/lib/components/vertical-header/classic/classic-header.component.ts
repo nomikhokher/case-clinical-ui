@@ -8,7 +8,7 @@ import { User } from '@schema-driven/web/core/data-access'
       <aside
         class="hidden w-{{
           asideWidth
-        }} transition-all ease-in-out duration-500 text-gray-900 leading-6 bg-indigo-700 fixed inset-y-0 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
+        }} transition-all ease-in-out duration-500 text-gray-900 leading-6 theme-bg-600 fixed inset-y-0 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
       >
         <div class="p-3 flex justify-center">
           <a href="/components" class="mt-3">
@@ -19,17 +19,54 @@ import { User } from '@schema-driven/web/core/data-access'
           <!-- Extract: menu_items -->
           <div class="mt-4">
             <ng-container *ngFor="let link of profileLinks">
-              <a
-                [routerLink]="link.route"
-                class="text-indigo-100 hover:bg-indigo-600 hover:text-white group flex items-center w-56  px-2 py-2 text-sm font-medium rounded-md"
-              >
-                <ui-icon
-                  [icon]="link.icon"
-                  size="lg"
-                  class="text-indigo-300 group-hover:text-gray-300 h-8 w-8 mr-3 pt-1"
-                ></ui-icon>
-                {{ link.label }}
-              </a>
+              <div class="relative group">
+                <a
+                  [routerLink]="link.route"
+                  class="text-indigo-100 relative hover:theme-bg-400 hover:text-white group flex items-center w-56  px-2 py-2 text-sm font-medium rounded-md"
+                  (click)="drownDownMenu = !drownDownMenu"
+                >
+                  <ui-icon
+                    [icon]="link.icon"
+                    size="lg"
+                    class="text-indigo-300 group-hover:text-gray-300 h-8 w-8 mr-3 pt-1"
+                  ></ui-icon>
+                  {{ link.label }}
+                  <span class="absolute right-2" *ngIf="link.children">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"
+                        *ngIf="!drownDownMenu"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                        *ngIf="drownDownMenu"
+                      />
+                    </svg>
+                  </span>
+                </a>
+
+                <div class="flex items-center" *ngIf="drownDownMenu">
+                  <a
+                    *ngFor="let child of link.children"
+                    [routerLink]="child.route"
+                    class="text-indigo-100 hover:theme-bg-400 pl-12 hover:text-white group flex items-center w-56 py-2 text-sm font-medium rounded-md"
+                  >
+                    &nbsp;{{ link.label }}
+                  </a>
+                </div>
+              </div>
             </ng-container>
           </div>
         </div>
@@ -72,6 +109,7 @@ import { User } from '@schema-driven/web/core/data-access'
 export class ClassicHeaderComponent {
   public showMenu = false
   public asideWidth: number = 64
+  public drownDownMenu: boolean = false
   @Input() notificationsLink?: string
   @Input() user?: User
   @Input() links: { label: string; route: string }[] = []

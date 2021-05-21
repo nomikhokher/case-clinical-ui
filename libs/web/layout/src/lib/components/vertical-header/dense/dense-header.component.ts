@@ -8,7 +8,7 @@ import { User } from '@schema-driven/web/core/data-access'
       <aside
         class="hidden w-{{
           asideWidth
-        }} transition-all ease-in-out duration-500 hover:w-64 hover:z-10 text-gray-900 leading-6 bg-indigo-700 fixed inset-y-0 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
+        }} transition-all ease-in-out duration-500 hover:w-64 hover:z-10 text-gray-900 leading-6 theme-bg-600 fixed inset-y-0 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
       >
         <div class="p-3 flex justify-between">
           <a href="/components" class="m-3">
@@ -20,11 +20,11 @@ import { User } from '@schema-driven/web/core/data-access'
           <ng-container *ngFor="let link of profileLinks">
             <a
               [routerLink]="link.route"
-              class="text-indigo-100 hover:bg-indigo-600 hover:text-white group flex items-center w-56  px-2 py-2 text-sm font-medium rounded-md"
+              class="text-indigo-100 hover:theme-bg-400 hover:text-white group flex items-center w-56  px-2 py-2 text-sm font-medium rounded-md"
             >
               <div
                 class="mr-7 p-2"
-                routerLinkActive="bg-indigo-600 bg-opacity-50"
+                routerLinkActive="theme-bg-400 bg-opacity-50"
                 [routerLinkActiveOptions]="{ exact: true }"
               >
                 <ui-icon

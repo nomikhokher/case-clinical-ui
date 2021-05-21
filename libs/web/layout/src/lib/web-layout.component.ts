@@ -95,7 +95,7 @@ import colors from 'tailwindcss/colors'
         </div>
 
         <div
-          class="fixed flex z-50 items-center justify-center right-0 w-10 h-10 shadow-lg rounded-l-lg z-999 cursor-pointer bg-red-600 bg-opacity-90 print:hidden"
+          class="fixed flex z-50 items-center justify-center right-0 w-10 h-10 shadow-lg rounded-l-lg z-999 cursor-pointer theme-bg-600 bg-opacity-90 print:hidden"
           style="top: 275px"
           (click)="toggle()"
         >

@@ -5,9 +5,25 @@ import { ComponentStore } from '@ngrx/component-store'
 
 export interface WebLayoutLink {
   label: string
-  route: string
+  route?: string
   role?: Role
   icon?: string
+  isLink?: boolean
+  subLabel?: string
+  children?: {
+    label: string
+    route?: string
+    role?: Role
+    isLink?: boolean
+    subLabel?: string
+    children?: {
+      label: string
+      route?: string
+      role?: Role
+      isLink?: boolean
+      subLabel?: string
+    }[]
+  }[]
 }
 
 export interface WebLayoutState {
@@ -32,7 +48,13 @@ export class WebLayoutStore extends ComponentStore<WebLayoutState> {
         { label: 'Admin', route: '/admin', role: Role.Admin },
       ],
       profileLinks: [
-        { label: 'Dashboard', route: '/dashboard', icon: 'dashboard' },
+        {
+          label: 'Dashboard',
+          icon: 'dashboard',
+          isLink: true,
+          subLabel: 'unique dashboard designs',
+          children: [{ label: 'Dashboard', route: '/dashboard' }],
+        },
         { label: 'Your Account', route: '/account', icon: 'account' },
         { label: 'Development', route: '/dev', role: Role.Admin, icon: 'development' },
         { label: 'Admin', route: '/admin', role: Role.Admin, icon: 'user' },

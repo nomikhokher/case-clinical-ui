@@ -8,7 +8,7 @@ import { User } from '@schema-driven/web/core/data-access'
       <aside
         class="hidden w-{{
           asideWidth
-        }} transition-all ease-in-out duration-500 text-gray-900 leading-6 bg-white dark:bg-gray-600 fixed inset-y-0 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
+        }} transition-all ease-in-out duration-500 theme-bg-600 leading-6 bg-white dark:bg-gray-600 fixed inset-y-0 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
       >
         <div class="p-3 flex justify-between">
           <a href="/components" class="m-3">
@@ -19,21 +19,13 @@ import { User } from '@schema-driven/web/core/data-access'
           <!-- Extract: menu_items -->
           <ng-container *ngFor="let link of profileLinks">
             <div class="p-5 w-full text-center">
-              <a
-                [routerLink]="link.route"
-                (click)="compact = !compact"
-                class="text-gray-900 hover:text-white text-sm font-medium"
-              >
+              <a [routerLink]="link.route" (click)="compact = !compact" class="hover:text-white text-sm font-medium">
                 <div
-                  class="dark:hover:bg-gray-500 dark:hover:bg-opacity-50 hover:bg-opacity-50 hover:bg-gray-300 rounded p-2"
-                  routerLinkActive="dark:bg-gray-500 dark:bg-opacity-50 bg-opacity-50 bg-gray-300"
+                  class="dark:theme-color-400 dark:hover:bg-opacity-50 hover:bg-opacity-50 hover:bg-gray-300 rounded p-2"
+                  routerLinkActive="dark:theme-color-400 dark:bg-opacity-50 bg-opacity-50 bg-gray-300"
                   [routerLinkActiveOptions]="{ exact: true }"
                 >
-                  <ui-icon
-                    [icon]="link.icon"
-                    size="lg"
-                    class="dark:text-white h-8 w-8 pt-1 pl-1 text-gray-900"
-                  ></ui-icon>
+                  <ui-icon [icon]="link.icon" size="lg" class="dark:text-white h-8 w-8 pt-1 pl-1"></ui-icon>
                 </div>
               </a>
             </div>

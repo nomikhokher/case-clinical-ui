@@ -8,7 +8,7 @@ import { User } from '@schema-driven/web/core/data-access'
       <aside
         class="hidden w-{{
           asideWidth
-        }} transition-all ease-in-out duration-500 text-gray-900 leading-6 bg-gray-900 fixed inset-y-0 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
+        }} transition-all ease-in-out duration-500 text-gray-900 leading-6 theme-bg-600 fixed inset-y-0 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
       >
         <div class="p-4 h-auto">
           <!-- Extract: menu_items -->
@@ -16,7 +16,7 @@ import { User } from '@schema-driven/web/core/data-access'
             <ng-container *ngFor="let link of profileLinks">
               <a
                 [routerLink]="link.route"
-                class="text-indigo-100 hover:bg-indigo-600 hover:text-white group flex items-center w-56  px-2 py-2 text-sm font-medium rounded-md"
+                class="text-indigo-100 hover:theme-bg-400 hover:text-white group flex items-center w-56  px-2 py-2 text-sm font-medium rounded-md"
               >
                 <ui-icon
                   [icon]="link.icon"
