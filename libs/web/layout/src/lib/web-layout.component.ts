@@ -5,8 +5,7 @@ import colors from 'tailwindcss/colors'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <div class="flex flex-col h-full dark:bg-gray-900 text-gray-900 dark:text-gray-300">
-        <layout-header> </layout-header>
+      <div class="flex flex-col h-full">
         <div>
           <empty-header-layout
             *ngIf="layout === 'empty'"
@@ -15,7 +14,6 @@ import colors from 'tailwindcss/colors'
             [user]="vm?.user"
             [profileLinks]="vm.links?.profile"
           ></empty-header-layout>
-
           <classy-header-layout
             *ngIf="layout === 'classy'"
             [logo]="vm?.layout?.logo"
@@ -23,7 +21,6 @@ import colors from 'tailwindcss/colors'
             [user]="vm?.user"
             [profileLinks]="vm.links?.profile"
           ></classy-header-layout>
-
           <classic-header-layout
             *ngIf="layout === 'classic'"
             [logo]="vm?.layout?.logo"
@@ -132,7 +129,7 @@ import colors from 'tailwindcss/colors'
                     clip-rule="evenodd"
                   />
                 </svg>
-                <div class="ml-3 text-2xl font-semibold tracking-tight">Settings</div>
+                <div class="ml-3 text-2xl font-semibold tracking-tight dark:text-gray-300">Settings</div>
               </div>
             </div>
           </section>
@@ -140,7 +137,7 @@ import colors from 'tailwindcss/colors'
           <section id="mainSlideOverLayout">
             <div class="flex flex-col p-6">
               <!-- Theme -->
-              <div class="text-md font-semibold text-secondary">THEME</div>
+              <div class="text-md font-semibold text-secondary dark:text-gray-300">THEME</div>
               <div class="grid grid-cols-2 gap-2 mt-6">
                 <ng-container *ngFor="let theme of themes">
                   <div
@@ -157,7 +154,7 @@ import colors from 'tailwindcss/colors'
                 </ng-container>
               </div>
               <hr class="my-8" />
-              <div class="text-md font-semibold text-secondary">SCHEME</div>
+              <div class="text-md font-semibold text-secondary dark:text-gray-300">SCHEME</div>
               <div class="grid grid-cols-3 gap-3 justify-items-start mt-6">
                 <!-- Auto -->
                 <div
@@ -165,14 +162,14 @@ import colors from 'tailwindcss/colors'
                   style="background:#eceeef"
                   (click)="setScheme('auto')"
                 >
-                  <div class="flex items-center overflow-hidden dark:text-black">
+                  <div class="flex items-center overflow-hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path
                         d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"
                       />
                     </svg>
                   </div>
-                  <div class="flex items-center ml-2 font-medium leading-5 dark:text-black">Auto</div>
+                  <div class="flex items-center ml-2 font-medium leading-5">Auto</div>
                 </div>
                 <!-- Dark -->
                 <div
@@ -180,12 +177,12 @@ import colors from 'tailwindcss/colors'
                   style="background:#eceeef"
                   (click)="setScheme('dark')"
                 >
-                  <div class="flex items-center overflow-hidden dark:text-black">
+                  <div class="flex items-center overflow-hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                     </svg>
                   </div>
-                  <div class="flex items-center ml-2 font-medium leading-5 dark:text-black">Dark</div>
+                  <div class="flex items-center ml-2 font-medium leading-5">Dark</div>
                 </div>
                 <!-- Light -->
                 <div
@@ -193,7 +190,7 @@ import colors from 'tailwindcss/colors'
                   style="background:#eceeef"
                   (click)="setScheme('light')"
                 >
-                  <div class="flex items-center overflow-hidden dark:text-black">
+                  <div class="flex items-center overflow-hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path
                         fill-rule="evenodd"
@@ -202,20 +199,20 @@ import colors from 'tailwindcss/colors'
                       />
                     </svg>
                   </div>
-                  <div class="flex items-center ml-2 font-medium leading-5 dark:text-black">Light</div>
+                  <div class="flex items-center ml-2 font-medium leading-5">Light</div>
                 </div>
               </div>
 
               <hr class="my-8" />
               <!-- Layout -->
-              <div class="text-md font-semibold text-secondary">LAYOUT</div>
+              <div class="text-md font-semibold text-secondary dark:text-gray-300">LAYOUT</div>
               <div class="grid grid-cols-3 gap-3 mt-6">
                 <!-- Empty -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('empty')">
                   <div class="flex flex-col h-20 overflow-hidden border-2 hover:opacity-80">
                     <div class="flex flex-col flex-auto bg-gray-50 dark:bg-gray-900"></div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary">Empty</div>
+                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Empty</div>
                 </div>
 
                 <!-- Classic -->
@@ -241,7 +238,7 @@ import colors from 'tailwindcss/colors'
                       <div class="flex flex-auto border-t bg-gray-50 dark:bg-gray-900"></div>
                     </div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary">Classic</div>
+                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Classic</div>
                 </div>
 
                 <!-- Classy -->
@@ -270,7 +267,7 @@ import colors from 'tailwindcss/colors'
                       <div class="flex flex-auto border-t bg-gray-50 dark:bg-gray-900"></div>
                     </div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary">Classy</div>
+                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Classy</div>
                 </div>
 
                 <!-- Compact -->
@@ -295,7 +292,7 @@ import colors from 'tailwindcss/colors'
                       <div class="flex flex-auto border-t bg-gray-50 dark:bg-gray-900"></div>
                     </div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary">Compact</div>
+                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Compact</div>
                 </div>
 
                 <!-- Dense -->
@@ -320,7 +317,7 @@ import colors from 'tailwindcss/colors'
                       <div class="flex flex-auto border-t bg-gray-50 dark:bg-gray-900"></div>
                     </div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary">Dense</div>
+                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Dense</div>
                 </div>
 
                 <!-- Futuristic -->
@@ -346,7 +343,7 @@ import colors from 'tailwindcss/colors'
                       <div class="flex flex-auto border-t bg-gray-50 dark:bg-gray-900"></div>
                     </div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary">Futuristic</div>
+                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Futuristic</div>
                 </div>
 
                 <!-- Thin -->
@@ -373,7 +370,7 @@ import colors from 'tailwindcss/colors'
                       <div class="flex flex-auto border-t bg-gray-50 dark:bg-gray-900"></div>
                     </div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary">Thin</div>
+                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Thin</div>
                 </div>
 
                 <div class="col-span-2"></div>
@@ -397,7 +394,7 @@ import colors from 'tailwindcss/colors'
                       <div class="flex flex-auto border-t bg-gray-50 dark:bg-gray-900"></div>
                     </div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary">Centered</div>
+                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Centered</div>
                 </div>
 
                 <!-- Enterprise -->
@@ -421,7 +418,7 @@ import colors from 'tailwindcss/colors'
                       <div class="flex flex-auto bg-gray-50 dark:bg-gray-900"></div>
                     </div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary">Enterprise</div>
+                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Enterprise</div>
                 </div>
 
                 <!-- Modern -->
@@ -443,7 +440,7 @@ import colors from 'tailwindcss/colors'
                       <div class="flex flex-auto bg-gray-50 dark:bg-gray-900"></div>
                     </div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary">Modern</div>
+                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Modern</div>
                 </div>
               </div>
             </div>

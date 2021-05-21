@@ -27,4 +27,9 @@ export enum UiIcon {
   remove = 'remove',
   chevronLeft = 'chevronLeft',
   chevronRight = 'chevronRight',
+  logout = 'logout',
+  dashboard = 'dashboard',
+  about = 'about',
+  account = 'account',
+  development = 'development',
 }

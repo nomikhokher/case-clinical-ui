@@ -47,24 +47,26 @@ import { Router } from '@angular/router'
         </ng-container>
         <ng-container *ngIf="menuList">
           <ng-container *ngFor="let link of links">
-            <section id="product-marketing" class="divide-y divide-gray-200 dark:divide-gray-100">
-              <header class="pb-6">
+            <section id="product-marketing" class="divide-y divide-gray-200">
+              <div class="pb-6">
                 <h2 class="text-2xl font-extrabold theme-color-600 dark:theme-color-600">{{ link.heading }}</h2>
-                <p class="text-sm text-gray-500 dark:text-gray-100 mt-2">
+                <p class="text-sm text-gray-500 dark:text-gray-300 mt-2">
                   {{ link.title }}
                 </p>
-              </header>
+              </div>
               <div
                 id="product-marketing-sections"
                 class="grid grid-cols-3 xl:grid-cols-4 py-8 gap-x-8 gap-y-6"
                 *ngFor="let child of link.childs"
               >
-                <h3 class="text-gray-900 dark:text-gray-50 font-semibold col-span-3 xl:col-span-1">{{ child.name }}</h3>
+                <h3 class="text-gray-900 font-semibold col-span-3 xl:col-span-1 dark:text-gray-300">
+                  {{ child.name }}
+                </h3>
                 <div class="col-span-3 grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-y-8 lg:gap-x-8">
                   <a
                     *ngFor="let children of child.childs"
                     [routerLink]="children.path"
-                    class="group relative bg-white rounded-lg shadow-sm overflow-hidden ring-1 ring-black ring-opacity-5"
+                    class="group relative bg-white dark:bg-gray-600 rounded-lg shadow-sm overflow-hidden ring-1 ring-black ring-opacity-5"
                     (click)="menuOpen(child.name, children.childs)"
                   >
                     <figure>
@@ -105,9 +107,9 @@ import { Router } from '@angular/router'
                           </svg>
                         </div>
                       </div>
-                      <figcaption class="py-3 px-4 dark:bg-gray-500">
+                      <figcaption class="py-3 px-4">
                         <p class="text-sm font-medium text-gray-900 dark:text-gray-50 mb-1">{{ children.label }}</p>
-                        <p class="text-xs font-medium text-gray-500 dark:text-gray-100">components</p>
+                        <p class="text-xs font-medium text-gray-500 dark:text-gray-100 ">components</p>
                       </figcaption>
                     </figure>
                   </a>

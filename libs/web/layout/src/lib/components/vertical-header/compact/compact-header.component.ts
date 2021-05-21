@@ -22,21 +22,11 @@ import { User } from '@schema-driven/web/core/data-access'
                 (click)="compact = !compact"
                 class="text-indigo-100 hover:text-white text-sm font-medium"
               >
-                <svg
+                <ui-icon
+                  [icon]="link.icon"
+                  size="lg"
                   class="text-indigo-300 group-hover:text-gray-300 mx-auto h-7 w-7"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  />
-                </svg>
+                ></ui-icon>
                 {{ link.label }}
               </a>
             </div>
@@ -49,13 +39,11 @@ import { User } from '@schema-driven/web/core/data-access'
         class="hidden w-64 text-gray-900 leading-6 bg-indigo-600 fixed inset-y-0 left-36 z-50 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
       ></aside>
 
-      <section class="sm:pl-36">
-        <header
-          class="flex-none w-full relative text-sm leading-6 font-medium bg-white ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5"
-        >
+      <section class="sm:pl-36 bg-white dark:bg-gray-600 dark:text-gray-300">
+        <header class="flex-none w-full relative text-sm leading-6 font-medium py-5">
           <div class="px-4">
             <div class="flex justify-between">
-              <div class="">
+              <div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6"
@@ -72,7 +60,8 @@ import { User } from '@schema-driven/web/core/data-access'
             </div>
           </div>
         </header>
-        <main class="flex-1 h-full overflow-auto">
+        <hr />
+        <main class="flex-1 h-full overflow-auto dark:bg-gray-900">
           <router-outlet></router-outlet>
         </main>
       </section>
