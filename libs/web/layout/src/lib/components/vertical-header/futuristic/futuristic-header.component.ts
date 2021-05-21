@@ -16,27 +16,17 @@ import { User } from '@schema-driven/web/core/data-access'
                 [routerLink]="link.route"
                 class="text-indigo-100 hover:bg-indigo-600 hover:text-white group flex items-center w-56  px-2 py-2 text-sm font-medium rounded-md"
               >
-                <svg
-                  class="text-indigo-300 group-hover:text-gray-300 mr-3 h-8 w-8"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  />
-                </svg>
+                <ui-icon
+                  [icon]="link.icon"
+                  size="lg"
+                  class="text-indigo-300 group-hover:text-gray-300 h-8 w-8 pt-1"
+                ></ui-icon>
                 {{ link.label }}
               </a>
             </ng-container>
           </div>
 
-          <div class="p-3 flex justify-between">
+          <div class="p-3 flex justify-between absolute bottom-5 left-8">
             <a href="/components" class="mt-3">
               <img *ngIf="logo" [attr.src]="logo" [attr.loading]="'lazy'" class="h-5" alt="App Logo" />
             </a>
@@ -68,36 +58,14 @@ import { User } from '@schema-driven/web/core/data-access'
               </button>
               <div
                 *ngIf="showMenu"
-                class="absolute top-full right-0 w-52 mt-3 -mr-0.5 sm:-mr-3.5 bg-white rounded-lg shadow-md ring-1 ring-gray-900 ring-opacity-5 font-normal text-sm text-gray-900 divide-y divide-gray-100"
+                class="absolute bottom-full right-0 w-52 mt-3 -mr-0.5 sm:-mr-3.5 bg-white rounded-lg shadow-md ring-1 ring-gray-900 ring-opacity-5 font-normal text-sm text-gray-900 divide-y divide-gray-100"
               >
                 <p class="py-3 px-3.5 truncate">
                   <span class="block mb-0.5 text-xs text-gray-500">Signed in as</span>
                   <span class="font-semibold">{{ user?.email }}</span>
                 </p>
                 <div class="py-1.5 px-3.5">
-                  <ng-container *ngFor="let link of profileLinks">
-                    <a
-                      [routerLink]="link.route"
-                      class="text-gray-700 hover:bg-indigo-600 hover:text-white group flex items-center w-48 px-2 py-2 text-sm font-medium rounded-md"
-                    >
-                      <svg
-                        class="text-indigo-300 group-hover:text-gray-300 mr-3 h-8 w-8"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                        />
-                      </svg>
-                      {{ link.label }}
-                    </a>
-                  </ng-container>
+                  <!-- menu or icons -->
                 </div>
               </div>
             </div>

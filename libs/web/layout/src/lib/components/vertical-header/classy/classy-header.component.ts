@@ -48,49 +48,24 @@ import { User } from '@schema-driven/web/core/data-access'
                   <span class="font-semibold">{{ user?.email }}</span>
                 </p>
                 <div class="py-1.5 px-3.5">
-                  <ng-container *ngFor="let link of profileLinks">
-                    <a
-                      [routerLink]="link.route"
-                      class="text-gray-700 hover:bg-indigo-600 hover:text-white group flex items-center w-48  px-2 py-2 text-sm font-medium rounded-md"
-                    >
-                      <svg
-                        class="text-indigo-300 group-hover:text-gray-300 mr-3 h-8 w-8"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                        />
-                      </svg>
-                      {{ link.label }}
-                    </a>
-                  </ng-container>
+                  <!-- menu or icons -->
                 </div>
               </div>
             </div>
           </div>
 
           <div class="px-6 pb-6 pt-3 flex items-center border-b border-gray-500 sm:flex-col">
-            <div class="hidden px-3 text-indigo-100 text-base rounded-full border sm:block">William</div>
-            <div
-              class="mr-auto text-gray-900 flex-shrink-0 flex justify-center items-center rounded-full border-4 sm:mt-4 sm:mx-auto"
-            >
+            <div class="mr-auto w-full flex-shrink-0 flex justify-center items-center rounded-full sm:mt-4 sm:mx-auto">
               <img
                 src="https://www.doesport.co.uk/wp-content/uploads/2017/11/profile-icon-male-avatar-portrait-casual-person-silhouette-face-flat-design-vector-illustration-58249394.jpg"
-                height="100%"
-                width="100%"
+                height="50%"
+                width="50%"
                 class="rounded-full"
               />
             </div>
             <div class="ml-4 flex-1 flex flex-col sm:mt-4 sm:ml-0 sm:items-center">
-              <div class="theme-color-900 text-indigo-100 text-2xl sm:hidden">William</div>
-              <div class="theme-color-900 text-indigo-100 text-xl sm:text-sm">william@gmail.com</div>
+              <div class="text-white text-2xl">William</div>
+              <div class="text-white text-2xl sm:text-sm">william@gmail.com</div>
             </div>
           </div>
 
@@ -101,21 +76,12 @@ import { User } from '@schema-driven/web/core/data-access'
                 [routerLink]="link.route"
                 class="text-indigo-100 hover:bg-indigo-600 hover:text-white group flex items-center w-56  px-2 py-2 text-sm font-medium rounded-md"
               >
-                <svg
-                  class="text-indigo-300 group-hover:text-gray-300 mr-3 h-8 w-8"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  />
-                </svg>
+                <ui-icon
+                  [icon]="link.icon"
+                  size="lg"
+                  class="text-indigo-300 group-hover:text-gray-300 h-8 w-8 pt-1"
+                ></ui-icon>
+
                 {{ link.label }}
               </a>
             </ng-container>
