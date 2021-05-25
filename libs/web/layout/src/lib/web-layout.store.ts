@@ -4,24 +4,29 @@ import { Role } from '@schema-driven/web/core/data-access'
 import { ComponentStore } from '@ngrx/component-store'
 
 export interface WebLayoutLink {
-  label: string
+  title?: string
+  subTitle?: string
+  label?: string
   route?: string
   role?: Role
   icon?: string
-  isLink?: boolean
-  subLabel?: string
-  children?: {
+  childs?: {
+    dropDown?: boolean
     label: string
     route?: string
     role?: Role
-    isLink?: boolean
-    subLabel?: string
+    icon?: string
     children?: {
+      dropDown?: boolean
       label: string
       route?: string
       role?: Role
-      isLink?: boolean
-      subLabel?: string
+      children?: {
+        dropDown?: boolean
+        label: string
+        route?: string
+        role?: Role
+      }[]
     }[]
   }[]
 }
@@ -49,17 +54,70 @@ export class WebLayoutStore extends ComponentStore<WebLayoutState> {
       ],
       profileLinks: [
         {
-          label: 'Dashboard',
+          title: 'Application',
+          subTitle: 'unique dashboard designs',
           icon: 'dashboard',
-          isLink: true,
-          subLabel: 'unique dashboard designs',
-          children: [{ label: 'Dashboard', route: '/dashboard' }],
+          childs: [
+            {
+              label: 'Dashboard',
+              icon: 'dashboard',
+              dropDown: false,
+              children: [{ label: 'Dashboard', route: '/dashboard' }],
+            },
+            { label: 'Your Account', route: '/account', icon: 'account' },
+            { label: 'Admin', route: '/admin', role: Role.Admin, icon: 'user' },
+            { label: 'About', route: '/about', icon: 'about' },
+            { label: 'Logout', route: '/logout', icon: 'logout' },
+          ],
         },
-        { label: 'Your Account', route: '/account', icon: 'account' },
-        { label: 'Development', route: '/dev', role: Role.Admin, icon: 'development' },
-        { label: 'Admin', route: '/admin', role: Role.Admin, icon: 'user' },
-        { label: 'About', route: '/about', icon: 'about' },
-        { label: 'Logout', route: '/logout', icon: 'logout' },
+        {
+          title: 'Development',
+          subTitle: 'unique dashboard designs',
+          icon: 'development',
+          childs: [
+            {
+              label: 'Development',
+              dropDown: false,
+
+              route: '/dev',
+              role: Role.Admin,
+              icon: 'development',
+            },
+          ],
+        },
+        {
+          title: 'Demo Icons',
+          subTitle: 'unique dashboard designs',
+          icon: 'user',
+          childs: [
+            { label: 'Development', route: '/dev', icon: 'development' },
+            {
+              label: 'User',
+              icon: 'user',
+              dropDown: false,
+              children: [
+                { label: 'Dashboard', route: '/dashboard' },
+                { label: 'Dashboard', route: '/dashboard' },
+                {
+                  label: 'Dashboard',
+                  dropDown: false,
+                  children: [
+                    { label: 'Spinner', route: '/spinner' },
+                    { label: 'Moon', route: '/dashboard' },
+                  ],
+                },
+                { label: 'Dashboard', route: '/dashboard' },
+                { label: 'Dashboard', route: '/dashboard' },
+                { label: 'Dashboard', route: '/dashboard' },
+                { label: 'Dashboard', route: '/dashboard' },
+                { label: 'Dashboard', route: '/dashboard' },
+              ],
+            },
+            { label: 'Heroicon', route: '/dev', icon: 'heroicon' },
+            { label: 'Sun', route: '/dev', icon: 'sun' },
+            { label: 'Pencil', route: '/dev', icon: 'pencil' },
+          ],
+        },
       ],
     })
   }
