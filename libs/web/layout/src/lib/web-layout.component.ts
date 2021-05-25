@@ -129,7 +129,7 @@ import colors from 'tailwindcss/colors'
                     clip-rule="evenodd"
                   />
                 </svg>
-                <div class="ml-3 text-2xl font-semibold tracking-tight dark:text-gray-300">Settings</div>
+                <div class="ml-3 text-2xl font-seminole tracking-tight dark:text-gray-300">Settings</div>
               </div>
             </div>
           </section>
@@ -137,14 +137,15 @@ import colors from 'tailwindcss/colors'
           <section id="mainSlideOverLayout">
             <div class="flex flex-col p-6">
               <!-- Theme -->
-              <div class="text-md font-semibold text-secondary dark:text-gray-300">THEME</div>
+              <div class="text-md font-seminole text-secondary dark:text-gray-300">THEME</div>
               <div class="grid grid-cols-2 gap-2 mt-6">
                 <ng-container *ngFor="let theme of themes">
                   <div
                     class="flex items-center px-4 py-3 cursor-pointer bg-hover"
                     style="background:#eceeef"
+                    [ngClass]="theme.colorActive && 'theme-border-color-600 border-2'"
                     [style.color]="theme.hashCode && theme.hashCode"
-                    (click)="setTheme(theme.color)"
+                    (click)="setTheme(theme.color, theme.id)"
                   >
                     <div class="w-4 h-4 rounded-full" [style.background-color]="theme.hashCode"></div>
                     <div class="ml-2.5 font-medium leading-5">
@@ -160,6 +161,7 @@ import colors from 'tailwindcss/colors'
                 <div
                   class="flex items-center py-3 pl-5 pr-6 cursor-pointer"
                   style="background:#eceeef"
+                  [ngClass]="isActive === 'auto' && 'theme-color-600 theme-ring-color-600 ring-2'"
                   (click)="setScheme('auto')"
                 >
                   <div class="flex items-center overflow-hidden">
@@ -175,6 +177,7 @@ import colors from 'tailwindcss/colors'
                 <div
                   class="flex items-center py-3 pl-5 pr-6 cursor-pointer"
                   style="background:#eceeef"
+                  [ngClass]="isActive === 'dark' && 'theme-color-600 theme-ring-color-600 ring-2'"
                   (click)="setScheme('dark')"
                 >
                   <div class="flex items-center overflow-hidden">
@@ -188,6 +191,7 @@ import colors from 'tailwindcss/colors'
                 <div
                   class="flex items-center py-3 pl-5 pr-6 cursor-pointer"
                   style="background:#eceeef"
+                  [ngClass]="isActive === 'light' && 'theme-color-600 theme-ring-color-600 ring-2'"
                   (click)="setScheme('light')"
                 >
                   <div class="flex items-center overflow-hidden">
@@ -209,15 +213,26 @@ import colors from 'tailwindcss/colors'
               <div class="grid grid-cols-3 gap-3 mt-6">
                 <!-- Empty -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('empty')">
-                  <div class="flex flex-col h-20 overflow-hidden border-2 hover:opacity-80">
+                  <div
+                    class="flex flex-col h-20 overflow-hidden border-2 hover:opacity-80"
+                    [ngClass]="layout === 'empty' && 'border-2 theme-border-color-600'"
+                  >
                     <div class="flex flex-col flex-auto bg-gray-50 dark:bg-gray-900"></div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Empty</div>
+                  <div
+                    class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300"
+                    [ngClass]="layout === 'empty' && 'dark:theme-color-600 theme-color-600'"
+                  >
+                    Empty
+                  </div>
                 </div>
 
                 <!-- Classic -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('classic')">
-                  <div class="flex h-20 overflow-hidden border-2 hover:opacity-80">
+                  <div
+                    class="flex h-20 overflow-hidden border-2 hover:opacity-80"
+                    [ngClass]="layout === 'classic' && 'border-2 theme-border-color-600'"
+                  >
                     <div class="w-8 bg-gray-100 dark:bg-gray-800">
                       <div class="mt-3 mx-1.5 space-y-1">
                         <div class="h-1 rounded-sm bg-gray-300 dark:bg-gray-700"></div>
@@ -238,12 +253,20 @@ import colors from 'tailwindcss/colors'
                       <div class="flex flex-auto border-t bg-gray-50 dark:bg-gray-900"></div>
                     </div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Classic</div>
+                  <div
+                    class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300"
+                    [ngClass]="layout === 'classic' && 'dark:theme-color-600 theme-color-600'"
+                  >
+                    Classic
+                  </div>
                 </div>
 
                 <!-- Classy -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('classy')">
-                  <div class="flex h-20 overflow-hidden border-2 hover:opacity-80">
+                  <div
+                    class="flex h-20 overflow-hidden border-2 hover:opacity-80"
+                    [ngClass]="layout === 'classy' && 'border-2 theme-border-color-600'"
+                  >
                     <div class="w-8 bg-gray-100 dark:bg-gray-800">
                       <div class="flex items-center mt-1 mx-1">
                         <div class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-700"></div>
@@ -267,12 +290,20 @@ import colors from 'tailwindcss/colors'
                       <div class="flex flex-auto border-t bg-gray-50 dark:bg-gray-900"></div>
                     </div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Classy</div>
+                  <div
+                    class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300"
+                    [ngClass]="layout === 'classy' && 'dark:theme-color-600 theme-color-600'"
+                  >
+                    Classy
+                  </div>
                 </div>
 
                 <!-- Compact -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('compact')">
-                  <div class="flex h-20 overflow-hidden border-2 hover:opacity-80">
+                  <div
+                    class="flex h-20 overflow-hidden border-2 hover:opacity-80"
+                    [ngClass]="layout === 'compact' && 'border-2 theme-border-color-600'"
+                  >
                     <div class="w-5 bg-gray-100 dark:bg-gray-800">
                       <div class="w-3 h-3 mt-2 mx-auto rounded-sm bg-gray-300 dark:bg-gray-700"></div>
                       <div class="flex flex-col items-center w-full mt-2 space-y-1">
@@ -292,12 +323,20 @@ import colors from 'tailwindcss/colors'
                       <div class="flex flex-auto border-t bg-gray-50 dark:bg-gray-900"></div>
                     </div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Compact</div>
+                  <div
+                    class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300"
+                    [ngClass]="layout === 'compact' && 'dark:theme-color-600 theme-color-600'"
+                  >
+                    Compact
+                  </div>
                 </div>
 
                 <!-- Dense -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('dense')">
-                  <div class="flex h-20 overflow-hidden border-2 hover:opacity-80">
+                  <div
+                    class="flex h-20 overflow-hidden border-2 hover:opacity-80"
+                    [ngClass]="layout === 'dense' && 'border-2 theme-border-color-600'"
+                  >
                     <div class="w-4 bg-gray-100 dark:bg-gray-800">
                       <div class="w-2 h-2 mt-2 mx-auto rounded-sm bg-gray-300 dark:bg-gray-700"></div>
                       <div class="flex flex-col items-center w-full mt-2 space-y-1">
@@ -317,12 +356,20 @@ import colors from 'tailwindcss/colors'
                       <div class="flex flex-auto border-t bg-gray-50 dark:bg-gray-900"></div>
                     </div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Dense</div>
+                  <div
+                    class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300"
+                    [ngClass]="layout === 'dense' && 'dark:theme-color-600 theme-color-600'"
+                  >
+                    Dense
+                  </div>
                 </div>
 
                 <!-- Futuristic -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('futuristic')">
-                  <div class="flex h-20 overflow-hidden border-2 hover:opacity-80">
+                  <div
+                    class="flex h-20 overflow-hidden border-2 hover:opacity-80"
+                    [ngClass]="layout === 'futuristic' && 'border-2 theme-border-color-600'"
+                  >
                     <div class="w-8 bg-gray-100 dark:bg-gray-800">
                       <div class="flex flex-col flex-auto h-full py-3 px-1.5 space-y-1">
                         <div class="h-1 rounded-sm bg-gray-300 dark:bg-gray-700"></div>
@@ -343,12 +390,20 @@ import colors from 'tailwindcss/colors'
                       <div class="flex flex-auto border-t bg-gray-50 dark:bg-gray-900"></div>
                     </div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Futuristic</div>
+                  <div
+                    class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300"
+                    [ngClass]="layout === 'futuristic' && 'dark:theme-color-600 theme-color-600'"
+                  >
+                    Futuristic
+                  </div>
                 </div>
 
                 <!-- Thin -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('thin')">
-                  <div class="flex h-20 overflow-hidden border-2 hover:opacity-80">
+                  <div
+                    class="flex h-20 overflow-hidden border-2 hover:opacity-80"
+                    [ngClass]="layout === 'thin' && 'border-2 theme-border-color-600'"
+                  >
                     <div class="w-3 bg-gray-100 dark:bg-gray-800">
                       <div class="w-1.5 h-1.5 mt-2 mx-auto rounded-sm bg-gray-300 dark:bg-gray-700"></div>
                       <div class="flex flex-col items-center w-full mt-2 space-y-1">
@@ -370,14 +425,22 @@ import colors from 'tailwindcss/colors'
                       <div class="flex flex-auto border-t bg-gray-50 dark:bg-gray-900"></div>
                     </div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Thin</div>
+                  <div
+                    class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300"
+                    [ngClass]="layout === 'thin' && 'dark:theme-color-600 theme-color-600'"
+                  >
+                    Thin
+                  </div>
                 </div>
 
                 <div class="col-span-2"></div>
 
                 <!-- Centered -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('centered')">
-                  <div class="flex h-20 overflow-hidden border-2 hover:opacity-80">
+                  <div
+                    class="flex h-20 overflow-hidden border-2 hover:opacity-80"
+                    [ngClass]="layout === 'centered' && 'border-2 theme-border-color-600'"
+                  >
                     <div class="flex flex-col flex-auto my-1 mx-2 border overflow-hidden">
                       <div class="flex items-center h-3 bg-gray-100 dark:bg-gray-800">
                         <div class="flex ml-1.5">
@@ -394,12 +457,20 @@ import colors from 'tailwindcss/colors'
                       <div class="flex flex-auto border-t bg-gray-50 dark:bg-gray-900"></div>
                     </div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Centered</div>
+                  <div
+                    class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300"
+                    [ngClass]="layout === 'centered' && 'dark:theme-color-600 theme-color-600'"
+                  >
+                    Centered
+                  </div>
                 </div>
 
                 <!-- Enterprise -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('enterprise')">
-                  <div class="flex flex-col h-20 overflow-hidden border-2 hover:opacity-80">
+                  <div
+                    class="flex flex-col h-20 overflow-hidden border-2 hover:opacity-80"
+                    [ngClass]="layout === 'enterprise' && 'border-2 theme-border-color-600'"
+                  >
                     <div class="flex items-center h-3 px-2 bg-gray-100 dark:bg-gray-800">
                       <div class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700"></div>
                       <div class="flex items-center justify-end ml-auto space-x-1">
@@ -418,12 +489,20 @@ import colors from 'tailwindcss/colors'
                       <div class="flex flex-auto bg-gray-50 dark:bg-gray-900"></div>
                     </div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Enterprise</div>
+                  <div
+                    class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300"
+                    [ngClass]="layout === 'enterprise' && 'dark:theme-color-600 theme-color-600'"
+                  >
+                    Enterprise
+                  </div>
                 </div>
 
                 <!-- Modern -->
                 <div class="flex flex-col cursor-pointer" (click)="setLayout('modern')">
-                  <div class="flex flex-col h-20 overflow-hidden border-2 hover:opacity-80">
+                  <div
+                    class="flex flex-col h-20 overflow-hidden border-2 hover:opacity-80"
+                    [ngClass]="layout === 'modern' && 'border-2 theme-border-color-600'"
+                  >
                     <div class="flex items-center h-4 px-2 border-b bg-gray-100 dark:bg-gray-800">
                       <div class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700"></div>
                       <div class="flex items-center h-3 ml-2 space-x-1">
@@ -440,7 +519,12 @@ import colors from 'tailwindcss/colors'
                       <div class="flex flex-auto bg-gray-50 dark:bg-gray-900"></div>
                     </div>
                   </div>
-                  <div class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300">Modern</div>
+                  <div
+                    class="mt-2 text-md font-medium text-center text-secondary dark:text-gray-300"
+                    [ngClass]="layout === 'modern' && 'dark:theme-color-600 theme-color-600'"
+                  >
+                    Modern
+                  </div>
                 </div>
               </div>
             </div>
@@ -456,17 +540,19 @@ export class WebLayoutComponent {
 
   public layout: string = 'classy'
   public showMenu: boolean = false
+  public isActive: string = localStorage?.getItem('mode')
 
   @ViewChild('sideOverlay') modalOverlay: ElementRef
 
   constructor(private readonly layoutStore: WebLayoutStore) {}
 
   setScheme(themeValue) {
+    this.isActive = themeValue
     localStorage.setItem('mode', themeValue)
     this.layoutStore.updateThemeMode(themeValue)
   }
 
-  setTheme(themeColor) {
+  setTheme(themeColor, id) {
     let rootSelecttor = document.querySelector(':root') as any
 
     let arr = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]
@@ -474,11 +560,17 @@ export class WebLayoutComponent {
     for (let x = 0; x < arr.length; x++) {
       rootSelecttor.style.setProperty('--theme-color-' + arr[x], colors[themeColor][arr[x]])
     }
+
+    this.themes.map((x) => {
+      if (x.id === id) {
+        return (x.colorActive = true)
+      }
+      return (x.colorActive = false)
+    })
   }
 
   setLayout(layout) {
     this.layout = layout
-    console.log(layout)
   }
 
   public slideOverHeader: boolean = true
@@ -488,28 +580,28 @@ export class WebLayoutComponent {
     this.showMenu = !this.showMenu
   }
 
-  public themes: { color: string; hashCode: string }[] = [
-    { color: 'gray', hashCode: '#52525B' },
-    { color: 'red', hashCode: '#DC2626' },
-    { color: 'yellow', hashCode: '#CA8A04' },
-    { color: 'green', hashCode: '#16A34A' },
-    { color: 'blue', hashCode: '#2563EB' },
-    { color: 'indigo', hashCode: '#4F46E5' },
-    { color: 'purple', hashCode: '#9333EA' },
-    { color: 'pink', hashCode: '#DB2777' },
-    { color: 'rose', hashCode: '#E11D48' },
-    { color: 'fuchsia', hashCode: '#C026D3' },
-    { color: 'violet', hashCode: '#7C3AED' },
-    { color: 'lightBlue', hashCode: '#0284C7' },
-    { color: 'cyan', hashCode: '#0891B2' },
-    { color: 'teal', hashCode: '#0D9488' },
-    { color: 'emerald', hashCode: '#059669' },
-    { color: 'lime', hashCode: '#65A30D' },
-    { color: 'orange', hashCode: '#EA580C' },
-    { color: 'warmGray', hashCode: '#57534E' },
-    { color: 'trueGray', hashCode: '#525252' },
-    { color: 'coolGray', hashCode: '#4B5563' },
-    { color: 'blueGray', hashCode: '#475569' },
+  public themes: { id: number; color: string; hashCode: string; colorActive: boolean }[] = [
+    { id: 1, color: 'gray', hashCode: '#52525B', colorActive: false },
+    { id: 2, color: 'red', hashCode: '#DC2626', colorActive: false },
+    { id: 3, color: 'yellow', hashCode: '#CA8A04', colorActive: false },
+    { id: 4, color: 'green', hashCode: '#16A34A', colorActive: false },
+    { id: 5, color: 'blue', hashCode: '#2563EB', colorActive: false },
+    { id: 6, color: 'indigo', hashCode: '#4F46E5', colorActive: false },
+    { id: 7, color: 'purple', hashCode: '#9333EA', colorActive: false },
+    { id: 8, color: 'pink', hashCode: '#DB2777', colorActive: false },
+    { id: 9, color: 'rose', hashCode: '#E11D48', colorActive: false },
+    { id: 10, color: 'fuchsia', hashCode: '#C026D3', colorActive: false },
+    { id: 11, color: 'violet', hashCode: '#7C3AED', colorActive: false },
+    { id: 12, color: 'lightBlue', hashCode: '#0284C7', colorActive: false },
+    { id: 13, color: 'cyan', hashCode: '#0891B2', colorActive: false },
+    { id: 14, color: 'teal', hashCode: '#0D9488', colorActive: false },
+    { id: 15, color: 'emerald', hashCode: '#059669', colorActive: false },
+    { id: 16, color: 'lime', hashCode: '#65A30D', colorActive: false },
+    { id: 17, color: 'orange', hashCode: '#EA580C', colorActive: false },
+    { id: 18, color: 'warmGray', hashCode: '#57534E', colorActive: false },
+    { id: 19, color: 'trueGray', hashCode: '#525252', colorActive: false },
+    { id: 20, color: 'coolGray', hashCode: '#4B5563', colorActive: false },
+    { id: 21, color: 'blueGray', hashCode: '#475569', colorActive: false },
   ]
 
   ngOnInit() {}

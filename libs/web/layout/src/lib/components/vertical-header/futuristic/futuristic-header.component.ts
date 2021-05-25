@@ -6,7 +6,9 @@ import { User } from '@schema-driven/web/core/data-access'
   template: `
     <div id="header">
       <aside
-        class="hidden w-64 text-gray-900 leading-6 bg-gray-900 fixed inset-y-0 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
+        class="hidden w-{{
+          asideWidth
+        }} transition-all ease-in-out duration-500 text-gray-900 leading-6 bg-gray-900 fixed inset-y-0 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
       >
         <div class="p-4 h-auto">
           <!-- Extract: menu_items -->
@@ -73,17 +75,22 @@ import { User } from '@schema-driven/web/core/data-access'
         </div>
       </aside>
 
-      <section class="sm:pl-64 bg-white dark:bg-gray-600 dark:text-gray-300">
+      <section
+        class="sm:pl-{{
+          asideWidth
+        }} transition-all ease-in-out duration-500 bg-white dark:bg-gray-600 dark:text-gray-300"
+      >
         <header class="flex-none w-full relative text-sm leading-6 font-medium py-5">
           <div class="px-4">
             <div class="flex justify-between">
-              <div class="">
+              <div class="dark:hover:bg-gray-900 hover:bg-gray-300 hover:bg-opacity-50 rounded-full p-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
+                  class="h-6 w-6 cursor-pointer"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                  (click)="asideBarWith()"
                 >
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -147,6 +154,7 @@ import { User } from '@schema-driven/web/core/data-access'
 })
 export class FuturisticHeaderComponent {
   public showMenu = false
+  public asideWidth: number = 64
   @Input() notificationsLink?: string
   @Input() user?: User
   @Input() links: { label: string; route: string }[] = []
@@ -155,5 +163,12 @@ export class FuturisticHeaderComponent {
 
   openMenu() {
     this.showMenu = !this.showMenu
+  }
+  asideBarWith() {
+    if (this.asideWidth == 64) {
+      this.asideWidth = 0
+    } else {
+      this.asideWidth = 64
+    }
   }
 }

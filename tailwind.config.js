@@ -18,6 +18,7 @@ module.exports = {
       opacity: ['disabled'],
       cursor: ['disabled'],
       width: ['hover'],
+      zIndex: ['hover', 'active'],
     },
   },
   plugins: [
