@@ -538,7 +538,7 @@ import colors from 'tailwindcss/colors'
 export class WebLayoutComponent {
   vm$ = this.layoutStore.vm$
 
-  public layout: string = 'classy'
+  public layout: string = 'centered'
   public showMenu: boolean = false
   public isActive: string = localStorage?.getItem('mode')
 
