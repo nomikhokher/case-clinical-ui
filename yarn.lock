@@ -11052,6 +11052,11 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
+ng-click-outside@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/ng-click-outside/-/ng-click-outside-8.0.0.tgz#3d537963737eaefe0a7f2d41b2ddec5f3a6a573f"
+  integrity sha512-CVzddAMjaGS2hTVWu313fS/ksaAqg6O90xqVOJoCVhmZ7E7+i0nFeTWEqNsppi0Fe9GntuAAphN/eWBz6+0Low==
+
 ngx-json-viewer@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/ngx-json-viewer/-/ngx-json-viewer-3.0.2.tgz#91e72fe41f80756181aa0d36b4bfaeac5df5b1b1"

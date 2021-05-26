@@ -19,6 +19,7 @@ module.exports = {
       cursor: ['disabled'],
       width: ['hover'],
       zIndex: ['hover', 'active'],
+      display: ['responsive', 'group-hover', 'group-focus'],
     },
   },
   plugins: [

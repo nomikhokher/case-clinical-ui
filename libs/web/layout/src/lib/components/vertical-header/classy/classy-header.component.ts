@@ -37,7 +37,13 @@ import { User } from '@schema-driven/web/core/data-access'
               <img *ngIf="logo" [attr.src]="logo" [attr.loading]="'lazy'" class="h-5" alt="App Logo" />
             </a>
             <div class="relative sm:border-l -mr-1.5 sm:ml-2 sm:mr-0 sm:pl-6 border-gray-200">
-              <button type="button" class="font-medium flex items-center" aria-expanded="true" (click)="openMenu()">
+              <button
+                type="button"
+                class="font-medium flex items-center"
+                aria-expanded="true"
+                (click)="showMenu = !showMenu"
+                (clickOutside)="showMenu = false"
+              >
                 <span class="hidden sm:flex items-center">
                   <img *ngIf="user?.avatarUrl" class="h-8 w-8 rounded-full" [src]="user?.avatarUrl" alt="not found" />
                   <svg width="8" height="6" fill="none" class="ml-2.5 text-gray-400">
@@ -210,48 +216,7 @@ import { User } from '@schema-driven/web/core/data-access'
               </div>
               <div class="relative -mr-1.5 sm:ml-2 sm:mr-0 sm:pl-6">
                 <div class="flex justify-between pl-2 ml-auto space-x-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-                    />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                    />
-                  </svg>
+                  <!-- header right side section -->
                 </div>
               </div>
             </div>
@@ -274,10 +239,6 @@ export class ClassyHeaderLayout {
   @Input() links: { label: string; route: string }[] = []
   @Input() profileLinks: { label: string; route: string }[] = []
   @Input() logo: string
-
-  openMenu() {
-    this.showMenu = !this.showMenu
-  }
 
   asideBarWith() {
     if (this.asideWidth == 72) {

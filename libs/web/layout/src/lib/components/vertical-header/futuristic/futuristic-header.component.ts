@@ -133,7 +133,13 @@ import { User } from '@schema-driven/web/core/data-access'
             <img *ngIf="logo" [attr.src]="logo" [attr.loading]="'lazy'" class="h-5" alt="App Logo" />
           </a>
           <div class="relative sm:border-l -mr-1.5 sm:ml-2 sm:mr-0 sm:pl-6 border-gray-200">
-            <button type="button" class="font-medium flex items-center" aria-expanded="true" (click)="openMenu()">
+            <button
+              type="button"
+              class="font-medium flex items-center"
+              aria-expanded="true"
+              (click)="showMenu = !showMenu"
+              (clickOutside)="showMenu = false"
+            >
               <span class="hidden sm:flex items-center">
                 <img *ngIf="user?.avatarUrl" class="h-8 w-8 rounded-full" [src]="user?.avatarUrl" alt="not found" />
                 <svg width="8" height="6" fill="none" class="ml-2.5 text-gray-400">
@@ -260,9 +266,6 @@ export class FuturisticHeaderComponent {
   @Input() profileLinks: { label: string; route: string }[] = []
   @Input() logo: string
 
-  openMenu() {
-    this.showMenu = !this.showMenu
-  }
   asideBarWith() {
     if (this.asideWidth == 72) {
       this.asideWidth = 0

@@ -10,6 +10,7 @@ export interface WebLayoutLink {
   route?: string
   role?: Role
   icon?: string
+  dropDown?: boolean
   childs?: {
     dropDown?: boolean
     label: string
@@ -57,6 +58,7 @@ export class WebLayoutStore extends ComponentStore<WebLayoutState> {
           title: 'Application',
           subTitle: 'unique dashboard designs',
           icon: 'dashboard',
+          dropDown: false,
           childs: [
             {
               label: 'Dashboard',
@@ -74,6 +76,7 @@ export class WebLayoutStore extends ComponentStore<WebLayoutState> {
           title: 'Development',
           subTitle: 'unique dashboard designs',
           icon: 'development',
+          dropDown: false,
           childs: [
             {
               label: 'Development',
@@ -89,6 +92,7 @@ export class WebLayoutStore extends ComponentStore<WebLayoutState> {
           title: 'Demo Icons',
           subTitle: 'unique dashboard designs',
           icon: 'user',
+          dropDown: false,
           childs: [
             { label: 'Development', route: '/dev', icon: 'development' },
             {
