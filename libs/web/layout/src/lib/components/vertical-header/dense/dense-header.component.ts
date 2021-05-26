@@ -40,93 +40,95 @@ import { User } from '@schema-driven/web/core/data-access'
           <!-- Extract: menu_items -->
           <ng-container *ngFor="let link of profileLinks">
             <ng-container *ngFor="let child of link.childs">
-              <a
-                [routerLink]="child.route"
-                class="text-indigo-100 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
-                (click)="child.dropDown = !child.dropDown"
-              >
-                <div
-                  class="mr-7 p-2"
-                  routerLinkActive="theme-bg-400 bg-opacity-50"
-                  [routerLinkActiveOptions]="{ exact: true }"
+              <span (mouseleave)="child.dropDown = false">
+                <a
+                  [routerLink]="child.route"
+                  class="text-indigo-100 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                  (click)="child.dropDown = !child.dropDown"
                 >
-                  <ui-icon
-                    [icon]="link.icon"
-                    size="lg"
-                    class="text-indigo-300 group-hover:text-gray-300 h-8 w-8 pt-1 pl-1"
-                  ></ui-icon>
-                </div>
-                {{ child.label }}
-                <div class="flex justify-end w-full" *ngIf="child.children">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+                  <div
+                    class="mr-7 p-2"
+                    routerLinkActive="theme-color-100 bg-opacity-50"
+                    [routerLinkActiveOptions]="{ exact: true }"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 5l7 7-7 7"
-                      *ngIf="!child.dropDown"
-                    />
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 9l-7 7-7-7"
-                      *ngIf="child.dropDown"
-                    />
-                  </svg>
-                </div>
-              </a>
-
-              <div *ngIf="child.dropDown" class="theme-bg-500 rounded-md my-1">
-                <ng-container *ngFor="let children of child.children">
-                  <a
-                    (click)="children.dropDown = !children.dropDown"
-                    [routerLink]="children.route"
-                    class="text-indigo-100 hover:theme-bg-400 pl-12 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
-                  >
-                    &nbsp;{{ children.label }}
-                    <div class="flex justify-end w-full" *ngIf="children.children">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 5l7 7-7 7"
-                          *ngIf="!children.dropDown"
-                        />
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M19 9l-7 7-7-7"
-                          *ngIf="children.dropDown"
-                        />
-                      </svg>
-                    </div>
-                  </a>
-                  <div *ngIf="children.dropDown" class="theme-bg-300 rounded-md">
-                    <a
-                      *ngFor="let subChildren of children.children"
-                      [routerLink]="subChildren.route"
-                      class="text-indigo-100 hover:theme-bg-400 pl-14 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
-                    >
-                      &nbsp;{{ subChildren.label }}
-                    </a>
+                    <ui-icon
+                      [icon]="link.icon"
+                      size="lg"
+                      class="text-indigo-300 group-hover:text-gray-300 h-8 w-8 pt-1 pl-1"
+                    ></ui-icon>
                   </div>
-                </ng-container>
-              </div>
+                  {{ child.label }}
+                  <div class="flex justify-end w-full" *ngIf="child.children">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"
+                        *ngIf="!child.dropDown"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                        *ngIf="child.dropDown"
+                      />
+                    </svg>
+                  </div>
+                </a>
+
+                <div *ngIf="child.dropDown" class="theme-bg-500 rounded-md my-1">
+                  <ng-container *ngFor="let children of child.children">
+                    <a
+                      (click)="children.dropDown = !children.dropDown"
+                      [routerLink]="children.route"
+                      class="text-indigo-100 hover:theme-bg-400 pl-20 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
+                    >
+                      &nbsp;{{ children.label }}
+                      <div class="flex justify-end w-full" *ngIf="children.children">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-4 w-4"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5l7 7-7 7"
+                            *ngIf="!children.dropDown"
+                          />
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"
+                            *ngIf="children.dropDown"
+                          />
+                        </svg>
+                      </div>
+                    </a>
+                    <div *ngIf="children.dropDown" class="theme-bg-300 rounded-md">
+                      <a
+                        *ngFor="let subChildren of children.children"
+                        [routerLink]="subChildren.route"
+                        class="text-indigo-100 hover:theme-bg-400 pl-20 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
+                      >
+                        &nbsp;{{ subChildren.label }}
+                      </a>
+                    </div>
+                  </ng-container>
+                </div>
+              </span>
             </ng-container>
           </ng-container>
         </div>
@@ -171,9 +173,58 @@ import { User } from '@schema-driven/web/core/data-access'
                   </svg>
                 </div>
               </div>
-              <!-- <div class="relative -mr-1.5 sm:ml-2 sm:mr-0 sm:pl-6">
-          right side 
-      </div> -->
+              <div class="relative -mr-1.5 sm:ml-2 sm:mr-0 sm:pl-6">
+                <div class="relative sm:border-l -mr-1.5 sm:ml-2 sm:mr-0 sm:pl-6 border-gray-200">
+                  <button
+                    type="button"
+                    class="font-medium flex items-center"
+                    aria-expanded="true"
+                    (click)="showMenu = !showMenu"
+                    (clickOutside)="showMenu = false"
+                  >
+                    <span class="hidden sm:flex items-center">
+                      <img
+                        *ngIf="user?.avatarUrl"
+                        class="h-8 w-8 rounded-full"
+                        [src]="user?.avatarUrl"
+                        alt="not found"
+                      />
+                      <svg width="8" height="6" fill="none" class="ml-2.5 text-gray-400">
+                        <path
+                          d="M7 1.5l-3 3-3-3"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </span>
+                    <span class="flex sm:hidden -my-1 w-8 h-8 rounded-lg items-center justify-center">
+                      <svg width="20" height="20" fill="none" class="text-gray-900">
+                        <path
+                          d="M3.75 4.75h12.5M3.75 9.75h12.5M3.75 14.75h12.5"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </span>
+                  </button>
+                  <div
+                    *ngIf="showMenu"
+                    class="absolute top-full right-0 w-52 mt-3 -mr-0.5 sm:-mr-3.5 bg-white rounded-lg shadow-md ring-1 ring-gray-900 ring-opacity-5 font-normal text-sm text-gray-900 divide-y divide-gray-100"
+                  >
+                    <p class="py-3 px-3.5 truncate">
+                      <span class="block mb-0.5 text-xs text-gray-500">Signed in as</span>
+                      <span class="font-semibold">{{ user?.email }}</span>
+                    </p>
+                    <div class="py-1.5 px-3.5">
+                      <!-- menu or icons -->
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </header>
@@ -194,10 +245,6 @@ export class DenseHeaderComponent {
   @Input() links: { label: string; route: string }[] = []
   @Input() profileLinks: { label: string; route: string }[] = []
   @Input() logo: string
-
-  openMenu() {
-    this.showMenu = !this.showMenu
-  }
 
   asideBarWith() {
     if (this.asideWidth == 24) {

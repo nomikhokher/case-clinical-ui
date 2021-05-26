@@ -1,11 +1,8 @@
-import { Component, ElementRef, Input } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import { User } from '@schema-driven/web/core/data-access'
 
 @Component({
   selector: 'centered-header-layout',
-  host: {
-    '(document:click)': 'onClick($event)',
-  },
   template: `
     <div class="flex flex-auto justify-center w-full sm:p-4 md:p-8 bg-gray-200 dark:bg-card">
       <div class="flex flex-col flex-auto min-w-0 max-w-360 sm:rounded-xl shadow-2xl dark:shadow-none overflow-hidden">
@@ -155,7 +152,13 @@ import { User } from '@schema-driven/web/core/data-access'
               </ng-container>
             </div>
             <div class="relative sm:border-l -mr-1.5 sm:ml-2 sm:mr-0 sm:pl-6 border-gray-200">
-              <button type="button" class="font-medium flex items-center" aria-expanded="true" (click)="openMenu()">
+              <button
+                type="button"
+                class="font-medium flex items-center"
+                aria-expanded="true"
+                (click)="showMenu = !showMenu"
+                (clickOutside)="showMenu = false"
+              >
                 <span class="hidden sm:flex items-center">
                   <img *ngIf="user?.avatarUrl" class="h-8 w-8 rounded-full" [src]="user?.avatarUrl" alt="not found" />
                   <svg width="8" height="6" fill="none" class="ml-2.5 text-gray-400">
@@ -190,6 +193,7 @@ import { User } from '@schema-driven/web/core/data-access'
                 </p>
                 <div class="py-1.5 px-3.5">
                   <!-- Menu or icons -->
+                  <p>Demo</p>
                 </div>
               </div>
             </div>
@@ -209,17 +213,4 @@ export class CenteredHeaderComponent {
   @Input() links: { label: string; route: string }[] = []
   @Input() profileLinks: { label: string; route: string }[] = []
   @Input() logo: string
-
-  constructor(private _eref: ElementRef) {}
-
-  onClick(event) {
-    if (!this._eref.nativeElement.contains(event.target)) {
-      console.log(event.target)
-    }
-    console.log(event.target.value)
-  }
-
-  openMenu() {
-    // this.showMenu = !this.showMenu
-  }
 }
