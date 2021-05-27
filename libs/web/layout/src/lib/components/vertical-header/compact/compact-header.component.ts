@@ -25,134 +25,135 @@ import { User } from '@schema-driven/web/core/data-access'
     `,
   ],
   template: `
-    <div id="header">
-      <aside
-        class="hidden aside-scrollbar w-{{
-          asideWidth
-        }} transition-all ease-in-out duration-500  text-gray-900 leading-6 theme-bg-600 dark:theme-bg-900 fixed inset-y-0 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
-      >
-        <div class="p-3 flex justify-between">
-          <a href="/components" class="m-3">
-            <img *ngIf="logo" [attr.src]="logo" [attr.loading]="'lazy'" class="h-10" alt="App Logo" />
-          </a>
-        </div>
-        <div class="p-3 h-auto">
-          <!-- Extract: menu_items -->
-          <ng-container *ngFor="let link of profileLinks; index as i">
-            <div class="p-5 w-full text-center">
-              <a
-                (click)="compactChildren(link.childs, i)"
-                class="text-indigo-100 hover:text-white text-sm font-medium cursor-pointer"
-              >
-                <ui-icon
-                  [icon]="link.icon"
-                  size="lg"
-                  class="text-indigo-300 group-hover:text-gray-300 mx-auto h-7 w-7"
-                ></ui-icon>
-                {{ link.title }}
-              </a>
-            </div>
-          </ng-container>
-        </div>
-      </aside>
+    <div id="wrapper">
+      <span (clickOutside)="compact.show = false; this.compact.index = null">
+        <aside
+          class="hidden aside-scrollbar w-{{
+            asideWidth
+          }} transition-all ease-in-out duration-500  text-gray-900 leading-6 theme-bg-600 dark:theme-bg-900 fixed inset-y-0 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
+        >
+          <div class="p-3 flex justify-between">
+            <a href="/components" class="m-3">
+              <img *ngIf="logo" [attr.src]="logo" [attr.loading]="'lazy'" class="h-10" alt="App Logo" />
+            </a>
+          </div>
+          <div class="p-3 h-auto">
+            <!-- Extract: menu_items -->
+            <ng-container *ngFor="let link of profileLinks; index as i">
+              <div class="p-5 w-full text-center">
+                <a
+                  (click)="compactChildren(link.childs, i)"
+                  class="text-indigo-100 hover:text-white text-sm font-medium cursor-pointer"
+                >
+                  <ui-icon
+                    [icon]="link.icon"
+                    size="lg"
+                    class="text-indigo-300 group-hover:text-gray-300 mx-auto h-7 w-7"
+                  ></ui-icon>
+                  {{ link.title }}
+                </a>
+              </div>
+            </ng-container>
+          </div>
+        </aside>
 
-      <aside
-        *ngIf="compact.show"
-        class="hidden aside-scrollbar w-64 text-gray-900 leading-6 theme-bg-500 dark:theme-bg-800 fixed inset-y-0 left-36 z-50 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
-      >
-        <div class="p-4">
-          <!-- Extract: menu_items -->
-          <div class="mt-4">
-            <div class="relative group">
-              <div class="theme-bg-500 rounded-md my-1">
-                <ng-container *ngFor="let children of subChildren">
-                  <a
-                    (click)="children.dropDown = !children.dropDown"
-                    [routerLink]="children.route"
-                    class="text-indigo-100 hover:theme-bg-400 pl-12 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
-                  >
-                    <ui-icon
-                      [icon]="children.icon"
-                      size="lg"
-                      class="text-indigo-300 group-hover:text-gray-300 h-8 w-8 mr-3 pt-1"
-                    ></ui-icon>
-                    &nbsp;{{ children.label }}
-                    <span class="absolute right-2" *ngIf="children.children">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 5l7 7-7 7"
-                          *ngIf="!children.dropDown"
-                        />
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M19 9l-7 7-7-7"
-                          *ngIf="children.dropDown"
-                        />
-                      </svg>
-                    </span>
-                  </a>
-                  <div *ngIf="children.dropDown" class="theme-bg-300 rounded-md">
-                    <ng-container *ngFor="let subChildrenLink of children.children">
-                      <a
-                        [routerLink]="subChildrenLink.route"
-                        class="text-indigo-100 hover:theme-bg-400 pl-24 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
-                        (click)="subChildrenLink.dropDown = !subChildrenLink.dropDown"
-                      >
-                        &nbsp;{{ subChildrenLink.label }}
-                        <span class="absolute right-2" *ngIf="subChildrenLink.children">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-4 w-4"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M9 5l7 7-7 7"
-                              *ngIf="!subChildrenLink.dropDown"
-                            />
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M19 9l-7 7-7-7"
-                              *ngIf="subChildrenLink.dropDown"
-                            />
-                          </svg>
-                        </span>
-                      </a>
-                      <ng-container *ngIf="subChildrenLink.dropDown">
-                        <a
-                          *ngFor="let subChildrenLnkRoute of subChildrenLink.children"
-                          [routerLink]="subChildrenLnkRoute.route"
-                          class="text-indigo-100 hover:theme-bg-400 pl-32 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
+        <aside
+          *ngIf="compact.show"
+          class="hidden aside-scrollbar w-64 text-gray-900 leading-6 theme-bg-500 dark:theme-bg-800 fixed inset-y-0 left-36 z-50 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
+        >
+          <div class="p-4">
+            <!-- Extract: menu_items -->
+            <div class="mt-4">
+              <div class="relative group">
+                <div class="theme-bg-500 rounded-md my-1">
+                  <ng-container *ngFor="let children of subChildren">
+                    <a
+                      (click)="children.dropDown = !children.dropDown"
+                      [routerLink]="children.route"
+                      class="text-indigo-100 hover:theme-bg-400 pl-12 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
+                    >
+                      <ui-icon
+                        [icon]="children.icon"
+                        size="lg"
+                        class="text-indigo-300 group-hover:text-gray-300 h-8 w-8 mr-3 pt-1"
+                      ></ui-icon>
+                      &nbsp;{{ children.label }}
+                      <span class="absolute right-2" *ngIf="children.children">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-4 w-4"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
                         >
-                          &nbsp;{{ subChildrenLnkRoute.label }}
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5l7 7-7 7"
+                            *ngIf="!children.dropDown"
+                          />
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"
+                            *ngIf="children.dropDown"
+                          />
+                        </svg>
+                      </span>
+                    </a>
+                    <div *ngIf="children.dropDown" class="theme-bg-300 rounded-md">
+                      <ng-container *ngFor="let subChildrenLink of children.children">
+                        <a
+                          [routerLink]="subChildrenLink.route"
+                          class="text-indigo-100 hover:theme-bg-400 pl-24 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
+                          (click)="subChildrenLink.dropDown = !subChildrenLink.dropDown"
+                        >
+                          &nbsp;{{ subChildrenLink.label }}
+                          <span class="absolute right-2" *ngIf="subChildrenLink.children">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="h-4 w-4"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 5l7 7-7 7"
+                                *ngIf="!subChildrenLink.dropDown"
+                              />
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M19 9l-7 7-7-7"
+                                *ngIf="subChildrenLink.dropDown"
+                              />
+                            </svg>
+                          </span>
                         </a>
+                        <ng-container *ngIf="subChildrenLink.dropDown">
+                          <a
+                            *ngFor="let subChildrenLnkRoute of subChildrenLink.children"
+                            [routerLink]="subChildrenLnkRoute.route"
+                            class="text-indigo-100 hover:theme-bg-400 pl-32 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
+                          >
+                            &nbsp;{{ subChildrenLnkRoute.label }}
+                          </a>
+                        </ng-container>
                       </ng-container>
-                    </ng-container>
-                  </div>
-                </ng-container>
+                    </div>
+                  </ng-container>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </aside>
-
+        </aside>
+      </span>
       <section
         class="sm:pl-{{
           asideWidth

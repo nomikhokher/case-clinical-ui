@@ -26,6 +26,7 @@ import { User } from '@schema-driven/web/core/data-access'
   ],
   template: `
     <div id="header">
+      <!-- desktop -->
       <aside
         class="hidden aside-scrollbar w-{{
           asideWidth
@@ -199,29 +200,196 @@ import { User } from '@schema-driven/web/core/data-access'
           asideWidth
         }} transition-all ease-in-out duration-500 bg-white dark:bg-gray-600 dark:text-gray-300"
       >
-        <header class="flex-none w-full relative text-sm leading-6 font-medium py-5 theme-bg-100 dark:theme-bg-50">
-          <div class="px-4">
-            <div class="flex justify-between">
-              <div class="dark:hover:bg-gray-900 hover:bg-gray-300 hover:bg-opacity-50 rounded-full p-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 cursor-pointer"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  (click)="asideBarWith()"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+        <!-- mobile -->
+        <span (clickOutside)="asideMobileWidth = 0">
+          <aside
+            class="sm:hidden flex flex-col z-50 aside-scrollbar w-{{
+              asideMobileWidth
+            }} transition-all ease-in-out duration-500 text-gray-900 leading-6 theme-bg-600 dark:theme-bg-900 fixed inset-y-0 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
+          >
+            <div class="p-4 h-auto">
+              <div class="p-3 flex justify-between">
+                <a href="/components" class="mt-3">
+                  <img *ngIf="logo" [attr.src]="logo" [attr.loading]="'lazy'" class="h-5" alt="App Logo" />
+                </a>
+                <div class="relative sm:border-l -mr-1.5 sm:ml-2 sm:mr-0 sm:pl-6 border-gray-200">
+                  <button
+                    type="button"
+                    class="font-medium flex items-center"
+                    aria-expanded="true"
+                    (click)="showMenu = !showMenu"
+                    (clickOutside)="showMenu = false"
+                  >
+                    <span class="flex items-center">
+                      <img
+                        *ngIf="user?.avatarUrl"
+                        class="h-8 w-8 rounded-full"
+                        [src]="user?.avatarUrl"
+                        alt="not found"
+                      />
+                      <svg width="8" height="6" fill="none" class="ml-2.5 text-gray-400">
+                        <path
+                          d="M7 1.5l-3 3-3-3"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </span>
+                  </button>
+                  <div
+                    *ngIf="showMenu"
+                    class="absolute top-full right-0 w-52 mt-3 -mr-0.5 sm:-mr-3.5 bg-white rounded-lg shadow-md ring-1 ring-gray-900 ring-opacity-5 font-normal text-sm text-gray-900 divide-y divide-gray-100"
+                  >
+                    <p class="py-3 px-3.5 truncate">
+                      <span class="block mb-0.5 text-xs text-gray-500">Signed in as</span>
+                      <span class="font-semibold">{{ user?.email }}</span>
+                    </p>
+                    <div class="py-1.5 px-3.5">
+                      <!-- menu or icons -->
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="relative -mr-1.5 sm:ml-2 sm:mr-0 sm:pl-6">
-                <div class="flex justify-between pl-2 ml-auto space-x-2">
-                  <!-- header right side section -->
+
+              <div class="px-6 pb-6 pt-3 flex flex-col items-center border-b border-gray-500 sm:flex-col">
+                <div
+                  class="mr-auto w-full flex-shrink-0 flex justify-center items-center rounded-full sm:mt-4 sm:mx-auto"
+                >
+                  <img
+                    src="https://www.doesport.co.uk/wp-content/uploads/2017/11/profile-icon-male-avatar-portrait-casual-person-silhouette-face-flat-design-vector-illustration-58249394.jpg"
+                    height="50%"
+                    width="50%"
+                    class="rounded-full"
+                  />
+                </div>
+                <div class="ml-4 flex-1 flex flex-col sm:mx-auto sm:mt-4 sm:ml-0 sm:items-center">
+                  <div class="text-white text-2xl sm:text-sm ">William</div>
+                  <div class="text-white text-2xl sm:text-xs">william@gmail.com</div>
+                </div>
+              </div>
+              <!-- Extract: menu_items -->
+              <div class="mt-4">
+                <ng-container *ngFor="let link of profileLinks">
+                  <div class="relative group">
+                    <div class="p-3 my-3 font-bold theme-bg-500 rounded-md">
+                      <p class="uppercase text-gray-100 text-sm">{{ link.title }}</p>
+                      <p class="capitalize text-gray-200 text-xs">{{ link.subTitle }}</p>
+                    </div>
+                    <ng-container *ngFor="let child of link.childs">
+                      <a
+                        [routerLink]="child.route"
+                        class="text-indigo-100 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                        (click)="child.dropDown = !child.dropDown"
+                      >
+                        <ui-icon
+                          [icon]="child.icon"
+                          size="lg"
+                          class="text-indigo-300 group-hover:text-gray-300 h-8 w-8 mr-3 pt-1"
+                        ></ui-icon>
+                        {{ child.label }}
+                        <span class="absolute right-2" *ngIf="child.children">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 5l7 7-7 7"
+                              *ngIf="!child.dropDown"
+                            />
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M19 9l-7 7-7-7"
+                              *ngIf="child.dropDown"
+                            />
+                          </svg>
+                        </span>
+                      </a>
+
+                      <div *ngIf="child.dropDown" class="theme-bg-500 rounded-md my-1">
+                        <ng-container *ngFor="let children of child.children">
+                          <a
+                            (click)="children.dropDown = !children.dropDown"
+                            [routerLink]="children.route"
+                            class="text-indigo-100 hover:theme-bg-400 pl-12 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
+                          >
+                            &nbsp;{{ children.label }}
+                            <span class="absolute right-2" *ngIf="children.children">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-4 w-4"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M9 5l7 7-7 7"
+                                  *ngIf="!children.dropDown"
+                                />
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M19 9l-7 7-7-7"
+                                  *ngIf="children.dropDown"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                          <div *ngIf="children.dropDown" class="theme-bg-300 rounded-md">
+                            <a
+                              *ngFor="let subChildren of children.children"
+                              [routerLink]="subChildren.route"
+                              class="text-indigo-100 hover:theme-bg-400 pl-14 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
+                            >
+                              &nbsp;{{ subChildren.label }}
+                            </a>
+                          </div>
+                        </ng-container>
+                      </div>
+                    </ng-container>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </aside>
+
+          <header class="flex-none w-full relative text-sm leading-6 font-medium py-5 theme-bg-100 dark:theme-bg-50">
+            <div class="px-4">
+              <div class="flex justify-between">
+                <div class="dark:hover:bg-gray-900 hover:bg-gray-300 hover:bg-opacity-50 rounded-full p-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 cursor-pointer"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    (click)="asideBarWith()"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </div>
+                <div class="relative -mr-1.5 sm:ml-2 sm:mr-0 sm:pl-6">
+                  <div class="flex justify-between pl-2 ml-auto space-x-2">
+                    <!-- header right side section -->
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </header>
+          </header>
+        </span>
         <hr />
         <main class="flex-1 h-full overflow-auto dark:bg-gray-900">
           <router-outlet></router-outlet>
@@ -239,12 +407,21 @@ export class ClassyHeaderLayout {
   @Input() links: { label: string; route: string }[] = []
   @Input() profileLinks: { label: string; route: string }[] = []
   @Input() logo: string
+  public asideMobileWidth: number = 0
 
   asideBarWith() {
-    if (this.asideWidth == 72) {
-      this.asideWidth = 0
+    if (window.innerWidth <= 640) {
+      if (this.asideMobileWidth == 0) {
+        this.asideMobileWidth = 72
+      } else {
+        this.asideMobileWidth = 0
+      }
     } else {
-      this.asideWidth = 72
+      if (this.asideWidth == 72) {
+        this.asideWidth = 0
+      } else {
+        this.asideWidth = 72
+      }
     }
   }
 }
