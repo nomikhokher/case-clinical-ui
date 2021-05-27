@@ -55,12 +55,12 @@ import { User } from '@schema-driven/web/core/data-access'
                 </button>
                 <div
                   *ngIf="link.dropDown"
-                  class="absolute top-full right-0 w-52 mt-3 -mr-0.5 sm:-mr-3.5 bg-white rounded-lg shadow-md font-normal text-sm text-gray-900"
+                  class="absolute top-full right-0 w-52 mt-3 -mr-0.5 sm:-mr-3.5 bg-white shadow-md font-normal text-sm text-gray-900"
                 >
                   <ng-container *ngFor="let child of link.childs">
                     <a
                       [routerLink]="child.route"
-                      class="text-gray-600 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                      class="text-gray-600 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium"
                       (mouseover)="child.dropDown = true"
                       (mouseleave)="child.dropDown = false"
                     >
@@ -97,12 +97,12 @@ import { User } from '@schema-driven/web/core/data-access'
 
                       <div
                         *ngIf="child.dropDown"
-                        class="absolute top-0 left-52 w-52 -mr-0.5 sm:-mr-3.5 bg-white rounded-lg shadow-md font-normal text-sm text-gray-900"
+                        class="absolute top-0 left-52 w-52 -mr-0.5 sm:-mr-3.5 bg-white shadow-md font-normal text-sm text-gray-900"
                       >
                         <ng-container *ngFor="let children of child.children">
                           <a
                             [routerLink]="children.route"
-                            class="text-gray-600 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                            class="text-gray-600 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium"
                             (mouseover)="children.dropDown = true"
                             (mouseleave)="children.dropDown = false"
                           >
@@ -133,12 +133,12 @@ import { User } from '@schema-driven/web/core/data-access'
                             </span>
                             <div
                               *ngIf="children.dropDown"
-                              class="absolute top-0 left-52 w-52 -mr-0.5 sm:-mr-3.5 bg-white rounded-lg shadow-md font-normal text-sm text-gray-900"
+                              class="absolute top-0 left-52 w-52 -mr-0.5 sm:-mr-3.5 bg-white shadow-md font-normal text-sm text-gray-900"
                             >
                               <a
                                 *ngFor="let subChildren of children.children"
                                 [routerLink]="subChildren.route"
-                                class="text-gray-600 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                                class="text-gray-600 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium"
                               >
                                 &nbsp;{{ subChildren.label }}
                               </a>
