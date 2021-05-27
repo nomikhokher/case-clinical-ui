@@ -18,6 +18,8 @@ module.exports = {
       opacity: ['disabled'],
       cursor: ['disabled'],
       width: ['hover'],
+      zIndex: ['hover', 'active'],
+      display: ['responsive', 'group-hover', 'group-focus'],
     },
   },
   plugins: [
@@ -86,7 +88,7 @@ module.exports = {
         },
       }
 
-      addUtilities(newUtilities, ['dark'])
+      addUtilities(newUtilities, ['dark', 'hover'])
     }),
   ],
 }
