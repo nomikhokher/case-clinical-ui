@@ -1,38 +1,35 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
-
+import { WebUiSidebarClassicModule } from '@schema-driven/web/ui/sidebar-classic'
+import { WebUiSidebarClassyModule } from '@schema-driven/web/ui/sidebar-classy'
+import { WebUiSidebarCompactModule } from '@schema-driven/web/ui/sidebar-compact'
+import { WebUiSidebarDenseModule } from '@schema-driven/web/ui/sidebar-dense'
+import { WebUiSidebarFuturisticModule } from '@schema-driven/web/ui/sidebar-futuristic'
+import { WebUiSidebarThinModule } from '@schema-driven/web/ui/sidebar-thin'
+import { WebUiStackedSimpleModule } from '@schema-driven/web/ui/stacked-simple'
+import { WebUiStackedCenteredModule } from '@schema-driven/web/ui/stacked-centered'
+import { WebUiStackedEnterpriseModule } from '@schema-driven/web/ui/stacked-enterprise'
+import { WebUiStackedModernModule } from '@schema-driven/web/ui/stacked-modern'
 import { WebLayoutComponent } from './web-layout.component'
-import { LayoutFooterModule } from './components/layout-footer/layout-footer.module'
-import { EmptyHeaderLayoutModule } from './components/empty-header/empty-header.module'
-import { ClassyHeaderLayoutModule } from './components/vertical-header/classy/classy-header.module'
 import { WebUiSlideOverLayoutModule } from '@schema-driven/web/ui/slide-over-layout'
-import { ClassicHeaderLayoutModule } from './components/vertical-header/classic/classic-header.module'
-import { ThinHeaderLayoutModule } from './components/vertical-header/thin/thin-header.module'
-import { DenseHeaderLayoutModule } from './components/vertical-header/dense/dense-header.module'
-import { CompactHeaderLayoutModule } from './components/vertical-header/compact/compact-header.module'
-import { EnterpriseHeaderLayoutModule } from './components/horizontal-header/enterprise/enterprise-header.module'
-import { CenteredHeaderLayoutModule } from './components/horizontal-header/centered/centered-header.module'
-import { ModernHeaderLayoutModule } from './components/horizontal-header/modern/modern-header.module'
-import { FuturisticHeaderLayoutModule } from './components/vertical-header/futuristic/futuristic-header.module'
 
 @NgModule({
   declarations: [WebLayoutComponent],
   imports: [
     CommonModule,
     RouterModule,
+    WebUiStackedModernModule,
+    WebUiStackedEnterpriseModule,
+    WebUiStackedCenteredModule,
+    WebUiStackedSimpleModule,
+    WebUiSidebarThinModule,
+    WebUiSidebarFuturisticModule,
+    WebUiSidebarDenseModule,
+    WebUiSidebarCompactModule,
+    WebUiSidebarClassyModule,
+    WebUiSidebarClassicModule,
     WebUiSlideOverLayoutModule,
-    LayoutFooterModule,
-    EmptyHeaderLayoutModule,
-    ClassyHeaderLayoutModule,
-    ClassicHeaderLayoutModule,
-    ThinHeaderLayoutModule,
-    FuturisticHeaderLayoutModule,
-    DenseHeaderLayoutModule,
-    CompactHeaderLayoutModule,
-    EnterpriseHeaderLayoutModule,
-    ModernHeaderLayoutModule,
-    CenteredHeaderLayoutModule,
   ],
 })
 export class WebLayoutModule {}
