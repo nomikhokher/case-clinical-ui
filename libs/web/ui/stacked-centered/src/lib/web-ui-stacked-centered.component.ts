@@ -176,7 +176,7 @@ import { User } from '@schema-driven/web/core/data-access'
           class="flex-none relative text-sm leading-6 font-medium bg-white dark:bg-gray-600 ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5"
         >
           <div class="max-w-container mx-auto px-4 flex items-center">
-            <div class="flex-shrink-0 hidden">
+            <div class="flex-shrink-0 hidden md:flex">
               <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-300.svg" alt="Workflow" />
             </div>
             <div class="mr-auto flex items-center">
@@ -447,5 +447,5 @@ export class WebUiStackedCenteredComponent {
   @Input() links: { label: string; route: string }[] = []
   @Input() profileLinks: { label: string; route: string }[] = []
   @Input() logo: string
-  public mobileSideBar: boolean = true
+  public mobileSideBar: boolean = false
 }
