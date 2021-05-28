@@ -93,6 +93,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.3",
     "supertest": "^5.0.0",
+    "tailwindcss": "2.0.2",
     "tslib": "^2.0.0",
     "zone.js": "^0.10.2"
   },
