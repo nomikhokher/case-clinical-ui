@@ -25,14 +25,14 @@ import { User } from '@schema-driven/web/core/data-access'
     `,
   ],
   template: `
-    <div id="header">
+    <div>
       <aside
         class="hidden aside-scrollbar w-{{
           asideWidth
         }} transition-all ease-in-out duration-900 hover:w-64 z-50 text-gray-900 leading-6 theme-bg-600 dark:theme-bg-900 fixed inset-y-0 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
       >
         <div class="p-3 flex items-center">
-          <div class="flex-shrink-0 flex items-center px-6">
+          <div class="flex-shrink-0 flex items-center px-6 pt-2">
             <img
               class="h-10 w-auto"
               src="https://tailwindui.com/img/logos/workflow-logo-indigo-300-mark-white-text.svg"
@@ -311,7 +311,7 @@ import { User } from '@schema-driven/web/core/data-access'
           asideWidth
         }} transition-all ease-in-out duration-500 bg-white dark:bg-gray-600 dark:text-gray-300"
       >
-        <header class="flex-none w-full relative text-sm leading-6 font-medium py-5">
+        <header class="flex-none relative text-sm leading-6 font-medium py-5">
           <div class="px-4">
             <div class="flex justify-between">
               <div class="flex">
@@ -470,7 +470,7 @@ import { User } from '@schema-driven/web/core/data-access'
           </div>
         </header>
         <hr />
-        <main class="flex-1 h-full overflow-auto dark:bg-gray-900">
+        <main class="flex-1 h-full w-full mx-auto overflow-auto dark:bg-gray-900">
           <router-outlet></router-outlet>
         </main>
       </section>

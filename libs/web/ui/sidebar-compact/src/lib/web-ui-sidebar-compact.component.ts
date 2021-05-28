@@ -516,7 +516,7 @@ export class WebUiSidebarCompactComponent {
     show: false,
     index: null,
   }
-  public asideWidth: number = 20
+  public asideWidth: number = 0
   public subChildren: any
   public mobileSideBar: boolean = false
 
@@ -535,7 +535,7 @@ export class WebUiSidebarCompactComponent {
       this.compact.index = index
       this.subChildren = subChilds
       this.compact.show = true
-      this.asideWidth = 20
+      this.asideWidth = 28
     }
   }
 
