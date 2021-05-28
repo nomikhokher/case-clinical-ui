@@ -7,91 +7,91 @@ import colors from 'tailwindcss/colors'
     <ng-container *ngIf="vm$ | async as vm">
       <div class="flex flex-col h-full">
         <div>
-          <empty-header-layout
+          <ui-stacked-simple
             *ngIf="layout === 'empty'"
             [logo]="vm?.layout?.logo"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm.links?.profile"
-          ></empty-header-layout>
-          <classy-header-layout
+          ></ui-stacked-simple>
+          <ui-sidebar-classy
             *ngIf="layout === 'classy'"
             [logo]="vm?.layout?.logo"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm.links?.profile"
-          ></classy-header-layout>
-          <classic-header-layout
+          ></ui-sidebar-classy>
+          <ui-sidebar-classic
             *ngIf="layout === 'classic'"
             [logo]="vm?.layout?.logo"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm.links?.profile"
           >
-          </classic-header-layout>
+          </ui-sidebar-classic>
 
-          <modern-header-layout
+          <ui-stacked-modern
             *ngIf="layout === 'modern'"
             [logo]="vm?.layout?.logo"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm.links?.profile"
           >
-          </modern-header-layout>
+          </ui-stacked-modern>
 
-          <enterprise-header-layout
+          <ui-stacked-enterprise
             *ngIf="layout === 'enterprise'"
             [logo]="vm?.layout?.logo"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm.links?.profile"
           >
-          </enterprise-header-layout>
+          </ui-stacked-enterprise>
 
-          <centered-header-layout
+          <ui-stacked-centered
             *ngIf="layout === 'centered'"
             [logo]="vm?.layout?.logo"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm.links?.profile"
           >
-          </centered-header-layout>
+          </ui-stacked-centered>
 
-          <compact-header-layout
+          <ui-sidebar-compact
             *ngIf="layout === 'compact'"
             [logo]="vm?.layout?.logo"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm.links?.profile"
           >
-          </compact-header-layout>
+          </ui-sidebar-compact>
 
-          <dense-header-layout
+          <ui-sidebar-dense
             *ngIf="layout === 'dense'"
             [logo]="vm?.layout?.logo"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm.links?.profile"
           >
-          </dense-header-layout>
+          </ui-sidebar-dense>
 
-          <futuristic-header-layout
+          <ui-sidebar-futuristic
             *ngIf="layout === 'futuristic'"
             [logo]="vm?.layout?.logo"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm.links?.profile"
           >
-          </futuristic-header-layout>
+          </ui-sidebar-futuristic>
 
-          <thin-header-layout
+          <ui-sidebar-thin
             *ngIf="layout === 'thin'"
             [logo]="vm?.layout?.logo"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm.links?.profile"
           >
-          </thin-header-layout>
+          </ui-sidebar-thin>
         </div>
 
         <div
