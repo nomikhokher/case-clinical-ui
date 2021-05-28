@@ -60,7 +60,6 @@ import { Component, Input } from '@angular/core'
         </div>
       </div>
     </div>
-    <span class="absolute left-20"></span>
   `,
 })
 export class WebUiAlertComponent {
