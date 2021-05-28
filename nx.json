@@ -234,13 +234,43 @@
     "web-ui-preview": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-sidebar-classic": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-sidebar-classy": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-sidebar-compact": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-sidebar-dense": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-sidebar-futuristic": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-sidebar-page": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-sidebar-thin": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-slide-over": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-slide-over-layout": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-stacked-centered": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-stacked-enterprise": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-stacked-modern": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-stacked-simple": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-stats": {

@@ -1616,6 +1616,119 @@
         }
       }
     },
+    "web-ui-sidebar-classic": {
+      "projectType": "library",
+      "root": "libs/web/ui/sidebar-classic",
+      "sourceRoot": "libs/web/ui/sidebar-classic/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/sidebar-classic/src/**/*.ts", "libs/web/ui/sidebar-classic/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/sidebar-classic"],
+          "options": {
+            "jestConfig": "libs/web/ui/sidebar-classic/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-sidebar-classy": {
+      "projectType": "library",
+      "root": "libs/web/ui/sidebar-classy",
+      "sourceRoot": "libs/web/ui/sidebar-classy/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/sidebar-classy/src/**/*.ts", "libs/web/ui/sidebar-classy/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/sidebar-classy"],
+          "options": {
+            "jestConfig": "libs/web/ui/sidebar-classy/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-sidebar-compact": {
+      "projectType": "library",
+      "root": "libs/web/ui/sidebar-compact",
+      "sourceRoot": "libs/web/ui/sidebar-compact/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/sidebar-compact/src/**/*.ts", "libs/web/ui/sidebar-compact/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/sidebar-compact"],
+          "options": {
+            "jestConfig": "libs/web/ui/sidebar-compact/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-sidebar-dense": {
+      "projectType": "library",
+      "root": "libs/web/ui/sidebar-dense",
+      "sourceRoot": "libs/web/ui/sidebar-dense/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/sidebar-dense/src/**/*.ts", "libs/web/ui/sidebar-dense/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/sidebar-dense"],
+          "options": {
+            "jestConfig": "libs/web/ui/sidebar-dense/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-sidebar-futuristic": {
+      "projectType": "library",
+      "root": "libs/web/ui/sidebar-futuristic",
+      "sourceRoot": "libs/web/ui/sidebar-futuristic/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/sidebar-futuristic/src/**/*.ts",
+              "libs/web/ui/sidebar-futuristic/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/sidebar-futuristic"],
+          "options": {
+            "jestConfig": "libs/web/ui/sidebar-futuristic/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-sidebar-page": {
       "projectType": "library",
       "root": "libs/web/ui/sidebar-page",
@@ -1633,6 +1746,28 @@
           "outputs": ["coverage/libs/web/ui/sidebar-page"],
           "options": {
             "jestConfig": "libs/web/ui/sidebar-page/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-sidebar-thin": {
+      "projectType": "library",
+      "root": "libs/web/ui/sidebar-thin",
+      "sourceRoot": "libs/web/ui/sidebar-thin/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/sidebar-thin/src/**/*.ts", "libs/web/ui/sidebar-thin/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/sidebar-thin"],
+          "options": {
+            "jestConfig": "libs/web/ui/sidebar-thin/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -1680,6 +1815,100 @@
           "outputs": ["coverage/libs/web/ui/slide-over-layout"],
           "options": {
             "jestConfig": "libs/web/ui/slide-over-layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-stacked-centered": {
+      "projectType": "library",
+      "root": "libs/web/ui/stacked-centered",
+      "sourceRoot": "libs/web/ui/stacked-centered/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/stacked-centered/src/**/*.ts",
+              "libs/web/ui/stacked-centered/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/stacked-centered"],
+          "options": {
+            "jestConfig": "libs/web/ui/stacked-centered/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-stacked-enterprise": {
+      "projectType": "library",
+      "root": "libs/web/ui/stacked-enterprise",
+      "sourceRoot": "libs/web/ui/stacked-enterprise/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/stacked-enterprise/src/**/*.ts",
+              "libs/web/ui/stacked-enterprise/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/stacked-enterprise"],
+          "options": {
+            "jestConfig": "libs/web/ui/stacked-enterprise/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-stacked-modern": {
+      "projectType": "library",
+      "root": "libs/web/ui/stacked-modern",
+      "sourceRoot": "libs/web/ui/stacked-modern/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/stacked-modern/src/**/*.ts", "libs/web/ui/stacked-modern/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/stacked-modern"],
+          "options": {
+            "jestConfig": "libs/web/ui/stacked-modern/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-stacked-simple": {
+      "projectType": "library",
+      "root": "libs/web/ui/stacked-simple",
+      "sourceRoot": "libs/web/ui/stacked-simple/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/stacked-simple/src/**/*.ts", "libs/web/ui/stacked-simple/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/stacked-simple"],
+          "options": {
+            "jestConfig": "libs/web/ui/stacked-simple/jest.config.js",
             "passWithNoTests": true
           }
         }

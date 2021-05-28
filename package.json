@@ -93,6 +93,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.3",
     "supertest": "^5.0.0",
+    "tailwindcss": "2.0.2",
     "tslib": "^2.0.0",
     "zone.js": "^0.10.2"
   },
@@ -147,7 +148,6 @@
     "pg": "8.5.1",
     "postcss": "8.2.4",
     "prettier": "2.2.1",
-    "tailwindcss": "2.0.2",
     "ts-jest": "26.4.0",
     "ts-node": "~9.1.1",
     "typescript": "~4.0.3"
