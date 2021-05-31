@@ -307,9 +307,7 @@ import { User } from '@schema-driven/web/core/data-access'
       </div>
 
       <section
-        class="sm:{{
-          asideWidthPl
-        }} transition-all ease-in-out duration-500 bg-white dark:bg-gray-600 dark:text-gray-300"
+        class="{{ asideWidthPl }} transition-all ease-in-out duration-500 bg-white dark:bg-gray-600 dark:text-gray-300"
       >
         <header class="flex-none relative text-sm leading-6 font-medium py-5">
           <div class="px-4">
@@ -480,7 +478,7 @@ import { User } from '@schema-driven/web/core/data-access'
 export class WebUiSidebarDenseComponent {
   public showMenu = false
   public asideWidth: string = 'w-24'
-  public asideWidthPl: string = 'pl-24'
+  public asideWidthPl: string = 'sm:pl-24'
 
   public mobileSideBar: boolean = false
 
@@ -493,20 +491,20 @@ export class WebUiSidebarDenseComponent {
   asideBarWith() {
     if (this.asideWidth == 'w-24') {
       this.asideWidth = 'w-64'
-      this.asideWidthPl = 'pl-64'
+      this.asideWidthPl = 'sm:pl-64'
     } else {
       this.asideWidth = 'w-24'
-      this.asideWidthPl = 'pl-24'
+      this.asideWidthPl = 'sm:pl-24'
     }
   }
 
   sideBarWith() {
     if (this.asideWidth == 'w-24') {
       this.asideWidth = 'w-0'
-      this.asideWidthPl = 'pl-0'
+      this.asideWidthPl = 'sm:pl-0'
     } else {
       this.asideWidth = 'w-24'
-      this.asideWidthPl = 'pl-0'
+      this.asideWidthPl = 'sm:pl-0'
     }
   }
 }
