@@ -270,8 +270,6 @@ import { User } from '@schema-driven/web/core/data-access'
                             *ngIf="child.dropDown"
                             class="absolute top-0 left-52 w-52 -mr-0.5 sm:-mr-3.5 bg-white shadow-md font-normal text-sm text-gray-900"
                           >
-                            <div class="absolute left-20 mx-auto pt-2 w-24"></div>
-                            <div class="absolute left-28"></div>
                             <ng-container *ngFor="let children of child.children">
                               <a
                                 [routerLink]="children.route"
