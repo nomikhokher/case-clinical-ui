@@ -59,7 +59,7 @@ import { User } from '@schema-driven/web/core/data-access'
 
         <aside
           *ngIf="compact.show"
-          class="hidden aside-scrollbar transition-all ease-in-out duration-300 w-64 theme-bg-500 dark:theme-bg-800 fixed inset-y-0 left-{{
+          class="hidden aside-scrollbar transition-all ease-in-out duration-300 w-64 theme-bg-500 dark:theme-bg-800 fixed inset-y-0 {{
             asideWidth
           }} z-50 overflow-x-hidden overflow-y-auto md:block"
         >
@@ -493,10 +493,10 @@ import { User } from '@schema-driven/web/core/data-access'
           </main>
 
           <!-- Secondary column (hidden on smaller screens) -->
-          <aside
+          <!-- <aside
             class="hidden w-96 p-16 bg-white dark:bg-gray-900 dark:text-white border-gray-200 overflow-y-auto aside-scrollbar lg:block"
           >
-            <!-- Your content -->
+            Your content
             <div class="container">
               <h1>Application UI</h1>
               <p>
@@ -504,7 +504,7 @@ import { User } from '@schema-driven/web/core/data-access'
                 applications.
               </p>
             </div>
-          </aside>
+          </aside> -->
         </div>
       </div>
     </div>
@@ -516,7 +516,7 @@ export class WebUiSidebarCompactComponent {
     show: false,
     index: null,
   }
-  public asideWidth: number = 0
+  public asideWidth: string = 'left-0'
   public subChildren: any
   public mobileSideBar: boolean = false
 
@@ -530,20 +530,20 @@ export class WebUiSidebarCompactComponent {
     if (this.compact.index === index) {
       this.compact.show = false
       this.compact.index = null
-      this.asideWidth = 0
+      this.asideWidth = 'left-0'
     } else {
       this.compact.index = index
       this.subChildren = subChilds
       this.compact.show = true
-      this.asideWidth = 28
+      this.asideWidth = 'left-28'
     }
   }
 
   asideBarWith() {
-    if (this.asideWidth == 28) {
-      this.asideWidth = 0
+    if (this.asideWidth == 'left-28') {
+      this.asideWidth = 'left-0'
     } else {
-      this.asideWidth = 28
+      this.asideWidth = 'left-28'
     }
   }
 }

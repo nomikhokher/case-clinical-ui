@@ -459,7 +459,7 @@ import { User } from '@schema-driven/web/core/data-access'
             <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
               <!-- Replace with your content -->
               <div class="py-4">
-                <div class="border-4 border-dashed border-gray-200 rounded-lg h-auto">
+                <div class="h-auto">
                   <router-outlet></router-outlet>
                 </div>
               </div>
