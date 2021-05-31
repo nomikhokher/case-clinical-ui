@@ -28,12 +28,12 @@ import { User } from '@schema-driven/web/core/data-access'
                       >
                         <span class="hidden sm:flex items-center">
                           <a
-                            class="hidden sm:block text-gray-600 dark:text-gray-200 hover:text-black dark:hover:text-white mx-4"
+                            class="hidden sm:block text-white hover:text-black dark:hover:text-white mx-4"
                             [routerLink]="link.route"
                           >
                             {{ link.title }}
                           </a>
-                          <svg width="8" height="6" fill="none" class="ml-2.5 text-gray-400">
+                          <svg width="8" height="6" fill="none" class="ml-2.5 text-white">
                             <path
                               d="M7 1.5l-3 3-3-3"
                               stroke="currentColor"
