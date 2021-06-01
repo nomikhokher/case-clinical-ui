@@ -27,7 +27,7 @@ import { User } from '@schema-driven/web/core/data-access'
   template: `
     <div>
       <aside
-        class="hidden aside-scrollbar w-{{
+        class="hidden aside-scrollbar {{
           asideWidth
         }} transition-all ease-in-out duration-900 hover:w-64 z-50 text-gray-900 leading-6 theme-bg-600 dark:theme-bg-900 fixed inset-y-0 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
       >
@@ -307,9 +307,7 @@ import { User } from '@schema-driven/web/core/data-access'
       </div>
 
       <section
-        class="sm:pl-{{
-          asideWidth
-        }} transition-all ease-in-out duration-500 bg-white dark:bg-gray-600 dark:text-gray-300"
+        class="{{ asideWidthPl }} transition-all ease-in-out duration-500 bg-white dark:bg-gray-600 dark:text-gray-300"
       >
         <header class="flex-none relative text-sm leading-6 font-medium py-5">
           <div class="px-4">
@@ -479,7 +477,9 @@ import { User } from '@schema-driven/web/core/data-access'
 })
 export class WebUiSidebarDenseComponent {
   public showMenu = false
-  public asideWidth: number = 24
+  public asideWidth: string = 'w-24'
+  public asideWidthPl: string = 'sm:pl-24'
+
   public mobileSideBar: boolean = false
 
   @Input() notificationsLink?: string
@@ -489,18 +489,22 @@ export class WebUiSidebarDenseComponent {
   @Input() logo: string
 
   asideBarWith() {
-    if (this.asideWidth == 24) {
-      this.asideWidth = 64
+    if (this.asideWidth == 'w-24') {
+      this.asideWidth = 'w-64'
+      this.asideWidthPl = 'sm:pl-64'
     } else {
-      this.asideWidth = 24
+      this.asideWidth = 'w-24'
+      this.asideWidthPl = 'sm:pl-24'
     }
   }
 
   sideBarWith() {
-    if (this.asideWidth == 24) {
-      this.asideWidth = 0
+    if (this.asideWidth == 'w-24') {
+      this.asideWidth = 'w-0'
+      this.asideWidthPl = 'sm:pl-0'
     } else {
-      this.asideWidth = 24
+      this.asideWidth = 'w-24'
+      this.asideWidthPl = 'sm:pl-0'
     }
   }
 }

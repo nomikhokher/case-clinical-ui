@@ -96,7 +96,6 @@ import { User } from '@schema-driven/web/core/data-access'
                                 />
                               </svg>
                             </span>
-
                             <div
                               *ngIf="child.dropDown"
                               class="absolute top-0 left-48 w-52 -mr-0.5 sm:-mr-3.5 bg-white  shadow-md font-normal text-sm text-gray-900"
@@ -179,7 +178,6 @@ import { User } from '@schema-driven/web/core/data-access'
                     />
                   </svg>
                 </button>
-
                 <!-- Profile dropdown -->
                 <div class="ml-3 relative">
                   <div>
@@ -200,10 +198,8 @@ import { User } from '@schema-driven/web/core/data-access'
                       />
                     </button>
                   </div>
-
                   <!--
                 Dropdown menu, show/hide based on menu state.
-
                 Entering: "transition ease-out duration-100"
                   From: "transform opacity-0 scale-95"
                   To: "transform opacity-100 scale-100"
@@ -228,7 +224,6 @@ import { User } from '@schema-driven/web/core/data-access'
                       id="user-menu-item-0"
                       >Your Profile</a
                     >
-
                     <a
                       href="#"
                       class="block px-4 py-2 text-sm text-gray-700"
@@ -237,7 +232,6 @@ import { User } from '@schema-driven/web/core/data-access'
                       id="user-menu-item-1"
                       >Your Profile</a
                     >
-
                     <a
                       href="#"
                       class="block px-4 py-2 text-sm text-gray-700"
@@ -261,7 +255,6 @@ import { User } from '@schema-driven/web/core/data-access'
                 <span class="sr-only">Open main menu</span>
                 <!--
               Heroicon name: outline/menu
-
               Menu open: "hidden", Menu closed: "block"
             -->
                 <svg
@@ -278,7 +271,6 @@ import { User } from '@schema-driven/web/core/data-access'
                 </svg>
                 <!--
               Heroicon name: outline/x
-
               Menu open: "block", Menu closed: "hidden"
             -->
                 <svg
@@ -297,7 +289,6 @@ import { User } from '@schema-driven/web/core/data-access'
             </div>
           </div>
         </div>
-
         <!-- Mobile menu, show/hide based on menu state. -->
         <div class="md:hidden" id="mobile-menu" *ngIf="mobileSideBar">
           <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -346,7 +337,6 @@ import { User } from '@schema-driven/web/core/data-access'
                         </svg>
                       </span>
                     </a>
-
                     <div *ngIf="child.dropDown" class="theme-bg-500 rounded-md my-1">
                       <ng-container *ngFor="let children of child.children">
                         <a
@@ -437,13 +427,11 @@ import { User } from '@schema-driven/web/core/data-access'
                 class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-indigo-500 hover:bg-opacity-75"
                 >Your Profile</a
               >
-
               <a
                 href="#"
                 class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-indigo-500 hover:bg-opacity-75"
                 >Settings</a
               >
-
               <a
                 href="#"
                 class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-indigo-500 hover:bg-opacity-75"
@@ -453,7 +441,6 @@ import { User } from '@schema-driven/web/core/data-access'
           </div>
         </div>
       </nav>
-
       <header class="bg-white shadow-sm">
         <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
           <h1 class="text-lg leading-6 font-semibold text-gray-900">Dashboard</h1>
@@ -463,7 +450,7 @@ import { User } from '@schema-driven/web/core/data-access'
         <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
           <!-- Replace with your content -->
           <div class="px-4 py-4 sm:px-0">
-            <div class="border-4 border-dashed border-gray-200 rounded-lg h-auto">
+            <div class="h-auto">
               <router-outlet></router-outlet>
             </div>
           </div>

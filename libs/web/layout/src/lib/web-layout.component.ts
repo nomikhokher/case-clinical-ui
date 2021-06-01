@@ -538,7 +538,7 @@ import colors from 'tailwindcss/colors'
 export class WebLayoutComponent {
   vm$ = this.layoutStore.vm$
 
-  public layout: string = 'classy'
+  public layout: string = localStorage.getItem('layout') ? localStorage.getItem('layout') : 'classy'
   public showMenu: boolean = false
   public isActive: string = localStorage?.getItem('mode')
 
@@ -571,6 +571,7 @@ export class WebLayoutComponent {
 
   setLayout(layout) {
     this.layout = layout
+    localStorage.setItem('layout', this.layout)
   }
 
   public slideOverHeader: boolean = true
