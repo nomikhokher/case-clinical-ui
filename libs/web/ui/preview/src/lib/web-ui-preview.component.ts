@@ -73,7 +73,7 @@ export class WebUiPreviewComponent {
     console.log({ changes: changes })
   }
 
-  ngAfterViewInit() {
+  ngAfterViewChecked() {
     this.render_html_code()
     document.addEventListener('mousemove', (e) => {
       if (!this.isResizing) {

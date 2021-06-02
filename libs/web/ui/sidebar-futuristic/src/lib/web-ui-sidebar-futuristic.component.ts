@@ -26,7 +26,7 @@ import { User } from '@schema-driven/web/core/data-access'
   ],
   template: `
     <!-- This example requires Tailwind CSS v2.0+ -->
-    <div class="h-screen flex overflow-hidden bg-gray-100">
+    <div class="h-screen flex overflow-hidden bg-white">
       <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
       <div class="fixed inset-0 flex z-40 md:hidden" role="dialog" aria-modal="true" *ngIf="mobileSideBar">
         <!--
@@ -362,7 +362,7 @@ import { User } from '@schema-driven/web/core/data-access'
             </svg>
           </button>
         </div>
-        <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none">
+        <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none dark:bg-gray-900">
           <div class="py-6">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
               <!-- <h1 class="text-2xl font-semibold text-gray-900">Dashboard</h1> -->
@@ -370,7 +370,7 @@ import { User } from '@schema-driven/web/core/data-access'
             <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
               <!-- Replace with your content -->
               <div class="py-4">
-                <div class="border-4 border-dashed border-gray-200 rounded-lg h-auto">
+                <div class="h-auto">
                   <router-outlet></router-outlet>
                 </div>
               </div>

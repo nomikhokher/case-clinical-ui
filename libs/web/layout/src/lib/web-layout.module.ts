@@ -13,7 +13,6 @@ import { WebUiStackedEnterpriseModule } from '@schema-driven/web/ui/stacked-ente
 import { WebUiStackedModernModule } from '@schema-driven/web/ui/stacked-modern'
 import { WebLayoutComponent } from './web-layout.component'
 import { WebUiSlideOverLayoutModule } from '@schema-driven/web/ui/slide-over-layout'
-
 @NgModule({
   declarations: [WebLayoutComponent],
   imports: [
