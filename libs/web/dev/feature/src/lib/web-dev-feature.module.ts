@@ -92,6 +92,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             loadChildren: () => import('./dev-slide-over/dev-slide-over.module').then((m) => m.DevSlideOverModule),
           },
           { path: 'stats', loadChildren: () => import('./dev-stats/dev-stats.module').then((m) => m.DevStatsModule) },
+          {
+            path: 'calendars',
+            loadChildren: () => import('./dev-calendar/dev-calendar.module').then((m) => m.DevCalendarModule),
+          },
         ],
       },
     ]),
