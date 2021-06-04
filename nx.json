@@ -216,6 +216,9 @@
     "web-ui-media-object": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-mini-calendar": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-modal": {
       "tags": ["scope:web", "type:ui"]
     },
