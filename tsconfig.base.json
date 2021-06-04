@@ -76,6 +76,7 @@
       "@schema-driven/web/ui/loader": ["libs/web/ui/loader/src/index.ts"],
       "@schema-driven/web/ui/main-page": ["libs/web/ui/main-page/src/index.ts"],
       "@schema-driven/web/ui/media-object": ["libs/web/ui/media-object/src/index.ts"],
+      "@schema-driven/web/ui/mini-calendar": ["libs/web/ui/mini-calendar/src/index.ts"],
       "@schema-driven/web/ui/modal": ["libs/web/ui/modal/src/index.ts"],
       "@schema-driven/web/ui/narrow-avatar-list": ["libs/web/ui/narrow-avatar-list/src/index.ts"],
       "@schema-driven/web/ui/notification": ["libs/web/ui/notification/src/index.ts"],

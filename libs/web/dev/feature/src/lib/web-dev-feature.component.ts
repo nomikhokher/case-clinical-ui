@@ -144,6 +144,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Mini Calendars Ui',
+              path: 'mini-calendars',
+              img: '/assets/images/tables.png',
+              childs: [
+                {
+                  name: 'Mini Calendar',
+                },
+              ],
+            },
           ],
         },
 
