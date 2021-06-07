@@ -132,6 +132,32 @@ export class WebDevFeatureComponent {
         },
 
         {
+          name: 'Calendars',
+          childs: [
+            {
+              label: 'Calendars Ui',
+              path: 'calendars',
+              img: '/assets/images/tables.png',
+              childs: [
+                {
+                  name: 'Calendar',
+                },
+              ],
+            },
+            {
+              label: 'Mini Calendars Ui',
+              path: 'mini-calendars',
+              img: '/assets/images/tables.png',
+              childs: [
+                {
+                  name: 'Mini Calendar',
+                },
+              ],
+            },
+          ],
+        },
+
+        {
           name: 'Notification',
           childs: [
             {

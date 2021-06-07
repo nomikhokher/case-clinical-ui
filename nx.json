@@ -156,6 +156,9 @@
     "web-ui-button": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-calendar": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-checkbox-dropdown-button": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -211,6 +214,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-media-object": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-mini-calendar": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-modal": {
