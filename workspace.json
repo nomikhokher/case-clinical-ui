@@ -2068,6 +2068,28 @@
         }
       }
     },
+    "web-ui-tree": {
+      "projectType": "library",
+      "root": "libs/web/ui/tree",
+      "sourceRoot": "libs/web/ui/tree/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/tree/src/**/*.ts", "libs/web/ui/tree/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/tree"],
+          "options": {
+            "jestConfig": "libs/web/ui/tree/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-two-column-stacked-list": {
       "projectType": "library",
       "root": "libs/web/ui/two-column-stacked-list",

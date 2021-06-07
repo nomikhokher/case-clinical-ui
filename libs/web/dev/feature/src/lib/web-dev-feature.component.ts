@@ -283,6 +283,15 @@ export class WebDevFeatureComponent {
           name: 'Navigation',
           childs: [
             {
+              label: 'Tree',
+              path: 'tree',
+              childs: [
+                {
+                  name: 'Tree',
+                },
+              ],
+            },
+            {
               label: 'Steps',
               path: 'steps',
               img: '/assets/images/steps.png',

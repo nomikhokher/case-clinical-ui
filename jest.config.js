@@ -90,5 +90,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/stacked-modern',
     '<rootDir>/libs/web/ui/calendar',
     '<rootDir>/libs/web/ui/mini-calendar',
+    '<rootDir>/libs/web/ui/tree',
   ],
 }

@@ -109,6 +109,10 @@ export class WebUiPreviewComponent {
     this.code_toggle = value
   }
   render_html_code() {
+    if (!this.child_dom?.nativeElement?.firstChild) {
+      return
+    }
+
     let vars = {
       component: this.child_dom.nativeElement.firstChild,
       attributes: () => {

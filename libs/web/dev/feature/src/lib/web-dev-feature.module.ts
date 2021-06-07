@@ -29,6 +29,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             loadChildren: () => import('./dev-container/dev-container.module').then((m) => m.DevContainerModule),
           },
           {
+            path: 'tree',
+            loadChildren: () => import('./dev-tree/dev-tree.module').then((m) => m.DevTreeModule),
+          },
+          {
             path: 'dividers',
             loadChildren: () => import('./dev-divider/dev-divider.module').then((m) => m.DevDividerModule),
           },
