@@ -86,6 +86,37 @@ module.exports = {
         '.theme-bg-900': {
           backgroundColor: 'var(--theme-color-900) !important',
         },
+
+        '.theme-border-50': {
+          borderColor: 'var(--theme-color-50) !important',
+        },
+        '.theme-border-100': {
+          borderColor: 'var(--theme-color-100) !important',
+        },
+        '.theme-border-200': {
+          borderColor: 'var(--theme-color-200) !important',
+        },
+        '.theme-border-300': {
+          borderColor: 'var(--theme-color-300) !important',
+        },
+        '.theme-border-400': {
+          borderColor: 'var(--theme-color-400) !important',
+        },
+        '.theme-border-500': {
+          borderColor: 'var(--theme-color-500) !important',
+        },
+        '.theme-border-600': {
+          borderColor: 'var(--theme-color-600) !important',
+        },
+        '.theme-border-700': {
+          borderColor: 'var(--theme-color-700) !important',
+        },
+        '.theme-border-800': {
+          borderColor: 'var(--theme-color-800) !important',
+        },
+        '.theme-border-900': {
+          borderColor: 'var(--theme-color-900) !important',
+        },
       }
 
       addUtilities(newUtilities, ['dark', 'hover'])

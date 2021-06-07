@@ -205,20 +205,20 @@ import { User } from '@schema-driven/web/core/data-access'
               <div>
                 <ng-container *ngFor="let link of profileLinks">
                   <div class="relative group">
-                    <div class="p-3 my-3 font-bold theme-bg-500 rounded-md">
-                      <p class="uppercase text-gray-100 text-sm">{{ link.title }}</p>
+                    <div class="p-3 my-3 rounded-md">
+                      <p class="uppercase text-gray-100 text-sm font-semibold">{{ link.title }}</p>
                       <p class="capitalize text-gray-200 text-xs">{{ link.subTitle }}</p>
                     </div>
                     <ng-container *ngFor="let child of link.childs">
                       <a
                         [routerLink]="child.route"
-                        class="text-indigo-100 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                        class="theme-color-100 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                         (click)="child.dropDown = !child.dropDown"
                       >
                         <ui-icon
                           [icon]="child.icon"
                           size="lg"
-                          class="text-indigo-300 group-hover:text-gray-300 h-8 w-8 mr-3 pt-1"
+                          class="theme-color-300 group-hover:text-gray-300 h-8 w-8 mr-3 pt-1"
                         ></ui-icon>
                         {{ child.label }}
                         <span class="absolute right-2" *ngIf="child.children">
@@ -252,7 +252,7 @@ import { User } from '@schema-driven/web/core/data-access'
                           <a
                             (click)="children.dropDown = !children.dropDown"
                             [routerLink]="children.route"
-                            class="text-indigo-100 hover:theme-bg-400 pl-12 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
+                            class="theme-color-100 hover:theme-bg-400 pl-12 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
                           >
                             &nbsp;{{ children.label }}
                             <span class="absolute right-2" *ngIf="children.children">
@@ -284,7 +284,7 @@ import { User } from '@schema-driven/web/core/data-access'
                             <a
                               *ngFor="let subChildren of children.children"
                               [routerLink]="subChildren.route"
-                              class="text-indigo-100 hover:theme-bg-400 pl-14 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
+                              class="theme-color-100 hover:theme-bg-400 pl-14 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
                             >
                               &nbsp;{{ subChildren.label }}
                             </a>
@@ -412,7 +412,7 @@ import { User } from '@schema-driven/web/core/data-access'
                 </div>
               </div>
             </div>
-            <div class="px-6 pb-6 pt-3 flex flex-col items-center border-b border-gray-500 sm:flex-col">
+            <div class="px-6 pb-6 pt-3 flex flex-col items-center border-b theme-border-500 sm:flex-col">
               <div
                 class="mr-auto w-full flex-shrink-0 flex justify-center items-center rounded-full sm:mt-4 sm:mx-auto"
               >
@@ -433,20 +433,20 @@ import { User } from '@schema-driven/web/core/data-access'
                 <div class="mt-4">
                   <ng-container *ngFor="let link of profileLinks">
                     <div class="relative group">
-                      <div class="p-3 my-3 font-bold theme-bg-500 rounded-md">
-                        <p class="uppercase text-gray-100 text-sm">{{ link.title }}</p>
+                      <div class="p-3 my-3 rounded-md">
+                        <p class="uppercase text-gray-100 text-sm font-semibold">{{ link.title }}</p>
                         <p class="capitalize text-gray-200 text-xs">{{ link.subTitle }}</p>
                       </div>
                       <ng-container *ngFor="let child of link.childs">
                         <a
                           [routerLink]="child.route"
-                          class="text-indigo-100 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                          class="theme-color-100 relative hover:theme-bg-500 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                           (click)="child.dropDown = !child.dropDown"
                         >
                           <ui-icon
                             [icon]="child.icon"
                             size="lg"
-                            class="text-indigo-300 group-hover:text-gray-300 h-8 w-8 mr-3 pt-1"
+                            class="theme-color-300 group-hover:text-gray-300 h-8 w-8 mr-3 pt-1"
                           ></ui-icon>
                           {{ child.label }}
                           <span class="absolute right-2" *ngIf="child.children">
@@ -480,7 +480,7 @@ import { User } from '@schema-driven/web/core/data-access'
                             <a
                               (click)="children.dropDown = !children.dropDown"
                               [routerLink]="children.route"
-                              class="text-indigo-100 hover:theme-bg-400 pl-12 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
+                              class="theme-color-100 hover:theme-bg-400 pl-12 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
                             >
                               &nbsp;{{ children.label }}
                               <span class="absolute right-2" *ngIf="children.children">
@@ -512,7 +512,7 @@ import { User } from '@schema-driven/web/core/data-access'
                               <a
                                 *ngFor="let subChildren of children.children"
                                 [routerLink]="subChildren.route"
-                                class="text-indigo-100 hover:theme-bg-400 pl-14 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
+                                class="theme-color-100 hover:theme-bg-400 pl-14 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
                               >
                                 &nbsp;{{ subChildren.label }}
                               </a>
