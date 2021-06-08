@@ -12,7 +12,9 @@ import { DevTableStore } from './dev-table.store'
             </div>
             <div class="p-2">
               <div class="bg-gray-900 p-2 rounded-b-md">
-                <ui-table [cols]="demo.cols" [data]="demo.data"></ui-table>
+                <ui-preview [code]="codePreview[0]">
+                  <ui-table [cols]="demo.cols" [data]="demo.data"></ui-table>
+                </ui-preview>
               </div>
             </div>
           </div>
@@ -25,4 +27,5 @@ import { DevTableStore } from './dev-table.store'
 export class DevTableComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevTableStore) {}
+  public codePreview = [`<ui-table [cols]="demo.cols" [data]="demo.data"></ui-table>`]
 }

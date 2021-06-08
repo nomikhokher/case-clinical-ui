@@ -10,7 +10,7 @@ import { DevListContainerStore } from './dev-list-container.store'
       <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
         Component: libs/web/dev/feature/src/lib/dev-list-container/dev-list-container.component.ts
       </code>
-      <ui-preview>
+      <ui-preview [code]="codePreview[0]">
         <ui-list-container [classNames]="''" [roundedDividers]="">
           <ng-container class="roundedDividers">
             <p class="py-4">Simple with dividers</p>
@@ -18,7 +18,7 @@ import { DevListContainerStore } from './dev-list-container.store'
           </ng-container>
         </ui-list-container>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[1]">
         <ui-list-container [classNames]="''" [roundedDividers]="roundedDividers">
           <ng-container class="roundedDividersNot">
             <p class="py-4">Simple with dividers</p>
@@ -35,4 +35,18 @@ export class DevListContainerComponent {
   public classNames: string
   public roundedDividers: boolean = true
   constructor(private readonly store: DevListContainerStore) {}
+  public codePreview = [
+    `<ui-list-container [classNames]="''" [roundedDividers]="">
+    <ng-container class="roundedDividers">
+      <p class="py-4">Simple with dividers</p>
+      <p class="py-4">Simple with dividers</p>
+    </ng-container>
+  </ui-list-container>`,
+    `<ui-list-container [classNames]="''" [roundedDividers]="roundedDividers">
+    <ng-container class="roundedDividersNot">
+      <p class="py-4">Simple with dividers</p>
+      <p class="py-4">Simple with dividers</p>
+    </ng-container>
+  </ui-list-container>`,
+  ]
 }

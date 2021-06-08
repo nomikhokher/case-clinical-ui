@@ -11,7 +11,7 @@ type StepItems = {
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <ui-preview [component_props]="[{ name: 'stepIems', value: stepIems }]">
+      <ui-preview [component_props]="[{ name: 'stepIems', value: stepIems }]" [code]="codePreview[0]">
         <ui-step [stepIems]="stepIems"></ui-step>
       </ui-preview>
     </ng-container>
@@ -55,4 +55,6 @@ export class DevStepComponent {
 
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevStepStore) {}
+
+  public codePreview = [`<ui-step [stepIems]="stepIems"></ui-step>`]
 }

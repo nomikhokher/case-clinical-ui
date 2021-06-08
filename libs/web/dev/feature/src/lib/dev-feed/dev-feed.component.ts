@@ -22,7 +22,7 @@ type FeedsLists = {
         Component: libs/web/dev/feature/src/lib/dev-feed/dev-feed.component.ts
       </code>
       <div class="my-8">
-        <ui-preview [component_props]="[{ name: 'feedsListing', value: feedsListing }]">
+        <ui-preview [component_props]="[{ name: 'feedsListing', value: feedsListing }]" [code]="codePreview[0]">
           <ui-feed [feedsListing]="feedsListing"></ui-feed>
         </ui-preview>
       </div>
@@ -34,6 +34,8 @@ export class DevFeedComponent {
   readonly vm$ = this.store.vm$
 
   constructor(private readonly store: DevFeedStore) {}
+
+  public codePreview = [` <ui-feed [feedsListing]="feedsListing"></ui-feed>`]
 
   public feedsListing: FeedsLists[] = [
     {

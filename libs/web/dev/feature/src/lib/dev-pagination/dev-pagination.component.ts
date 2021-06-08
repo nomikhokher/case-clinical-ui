@@ -10,8 +10,11 @@ import { DevPaginationStore } from './dev-pagination.store'
       <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
         Component: libs/web/dev/feature/src/lib/dev-pagination/dev-pagination.component.ts
       </code>
-      <ui-pagination [pages]="pages" [isPages]="isPages" [isPageSpan]="isPageSpan" [direction]="direction">
-      </ui-pagination>
+
+      <ui-preview [code]="codePreview[0]">
+        <ui-pagination [pages]="pages" [isPages]="isPages" [isPageSpan]="isPageSpan" [direction]="direction">
+        </ui-pagination>
+      </ui-preview>
     </ng-container>
   `,
   providers: [DevPaginationStore],
@@ -19,6 +22,10 @@ import { DevPaginationStore } from './dev-pagination.store'
 export class DevPaginationComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevPaginationStore) {}
+  public codePreview = [
+    `<ui-pagination [pages]="pages" [isPages]="isPages" [isPageSpan]="isPageSpan" [direction]="direction">
+    </ui-pagination>`,
+  ]
   // 3 types of parameter can be passed (center, right, simple)
   public direction = 'right'
   public pages: Array<any> = [

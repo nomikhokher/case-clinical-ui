@@ -10,6 +10,7 @@ import { DevDashboardStore } from './dev-dashboard.store'
       <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
         Component: libs/web/dev/feature/src/lib/dev-dashboard/dev-dashboard.component.ts
       </code>
+      <ui-preview> </ui-preview>
     </ng-container>
   `,
   providers: [DevDashboardStore],
