@@ -83,6 +83,7 @@
       "@schema-driven/web/ui/notification-image": ["libs/web/ui/notification-image/src/index.ts"],
       "@schema-driven/web/ui/page": ["libs/web/ui/page/src/index.ts"],
       "@schema-driven/web/ui/page-header": ["libs/web/ui/page-header/src/index.ts"],
+      "@schema-driven/web/ui/pagination": ["libs/web/ui/pagination/src/index.ts"],
       "@schema-driven/web/ui/preview": ["libs/web/ui/preview/src/index.ts"],
       "@schema-driven/web/ui/sidebar-classic": ["libs/web/ui/sidebar-classic/src/index.ts"],
       "@schema-driven/web/ui/sidebar-classy": ["libs/web/ui/sidebar-classy/src/index.ts"],
