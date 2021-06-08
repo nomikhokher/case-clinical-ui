@@ -101,6 +101,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             loadChildren: () =>
               import('./dev-mini-calendar/dev-mini-calendar.module').then((m) => m.DevMiniCalendarModule),
           },
+          {
+            path: 'paginations',
+            loadChildren: () => import('./dev-pagination/dev-pagination.module').then((m) => m.DevPaginationModule),
+          },
         ],
       },
     ]),

@@ -312,6 +312,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Pagination',
+              path: 'paginations',
+              img: '/assets/images/tabs.png',
+              childs: [
+                {
+                  name: 'Pagination',
+                },
+              ],
+            },
           ],
         },
         {
