@@ -10,7 +10,7 @@ import { DevContainerStore } from './dev-container.store'
       <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
         Component: libs/web/dev/feature/src/lib/dev-container/dev-container.component.ts
       </code>
-      <ui-preview>
+      <ui-preview [code]="codePreview[0]">
         <ui-container [containerWidth]="'container'" [containerPadding]="'p-4'" [narrowContainer]="narrowContainer">
           <div class="max-w-3xl mx-auto" id="narrowContainer">Narrow constrained with padded content</div>
           <div id="withoutNarrowContainer">Full-width on mobile, constrained with padded content above</div>
@@ -24,4 +24,10 @@ export class DevContainerComponent {
   readonly vm$ = this.store.vm$
   public readonly narrowContainer: boolean = false
   constructor(private readonly store: DevContainerStore) {}
+  public codePreview = [
+    `<ui-container [containerWidth]="'container'" [containerPadding]="'p-4'" [narrowContainer]="narrowContainer">
+    <div class="max-w-3xl mx-auto" id="narrowContainer">Narrow constrained with padded content</div>
+    <div id="withoutNarrowContainer">Full-width on mobile, constrained with padded content above</div>
+  </ui-container>`,
+  ]
 }

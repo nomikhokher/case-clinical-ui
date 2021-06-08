@@ -13,33 +13,33 @@ import { DevButtonStore } from './dev-button.store'
     </ng-container>
     <h1>Simple Button</h1>
     <div class="my-4">
-      <ui-preview code="<ui-button></ui-button>">
+      <ui-preview [code]="codePreview[0]">
         <ui-button label="Indigo" type="button" color="indigo"></ui-button>
       </ui-preview>
     </div>
 
     <h1>Red Button</h1>
     <div class="my-4">
-      <ui-preview code="<ui-button></ui-button>">
+      <ui-preview [code]="codePreview[1]">
         <ui-button label="red" type="button" color="red"></ui-button>
       </ui-preview>
     </div>
 
     <h1>Gray Button</h1>
     <div class="my-4">
-      <ui-preview code="<ui-button></ui-button>">
+      <ui-preview [code]="codePreview[2]">
         <ui-button label="Gray" type="button" color="gray"></ui-button>
       </ui-preview>
     </div>
 
     <h1>Disabled Button</h1>
     <div class="my-4">
-      <ui-preview code="<ui-button></ui-button>">
+      <ui-preview [code]="codePreview[3]">
         <ui-button [disabled]="true" label="Disabled" type="button" color="red"></ui-button>
       </ui-preview>
     </div>
     <h1>3D Button</h1>
-    <ui-preview code="<ui-button></ui-button>">
+    <ui-preview [code]="codePreview[4]">
       <ui-button
         label="Border 3D "
         type="button"
@@ -50,14 +50,14 @@ import { DevButtonStore } from './dev-button.store'
 
     <h1>Pill Button</h1>
     <div class="my-4">
-      <ui-preview code="<ui-button></ui-button>">
+      <ui-preview [code]="codePreview[5]">
         <ui-button label="Rounded Full " type="button" color="red" border="rounded-full"></ui-button>
       </ui-preview>
     </div>
 
     <h1>Outline Button</h1>
     <div class="my-4">
-      <ui-preview code="<ui-button></ui-button>">
+      <ui-preview [code]="codePreview[6]">
         <ui-button
           label="Transparent"
           type="button"
@@ -75,4 +75,23 @@ export class DevButtonComponent {
   public type = 'button'
 
   constructor(private readonly store: DevButtonStore) {}
+  public codePreview = [
+    `<ui-button label="Indigo" type="button" color="indigo"></ui-button>`,
+    `<ui-button label="red" type="button" color="red"></ui-button>`,
+    `<ui-button label="Gray" type="button" color="gray"></ui-button>`,
+    `<ui-button [disabled]="true" label="Disabled" type="button" color="red"></ui-button>`,
+    `<ui-button
+    label="Border 3D "
+    type="button"
+    color="green"
+    border="border-b-4 border-green-900 rounded"
+  ></ui-button>`,
+    `<ui-button label="Rounded Full " type="button" color="red" border="rounded-full"></ui-button>`,
+    ` <ui-button
+    label="Transparent"
+    type="button"
+    color="transparent"
+    border="border border-blue-500 hover:border-transparent text-blue-700 rounded"
+  ></ui-button>`,
+  ]
 }

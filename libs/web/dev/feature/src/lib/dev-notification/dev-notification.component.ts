@@ -10,7 +10,7 @@ import { DevNotificationStore } from './dev-notification.store'
       <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
         Component: libs/web/dev/feature/src/lib/dev-notification/dev-notification.component.ts
       </code>
-      <ui-preview>
+      <ui-preview [code]="codePreview[0]">
         <ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
         <ui-notification
           [name]="'Successfully saved!'"
@@ -20,7 +20,7 @@ import { DevNotificationStore } from './dev-notification.store'
           (closeValue)="closeAction($event)"
         ></ui-notification>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[1]">
         <ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
         <ui-notification
           [name]="'Successfully saved!'"
@@ -29,7 +29,7 @@ import { DevNotificationStore } from './dev-notification.store'
           [show]="show"
         ></ui-notification>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[2]">
         <ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
         <ui-notification
           [name]="'Successfully saved!'"
@@ -41,7 +41,7 @@ import { DevNotificationStore } from './dev-notification.store'
           [show]="show"
         ></ui-notification>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[3]">
         <ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
         <ui-notification-image
           [name]="'Successfully saved!'"
@@ -52,7 +52,7 @@ import { DevNotificationStore } from './dev-notification.store'
           "
         ></ui-notification-image>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[4]">
         <ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
         <ui-notification-image
           [name]="'Successfully saved!'"
@@ -65,7 +65,7 @@ import { DevNotificationStore } from './dev-notification.store'
           "
         ></ui-notification-image>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[5]">
         <ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
         <ui-notification-image
           [name]="'Successfully saved!'"
@@ -74,7 +74,7 @@ import { DevNotificationStore } from './dev-notification.store'
           [show]="show"
         ></ui-notification-image>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[6]">
         <ui-notification-image
           [name]="'Successfully saved!'"
           [title]="'Anyone with a link can now view this file.'"
@@ -87,7 +87,7 @@ import { DevNotificationStore } from './dev-notification.store'
           "
         ></ui-notification-image>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[7]">
         <ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
         <ui-notification-image
           [name]="'Successfully saved!'"
@@ -99,7 +99,7 @@ import { DevNotificationStore } from './dev-notification.store'
           "
         ></ui-notification-image>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[8]">
         <ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
         <ui-notification-image
           [name]="'Successfully saved!'"
@@ -113,7 +113,7 @@ import { DevNotificationStore } from './dev-notification.store'
           "
         ></ui-notification-image>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[9]">
         <ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
         <ui-notification-image
           [name]="'Successfully saved!'"
@@ -145,6 +145,107 @@ export class DevNotificationComponent {
   public subTimeout: ReturnType<typeof setTimeout> | any
 
   constructor(private readonly store: DevNotificationStore) {}
+
+  public codePreview = [
+    `<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
+  <ui-notification
+    [name]="'Successfully saved!'"
+    [title]="'Anyone with a link can now view this file.'"
+    [closeBtn]="true"
+    [show]="show"
+    (closeValue)="closeAction($event)"
+  ></ui-notification>`,
+    `<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
+  <ui-notification
+    [name]="'Successfully saved!'"
+    [title]="'Anyone with a link can now view this file.'"
+    [icon]="'check_circle'"
+    [show]="show"
+  ></ui-notification>`,
+    `<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
+  <ui-notification
+    [name]="'Successfully saved!'"
+    [title]="'Anyone with a link can now view this file.'"
+    [icon]="'check_circle'"
+    [closeBtn]="true"
+    [bottomSectionButton]="bottomSectionButton"
+    (closeValue)="closeAction($event)"
+    [show]="show"
+  ></ui-notification>`,
+    `<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
+  <ui-notification-image
+    [name]="'Successfully saved!'"
+    [title]="'Anyone with a link can now view this file.'"
+    [show]="show"
+    [avatarImg]="
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80'
+    "
+  ></ui-notification-image>`,
+    `<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
+  <ui-notification-image
+    [name]="'Successfully saved!'"
+    [title]="'Anyone with a link can now view this file.'"
+    [closeBtn]="true"
+    (closeValue)="closeAction($event)"
+    [show]="show"
+    [avatarImg]="
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80'
+    "
+  ></ui-notification-image>`,
+    `<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
+  <ui-notification-image
+    [name]="'Successfully saved!'"
+    [title]="'Anyone with a link can now view this file.'"
+    [leftSectionButton]="leftSectionButton"
+    [show]="show"
+  ></ui-notification-image>`,
+    `<ui-notification-image
+  [name]="'Successfully saved!'"
+  [title]="'Anyone with a link can now view this file.'"
+  [closeBtn]="true"
+  [leftSectionButton]="leftSectionButton"
+  (closeValue)="closeAction($event)"
+  [show]="show"
+  [avatarImg]="
+    'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80'
+  "
+></ui-notification-image>`,
+    `<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
+  <ui-notification-image
+    [name]="'Successfully saved!'"
+    [title]="'Anyone with a link can now view this file.'"
+    [leftSectionButton]="leftSectionButton"
+    [show]="show"
+    [avatarImg]="
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80'
+    "
+  ></ui-notification-image>`,
+    `<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
+  <ui-notification-image
+    [name]="'Successfully saved!'"
+    [title]="'Anyone with a link can now view this file.'"
+    [closeBtn]="true"
+    (closeValue)="closeAction($event)"
+    [show]="show"
+    [bottomSectionButton]="bottomSectionButton"
+    [avatarImg]="
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80'
+    "
+  ></ui-notification-image>`,
+    `<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
+  <ui-notification-image
+    [name]="'Successfully saved!'"
+    [title]="'Anyone with a link can now view this file.'"
+    [closeBtn]="true"
+    (closeValue)="closeAction($event)"
+    [show]="show"
+    [bottomSectionButton]="bottomSectionButton"
+    [leftSectionButton]="leftSectionButton"
+    [avatarImg]="
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80'
+    "
+  ></ui-notification-image>`,
+  ]
 
   showFn() {
     this.show = true

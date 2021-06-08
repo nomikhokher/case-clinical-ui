@@ -10,10 +10,10 @@ import { DevBadgeStore } from './dev-badge.store'
       <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
         Component: libs/web/dev/feature/src/lib/dev-badge/dev-badge.component.ts
       </code>
-      <ui-preview>
+      <ui-preview [code]="codePreview[0]">
         <ui-badge color="green" size="sm" rounded="rounded" icon=""></ui-badge>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[1]">
         <ui-badge color="green" size="sm" removeIcon="remove"></ui-badge>
       </ui-preview>
     </ng-container>
@@ -23,4 +23,8 @@ import { DevBadgeStore } from './dev-badge.store'
 export class DevBadgeComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevBadgeStore) {}
+  public codePreview = [
+    `<ui-badge color="green" size="sm" rounded="rounded" icon=""></ui-badge>`,
+    `<ui-badge color="green" size="sm" removeIcon="remove"></ui-badge>`,
+  ]
 }
