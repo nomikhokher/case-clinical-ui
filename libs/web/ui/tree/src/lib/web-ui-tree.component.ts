@@ -1,72 +1,14 @@
-import { Component } from '@angular/core'
+import { Component, Input, OnChanges } from '@angular/core'
 import { ArrayDataSource } from '@angular/cdk/collections'
 import { FlatTreeControl } from '@angular/cdk/tree'
 
 /** Flat node with expandable and level information */
-interface ExampleFlatNode {
+export interface FlatNode {
   expandable: boolean
   name: string
   level: number
   isExpanded?: boolean
 }
-
-const TREE_DATA: ExampleFlatNode[] = [
-  {
-    name: 'Fruit',
-    expandable: true,
-    level: 0,
-  },
-  {
-    name: 'Apple',
-    expandable: false,
-    level: 1,
-  },
-  {
-    name: 'Banana',
-    expandable: false,
-    level: 1,
-  },
-  {
-    name: 'Fruit loops',
-    expandable: false,
-    level: 1,
-  },
-  {
-    name: 'Vegetables',
-    expandable: true,
-    level: 0,
-  },
-  {
-    name: 'Green',
-    expandable: true,
-    level: 1,
-  },
-  {
-    name: 'Broccoli',
-    expandable: false,
-    level: 2,
-  },
-  {
-    name: 'Brussels sprouts',
-    expandable: false,
-    level: 2,
-  },
-  {
-    name: 'Orange',
-    expandable: true,
-    level: 1,
-  },
-  {
-    name: 'Pumpkins',
-    expandable: false,
-    level: 2,
-  },
-  {
-    name: 'Carrots',
-    expandable: false,
-    level: 2,
-  },
-]
 
 @Component({
   selector: 'ui-tree',
@@ -81,7 +23,7 @@ const TREE_DATA: ExampleFlatNode[] = [
         >
           <!-- use a disabled button to provide padding for tree leaf -->
           <button mat-icon-button disabled></button>
-          {{ node.name }}
+          <span class="text-sm">{{ node.name }}</span>
         </cdk-tree-node>
         <!-- This is the tree node template for expandable nodes -->
         <cdk-tree-node
@@ -93,43 +35,61 @@ const TREE_DATA: ExampleFlatNode[] = [
           <button
             mat-icon-button
             cdkTreeNodeToggle
+            class="flex items-center"
             [attr.aria-label]="'Toggle ' + node.name"
             (click)="node.isExpanded = !node.isExpanded"
             [style.visibility]="node.expandable ? 'visible' : 'hidden'"
           >
-            <mat-icon class="mat-icon-rtl-mirror">
+            <!-- <mat-icon class="mat-icon-rtl-mirror">
               {{ treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right' }}
-            </mat-icon>
+            </mat-icon> -->
+            <div class="h-6 w-6 flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                [class.rotate-90]="treeControl.isExpanded(node)"
+                class="h-3 w-3 transform transition duration-100 ease-linear  text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+            <span class="text-sm">{{ node.name }}</span>
           </button>
-          {{ node.name }}
         </cdk-tree-node>
       </cdk-tree>
     </div>
   `,
 })
-export class WebUiTreeComponent {
-  treeControl = new FlatTreeControl<ExampleFlatNode>(
+export class WebUiTreeComponent implements OnChanges {
+  treeControl = new FlatTreeControl<FlatNode>(
     (node) => node.level,
     (node) => node.expandable,
   )
 
-  dataSource = new ArrayDataSource(TREE_DATA)
+  @Input() treeData: FlatNode[]
+  @Input() dataSource: ArrayDataSource<FlatNode>
 
-  hasChild = (_: number, node: ExampleFlatNode) => node.expandable
+  ngOnChanges() {
+    // new ArrayDataSource(TREE_DATA)
+  }
 
-  getParentNode(node: ExampleFlatNode) {
-    const nodeIndex = TREE_DATA.indexOf(node)
+  hasChild = (_: number, node: FlatNode) => node.expandable
+
+  getParentNode(node: FlatNode) {
+    const nodeIndex = this.treeData.indexOf(node)
 
     for (let i = nodeIndex - 1; i >= 0; i--) {
-      if (TREE_DATA[i].level === node.level - 1) {
-        return TREE_DATA[i]
+      if (this.treeData[i].level === node.level - 1) {
+        return this.treeData[i]
       }
     }
 
     return null
   }
 
-  shouldRender(node: ExampleFlatNode) {
+  shouldRender(node: FlatNode) {
     let parent = this.getParentNode(node)
     while (parent) {
       if (!parent.isExpanded) {
