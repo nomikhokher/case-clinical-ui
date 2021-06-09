@@ -1236,6 +1236,28 @@
         }
       }
     },
+    "web-ui-full-calendar": {
+      "projectType": "library",
+      "root": "libs/web/ui/full-calendar",
+      "sourceRoot": "libs/web/ui/full-calendar/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/full-calendar/src/**/*.ts", "libs/web/ui/full-calendar/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/full-calendar"],
+          "options": {
+            "jestConfig": "libs/web/ui/full-calendar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-grid-list": {
       "projectType": "library",
       "root": "libs/web/ui/grid-list",

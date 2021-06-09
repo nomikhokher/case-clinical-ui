@@ -65,6 +65,7 @@
       "@schema-driven/web/ui/dropdown-button": ["libs/web/ui/dropdown-button/src/index.ts"],
       "@schema-driven/web/ui/feed": ["libs/web/ui/feed/src/index.ts"],
       "@schema-driven/web/ui/form": ["libs/web/ui/form/src/index.ts"],
+      "@schema-driven/web/ui/full-calendar": ["libs/web/ui/full-calendar/src/index.ts"],
       "@schema-driven/web/ui/grid-list": ["libs/web/ui/grid-list/src/index.ts"],
       "@schema-driven/web/ui/group-button": ["libs/web/ui/group-button/src/index.ts"],
       "@schema-driven/web/ui/icon": ["libs/web/ui/icon/src/index.ts"],
