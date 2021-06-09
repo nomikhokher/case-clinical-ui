@@ -93,17 +93,9 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
           },
           { path: 'stats', loadChildren: () => import('./dev-stats/dev-stats.module').then((m) => m.DevStatsModule) },
           {
-            path: 'calendars',
-            loadChildren: () => import('./dev-calendar/dev-calendar.module').then((m) => m.DevCalendarModule),
-          },
-          {
-            path: 'mini-calendars',
+            path: 'full-calendars',
             loadChildren: () =>
-              import('./dev-mini-calendar/dev-mini-calendar.module').then((m) => m.DevMiniCalendarModule),
-          },
-          {
-            path: 'paginations',
-            loadChildren: () => import('./dev-pagination/dev-pagination.module').then((m) => m.DevPaginationModule),
+              import('./dev-full-calendar/dev-full-calendar.module').then((m) => m.DevFullCalendarModule),
           },
         ],
       },
