@@ -15,13 +15,13 @@ export interface DropDownMenu {
       <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
         Component: libs/web/dev/feature/src/lib/dev-group-button/dev-group-button.component.ts
       </code>
-      <ui-preview>
+      <ui-preview [code]="codePreview[0]">
         <ui-group-button [buttons]="vm.buttons"></ui-group-button>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[1]">
         <ui-dropdown-button [dropDownMenus]="dropDownMenu"></ui-dropdown-button>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[2]">
         <ui-checkbox-dropdown-button [dropDownMenus]="dropDownMenu"></ui-checkbox-dropdown-button>
       </ui-preview>
     </ng-container>
@@ -49,4 +49,9 @@ export class DevGroupButtonComponent {
   constructor(private readonly store: DevGroupButtonStore) {}
 
   ngOnInit() {}
+  public codePreview = [
+    `<ui-group-button [buttons]="vm.buttons"></ui-group-button>`,
+    `<ui-dropdown-button [dropDownMenus]="dropDownMenu"></ui-dropdown-button>`,
+    `<ui-checkbox-dropdown-button [dropDownMenus]="dropDownMenu"></ui-checkbox-dropdown-button>`,
+  ]
 }

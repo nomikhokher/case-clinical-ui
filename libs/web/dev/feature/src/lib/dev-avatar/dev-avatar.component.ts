@@ -4,25 +4,25 @@ import { DevAvatarStore } from './dev-avatar.store'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <ui-preview>
+      <ui-preview [code]="codePreview[0]">
         <ui-avatar mode="img" [payload]="payload" radius="circle" [size]="14"></ui-avatar>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[1]">
         <ui-avatar mode="img" [payload]="payload" radius="circle" [size]="14"></ui-avatar>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[2]">
         <ui-avatar mode="img" [payload]="payload" radius="circle" [size]="14" [badge]="badge"></ui-avatar>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[3]">
         <ui-avatar mode="img" [payload]="payload" radius="rounded" [size]="14"></ui-avatar>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[4]">
         <ui-avatar mode="img" [payload]="payload" radius="rounded" [size]="14" [badge]="badge"></ui-avatar>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[5]">
         <ui-avatar mode="text" [payload]="'MB'" radius="circle" [size]="14"></ui-avatar>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[6]">
         <ui-avatar mode="text" [payload]="'CB'" radius="circle" [size]="14" [badge]="badge"></ui-avatar>
       </ui-preview>
       <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
@@ -35,6 +35,15 @@ import { DevAvatarStore } from './dev-avatar.store'
 export class DevAvatarComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevAvatarStore) {}
+  public codePreview = [
+    `<ui-avatar mode="img" [payload]="payload" radius="circle" [size]="14"></ui-avatar>`,
+    `<ui-avatar mode="img" [payload]="payload" radius="circle" [size]="14"></ui-avatar>`,
+    `<ui-avatar mode="img" [payload]="payload" radius="circle" [size]="14" [badge]="badge"></ui-avatar>`,
+    `<ui-avatar mode="img" [payload]="payload" radius="rounded" [size]="14"></ui-avatar>`,
+    `<ui-avatar mode="img" [payload]="payload" radius="rounded" [size]="14" [badge]="badge"></ui-avatar>`,
+    `<ui-avatar mode="text" [payload]="'MB'" radius="circle" [size]="14"></ui-avatar>`,
+    `<ui-avatar mode="text" [payload]="'CB'" radius="circle" [size]="14" [badge]="badge"></ui-avatar>`,
+  ]
   badge = {
     color: 'red',
     position: 'top-right',

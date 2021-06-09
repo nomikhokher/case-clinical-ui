@@ -1035,6 +1035,28 @@
         }
       }
     },
+    "web-ui-calendar": {
+      "projectType": "library",
+      "root": "libs/web/ui/calendar",
+      "sourceRoot": "libs/web/ui/calendar/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/calendar/src/**/*.ts", "libs/web/ui/calendar/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/calendar"],
+          "options": {
+            "jestConfig": "libs/web/ui/calendar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-checkbox-dropdown-button": {
       "projectType": "library",
       "root": "libs/web/ui/checkbox-dropdown-button",
@@ -1478,6 +1500,28 @@
         }
       }
     },
+    "web-ui-mini-calendar": {
+      "projectType": "library",
+      "root": "libs/web/ui/mini-calendar",
+      "sourceRoot": "libs/web/ui/mini-calendar/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/mini-calendar/src/**/*.ts", "libs/web/ui/mini-calendar/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mini-calendar"],
+          "options": {
+            "jestConfig": "libs/web/ui/mini-calendar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-modal": {
       "projectType": "library",
       "root": "libs/web/ui/modal",
@@ -1611,6 +1655,28 @@
           "outputs": ["coverage/libs/web/ui/page-header"],
           "options": {
             "jestConfig": "libs/web/ui/page-header/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-pagination": {
+      "projectType": "library",
+      "root": "libs/web/ui/pagination",
+      "sourceRoot": "libs/web/ui/pagination/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/pagination/src/**/*.ts", "libs/web/ui/pagination/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/pagination"],
+          "options": {
+            "jestConfig": "libs/web/ui/pagination/jest.config.js",
             "passWithNoTests": true
           }
         }

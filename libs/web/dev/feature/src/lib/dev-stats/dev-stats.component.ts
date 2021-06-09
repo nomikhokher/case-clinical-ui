@@ -10,7 +10,7 @@ import { DevStatsStore } from './dev-stats.store'
       <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
         Component: libs/web/dev/feature/src/lib/dev-stats/dev-stats.component.ts
       </code>
-      <ui-preview [component_props]="[{ name: 'stats', value: stats }]">
+      <ui-preview [component_props]="[{ name: 'stats', value: stats }]" [code]="codePreview[0]">
         <ui-stats [stats]="stats"></ui-stats>
       </ui-preview>
     </ng-container>
@@ -20,6 +20,8 @@ import { DevStatsStore } from './dev-stats.store'
 export class DevStatsComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevStatsStore) {}
+
+  public codePreview = [`<ui-stats [stats]="stats"></ui-stats>`]
 
   public stats: any = {
     title: 'Total Subscribers',
