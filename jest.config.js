@@ -89,5 +89,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/stacked-enterprise',
     '<rootDir>/libs/web/ui/stacked-modern',
     '<rootDir>/libs/web/ui/full-calendar',
+    '<rootDir>/libs/web/ui/tree',
   ],
 }

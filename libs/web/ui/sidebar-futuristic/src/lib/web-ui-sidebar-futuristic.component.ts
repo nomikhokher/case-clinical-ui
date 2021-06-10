@@ -96,9 +96,9 @@ import { User } from '@schema-driven/web/core/data-access'
               <div>
                 <ng-container *ngFor="let link of profileLinks">
                   <div class="relative group">
-                    <div class="p-3 my-3 font-bold theme-bg-500 rounded-md">
-                      <p class="uppercase text-gray-100 text-sm">{{ link.title }}</p>
-                      <p class="capitalize text-gray-200 text-xs">{{ link.subTitle }}</p>
+                    <div class="p-3 my-3 rounded-md">
+                      <p class="uppercase text-gray-100 text-sm font-semibold">{{ link.title }}</p>
+                      <p class="capitalize text-gray-200 text-xs opacity-75">{{ link.subTitle }}</p>
                     </div>
                     <ng-container *ngFor="let child of link.childs">
                       <a
@@ -188,7 +188,7 @@ import { User } from '@schema-driven/web/core/data-access'
               </div>
             </nav>
           </div>
-          <div class="flex-shrink-0 flex border-t border-indigo-800 p-4">
+          <div class="flex-shrink-0 flex border-t theme-border-200 p-4">
             <a href="#" class="flex-shrink-0 group block">
               <div class="flex items-center">
                 <div>
@@ -229,9 +229,9 @@ import { User } from '@schema-driven/web/core/data-access'
                 <div class="mt-4">
                   <ng-container *ngFor="let link of profileLinks">
                     <div class="relative group">
-                      <div class="p-3 my-3 font-bold theme-bg-500 rounded-md">
-                        <p class="uppercase text-gray-100 text-sm">{{ link.title }}</p>
-                        <p class="capitalize text-gray-200 text-xs">{{ link.subTitle }}</p>
+                      <div class="p-3 my-3 rounded-md">
+                        <p class="uppercase text-gray-100 text-sm font-semibold">{{ link.title }}</p>
+                        <p class="capitalize text-gray-200 text-xs opacity-80">{{ link.subTitle }}</p>
                       </div>
                       <ng-container *ngFor="let child of link.childs">
                         <a
@@ -321,7 +321,7 @@ import { User } from '@schema-driven/web/core/data-access'
                 </div>
               </nav>
             </div>
-            <div class="flex-shrink-0 flex border-t border-indigo-800 p-4">
+            <div class="flex-shrink-0 flex border-t theme-border-500 p-4">
               <a href="#" class="flex-shrink-0 w-full group block">
                 <div class="flex items-center">
                   <div>

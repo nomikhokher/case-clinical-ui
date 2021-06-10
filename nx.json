@@ -300,6 +300,9 @@
     "web-ui-toast": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-tree": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-two-column-stacked-list": {
       "tags": ["scope:web", "type:ui"]
     }
