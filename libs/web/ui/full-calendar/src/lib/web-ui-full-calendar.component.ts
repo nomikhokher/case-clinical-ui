@@ -178,6 +178,7 @@ export class WebUiFullCalendarComponent {
   changeView(view: 'dayGridMonth' | 'timeGridWeek' | 'timeGridDay' | 'listYear'): void {
     // Store the view
     this.view = view
+    console.log(view)
 
     // If the FullCalendar API is available...
     if (this._fullCalendarApi) {
