@@ -116,3 +116,10 @@ input[type='checkbox']:checked:after {
   border-radius: 2px;
   background-color: rgb(202, 202, 202);
 }
+.backIcon:hover {
+  background-color: rgb(230, 230, 230);
+  border-radius: 50%;
+}
+.upperSetting {
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
