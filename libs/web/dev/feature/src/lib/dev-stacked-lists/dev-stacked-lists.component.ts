@@ -12,11 +12,14 @@ import { StackedList, TwoColumnStackedList } from './type.model'
         Component: libs/web/dev/feature/src/lib/dev-stacked-lists/dev-stacked-lists.component.ts
       </code>
     </ng-container>
-    <ui-preview [component_props]="[{ name: 'stackedList', value: stackedList }]">
+    <ui-preview [component_props]="[{ name: 'stackedList', value: stackedList }]" [code]="codePreview[0]">
       <ui-narrow-avatar-list [stackedList]="stackedList"></ui-narrow-avatar-list>
     </ui-preview>
 
-    <ui-preview [component_props]="[{ name: 'twoColumnStackedList', value: twoColumnStackedList }]">
+    <ui-preview
+      [component_props]="[{ name: 'twoColumnStackedList', value: twoColumnStackedList }]"
+      [code]="codePreview[1]"
+    >
       <ui-two-column-stacked-list [twoColumnStackedList]="twoColumnStackedList"></ui-two-column-stacked-list>
     </ui-preview>
   `,
@@ -25,6 +28,11 @@ import { StackedList, TwoColumnStackedList } from './type.model'
 export class DevStackedListsComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevStackedListsStore) {}
+
+  public codePreview = [
+    `<ui-narrow-avatar-list [stackedList]="stackedList"></ui-narrow-avatar-list>`,
+    `<ui-two-column-stacked-list [twoColumnStackedList]="twoColumnStackedList"></ui-two-column-stacked-list>`,
+  ]
 
   public stackedList: StackedList[] = [
     {

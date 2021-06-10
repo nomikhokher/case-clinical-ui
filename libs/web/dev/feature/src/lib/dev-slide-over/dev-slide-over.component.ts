@@ -10,7 +10,7 @@ import { DevSlideOverStore } from './dev-slide-over.store'
       <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
         Component: libs/web/dev/feature/src/lib/dev-slide-over/dev-slide-over.component.ts
       </code>
-      <ui-preview>
+      <ui-preview [code]="codePreview[0]">
         <ui-slide-over
           [width]="'max-w-2xl'"
           [overlay]="'bg-gray-500 bg-opacity-75 transition-opacity'"
@@ -122,4 +122,37 @@ export class DevSlideOverComponent {
   public slideOverHeader: boolean = true
 
   constructor(private readonly store: DevSlideOverStore) {}
+  public codePreview = [
+    `<ui-slide-over
+    [width]="'max-w-2xl'"
+    [overlay]="'bg-gray-500 bg-opacity-75 transition-opacity'"
+    [closeButtonOutSide]="closeButtonOutSide"
+    [headerObj]="headerObj"
+  >
+    <section id="mainSlideOver" class="p-4">
+      <div>
+        <label for="project_name" class="block text-sm font-medium text-gray-900"> Project name </label>
+        <div class="mt-1">
+          <input
+            type="text"
+            name="project_name"
+            id="project_name"
+            class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="description" class="block text-sm font-medium text-gray-900"> Description </label>
+        <div class="mt-1">
+          <textarea
+            id="description"
+            name="description"
+            rows="4"
+            class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+          ></textarea>
+        </div>
+      </div>
+    </section>
+  </ui-slide-over>`,
+  ]
 }

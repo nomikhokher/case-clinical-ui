@@ -73,26 +73,26 @@ export class WebUiPreviewComponent {
     console.log({ changes: changes })
   }
 
-  ngAfterViewChecked() {
-    this.render_html_code()
-    document.addEventListener('mousemove', (e) => {
-      if (!this.isResizing) {
-        return
-      }
-      if (this.containerWidth === null) {
-        this.containerWidth = this.container.nativeElement.offsetWidth - this.dragger.nativeElement.offsetWidth
-      }
-      let change = this.draggerDownX - e.clientX
-      if (change > 0 && change < this.containerWidth - 300) {
-        this.dragger.nativeElement.style.right = change.toString() + 'px'
-        this.container.nativeElement.style.width = (this.containerWidth - change).toString() + 'px'
-      }
-    })
+  // ngAfterViewChecked() {
+  //   this.render_html_code()
+  //   document.addEventListener('mousemove', (e) => {
+  //     if (!this.isResizing) {
+  //       return
+  //     }
+  //     if (this.containerWidth === null) {
+  //       this.containerWidth = this.container.nativeElement.offsetWidth - this.dragger.nativeElement.offsetWidth
+  //     }
+  //     let change = this.draggerDownX - e.clientX
+  //     if (change > 0 && change < this.containerWidth - 300) {
+  //       this.dragger.nativeElement.style.right = change.toString() + 'px'
+  //       this.container.nativeElement.style.width = (this.containerWidth - change).toString() + 'px'
+  //     }
+  //   })
 
-    document.addEventListener('mouseup', () => {
-      this.isResizing = false
-    })
-  }
+  //   document.addEventListener('mouseup', () => {
+  //     this.isResizing = false
+  //   })
+  // }
 
   ngOnInit() {
     this.lang = this.lang !== undefined ? this.lang : 'html'
@@ -108,111 +108,108 @@ export class WebUiPreviewComponent {
   code_toggler(value) {
     this.code_toggle = value
   }
-  render_html_code() {
-    if (!this.child_dom?.nativeElement?.firstChild) {
-      return
-    }
+  // render_html_code() {
+  //   let vars = {
+  //     component: this.child_dom.nativeElement.firstChild,
+  //     attributes: () => {
+  //       return vars.component.attributes
+  //     },
+  //     extract_name: (attribute) => {
+  //       if (attribute.name.includes('ng-reflect-')) {
+  //         return attribute.name.split('-')[2]
+  //       } else {
+  //         return attribute.name
+  //       }
+  //     },
+  //     is_ng: (name) => {
+  //       return name.includes('ng-reflect-') ? true : false
+  //     },
+  //     tag_name: () => {
+  //       return vars.component.localName
+  //     },
+  //     real_name: (path = false) => {
+  //       let name_array = vars.component.localName.split('-')
+  //       let real_name = ''
+  //       for (let x = 0; x < name_array.length; x++) {
+  //         if (name_array[x] !== 'ui') {
+  //           if (!path) {
+  //             real_name += name_array[x].charAt(0).toUpperCase() + name_array[x].slice(1)
+  //           } else {
+  //             real_name += name_array[x] + '-'
+  //           }
+  //         }
+  //       }
+  //       return !path ? real_name : real_name.slice(0, -1)
+  //     },
+  //     start_tag: () => {
+  //       return '<' + vars.tag_name() + '>'
+  //     },
+  //     end_tag: () => {
+  //       return '</' + vars.tag_name() + '>'
+  //     },
+  //     is_exist: (name) => {
+  //       for (const value of vars.attributes()) {
+  //         if (value.name === name) {
+  //           return true
+  //         }
+  //       }
+  //     },
+  //     html: '',
+  //     inject: () => {
+  //       let start_tag = vars.start_tag().toString().slice(0, -1) + ' \n\t'
+  //       let end_tag = '\n >' + vars.end_tag().toString()
 
-    let vars = {
-      component: this.child_dom.nativeElement.firstChild,
-      attributes: () => {
-        return vars.component.attributes
-      },
-      extract_name: (attribute) => {
-        if (attribute.name.includes('ng-reflect-')) {
-          return attribute.name.split('-')[2]
-        } else {
-          return attribute.name
-        }
-      },
-      is_ng: (name) => {
-        return name.includes('ng-reflect-') ? true : false
-      },
-      tag_name: () => {
-        return vars.component.localName
-      },
-      real_name: (path = false) => {
-        let name_array = vars.component.localName.split('-')
-        let real_name = ''
-        for (let x = 0; x < name_array.length; x++) {
-          if (name_array[x] !== 'ui') {
-            if (!path) {
-              real_name += name_array[x].charAt(0).toUpperCase() + name_array[x].slice(1)
-            } else {
-              real_name += name_array[x] + '-'
-            }
-          }
-        }
-        return !path ? real_name : real_name.slice(0, -1)
-      },
-      start_tag: () => {
-        return '<' + vars.tag_name() + '>'
-      },
-      end_tag: () => {
-        return '</' + vars.tag_name() + '>'
-      },
-      is_exist: (name) => {
-        for (const value of vars.attributes()) {
-          if (value.name === name) {
-            return true
-          }
-        }
-      },
-      html: '',
-      inject: () => {
-        let start_tag = vars.start_tag().toString().slice(0, -1) + ' \n\t'
-        let end_tag = '\n >' + vars.end_tag().toString()
+  //       let inline_props = vars.html
 
-        let inline_props = vars.html
+  //       let external_props = ''
+  //       let component_data = ''
 
-        let external_props = ''
-        let component_data = ''
+  //       if (this.component_props) {
+  //         if (this.component_props.length) {
+  //           for (let child of this.component_props) {
+  //             external_props += '[' + child.name + ']="' + child.name + '_data"'
+  //           }
+  //         }
+  //         if (this.component_props.length) {
+  //           for (let child of this.component_props) {
+  //             component_data += child.name + '_data =' + JSON.stringify(child.value, null, '\t')
+  //           }
+  //         }
+  //       }
 
-        if (this.component_props) {
-          if (this.component_props.length) {
-            for (let child of this.component_props) {
-              external_props += '[' + child.name + ']="' + child.name + '_data"'
-            }
-          }
-          if (this.component_props.length) {
-            for (let child of this.component_props) {
-              component_data += child.name + '_data =' + JSON.stringify(child.value, null, '\t')
-            }
-          }
-        }
+  //       let component = start_tag + external_props + inline_props + end_tag
 
-        let component = start_tag + external_props + inline_props + end_tag
+  //       let decleration =
+  //         'import { WebUi' +
+  //         vars.real_name(false) +
+  //         "Component } from '@schema-driven/web/ui/" +
+  //         vars.real_name(true) +
+  //         "'"
 
-        let decleration =
-          'import { WebUi' +
-          vars.real_name(false) +
-          "Component } from '@schema-driven/web/ui/" +
-          vars.real_name(true) +
-          "'"
+  //       return decleration + '\n\n' + component + '\n\n' + component_data
+  //     },
+  //   }
 
-        return decleration + '\n\n' + component + '\n\n' + component_data
-      },
-    }
+  //   for (const value of vars.attributes()) {
+  //     if (vars.is_ng(value.name)) {
+  //       if (!vars.is_exist(vars.extract_name(value))) {
+  //         if (!value.value.includes('[object Object]')) {
+  //           vars.html += ' \n\t' + '[' + vars.extract_name(value) + ']'
+  //         }
+  //       } else {
+  //         if (!value.value.includes('[object Object]')) {
+  //           vars.html += ' \n\t' + vars.extract_name(value)
+  //         }
+  //       }
 
-    for (const value of vars.attributes()) {
-      if (vars.is_ng(value.name)) {
-        if (!vars.is_exist(vars.extract_name(value))) {
-          if (!value.value.includes('[object Object]')) {
-            vars.html += ' \n\t' + '[' + vars.extract_name(value) + ']'
-          }
-        } else {
-          if (!value.value.includes('[object Object]')) {
-            vars.html += ' \n\t' + vars.extract_name(value)
-          }
-        }
+  //       if (!value.value.includes('[object Object]')) {
+  //         vars.html += '=' + '"' + value.textContent + '"' + ' '
+  //       }
+  //     }
+  //   }
+  //   this.code = vars.inject()
+  // }
 
-        if (!value.value.includes('[object Object]')) {
-          vars.html += '=' + '"' + value.textContent + '"' + ' '
-        }
-      }
-    }
-    this.code = vars.inject()
-  }
 
   code_toggle = false
 }

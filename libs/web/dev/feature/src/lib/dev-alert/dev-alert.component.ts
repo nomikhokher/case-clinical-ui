@@ -9,7 +9,7 @@ import { DevAlertStore } from './dev-alert.store'
         <pre class="text-xs dark:text-gray-500">{{ __usage() | json }}</pre>
       </div>
 
-      <ui-preview [component_props]="[{ name: 'settings', value: {} }]">
+      <ui-preview [component_props]="[{ name: 'settings', value: {} }]" [code]="codePreview[0]">
         <ui-alert
           class="mb-4 mt-4"
           subject="Attention needed"
@@ -20,7 +20,7 @@ import { DevAlertStore } from './dev-alert.store'
         ></ui-alert>
       </ui-preview>
 
-      <ui-preview>
+      <ui-preview [code]="codePreview[1]">
         <ui-alert
           icon="x_circle"
           [icon_show]="true"
@@ -30,7 +30,7 @@ import { DevAlertStore } from './dev-alert.store'
           [list]="_list()"
         ></ui-alert>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[2]">
         <ui-alert
           [icon_show]="true"
           icon="check_circle"
@@ -41,7 +41,7 @@ import { DevAlertStore } from './dev-alert.store'
           [actionLink]="_actionLink()"
         ></ui-alert>
       </ui-preview>
-      <ui-preview>
+      <ui-preview [code]="codePreview[3]">
         <ui-alert
           class="mb-4 mt-4"
           [icon_show]="true"
@@ -50,7 +50,7 @@ import { DevAlertStore } from './dev-alert.store'
           bg_color="info"
         ></ui-alert>
       </ui-preview>
-      <ui-preview [component_preview]="component_preview">
+      <ui-preview [component_preview]="component_preview" [code]="codePreview[4]">
         <ui-alert
           icon="check_circle"
           [icon_show]="true"
@@ -61,7 +61,7 @@ import { DevAlertStore } from './dev-alert.store'
         ></ui-alert>
       </ui-preview>
 
-      <ui-preview [component_preview]="component_preview">
+      <ui-preview [component_preview]="component_preview" [code]="codePreview[5]">
         <ui-alert
           icon="check_circle"
           [icon_show]="true"
@@ -94,7 +94,55 @@ export class DevAlertComponent {
   ]
   @ViewChild(WebUiPreviewComponent) component_preview: WebUiPreviewComponent
   @ViewChildren(WebUiAlertComponent) items: QueryList<WebUiAlertComponent>
-
+  public codePreview = [
+    `<ui-alert
+    class="mb-4 mt-4"
+    subject="Attention needed"
+    message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam quo totam eius aperiam dolorum."
+    bg_color="warning"
+    icon="exclamation"
+    [icon_show]="true"
+  ></ui-alert>`,
+    `<ui-alert
+  icon="x_circle"
+  [icon_show]="true"
+  class="mb-4 mt-4"
+  subject="There were 2 errors with your submission"
+  bg_color="danger"
+  [list]="_list()"
+></ui-alert>`,
+    ` <ui-alert
+[icon_show]="true"
+icon="check_circle"
+class="mb-4 mt-4"
+subject="Order completed"
+message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam."
+bg_color="success"
+[actionLink]="_actionLink()"
+></ui-alert>`,
+    ` <ui-alert
+class="mb-4 mt-4"
+[icon_show]="true"
+icon="information_circle"
+message="A new software update is available. See what’s new in version 2.0.4."
+bg_color="info"
+></ui-alert>`,
+    `<ui-alert
+icon="check_circle"
+[icon_show]="true"
+class="mb-4 mt-4 desh"
+[message]="htmlstring"
+bg_color="warning"
+[accent_border]="true"
+></ui-alert>`,
+    `<ui-alert
+icon="check_circle"
+[icon_show]="true"
+class="mb-4 mt-4"
+message="Successfully updated"
+bg_color="success"
+></ui-alert>`,
+  ]
   ngAfterViewInit() {
     //console.log(this.component_preview);
     console.log({

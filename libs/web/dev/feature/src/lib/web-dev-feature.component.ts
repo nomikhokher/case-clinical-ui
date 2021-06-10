@@ -14,6 +14,21 @@ export class WebDevFeatureComponent {
         'Form layouts, tables, modal windows — everything you need to build beautiful responsive web applications.',
       childs: [
         {
+          name: 'FullCalendar',
+          childs: [
+            {
+              label: 'Full-Calendar',
+              path: 'full-calendars',
+              img: '/assets/images/stacked.png',
+              childs: [
+                {
+                  name: 'Full Calendar',
+                },
+              ],
+            },
+          ],
+        },
+        {
           name: 'Dashboard',
           childs: [
             {
@@ -318,6 +333,16 @@ export class WebDevFeatureComponent {
               childs: [
                 {
                   name: 'Tabs',
+                },
+              ],
+            },
+            {
+              label: 'Pagination',
+              path: 'paginations',
+              img: '/assets/images/tabs.png',
+              childs: [
+                {
+                  name: 'Pagination',
                 },
               ],
             },
