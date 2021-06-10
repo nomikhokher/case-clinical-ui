@@ -8,7 +8,7 @@ import { INITIAL_EVENTS, createEventId } from './event-utils'
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   template: ` <div class="demo-app">
-    <div class="demo-app-sidebar">
+    <!-- <div class="demo-app-sidebar">
       <div class="demo-app-sidebar-section">
         <h2>Instructions</h2>
         <ul>
@@ -38,8 +38,117 @@ import { INITIAL_EVENTS, createEventId } from './event-utils'
           </li>
         </ul>
       </div>
+    </div> -->
+    <div class="demo-app-sidebar">
+      <div class="flex flex-col  min-h-full p-8">
+        <div class="pb-6 text-3xl font-extrabold tracking-tight">Calendar</div>
+        <div class="group flex items-center justify-between mb-3 calender">
+          <span class="text-lg font-medium">Calendars</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 only-show-on-hover cursor-pointer"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="{2}"
+              d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+        </div>
+        <div class="group flex items-center justify-between mt-2 ng-star-inserted personal" style="">
+          <div class="flex items-center">
+            <input type="checkbox" />
+            <span class="dots ml-2 bg-green-500"></span>
+            <span class="ml-2 leading-none">Personal</span>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 personal-show-icon cursor-pointer"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="{2}"
+              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+            />
+          </svg>
+        </div>
+        <div class="group flex items-center justify-between mt-2 ng-star-inserted work" style="">
+          <div class="flex items-center">
+            <input type="checkbox" />
+            <span class="dots ml-2 bg-indigo-500"></span>
+            <span class="ml-2 leading-none">Work</span>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 work-show-icon cursor-pointer"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="{2}"
+              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+            />
+          </svg>
+        </div>
+        <div class="group flex items-center justify-between mt-2 ng-star-inserted appointment cursor-pointer" style="">
+          <div class="flex items-center">
+            <input type="checkbox" />
+            <span class="dots ml-2 bg-pink-500"></span>
+            <span class="ml-2 leading-none">Appointment</span>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 appointment-show-icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="{2}"
+              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+            />
+          </svg>
+        </div>
+        <div class="-mx-4 mt-auto setting">
+          <a class="flex items-center w-full py-3 px-4 rounded-full hover:bg-hover" href="/apps/calendar/settings">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="{2}"
+                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="{2}"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+            <span class="ml-2 font-medium leading-none">Settings</span></a
+          >
+        </div>
+      </div>
     </div>
-
     <div class="demo-app-main">
       <full-calendar *ngIf="calendarVisible" [options]="calendarOptions" #fullCalendar></full-calendar>
     </div>
