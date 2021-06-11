@@ -1,5 +1,12 @@
-import { ChangeDetectionStrategy, Component, ElementRef, ViewEncapsulation } from '@angular/core'
-import { CalendarOptions, DateSelectArg, EventClickArg, EventApi, preventDefault } from '@fullcalendar/angular'
+import { ChangeDetectionStrategy, Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core'
+import {
+  CalendarOptions,
+  DateSelectArg,
+  EventClickArg,
+  EventApi,
+  preventDefault,
+  FullCalendarComponent,
+} from '@fullcalendar/angular'
 import { INITIAL_EVENTS, createEventId } from './event-utils'
 
 @Component({
@@ -62,9 +69,9 @@ import { INITIAL_EVENTS, createEventId } from './event-utils'
           </div>
           <div class="group flex items-center justify-between mt-2 ng-star-inserted personal" style="">
             <div class="flex items-center">
-              <input type="checkbox" />
+              <input type="checkbox" id="personal" />
               <span class="dots ml-2 bg-green-500"></span>
-              <span class="ml-2 leading-none">Personal</span>
+              <label class="ml-2 leading-none" for="personal">Personal</label>
             </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -81,11 +88,11 @@ import { INITIAL_EVENTS, createEventId } from './event-utils'
               />
             </svg>
           </div>
-          <div class="group flex items-center justify-between mt-2 ng-star-inserted work" style="">
+          <div class="group flex items-center justify-between mt-2 ng-star-inserted work">
             <div class="flex items-center">
-              <input type="checkbox" />
+              <input type="checkbox" id="work" />
               <span class="dots ml-2 bg-indigo-500"></span>
-              <span class="ml-2 leading-none">Work</span>
+              <label class="ml-2 leading-none" for="work">Work</label>
             </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -107,9 +114,9 @@ import { INITIAL_EVENTS, createEventId } from './event-utils'
             style=""
           >
             <div class="flex items-center">
-              <input type="checkbox" />
+              <input type="checkbox" id="appoitment" />
               <span class="dots ml-2 bg-pink-500"></span>
-              <span class="ml-2 leading-none">Appointment</span>
+              <label class="ml-2 leading-none" for="appoitment">Appointment</label>
             </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -220,9 +227,93 @@ import { INITIAL_EVENTS, createEventId } from './event-utils'
         </div>
       </div>
     </div>
+    <!-- modal title -->
+
+    <!-- This example requires Tailwind CSS v2.0+ -->
+    <div class="fixed z-10 overflow-y-auto modal" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+      <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+        <div
+          class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+        >
+          <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+            <div class="sm:flex sm:items-start">
+              <div class="p-3 w-full">
+                <label class="ml-2 text-lg" for="addEvt">Add Event</label>
+                <br />
+                <input
+                  class="w-full pl-3 pr-10 py-3 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md "
+                  type="text"
+                  name="title"
+                  id="addEvt"
+                  [(ngModel)]="title"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+            <button
+              type="button"
+              (click)="addEventHandle()"
+              class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+            >
+              Add
+            </button>
+            <button
+              type="button"
+              (click)="remoModal()"
+              class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Remove Date Modal -->
+
+    <div
+      class="fixed z-10 overflow-y-auto modal"
+      id="_modal"
+      aria-labelledby="modal-title"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+        <div
+          class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+        >
+          <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+            <div class="sm:flex sm:items-start">
+              <div class="p-3 text-center">Are you sure do you want to remove the event?</div>
+            </div>
+          </div>
+          <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+            <button
+              type="button"
+              (click)="removeEventHandle()"
+              class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+            >
+              Remove
+            </button>
+            <button
+              type="button"
+              (click)="removeModal()"
+              class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   `,
 })
 export class WebUiFullCalendarComponent {
+  private _selectInfo: DateSelectArg
   constructor(private elementRef: ElementRef) {}
 
   dropDownMenu: boolean = false
@@ -230,56 +321,28 @@ export class WebUiFullCalendarComponent {
   view: 'dayGridMonth' | 'timeGridWeek' | 'timeGridDay' | 'listYear' = 'dayGridMonth'
   views: any
   viewTitle: string
+  title: string
+  _calendarApi: any
+  _removeEvt: any
+  _clickInfo: any
+
+  @ViewChild('fullCalendar', { static: true }) fullCalendar: FullCalendarComponent
+
+  ngOnInit() {
+    setTimeout(function () {
+      window.dispatchEvent(new Event('resize'))
+    }, 1)
+  }
+  rerender() {
+    let calendarApi = this.fullCalendar.getApi()
+    calendarApi.render()
+  }
 
   ngAfterViewInit() {
     var dropDown = this.elementRef.nativeElement.querySelector('.fc-header-toolbar')
     dropDown.insertAdjacentHTML(
       'beforeend',
       `
-    <div class="relative inline-block text-left">
-        <div>
-          <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" id="menu-button" aria-expanded="true" aria-haspopup="true">
-            Options
-            <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-            </svg>
-          </button>
-        </div>
-        <div *ngIf="dropDownMenu" class="origin-top-right absolute right-0 mt-2 w-56 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-            <div class="py-1" role="none">
-                  <div>
-                      <button
-                      [disabled]="view === 'dayGridMonth'"
-                      (click)="changeView('dayGridMonth')"
-                      class="text-gray-700 block w-full text-left px-4 py-2 text-sm custom-click" role="menuitem" tabindex="-1" id="menu-item-1"
-                      >
-                      <span>Month</span>
-                    </button>
-                    <button
-                      [disabled]="view === 'timeGridWeek'"
-                      (click)="changeView('timeGridWeek')"
-                      class="text-gray-700 block w-full text-left px-4 py-2 text-sm custom-click" role="menuitem" tabindex="-1" id="menu-item-2"
-                      >
-                      <span>Week</span>
-                    </button>
-                    <button
-                      [disabled]="view === 'timeGridDay'"
-                      (click)="changeView('timeGridDay')"
-                      class="text-gray-700 block w-full text-left px-4 py-2 text-sm custom-click" role="menuitem" tabindex="-1" id="menu-item-3"
-                      >
-                      <span>Day</span>
-                    </button>
-                    <button
-                      [disabled]="view === 'listYear'"
-                      (click)="changeView('listYear')"
-                      class="text-gray-700 block w-full text-left px-4 py-2 text-sm custom-click" role="menuitem" tabindex="-1" id="menu-item-4"
-                      >
-                      <span>Schedule</span>
-                    </button>
-                  </div>
-            </div>
-        </div>
-    </div>
     `,
     )
 
@@ -295,7 +358,7 @@ export class WebUiFullCalendarComponent {
     headerToolbar: {
       left: 'prev,next today',
       center: 'title',
-      right: '',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
     },
     initialView: 'dayGridMonth',
     initialEvents: INITIAL_EVENTS, // alternatively, use the `events` setting to fetch from a feed
@@ -326,26 +389,23 @@ export class WebUiFullCalendarComponent {
   }
 
   handleDateSelect(selectInfo: DateSelectArg) {
-    const title = prompt('Please enter a new title for your event')
-    const calendarApi = selectInfo.view.calendar
+    let el = this.elementRef.nativeElement.querySelector('.modal')
+    el.classList.add('inset-0')
 
-    calendarApi.unselect() // clear date selection
-
-    if (title) {
-      calendarApi.addEvent({
-        id: createEventId(),
-        title,
-        start: selectInfo.startStr,
-        end: selectInfo.endStr,
-        allDay: selectInfo.allDay,
-      })
-    }
+    this._calendarApi = selectInfo.view.calendar
+    this._selectInfo = selectInfo
   }
 
   handleEventClick(clickInfo: EventClickArg) {
-    if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
-      clickInfo.event.remove()
-    }
+    let el = this.elementRef.nativeElement.querySelector('#_modal')
+    el.classList.add('inset-0')
+
+    this._removeEvt = clickInfo.view.calendar
+    this._clickInfo = clickInfo
+
+    // if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
+    //  clickInfo.event.remove()
+    //}
   }
 
   handleEvents(events: EventApi[]) {
@@ -375,5 +435,35 @@ export class WebUiFullCalendarComponent {
   public onBack() {
     this.isSetting = false
     this.isCalendar = true
+  }
+  remoModal(): void {
+    let el = this.elementRef.nativeElement.querySelector('.modal')
+    el.classList.remove('inset-0')
+  }
+  removeModal() {
+    let el = this.elementRef.nativeElement.querySelector('#_modal')
+    el.classList.remove('inset-0')
+  }
+
+  addEventHandle(): void {
+    this._calendarApi.unselect() // clear date selection
+
+    if (this.title) {
+      this._calendarApi.addEvent({
+        id: createEventId(),
+        title: this.title,
+        start: this._selectInfo.startStr,
+        end: this._selectInfo.endStr,
+        allDay: this._selectInfo.allDay,
+      })
+    }
+    let el = this.elementRef.nativeElement.querySelector('.modal')
+    el.classList.remove('inset-0')
+  }
+
+  removeEventHandle(): void {
+    this._removeEvt.unselect()
+    this._clickInfo.event.remove()
+    this.removeModal()
   }
 }
