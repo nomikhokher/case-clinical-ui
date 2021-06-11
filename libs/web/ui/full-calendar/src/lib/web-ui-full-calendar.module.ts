@@ -7,6 +7,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import listPlugin from '@fullcalendar/list'
 import interactionPlugin from '@fullcalendar/interaction'
+import { FormsModule } from '@angular/forms'
 
 FullCalendarModule.registerPlugins([dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin])
 
@@ -14,7 +15,8 @@ FullCalendarModule.registerPlugins([dayGridPlugin, timeGridPlugin, listPlugin, i
   imports: [
     CommonModule,
     RouterModule,
-    FullCalendarModule, // register FullCalendar with you app
+    FullCalendarModule,
+    FormsModule, // register FullCalendar with you app
   ],
   declarations: [WebUiFullCalendarComponent],
   exports: [WebUiFullCalendarComponent],

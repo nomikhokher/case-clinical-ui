@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["perameter"]
+  "cSpell.words": ["perameter"],
+  "angular.enable-strict-mode-prompt": false
 }
