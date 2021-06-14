@@ -63,7 +63,7 @@ export class DevMediaObjectComponent {
   constructor(private readonly store: DevMediaObjectStore) {}
 
   public codePreview = [
-    ` <ui-media-object icon="imageAvatar" [circle]="circle" verticalDirection="center" horizontalDirection="left">
+    ` import { WebUiMediaObjectModule } from '@schema-driven/web/ui/media-object\n\n<ui-media-object icon="imageAvatar" [circle]="circle" verticalDirection="center" horizontalDirection="left">
     <ng-container class="objectData">
       <h4 class="text-lg font-bold">Lorem ipsum</h4>
       <p class="mt-1">
@@ -71,8 +71,8 @@ export class DevMediaObjectComponent {
         quidem ipsam quia iusto.
       </p>
     </ng-container>
-  </ui-media-object>`,
-    `<ui-media-object icon="imageAvatar" [circle]="circle" height="full" width="" horizontalDirection="right">
+  </ui-media-object> \n\n circle= false`,
+    `import { WebUiMediaObjectModule } from '@schema-driven/web/ui/media-object\n\n<ui-media-object icon="imageAvatar" [circle]="circle" height="full" width="" horizontalDirection="right">
     <ng-container class="objectDataFullImage">
       <h4 class="text-lg font-bold">Lorem ipsum</h4>
       <p class="mt-1">
@@ -80,8 +80,8 @@ export class DevMediaObjectComponent {
         quidem ipsam quia iusto.
       </p>
     </ng-container>
-  </ui-media-object>`,
-    `<ui-media-object [data]="data" [circle]="circle" height="" width="" horizontalDirection="rights">
+  </ui-media-object> \n\n circle= false`,
+    `import { WebUiMediaObjectModule } from '@schema-driven/web/ui/media-object\n\n<ui-media-object [data]="data" [circle]="circle" height="" width="" horizontalDirection="rights">
     <ui-media-object
       class="objectData2"
       *ngFor="let childData of data1"
@@ -91,8 +91,7 @@ export class DevMediaObjectComponent {
       width=""
       horizontalDirection="left"
     >
-    </ui-media-object>
-  </ui-media-object>`,
+    </ui-media-object>\n\ncircle= false`,
   ]
 
   public data = {

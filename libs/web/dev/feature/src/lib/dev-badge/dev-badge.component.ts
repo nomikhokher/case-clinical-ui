@@ -24,7 +24,7 @@ export class DevBadgeComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevBadgeStore) {}
   public codePreview = [
-    `<ui-badge color="green" size="sm" rounded="rounded" icon=""></ui-badge>`,
-    `<ui-badge color="green" size="sm" removeIcon="remove"></ui-badge>`,
+    `import { WebUiBadgeModule } from '@schema-driven/web/ui/badge'\n\n<ui-badge color="green" size="sm" rounded="rounded" icon=""></ui-badge> `,
+    `import { WebUiBadgeModule } from '@schema-driven/web/ui/badge\n\n<ui-badge color="green" size="sm" removeIcon="remove"></ui-badge>`,
   ]
 }

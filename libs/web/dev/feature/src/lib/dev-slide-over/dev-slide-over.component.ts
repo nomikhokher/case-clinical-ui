@@ -123,7 +123,9 @@ export class DevSlideOverComponent {
 
   constructor(private readonly store: DevSlideOverStore) {}
   public codePreview = [
-    `<ui-slide-over
+    `import { WebUiSlideOverModule } from '@schema-driven/web/ui/slide-over'\n\n
+    import { WebUiSlideOverLayoutModule } from '@schema-driven/web/ui/slide-over-layout'\n\n
+    <ui-slide-over
     [width]="'max-w-2xl'"
     [overlay]="'bg-gray-500 bg-opacity-75 transition-opacity'"
     [closeButtonOutSide]="closeButtonOutSide"
@@ -153,6 +155,8 @@ export class DevSlideOverComponent {
         </div>
       </div>
     </section>
-  </ui-slide-over>`,
+  </ui-slide-over> \n\n
+  
+   closeButtonOutSide = true`,
   ]
 }

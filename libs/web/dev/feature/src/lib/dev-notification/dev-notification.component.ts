@@ -147,7 +147,9 @@ export class DevNotificationComponent {
   constructor(private readonly store: DevNotificationStore) {}
 
   public codePreview = [
-    `<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
+    `import { WebUiNotificationModule } from '@schema-driven/web/ui/notification'\n\n
+import { WebUiNotificationImageModule } from '@schema-driven/web/ui/notification-image'\n\n
+import { WebUiButtonModule } from '@schema-driven/web/ui/button\n\n'<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
   <ui-notification
     [name]="'Successfully saved!'"
     [title]="'Anyone with a link can now view this file.'"
@@ -155,14 +157,18 @@ export class DevNotificationComponent {
     [show]="show"
     (closeValue)="closeAction($event)"
   ></ui-notification>`,
-    `<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
+    `import { WebUiNotificationModule } from '@schema-driven/web/ui/notification'\n\n
+import { WebUiNotificationImageModule } from '@schema-driven/web/ui/notification-image'\n\n
+import { WebUiButtonModule } from '@schema-driven/web/ui/button\n\n'<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
   <ui-notification
     [name]="'Successfully saved!'"
     [title]="'Anyone with a link can now view this file.'"
     [icon]="'check_circle'"
     [show]="show"
   ></ui-notification>`,
-    `<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
+    `import { WebUiNotificationModule } from '@schema-driven/web/ui/notification'\n\n
+import { WebUiNotificationImageModule } from '@schema-driven/web/ui/notification-image'\n\n
+import { WebUiButtonModule } from '@schema-driven/web/ui/button\n\n'<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
   <ui-notification
     [name]="'Successfully saved!'"
     [title]="'Anyone with a link can now view this file.'"
@@ -172,7 +178,9 @@ export class DevNotificationComponent {
     (closeValue)="closeAction($event)"
     [show]="show"
   ></ui-notification>`,
-    `<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
+    `import { WebUiNotificationModule } from '@schema-driven/web/ui/notification'\n\n
+import { WebUiNotificationImageModule } from '@schema-driven/web/ui/notification-image'\n\n
+import { WebUiButtonModule } from '@schema-driven/web/ui/button\n\n'<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
   <ui-notification-image
     [name]="'Successfully saved!'"
     [title]="'Anyone with a link can now view this file.'"
@@ -181,7 +189,9 @@ export class DevNotificationComponent {
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80'
     "
   ></ui-notification-image>`,
-    `<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
+    `import { WebUiNotificationModule } from '@schema-driven/web/ui/notification'\n\n
+import { WebUiNotificationImageModule } from '@schema-driven/web/ui/notification-image'\n\n
+import { WebUiButtonModule } from '@schema-driven/web/ui/button\n\n'<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
   <ui-notification-image
     [name]="'Successfully saved!'"
     [title]="'Anyone with a link can now view this file.'"
@@ -192,14 +202,17 @@ export class DevNotificationComponent {
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80'
     "
   ></ui-notification-image>`,
-    `<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
+    `import { WebUiNotificationModule } from '@schema-driven/web/ui/notification'\n\n
+import { WebUiNotificationImageModule } from '@schema-driven/web/ui/notification-image'\n\n
+import { WebUiButtonModule } from '@schema-driven/web/ui/button\n\n'<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
   <ui-notification-image
     [name]="'Successfully saved!'"
     [title]="'Anyone with a link can now view this file.'"
     [leftSectionButton]="leftSectionButton"
     [show]="show"
   ></ui-notification-image>`,
-    `<ui-notification-image
+    `import { WebUiNotificationModule } from '@schema-driven/web/ui/notification'\n\n
+    import { WebUiNotificationImageModule } from '@schema-driven/web/ui/notification-image'\n\n<ui-notification-image
   [name]="'Successfully saved!'"
   [title]="'Anyone with a link can now view this file.'"
   [closeBtn]="true"
@@ -210,7 +223,9 @@ export class DevNotificationComponent {
     'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80'
   "
 ></ui-notification-image>`,
-    `<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
+    `import { WebUiNotificationModule } from '@schema-driven/web/ui/notification'\n\n
+import { WebUiNotificationImageModule } from '@schema-driven/web/ui/notification-image'\n\n
+import { WebUiButtonModule } from '@schema-driven/web/ui/button\n\n'<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
   <ui-notification-image
     [name]="'Successfully saved!'"
     [title]="'Anyone with a link can now view this file.'"
@@ -220,7 +235,9 @@ export class DevNotificationComponent {
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80'
     "
   ></ui-notification-image>`,
-    `<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
+    `import { WebUiNotificationModule } from '@schema-driven/web/ui/notification'\n\n
+import { WebUiNotificationImageModule } from '@schema-driven/web/ui/notification-image'\n\n
+import { WebUiButtonModule } from '@schema-driven/web/ui/button\n\n'<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
   <ui-notification-image
     [name]="'Successfully saved!'"
     [title]="'Anyone with a link can now view this file.'"
@@ -232,7 +249,9 @@ export class DevNotificationComponent {
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80'
     "
   ></ui-notification-image>`,
-    `<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
+    `import { WebUiNotificationModule } from '@schema-driven/web/ui/notification'\n\n
+import { WebUiNotificationImageModule } from '@schema-driven/web/ui/notification-image'\n\n
+import { WebUiButtonModule } from '@schema-driven/web/ui/button\n\n'<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
   <ui-notification-image
     [name]="'Successfully saved!'"
     [title]="'Anyone with a link can now view this file.'"
