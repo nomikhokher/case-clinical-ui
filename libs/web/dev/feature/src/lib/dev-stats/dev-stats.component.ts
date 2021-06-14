@@ -21,7 +21,27 @@ export class DevStatsComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevStatsStore) {}
 
-  public codePreview = [`<ui-stats [stats]="stats"></ui-stats>`]
+  public codePreview = [
+    `import { WebUiStatsModule } from '@schema-driven/web/ui/stats'\n\n<ui-stats [stats]="stats"></ui-stats> \n\n stats = {
+    title: 'Total Subscribers',
+    border_none: 'last',
+    values: {
+      type: 'numeric',
+      total: '',
+      current: '897',
+      previous: '70857',
+      overwrite: true,
+      difference: {
+        numeric: 457,
+        percentage: '12.2555',
+        type: 'percentage',
+      },
+    },
+    icon: 'user',
+    link: '/',
+  }
+}`,
+  ]
 
   public stats: any = {
     title: 'Total Subscribers',
