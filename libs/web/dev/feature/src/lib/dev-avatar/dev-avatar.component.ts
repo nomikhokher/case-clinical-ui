@@ -36,13 +36,22 @@ export class DevAvatarComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevAvatarStore) {}
   public codePreview = [
-    `<ui-avatar mode="img" [payload]="payload" radius="circle" [size]="14"></ui-avatar>`,
-    `<ui-avatar mode="img" [payload]="payload" radius="circle" [size]="14"></ui-avatar>`,
-    `<ui-avatar mode="img" [payload]="payload" radius="circle" [size]="14" [badge]="badge"></ui-avatar>`,
-    `<ui-avatar mode="img" [payload]="payload" radius="rounded" [size]="14"></ui-avatar>`,
-    `<ui-avatar mode="img" [payload]="payload" radius="rounded" [size]="14" [badge]="badge"></ui-avatar>`,
-    `<ui-avatar mode="text" [payload]="'MB'" radius="circle" [size]="14"></ui-avatar>`,
-    `<ui-avatar mode="text" [payload]="'CB'" radius="circle" [size]="14" [badge]="badge"></ui-avatar>`,
+    `import { WebUiAvatarModule } from '@schema-driven/web/ui/avatar'\n\n<ui-avatar mode="img" [payload]="payload" radius="circle" [size]="14"></ui-avatar> \n\n payload ='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'`,
+    `import { WebUiAvatarModule } from '@schema-driven/web/ui/avatar'\n\n<ui-avatar mode="img" [payload]="payload" radius="circle" [size]="14"></ui-avatar>\n\n payload ='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'`,
+    `import { WebUiAvatarModule } from '@schema-driven/web/ui/avatar'\n\n<ui-avatar mode="img" [payload]="payload" radius="circle" [size]="14" [badge]="badge"></ui-avatar>\n\n payload ='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'\n\n  badge = {
+      color: 'red',
+      position: 'top-right',
+    }`,
+    `import { WebUiAvatarModule } from '@schema-driven/web/ui/avatar'\n\n<ui-avatar mode="img" [payload]="payload" radius="rounded" [size]="14"></ui-avatar>`,
+    `import { WebUiAvatarModule } from '@schema-driven/web/ui/avatar'\n\n<ui-avatar mode="img" [payload]="payload" radius="rounded" [size]="14" [badge]="badge"></ui-avatar>\n\n payload ='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'\n\n  badge = {
+      color: 'red',
+      position: 'top-right',
+    }`,
+    `import { WebUiAvatarModule } from '@schema-driven/web/ui/avatar'\n\n<ui-avatar mode="text" [payload]="'MB'" radius="circle" [size]="14"></ui-avatar>`,
+    `import { WebUiAvatarModule } from '@schema-driven/web/ui/avatar'\n\n<ui-avatar mode="text" [payload]="'CB'" radius="circle" [size]="14" [badge]="badge"></ui-avatar> \n\n  badge = {
+      color: 'red',
+      position: 'top-right',
+    }`,
   ]
   badge = {
     color: 'red',

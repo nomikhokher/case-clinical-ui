@@ -50,8 +50,34 @@ export class DevGroupButtonComponent {
 
   ngOnInit() {}
   public codePreview = [
-    `<ui-group-button [buttons]="vm.buttons"></ui-group-button>`,
-    `<ui-dropdown-button [dropDownMenus]="dropDownMenu"></ui-dropdown-button>`,
-    `<ui-checkbox-dropdown-button [dropDownMenus]="dropDownMenu"></ui-checkbox-dropdown-button>`,
+    `import { WebUiGroupButtonModule } from '@schema-driven/web/ui/group-button'\n\n<ui-group-button [buttons]="vm.buttons"></ui-group-button>`,
+    `import { WebUiDropdownButtonModule } from '@schema-driven/web/ui/dropdown-button'\n\n<ui-dropdown-button [dropDownMenus]="dropDownMenu"></ui-dropdown-button> \n\n dropDownMenu = [
+      {
+        id: '1',
+        name: 'Years',
+      },
+      {
+        id: '2',
+        name: 'Months',
+      },
+      {
+        id: '3',
+        name: 'Days',
+      },
+    ]`,
+    `import { WebUiCheckboxDropdownButtonModule } from '@schema-driven/web/ui/checkbox-dropdown-button'\n\n<ui-checkbox-dropdown-button [dropDownMenus]="dropDownMenu"></ui-checkbox-dropdown-button> \n\n dropDownMenu = [
+      {
+        id: '1',
+        name: 'Years',
+      },
+      {
+        id: '2',
+        name: 'Months',
+      },
+      {
+        id: '3',
+        name: 'Days',
+      },
+    ]`,
   ]
 }

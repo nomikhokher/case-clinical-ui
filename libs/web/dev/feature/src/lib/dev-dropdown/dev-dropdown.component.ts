@@ -34,14 +34,11 @@ export class DevDropdownComponent {
   public heading: boolean = true
   constructor(private readonly store: DevDropdownStore) {}
   public codePreview = [
-    `<ng-container>
-    <ui-dropdown direction="right" [items]="vm.items"></ui-dropdown>
-  </ng-container>`,
-    `<ng-container>
-    <ui-dropdown direction="left" icon="heroicon" [items]="vm.items"></ui-dropdown>
-  </ng-container>`,
-    `<ng-container>
-    <ui-dropdown direction="left" [heading]="heading" [items]="vm.items"></ui-dropdown>
-  </ng-container>`,
+    `import { WebUiDropdownModule } from '@schema-driven/web/ui/dropdown'\n\n
+    <ui-dropdown direction="right" [items]="vm.items"></ui-dropdown>\n\nreadonly vm$ = this.store.vm$`,
+    `import { WebUiDropdownModule } from '@schema-driven/web/ui/dropdown'\n\n
+    <ui-dropdown direction="left" icon="heroicon" [items]="vm.items"></ui-dropdown>\n\nreadonly vm$ = this.store.vm$`,
+    `import { WebUiDropdownModule } from '@schema-driven/web/ui/dropdown'\n\n
+    <ui-dropdown direction="left" [heading]="heading" [items]="vm.items"></ui-dropdown>\n\npublic heading: boolean = true\n\nreadonly vm$ = this.store.vm$`,
   ]
 }

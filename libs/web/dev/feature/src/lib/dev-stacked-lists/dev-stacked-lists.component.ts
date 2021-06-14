@@ -30,8 +30,52 @@ export class DevStackedListsComponent {
   constructor(private readonly store: DevStackedListsStore) {}
 
   public codePreview = [
-    `<ui-narrow-avatar-list [stackedList]="stackedList"></ui-narrow-avatar-list>`,
-    `<ui-two-column-stacked-list [twoColumnStackedList]="twoColumnStackedList"></ui-two-column-stacked-list>`,
+    `import { WebUiNarrowAvatarListModule } from '@schema-driven/web/ui/narrow-avatar-list'\n\n<ui-narrow-avatar-list [stackedList]="stackedList"></ui-narrow-avatar-list> \n\n stackedList = [
+      {
+        id: 1,
+        name: 'Hammad Hassan',
+        email: 'hh@yahoo.com',
+        img: 'user',
+      },
+      {
+        id: 2,
+        name: 'Hammad Hassan',
+        email: 'hh@yahoo.com',
+        img: 'user',
+      },
+      {
+        id: 3,
+        name: 'Hammad Hassan',
+        email: 'hh@yahoo.com',
+        img: 'user',
+      },
+    ]`,
+    `import { WebUiTwoColumnStackedListModule } from '@schema-driven/web/ui/two-column-stacked-list'\n\n<ui-two-column-stacked-list [twoColumnStackedList]="twoColumnStackedList"></ui-two-column-stacked-list>\n\n twoColumnStackedList = [
+      {
+        id: 1,
+        name: 'Hammad Hassan',
+        email: 'hh@yahoo.com',
+        img: 'user',
+        date: 'January 7, 2020',
+        status: 'Completed phone screening',
+      },
+      {
+        id: 2,
+        name: 'Hammad Hassan',
+        email: 'hh@yahoo.com',
+        img: 'user',
+        date: 'January 7, 2020',
+        status: 'Completed phone screening',
+      },
+      {
+        id: 3,
+        name: 'Hammad Hassan',
+        email: 'hh@yahoo.com',
+        img: 'user',
+        date: 'January 7, 2020',
+        status: 'Completed phone screening',
+      },
+    ]`,
   ]
 
   public stackedList: StackedList[] = [
