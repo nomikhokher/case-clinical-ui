@@ -76,22 +76,12 @@ export class DevButtonComponent {
 
   constructor(private readonly store: DevButtonStore) {}
   public codePreview = [
-    `<ui-button label="Indigo" type="button" color="indigo"></ui-button>`,
-    `<ui-button label="red" type="button" color="red"></ui-button>`,
-    `<ui-button label="Gray" type="button" color="gray"></ui-button>`,
-    `<ui-button [disabled]="true" label="Disabled" type="button" color="red"></ui-button>`,
-    `<ui-button
-    label="Border 3D "
-    type="button"
-    color="green"
-    border="border-b-4 border-green-900 rounded"
-  ></ui-button>`,
-    `<ui-button label="Rounded Full " type="button" color="red" border="rounded-full"></ui-button>`,
-    ` <ui-button
-    label="Transparent"
-    type="button"
-    color="transparent"
-    border="border border-blue-500 hover:border-transparent text-blue-700 rounded"
-  ></ui-button>`,
+    ` import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="Indigo" type="button" color="indigo"></ui-button>`,
+    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="red" type="button" color="red"></ui-button>`,
+    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="Gray" type="button" color="gray"></ui-button>`,
+    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button [disabled]="true" label="Disabled" type="button" color="red"></ui-button>`,
+    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="Border 3D "type="button" color="green" border="border-b-4 border-green-900 rounded"></ui-button>`,
+    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="Rounded Full " type="button" color="red" border="rounded-full"></ui-button>`,
+    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="Transparent" type="button" color="transparent" border="border border-blue-500 hover:border-transparent text-blue-700 rounded"></ui-button>`,
   ]
 }

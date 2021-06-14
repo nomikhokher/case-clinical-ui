@@ -53,7 +53,8 @@ export class DevModalComponent {
 
   constructor(private readonly store: DevModalStore) {}
   public codePreview = [
-    `<ui-modal [closeButton]="true" width="lg" [display]="true">
+    `import { WebUiModalModule } from '@schema-driven/web/ui/modal' \n\n
+     <ui-modal [closeButton]="true" width="lg" [display]="true">
     <div>
       <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
         <svg

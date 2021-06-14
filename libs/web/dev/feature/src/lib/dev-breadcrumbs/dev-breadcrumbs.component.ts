@@ -14,5 +14,7 @@ import { DevBreadcrumbsStore } from './dev-breadcrumbs.store'
 export class DevBreadcrumbsComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevBreadcrumbsStore) {}
-  public codePreview = [`<ui-breadcrumbs [crumbs]="vm.crumbs"></ui-breadcrumbs>`]
+  public codePreview = [
+    `import { WebUiBreadcrumbsModule } from '@schema-driven/web/ui/breadcrumbs'\n\n<ui-breadcrumbs [crumbs]="vm.crumbs"></ui-breadcrumbs>\n\n readonly vm$ = this.store.vm$`,
+  ]
 }

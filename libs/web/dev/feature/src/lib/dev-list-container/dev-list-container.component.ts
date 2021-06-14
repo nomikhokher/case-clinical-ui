@@ -36,17 +36,17 @@ export class DevListContainerComponent {
   public roundedDividers: boolean = true
   constructor(private readonly store: DevListContainerStore) {}
   public codePreview = [
-    `<ui-list-container [classNames]="''" [roundedDividers]="">
+    `import { WebUiListContainerModule } from '@schema-driven/web/ui/list-container'\n\n<ui-list-container [classNames]="''" [roundedDividers]="">
     <ng-container class="roundedDividers">
       <p class="py-4">Simple with dividers</p>
       <p class="py-4">Simple with dividers</p>
     </ng-container>
   </ui-list-container>`,
-    `<ui-list-container [classNames]="''" [roundedDividers]="roundedDividers">
+    `import { WebUiListContainerModule } from '@schema-driven/web/ui/list-container'\n\n<ui-list-container [classNames]="''" [roundedDividers]="roundedDividers">
     <ng-container class="roundedDividersNot">
       <p class="py-4">Simple with dividers</p>
       <p class="py-4">Simple with dividers</p>
     </ng-container>
-  </ui-list-container>`,
+  </ui-list-container> \n\n roundedDividers = true`,
   ]
 }

@@ -95,7 +95,9 @@ export class DevAlertComponent {
   @ViewChild(WebUiPreviewComponent) component_preview: WebUiPreviewComponent
   @ViewChildren(WebUiAlertComponent) items: QueryList<WebUiAlertComponent>
   public codePreview = [
-    `<ui-alert
+    `import { WebUiAlertModule } from '@schema-driven/web/ui/alert'
+    \n\n
+    <ui-alert
     class="mb-4 mt-4"
     subject="Attention needed"
     message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam quo totam eius aperiam dolorum."
@@ -103,7 +105,8 @@ export class DevAlertComponent {
     icon="exclamation"
     [icon_show]="true"
   ></ui-alert>`,
-    `<ui-alert
+    `import { WebUiAlertModule } from '@schema-driven/web/ui/alert'
+    \n\n<ui-alert
   icon="x_circle"
   [icon_show]="true"
   class="mb-4 mt-4"
@@ -111,7 +114,8 @@ export class DevAlertComponent {
   bg_color="danger"
   [list]="_list()"
 ></ui-alert>`,
-    ` <ui-alert
+    `import { WebUiAlertModule } from '@schema-driven/web/ui/alert'
+    \n\n <ui-alert
 [icon_show]="true"
 icon="check_circle"
 class="mb-4 mt-4"
@@ -120,14 +124,16 @@ message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariat
 bg_color="success"
 [actionLink]="_actionLink()"
 ></ui-alert>`,
-    ` <ui-alert
+    ` import { WebUiAlertModule } from '@schema-driven/web/ui/alert'
+    \n\n<ui-alert
 class="mb-4 mt-4"
 [icon_show]="true"
 icon="information_circle"
 message="A new software update is available. See what’s new in version 2.0.4."
 bg_color="info"
 ></ui-alert>`,
-    `<ui-alert
+    `import { WebUiAlertModule } from '@schema-driven/web/ui/alert'
+    \n\n<ui-alert
 icon="check_circle"
 [icon_show]="true"
 class="mb-4 mt-4 desh"
@@ -135,7 +141,8 @@ class="mb-4 mt-4 desh"
 bg_color="warning"
 [accent_border]="true"
 ></ui-alert>`,
-    `<ui-alert
+    `import { WebUiAlertModule } from '@schema-driven/web/ui/alert'
+    \n\n<ui-alert
 icon="check_circle"
 [icon_show]="true"
 class="mb-4 mt-4"

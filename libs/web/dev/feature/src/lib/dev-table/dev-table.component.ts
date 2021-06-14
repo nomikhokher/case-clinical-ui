@@ -27,5 +27,7 @@ import { DevTableStore } from './dev-table.store'
 export class DevTableComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevTableStore) {}
-  public codePreview = [`<ui-table [cols]="demo.cols" [data]="demo.data"></ui-table>`]
+  public codePreview = [
+    `import { WebUiTableModule } from '@schema-driven/web/ui/table'\n\n<ui-table [cols]="demo.cols" [data]="demo.data"></ui-table>`,
+  ]
 }
