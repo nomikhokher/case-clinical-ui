@@ -91,5 +91,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/full-calendar',
     '<rootDir>/libs/web/ui/tree',
     '<rootDir>/libs/web/ui/vertical-navigation',
+    '<rootDir>/libs/web/ui/navbars',
   ],
 }

@@ -80,6 +80,7 @@
       "@schema-driven/web/ui/mini-calendar": ["libs/web/ui/mini-calendar/src/index.ts"],
       "@schema-driven/web/ui/modal": ["libs/web/ui/modal/src/index.ts"],
       "@schema-driven/web/ui/narrow-avatar-list": ["libs/web/ui/narrow-avatar-list/src/index.ts"],
+      "@schema-driven/web/ui/navbars": ["libs/web/ui/navbars/src/index.ts"],
       "@schema-driven/web/ui/notification": ["libs/web/ui/notification/src/index.ts"],
       "@schema-driven/web/ui/notification-image": ["libs/web/ui/notification-image/src/index.ts"],
       "@schema-driven/web/ui/page": ["libs/web/ui/page/src/index.ts"],

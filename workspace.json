@@ -1569,6 +1569,28 @@
         }
       }
     },
+    "web-ui-navbars": {
+      "projectType": "library",
+      "root": "libs/web/ui/navbars",
+      "sourceRoot": "libs/web/ui/navbars/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/navbars/src/**/*.ts", "libs/web/ui/navbars/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/navbars"],
+          "options": {
+            "jestConfig": "libs/web/ui/navbars/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-notification": {
       "projectType": "library",
       "root": "libs/web/ui/notification",
