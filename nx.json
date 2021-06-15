@@ -305,6 +305,9 @@
     },
     "web-ui-two-column-stacked-list": {
       "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-vertical-navigation": {
+      "tags": ["scope:web", "type:ui"]
     }
   },
   "plugins": {
