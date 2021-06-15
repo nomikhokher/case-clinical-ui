@@ -1126,6 +1126,31 @@
         }
       }
     },
+    "web-ui-description-list": {
+      "projectType": "library",
+      "root": "libs/web/ui/description-list",
+      "sourceRoot": "libs/web/ui/description-list/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/description-list/src/**/*.ts",
+              "libs/web/ui/description-list/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/description-list"],
+          "options": {
+            "jestConfig": "libs/web/ui/description-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-divider": {
       "projectType": "library",
       "root": "libs/web/ui/divider",

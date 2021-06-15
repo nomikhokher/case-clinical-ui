@@ -168,6 +168,9 @@
     "web-ui-container": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-description-list": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-divider": {
       "tags": ["scope:web", "type:ui"]
     },
