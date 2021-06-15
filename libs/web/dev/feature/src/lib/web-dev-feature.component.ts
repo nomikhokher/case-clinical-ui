@@ -56,6 +56,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Description List',
+              path: 'description-list',
+              img: '/assets/images/description-lists.png',
+              childs: [
+                {
+                  name: 'Description List',
+                },
+              ],
+            },
           ],
         },
         {
@@ -343,6 +353,26 @@ export class WebDevFeatureComponent {
               childs: [
                 {
                   name: 'Pagination',
+                },
+              ],
+            },
+            {
+              label: 'Vertical Navigation',
+              path: 'vertical-nav',
+              img: '/assets/images/tabs.png',
+              childs: [
+                {
+                  name: 'Vertical Navigation',
+                },
+              ],
+            },
+            {
+              label: 'Navbars',
+              path: 'navbars',
+              img: '/assets/images/tabs.png',
+              childs: [
+                {
+                  name: 'Navbars',
                 },
               ],
             },
