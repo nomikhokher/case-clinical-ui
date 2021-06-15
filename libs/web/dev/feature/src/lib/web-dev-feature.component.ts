@@ -346,6 +346,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Vertical Navigation',
+              path: 'vertical-nav',
+              img: '/assets/images/tabs.png',
+              childs: [
+                {
+                  name: 'Vertical Navigation',
+                },
+              ],
+            },
           ],
         },
         {
