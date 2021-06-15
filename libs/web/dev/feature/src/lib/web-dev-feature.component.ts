@@ -56,6 +56,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Description List',
+              path: 'description-list',
+              img: '/assets/images/description-lists.png',
+              childs: [
+                {
+                  name: 'Description List',
+                },
+              ],
+            },
           ],
         },
         {
