@@ -366,6 +366,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Navbars',
+              path: 'navbars',
+              img: '/assets/images/tabs.png',
+              childs: [
+                {
+                  name: 'Navbars',
+                },
+              ],
+            },
           ],
         },
         {
