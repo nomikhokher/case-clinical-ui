@@ -91,6 +91,7 @@
     "graphql-type-json": "^0.3.2",
     "joi": "^17.2.1",
     "ng-click-outside": "^8.0.0",
+    "ngx-daterangepicker-material": "^5.0.0",
     "ngx-json-viewer": "^3.0.2",
     "nx": "^12.3.6",
     "passport": "^0.4.1",
