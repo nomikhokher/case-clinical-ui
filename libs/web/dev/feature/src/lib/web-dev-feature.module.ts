@@ -115,6 +115,7 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             path: 'paginations',
             loadChildren: () => import('./dev-pagination/dev-pagination.module').then((m) => m.DevPaginationModule),
           },
+          { path: 'navbars', loadChildren: () => import('./navbars/navbars.module').then((m) => m.NavbarsModule) },
         ],
       },
     ]),
