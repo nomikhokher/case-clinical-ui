@@ -106,6 +106,15 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             loadChildren: () =>
               import('./dev-full-calendar/dev-full-calendar.module').then((m) => m.DevFullCalendarModule),
           },
+          {
+            path: 'vertical-nav',
+            loadChildren: () =>
+              import('./vertical-navigation/vertical-navigation.module').then((m) => m.VerticalNavigationModule),
+          },
+          {
+            path: 'paginations',
+            loadChildren: () => import('./dev-pagination/dev-pagination.module').then((m) => m.DevPaginationModule),
+          },
         ],
       },
     ]),

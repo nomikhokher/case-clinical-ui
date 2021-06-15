@@ -2183,6 +2183,31 @@
           }
         }
       }
+    },
+    "web-ui-vertical-navigation": {
+      "projectType": "library",
+      "root": "libs/web/ui/vertical-navigation",
+      "sourceRoot": "libs/web/ui/vertical-navigation/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/vertical-navigation/src/**/*.ts",
+              "libs/web/ui/vertical-navigation/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/vertical-navigation"],
+          "options": {
+            "jestConfig": "libs/web/ui/vertical-navigation/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

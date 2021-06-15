@@ -106,7 +106,8 @@
       "@schema-driven/web/ui/table": ["libs/web/ui/table/src/index.ts"],
       "@schema-driven/web/ui/toast": ["libs/web/ui/toast/src/index.ts"],
       "@schema-driven/web/ui/tree": ["libs/web/ui/tree/src/index.ts"],
-      "@schema-driven/web/ui/two-column-stacked-list": ["libs/web/ui/two-column-stacked-list/src/index.ts"]
+      "@schema-driven/web/ui/two-column-stacked-list": ["libs/web/ui/two-column-stacked-list/src/index.ts"],
+      "@schema-driven/web/ui/vertical-navigation": ["libs/web/ui/vertical-navigation/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
