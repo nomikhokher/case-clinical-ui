@@ -6633,6 +6633,11 @@ date-fns@^1.27.2:
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
   integrity sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
 
+dayjs@^1.10.4:
+  version "1.10.5"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.5.tgz#5600df4548fc2453b3f163ebb2abbe965ccfb986"
+  integrity sha512-BUFis41ikLz+65iH6LHQCDm4YPMj5r1YFLdupPIyM4SGcXMmtiLQ7U37i+hGS8urIuqe7I/ou3IS1jVc4nbN4g==
+
 debounce@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.2.0.tgz#44a540abc0ea9943018dc0eaa95cce87f65cd131"
@@ -11170,6 +11175,14 @@ ng-click-outside@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/ng-click-outside/-/ng-click-outside-8.0.0.tgz#3d537963737eaefe0a7f2d41b2ddec5f3a6a573f"
   integrity sha512-CVzddAMjaGS2hTVWu313fS/ksaAqg6O90xqVOJoCVhmZ7E7+i0nFeTWEqNsppi0Fe9GntuAAphN/eWBz6+0Low==
+
+ngx-daterangepicker-material@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-daterangepicker-material/-/ngx-daterangepicker-material-5.0.0.tgz#f50e91bb470bb01813b8569b72f3493c1782ba17"
+  integrity sha512-e654J+z3oUuult4HmKi1hMM6u0WExNh4YmpPRNFpGPPz+R57eh9TGgI2Lx+HZ5HNnHhZNjBgezm9LPspxxH38w==
+  dependencies:
+    dayjs "^1.10.4"
+    tslib "^2.0.0"
 
 ngx-json-viewer@^3.0.2:
   version "3.0.2"
