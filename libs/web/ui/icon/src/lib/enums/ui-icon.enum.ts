@@ -32,4 +32,10 @@ export enum UiIcon {
   about = 'about',
   account = 'account',
   development = 'development',
+  home = 'home',
+  report = 'report',
+  calendar = 'calendar',
+  team = 'team',
+  document = 'document',
+  project = 'project',
 }
