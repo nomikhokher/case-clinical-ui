@@ -338,7 +338,7 @@ export class WebDevFeatureComponent {
             },
             {
               label: 'Tabs',
-              path: 'code',
+              path: 'tabs',
               img: '/assets/images/tabs.png',
               childs: [
                 {
