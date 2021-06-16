@@ -44,6 +44,21 @@ export class WebDevFeatureComponent {
           ],
         },
         {
+          name: 'Headings',
+          childs: [
+            {
+              label: 'Page Headings',
+              path: 'page-headings',
+              img: '/assets/images/page-headings.png',
+              childs: [
+                {
+                  name: 'Page Headings',
+                },
+              ],
+            },
+          ],
+        },
+        {
           name: 'Data Display',
           childs: [
             {

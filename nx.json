@@ -246,6 +246,9 @@
     "web-ui-page-header": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-page-headings": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-pagination": {
       "tags": ["scope:web", "type:ui"]
     },
