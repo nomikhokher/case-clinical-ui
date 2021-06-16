@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core'
 @Component({
   selector: 'ui-navbars',
   template: `
-    <nav class="bg-gray-800" *ngIf="singleNav == true">
+    <nav class="bg-gray-800 dark:bg-white" *ngIf="singleNav == true">
       <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
           <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -55,7 +55,7 @@ import { Component, Input } from '@angular/core'
               <div class="flex space-x-4">
                 <a
                   href="#"
-                  class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  class="text-gray-300 dark:text-gray-900 dark:hover:text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   aria-current="page"
                   *ngFor="let item of menuItems"
                   >{{ item.menu }}</a
@@ -70,7 +70,7 @@ import { Component, Input } from '@angular/core'
                   <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <!-- Heroicon name: solid/search -->
                     <svg
-                      class="h-5 w-5 text-gray-400"
+                      class="h-5 w-5 text-gray-400 dark:text-gray-700"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
@@ -86,7 +86,7 @@ import { Component, Input } from '@angular/core'
                   <input
                     id="search"
                     name="search"
-                    class="block w-full bg-gray-700 border border-transparent rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 focus:placeholder-gray-500 sm:text-sm"
+                    class="block w-full dark:bg-white dark:shadow dark:border-gray-900 bg-gray-700 border border-transparent rounded-md py-2 pl-10 pr-3 text-sm dark:placeholder-gray-700 placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 dark:focus:placeholder-gray-400 focus:placeholder-gray-500 sm:text-sm"
                     placeholder="Search"
                     type="search"
                   />
@@ -118,7 +118,7 @@ import { Component, Input } from '@angular/core'
               </button>
             </div>
             <button
-              class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+              class="bg-gray-800 p-1 dark:text-gray-900 dark:bg-white dark:hover:text-gray-500 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
             >
               <span class="sr-only">View notifications</span>
               <svg
@@ -158,7 +158,7 @@ import { Component, Input } from '@angular/core'
 
               <div
                 *ngIf="isMenu"
-                class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                class="origin-top-right absolute dark:text-gary-700 right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="user-menu-button"
@@ -166,7 +166,7 @@ import { Component, Input } from '@angular/core'
               >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-sm text-gray-700"
+                  class="block px-4 py-2 text-sm text-gray-700 dark:text-gary-700"
                   role="menuitem"
                   tabindex="-1"
                   id="user-menu-item-0"
@@ -184,7 +184,7 @@ import { Component, Input } from '@angular/core'
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
           <a
             href="#"
-            class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            class="text-gray-300 dark:text-gary-700 dark:text-gray-700 dark:hover:text-white hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             *ngFor="let item of menuItems"
             >{{ item.menu }}</a
           >
@@ -192,7 +192,7 @@ import { Component, Input } from '@angular/core'
       </div>
     </nav>
 
-    <header class="bg-gray-800" *ngIf="doubleNav == true">
+    <header class="bg-gray-800 dark:bg-white" *ngIf="doubleNav == true">
       <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:divide-y lg:divide-gray-700 lg:px-8">
         <div class="relative h-16 flex justify-between">
           <div class="relative z-10 px-2 flex lg:px-0">
@@ -211,7 +211,7 @@ import { Component, Input } from '@angular/core'
                 <div class="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
                   <!-- Heroicon name: solid/search -->
                   <svg
-                    class="h-5 w-5 text-gray-400"
+                    class="h-5 w-5 text-gray-400 dark:text-gray-700"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
@@ -227,7 +227,7 @@ import { Component, Input } from '@angular/core'
                 <input
                   id="search"
                   name="search"
-                  class="block w-full bg-gray-700 border border-transparent rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 focus:placeholder-gray-500 sm:text-sm"
+                  class="block w-full dark:bg-white dark:border-gray-700 bg-gray-700 border border-transparent rounded-md py-2 pl-10 pr-3 text-sm dark:placeholder-gray-700 dark:hover:placeholder-gray-400 placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 focus:placeholder-gray-500 dark:focus:placeholder-gray-400 sm:text-sm"
                   placeholder="Search"
                   type="search"
                 />
@@ -269,7 +269,7 @@ import { Component, Input } from '@angular/core'
           </div>
           <div class="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
             <button
-              class="bg-gray-800 flex-shrink-0 rounded-full p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+              class="bg-gray-800 flex-shrink-0 rounded-full p-1 dark:bg-white dark:text-gray-700 dark:hover:text-gray-500 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
             >
               <span class="sr-only">View notifications</span>
               <!-- Heroicon name: outline/bell -->
@@ -330,7 +330,7 @@ import { Component, Input } from '@angular/core'
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
           <a
             href="#"
-            class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium"
+            class="text-gray-300 dark:text-gray-700 dark:hover:text-white hover:bg-gray-700 hover:text-white rounded-md py-2 px-3 inline-flex items-center text-sm font-medium"
             *ngFor="let item of menuItems"
           >
             {{ item.menu }}
@@ -343,7 +343,7 @@ import { Component, Input } from '@angular/core'
         <div class="pt-2 pb-3 px-2 space-y-1">
           <a
             href="#"
-            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium"
+            class="text-gray-300 dark:text-gray-700 hover:bg-gray-700 dark:hover:text-white hover:text-white block rounded-md py-2 px-3 text-base font-medium"
             *ngFor="let item of menuItems"
           >
             {{ item.menu }}
@@ -363,7 +363,7 @@ import { Component, Input } from '@angular/core'
               <div class="text-sm font-medium text-gray-400">tom@example.com</div>
             </div>
             <button
-              class="ml-auto flex-shrink-0 bg-gray-800 rounded-full p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+              class="ml-auto flex-shrink-0 bg-gray-800 rounded-full dark:text-gray-700 dark:bg-white p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
             >
               <span class="sr-only">View notifications</span>
               <!-- Heroicon name: outline/bell -->
@@ -396,7 +396,7 @@ import { Component, Input } from '@angular/core'
       </nav>
     </header>
 
-    <header class="bg-gray-800 shadow-sm lg:static lg:overflow-y-visible" *ngIf="centerSearchNav == true">
+    <header class="bg-gray-800 shadow-sm lg:static lg:overflow-y-visible dark:bg-white" *ngIf="centerSearchNav == true">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="relative flex justify-between xl:grid xl:grid-cols-12 lg:gap-8">
           <div class="flex md:absolute md:left-0 md:inset-y-0 lg:static xl:col-span-2">
@@ -418,7 +418,7 @@ import { Component, Input } from '@angular/core'
                   <div class="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
                     <!-- Heroicon name: solid/search -->
                     <svg
-                      class="h-5 w-5 text-gray-400"
+                      class="h-5 w-5 text-gray-400 dark:text-gray-700"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
@@ -434,7 +434,7 @@ import { Component, Input } from '@angular/core'
                   <input
                     id="search"
                     name="search"
-                    class="block w-full bg-gray-700 border border-transparent rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 focus:placeholder-gray-500 sm:text-sm"
+                    class="block w-full bg-gray-700 border  border-transparent rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:outline-none focus:bg-white dark:border-gray-700 dark:bg-white focus:border-white focus:ring-white dark:placeholder-gray-700 focus:text-gray-900 focus:placeholder-gray-500 dark:focus:placeholder-gray-400 sm:text-sm"
                     placeholder="Search"
                     type="search"
                   />
@@ -477,7 +477,7 @@ import { Component, Input } from '@angular/core'
           <div class="hidden lg:flex lg:items-center lg:justify-end xl:col-span-4">
             <a
               href="#"
-              class="ml-5 flex-shrink-0 bg-gray-800 rounded-full p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              class="ml-5 flex-shrink-0 bg-gray-800 dark:bg-white dark:text-gray-700 dark:hover:text-gray-500 rounded-full p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               <span class="sr-only">View notifications</span>
 
@@ -552,7 +552,7 @@ import { Component, Input } from '@angular/core'
           <a
             href="#"
             aria-current="page"
-            class="hover:bg-gray-50 block rounded-md py-2 px-3 text-base font-medium text-gray-900"
+            class="hover:bg-gray-700 text-gray-300  block dark:text-gray-700 dark:hover:text-white rounded-md py-2 px-3 text-base font-medium "
             *ngFor="let item of menuItems"
             >{{ item.menu }}</a
           >
