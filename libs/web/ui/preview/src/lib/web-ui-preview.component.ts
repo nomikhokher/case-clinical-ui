@@ -8,10 +8,10 @@ enum DisplayMode {
 @Component({
   selector: 'ui-preview',
   template: `
-    <div>
+    <div class="mb-8">
       <div>
         <div class="flex items-center justify-between py-2">
-          <h3 class="text-lg font-medium text-gray-700">Simple Stats</h3>
+          <h3 class="text-lg font-medium text-gray-700">{{ title }}</h3>
           <div class="flex items-center">
             <div>
               <div class="sm:hidden">
@@ -106,7 +106,7 @@ enum DisplayMode {
             </div>
           </div>
         </div>
-        <div class="p-8 dark:bg-gray-800 bg-gray-50 bg-opacity-70 rounded-lg">
+        <div class="p-8 dark:bg-gray-800 bg-gray-50 bg-opacity-70 sm:rounded-lg shadow">
           <ng-container *ngIf="activeTab === DISPLAY_MODE.Preview">
             <ng-content></ng-content>
           </ng-container>
@@ -115,12 +115,84 @@ enum DisplayMode {
           </ng-container>
         </div>
       </div>
+
+      <!-- This example requires Tailwind CSS v2.0+ -->
+      <div class="flex flex-col mt-4">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Prop
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Data Type
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Value
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Title</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">String</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <div>
+                        <div class="relative rounded-md shadow-sm">
+                          <input
+                            type="text"
+                            name="account_number"
+                            id="account_number"
+                            class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pr-10 sm:text-sm border-gray-300 rounded-md"
+                            placeholder="Default Value"
+                          />
+                          <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                            <button>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5 text-gray-400"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                                />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   `,
 })
 export class WebUiPreviewComponent implements OnInit {
   DISPLAY_MODE: typeof DisplayMode = DisplayMode
 
+  @Input() title?: string
   @Input() code?: string
   @Input() lang?: string
   @Input() component_preview?: string
