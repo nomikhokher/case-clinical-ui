@@ -54,40 +54,10 @@ export class WebLayoutStore extends ComponentStore<WebLayoutState> {
         { label: 'Admin', route: '/admin', role: Role.Admin },
       ],
       profileLinks: [
-        {
-          title: 'Application',
-          subTitle: 'unique dashboard designs',
-          icon: 'dashboard',
-          dropDown: false,
-          childs: [
-            {
-              label: 'Dashboard',
-              icon: 'dashboard',
-              dropDown: false,
-              route: '/dashboard',
-            },
-            {
-              label: 'Components',
-              dropDown: false,
-
-              route: '/dev',
-              role: Role.Admin,
-              icon: 'development',
-            },
-          ],
-        },
-        {
-          title: 'User',
-          subTitle: 'unique dashboard designs',
-          icon: 'development',
-          dropDown: false,
-          childs: [
-            { label: 'Your Account', route: '/account', icon: 'account' },
-            { label: 'Admin', route: '/admin', role: Role.Admin, icon: 'user' },
-            { label: 'About', route: '/about', icon: 'about' },
-            { label: 'Logout', route: '/logout', icon: 'logout' },
-          ],
-        },
+        { label: 'Your Account', route: '/account', icon: 'account' },
+        { label: 'Admin', route: '/admin', role: Role.Admin, icon: 'user' },
+        { label: 'About', route: '/about', icon: 'about' },
+        { label: 'Logout', route: '/logout', icon: 'logout' },
       ],
     })
   }

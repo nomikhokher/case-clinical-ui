@@ -12,84 +12,86 @@ import colors from 'tailwindcss/colors'
             [logo]="vm?.layout?.logo"
             [links]="vm?.links?.main"
             [user]="vm?.user"
-            [profileLinks]="vm.links?.profile"
+            [profileLinks]="vm?.profileLinks"
           ></ui-stacked-simple>
+
           <ui-sidebar-classy
             *ngIf="layout === 'classy'"
             [logo]="vm?.layout?.logo"
-            [links]="vm?.links?.main"
+            [links]="vm?.links"
             [user]="vm?.user"
-            [profileLinks]="vm.links?.profile"
+            [profileLinks]="vm?.profileLinks"
           ></ui-sidebar-classy>
+
           <ui-sidebar-classic
             *ngIf="layout === 'classic'"
             [logo]="vm?.layout?.logo"
             [links]="vm?.links?.main"
             [user]="vm?.user"
-            [profileLinks]="vm.links?.profile"
+            [profileLinks]="vm?.profileLinks"
           >
           </ui-sidebar-classic>
 
           <ui-stacked-modern
             *ngIf="layout === 'modern'"
             [logo]="vm?.layout?.logo"
-            [links]="vm?.links?.main"
+            [links]="vm?.links"
             [user]="vm?.user"
-            [profileLinks]="vm.links?.profile"
+            [profileLinks]="vm?.profileLinks"
           >
           </ui-stacked-modern>
 
           <ui-stacked-enterprise
             *ngIf="layout === 'enterprise'"
             [logo]="vm?.layout?.logo"
-            [links]="vm?.links?.main"
+            [links]="vm?.links"
             [user]="vm?.user"
-            [profileLinks]="vm.links?.profile"
+            [profileLinks]="vm?.profileLinks"
           >
           </ui-stacked-enterprise>
 
           <ui-stacked-centered
             *ngIf="layout === 'centered'"
             [logo]="vm?.layout?.logo"
-            [links]="vm?.links?.main"
+            [links]="vm?.links"
             [user]="vm?.user"
-            [profileLinks]="vm.links?.profile"
+            [profileLinks]="vm?.profileLinks"
           >
           </ui-stacked-centered>
 
           <ui-sidebar-compact
             *ngIf="layout === 'compact'"
             [logo]="vm?.layout?.logo"
-            [links]="vm?.links?.main"
+            [links]="vm?.links"
             [user]="vm?.user"
-            [profileLinks]="vm.links?.profile"
+            [profileLinks]="vm?.profileLinks"
           >
           </ui-sidebar-compact>
 
           <ui-sidebar-dense
             *ngIf="layout === 'dense'"
             [logo]="vm?.layout?.logo"
-            [links]="vm?.links?.main"
+            [links]="vm?.links"
             [user]="vm?.user"
-            [profileLinks]="vm.links?.profile"
+            [profileLinks]="vm?.profileLinks"
           >
           </ui-sidebar-dense>
 
           <ui-sidebar-futuristic
             *ngIf="layout === 'futuristic'"
             [logo]="vm?.layout?.logo"
-            [links]="vm?.links?.main"
+            [links]="vm?.links"
             [user]="vm?.user"
-            [profileLinks]="vm.links?.profile"
+            [profileLinks]="vm?.profileLinks"
           >
           </ui-sidebar-futuristic>
 
           <ui-sidebar-thin
             *ngIf="layout === 'thin'"
             [logo]="vm?.layout?.logo"
-            [links]="vm?.links?.main"
+            [links]="vm?.links"
             [user]="vm?.user"
-            [profileLinks]="vm.links?.profile"
+            [profileLinks]="vm?.profileLinks"
           >
           </ui-sidebar-thin>
         </div>

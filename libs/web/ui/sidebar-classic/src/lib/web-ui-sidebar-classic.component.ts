@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core'
 import { User } from '@schema-driven/web/core/data-access'
+import { WebLayoutLink } from '@schema-driven/web/layout'
+
 @Component({
   selector: 'ui-sidebar-classic',
   styles: [
@@ -90,15 +92,14 @@ import { User } from '@schema-driven/web/core/data-access'
           </div>
           <div class="mt-5 flex-1 h-0 overflow-y-auto aside-scrollbar">
             <nav class="px-2 space-y-1">
-              <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-indigo-600" -->
               <div>
-                <ng-container *ngFor="let link of profileLinks">
+                <ng-container *ngFor="let link of links">
                   <div class="relative group">
                     <div class="p-3 my-3 rounded-md">
                       <p class="uppercase text-gray-100 text-sm font-semibold">{{ link.title }}</p>
                       <p class="capitalize text-gray-200 text-xs">{{ link.subTitle }}</p>
                     </div>
-                    <ng-container *ngFor="let child of link.childs">
+                    <ng-container *ngFor="let child of link">
                       <a
                         [routerLink]="child.route"
                         class="theme-color-100 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
@@ -208,9 +209,10 @@ import { User } from '@schema-driven/web/core/data-access'
             <div class="mt-5 flex-1 flex flex-col">
               <nav class="flex-1 px-2 space-y-1">
                 <div class="mt-4">
-                  <ng-container *ngFor="let link of profileLinks">
+                  <ng-container *ngFor="let link of links">
                     <div class="relative group">
                       <div class="p-3 my-3 rounded-md">
+                        {{ console.log('links', links) }}
                         <p class="uppercase text-gray-100 text-sm font-semibold">{{ link.title }}</p>
                         <p class="capitalize text-gray-200 text-xs">{{ link.subTitle }}</p>
                       </div>
@@ -418,15 +420,18 @@ import { User } from '@schema-driven/web/core/data-access'
                   aria-labelledby="user-menu-button"
                   tabindex="-1"
                 >
+                  <ng-container *ngFor="let link of profileLinks">
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-gray-700"
+                      role="menuitem"
+                      tabindex="-1"
+                      id="user-menu-item-0"
+                    >
+                      {{ link.label }}
+                    </a>
+                  </ng-container>
                   <!-- Active: "bg-gray-100", Not Active: "" -->
-                  <a
-                    href="#"
-                    class="block px-4 py-2 text-sm text-gray-700"
-                    role="menuitem"
-                    tabindex="-1"
-                    id="user-menu-item-0"
-                    >Your Profile</a
-                  >
 
                   <a
                     href="#"
@@ -454,16 +459,11 @@ import { User } from '@schema-driven/web/core/data-access'
         <main class="flex-1 relative overflow-y-auto focus:outline-none bg-white dark:bg-gray-900 dark:text-gray-300">
           <div class="py-6">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              <!-- <h1 class="text-2xl font-semibold text-gray-900 dark:text-gray-300">Dashboard</h1> -->
-            </div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              <!-- Replace with your content -->
               <div class="py-4">
                 <div class="h-auto">
                   <router-outlet></router-outlet>
                 </div>
               </div>
-              <!-- /End replace -->
             </div>
           </div>
         </main>
@@ -472,30 +472,14 @@ import { User } from '@schema-driven/web/core/data-access'
   `,
 })
 export class WebUiSidebarClassicComponent {
+  @Input() notificationsLink?: string
+  @Input() user?: User
+  @Input() links: WebLayoutLink[] = []
+  @Input() profileLinks: WebLayoutLink[] = []
+  @Input() logo: string
+
   public showMenu = false
-  // public asideWidth: number = 72
   public asideMobileWidth: number = 0
   public drownDownMenu: boolean = false
   public mobileSideBar: boolean = false
-  @Input() notificationsLink?: string
-  @Input() user?: User
-  @Input() links: { label: string; route: string }[] = []
-  @Input() profileLinks: { label: string; route: string }[] = []
-  @Input() logo: string
-
-  // asideBarWith() {
-  //   if (window.innerWidth <= 640) {
-  //     if (this.asideMobileWidth == 0) {
-  //       this.asideMobileWidth = 72
-  //     } else {
-  //       this.asideMobileWidth = 0
-  //     }
-  //   } else {
-  //     if (this.asideWidth == 72) {
-  //       this.asideWidth = 0
-  //     } else {
-  //       this.asideWidth = 72
-  //     }
-  //   }
-  // }
 }
