@@ -325,6 +325,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Tree',
               path: 'tree',
+              img: '/assets/images/vertical-navigation.png',
               childs: [
                 {
                   name: 'Tree',

@@ -4,17 +4,17 @@ import { Component, Input } from '@angular/core'
   selector: 'ui-stats',
   template: `
     <div>
-      <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <dl class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         <div
-          class="relative bg-white-500 pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow overflow-hidden"
+          class="relative bg-white pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow overflow-hidden md:rounded-lg"
           [ngClass]="
             stats.border_none === 'first' ? 'rounded-l' : stats.border_none === 'last' ? 'rounded-r' : 'rounded-lg'
           "
         >
           <dt>
             <ng-container *ngIf="stats.icon">
-              <div class="absolute bg-indigo-500 rounded-md p-3">
-                <ui-icon [icon]="stats.icon"></ui-icon>
+              <div class="absolute bg-indigo-500 rounded-md flex items-center justify-center h-8 w-8">
+                <ui-icon class="text-white h-5 w-5" [icon]="stats.icon"></ui-icon>
               </div>
             </ng-container>
             <p class="text-sm font-medium text-gray-500 truncate" [ngClass]="stats.icon && 'ml-16'">
