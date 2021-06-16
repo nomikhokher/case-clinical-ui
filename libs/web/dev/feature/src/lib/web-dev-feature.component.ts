@@ -353,7 +353,7 @@ export class WebDevFeatureComponent {
             },
             {
               label: 'Tabs',
-              path: 'code',
+              path: 'tabs',
               img: '/assets/images/tabs.png',
               childs: [
                 {
@@ -364,7 +364,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Pagination',
               path: 'paginations',
-              img: '/assets/images/tabs.png',
+              img: '/assets/images/pagination.png',
               childs: [
                 {
                   name: 'Pagination',
@@ -374,10 +374,20 @@ export class WebDevFeatureComponent {
             {
               label: 'Vertical Navigation',
               path: 'vertical-nav',
-              img: '/assets/images/tabs.png',
+              img: '/assets/images/vertical-navigation.png',
               childs: [
                 {
                   name: 'Vertical Navigation',
+                },
+              ],
+            },
+            {
+              label: 'Navbars',
+              path: 'navbars',
+              img: '/assets/images/navbars.png',
+              childs: [
+                {
+                  name: 'Navbars',
                 },
               ],
             },
