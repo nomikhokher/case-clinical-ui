@@ -44,4 +44,6 @@ export enum UiIcon {
   team = 'team',
   document = 'document',
   project = 'project',
+  phone = 'phone',
+  email = 'email',
 }
