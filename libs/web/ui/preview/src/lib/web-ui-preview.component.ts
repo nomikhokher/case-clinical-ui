@@ -209,7 +209,7 @@ export class WebUiPreviewComponent implements OnInit {
   code_toggler(value) {
     this.code_toggle = value
   }
-  
+
   handleTabClick(mode: DisplayMode) {
     this.activeTab = mode
   }
