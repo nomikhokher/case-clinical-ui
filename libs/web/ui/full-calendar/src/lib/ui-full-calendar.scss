@@ -37,7 +37,6 @@ b {
 
 .demo-app-main {
   flex-grow: 1;
-  padding: 3em;
 }
 
 .fc {
@@ -158,6 +157,9 @@ input[type='checkbox']:focus {
   position: relative;
   top: -3px;
 }
-.fc-scrollgrid {
+.fc-scrollgrid-sync-table {
   background: #f1f5f9 !important;
+}
+.fc-header-toolbar {
+  padding: 10px;
 }
