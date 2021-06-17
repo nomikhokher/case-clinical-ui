@@ -4,69 +4,24 @@ import { DevTabsStore } from './dev-tab.store'
 
 @Component({
   template: `
-    <ng-container *ngIf="vm$ | async as vm">
-      <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800 flex space-x-6">
-        <ng-container>
-          <div class="flex-1 space-y-1">
-            <ui-tab
-              [options]="vm.tabOptions"
-              [active]="1"
-              [styleType]="1"
-              (tabSelected)="tabSelecteds($event[0], $event[1])"
-            ></ui-tab>
-            <br />
-            <ui-tab
-              [options]="vm.tabOptions"
-              [active]="1"
-              [styleType]="2"
-              (tabSelected)="tabSelecteds($event[0], $event[1])"
-            ></ui-tab>
-            <br />
-            <ui-tab
-              [options]="vm.tabOptions"
-              [active]="1"
-              [styleType]="3"
-              (tabSelected)="tabSelecteds($event[0], $event[1])"
-            ></ui-tab>
-            <br />
-            <ui-tab
-              [options]="vm.tabOptions"
-              [active]="1"
-              [styleType]="4"
-              (tabSelected)="tabSelecteds($event[0], $event[1])"
-            ></ui-tab>
-            <br />
-            <ui-tab
-              [options]="vm.tabOptions"
-              [active]="1"
-              [styleType]="5"
-              (tabSelected)="tabSelecteds($event[0], $event[1])"
-            ></ui-tab>
-            <br />
-            <ui-tab
-              [options]="vm.tabOptions"
-              [active]="1"
-              [styleType]="6"
-              (tabSelected)="tabSelecteds($event[0], $event[1])"
-            ></ui-tab>
-            <br />
-            <ui-tab
-              [options]="vm.tabOptions"
-              [active]="1"
-              [styleType]="7"
-              (tabSelected)="tabSelecteds($event[0], $event[1])"
-            ></ui-tab>
-            <br />
-            <ui-tab
-              [options]="vm.tabOptions"
-              [active]="1"
-              [styleType]="8"
-              (tabSelected)="tabSelecteds($event[0], $event[1])"
-            ></ui-tab>
-          </div>
-        </ng-container>
-      </div>
-    </ng-container>
+    <ui-preview [code]="codePreview[0]">
+      <ui-tab [tabs]="tabs" [style]="style"></ui-tab>
+    </ui-preview>
+    <ui-preview [code]="codePreview[1]">
+      <ui-tab [tabs]="tabsWithIcons" [style]="style"></ui-tab>
+    </ui-preview>
+    <ui-preview [code]="codePreview[2]">
+      <ui-tab [tabs]="tabswithBadges" [style]="style"></ui-tab>
+    </ui-preview>
+    <ui-preview [code]="codePreview[3]">
+      <ui-tab [tabs]="tabs1" [style]="'pills'"></ui-tab>
+    </ui-preview>
+    <ui-preview [code]="codePreview[4]">
+      <ui-tab [tabs]="tabs2" [style]="'full-underline'"></ui-tab>
+    </ui-preview>
+    <ui-preview [code]="codePreview[5]">
+      <ui-tab [tabs]="tabs3" [style]="'bar-underline'"></ui-tab>
+    </ui-preview>
   `,
   providers: [DevTabsStore],
 })
@@ -82,4 +37,59 @@ export class DevTabComponent {
     })
     tab.active = true
   }
+  public codePreview = [
+    `import { WebUiTabModule } from '@schema-driven/web/ui/tab' \n\n <ui-tab [tabs]='tabs' [style]='style'></ui-tab> \n\n style= "underline" \n\n tabs = [
+      {item : "My Account"},
+      {item : "Company"},
+      {item : "Team Member"},
+      {item : "Billing"},
+    ]`,
+    `import { WebUiTabModule } from '@schema-driven/web/ui/tab' \n\n <ui-tab [tabs]='tabsWithIcons' [style]='style'></ui-tab> \n\n  style= "underline" \n\n tabsWithIcons = [
+      {item : "My Account", icon : "user"},
+      {item : "Company", icon : "office"},
+      {item : "Team Member", icon : "team"},
+      {item : "Billing", icon : "credit"},
+    ]`,
+    `import { WebUiTabModule } from '@schema-driven/web/ui/tab' \n\n <ui-tab [tabs]='tabswithBadges' [style]='style'></ui-tab> \n\n  style= "underline" \n\n tabswithBadges = [
+      {item : "My Account", badge : '4'},
+      {item : "Company"},
+      {item : "Team Member" , badge : '12'},
+      {item : "Billing" , badge : '3'},
+    ]`,
+    `import { WebUiTabModule } from '@schema-driven/web/ui/tab' \n\n <ui-tab [tabs]='tabs' [style]='style'></ui-tab> \n\n  style= "pills" \n\n tabs = [
+      {item : "My Account"},
+      {item : "Company"},
+      {item : "Team Member"},
+      {item : "Billing"},
+    ]`,
+    `import { WebUiTabModule } from '@schema-driven/web/ui/tab' \n\n <ui-tab [tabs]='tabs' [style]='style'></ui-tab> \n\n  style= "full-underline" \n\n tabs = [
+      {item : "My Account"},
+      {item : "Company"},
+      {item : "Team Member"},
+      {item : "Billing"},
+    ]`,
+    `import { WebUiTabModule } from '@schema-driven/web/ui/tab' \n\n <ui-tab [tabs]='tabs' [style]='style'></ui-tab> \n\n style= "bar-underline" \n\n tabs = [
+      {item : "My Account"},
+      {item : "Company"},
+      {item : "Team Member"},
+      {item : "Billing"},
+    ]`,
+  ]
+  public tabs = [{ item: 'My Account' }, { item: 'Company' }, { item: 'Team Member' }, { item: 'Billing' }]
+  public tabs1 = [{ item: 'My Account' }, { item: 'Company' }, { item: 'Team Member' }, { item: 'Billing' }]
+  public tabs2 = [{ item: 'My Account' }, { item: 'Company' }, { item: 'Team Member' }, { item: 'Billing' }]
+  public tabs3 = [{ item: 'My Account' }, { item: 'Company' }, { item: 'Team Member' }, { item: 'Billing' }]
+  public tabswithBadges = [
+    { item: 'My Account', badge: '4' },
+    { item: 'Company' },
+    { item: 'Team Member', badge: '12' },
+    { item: 'Billing', badge: '3' },
+  ]
+  public tabsWithIcons = [
+    { item: 'My Account', icon: 'user' },
+    { item: 'Company', icon: 'office' },
+    { item: 'Team Member', icon: 'team' },
+    { item: 'Billing', icon: 'credit' },
+  ]
+  public style = 'underline'
 }
