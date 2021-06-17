@@ -11,7 +11,7 @@ export interface WebLayoutLink {
   role?: Role
   icon?: string
   dropDown?: boolean
-  childs?: {
+  children?: {
     dropDown?: boolean
     label: string
     route?: string
@@ -48,10 +48,8 @@ export class WebLayoutStore extends ComponentStore<WebLayoutState> {
       logo: '/assets/images/logo.png',
       footerHtml: `Schema-Driven &copy; ${new Date().getFullYear()}`,
       links: [
-        { label: 'Dashboard', route: '/dashboard' },
-        { label: 'Schemata', route: '/schemata' },
-        { label: 'Development', route: '/dev', role: Role.Admin },
-        { label: 'Admin', route: '/admin', role: Role.Admin },
+        { label: 'Dashboard', route: '/dashboard', icon: 'dashboard' },
+        { label: 'Components', route: '/dev', role: Role.Admin, icon: 'development' },
       ],
       profileLinks: [
         { label: 'Your Account', route: '/account', icon: 'account' },

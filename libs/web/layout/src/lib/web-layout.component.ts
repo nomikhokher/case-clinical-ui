@@ -12,15 +12,15 @@ import colors from 'tailwindcss/colors'
             [logo]="vm?.layout?.logo"
             [links]="vm?.links?.main"
             [user]="vm?.user"
-            [profileLinks]="vm?.profileLinks"
+            [profileLinks]="vm?.links?.profile"
           ></ui-stacked-simple>
 
           <ui-sidebar-classy
             *ngIf="layout === 'classy'"
             [logo]="vm?.layout?.logo"
-            [links]="vm?.links"
+            [links]="vm?.links?.main"
             [user]="vm?.user"
-            [profileLinks]="vm?.profileLinks"
+            [profileLinks]="vm?.links?.profile"
           ></ui-sidebar-classy>
 
           <ui-sidebar-classic
@@ -28,7 +28,7 @@ import colors from 'tailwindcss/colors'
             [logo]="vm?.layout?.logo"
             [links]="vm?.links?.main"
             [user]="vm?.user"
-            [profileLinks]="vm?.profileLinks"
+            [profileLinks]="vm?.links?.profile"
           >
           </ui-sidebar-classic>
 
@@ -539,6 +539,7 @@ import colors from 'tailwindcss/colors'
 })
 export class WebLayoutComponent {
   vm$ = this.layoutStore.vm$
+  links$ = this.layoutStore.links$
 
   public layout: string = localStorage.getItem('layout') ? localStorage.getItem('layout') : 'classy'
   public showMenu: boolean = false
