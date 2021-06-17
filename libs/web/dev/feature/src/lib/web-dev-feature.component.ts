@@ -56,6 +56,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Card Headings',
+              path: 'card-headings',
+              img: '/assets/images/card-headings.png',
+              childs: [
+                {
+                  name: 'Card Headings',
+                },
+              ],
+            },
           ],
         },
         {

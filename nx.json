@@ -159,6 +159,9 @@
     "web-ui-calendar": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-card-heading": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-checkbox-dropdown-button": {
       "tags": ["scope:web", "type:ui"]
     },
