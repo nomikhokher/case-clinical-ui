@@ -90,5 +90,9 @@ module.exports = {
     '<rootDir>/libs/web/ui/stacked-modern',
     '<rootDir>/libs/web/ui/full-calendar',
     '<rootDir>/libs/web/ui/tree',
+    '<rootDir>/libs/web/ui/description-list',
+    '<rootDir>/libs/web/ui/vertical-navigation',
+    '<rootDir>/libs/web/ui/page-headings',
+    '<rootDir>/libs/web/ui/navbars',
   ],
 }

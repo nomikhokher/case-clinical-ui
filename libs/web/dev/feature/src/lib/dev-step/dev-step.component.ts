@@ -56,5 +56,32 @@ export class DevStepComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevStepStore) {}
 
-  public codePreview = [`<ui-step [stepIems]="stepIems"></ui-step>`]
+  public codePreview = [
+    `import { WebUiStepModule } from '@schema-driven/web/ui/step'\n\n<ui-step [stepIems]="stepIems"></ui-step>\n\n stepItems = [
+    {
+      id: 1,
+      stepActive: true,
+      stepTitle: 'Step 1',
+      stepDetails: 'Job details',
+    },
+    {
+      id: 2,
+      stepActive: false,
+      stepTitle: 'Step 2',
+      stepDetails: 'Job details',
+    },
+    {
+      id: 3,
+      stepActive: false,
+      stepTitle: 'Step 3',
+      stepDetails: 'Job details',
+    },
+    {
+      id: 4,
+      stepActive: false,
+      stepTitle: 'Step 4',
+      stepDetails: 'Job details',
+    },
+  ]`,
+  ]
 }

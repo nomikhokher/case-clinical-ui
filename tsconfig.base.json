@@ -60,6 +60,7 @@
       "@schema-driven/web/ui/checkbox-dropdown-button": ["libs/web/ui/checkbox-dropdown-button/src/index.ts"],
       "@schema-driven/web/ui/code": ["libs/web/ui/code/src/index.ts"],
       "@schema-driven/web/ui/container": ["libs/web/ui/container/src/index.ts"],
+      "@schema-driven/web/ui/description-list": ["libs/web/ui/description-list/src/index.ts"],
       "@schema-driven/web/ui/divider": ["libs/web/ui/divider/src/index.ts"],
       "@schema-driven/web/ui/divider-toolbar": ["libs/web/ui/divider-toolbar/src/index.ts"],
       "@schema-driven/web/ui/dropdown": ["libs/web/ui/dropdown/src/index.ts"],
@@ -80,10 +81,12 @@
       "@schema-driven/web/ui/mini-calendar": ["libs/web/ui/mini-calendar/src/index.ts"],
       "@schema-driven/web/ui/modal": ["libs/web/ui/modal/src/index.ts"],
       "@schema-driven/web/ui/narrow-avatar-list": ["libs/web/ui/narrow-avatar-list/src/index.ts"],
+      "@schema-driven/web/ui/navbars": ["libs/web/ui/navbars/src/index.ts"],
       "@schema-driven/web/ui/notification": ["libs/web/ui/notification/src/index.ts"],
       "@schema-driven/web/ui/notification-image": ["libs/web/ui/notification-image/src/index.ts"],
       "@schema-driven/web/ui/page": ["libs/web/ui/page/src/index.ts"],
       "@schema-driven/web/ui/page-header": ["libs/web/ui/page-header/src/index.ts"],
+      "@schema-driven/web/ui/page-headings": ["libs/web/ui/page-headings/src/index.ts"],
       "@schema-driven/web/ui/pagination": ["libs/web/ui/pagination/src/index.ts"],
       "@schema-driven/web/ui/preview": ["libs/web/ui/preview/src/index.ts"],
       "@schema-driven/web/ui/sidebar-classic": ["libs/web/ui/sidebar-classic/src/index.ts"],
@@ -105,7 +108,8 @@
       "@schema-driven/web/ui/table": ["libs/web/ui/table/src/index.ts"],
       "@schema-driven/web/ui/toast": ["libs/web/ui/toast/src/index.ts"],
       "@schema-driven/web/ui/tree": ["libs/web/ui/tree/src/index.ts"],
-      "@schema-driven/web/ui/two-column-stacked-list": ["libs/web/ui/two-column-stacked-list/src/index.ts"]
+      "@schema-driven/web/ui/two-column-stacked-list": ["libs/web/ui/two-column-stacked-list/src/index.ts"],
+      "@schema-driven/web/ui/vertical-navigation": ["libs/web/ui/vertical-navigation/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

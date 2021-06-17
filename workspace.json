@@ -1126,6 +1126,31 @@
         }
       }
     },
+    "web-ui-description-list": {
+      "projectType": "library",
+      "root": "libs/web/ui/description-list",
+      "sourceRoot": "libs/web/ui/description-list/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/description-list/src/**/*.ts",
+              "libs/web/ui/description-list/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/description-list"],
+          "options": {
+            "jestConfig": "libs/web/ui/description-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-divider": {
       "projectType": "library",
       "root": "libs/web/ui/divider",
@@ -1569,6 +1594,28 @@
         }
       }
     },
+    "web-ui-navbars": {
+      "projectType": "library",
+      "root": "libs/web/ui/navbars",
+      "sourceRoot": "libs/web/ui/navbars/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/navbars/src/**/*.ts", "libs/web/ui/navbars/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/navbars"],
+          "options": {
+            "jestConfig": "libs/web/ui/navbars/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-notification": {
       "projectType": "library",
       "root": "libs/web/ui/notification",
@@ -1655,6 +1702,28 @@
           "outputs": ["coverage/libs/web/ui/page-header"],
           "options": {
             "jestConfig": "libs/web/ui/page-header/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-page-headings": {
+      "projectType": "library",
+      "root": "libs/web/ui/page-headings",
+      "sourceRoot": "libs/web/ui/page-headings/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/page-headings/src/**/*.ts", "libs/web/ui/page-headings/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/page-headings"],
+          "options": {
+            "jestConfig": "libs/web/ui/page-headings/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -2154,6 +2223,31 @@
           "outputs": ["coverage/libs/web/ui/two-column-stacked-list"],
           "options": {
             "jestConfig": "libs/web/ui/two-column-stacked-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-vertical-navigation": {
+      "projectType": "library",
+      "root": "libs/web/ui/vertical-navigation",
+      "sourceRoot": "libs/web/ui/vertical-navigation/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/vertical-navigation/src/**/*.ts",
+              "libs/web/ui/vertical-navigation/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/vertical-navigation"],
+          "options": {
+            "jestConfig": "libs/web/ui/vertical-navigation/jest.config.js",
             "passWithNoTests": true
           }
         }

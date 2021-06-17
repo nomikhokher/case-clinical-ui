@@ -25,9 +25,9 @@ export class DevContainerComponent {
   public readonly narrowContainer: boolean = false
   constructor(private readonly store: DevContainerStore) {}
   public codePreview = [
-    `<ui-container [containerWidth]="'container'" [containerPadding]="'p-4'" [narrowContainer]="narrowContainer">
+    `import { WebUiContainerModule } from '@schema-driven/web/ui/container'\n\n<ui-container [containerWidth]="'container'" [containerPadding]="'p-4'" [narrowContainer]="narrowContainer">
     <div class="max-w-3xl mx-auto" id="narrowContainer">Narrow constrained with padded content</div>
     <div id="withoutNarrowContainer">Full-width on mobile, constrained with padded content above</div>
-  </ui-container>`,
+  </ui-container> \n\n public readonly narrowContainer: boolean = false`,
   ]
 }

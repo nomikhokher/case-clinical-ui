@@ -7,14 +7,17 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import listPlugin from '@fullcalendar/list'
 import interactionPlugin from '@fullcalendar/interaction'
-
+import { FormsModule } from '@angular/forms'
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material'
 FullCalendarModule.registerPlugins([dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin])
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    FullCalendarModule, // register FullCalendar with you app
+    FullCalendarModule,
+    FormsModule, // register FullCalendar with you app
+    NgxDaterangepickerMd.forRoot(),
   ],
   declarations: [WebUiFullCalendarComponent],
   exports: [WebUiFullCalendarComponent],

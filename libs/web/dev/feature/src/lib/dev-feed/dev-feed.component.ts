@@ -35,7 +35,55 @@ export class DevFeedComponent {
 
   constructor(private readonly store: DevFeedStore) {}
 
-  public codePreview = [` <ui-feed [feedsListing]="feedsListing"></ui-feed>`]
+  public codePreview = [
+    `import { WebUiFeedModule } from '@schema-driven/web/ui/feed' \n\n <ui-feed [feedsListing]="feedsListing"></ui-feed> \n\nfeedsListing=[
+    {
+      id: 1,
+      heading: 'Applied to',
+      title: 'Front End',
+      time: 'set, friday 2pm',
+      icon: 'user',
+      size: 'lg',
+      iconClass: 'bg-gray-400',
+    },
+    {
+      id: 2,
+      heading: 'Applied to',
+      title: 'Front End',
+      time: 'set, friday 2pm',
+      icon: 'thumb_up',
+      size: 'lg',
+      iconClass: 'bg-blue-500',
+    },
+    {
+      id: 3,
+      heading: 'Applied to',
+      title: 'Front End',
+      time: 'set, friday 2pm',
+      icon: 'check',
+      size: 'lg',
+      iconClass: 'bg-green-500',
+    },
+    {
+      id: 4,
+      heading: 'Applied to',
+      title: 'Front End',
+      time: 'set, friday 2pm',
+      icon: 'thumb_up',
+      size: 'lg',
+      iconClass: 'bg-blue-500',
+    },
+    {
+      id: 5,
+      heading: 'Applied to',
+      title: 'Front End',
+      time: 'set, friday 2pm',
+      icon: 'check',
+      size: 'lg',
+      iconClass: 'bg-green-500',
+    },
+  ]`,
+  ]
 
   public feedsListing: FeedsLists[] = [
     {

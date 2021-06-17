@@ -95,12 +95,32 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             path: 'slideovers',
             loadChildren: () => import('./dev-slide-over/dev-slide-over.module').then((m) => m.DevSlideOverModule),
           },
+          {
+            path: 'page-headings',
+            loadChildren: () =>
+              import('./dev-page-headings/dev-page-headings.module').then((m) => m.DevPageHeadingsModule),
+          },
           { path: 'stats', loadChildren: () => import('./dev-stats/dev-stats.module').then((m) => m.DevStatsModule) },
+          {
+            path: 'description-list',
+            loadChildren: () =>
+              import('./dev-description-list/dev-description-list.module').then((m) => m.DevDescriptionListModule),
+          },
           {
             path: 'full-calendars',
             loadChildren: () =>
               import('./dev-full-calendar/dev-full-calendar.module').then((m) => m.DevFullCalendarModule),
           },
+          {
+            path: 'vertical-nav',
+            loadChildren: () =>
+              import('./vertical-navigation/vertical-navigation.module').then((m) => m.VerticalNavigationModule),
+          },
+          {
+            path: 'paginations',
+            loadChildren: () => import('./dev-pagination/dev-pagination.module').then((m) => m.DevPaginationModule),
+          },
+          { path: 'navbars', loadChildren: () => import('./navbars/navbars.module').then((m) => m.NavbarsModule) },
         ],
       },
     ]),

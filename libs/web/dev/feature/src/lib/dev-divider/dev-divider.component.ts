@@ -106,8 +106,8 @@ import { DevDividerStore } from './dev-divider.store'
 export class DevDividerComponent {
   readonly vm$ = this.store.vm$
   public codePreview = [
-    `<ui-divider [dividers]="divider"></ui-divider>`,
-    `<ui-divider-toolbar [dividerToolbars]="dividerToolbar">
+    `import { WebUiDividerModule } from '@schema-driven/web/ui/divider' \n\n <ui-divider [dividers]="divider"></ui-divider>`,
+    `import { WebUiDividerToolbarModule } from '@schema-driven/web/ui/divider-toolbar' \n\n <ui-divider-toolbar [dividerToolbars]="dividerToolbar">
     <ng-container id="toolbar">
       <span class="relative z-0 inline-flex shadow-sm rounded-md -space-x-px">
         <button

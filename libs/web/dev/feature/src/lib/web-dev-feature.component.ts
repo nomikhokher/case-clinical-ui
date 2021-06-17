@@ -44,6 +44,21 @@ export class WebDevFeatureComponent {
           ],
         },
         {
+          name: 'Headings',
+          childs: [
+            {
+              label: 'Page Headings',
+              path: 'page-headings',
+              img: '/assets/images/page-headings.png',
+              childs: [
+                {
+                  name: 'Page Headings',
+                },
+              ],
+            },
+          ],
+        },
+        {
           name: 'Data Display',
           childs: [
             {
@@ -53,6 +68,16 @@ export class WebDevFeatureComponent {
               childs: [
                 {
                   name: 'Stats',
+                },
+              ],
+            },
+            {
+              label: 'Description List',
+              path: 'description-list',
+              img: '/assets/images/description-lists.png',
+              childs: [
+                {
+                  name: 'Description List',
                 },
               ],
             },
@@ -329,7 +354,7 @@ export class WebDevFeatureComponent {
             },
             {
               label: 'Tabs',
-              path: 'code',
+              path: 'tabs',
               img: '/assets/images/tabs.png',
               childs: [
                 {
@@ -340,10 +365,30 @@ export class WebDevFeatureComponent {
             {
               label: 'Pagination',
               path: 'paginations',
-              img: '/assets/images/tabs.png',
+              img: '/assets/images/pagination.png',
               childs: [
                 {
                   name: 'Pagination',
+                },
+              ],
+            },
+            {
+              label: 'Vertical Navigation',
+              path: 'vertical-nav',
+              img: '/assets/images/vertical-navigation.png',
+              childs: [
+                {
+                  name: 'Vertical Navigation',
+                },
+              ],
+            },
+            {
+              label: 'Navbars',
+              path: 'navbars',
+              img: '/assets/images/navbars.png',
+              childs: [
+                {
+                  name: 'Navbars',
                 },
               ],
             },
