@@ -1057,6 +1057,28 @@
         }
       }
     },
+    "web-ui-card-heading": {
+      "projectType": "library",
+      "root": "libs/web/ui/card-heading",
+      "sourceRoot": "libs/web/ui/card-heading/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/card-heading/src/**/*.ts", "libs/web/ui/card-heading/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/card-heading"],
+          "options": {
+            "jestConfig": "libs/web/ui/card-heading/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-checkbox-dropdown-button": {
       "projectType": "library",
       "root": "libs/web/ui/checkbox-dropdown-button",
