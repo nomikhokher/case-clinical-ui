@@ -66,7 +66,7 @@ import { Router } from '@angular/router'
                   <a
                     *ngFor="let children of child.childs"
                     [routerLink]="children.path"
-                    class="group relative bg-white dark:bg-gray-600 rounded-lg shadow-sm overflow-hidden ring-1 ring-black ring-opacity-5"
+                    class="group relative bg-white dark:bg-gray-600 rounded-lg shadow-sm hover:shadow-lg transition duration-150 ease-in-out overflow-hidden ring-1 ring-black ring-opacity-5"
                     (click)="menuOpen(child.name, children.childs)"
                   >
                     <figure>
@@ -76,7 +76,7 @@ import { Router } from '@angular/router'
                         >
                           <img src="{{ children.img }}" alt="not found" class="w-full h-full" />
                         </div>
-                        <div
+                        <!-- <div
                           class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute z-10 inset-0 flex items-center justify-center text-sm text-gray-900 font-medium"
                         >
                           See all
@@ -105,7 +105,7 @@ import { Router } from '@angular/router'
                               stroke-linejoin="round"
                             ></path>
                           </svg>
-                        </div>
+                        </div> -->
                       </div>
                       <figcaption class="py-3 px-4">
                         <p class="text-sm font-medium text-gray-900 dark:text-gray-50 mb-1">{{ children.label }}</p>

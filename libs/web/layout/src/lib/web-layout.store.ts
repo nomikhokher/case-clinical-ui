@@ -11,7 +11,7 @@ export interface WebLayoutLink {
   role?: Role
   icon?: string
   dropDown?: boolean
-  childs?: {
+  children?: {
     dropDown?: boolean
     label: string
     route?: string
@@ -48,46 +48,14 @@ export class WebLayoutStore extends ComponentStore<WebLayoutState> {
       logo: '/assets/images/logo.png',
       footerHtml: `Schema-Driven &copy; ${new Date().getFullYear()}`,
       links: [
-        { label: 'Dashboard', route: '/dashboard' },
-        { label: 'Schemata', route: '/schemata' },
-        { label: 'Development', route: '/dev', role: Role.Admin },
-        { label: 'Admin', route: '/admin', role: Role.Admin },
+        { label: 'Dashboard', route: '/dashboard', icon: 'dashboard' },
+        { label: 'Components', route: '/dev', role: Role.Admin, icon: 'development' },
       ],
       profileLinks: [
-        {
-          title: 'Application',
-          subTitle: 'unique dashboard designs',
-          icon: 'dashboard',
-          dropDown: false,
-          childs: [
-            {
-              label: 'Dashboard',
-              icon: 'dashboard',
-              dropDown: false,
-              route: '/dashboard',
-            },
-            {
-              label: 'Components',
-              dropDown: false,
-
-              route: '/dev',
-              role: Role.Admin,
-              icon: 'development',
-            },
-          ],
-        },
-        {
-          title: 'User',
-          subTitle: 'unique dashboard designs',
-          icon: 'development',
-          dropDown: false,
-          childs: [
-            { label: 'Your Account', route: '/account', icon: 'account' },
-            { label: 'Admin', route: '/admin', role: Role.Admin, icon: 'user' },
-            { label: 'About', route: '/about', icon: 'about' },
-            { label: 'Logout', route: '/logout', icon: 'logout' },
-          ],
-        },
+        { label: 'Your Account', route: '/account', icon: 'account' },
+        { label: 'Admin', route: '/admin', role: Role.Admin, icon: 'user' },
+        { label: 'About', route: '/about', icon: 'about' },
+        { label: 'Logout', route: '/logout', icon: 'logout' },
       ],
     })
   }

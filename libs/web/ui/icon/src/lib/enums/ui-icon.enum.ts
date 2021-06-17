@@ -41,7 +41,6 @@ export enum UiIcon {
   link = 'link',
   home = 'home',
   report = 'report',
-  calendar = 'calendar',
   team = 'team',
   document = 'document',
   project = 'project',
