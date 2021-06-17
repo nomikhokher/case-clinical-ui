@@ -95,6 +95,16 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             path: 'slideovers',
             loadChildren: () => import('./dev-slide-over/dev-slide-over.module').then((m) => m.DevSlideOverModule),
           },
+          {
+            path: 'page-headings',
+            loadChildren: () =>
+              import('./dev-page-headings/dev-page-headings.module').then((m) => m.DevPageHeadingsModule),
+          },
+          {
+            path: 'card-headings',
+            loadChildren: () =>
+              import('./dev-card-heading/dev-card-heading.module').then((m) => m.DevCardHeadingModule),
+          },
           { path: 'stats', loadChildren: () => import('./dev-stats/dev-stats.module').then((m) => m.DevStatsModule) },
           {
             path: 'description-list',

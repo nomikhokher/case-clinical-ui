@@ -44,6 +44,31 @@ export class WebDevFeatureComponent {
           ],
         },
         {
+          name: 'Headings',
+          childs: [
+            {
+              label: 'Page Headings',
+              path: 'page-headings',
+              img: '/assets/images/page-headings.png',
+              childs: [
+                {
+                  name: 'Page Headings',
+                },
+              ],
+            },
+            {
+              label: 'Card Headings',
+              path: 'card-headings',
+              img: '/assets/images/card-headings.png',
+              childs: [
+                {
+                  name: 'Card Headings',
+                },
+              ],
+            },
+          ],
+        },
+        {
           name: 'Data Display',
           childs: [
             {
@@ -310,6 +335,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Tree',
               path: 'tree',
+              img: '/assets/images/vertical-navigation.png',
               childs: [
                 {
                   name: 'Tree',
