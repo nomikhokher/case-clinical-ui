@@ -309,6 +309,9 @@
     "web-ui-table": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-table-lists": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-toast": {
       "tags": ["scope:web", "type:ui"]
     },

@@ -94,6 +94,21 @@ export class WebDevFeatureComponent {
           ],
         },
         {
+          name: 'Lists',
+          childs: [
+            {
+              label: 'Tables',
+              path: 'table-lists',
+              img: '/assets/images/table-lists.png',
+              childs: [
+                {
+                  name: 'Tables',
+                },
+              ],
+            },
+          ],
+        },
+        {
           name: 'Forms',
           childs: [
             {
