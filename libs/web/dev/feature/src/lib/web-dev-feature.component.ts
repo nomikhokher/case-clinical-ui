@@ -66,6 +66,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Section Headings',
+              path: 'section-headings',
+              img: '/assets/images/section-headings.png',
+              childs: [
+                {
+                  name: 'Section Headings',
+                },
+              ],
+            },
           ],
         },
         {

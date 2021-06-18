@@ -109,6 +109,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             path: 'table-lists',
             loadChildren: () => import('./dev-table-lists/dev-table-lists.module').then((m) => m.DevTableListsModule),
           },
+          {
+            path: 'section-headings',
+            loadChildren: () =>
+              import('./dev-section-headings/dev-section-headings.module').then((m) => m.DevSectionHeadingsModule),
+          },
           { path: 'stats', loadChildren: () => import('./dev-stats/dev-stats.module').then((m) => m.DevStatsModule) },
           {
             path: 'description-list',
