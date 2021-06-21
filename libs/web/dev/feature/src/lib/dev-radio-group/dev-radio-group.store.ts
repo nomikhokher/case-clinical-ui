@@ -17,138 +17,79 @@ export interface Demo {
   model?: Record<string, unknown>
   fields?: WebUiFormField[]
 }
+export interface opts {
+  id?: Number
+  label?: String
+  disabled?: boolean
+  value?: string
+}
 
 interface DevRadioGroupState {
+  opts?: opts[]
   demos?: Demo[]
   items?: Item[]
   loading?: boolean
 }
-
-const items: Item[] = [
-  {
-    name: 'Input with label',
-    id: '1',
-    fields: [WebUiFormField.radio('field', { label: 'Email', placeholder: 'you@example.com' })],
-  },
-  {
-    name: 'Input without border',
-    id: '2',
-  },
-  {
-    name: 'Input with label and help text',
-    id: '3',
-    fields: [WebUiFormField.email('radio', { name: 'Radioasd', id: 3 })],
-  },
-  {
-    name: 'Input with validation error',
-    id: '4',
-  },
-  {
-    name: 'Input with hidden label',
-    id: '5',
-  },
+const opts: opts[] = [
+  { id: 1, label: 'Male', value: 'Male' },
+  { id: 2, label: 'Female', value: 'Female' },
+  { id: 3, label: 'Others', value: 'Others' },
 ]
 
 const demos: Demo[] = [
   {
-    id: 1,
-    name: 'Input with label',
-    label: 'RaDIO',
+    name: 'Radio Inputs with label',
     model: {},
-    fields: [WebUiFormField.radio('radio', { name: 'Radio', id: 1, label: 'asdf' }, items)],
+    fields: [WebUiFormField.radio('value', { label: 'Gender', options: opts })],
   },
   {
-    name: 'Input without border',
+    name: 'Disabled Radio Inputs',
     model: {},
     fields: [
-      WebUiFormField.email('email', {
-        label: 'Email',
-        placeholder: 'you@example.com',
-        border: 'border-t-0 border-l-0 border-r-0 border-b-1 border-gray-900 bg-transparent',
+      WebUiFormField.radio('value', {
+        label: 'Gender',
+        options: [
+          { id: 12, label: 'Radio 1', value: 'Radio 1' },
+          { id: 13, label: 'Radio 2', value: 'Radio 2' },
+        ],
+        disabled: true,
       }),
     ],
   },
   {
-    name: 'Input with label and help text',
+    name: 'Radio Inputs with label and help text',
     model: {},
     fields: [
-      WebUiFormField.email('email', {
-        label: 'Email',
-        placeholder: 'you@example.com',
-        description: 'Make your password short and easy to guess.',
+      WebUiFormField.radio('value', {
+        label: 'Gender',
+        options: opts,
+        description: 'Please choose your gender',
       }),
     ],
   },
   {
     name: 'Input with validation error',
     model: { email: 'invalid-email' },
-    fields: [WebUiFormField.radio('radio', { label: 'Radio', placeholder: 'you@example.com' })],
+    fields: [WebUiFormField.radio('value', { label: 'Gender', options: opts, required: true })],
   },
   {
     name: 'Input with hidden label',
     model: {},
-    fields: [WebUiFormField.checkbox('email', { label: 'Testing', placeholder: 'you@example.com' })],
+    fields: [WebUiFormField.radio('value', { label: 'City', options: [{ id: 10, label: null, value: 'London' }] })],
   },
   {
     name: 'Input with corner hint',
     model: {},
-    fields: [WebUiFormField.select('email', { label: 'Email', hint: 'Optional', placeholder: 'you@example.com' })],
-  },
-  {
-    name: 'Input with leading icon',
-    model: {},
-    fields: [
-      WebUiFormField.email('email', {
-        label: 'Email',
-        placeholder: 'you@example.com',
-      }),
-    ],
-  },
-  {
-    name: 'Input with trailing icon',
-    model: {},
-    fields: [
-      WebUiFormField.radio('email', {
-        label: 'Email',
-        placeholder: 'you@example.com',
-      }),
-    ],
-  },
-  {
-    name: 'Input with add-on',
-    model: {},
-    fields: [
-      WebUiFormField.multicheckbox('email', {
-        label: 'Email',
-        placeholder: 'you@example.com',
-        addonLeft: { text: 'http://', paddingLeft: '4rem', bordered: true },
-      }),
-    ],
+    fields: [WebUiFormField.radio('value', { label: 'Gender', hint: 'Optional', options: opts })],
   },
 ]
 
 @Injectable()
 export class DevRadioGroupStore extends ComponentStore<DevRadioGroupState> {
-  constructor(private readonly sdk: ApolloAngularSDK) {
-    super({ items, demos })
-    this.loadItemsEffect()
+  constructor() {
+    super({ demos })
   }
+
   readonly demos$ = this.select(this.state$, (s) => s.demos)
   readonly vm$ = this.select(this.demos$, (demos) => ({ demos }))
-  //  readonly items$ = this.select(this.state$, (s) => s.items)
-  // readonly vm$ = this.select(this.items$, (items) => ({ items }))
-
-  readonly loadItemsEffect = this.effect(($) =>
-    $.pipe(
-      tap(() => this.patchState({ loading: true })),
-      switchMap(() =>
-        of([{ id: Date.now().toString(), name: 'Item 2' }]).pipe(
-          tapResponse(
-            (res) => this.patchState({ items: res }),
-            (e: any) => console.error('An error occurred', e),
-          ),
-        ),
-      ),
-    ),
-  )
 }

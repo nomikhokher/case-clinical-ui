@@ -17,6 +17,9 @@ import { DevRadioGroupStore } from './dev-radio-group.store'
                     <div>
                       <ui-form [model]="demo.model" [fields]="demo.fields"></ui-form>
                     </div>
+                    <div>
+                      <pre class="dark:bg-gray-900 rounded-md p-2 text-xs">{{ demo.model | json }}</pre>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -31,13 +34,4 @@ import { DevRadioGroupStore } from './dev-radio-group.store'
 export class DevRadioGroupComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevRadioGroupStore) {}
-  ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-  }
-  public label = [
-    { l: 'Male', name: 'Radio 1' },
-    { l: 'Female', name: 'Radio 2' },
-    { l: 'Other', name: 'Radio 3' },
-  ]
 }
