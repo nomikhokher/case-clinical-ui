@@ -106,6 +106,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Radio Groups',
+              path: 'radio-group',
+              img: '/assets/images/radio-groups.png',
+              childs: [
+                {
+                  name: 'Form Layouts',
+                },
+              ],
+            },
           ],
         },
 

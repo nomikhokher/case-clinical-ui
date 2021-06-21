@@ -1,0 +1,43 @@
+import { Component } from '@angular/core'
+import { DevRadioGroupStore } from './dev-radio-group.store'
+
+@Component({
+  template: `
+    <ng-container *ngIf="vm$ | async as vm">
+      <div class="flex flex-col space-y-6">
+        <ui-preview>
+          <ng-container *ngFor="let demo of vm.demos">
+            <div>
+              <div class="shadow rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
+                <h1 class="p-4 bg-indigo-700 text-white text-xl md:text-1xl font-bold leading-tight ">
+                  {{ demo.name }}
+                </h1>
+                <div class="p-4">
+                  <div class="grid md:grid-cols-2 md:gap-6">
+                    <div>
+                      <ui-form [model]="demo.model" [fields]="demo.fields"></ui-form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ui-preview>
+      </div>
+    </ng-container>
+  `,
+  providers: [DevRadioGroupStore],
+})
+export class DevRadioGroupComponent {
+  readonly vm$ = this.store.vm$
+  constructor(private readonly store: DevRadioGroupStore) {}
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+  }
+  public label = [
+    { l: 'Male', name: 'Radio 1' },
+    { l: 'Female', name: 'Radio 2' },
+    { l: 'Other', name: 'Radio 3' },
+  ]
+}
