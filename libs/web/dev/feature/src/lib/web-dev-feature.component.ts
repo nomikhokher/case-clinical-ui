@@ -116,6 +116,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Contact Card',
+              path: 'contact-card',
+              img: '/assets/images/contact-card.png',
+              childs: [
+                {
+                  name: 'Contact Card',
+                },
+              ],
+            },
           ],
         },
         {
