@@ -1977,6 +1977,31 @@
         }
       }
     },
+    "web-ui-sign-in-and-registration": {
+      "projectType": "library",
+      "root": "libs/web/ui/sign-in-and-registration",
+      "sourceRoot": "libs/web/ui/sign-in-and-registration/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/sign-in-and-registration/src/**/*.ts",
+              "libs/web/ui/sign-in-and-registration/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/sign-in-and-registration"],
+          "options": {
+            "jestConfig": "libs/web/ui/sign-in-and-registration/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-slide-over": {
       "projectType": "library",
       "root": "libs/web/ui/slide-over",

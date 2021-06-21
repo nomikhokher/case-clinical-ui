@@ -131,6 +131,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Sign-in and Registration',
+              path: 'sign-in-and-registration',
+              img: '/assets/images/sign-in-and-registration.png',
+              childs: [
+                {
+                  name: 'Sign-in and Registration',
+                },
+              ],
+            },
           ],
         },
 

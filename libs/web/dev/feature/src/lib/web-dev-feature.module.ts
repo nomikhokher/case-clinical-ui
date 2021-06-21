@@ -25,6 +25,13 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             loadChildren: () => import('./dev-layout/dev-layout.module').then((m) => m.DevLayoutModule),
           },
           {
+            path: 'sign-in-and-registration',
+            loadChildren: () =>
+              import('./dev-sign-in-and-registration/dev-sign-in-and-registration.module').then(
+                (m) => m.DevSignInAndRegistrationModule,
+              ),
+          },
+          {
             path: 'containers',
             loadChildren: () => import('./dev-container/dev-container.module').then((m) => m.DevContainerModule),
           },

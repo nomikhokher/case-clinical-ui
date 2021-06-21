@@ -282,6 +282,9 @@
     "web-ui-sidebar-thin": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-sign-in-and-registration": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-slide-over": {
       "tags": ["scope:web", "type:ui"]
     },
