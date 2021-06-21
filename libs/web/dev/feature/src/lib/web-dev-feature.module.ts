@@ -19,6 +19,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
           },
           { path: 'code', loadChildren: () => import('./dev-code/dev-code.module').then((m) => m.DevCodeModule) },
           { path: 'forms', loadChildren: () => import('./dev-forms/dev-forms.module').then((m) => m.DevFormsModule) },
+          {
+            path: 'select-menus',
+            loadChildren: () => import('./dev-select/dev-select.module').then((m) => m.DevSelectModule),
+          },
           { path: 'json', loadChildren: () => import('./dev-json/dev-json.module').then((m) => m.DevJsonModule) },
           {
             path: 'layout',

@@ -131,6 +131,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Select Menus',
+              path: 'select-menus',
+              img: '/assets/images/select-menus.png',
+              childs: [
+                {
+                  name: 'Form Layouts',
+                },
+              ],
+            },
           ],
         },
 
