@@ -131,6 +131,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Checkbox',
+              path: 'checkbox',
+              img: '/assets/images/form-layouts.png',
+              childs: [
+                {
+                  name: 'Form Layouts',
+                },
+              ],
+            },
           ],
         },
 
