@@ -66,6 +66,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Section Headings',
+              path: 'section-headings',
+              img: '/assets/images/section-headings.png',
+              childs: [
+                {
+                  name: 'Section Headings',
+                },
+              ],
+            },
           ],
         },
         {
@@ -88,6 +98,21 @@ export class WebDevFeatureComponent {
               childs: [
                 {
                   name: 'Description List',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          name: 'Lists',
+          childs: [
+            {
+              label: 'Tables',
+              path: 'table-lists',
+              img: '/assets/images/table-lists.png',
+              childs: [
+                {
+                  name: 'Tables',
                 },
               ],
             },
