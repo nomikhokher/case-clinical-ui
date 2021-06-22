@@ -35,6 +35,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             path: 'checkbox',
             loadChildren: () => import('./dev-checkbox/dev-checkbox.module').then((m) => m.DevCheckboxModule),
           },
+          {
+            path: 'repeat',
+            loadChildren: () => import('./dev-repeat/dev-repeat.module').then((m) => m.DevRepeatModule),
+          },
           { path: 'json', loadChildren: () => import('./dev-json/dev-json.module').then((m) => m.DevJsonModule) },
           {
             path: 'layout',
