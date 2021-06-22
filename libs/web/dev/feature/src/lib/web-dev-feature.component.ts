@@ -131,6 +131,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Text Area',
+              path: 'text-area',
+              img: '/assets/images/form-layouts.png',
+              childs: [
+                {
+                  name: 'Text Area',
+                },
+              ],
+            },
           ],
         },
 
