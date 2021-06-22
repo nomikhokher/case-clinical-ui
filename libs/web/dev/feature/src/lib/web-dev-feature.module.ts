@@ -23,6 +23,14 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             path: 'select-menus',
             loadChildren: () => import('./dev-select/dev-select.module').then((m) => m.DevSelectModule),
           },
+          {
+            path: 'radio-group',
+            loadChildren: () => import('./dev-radio-group/dev-radio-group.module').then((m) => m.DevRadioGroupModule),
+          },
+          {
+            path: 'checkbox',
+            loadChildren: () => import('./dev-checkbox/dev-checkbox.module').then((m) => m.DevCheckboxModule),
+          },
           { path: 'json', loadChildren: () => import('./dev-json/dev-json.module').then((m) => m.DevJsonModule) },
           {
             path: 'layout',
@@ -112,6 +120,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
           {
             path: 'table-lists',
             loadChildren: () => import('./dev-table-lists/dev-table-lists.module').then((m) => m.DevTableListsModule),
+          },
+          {
+            path: 'contact-card',
+            loadChildren: () =>
+              import('./dev-contact-card/dev-contact-card.module').then((m) => m.DevContactCardModule),
           },
           {
             path: 'section-headings',
