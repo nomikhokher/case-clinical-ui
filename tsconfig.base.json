@@ -99,6 +99,7 @@
       "@schema-driven/web/ui/sidebar-futuristic": ["libs/web/ui/sidebar-futuristic/src/index.ts"],
       "@schema-driven/web/ui/sidebar-page": ["libs/web/ui/sidebar-page/src/index.ts"],
       "@schema-driven/web/ui/sidebar-thin": ["libs/web/ui/sidebar-thin/src/index.ts"],
+      "@schema-driven/web/ui/sign-in-and-registration": ["libs/web/ui/sign-in-and-registration/src/index.ts"],
       "@schema-driven/web/ui/slide-over": ["libs/web/ui/slide-over/src/index.ts"],
       "@schema-driven/web/ui/slide-over-layout": ["libs/web/ui/slide-over-layout/src/index.ts"],
       "@schema-driven/web/ui/stacked-centered": ["libs/web/ui/stacked-centered/src/index.ts"],
