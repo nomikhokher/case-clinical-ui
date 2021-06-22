@@ -8,7 +8,7 @@ enum DisplayMode {
 @Component({
   selector: 'ui-preview',
   template: `
-    <div class="mb-8">
+    <ui-page [headerTitle]="title">
       <div>
         <div class="flex items-center justify-between py-2">
           <h3 class="text-lg font-medium text-gray-700">{{ title }}</h3>
@@ -186,7 +186,7 @@ enum DisplayMode {
           </div>
         </div>
       </div>
-    </div>
+    </ui-page>
   `,
 })
 export class WebUiPreviewComponent implements OnInit {

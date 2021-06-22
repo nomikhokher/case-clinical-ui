@@ -4,13 +4,11 @@ import { DevPageHeadingsStore } from './dev-page-headings.store'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800">
-        <pre class="text-xs dark:text-gray-500">{{ vm.items | json }}</pre>
-      </div>
       <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
         Component: libs/web/dev/feature/src/lib/dev-page-headings/dev-page-headings.component.ts
       </code>
       <ui-preview
+        [title]="'Page Headings'"
         [component_props]="[
           { name: 'buttons', value: buttons },
           { name: 'lowerSubHeadings', value: lowerSubHeadings },
@@ -18,14 +16,19 @@ import { DevPageHeadingsStore } from './dev-page-headings.store'
         ]"
         [code]="codePreview[0]"
       >
-        <ui-page-headings
+        <ui-page-header heading="Example Title"></ui-page-header>
+        <!-- <ui-page-headings
           [headingTitle]="'Back End Developer'"
           [buttons]="buttons"
           [lowerSubHeadings]="lowerSubHeadings"
           [upperSubHeadings]="upperSubHeadings"
         >
-        </ui-page-headings>
+        </ui-page-headings> -->
       </ui-preview>
+
+      <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800">
+        <pre class="text-xs dark:text-gray-500">{{ vm.items | json }}</pre>
+      </div>
     </ng-container>
   `,
   providers: [DevPageHeadingsStore],
@@ -35,7 +38,7 @@ export class DevPageHeadingsComponent {
   constructor(private readonly store: DevPageHeadingsStore) {}
 
   public codePreview = [
-    `import { WebUiPageHeadingsModule } from '@schema-driven/web/ui/page-headings' \n\n 
+    `import { WebUiPageHeadingsModule } from '@schema-driven/web/ui/page-headings' \n\n
     <ui-page-headings [upperSubHeadings]="upperSubHeadings" [lowerSubHeadings]="lowerSubHeadings" [buttons]="buttons"></ui-page-headings> \n\nupperSubHeadings=[
       {
         text: 'Jobs',

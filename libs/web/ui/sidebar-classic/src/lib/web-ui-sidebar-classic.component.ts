@@ -215,13 +215,12 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
                       <ng-container *ngIf="!link.children">
                         <a
                           [routerLink]="link.route"
-                          class="theme-color-100 relative hover:theme-bg-500 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                          class="theme-color-100 relative hover:theme-bg-500 hover:text-white group flex items-center leading-6 px-2 py-2 text-sm font-medium rounded-md"
                         >
                           <ui-icon
                             *ngIf="link.icon"
                             [icon]="link.icon"
-                            size="lg"
-                            class="theme-color-300 group-hover:text-gray-300 h-8 w-8 mr-3"
+                            class="theme-color-300 group-hover:text-gray-300 h-6 w-6 mr-4"
                           ></ui-icon>
                           {{ link.label }}
                         </a>
@@ -240,8 +239,7 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
                           >
                             <ui-icon
                               [icon]="child.icon"
-                              size="lg"
-                              class="theme-color-300 group-hover:text-gray-300 h-8 w-8 mr-3 pt-1"
+                              class="theme-color-300 group-hover:text-gray-300 h-6 w-6 mr-4 pt-1"
                             ></ui-icon>
                             {{ child.label }}
                             <span class="absolute right-2" *ngIf="child.children">

@@ -4,9 +4,7 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
 @Component({
   template: `
     <div class="bg-gray-50 dark:bg-gray-900">
-      <ui-main-page [headingTitle]="headingTitle" [links]="links">
-        <router-outlet></router-outlet>
-      </ui-main-page>
+      <ui-main-page [headingTitle]="headingTitle" [links]="links"></ui-main-page>
     </div>
   `,
 })
