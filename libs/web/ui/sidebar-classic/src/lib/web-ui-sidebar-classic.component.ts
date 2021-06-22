@@ -455,16 +455,8 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
           </div>
         </div>
 
-        <main class="flex-1 relative overflow-y-auto focus:outline-none bg-white dark:bg-gray-900 dark:text-gray-300">
-          <div class="py-6">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              <div class="py-4">
-                <div class="h-auto">
-                  <router-outlet></router-outlet>
-                </div>
-              </div>
-            </div>
-          </div>
+        <main class="relative flex-1 overflow-y-auto focus:outline-none bg-white dark:bg-gray-900 dark:text-gray-300">
+          <router-outlet></router-outlet>
         </main>
       </div>
     </div>
