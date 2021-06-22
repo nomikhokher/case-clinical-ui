@@ -1126,6 +1126,28 @@
         }
       }
     },
+    "web-ui-contact-card": {
+      "projectType": "library",
+      "root": "libs/web/ui/contact-card",
+      "sourceRoot": "libs/web/ui/contact-card/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/contact-card/src/**/*.ts", "libs/web/ui/contact-card/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/contact-card"],
+          "options": {
+            "jestConfig": "libs/web/ui/contact-card/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-container": {
       "projectType": "library",
       "root": "libs/web/ui/container",
@@ -1972,6 +1994,31 @@
           "outputs": ["coverage/libs/web/ui/sidebar-thin"],
           "options": {
             "jestConfig": "libs/web/ui/sidebar-thin/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-sign-in-and-registration": {
+      "projectType": "library",
+      "root": "libs/web/ui/sign-in-and-registration",
+      "sourceRoot": "libs/web/ui/sign-in-and-registration/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/sign-in-and-registration/src/**/*.ts",
+              "libs/web/ui/sign-in-and-registration/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/sign-in-and-registration"],
+          "options": {
+            "jestConfig": "libs/web/ui/sign-in-and-registration/jest.config.js",
             "passWithNoTests": true
           }
         }
