@@ -20,6 +20,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
           { path: 'code', loadChildren: () => import('./dev-code/dev-code.module').then((m) => m.DevCodeModule) },
           { path: 'forms', loadChildren: () => import('./dev-forms/dev-forms.module').then((m) => m.DevFormsModule) },
           {
+            path: 'radio-group',
+            loadChildren: () => import('./dev-radio-group/dev-radio-group.module').then((m) => m.DevRadioGroupModule),
+          },
+          {
             path: 'checkbox',
             loadChildren: () => import('./dev-checkbox/dev-checkbox.module').then((m) => m.DevCheckboxModule),
           },
