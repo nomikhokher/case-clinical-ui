@@ -116,6 +116,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Contact Card',
+              path: 'contact-card',
+              img: '/assets/images/contact-card.png',
+              childs: [
+                {
+                  name: 'Contact Card',
+                },
+              ],
+            },
           ],
         },
         {
@@ -128,6 +138,76 @@ export class WebDevFeatureComponent {
               childs: [
                 {
                   name: 'Form Layouts',
+                },
+              ],
+            },
+            {
+              label: 'Sign-in and Registration',
+              path: 'sign-in-and-registration',
+              img: '/assets/images/sign-in-and-registration.png',
+              childs: [
+                {
+                  name: 'Sign-in and Registration',
+                },
+              ],
+            },
+            {
+              label: 'Text Area',
+              path: 'text-area',
+              img: '/assets/images/form-layouts.png',
+              childs: [
+                {
+                  name: 'Text Area Layouts',
+                },
+              ],
+            },
+            {
+              label: 'Select Menus',
+              path: 'select-menus',
+              img: '/assets/images/select-menus.png',
+              childs: [
+                {
+                  name: 'Select Menus Layouts',
+                },
+              ],
+            },
+            {
+              label: 'Radio Groups',
+              path: 'radio-group',
+              img: '/assets/images/radio-groups.png',
+              childs: [
+                {
+                  name: 'Radio Button Layouts',
+                },
+              ],
+            },
+            {
+              label: 'Checkbox',
+              path: 'checkbox',
+              img: '/assets/images/form-layouts.png',
+              childs: [
+                {
+                  name: 'Checkbox Layouts',
+                },
+              ],
+            },
+            {
+              label: 'Repeat',
+              path: 'repeat',
+              img: '/assets/images/form-layouts.png',
+              childs: [
+                {
+                  name: 'Repeat Layouts',
+                },
+              ],
+            },
+            {
+              label: 'Multi Checkbox',
+              path: 'multi-checkbox',
+              img: '/assets/images/form-layouts.png',
+              childs: [
+                {
+                  name: 'Multi Checkbox Layouts',
                 },
               ],
             },

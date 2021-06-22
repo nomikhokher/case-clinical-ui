@@ -168,6 +168,9 @@
     "web-ui-code": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-contact-card": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-container": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -280,6 +283,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-sidebar-thin": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-sign-in-and-registration": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-slide-over": {
