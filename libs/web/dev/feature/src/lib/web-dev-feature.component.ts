@@ -142,6 +142,16 @@ export class WebDevFeatureComponent {
               ],
             },
             {
+              label: 'Text Area',
+              path: 'text-area',
+              img: '/assets/images/form-layouts.png',
+              childs: [
+                {
+                  name: 'Text Area',
+                },
+              ],
+            },
+            {
               label: 'Select Menus',
               path: 'select-menus',
               img: '/assets/images/select-menus.png',
