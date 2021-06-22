@@ -98,5 +98,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/table-lists',
     '<rootDir>/libs/web/ui/section-headings',
     '<rootDir>/libs/web/ui/sign-in-and-registration',
+    '<rootDir>/libs/web/ui/contact-card',
   ],
 }
