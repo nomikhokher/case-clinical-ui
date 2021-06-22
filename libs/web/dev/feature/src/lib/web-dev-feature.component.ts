@@ -1,482 +1,481 @@
 import { Component } from '@angular/core'
+import { WebLayoutLink } from '@schema-driven/web/layout'
+
 @Component({
   template: `
-    <ui-main-page headerTitle="Development" [links]="links">
+    <ui-main-page [headingTitle]="headingTitle" [headingLead]="headingLead" [links]="links">
       <router-outlet></router-outlet>
     </ui-main-page>
   `,
 })
 export class WebDevFeatureComponent {
-  links = [
+  headingTitle = 'UI Components'
+  headingLead =
+    'Form layouts, tables, modal windows — everything you need to build beautiful responsive web applications.'
+
+  links: WebLayoutLink[] = [
     {
-      heading: 'Application UI',
-      title:
-        'Form layouts, tables, modal windows — everything you need to build beautiful responsive web applications.',
-      childs: [
+      label: 'Full Calendar',
+      children: [
         {
-          name: 'FullCalendar',
-          childs: [
+          label: 'Full-Calendar',
+          route: 'full-calendars',
+          image: '/assets/images/stacked.png',
+          children: [
             {
-              label: 'Full-Calendar',
-              path: 'full-calendars',
-              img: '/assets/images/stacked.png',
-              childs: [
-                {
-                  name: 'Full Calendar',
-                },
-              ],
+              label: 'Full Calendar',
             },
           ],
         },
+      ],
+    },
+    {
+      label: 'Dashboard',
+      children: [
         {
-          name: 'Dashboard',
-          childs: [
+          label: 'Dashboard',
+          route: 'dashboard',
+          image: '/assets/images/stacked.png',
+          children: [
             {
-              label: 'Dashboard',
-              path: 'dashboard',
-              img: '/assets/images/stacked.png',
-              childs: [
-                {
-                  name: 'Stacked Layouts',
-                },
-              ],
+              label: 'Stacked Layouts',
             },
           ],
         },
+      ],
+    },
+    {
+      label: 'Headings',
+      children: [
         {
-          name: 'Headings',
-          childs: [
+          label: 'Page Headings',
+          route: 'page-headings',
+          image: '/assets/images/page-headings.png',
+          children: [
             {
               label: 'Page Headings',
-              path: 'page-headings',
-              img: '/assets/images/page-headings.png',
-              childs: [
-                {
-                  name: 'Page Headings',
-                },
-              ],
             },
+          ],
+        },
+        {
+          label: 'Card Headings',
+          route: 'card-headings',
+          image: '/assets/images/card-headings.png',
+          children: [
             {
               label: 'Card Headings',
-              path: 'card-headings',
-              img: '/assets/images/card-headings.png',
-              childs: [
-                {
-                  name: 'Card Headings',
-                },
-              ],
             },
+          ],
+        },
+        {
+          label: 'Section Headings',
+          route: 'section-headings',
+          image: '/assets/images/section-headings.png',
+          children: [
             {
               label: 'Section Headings',
-              path: 'section-headings',
-              img: '/assets/images/section-headings.png',
-              childs: [
-                {
-                  name: 'Section Headings',
-                },
-              ],
             },
           ],
         },
+      ],
+    },
+    {
+      label: 'Data Display',
+      children: [
         {
-          name: 'Data Display',
-          childs: [
+          label: 'Stats',
+          route: 'stats',
+          image: '/assets/images/stats.png',
+          children: [
             {
               label: 'Stats',
-              path: 'stats',
-              img: '/assets/images/stats.png',
-              childs: [
-                {
-                  name: 'Stats',
-                },
-              ],
             },
+          ],
+        },
+        {
+          label: 'Description List',
+          route: 'description-list',
+          image: '/assets/images/description-lists.png',
+          children: [
             {
               label: 'Description List',
-              path: 'description-list',
-              img: '/assets/images/description-lists.png',
-              childs: [
-                {
-                  name: 'Description List',
-                },
-              ],
             },
           ],
         },
+      ],
+    },
+    {
+      label: 'Lists',
+      children: [
         {
-          name: 'Lists',
-          childs: [
+          label: 'Tables',
+          route: 'table-lists',
+          image: '/assets/images/table-lists.png',
+          children: [
             {
               label: 'Tables',
-              path: 'table-lists',
-              img: '/assets/images/table-lists.png',
-              childs: [
-                {
-                  name: 'Tables',
-                },
-              ],
             },
           ],
         },
+      ],
+    },
+    {
+      label: 'Forms',
+      children: [
         {
-          name: 'Forms',
-          childs: [
+          label: 'Forms',
+          route: 'forms',
+          image: '/assets/images/form-layouts.png',
+          children: [
             {
-              label: 'Forms',
-              path: 'forms',
-              img: '/assets/images/form-layouts.png',
-              childs: [
-                {
-                  name: 'Form Layouts',
-                },
-              ],
+              label: 'Form Layouts',
             },
           ],
         },
+      ],
+    },
 
+    {
+      label: 'Layout',
+      children: [
         {
-          name: 'Layout',
-          childs: [
+          label: 'Containers',
+          route: 'containers',
+          image: '/assets/images/containers.png',
+          children: [
             {
               label: 'Containers',
-              path: 'containers',
-              img: '/assets/images/containers.png',
-              childs: [
-                {
-                  name: 'Containers',
-                },
-              ],
             },
+          ],
+        },
+        {
+          label: 'Working.......',
+          route: 'panels',
+          image: '/assets/images/panels.png',
+          children: [
             {
-              label: 'Working.......',
-              path: 'panels',
-              img: '/assets/images/panels.png',
-              childs: [
-                {
-                  name: 'Panels',
-                },
-              ],
+              label: 'Panels',
             },
+          ],
+        },
+        {
+          label: 'List Containers',
+          route: 'list-containers',
+          image: '/assets/images/list-containers.png',
+          children: [
             {
-              label: 'List Containers',
-              path: 'list-containers',
-              img: '/assets/images/list-containers.png',
-              childs: [
-                {
-                  name: 'List containers',
-                },
-              ],
+              label: 'List containers',
             },
+          ],
+        },
+        {
+          label: 'Media Objects',
+          route: 'media-objects',
+          image: '/assets/images/media-objects.png',
+          children: [
             {
-              label: 'Media Objects',
-              path: 'media-objects',
-              img: '/assets/images/media-objects.png',
-              childs: [
-                {
-                  name: 'media-objects',
-                },
-              ],
+              label: 'media-objects',
             },
+          ],
+        },
+        {
+          label: 'Dividers',
+          route: 'dividers',
+          image: '/assets/images/dividers.png',
+          children: [
             {
               label: 'Dividers',
-              path: 'dividers',
-              img: '/assets/images/dividers.png',
-              childs: [
-                {
-                  name: 'Dividers',
-                },
-              ],
             },
           ],
         },
+      ],
+    },
 
+    {
+      label: 'Content Layout',
+      children: [
         {
-          name: 'Content Layout',
-          childs: [
+          label: 'Data Table',
+          route: 'table',
+          image: '/assets/images/tables.png',
+          children: [
             {
-              label: 'Data Table',
-              path: 'table',
-              img: '/assets/images/tables.png',
-              childs: [
-                {
-                  name: 'Data Table Layout',
-                },
-              ],
+              label: 'Data Table Layout',
             },
           ],
         },
+      ],
+    },
 
+    {
+      label: 'Calendars',
+      children: [
         {
-          name: 'Calendars',
-          childs: [
+          label: 'Calendars Ui',
+          route: 'calendars',
+          image: '/assets/images/tables.png',
+          children: [
             {
-              label: 'Calendars Ui',
-              path: 'calendars',
-              img: '/assets/images/tables.png',
-              childs: [
-                {
-                  name: 'Calendar',
-                },
-              ],
-            },
-            {
-              label: 'Mini Calendars Ui',
-              path: 'mini-calendars',
-              img: '/assets/images/tables.png',
-              childs: [
-                {
-                  name: 'Mini Calendar',
-                },
-              ],
-            },
-          ],
-        },
-
-        {
-          name: 'Notification',
-          childs: [
-            {
-              label: 'Toasts',
-              path: 'toasts',
-              img: '/assets/images/notifications.png',
-              childs: [
-                {
-                  name: 'Notifications',
-                },
-              ],
-            },
-          ],
-        },
-
-        {
-          name: 'Feedback',
-          childs: [
-            {
-              label: 'Alert',
-              path: 'alerts',
-              img: '/assets/images/alerts.png',
-              childs: [
-                {
-                  name: 'Alerts',
-                },
-              ],
+              label: 'Calendar',
             },
           ],
         },
         {
-          name: 'Overlays',
-          childs: [
+          label: 'Mini Calendars Ui',
+          route: 'mini-calendars',
+          image: '/assets/images/tables.png',
+          children: [
             {
-              label: 'Modal',
-              path: 'modals',
-              img: '/assets/images/modals.png',
-              childs: [
-                {
-                  name: 'Modals',
-                },
-              ],
+              label: 'Mini Calendar',
             },
+          ],
+        },
+      ],
+    },
 
+    {
+      label: 'Notification',
+      children: [
+        {
+          label: 'Toasts',
+          route: 'toasts',
+          image: '/assets/images/notifications.png',
+          children: [
             {
               label: 'Notifications',
-              path: 'notifications',
-              img: '/assets/images/notifications.png',
-              childs: [
-                {
-                  name: 'Notifications',
-                },
-              ],
             },
+          ],
+        },
+      ],
+    },
+
+    {
+      label: 'Feedback',
+      children: [
+        {
+          label: 'Alert',
+          route: 'alerts',
+          image: '/assets/images/alerts.png',
+          children: [
+            {
+              label: 'Alerts',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: 'Overlays',
+      children: [
+        {
+          label: 'Modal',
+          route: 'modals',
+          image: '/assets/images/modals.png',
+          children: [
+            {
+              label: 'Modals',
+            },
+          ],
+        },
+
+        {
+          label: 'Notifications',
+          route: 'notifications',
+          image: '/assets/images/notifications.png',
+          children: [
+            {
+              label: 'Notifications',
+            },
+          ],
+        },
+        {
+          label: 'Slide-overs',
+          route: 'slideovers',
+          image: '/assets/images/notifications.png',
+          children: [
             {
               label: 'Slide-overs',
-              path: 'slideovers',
-              img: '/assets/images/notifications.png',
-              childs: [
-                {
-                  name: 'Slide-overs',
-                },
-              ],
             },
           ],
         },
+      ],
+    },
+    {
+      label: 'Elements',
+      children: [
         {
-          name: 'Elements',
-          childs: [
+          label: 'Avatars',
+          route: 'avatars',
+          image: '/assets/images/avatars.png',
+          children: [
             {
               label: 'Avatars',
-              path: 'avatars',
-              img: '/assets/images/avatars.png',
-              childs: [
-                {
-                  name: 'Avatars',
-                },
-              ],
             },
+          ],
+        },
+        {
+          label: 'Dropdown',
+          route: 'dropdown',
+          image: '/assets/images/dropdowns.png',
+          children: [
             {
-              label: 'Dropdown',
-              path: 'dropdown',
-              img: '/assets/images/dropdowns.png',
-              childs: [
-                {
-                  name: 'Dropdowns',
-                },
-              ],
+              label: 'Dropdowns',
             },
+          ],
+        },
+        {
+          label: 'badge',
+          route: 'badges',
+          image: '/assets/images/badges.png',
+          children: [
             {
-              label: 'badge',
-              path: 'badges',
-              img: '/assets/images/badges.png',
-              childs: [
-                {
-                  name: 'Badges',
-                },
-              ],
+              label: 'Badges',
             },
+          ],
+        },
+        {
+          label: 'Buttons',
+          route: 'buttons',
+          image: '/assets/images/buttons.png',
+          children: [
             {
               label: 'Buttons',
-              path: 'buttons',
-              img: '/assets/images/buttons.png',
-              childs: [
-                {
-                  name: 'Buttons',
-                },
-              ],
-            },
-            {
-              label: 'Group Buttons',
-              path: 'group-button',
-              img: '/assets/images/button-groups.png',
-              childs: [
-                {
-                  name: 'Button Groups',
-                },
-              ],
             },
           ],
         },
         {
-          name: 'Navigation',
-          childs: [
+          label: 'Group Buttons',
+          route: 'group-button',
+          image: '/assets/images/button-groups.png',
+          children: [
+            {
+              label: 'Button Groups',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: 'Navigation',
+      children: [
+        {
+          label: 'Tree',
+          route: 'tree',
+          image: '/assets/images/vertical-navigation.png',
+          children: [
             {
               label: 'Tree',
-              path: 'tree',
-              img: '/assets/images/vertical-navigation.png',
-              childs: [
-                {
-                  name: 'Tree',
-                },
-              ],
             },
+          ],
+        },
+        {
+          label: 'Steps',
+          route: 'steps',
+          image: '/assets/images/steps.png',
+          children: [
             {
               label: 'Steps',
-              path: 'steps',
-              img: '/assets/images/steps.png',
-              childs: [
-                {
-                  name: 'Steps',
-                },
-              ],
             },
+          ],
+        },
+        {
+          label: 'Breadcrumbs',
+          route: 'breadcrumbs',
+          image: '/assets/images/breadcrumbs.png',
+          children: [
             {
               label: 'Breadcrumbs',
-              path: 'breadcrumbs',
-              img: '/assets/images/breadcrumbs.png',
-              childs: [
-                {
-                  name: 'Breadcrumbs',
-                },
-              ],
             },
+          ],
+        },
+        {
+          label: 'Tabs',
+          route: 'tabs',
+          image: '/assets/images/tabs.png',
+          children: [
             {
               label: 'Tabs',
-              path: 'tabs',
-              img: '/assets/images/tabs.png',
-              childs: [
-                {
-                  name: 'Tabs',
-                },
-              ],
             },
+          ],
+        },
+        {
+          label: 'Pagination',
+          route: 'paginations',
+          image: '/assets/images/pagination.png',
+          children: [
             {
               label: 'Pagination',
-              path: 'paginations',
-              img: '/assets/images/pagination.png',
-              childs: [
-                {
-                  name: 'Pagination',
-                },
-              ],
             },
+          ],
+        },
+        {
+          label: 'Vertical Navigation',
+          route: 'vertical-nav',
+          image: '/assets/images/vertical-navigation.png',
+          children: [
             {
               label: 'Vertical Navigation',
-              path: 'vertical-nav',
-              img: '/assets/images/vertical-navigation.png',
-              childs: [
-                {
-                  name: 'Vertical Navigation',
-                },
-              ],
             },
+          ],
+        },
+        {
+          label: 'Navbars',
+          route: 'navbars',
+          image: '/assets/images/navbars.png',
+          children: [
             {
               label: 'Navbars',
-              path: 'navbars',
-              img: '/assets/images/navbars.png',
-              childs: [
-                {
-                  name: 'Navbars',
-                },
-              ],
             },
           ],
         },
+      ],
+    },
+    {
+      label: 'Syntax Highlight',
+      children: [
         {
-          name: 'Syntax Highlight',
-          childs: [
+          label: 'JSON Formatter',
+          route: 'json',
+          image:
+            'https://storage.googleapis.com/website-dev-images/sites/default/files/shutterstock_671233504%20%281%29.jpg',
+          children: [
             {
-              label: 'JSON Formatter',
-              path: 'json',
-              img:
-                'https://storage.googleapis.com/website-dev-images/sites/default/files/shutterstock_671233504%20%281%29.jpg',
-              childs: [
-                {
-                  name: 'Json Api',
-                },
-              ],
+              label: 'Json Api',
             },
           ],
         },
+      ],
+    },
+    {
+      label: 'Lists',
+      children: [
         {
-          name: 'Lists',
-          childs: [
+          label: 'Feeds',
+          route: 'feeds',
+          image: '/assets/images/feeds.png',
+          children: [
             {
               label: 'Feeds',
-              path: 'feeds',
-              img: '/assets/images/feeds.png',
-              childs: [
-                {
-                  name: 'Feeds',
-                },
-              ],
             },
+          ],
+        },
+        {
+          label: 'Stacked List',
+          route: 'lists',
+          image: '/assets/images/stacked-lists.png',
+          children: [
             {
-              label: 'Stacked List',
-              path: 'lists',
-              img: '/assets/images/stacked-lists.png',
-              childs: [
-                {
-                  name: 'Stacked Lists',
-                },
-              ],
+              label: 'Stacked Lists',
             },
+          ],
+        },
+        {
+          label: 'Working....',
+          route: 'grid-lists',
+          image: '/assets/images/grid-lists.png',
+          children: [
             {
-              label: 'Working....',
-              path: 'grid-lists',
-              img: '/assets/images/grid-lists.png',
-              childs: [
-                {
-                  name: 'Grid Lists',
-                },
-              ],
+              label: 'Grid Lists',
             },
           ],
         },
