@@ -201,6 +201,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Multi Checkbox',
+              path: 'multi-checkbox',
+              img: '/assets/images/form-layouts.png',
+              childs: [
+                {
+                  name: 'Multi Checkbox Layouts',
+                },
+              ],
+            },
           ],
         },
 
