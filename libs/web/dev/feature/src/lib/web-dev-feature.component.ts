@@ -142,6 +142,16 @@ export class WebDevFeatureComponent {
               ],
             },
             {
+              label: 'Select Menus',
+              path: 'select-menus',
+              img: '/assets/images/select-menus.png',
+              childs: [
+                {
+                  name: 'Form Layouts',
+                },
+              ],
+            },
+            {
               label: 'Radio Groups',
               path: 'radio-group',
               img: '/assets/images/radio-groups.png',
