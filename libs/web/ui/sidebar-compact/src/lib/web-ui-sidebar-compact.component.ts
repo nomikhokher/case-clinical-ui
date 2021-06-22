@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core'
 import { User } from '@schema-driven/web/core/data-access'
+import { WebLayoutLink } from '@schema-driven/web/layout'
 
 @Component({
   selector: 'ui-sidebar-compact',
@@ -27,7 +28,6 @@ import { User } from '@schema-driven/web/core/data-access'
   template: `
     <div class="h-screen bg-gray-50 flex overflow-hidden">
       <!-- Narrow sidebar -->
-
       <span (clickOutside)="compact.show = false; this.compact.index = null">
         <div class="hidden w-28 theme-bg-600 dark:theme-bg-900 overflow-y-auto aside-scrollbar md:block">
           <div class="w-full h-screen py-6 flex flex-col items-center">
@@ -40,31 +40,30 @@ import { User } from '@schema-driven/web/core/data-access'
             </div>
             <div class="flex-1 mt-6 w-full px-2 space-y-1">
               <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-indigo-800 hover:text-white" -->
-              <ng-container *ngFor="let link of profileLinks; index as i">
+              <ng-container *ngFor="let link of links">
                 <a
-                  (click)="compactChildren(link.childs, i)"
-                  class="text-indigo-100 hover:theme-bg-300 hover:text-white group w-full p-3 rounded-md flex flex-col items-center text-xs font-medium cursor-pointer"
+                  [routerLink]="link.route"
+                  class="theme-color-100 hover:theme-bg-700 hover:text-white group w-full p-3 rounded-md flex flex-col items-center text-xs font-medium cursor-pointer"
                 >
                   <ui-icon
                     [icon]="link.icon"
                     size="lg"
                     class="text-indigo-300 group-hover:text-gray-300 mx-auto h-6 w-6"
                   ></ui-icon>
-                  <span class="mt-2"> {{ link.title }}</span>
+                  <span class="mt-2"> {{ link.name }}</span>
                 </a>
               </ng-container>
             </div>
           </div>
         </div>
 
-        <aside
+        <!-- <aside
           *ngIf="compact.show"
           class="hidden aside-scrollbar transition-all ease-in-out duration-300 w-64 theme-bg-500 dark:theme-bg-800 fixed inset-y-0 {{
             asideWidth
           }} z-50 overflow-x-hidden overflow-y-auto md:block"
         >
           <div class="p-3">
-            <!-- Extract: menu_items -->
             <div class="mt-4">
               <div class="relative group">
                 <div class="theme-bg-500 rounded-md my-1">
@@ -154,7 +153,7 @@ import { User } from '@schema-driven/web/core/data-access'
               </div>
             </div>
           </div>
-        </aside>
+        </aside> -->
       </span>
 
       <!--
@@ -228,94 +227,96 @@ import { User } from '@schema-driven/web/core/data-access'
             <div class="mt-5 flex-1 h-0 px-2 overflow-y-auto">
               <nav class="h-full flex flex-col">
                 <div class="mt-4">
-                  <ng-container *ngFor="let link of profileLinks">
+                  <ng-container *ngFor="let link of links">
                     <div class="relative group">
-                      <div class="p-3 my-3 font-bold theme-bg-500 rounded-md">
-                        <p class="uppercase text-gray-100 text-sm">{{ link.title }}</p>
-                        <p class="capitalize text-gray-200 text-xs">{{ link.subTitle }}</p>
-                      </div>
-                      <ng-container *ngFor="let child of link.childs">
-                        <a
-                          [routerLink]="child.route"
-                          class="text-indigo-100 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
-                          (click)="child.dropDown = !child.dropDown"
-                        >
-                          <ui-icon
-                            [icon]="child.icon"
-                            size="lg"
-                            class="text-indigo-300 group-hover:text-gray-300 h-8 w-8 mr-3 pt-1"
-                          ></ui-icon>
-                          {{ child.label }}
-                          <span class="absolute right-2" *ngIf="child.children">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-4 w-4"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M9 5l7 7-7 7"
-                                *ngIf="!child.dropDown"
-                              />
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M19 9l-7 7-7-7"
-                                *ngIf="child.dropDown"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-
-                        <div *ngIf="child.dropDown" class="theme-bg-500 rounded-md my-1">
-                          <ng-container *ngFor="let children of child.children">
-                            <a
-                              (click)="children.dropDown = !children.dropDown"
-                              [routerLink]="children.route"
-                              class="text-indigo-100 hover:theme-bg-400 pl-12 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
-                            >
-                              &nbsp;{{ children.label }}
-                              <span class="absolute right-2" *ngIf="children.children">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  class="h-4 w-4"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                >
-                                  <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M9 5l7 7-7 7"
-                                    *ngIf="!children.dropDown"
-                                  />
-                                  <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M19 9l-7 7-7-7"
-                                    *ngIf="children.dropDown"
-                                  />
-                                </svg>
-                              </span>
-                            </a>
-                            <div *ngIf="children.dropDown" class="theme-bg-300 rounded-md">
-                              <a
-                                *ngFor="let subChildren of children.children"
-                                [routerLink]="subChildren.route"
-                                class="text-indigo-100 hover:theme-bg-400 pl-14 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
-                              >
-                                &nbsp;{{ subChildren.label }}
-                              </a>
-                            </div>
-                          </ng-container>
+                      <ng-container *ngIf="link.children">
+                        <div class="p-3 my-3 font-bold theme-bg-500 rounded-md">
+                          <p class="uppercase text-gray-100 text-sm">{{ link.title }}</p>
+                          <p class="capitalize text-gray-200 text-xs">{{ link.subTitle }}</p>
                         </div>
+                        <ng-container *ngFor="let child of link.children">
+                          <a
+                            [routerLink]="child.route"
+                            class="text-indigo-100 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                            (click)="child.dropDown = !child.dropDown"
+                          >
+                            <ui-icon
+                              [icon]="child.icon"
+                              size="lg"
+                              class="text-indigo-300 group-hover:text-gray-300 h-8 w-8 mr-3 pt-1"
+                            ></ui-icon>
+                            {{ child.label }}
+                            <span class="absolute right-2" *ngIf="child.children">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-4 w-4"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M9 5l7 7-7 7"
+                                  *ngIf="!child.dropDown"
+                                />
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M19 9l-7 7-7-7"
+                                  *ngIf="child.dropDown"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+
+                          <div *ngIf="child.dropDown" class="theme-bg-500 rounded-md my-1">
+                            <ng-container *ngFor="let children of child.children">
+                              <a
+                                (click)="children.dropDown = !children.dropDown"
+                                [routerLink]="children.route"
+                                class="text-indigo-100 hover:theme-bg-400 pl-12 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
+                              >
+                                &nbsp;{{ children.label }}
+                                <span class="absolute right-2" *ngIf="children.children">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-4 w-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                  >
+                                    <path
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M9 5l7 7-7 7"
+                                      *ngIf="!children.dropDown"
+                                    />
+                                    <path
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M19 9l-7 7-7-7"
+                                      *ngIf="children.dropDown"
+                                    />
+                                  </svg>
+                                </span>
+                              </a>
+                              <div *ngIf="children.dropDown" class="theme-bg-300 rounded-md">
+                                <a
+                                  *ngFor="let subChildren of children.children"
+                                  [routerLink]="subChildren.route"
+                                  class="text-indigo-100 hover:theme-bg-400 pl-14 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
+                                >
+                                  &nbsp;{{ subChildren.label }}
+                                </a>
+                              </div>
+                            </ng-container>
+                          </div>
+                        </ng-container>
                       </ng-container>
                     </div>
                   </ng-container>
@@ -333,10 +334,12 @@ import { User } from '@schema-driven/web/core/data-access'
       <!-- Content area -->
       <div class="flex-1 flex flex-col overflow-hidden">
         <header class="w-full">
-          <div class="relative z-10 flex-shrink-0 h-16 bg-white border-b border-gray-200 shadow-sm flex">
+          <div
+            class="relative z-10 flex-shrink-0 h-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 shadow-sm flex"
+          >
             <button
               type="button"
-              class="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
+              class="border-r border-gray-200 dark:border-gray-700 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
               (click)="mobileSideBar = true"
             >
               <span class="sr-only">Open sidebar</span>
@@ -376,7 +379,7 @@ import { User } from '@schema-driven/web/core/data-access'
                     <input
                       name="search_field"
                       id="search_field"
-                      class="h-full w-full border-transparent py-2 pl-8 pr-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0 focus:border-transparent focus:placeholder-gray-400"
+                      class="h-full w-full bg-transparent border-transparent py-2 pl-8 pr-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0 focus:border-transparent focus:placeholder-gray-400"
                       placeholder="Search"
                       type="search"
                     />
@@ -385,7 +388,7 @@ import { User } from '@schema-driven/web/core/data-access'
               </div>
               <div class="ml-4 flex items-center md:ml-6">
                 <button
-                  class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  class="bg-white dark:bg-gray-800 p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   <span class="sr-only">View notifications</span>
                   <!-- Heroicon name: outline/bell -->
@@ -445,33 +448,17 @@ import { User } from '@schema-driven/web/core/data-access'
                     aria-labelledby="user-menu-button"
                     tabindex="-1"
                   >
-                    <!-- Active: "bg-gray-100", Not Active: "" -->
-                    <a
-                      href="#"
-                      class="block px-4 py-2 text-sm text-gray-700"
-                      role="menuitem"
-                      tabindex="-1"
-                      id="user-menu-item-0"
-                      >Your Profile</a
-                    >
-
-                    <a
-                      href="#"
-                      class="block px-4 py-2 text-sm text-gray-700"
-                      role="menuitem"
-                      tabindex="-1"
-                      id="user-menu-item-1"
-                      >Settings</a
-                    >
-
-                    <a
-                      href="#"
-                      class="block px-4 py-2 text-sm text-gray-700"
-                      role="menuitem"
-                      tabindex="-1"
-                      id="user-menu-item-2"
-                      >Sign out</a
-                    >
+                    <ng-container *ngFor="let link of profileLinks">
+                      <a
+                        [routerLink]="link.route"
+                        class="block px-4 py-2 text-sm text-gray-700"
+                        role="menuitem"
+                        tabindex="-1"
+                        id="user-menu-item-0"
+                      >
+                        {{ link.label }}
+                      </a>
+                    </ng-container>
                   </div>
                 </div>
               </div>
@@ -487,7 +474,6 @@ import { User } from '@schema-driven/web/core/data-access'
               aria-labelledby="primary-heading"
               class="min-w-0 flex-1 h-auto flex flex-col overflow-hidden lg:order-last"
             >
-              <h1 id="primary-heading" class="sr-only">Photos</h1>
               <router-outlet></router-outlet>
             </section>
           </main>
@@ -522,8 +508,8 @@ export class WebUiSidebarCompactComponent {
 
   @Input() notificationsLink?: string
   @Input() user?: User
-  @Input() links: { label: string; route: string }[] = []
-  @Input() profileLinks: { label: string; route: string }[] = []
+  @Input() links: WebLayoutLink[] = []
+  @Input() profileLinks: WebLayoutLink[] = []
   @Input() logo: string
 
   compactChildren(subChilds, index) {

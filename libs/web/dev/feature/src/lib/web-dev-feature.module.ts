@@ -23,6 +23,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             path: 'radio-group',
             loadChildren: () => import('./dev-radio-group/dev-radio-group.module').then((m) => m.DevRadioGroupModule),
           },
+          {
+            path: 'checkbox',
+            loadChildren: () => import('./dev-checkbox/dev-checkbox.module').then((m) => m.DevCheckboxModule),
+          },
           { path: 'json', loadChildren: () => import('./dev-json/dev-json.module').then((m) => m.DevJsonModule) },
           {
             path: 'layout',
@@ -108,6 +112,20 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             path: 'card-headings',
             loadChildren: () =>
               import('./dev-card-heading/dev-card-heading.module').then((m) => m.DevCardHeadingModule),
+          },
+          {
+            path: 'table-lists',
+            loadChildren: () => import('./dev-table-lists/dev-table-lists.module').then((m) => m.DevTableListsModule),
+          },
+          {
+            path: 'contact-card',
+            loadChildren: () =>
+              import('./dev-contact-card/dev-contact-card.module').then((m) => m.DevContactCardModule),
+          },
+          {
+            path: 'section-headings',
+            loadChildren: () =>
+              import('./dev-section-headings/dev-section-headings.module').then((m) => m.DevSectionHeadingsModule),
           },
           { path: 'stats', loadChildren: () => import('./dev-stats/dev-stats.module').then((m) => m.DevStatsModule) },
           {

@@ -66,6 +66,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Section Headings',
+              path: 'section-headings',
+              img: '/assets/images/section-headings.png',
+              childs: [
+                {
+                  name: 'Section Headings',
+                },
+              ],
+            },
           ],
         },
         {
@@ -94,6 +104,31 @@ export class WebDevFeatureComponent {
           ],
         },
         {
+          name: 'Lists',
+          childs: [
+            {
+              label: 'Tables',
+              path: 'table-lists',
+              img: '/assets/images/table-lists.png',
+              childs: [
+                {
+                  name: 'Tables',
+                },
+              ],
+            },
+            {
+              label: 'Contact Card',
+              path: 'contact-card',
+              img: '/assets/images/contact-card.png',
+              childs: [
+                {
+                  name: 'Contact Card',
+                },
+              ],
+            },
+          ],
+        },
+        {
           name: 'Forms',
           childs: [
             {
@@ -110,6 +145,16 @@ export class WebDevFeatureComponent {
               label: 'Radio Groups',
               path: 'radio-group',
               img: '/assets/images/radio-groups.png',
+              childs: [
+                {
+                  name: 'Form Layouts',
+                },
+              ],
+            },
+            {
+              label: 'Checkbox',
+              path: 'checkbox',
+              img: '/assets/images/form-layouts.png',
               childs: [
                 {
                   name: 'Form Layouts',

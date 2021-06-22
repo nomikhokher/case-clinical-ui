@@ -168,6 +168,9 @@
     "web-ui-code": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-contact-card": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-container": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -258,6 +261,9 @@
     "web-ui-preview": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-section-headings": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-sidebar-classic": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -307,6 +313,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-table": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-table-lists": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-toast": {

@@ -326,7 +326,7 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
       </div>
 
       <div class="flex flex-col w-0 flex-1 overflow-hidden">
-        <div class="relative z-10 flex-shrink-0 flex h-16 bg-white shadow">
+        <div class="relative z-10 flex-shrink-0 flex h-16 bg-white dark:bg-gray-800 shadow">
           <button
             type="button"
             class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
@@ -368,7 +368,7 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
                   </div>
                   <input
                     id="search_field"
-                    class="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
+                    class="block bg-transparent w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 dark:text-gray-100 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
                     placeholder="Search"
                     type="search"
                     name="search"
@@ -378,7 +378,7 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
             </div>
             <div class="ml-4 flex items-center md:ml-6">
               <button
-                class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                class="bg-transparent p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 <span class="sr-only">View notifications</span>
                 <!-- Heroicon name: outline/bell -->

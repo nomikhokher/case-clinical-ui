@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core'
 import { User } from '@schema-driven/web/core/data-access'
+import { WebLayoutLink } from '@schema-driven/web/layout'
 
 @Component({
   selector: 'ui-sidebar-classy',
@@ -154,14 +155,17 @@ import { User } from '@schema-driven/web/core/data-access'
                     tabindex="-1"
                   >
                     <!-- Active: "bg-gray-100", Not Active: "" -->
-                    <a
-                      href="#"
-                      class="block px-4 py-2 text-sm text-gray-700"
-                      role="menuitem"
-                      tabindex="-1"
-                      id="user-menu-item-0"
-                      >Your Profile</a
-                    >
+                    <ng-container *ngFor="let link of profileLinks">
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm text-gray-700"
+                        role="menuitem"
+                        tabindex="-1"
+                        id="user-menu-item-0"
+                      >
+                        Your Profile
+                      </a>
+                    </ng-container>
 
                     <a
                       href="#"
@@ -529,7 +533,7 @@ import { User } from '@schema-driven/web/core/data-access'
         </div>
       </div>
       <div class="flex flex-col w-0 flex-1 overflow-hidden">
-        <div class="relative z-10 flex-shrink-0 flex h-16 bg-white shadow">
+        <div class="relative z-10 flex-shrink-0 flex h-16 bg-white dark:bg-gray-800 shadow">
           <button
             type="button"
             class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
@@ -552,7 +556,7 @@ import { User } from '@schema-driven/web/core/data-access'
             <div class="flex-1 flex">
               <form class="w-full flex md:ml-0" action="#" method="GET">
                 <label for="search_field" class="sr-only">Search</label>
-                <div class="relative w-full text-gray-400 focus-within:text-gray-600">
+                <div class="relative w-full text-gray-400 focus-within:theme-color-500">
                   <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none">
                     <!-- Heroicon name: solid/search -->
                     <svg
@@ -571,7 +575,7 @@ import { User } from '@schema-driven/web/core/data-access'
                   </div>
                   <input
                     id="search_field"
-                    class="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
+                    class="block w-full dark:bg-gray-800 bg-white dark:text-gray-100 h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
                     placeholder="Search"
                     type="search"
                     name="search"
@@ -610,8 +614,8 @@ export class WebUiSidebarClassyComponent {
 
   @Input() notificationsLink?: string
   @Input() user?: User
-  @Input() links: { label: string; route: string }[] = []
-  @Input() profileLinks: { label: string; route: string }[] = []
+  @Input() links: WebLayoutLink[] = []
+  @Input() profileLinks: WebLayoutLink[] = []
   @Input() logo: string
 
   // asideBarWith() {

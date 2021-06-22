@@ -29,71 +29,63 @@ import colors from 'tailwindcss/colors'
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm?.links?.profile"
-          >
-          </ui-sidebar-classic>
-
-          <ui-stacked-modern
-            *ngIf="layout === 'modern'"
-            [logo]="vm?.layout?.logo"
-            [links]="vm?.links"
-            [user]="vm?.user"
-            [profileLinks]="vm?.profileLinks"
-          >
-          </ui-stacked-modern>
-
-          <ui-stacked-enterprise
-            *ngIf="layout === 'enterprise'"
-            [logo]="vm?.layout?.logo"
-            [links]="vm?.links"
-            [user]="vm?.user"
-            [profileLinks]="vm?.profileLinks"
-          >
-          </ui-stacked-enterprise>
-
-          <ui-stacked-centered
-            *ngIf="layout === 'centered'"
-            [logo]="vm?.layout?.logo"
-            [links]="vm?.links"
-            [user]="vm?.user"
-            [profileLinks]="vm?.profileLinks"
-          >
-          </ui-stacked-centered>
+          ></ui-sidebar-classic>
 
           <ui-sidebar-compact
             *ngIf="layout === 'compact'"
             [logo]="vm?.layout?.logo"
-            [links]="vm?.links"
+            [links]="vm?.links?.main"
             [user]="vm?.user"
-            [profileLinks]="vm?.profileLinks"
-          >
-          </ui-sidebar-compact>
+            [profileLinks]="vm?.links?.profile"
+          ></ui-sidebar-compact>
+
+          <ui-stacked-modern
+            *ngIf="layout === 'modern'"
+            [logo]="vm?.layout?.logo"
+            [links]="vm?.links?.main"
+            [user]="vm?.user"
+            [profileLinks]="vm?.links?.profile"
+          ></ui-stacked-modern>
+
+          <ui-stacked-enterprise
+            *ngIf="layout === 'enterprise'"
+            [logo]="vm?.layout?.logo"
+            [links]="vm?.links?.main"
+            [user]="vm?.user"
+            [profileLinks]="vm?.links?.profile"
+          ></ui-stacked-enterprise>
+
+          <ui-stacked-centered
+            *ngIf="layout === 'centered'"
+            [logo]="vm?.layout?.logo"
+            [links]="vm?.links?.main"
+            [user]="vm?.user"
+            [profileLinks]="vm?.links?.profile"
+          ></ui-stacked-centered>
 
           <ui-sidebar-dense
             *ngIf="layout === 'dense'"
             [logo]="vm?.layout?.logo"
-            [links]="vm?.links"
+            [links]="vm?.links?.main"
             [user]="vm?.user"
-            [profileLinks]="vm?.profileLinks"
-          >
-          </ui-sidebar-dense>
+            [profileLinks]="vm?.links?.profile"
+          ></ui-sidebar-dense>
 
           <ui-sidebar-futuristic
             *ngIf="layout === 'futuristic'"
             [logo]="vm?.layout?.logo"
-            [links]="vm?.links"
+            [links]="vm?.links?.main"
             [user]="vm?.user"
-            [profileLinks]="vm?.profileLinks"
-          >
-          </ui-sidebar-futuristic>
+            [profileLinks]="vm?.links?.profile"
+          ></ui-sidebar-futuristic>
 
           <ui-sidebar-thin
             *ngIf="layout === 'thin'"
             [logo]="vm?.layout?.logo"
-            [links]="vm?.links"
+            [links]="vm?.links?.main"
             [user]="vm?.user"
-            [profileLinks]="vm?.profileLinks"
-          >
-          </ui-sidebar-thin>
+            [profileLinks]="vm?.links?.profile"
+          ></ui-sidebar-thin>
         </div>
 
         <div
