@@ -149,15 +149,15 @@ export class WebDevFeatureComponent {
                 {
                   name: 'Sign-in and Registration',
                 },
-              ]
-             },
-             {
+              ],
+            },
+            {
               label: 'Text Area',
               path: 'text-area',
               img: '/assets/images/form-layouts.png',
               childs: [
                 {
-                  name: 'Text Area',
+                  name: 'Text Area Layouts',
                 },
               ],
             },
@@ -167,7 +167,7 @@ export class WebDevFeatureComponent {
               img: '/assets/images/select-menus.png',
               childs: [
                 {
-                  name: 'Form Layouts',
+                  name: 'Select Menus Layouts',
                 },
               ],
             },
@@ -177,7 +177,7 @@ export class WebDevFeatureComponent {
               img: '/assets/images/radio-groups.png',
               childs: [
                 {
-                  name: 'Form Layouts',
+                  name: 'Radio Button Layouts',
                 },
               ],
             },
@@ -187,7 +187,27 @@ export class WebDevFeatureComponent {
               img: '/assets/images/form-layouts.png',
               childs: [
                 {
-                  name: 'Form Layouts',
+                  name: 'Checkbox Layouts',
+                },
+              ],
+            },
+            {
+              label: 'Repeat',
+              path: 'repeat',
+              img: '/assets/images/form-layouts.png',
+              childs: [
+                {
+                  name: 'Repeat Layouts',
+                },
+              ],
+            },
+            {
+              label: 'Multi Checkbox',
+              path: 'multi-checkbox',
+              img: '/assets/images/form-layouts.png',
+              childs: [
+                {
+                  name: 'Multi Checkbox Layouts',
                 },
               ],
             },
