@@ -19,7 +19,11 @@ import { FieldType } from '@ngx-formly/core'
             [formlyAttributes]="field"
             [attr.disabled]="option.disabled || formControl.disabled ? true : null"
           />
-          <label class="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300" [for]="id + '_' + i">
+          <label
+            class="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300"
+            [for]="id + '_' + i"
+            [ngClass]="{ 'text-indigo-200': formControl.disabled == true }"
+          >
             {{ option.label }}
           </label>
         </div>

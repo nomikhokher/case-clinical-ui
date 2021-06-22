@@ -116,6 +116,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Contact Card',
+              path: 'contact-card',
+              img: '/assets/images/contact-card.png',
+              childs: [
+                {
+                  name: 'Contact Card',
+                },
+              ],
+            },
           ],
         },
         {
@@ -138,6 +148,36 @@ export class WebDevFeatureComponent {
               childs: [
                 {
                   name: 'Text Area',
+                },
+              ],
+            },
+            {
+              label: 'Select Menus',
+              path: 'select-menus',
+              img: '/assets/images/select-menus.png',
+              childs: [
+                {
+                  name: 'Form Layouts',
+                },
+              ],
+            },
+            {
+              label: 'Radio Groups',
+              path: 'radio-group',
+              img: '/assets/images/radio-groups.png',
+              childs: [
+                {
+                  name: 'Form Layouts',
+                },
+              ],
+            },
+            {
+              label: 'Checkbox',
+              path: 'checkbox',
+              img: '/assets/images/form-layouts.png',
+              childs: [
+                {
+                  name: 'Form Layouts',
                 },
               ],
             },
