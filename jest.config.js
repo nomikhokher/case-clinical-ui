@@ -97,5 +97,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/card-heading',
     '<rootDir>/libs/web/ui/table-lists',
     '<rootDir>/libs/web/ui/section-headings',
+    '<rootDir>/libs/web/ui/sidebar',
   ],
 }

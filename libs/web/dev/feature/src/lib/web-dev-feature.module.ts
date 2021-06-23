@@ -124,7 +124,7 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
       {
         path: 'vertical-nav',
         loadChildren: () =>
-          import('./vertical-navigation/vertical-navigation.module').then((m) => m.VerticalNavigationModule),
+          import('./dev-vertical-navigation/dev-vertical-navigation.module').then((m) => m.DevVerticalNavigationModule),
       },
       {
         path: 'paginations',

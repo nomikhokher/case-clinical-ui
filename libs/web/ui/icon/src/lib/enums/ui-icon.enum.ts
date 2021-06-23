@@ -51,4 +51,5 @@ export enum UiIcon {
   folder = 'folder',
   eye = 'eye',
   code = 'code',
+  users = 'users',
 }

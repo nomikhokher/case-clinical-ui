@@ -440,8 +440,7 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
                       >
                         <ui-icon
                           [icon]="link.icon"
-                          size="lg"
-                          class="theme-color-300 group-hover:text-gray-300 h-8 w-8 mr-3 pt-1"
+                          class="theme-color-300 group-hover:text-gray-300 h-6 w-6 mr-3"
                         ></ui-icon>
                         {{ link.label }}
                       </a>
@@ -461,8 +460,7 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
                             <ui-icon
                               *ngIf="child.icon"
                               [icon]="child.icon"
-                              size="lg"
-                              class="theme-color-300 group-hover:text-gray-300 h-8 w-8 mr-3 pt-1"
+                              class="theme-color-300 group-hover:text-gray-300 h-6 w-6 mr-3"
                             ></ui-icon>
                             {{ child.label }}
                             <span class="absolute right-2" *ngIf="child.children">
@@ -599,20 +597,7 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
         </div>
 
         <main class="flex-1 relative overflow-y-auto focus:outline-none bg-white dark:bg-gray-900 dark:text-gray-300">
-          <div class="py-6">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              <!-- <h1 class="text-2xl font-semibold text-gray-900 dark:text-gray-300">Dashboard</h1> -->
-            </div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              <!-- Replace with your content -->
-              <div class="py-4">
-                <div class="h-auto">
-                  <router-outlet></router-outlet>
-                </div>
-              </div>
-              <!-- /End replace -->
-            </div>
-          </div>
+          <router-outlet></router-outlet>
         </main>
       </div>
     </div>

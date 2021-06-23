@@ -196,7 +196,7 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
       </div>
 
       <!-- Static sidebar for desktop -->
-      <div class="hidden theme-bg-600 dark:theme-bg-900 md:flex md:flex-shrink-0">
+      <div class="hidden theme-bg-600 dark:theme-bg-800 md:flex md:flex-shrink-0">
         <div class="flex flex-col w-64">
           <!-- Sidebar component, swap this element with another sidebar if you like -->
           <div class="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto aside-scrollbar">
@@ -210,7 +210,8 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
             <div class="mt-5 flex-1 flex flex-col">
               <nav class="flex-1 px-2 space-y-1">
                 <div class="mt-4">
-                  <ng-container *ngFor="let link of links">
+                  <ui-vertical-navigation [links]="links" [onBrand]="true"></ui-vertical-navigation>
+                  <!-- <ng-container *ngFor="let link of links">
                     <div class="relative group">
                       <ng-container *ngIf="!link.children">
                         <a
@@ -315,7 +316,7 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
                         </ng-container>
                       </ng-container>
                     </div>
-                  </ng-container>
+                  </ng-container> -->
                 </div>
               </nav>
             </div>
