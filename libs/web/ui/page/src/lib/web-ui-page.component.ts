@@ -6,7 +6,7 @@ import { Meta } from '@schema-driven/web/ui/page-header'
   selector: 'ui-page',
   template: `
     <div
-      class="overflow-y-auto mx-auto h-full"
+      [ngClass]="'overflow-y-auto mx-auto h-full ' + containerClass"
       [style.max-height]="'calc(100vh - 60px)'"
       [class.max-w-7xl]="!fluid"
       [class.px-3]="!flush"
@@ -27,4 +27,5 @@ export class WebUiPageComponent {
   @Input() controlsTemplate: TemplateRef<any>
   @Input() fluid: boolean // Disabled container max width
   @Input() flush: boolean // Disabled page padding
+  @Input() containerClass: string
 }

@@ -48,4 +48,7 @@ export enum UiIcon {
   credit = 'credit',
   phone = 'phone',
   email = 'email',
+  folder = 'folder',
+  eye = 'eye',
+  code = 'code',
 }
