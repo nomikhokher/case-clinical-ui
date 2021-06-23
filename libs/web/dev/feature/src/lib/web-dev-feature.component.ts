@@ -16,26 +16,6 @@ export class WebDevFeatureComponent {
       subTitle: `Form layouts, tables, modal windows — everything you need to build beautiful responsive web applications.`,
       children: [
         {
-          label: 'Full Calendar',
-          children: [
-            {
-              label: 'Full-Calendar',
-              route: 'full-calendars',
-              image: '/assets/images/stacked.png',
-            },
-          ],
-        },
-        {
-          label: 'Dashboard',
-          children: [
-            {
-              label: 'Dashboard',
-              route: 'dashboard',
-              image: '/assets/images/stacked.png',
-            },
-          ],
-        },
-        {
           label: 'Headings',
           children: [
             {
@@ -52,6 +32,21 @@ export class WebDevFeatureComponent {
               label: 'Section Headings',
               route: 'section-headings',
               image: '/assets/images/section-headings.png',
+            },
+          ],
+        },
+        {
+          label: 'Forms',
+          children: [
+            {
+              label: 'Forms',
+              route: 'forms',
+              image: '/assets/images/form-layouts.png',
+            },
+            {
+              label: 'Repeater',
+              route: 'repeater',
+              image: '/assets/images/stacked-lists.png',
             },
           ],
         },
@@ -80,17 +75,6 @@ export class WebDevFeatureComponent {
             },
           ],
         },
-        {
-          label: 'Forms',
-          children: [
-            {
-              label: 'Forms',
-              route: 'forms',
-              image: '/assets/images/form-layouts.png',
-            },
-          ],
-        },
-
         {
           label: 'Layout',
           children: [
@@ -159,7 +143,6 @@ export class WebDevFeatureComponent {
             },
           ],
         },
-
         {
           label: 'Feedback',
           children: [
@@ -289,6 +272,21 @@ export class WebDevFeatureComponent {
               label: 'Working....',
               route: 'grid-lists',
               image: '/assets/images/grid-lists.png',
+            },
+          ],
+        },
+        {
+          label: 'Page Examples',
+          children: [
+            {
+              label: 'Dashboard',
+              route: 'dashboard',
+              image: '/assets/images/stacked.png',
+            },
+            {
+              label: 'Full-Calendar',
+              route: 'full-calendars',
+              image: '/assets/images/stacked.png',
             },
           ],
         },

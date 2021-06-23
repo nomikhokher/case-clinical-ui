@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, OnInit, SimpleChange, SimpleChanges, ViewChild } from '@angular/core'
+import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
 
 enum DisplayMode {
   Preview,
@@ -15,10 +16,27 @@ export interface ComponentProp {
 @Component({
   selector: 'ui-preview',
   template: `
-    <ui-page containerClass="bg-gray-50 dark:bg-gray-900" [headerTitle]="title" [headerMeta]="directoryMeta">
+    <ng-template #headerControls>
+      <ng-container *ngIf="githubURL">
+        <ui-button
+          [label]="'View on Github'"
+          [variant]="'white'"
+          [icon]="'github'"
+          (click)="handleGithubClick()"
+        ></ui-button>
+      </ng-container>
+    </ng-template>
+
+    <ui-page
+      containerClass="bg-gray-50 dark:bg-gray-900"
+      [breadcrumbs]="breadcrumbs"
+      [headerTitle]="title"
+      [headerMeta]="directoryMeta"
+      [controlsTemplate]="headerControls"
+    >
       <div>
         <div class="flex items-center justify-between py-2">
-          <h3 class="text-lg font-medium text-gray-700 dark:text-gray-200">{{ title }}</h3>
+          <h3 class="text-lg font-medium text-gray-700 dark:text-gray-200">UI Element</h3>
           <div class="flex items-center">
             <div>
               <div class="sm:hidden">
@@ -234,6 +252,8 @@ export class WebUiPreviewComponent implements OnInit {
   @Input() component_inputs?: ComponentProp[]
   @Input() component_outputs?: ComponentProp[]
   @Input() directory?: string
+  @Input() breadcrumbs: Crumb[]
+  @Input() githubURL?: string
 
   activeTab: DisplayMode = DisplayMode.Preview
   code_toggle = false
@@ -252,5 +272,10 @@ export class WebUiPreviewComponent implements OnInit {
 
   handleTabClick(mode: DisplayMode) {
     this.activeTab = mode
+  }
+
+  handleGithubClick() {
+    if (!this.githubURL) return
+    window.open(this.githubURL, '_blank')
   }
 }

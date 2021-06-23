@@ -7,6 +7,9 @@ import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
   template: `
     <div class="lg:flex lg:items-center lg:justify-between mx-auto py-10">
       <div class="flex-1 min-w-0">
+        <div class="mb-2">
+          <ui-breadcrumbs *ngIf="breadcrumbs" [crumbs]="breadcrumbs"></ui-breadcrumbs>
+        </div>
         <h2 class="text-2xl font-bold leading-7 text-gray-900 dark:text-gray-100 sm:text-3xl sm:truncate">
           {{ title }}
         </h2>

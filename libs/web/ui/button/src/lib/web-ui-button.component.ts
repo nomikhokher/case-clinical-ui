@@ -59,7 +59,7 @@ export class WebUiButtonComponent {
       case Variant.Secondary:
         return `text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:ring-indigo-500`
       case Variant.White:
-        return `border-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 dark:text-gray-100 text-gray-700 bg-white hover:bg-gray-50 focus:ring-indigo-500`
+        return `border-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 dark:text-gray-100 text-gray-700 bg-white hover:bg-gray-50 focus:ring-indigo-500`
       default:
       case Variant.Primary:
         return 'text-white border-blue-600 bg-blue-600 hover:bg-blue-500 focus:ring-blue-500'
@@ -67,6 +67,6 @@ export class WebUiButtonComponent {
   }
 
   get computedClasses(): string {
-    return `${this.sizeClasses} ${this.variantClasses}`
+    return `${this.baseClasses} ${this.sizeClasses} ${this.variantClasses}`
   }
 }

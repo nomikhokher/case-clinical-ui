@@ -38,7 +38,7 @@ export class WebUiFormField implements FormlyFieldConfig {
   static repeat(
     key: string,
     fieldGroup: FormlyFieldConfig,
-    templateOptions?: FormlyTemplateOptions,
+    templateOptions: FormlyTemplateOptions = {},
   ): FormlyFieldConfig {
     return {
       key,

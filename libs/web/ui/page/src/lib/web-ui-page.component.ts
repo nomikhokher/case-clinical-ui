@@ -6,14 +6,19 @@ import { Meta } from '@schema-driven/web/ui/page-header'
   selector: 'ui-page',
   template: `
     <div
-      [ngClass]="'overflow-y-auto mx-auto h-full ' + containerClass"
+      [ngClass]="'overflow-y-auto mx-auto h-full w-full' + containerClass"
       [style.max-height]="'calc(100vh - 60px)'"
       [class.max-w-7xl]="!fluid"
       [class.px-3]="!flush"
       [class.md:px-6]="!flush"
       [class.lg:px-8]="!flush"
     >
-      <ui-page-header [title]="headerTitle" [breadcrumbs]="breadcrumbs" [meta]="headerMeta"></ui-page-header>
+      <ui-page-header
+        [title]="headerTitle"
+        [breadcrumbs]="breadcrumbs"
+        [meta]="headerMeta"
+        [controlsTemplate]="controlsTemplate"
+      ></ui-page-header>
       <div>
         <ng-content></ng-content>
       </div>
