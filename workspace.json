@@ -1126,6 +1126,28 @@
         }
       }
     },
+    "web-ui-color-picker": {
+      "projectType": "library",
+      "root": "libs/web/ui/color-picker",
+      "sourceRoot": "libs/web/ui/color-picker/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/color-picker/src/**/*.ts", "libs/web/ui/color-picker/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/color-picker"],
+          "options": {
+            "jestConfig": "libs/web/ui/color-picker/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-contact-card": {
       "projectType": "library",
       "root": "libs/web/ui/contact-card",

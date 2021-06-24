@@ -152,6 +152,16 @@ export class WebDevFeatureComponent {
               ],
             },
             {
+              label: 'Color Picker',
+              path: 'color-picker',
+              img: '/assets/images/color-picker.png',
+              childs: [
+                {
+                  name: 'Color Picker',
+                },
+              ],
+            },
+            {
               label: 'Text Area',
               path: 'text-area',
               img: '/assets/images/form-layouts.png',
