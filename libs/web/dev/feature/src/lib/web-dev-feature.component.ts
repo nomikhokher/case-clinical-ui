@@ -442,6 +442,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Progress Bar',
+              path: 'progress-bar',
+              img: '/assets/images/button-groups.png',
+              childs: [
+                {
+                  name: 'Progress Bar',
+                },
+              ],
+            },
           ],
         },
         {
