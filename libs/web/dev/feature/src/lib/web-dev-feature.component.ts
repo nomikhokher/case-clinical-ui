@@ -432,6 +432,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Range Slider',
+              path: 'range-slider',
+              img: '/assets/images/button-groups.png',
+              childs: [
+                {
+                  name: 'Range Slider',
+                },
+              ],
+            },
           ],
         },
         {
