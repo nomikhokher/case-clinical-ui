@@ -1839,6 +1839,28 @@
         }
       }
     },
+    "web-ui-progress-bar": {
+      "projectType": "library",
+      "root": "libs/web/ui/progress-bar",
+      "sourceRoot": "libs/web/ui/progress-bar/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/progress-bar/src/**/*.ts", "libs/web/ui/progress-bar/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/progress-bar"],
+          "options": {
+            "jestConfig": "libs/web/ui/progress-bar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-section-headings": {
       "projectType": "library",
       "root": "libs/web/ui/section-headings",

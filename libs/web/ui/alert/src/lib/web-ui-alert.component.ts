@@ -97,18 +97,18 @@ export class WebUiAlertComponent {
     return this
   }
   __bg_color() {
-    if (!this.bg_color.includes('bg')) {
-      switch (this.bg_color) {
-        case 'warning':
-          return 'bg-yellow-50'
-        case 'success':
-          return 'bg-green-50'
-        case 'danger':
-          return 'bg-red-50'
-        case 'info':
-          return 'bg-blue-50'
-      }
+    // if (!this.bg_color.includes('bg')) {
+    switch (this.bg_color) {
+      case 'warning':
+        return 'bg-yellow-50'
+      case 'success':
+        return 'bg-green-50'
+      case 'danger':
+        return 'bg-red-50'
+      case 'info':
+        return 'bg-blue-50'
     }
+    // }
     return this.bg_color
   }
 
