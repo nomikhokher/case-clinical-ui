@@ -115,6 +115,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
               import('./dev-group-button/dev-group-button.module').then((m) => m.DevGroupButtonModule),
           },
           {
+            path: 'progress-bar',
+            loadChildren: () =>
+              import('./dev-progress-bar/dev-progress-bar.module').then((m) => m.DevProgressBarModule),
+          },
+          {
             path: 'modals',
             loadChildren: () => import('./dev-modal/dev-modal.module').then((m) => m.DevModalModule),
           },
