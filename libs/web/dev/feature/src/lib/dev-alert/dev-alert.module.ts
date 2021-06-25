@@ -5,6 +5,7 @@ import { WebUiAlertModule } from '@schema-driven/web/ui/alert'
 import { WebUiIconModule } from '@schema-driven/web/ui/icon'
 import { DevAlertComponent } from './dev-alert.component'
 import { WebUiPreviewModule } from '@schema-driven/web/ui/preview'
+import { ServiceCodepreview } from '../../../../../ui/codepreview.service'
 
 @NgModule({
   declarations: [DevAlertComponent],
@@ -15,5 +16,6 @@ import { WebUiPreviewModule } from '@schema-driven/web/ui/preview'
     WebUiPreviewModule,
   ],
   exports: [DevAlertComponent],
+  providers: [ServiceCodepreview],
 })
 export class DevAlertModule {}

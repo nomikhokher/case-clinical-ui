@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, OnInit, SimpleChange, SimpleChanges, ViewChild } from '@angular/core'
+import { ServiceCodepreview } from '../../../codepreview.service'
 
 enum DisplayMode {
   Preview,
@@ -145,18 +146,21 @@ enum DisplayMode {
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                  <tr>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Title</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">String</td>
+                  <tr *ngFor="let item of codeObj | keyvalue; let i = index">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ item.key }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ typeOf(item.value) }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       <div>
                         <div class="relative rounded-md shadow-sm">
                           <input
                             type="text"
                             name="account_number"
-                            id="account_number"
+                            [id]="account_number + '_' + i"
+                            [value]="stringify(item.value)"
                             class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pr-10 sm:text-sm border-gray-300 rounded-md"
                             placeholder="Default Value"
+                            [ngModel]="stringify(item.value)"
+                            (ngModelChange)="modelChangeFn(item.key, $event)"
                           />
                           <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                             <button>
@@ -192,16 +196,61 @@ enum DisplayMode {
 export class WebUiPreviewComponent implements OnInit {
   DISPLAY_MODE: typeof DisplayMode = DisplayMode
 
+  constructor(private readonly codePreview: ServiceCodepreview) {}
+
   @Input() title?: string
   @Input() code?: string
   @Input() lang?: string
   @Input() component_preview?: string
   @Input() component_props?: any
+  @Input() codeObj?: Object
+  public keys: Array<any>
+  public values: Array<any>
+
+  public myVal = ''
 
   activeTab: DisplayMode = DisplayMode.Preview
 
   code_toggle = false
 
+  debounce = {
+    interval: null,
+    wait: 500,
+    func: () => {},
+    __: function (f, w) {
+      if (this.interval) {
+        clearTimeout(this.interval)
+      }
+      this.wait = w
+      this.func = f
+      this.interval = setTimeout(this.func, this.wait)
+    },
+  }
+  typeOf(value: any) {
+    return (typeof value).toUpperCase()
+  }
+  stringify(value: any) {
+    if (typeof value === 'object') {
+      return JSON.stringify(value)
+    }
+    return value
+  }
+
+  public modelChangeFn(myKey, newValue) {
+    this.debounce.__(() => {
+      this.myVal = newValue
+      if (newValue == 'true' || newValue == 'false') {
+        newValue == 'true' ? (this.codeObj[myKey] = true) : (this.codeObj[myKey] = false)
+      } else if (typeof this.codeObj[myKey] === 'number') {
+        this.codeObj[myKey] = Number(this.myVal)
+      } else {
+        this.codeObj[myKey] = this.myVal
+      }
+      this.codePreview.codePreview$.next(this.codeObj)
+      console.log(this.codeObj)
+    }, 1000)
+    // newValue.preventDefault();
+  }
   ngOnInit() {
     this.lang = this.lang !== undefined ? this.lang : 'html'
   }
