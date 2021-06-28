@@ -1104,6 +1104,28 @@
         }
       }
     },
+    "web-ui-chips": {
+      "projectType": "library",
+      "root": "libs/web/ui/chips",
+      "sourceRoot": "libs/web/ui/chips/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/chips/src/**/*.ts", "libs/web/ui/chips/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/chips"],
+          "options": {
+            "jestConfig": "libs/web/ui/chips/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-code": {
       "projectType": "library",
       "root": "libs/web/ui/code",
@@ -1854,6 +1876,28 @@
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/web/ui/progress-bar"],
+          "options": {
+            "jestConfig": "libs/web/ui/progress-bar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-range-slider": {
+      "projectType": "library",
+      "root": "libs/web/ui/range-slider",
+      "sourceRoot": "libs/web/ui/range-slider/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/range-slider/src/**/*.ts", "libs/web/ui/range-slider/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/range-slider"],
           "options": {
             "jestConfig": "libs/web/ui/progress-bar/jest.config.js",
             "passWithNoTests": true
