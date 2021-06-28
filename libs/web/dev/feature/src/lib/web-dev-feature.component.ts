@@ -65,13 +65,8 @@ export class WebDevFeatureComponent {
             },
             {
               label: 'Contact Card',
-              path: 'contact-card',
-              img: '/assets/images/contact-card.png',
-              childs: [
-                {
-                  name: 'Contact Card',
-                },
-              ],
+              route: 'contact-card',
+              image: '/assets/images/contact-card.png',
             },
           ],
         },
@@ -85,83 +80,43 @@ export class WebDevFeatureComponent {
             },
             {
               label: 'Sign-in and Registration',
-              path: 'sign-in-and-registration',
-              img: '/assets/images/sign-in-and-registration.png',
-              childs: [
-                {
-                  name: 'Sign-in and Registration',
-                },
-              ],
+              route: 'sign-in-and-registration',
+              image: '/assets/images/sign-in-and-registration.png',
             },
             {
               label: 'Color Picker',
-              path: 'color-picker',
-              img: '/assets/images/color-picker.png',
-              childs: [
-                {
-                  name: 'Color Picker',
-                },
-              ],
+              route: 'color-picker',
+              image: '/assets/images/color-picker.png',
             },
             {
               label: 'Text Area',
-              path: 'text-area',
-              img: '/assets/images/form-layouts.png',
-              childs: [
-                {
-                  name: 'Text Area Layouts',
-                },
-              ],
+              route: 'text-area',
+              image: '/assets/images/form-layouts.png',
             },
             {
               label: 'Select Menus',
-              path: 'select-menus',
-              img: '/assets/images/select-menus.png',
-              childs: [
-                {
-                  name: 'Select Menus Layouts',
-                },
-              ],
+              route: 'select-menus',
+              image: '/assets/images/select-menus.png',
             },
             {
               label: 'Radio Groups',
-              path: 'radio-group',
-              img: '/assets/images/radio-groups.png',
-              childs: [
-                {
-                  name: 'Radio Button Layouts',
-                },
-              ],
+              route: 'radio-group',
+              image: '/assets/images/radio-groups.png',
             },
             {
               label: 'Checkbox',
-              path: 'checkbox',
-              img: '/assets/images/form-layouts.png',
-              childs: [
-                {
-                  name: 'Checkbox Layouts',
-                },
-              ],
+              route: 'checkbox',
+              image: '/assets/images/form-layouts.png',
             },
             {
               label: 'Repeat',
-              path: 'repeat',
-              img: '/assets/images/form-layouts.png',
-              childs: [
-                {
-                  name: 'Repeat Layouts',
-                },
-              ],
+              route: 'repeat',
+              image: '/assets/images/form-layouts.png',
             },
             {
               label: 'Multi Checkbox',
-              path: 'multi-checkbox',
-              img: '/assets/images/form-layouts.png',
-              childs: [
-                {
-                  name: 'Multi Checkbox Layouts',
-                },
-              ],
+              route: 'multi-checkbox',
+              image: '/assets/images/form-layouts.png',
             },
           ],
         },
@@ -294,33 +249,18 @@ export class WebDevFeatureComponent {
             },
             {
               label: 'Range Slider',
-              path: 'range-slider',
-              img: '/assets/images/button-groups.png',
-              childs: [
-                {
-                  name: 'Range Slider',
-                },
-              ],
+              route: 'range-slider',
+              image: '/assets/images/button-groups.png',
             },
             {
               label: 'Chips',
-              path: 'chips',
-              img: '/assets/images/button-groups.png',
-              childs: [
-                {
-                  name: 'Chips',
-                },
-              ],
+              route: 'chips',
+              image: '/assets/images/button-groups.png',
             },
             {
               label: 'Progress Bar',
-              path: 'progress-bar',
-              img: '/assets/images/button-groups.png',
-              childs: [
-                {
-                  name: 'Progress Bar',
-                },
-              ],
+              route: 'progress-bar',
+              image: '/assets/images/button-groups.png',
             },
           ],
         },

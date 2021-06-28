@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { WebUiMainPageModule } from '@schema-driven/web/ui/main-page'
 import { WebDevFeatureComponent } from './web-dev-feature.component'
+
 @NgModule({
   declarations: [WebDevFeatureComponent],
   imports: [
@@ -26,6 +27,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
       {
         path: 'containers',
         loadChildren: () => import('./dev-container/dev-container.module').then((m) => m.DevContainerModule),
+      },
+      {
+        path: 'color-picker',
+        loadChildren: () => import('./dev-color-picker/dev-color-picker.module').then((m) => m.DevColorPickerModule),
       },
       {
         path: 'tree',
