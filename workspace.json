@@ -1104,6 +1104,28 @@
         }
       }
     },
+    "web-ui-chips": {
+      "projectType": "library",
+      "root": "libs/web/ui/chips",
+      "sourceRoot": "libs/web/ui/chips/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/chips/src/**/*.ts", "libs/web/ui/chips/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/chips"],
+          "options": {
+            "jestConfig": "libs/web/ui/chips/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-code": {
       "projectType": "library",
       "root": "libs/web/ui/code",
@@ -1121,6 +1143,50 @@
           "outputs": ["coverage/libs/web/ui/code"],
           "options": {
             "jestConfig": "libs/web/ui/code/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-color-picker": {
+      "projectType": "library",
+      "root": "libs/web/ui/color-picker",
+      "sourceRoot": "libs/web/ui/color-picker/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/color-picker/src/**/*.ts", "libs/web/ui/color-picker/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/color-picker"],
+          "options": {
+            "jestConfig": "libs/web/ui/color-picker/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-contact-card": {
+      "projectType": "library",
+      "root": "libs/web/ui/contact-card",
+      "sourceRoot": "libs/web/ui/contact-card/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/contact-card/src/**/*.ts", "libs/web/ui/contact-card/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/contact-card"],
+          "options": {
+            "jestConfig": "libs/web/ui/contact-card/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -1795,6 +1861,50 @@
         }
       }
     },
+    "web-ui-progress-bar": {
+      "projectType": "library",
+      "root": "libs/web/ui/progress-bar",
+      "sourceRoot": "libs/web/ui/progress-bar/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/progress-bar/src/**/*.ts", "libs/web/ui/progress-bar/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/progress-bar"],
+          "options": {
+            "jestConfig": "libs/web/ui/progress-bar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-range-slider": {
+      "projectType": "library",
+      "root": "libs/web/ui/range-slider",
+      "sourceRoot": "libs/web/ui/range-slider/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/range-slider/src/**/*.ts", "libs/web/ui/range-slider/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/range-slider"],
+          "options": {
+            "jestConfig": "libs/web/ui/progress-bar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-section-headings": {
       "projectType": "library",
       "root": "libs/web/ui/section-headings",
@@ -1994,6 +2104,31 @@
           "outputs": ["coverage/libs/web/ui/sidebar-thin"],
           "options": {
             "jestConfig": "libs/web/ui/sidebar-thin/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-sign-in-and-registration": {
+      "projectType": "library",
+      "root": "libs/web/ui/sign-in-and-registration",
+      "sourceRoot": "libs/web/ui/sign-in-and-registration/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/sign-in-and-registration/src/**/*.ts",
+              "libs/web/ui/sign-in-and-registration/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/sign-in-and-registration"],
+          "options": {
+            "jestConfig": "libs/web/ui/sign-in-and-registration/jest.config.js",
             "passWithNoTests": true
           }
         }

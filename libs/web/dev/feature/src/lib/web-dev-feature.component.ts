@@ -63,6 +63,16 @@ export class WebDevFeatureComponent {
               route: 'description-list',
               image: '/assets/images/description-lists.png',
             },
+            {
+              label: 'Contact Card',
+              path: 'contact-card',
+              img: '/assets/images/contact-card.png',
+              childs: [
+                {
+                  name: 'Contact Card',
+                },
+              ],
+            },
           ],
         },
         {
@@ -72,6 +82,86 @@ export class WebDevFeatureComponent {
               label: 'Tables',
               route: 'table-lists',
               image: '/assets/images/table-lists.png',
+            },
+            {
+              label: 'Sign-in and Registration',
+              path: 'sign-in-and-registration',
+              img: '/assets/images/sign-in-and-registration.png',
+              childs: [
+                {
+                  name: 'Sign-in and Registration',
+                },
+              ],
+            },
+            {
+              label: 'Color Picker',
+              path: 'color-picker',
+              img: '/assets/images/color-picker.png',
+              childs: [
+                {
+                  name: 'Color Picker',
+                },
+              ],
+            },
+            {
+              label: 'Text Area',
+              path: 'text-area',
+              img: '/assets/images/form-layouts.png',
+              childs: [
+                {
+                  name: 'Text Area Layouts',
+                },
+              ],
+            },
+            {
+              label: 'Select Menus',
+              path: 'select-menus',
+              img: '/assets/images/select-menus.png',
+              childs: [
+                {
+                  name: 'Select Menus Layouts',
+                },
+              ],
+            },
+            {
+              label: 'Radio Groups',
+              path: 'radio-group',
+              img: '/assets/images/radio-groups.png',
+              childs: [
+                {
+                  name: 'Radio Button Layouts',
+                },
+              ],
+            },
+            {
+              label: 'Checkbox',
+              path: 'checkbox',
+              img: '/assets/images/form-layouts.png',
+              childs: [
+                {
+                  name: 'Checkbox Layouts',
+                },
+              ],
+            },
+            {
+              label: 'Repeat',
+              path: 'repeat',
+              img: '/assets/images/form-layouts.png',
+              childs: [
+                {
+                  name: 'Repeat Layouts',
+                },
+              ],
+            },
+            {
+              label: 'Multi Checkbox',
+              path: 'multi-checkbox',
+              img: '/assets/images/form-layouts.png',
+              childs: [
+                {
+                  name: 'Multi Checkbox Layouts',
+                },
+              ],
             },
           ],
         },
@@ -201,6 +291,36 @@ export class WebDevFeatureComponent {
               label: 'Group Buttons',
               route: 'group-button',
               image: '/assets/images/button-groups.png',
+            },
+            {
+              label: 'Range Slider',
+              path: 'range-slider',
+              img: '/assets/images/button-groups.png',
+              childs: [
+                {
+                  name: 'Range Slider',
+                },
+              ],
+            },
+            {
+              label: 'Chips',
+              path: 'chips',
+              img: '/assets/images/button-groups.png',
+              childs: [
+                {
+                  name: 'Chips',
+                },
+              ],
+            },
+            {
+              label: 'Progress Bar',
+              path: 'progress-bar',
+              img: '/assets/images/button-groups.png',
+              childs: [
+                {
+                  name: 'Progress Bar',
+                },
+              ],
             },
           ],
         },
