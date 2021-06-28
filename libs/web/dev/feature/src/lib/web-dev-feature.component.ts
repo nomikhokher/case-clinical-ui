@@ -449,8 +449,8 @@ export class WebDevFeatureComponent {
               childs: [
                 {
                   name: 'Range Slider',
-                }
-              ]
+                },
+              ],
             },
             {
               label: 'Progress Bar',
