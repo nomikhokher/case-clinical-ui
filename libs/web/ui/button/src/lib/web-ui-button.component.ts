@@ -11,7 +11,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
     <ng-container *ngIf="!routerLink">
       <button
         (click)="handleClick($event)"
-        [ngClass]="{ 'rounded-full': type == 'circlebtn' }"
+        [ngClass]="{ 'rounded-full': type == 'circlebtn' || label == 'Rounded Full' }"
         [class]="classes"
         [disabled]="disabled"
         [type]="type"

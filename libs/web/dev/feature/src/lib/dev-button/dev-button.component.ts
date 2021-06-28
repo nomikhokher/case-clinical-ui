@@ -53,7 +53,7 @@ import { DevButtonStore } from './dev-button.store'
     <div class="my-4">
       <ui-preview [code]="codePreview[5]">
         <ui-button
-          label="Rounded Full "
+          label="Rounded Full"
           type="button"
           color="red"
           border="rounded-full"
