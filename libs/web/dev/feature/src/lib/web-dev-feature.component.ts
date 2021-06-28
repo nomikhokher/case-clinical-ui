@@ -449,8 +449,18 @@ export class WebDevFeatureComponent {
               childs: [
                 {
                   name: 'Range Slider',
-                }
-              ]
+                },
+              ],
+            },
+            {
+              label: 'Chips',
+              path: 'chips',
+              img: '/assets/images/button-groups.png',
+              childs: [
+                {
+                  name: 'Chips',
+                },
+              ],
             },
             {
               label: 'Progress Bar',
