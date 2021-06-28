@@ -264,6 +264,9 @@
     "web-ui-preview": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-range-slider": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-progress-bar": {
       "tags": ["scope:web", "type:ui"]
     },
