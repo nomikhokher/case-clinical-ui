@@ -2,6 +2,7 @@ import { Component, ViewChild, ViewChildren, QueryList } from '@angular/core'
 import { WebUiAlertComponent } from '@schema-driven/web/ui/alert'
 import { WebUiPreviewComponent } from '@schema-driven/web/ui/preview'
 import { DevAlertStore } from './dev-alert.store'
+import { ServiceCodepreview } from '../../../../../ui/codepreview.service'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
@@ -9,65 +10,65 @@ import { DevAlertStore } from './dev-alert.store'
         <pre class="text-xs dark:text-gray-500">{{ __usage() | json }}</pre>
       </div>
 
-      <ui-preview [component_props]="[{ name: 'settings', value: {} }]" [code]="codePreview[0]">
+      <ui-preview [component_props]="[{ name: 'settings', value: {} }]" [codeObj]="dataArr[0]" [code]="codePreview[0]">
         <ui-alert
-          class="mb-4 mt-4"
-          subject="Attention needed"
-          message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam quo totam eius aperiam dolorum."
-          bg_color="warning"
-          icon="exclamation"
-          [icon_show]="true"
+          [class]="dataArr[0].class"
+          [subject]="dataArr[0].subject"
+          [message]="dataArr[0].message"
+          [bg_color]="dataArr[0].bg_color"
+          [icon]="dataArr[0].icon"
+          [icon_show]="dataArr[0].icon_show"
         ></ui-alert>
       </ui-preview>
 
-      <ui-preview [code]="codePreview[1]">
+      <ui-preview [codeObj]="dataArr[1]" [code]="codePreview[1]">
         <ui-alert
-          icon="x_circle"
+          [icon]="dataArr[1].icon"
           [icon_show]="true"
           class="mb-4 mt-4"
           subject="There were 2 errors with your submission"
-          bg_color="danger"
+          [bg_color]="dataArr[1].bg_color"
           [list]="_list()"
         ></ui-alert>
       </ui-preview>
-      <ui-preview [code]="codePreview[2]">
+      <ui-preview [codeObj]="dataArr[2]" [code]="codePreview[2]">
         <ui-alert
           [icon_show]="true"
-          icon="check_circle"
+          [icon]="dataArr[2].icon"
           class="mb-4 mt-4"
           subject="Order completed"
-          message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam."
-          bg_color="success"
+          [message]="dataArr[2].message"
+          [bg_color]="dataArr[2].bg_color"
           [actionLink]="_actionLink()"
         ></ui-alert>
       </ui-preview>
-      <ui-preview [code]="codePreview[3]">
+      <ui-preview [codeObj]="dataArr[3]" [code]="codePreview[3]">
         <ui-alert
           class="mb-4 mt-4"
           [icon_show]="true"
           icon="information_circle"
           message="A new software update is available. See what’s new in version 2.0.4."
-          bg_color="info"
+          [bg_color]="dataArr[3].bg_color"
         ></ui-alert>
       </ui-preview>
-      <ui-preview [component_preview]="component_preview" [code]="codePreview[4]">
+      <ui-preview [codeObj]="dataArr[4]" [component_preview]="component_preview" [code]="codePreview[4]">
         <ui-alert
           icon="check_circle"
           [icon_show]="true"
           class="mb-4 mt-4 desh"
           [message]="htmlstring"
-          bg_color="warning"
+          [bg_color]="dataArr[4].bg_color"
           [accent_border]="true"
         ></ui-alert>
       </ui-preview>
 
-      <ui-preview [component_preview]="component_preview" [code]="codePreview[5]">
+      <ui-preview [codeObj]="dataArr[5]" [component_preview]="component_preview" [code]="codePreview[5]">
         <ui-alert
           icon="check_circle"
           [icon_show]="true"
           class="mb-4 mt-4"
           message="Successfully updated"
-          bg_color="success"
+          [bg_color]="dataArr[5].bg_color"
         ></ui-alert>
       </ui-preview>
     </ng-container>
@@ -159,7 +160,68 @@ bg_color="success"
   }
 
   htmlstring = 'You have no credits left. <a href="#"><u>Upgrade your account to add more credits</u></a>'
-  constructor(private readonly store: DevAlertStore) {}
+  constructor(private readonly store: DevAlertStore, public readonly serviceData: ServiceCodepreview) {}
+
+  public dataArr = [
+    {
+      id: 0,
+      class: 'mb-4 mt-4',
+      subject: 'Attention needed',
+      message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+      bg_color: 'warning',
+      icon: 'exclamation',
+      icon_show: true,
+    },
+    {
+      id: 1,
+      class: 'mb-4 mt-4',
+      subject: 'There were 2 errors with your submission',
+      message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+      bg_color: 'danger',
+      icon: 'x_circle',
+      icon_show: true,
+    },
+    {
+      id: 2,
+      class: 'mb-4 mt-4',
+      icon_show: true,
+      icon: 'information_circle',
+      message: 'A new software update is available. See what’s new in version 2.0.4.',
+      bg_color: 'info',
+    },
+    {
+      id: 3,
+      class: 'mb-4 mt-4',
+      icon_show: true,
+      icon: 'information_circle',
+      message: 'A new software update is available. See what’s new in version 2.0.4.',
+      bg_color: 'info',
+    },
+    {
+      id: 4,
+      icon: 'check_circle',
+      icon_show: true,
+      class: 'mb-4 mt-4 desh',
+      message: 'htmlstring',
+      bg_color: 'warning',
+      accent_border: 'true',
+    },
+    {
+      id: 5,
+      icon: 'check_circle',
+      icon_show: true,
+      class: 'mb-4 mt-4',
+      message: 'Successfully updated',
+      bg_color: 'success',
+    },
+  ]
+
+  ngOnInit(): void {
+    this.serviceData.codePreview$.subscribe((x) => {
+      this.dataArr[x.id] = x
+    })
+  }
+
   _list() {
     return [
       'Your password must be at least 8 characters',

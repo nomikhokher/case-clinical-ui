@@ -100,5 +100,7 @@ module.exports = {
     '<rootDir>/libs/web/ui/sign-in-and-registration',
     '<rootDir>/libs/web/ui/contact-card',
     '<rootDir>/libs/web/ui/range-slider',
+    '<rootDir>/libs/web/ui/progress-bar',
+    '<rootDir>/libs/web/ui/color-picker',
   ],
 }

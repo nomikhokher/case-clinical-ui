@@ -20,6 +20,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
           { path: 'code', loadChildren: () => import('./dev-code/dev-code.module').then((m) => m.DevCodeModule) },
           { path: 'forms', loadChildren: () => import('./dev-forms/dev-forms.module').then((m) => m.DevFormsModule) },
           {
+            path: 'color-picker',
+            loadChildren: () =>
+              import('./dev-color-picker/dev-color-picker.module').then((m) => m.DevColorPickerModule),
+          },
+          {
             path: 'text-area',
             loadChildren: () => import('./dev-textarea/dev-textarea.module').then((m) => m.DevTextareaModule),
           },
@@ -113,6 +118,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             path: 'range-slider',
             loadChildren: () =>
               import('./dev-range-slider/dev-range-slider.module').then((m) => m.DevRangeSliderModule),
+          },
+          {
+            path: 'progress-bar',
+            loadChildren: () =>
+              import('./dev-progress-bar/dev-progress-bar.module').then((m) => m.DevProgressBarModule),
           },
           {
             path: 'modals',

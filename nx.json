@@ -168,6 +168,9 @@
     "web-ui-code": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-color-picker": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-contact-card": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -262,6 +265,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-range-slider": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-progress-bar": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-section-headings": {

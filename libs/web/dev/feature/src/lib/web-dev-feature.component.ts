@@ -152,6 +152,16 @@ export class WebDevFeatureComponent {
               ],
             },
             {
+              label: 'Color Picker',
+              path: 'color-picker',
+              img: '/assets/images/color-picker.png',
+              childs: [
+                {
+                  name: 'Color Picker',
+                },
+              ],
+            },
+            {
               label: 'Text Area',
               path: 'text-area',
               img: '/assets/images/form-layouts.png',
@@ -439,6 +449,16 @@ export class WebDevFeatureComponent {
               childs: [
                 {
                   name: 'Range Slider',
+                }
+              ]
+            },
+            {
+              label: 'Progress Bar',
+              path: 'progress-bar',
+              img: '/assets/images/button-groups.png',
+              childs: [
+                {
+                  name: 'Progress Bar',
                 },
               ],
             },
