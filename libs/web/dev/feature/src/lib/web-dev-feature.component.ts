@@ -442,6 +442,26 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Range Slider',
+              path: 'range-slider',
+              img: '/assets/images/button-groups.png',
+              childs: [
+                {
+                  name: 'Range Slider',
+                }
+              ]
+            },
+            {
+              label: 'Progress Bar',
+              path: 'progress-bar',
+              img: '/assets/images/button-groups.png',
+              childs: [
+                {
+                  name: 'Progress Bar',
+                },
+              ],
+            },
           ],
         },
         {
