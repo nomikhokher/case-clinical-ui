@@ -115,9 +115,13 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             loadChildren: () => import('./dev-button/dev-button.module').then((m) => m.DevButtonModule),
           },
           {
-            path: 'group-button',
+            path: 'range-slider',
             loadChildren: () =>
-              import('./dev-group-button/dev-group-button.module').then((m) => m.DevGroupButtonModule),
+              import('./dev-range-slider/dev-range-slider.module').then((m) => m.DevRangeSliderModule),
+          },
+          {
+            path: 'chips',
+            loadChildren: () => import('./dev-chips/dev-chips.module').then((m) => m.DevChipsModule),
           },
           {
             path: 'progress-bar',

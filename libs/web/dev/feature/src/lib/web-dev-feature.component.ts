@@ -443,6 +443,26 @@ export class WebDevFeatureComponent {
               ],
             },
             {
+              label: 'Range Slider',
+              path: 'range-slider',
+              img: '/assets/images/button-groups.png',
+              childs: [
+                {
+                  name: 'Range Slider',
+                },
+              ],
+            },
+            {
+              label: 'Chips',
+              path: 'chips',
+              img: '/assets/images/button-groups.png',
+              childs: [
+                {
+                  name: 'Chips',
+                },
+              ],
+            },
+            {
               label: 'Progress Bar',
               path: 'progress-bar',
               img: '/assets/images/button-groups.png',
