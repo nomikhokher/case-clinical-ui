@@ -35,8 +35,8 @@ export class DevRepeaterStore extends ComponentStore<DevRepeaterState> {
         fields: [
           WebUiFormField.repeat('repeat', {
             fieldGroup: [
-              WebUiFormField.input('firstName', { label: 'First Name' }),
-              WebUiFormField.input('lastName', { label: 'Last Name' }),
+              WebUiFormField.input('firstName', { label: 'First Name' }, { className: 'sm:col-span-6' }),
+              WebUiFormField.input('lastName', { label: 'Last Name' }, { className: 'sm:col-span-3' }),
             ],
           }),
         ],
