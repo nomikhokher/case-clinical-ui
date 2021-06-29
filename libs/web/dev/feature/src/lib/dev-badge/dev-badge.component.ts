@@ -11,10 +11,10 @@ import { DevBadgeStore } from './dev-badge.store'
         Component: libs/web/dev/feature/src/lib/dev-badge/dev-badge.component.ts
       </code>
       <ui-preview [code]="codePreview[0]">
-        <ui-badge color="green" size="sm" rounded="rounded" icon=""></ui-badge>
+        <ui-badge color="green" size="sm" rounded="rounded" icon="" [position]="position"></ui-badge>
       </ui-preview>
       <ui-preview [code]="codePreview[1]">
-        <ui-badge color="green" size="sm" removeIcon="remove"></ui-badge>
+        <ui-badge color="green" size="sm" removeIcon="remove" [position]="position"></ui-badge>
       </ui-preview>
     </ng-container>
   `,
@@ -22,6 +22,7 @@ import { DevBadgeStore } from './dev-badge.store'
 })
 export class DevBadgeComponent {
   readonly vm$ = this.store.vm$
+  public position = 'left'
   constructor(private readonly store: DevBadgeStore) {}
   public codePreview = [
     `import { WebUiBadgeModule } from '@schema-driven/web/ui/badge'\n\n<ui-badge color="green" size="sm" rounded="rounded" icon=""></ui-badge> `,
