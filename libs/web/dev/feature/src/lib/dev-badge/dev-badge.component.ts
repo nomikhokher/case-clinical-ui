@@ -14,7 +14,7 @@ import { DevBadgeStore } from './dev-badge.store'
         <ui-badge color="green" size="sm" rounded="rounded" icon="" [position]="position"></ui-badge>
       </ui-preview>
       <ui-preview [code]="codePreview[1]">
-        <ui-badge color="green" size="sm" removeIcon="remove" [position]="position"></ui-badge>
+        <ui-badge color="green" size="sm" removeIcon="remove" [position]=""></ui-badge>
       </ui-preview>
     </ng-container>
   `,
