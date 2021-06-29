@@ -120,9 +120,9 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
               import('./dev-range-slider/dev-range-slider.module').then((m) => m.DevRangeSliderModule),
           },
           {
-            path: 'progress-bar',
+            path: 'progress-button',
             loadChildren: () =>
-              import('./dev-progress-bar/dev-progress-bar.module').then((m) => m.DevProgressBarModule),
+              import('./dev-progress-button/dev-progress-button.module').then((m) => m.DevProgressButtonModule),
           },
           {
             path: 'modals',
