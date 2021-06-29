@@ -264,10 +264,10 @@
     "web-ui-preview": {
       "tags": ["scope:web", "type:ui"]
     },
-    "web-ui-range-slider": {
+    "web-ui-progress-bar": {
       "tags": ["scope:web", "type:ui"]
     },
-    "web-ui-progress-bar": {
+    "web-ui-range-slider": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-section-headings": {
@@ -331,6 +331,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-toast": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-toggle-switch-button": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-tree": {

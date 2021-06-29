@@ -1839,28 +1839,6 @@
         }
       }
     },
-    "web-ui-range-slider": {
-      "projectType": "library",
-      "root": "libs/web/ui/range-slider",
-      "sourceRoot": "libs/web/ui/range-slider/src",
-      "prefix": "ui",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/web/ui/range-slider/src/**/*.ts", "libs/web/ui/range-slider/src/**/*.html"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/ui/range-slider"],
-          "options": {
-            "jestConfig": "libs/web/ui/progress-bar/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "web-ui-progress-bar": {
       "projectType": "library",
       "root": "libs/web/ui/progress-bar",
@@ -1876,6 +1854,28 @@
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/web/ui/progress-bar"],
+          "options": {
+            "jestConfig": "libs/web/ui/progress-bar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-range-slider": {
+      "projectType": "library",
+      "root": "libs/web/ui/range-slider",
+      "sourceRoot": "libs/web/ui/range-slider/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/range-slider/src/**/*.ts", "libs/web/ui/range-slider/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/range-slider"],
           "options": {
             "jestConfig": "libs/web/ui/progress-bar/jest.config.js",
             "passWithNoTests": true
@@ -2358,6 +2358,31 @@
           "outputs": ["coverage/libs/web/ui/toast"],
           "options": {
             "jestConfig": "libs/web/ui/toast/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-toggle-switch-button": {
+      "projectType": "library",
+      "root": "libs/web/ui/toggle-switch-button",
+      "sourceRoot": "libs/web/ui/toggle-switch-button/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/toggle-switch-button/src/**/*.ts",
+              "libs/web/ui/toggle-switch-button/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/toggle-switch-button"],
+          "options": {
+            "jestConfig": "libs/web/ui/toggle-switch-button/jest.config.js",
             "passWithNoTests": true
           }
         }

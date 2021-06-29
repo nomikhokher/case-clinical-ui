@@ -102,5 +102,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/range-slider',
     '<rootDir>/libs/web/ui/progress-bar',
     '<rootDir>/libs/web/ui/color-picker',
+    '<rootDir>/libs/web/ui/toggle-switch-button',
   ],
 }

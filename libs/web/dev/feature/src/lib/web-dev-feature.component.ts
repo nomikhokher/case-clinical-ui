@@ -462,6 +462,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Toggle Switch Button',
+              path: 'toggle-switch-button',
+              img: '/assets/images/button-groups.png',
+              childs: [
+                {
+                  name: 'Toggle Switch Button',
+                },
+              ],
+            },
           ],
         },
         {
