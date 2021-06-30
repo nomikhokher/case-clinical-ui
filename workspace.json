@@ -2385,6 +2385,31 @@
         }
       }
     },
+    "web-ui-toggle-switch-button": {
+      "projectType": "library",
+      "root": "libs/web/ui/toggle-switch-button",
+      "sourceRoot": "libs/web/ui/toggle-switch-button/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/toggle-switch-button/src/**/*.ts",
+              "libs/web/ui/toggle-switch-button/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/toggle-switch-button"],
+          "options": {
+            "jestConfig": "libs/web/ui/toggle-switch-button/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-tree": {
       "projectType": "library",
       "root": "libs/web/ui/tree",
