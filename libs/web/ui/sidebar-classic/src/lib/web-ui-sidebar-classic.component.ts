@@ -196,7 +196,7 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
       </div>
 
       <!-- Static sidebar for desktop -->
-      <div class="hidden theme-bg-600 dark:theme-bg-900 md:flex md:flex-shrink-0">
+      <div class="hidden theme-bg-600 dark:theme-bg-800 md:flex md:flex-shrink-0">
         <div class="flex flex-col w-64">
           <!-- Sidebar component, swap this element with another sidebar if you like -->
           <div class="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto aside-scrollbar">
@@ -210,18 +210,18 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
             <div class="mt-5 flex-1 flex flex-col">
               <nav class="flex-1 px-2 space-y-1">
                 <div class="mt-4">
-                  <ng-container *ngFor="let link of links">
+                  <ui-vertical-navigation [links]="links" [onBrand]="true"></ui-vertical-navigation>
+                  <!-- <ng-container *ngFor="let link of links">
                     <div class="relative group">
                       <ng-container *ngIf="!link.children">
                         <a
                           [routerLink]="link.route"
-                          class="theme-color-100 relative hover:theme-bg-500 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                          class="theme-color-100 relative hover:theme-bg-500 hover:text-white group flex items-center leading-6 px-2 py-2 text-sm font-medium rounded-md"
                         >
                           <ui-icon
                             *ngIf="link.icon"
                             [icon]="link.icon"
-                            size="lg"
-                            class="theme-color-300 group-hover:text-gray-300 h-8 w-8 mr-3"
+                            class="theme-color-300 group-hover:text-gray-300 h-6 w-6 mr-4"
                           ></ui-icon>
                           {{ link.label }}
                         </a>
@@ -240,8 +240,7 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
                           >
                             <ui-icon
                               [icon]="child.icon"
-                              size="lg"
-                              class="theme-color-300 group-hover:text-gray-300 h-8 w-8 mr-3 pt-1"
+                              class="theme-color-300 group-hover:text-gray-300 h-6 w-6 mr-4 pt-1"
                             ></ui-icon>
                             {{ child.label }}
                             <span class="absolute right-2" *ngIf="child.children">
@@ -317,7 +316,7 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
                         </ng-container>
                       </ng-container>
                     </div>
-                  </ng-container>
+                  </ng-container> -->
                 </div>
               </nav>
             </div>
@@ -455,16 +454,8 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
           </div>
         </div>
 
-        <main class="flex-1 relative overflow-y-auto focus:outline-none bg-white dark:bg-gray-900 dark:text-gray-300">
-          <div class="py-6">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              <div class="py-4">
-                <div class="h-auto">
-                  <router-outlet></router-outlet>
-                </div>
-              </div>
-            </div>
-          </div>
+        <main class="relative flex-1 overflow-y-auto focus:outline-none bg-white dark:bg-gray-900 dark:text-gray-300">
+          <router-outlet></router-outlet>
         </main>
       </div>
     </div>
