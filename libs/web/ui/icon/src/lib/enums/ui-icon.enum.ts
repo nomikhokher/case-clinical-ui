@@ -52,4 +52,9 @@ export enum UiIcon {
   eye = 'eye',
   code = 'code',
   users = 'users',
+  cross = 'cross',
+  heart = 'heart',
+  clipboardCheck = 'clipboardCheck',
+  clipboardCopy = 'clipboardCopy',
+  clipboardList = 'clipboardList',
 }

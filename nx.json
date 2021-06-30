@@ -309,6 +309,9 @@
     "web-ui-slide-over-layout": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-split-button": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-stacked-centered": {
       "tags": ["scope:web", "type:ui"]
     },

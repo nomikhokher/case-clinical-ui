@@ -139,6 +139,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
           ),
       },
       {
+        path: 'split-button',
+        loadChildren: () => import('./dev-split-button/dev-split-button.module').then((m) => m.DevSplitButtonModule),
+      },
+      {
         path: 'paginations',
         loadChildren: () => import('./dev-pagination/dev-pagination.module').then((m) => m.DevPaginationModule),
       },

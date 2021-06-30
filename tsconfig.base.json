@@ -107,6 +107,7 @@
       "@schema-driven/web/ui/sign-in-and-registration": ["libs/web/ui/sign-in-and-registration/src/index.ts"],
       "@schema-driven/web/ui/slide-over": ["libs/web/ui/slide-over/src/index.ts"],
       "@schema-driven/web/ui/slide-over-layout": ["libs/web/ui/slide-over-layout/src/index.ts"],
+      "@schema-driven/web/ui/split-button": ["libs/web/ui/split-button/src/index.ts"],
       "@schema-driven/web/ui/stacked-centered": ["libs/web/ui/stacked-centered/src/index.ts"],
       "@schema-driven/web/ui/stacked-enterprise": ["libs/web/ui/stacked-enterprise/src/index.ts"],
       "@schema-driven/web/ui/stacked-modern": ["libs/web/ui/stacked-modern/src/index.ts"],

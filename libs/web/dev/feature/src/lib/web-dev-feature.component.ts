@@ -267,6 +267,11 @@ export class WebDevFeatureComponent {
               route: 'toggle-switch-button',
               image: '/assets/images/button-groups.png',
             },
+            {
+              label: 'Split Button',
+              route: 'split-button',
+              image: '/assets/images/button-groups.png',
+            },
           ],
         },
         {

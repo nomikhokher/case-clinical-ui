@@ -105,5 +105,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/color-picker',
     '<rootDir>/libs/web/ui/toggle-switch-button',
     '<rootDir>/libs/web/ui/chips',
+    '<rootDir>/libs/web/ui/split-button',
   ],
 }
