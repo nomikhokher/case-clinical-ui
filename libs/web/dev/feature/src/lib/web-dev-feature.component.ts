@@ -1,476 +1,266 @@
 import { Component } from '@angular/core'
+import { WebLayoutLink } from '@schema-driven/web/layout'
+
 @Component({
   template: `
-    <ui-main-page headerTitle="Development" [links]="links">
-      <router-outlet></router-outlet>
-    </ui-main-page>
+    <div class="bg-gray-50 dark:bg-gray-900">
+      <ui-main-page [headingTitle]="headingTitle" [links]="links"></ui-main-page>
+    </div>
   `,
 })
 export class WebDevFeatureComponent {
-  links = [
+  headingTitle = 'Components'
+  links: WebLayoutLink[] = [
     {
-      heading: 'Application UI',
-      title:
-        'Form layouts, tables, modal windows — everything you need to build beautiful responsive web applications.',
-      childs: [
+      title: 'Application UI',
+      subTitle: `Form layouts, tables, modal windows — everything you need to build beautiful responsive web applications.`,
+      children: [
         {
-          name: 'FullCalendar',
-          childs: [
-            {
-              label: 'Full-Calendar',
-              path: 'full-calendars',
-              img: '/assets/images/stacked.png',
-              childs: [
-                {
-                  name: 'Full Calendar',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          name: 'Dashboard',
-          childs: [
-            {
-              label: 'Dashboard',
-              path: 'dashboard',
-              img: '/assets/images/stacked.png',
-              childs: [
-                {
-                  name: 'Stacked Layouts',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          name: 'Headings',
-          childs: [
+          label: 'Headings',
+          children: [
             {
               label: 'Page Headings',
-              path: 'page-headings',
-              img: '/assets/images/page-headings.png',
-              childs: [
-                {
-                  name: 'Page Headings',
-                },
-              ],
+              route: 'page-headings',
+              image: '/assets/images/page-headings.png',
             },
             {
               label: 'Card Headings',
-              path: 'card-headings',
-              img: '/assets/images/card-headings.png',
-              childs: [
-                {
-                  name: 'Card Headings',
-                },
-              ],
+              route: 'card-headings',
+              image: '/assets/images/card-headings.png',
             },
             {
               label: 'Section Headings',
-              path: 'section-headings',
-              img: '/assets/images/section-headings.png',
-              childs: [
-                {
-                  name: 'Section Headings',
-                },
-              ],
+              route: 'section-headings',
+              image: '/assets/images/section-headings.png',
             },
           ],
         },
         {
-          name: 'Data Display',
-          childs: [
+          label: 'Forms',
+          children: [
+            {
+              label: 'Forms',
+              route: 'forms',
+              image: '/assets/images/form-layouts.png',
+            },
+            {
+              label: 'Repeater',
+              route: 'repeater',
+              image: '/assets/images/stacked-lists.png',
+            },
+          ],
+        },
+        {
+          label: 'Data Display',
+          children: [
             {
               label: 'Stats',
-              path: 'stats',
-              img: '/assets/images/stats.png',
-              childs: [
-                {
-                  name: 'Stats',
-                },
-              ],
+              route: 'stats',
+              image: '/assets/images/stats.png',
             },
             {
               label: 'Description List',
-              path: 'description-list',
-              img: '/assets/images/description-lists.png',
-              childs: [
-                {
-                  name: 'Description List',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          name: 'Lists',
-          childs: [
-            {
-              label: 'Tables',
-              path: 'table-lists',
-              img: '/assets/images/table-lists.png',
-              childs: [
-                {
-                  name: 'Tables',
-                },
-              ],
+              route: 'description-list',
+              image: '/assets/images/description-lists.png',
             },
             {
               label: 'Contact Card',
-              path: 'contact-card',
-              img: '/assets/images/contact-card.png',
-              childs: [
-                {
-                  name: 'Contact Card',
-                },
-              ],
+              route: 'contact-card',
+              image: '/assets/images/contact-card.png',
             },
           ],
         },
         {
-          name: 'Forms',
-          childs: [
+          label: 'Lists',
+          children: [
             {
-              label: 'Forms',
-              path: 'forms',
-              img: '/assets/images/form-layouts.png',
-              childs: [
-                {
-                  name: 'Form Layouts',
-                },
-              ],
+              label: 'Tables',
+              route: 'table-lists',
+              image: '/assets/images/table-lists.png',
             },
             {
               label: 'Sign-in and Registration',
-              path: 'sign-in-and-registration',
-              img: '/assets/images/sign-in-and-registration.png',
-              childs: [
-                {
-                  name: 'Sign-in and Registration',
-                },
-              ],
+              route: 'sign-in-and-registration',
+              image: '/assets/images/sign-in-and-registration.png',
             },
             {
               label: 'Color Picker',
-              path: 'color-picker',
-              img: '/assets/images/color-picker.png',
-              childs: [
-                {
-                  name: 'Color Picker',
-                },
-              ],
+              route: 'color-picker',
+              image: '/assets/images/color-picker.png',
             },
             {
               label: 'Text Area',
-              path: 'text-area',
-              img: '/assets/images/form-layouts.png',
-              childs: [
-                {
-                  name: 'Text Area Layouts',
-                },
-              ],
+              route: 'text-area',
+              image: '/assets/images/form-layouts.png',
             },
             {
               label: 'Select Menus',
-              path: 'select-menus',
-              img: '/assets/images/select-menus.png',
-              childs: [
-                {
-                  name: 'Select Menus Layouts',
-                },
-              ],
+              route: 'select-menus',
+              image: '/assets/images/select-menus.png',
             },
             {
               label: 'Radio Groups',
-              path: 'radio-group',
-              img: '/assets/images/radio-groups.png',
-              childs: [
-                {
-                  name: 'Radio Button Layouts',
-                },
-              ],
+              route: 'radio-group',
+              image: '/assets/images/radio-groups.png',
             },
             {
               label: 'Checkbox',
-              path: 'checkbox',
-              img: '/assets/images/form-layouts.png',
-              childs: [
-                {
-                  name: 'Checkbox Layouts',
-                },
-              ],
+              route: 'checkbox',
+              image: '/assets/images/form-layouts.png',
             },
             {
               label: 'Repeat',
-              path: 'repeat',
-              img: '/assets/images/form-layouts.png',
-              childs: [
-                {
-                  name: 'Repeat Layouts',
-                },
-              ],
+              route: 'repeat',
+              image: '/assets/images/form-layouts.png',
             },
             {
               label: 'Multi Checkbox',
-              path: 'multi-checkbox',
-              img: '/assets/images/form-layouts.png',
-              childs: [
-                {
-                  name: 'Multi Checkbox Layouts',
-                },
-              ],
+              route: 'multi-checkbox',
+              image: '/assets/images/form-layouts.png',
             },
           ],
         },
-
         {
-          name: 'Layout',
-          childs: [
+          label: 'Layout',
+          children: [
             {
               label: 'Containers',
-              path: 'containers',
-              img: '/assets/images/containers.png',
-              childs: [
-                {
-                  name: 'Containers',
-                },
-              ],
+              route: 'containers',
+              image: '/assets/images/containers.png',
             },
             {
-              label: 'Working.......',
-              path: 'panels',
-              img: '/assets/images/panels.png',
-              childs: [
-                {
-                  name: 'Panels',
-                },
-              ],
+              label: 'Panels',
+              route: 'panels',
+              image: '/assets/images/panels.png',
             },
             {
               label: 'List Containers',
-              path: 'list-containers',
-              img: '/assets/images/list-containers.png',
-              childs: [
-                {
-                  name: 'List containers',
-                },
-              ],
+              route: 'list-containers',
+              image: '/assets/images/list-containers.png',
             },
             {
               label: 'Media Objects',
-              path: 'media-objects',
-              img: '/assets/images/media-objects.png',
-              childs: [
-                {
-                  name: 'media-objects',
-                },
-              ],
+              route: 'media-objects',
+              image: '/assets/images/media-objects.png',
             },
             {
               label: 'Dividers',
-              path: 'dividers',
-              img: '/assets/images/dividers.png',
-              childs: [
-                {
-                  name: 'Dividers',
-                },
-              ],
+              route: 'dividers',
+              image: '/assets/images/dividers.png',
             },
           ],
         },
 
         {
-          name: 'Content Layout',
-          childs: [
+          label: 'Content Layout',
+          children: [
             {
               label: 'Data Table',
-              path: 'table',
-              img: '/assets/images/tables.png',
-              childs: [
-                {
-                  name: 'Data Table Layout',
-                },
-              ],
+              route: 'table',
+              image: '/assets/images/tables.png',
             },
           ],
         },
 
         {
-          name: 'Calendars',
-          childs: [
+          label: 'Calendars',
+          children: [
             {
               label: 'Calendars Ui',
-              path: 'calendars',
-              img: '/assets/images/tables.png',
-              childs: [
-                {
-                  name: 'Calendar',
-                },
-              ],
+              route: 'calendars',
+              image: '/assets/images/tables.png',
             },
             {
               label: 'Mini Calendars Ui',
-              path: 'mini-calendars',
-              img: '/assets/images/tables.png',
-              childs: [
-                {
-                  name: 'Mini Calendar',
-                },
-              ],
+              route: 'mini-calendars',
+              image: '/assets/images/tables.png',
             },
           ],
         },
 
         {
-          name: 'Notification',
-          childs: [
+          label: 'Notification',
+          children: [
             {
               label: 'Toasts',
-              path: 'toasts',
-              img: '/assets/images/notifications.png',
-              childs: [
-                {
-                  name: 'Notifications',
-                },
-              ],
+              route: 'toasts',
+              image: '/assets/images/notifications.png',
             },
           ],
         },
-
         {
-          name: 'Feedback',
-          childs: [
+          label: 'Feedback',
+          children: [
             {
               label: 'Alert',
-              path: 'alerts',
-              img: '/assets/images/alerts.png',
-              childs: [
-                {
-                  name: 'Alerts',
-                },
-              ],
+              route: 'alerts',
+              image: '/assets/images/alerts.png',
             },
           ],
         },
         {
-          name: 'Overlays',
-          childs: [
+          label: 'Overlays',
+          children: [
             {
               label: 'Modal',
-              path: 'modals',
-              img: '/assets/images/modals.png',
-              childs: [
-                {
-                  name: 'Modals',
-                },
-              ],
+              route: 'modals',
+              image: '/assets/images/modals.png',
             },
 
             {
               label: 'Notifications',
-              path: 'notifications',
-              img: '/assets/images/notifications.png',
-              childs: [
-                {
-                  name: 'Notifications',
-                },
-              ],
+              route: 'notifications',
+              image: '/assets/images/notifications.png',
             },
             {
               label: 'Slide-overs',
-              path: 'slideovers',
-              img: '/assets/images/notifications.png',
-              childs: [
-                {
-                  name: 'Slide-overs',
-                },
-              ],
+              route: 'slideovers',
+              image: '/assets/images/notifications.png',
             },
           ],
         },
         {
-          name: 'Elements',
-          childs: [
+          label: 'Elements',
+          children: [
             {
               label: 'Avatars',
-              path: 'avatars',
-              img: '/assets/images/avatars.png',
-              childs: [
-                {
-                  name: 'Avatars',
-                },
-              ],
+              route: 'avatars',
+              image: '/assets/images/avatars.png',
             },
             {
               label: 'Dropdown',
-              path: 'dropdown',
-              img: '/assets/images/dropdowns.png',
-              childs: [
-                {
-                  name: 'Dropdowns',
-                },
-              ],
+              route: 'dropdown',
+              image: '/assets/images/dropdowns.png',
             },
             {
               label: 'badge',
-              path: 'badges',
-              img: '/assets/images/badges.png',
-              childs: [
-                {
-                  name: 'Badges',
-                },
-              ],
+              route: 'badges',
+              image: '/assets/images/badges.png',
             },
             {
               label: 'Buttons',
-              path: 'buttons',
-              img: '/assets/images/buttons.png',
-              childs: [
-                {
-                  name: 'Buttons',
-                },
-              ],
+              route: 'buttons',
+              image: '/assets/images/buttons.png',
             },
             {
               label: 'Group Buttons',
-              path: 'group-button',
-              img: '/assets/images/button-groups.png',
-              childs: [
-                {
-                  name: 'Button Groups',
-                },
-              ],
+              route: 'group-button',
+              image: '/assets/images/button-groups.png',
             },
             {
               label: 'Range Slider',
-              path: 'range-slider',
-              img: '/assets/images/button-groups.png',
-              childs: [
-                {
-                  name: 'Range Slider',
-                },
-              ],
+              route: 'range-slider',
+              image: '/assets/images/button-groups.png',
             },
             {
               label: 'Chips',
-              path: 'chips',
-              img: '/assets/images/button-groups.png',
-              childs: [
-                {
-                  name: 'Chips',
-                },
-              ],
+              route: 'chips',
+              image: '/assets/images/button-groups.png',
             },
             {
               label: 'Progress Bar',
-              path: 'progress-bar',
-              img: '/assets/images/button-groups.png',
-              childs: [
-                {
-                  name: 'Progress Bar',
-                },
-              ],
+              route: 'progress-bar',
+              image: '/assets/images/button-groups.png',
             },
             {
               label: 'Toggle Switch Button',
@@ -485,128 +275,88 @@ export class WebDevFeatureComponent {
           ],
         },
         {
-          name: 'Navigation',
-          childs: [
+          label: 'Navigation',
+          children: [
             {
               label: 'Tree',
-              path: 'tree',
-              img: '/assets/images/vertical-navigation.png',
-              childs: [
-                {
-                  name: 'Tree',
-                },
-              ],
+              route: 'tree',
+              image: '/assets/images/vertical-navigation.png',
             },
             {
               label: 'Steps',
-              path: 'steps',
-              img: '/assets/images/steps.png',
-              childs: [
-                {
-                  name: 'Steps',
-                },
-              ],
+              route: 'steps',
+              image: '/assets/images/steps.png',
             },
             {
               label: 'Breadcrumbs',
-              path: 'breadcrumbs',
-              img: '/assets/images/breadcrumbs.png',
-              childs: [
-                {
-                  name: 'Breadcrumbs',
-                },
-              ],
+              route: 'breadcrumbs',
+              image: '/assets/images/breadcrumbs.png',
             },
             {
               label: 'Tabs',
-              path: 'tabs',
-              img: '/assets/images/tabs.png',
-              childs: [
-                {
-                  name: 'Tabs',
-                },
-              ],
+              route: 'tabs',
+              image: '/assets/images/tabs.png',
             },
             {
               label: 'Pagination',
-              path: 'paginations',
-              img: '/assets/images/pagination.png',
-              childs: [
-                {
-                  name: 'Pagination',
-                },
-              ],
+              route: 'paginations',
+              image: '/assets/images/pagination.png',
             },
             {
               label: 'Vertical Navigation',
-              path: 'vertical-nav',
-              img: '/assets/images/vertical-navigation.png',
-              childs: [
-                {
-                  name: 'Vertical Navigation',
-                },
-              ],
+              route: 'vertical-nav',
+              image: '/assets/images/vertical-navigation.png',
             },
             {
               label: 'Navbars',
-              path: 'navbars',
-              img: '/assets/images/navbars.png',
-              childs: [
-                {
-                  name: 'Navbars',
-                },
-              ],
+              route: 'navbars',
+              image: '/assets/images/navbars.png',
             },
           ],
         },
         {
-          name: 'Syntax Highlight',
-          childs: [
+          label: 'Syntax Highlight',
+          children: [
             {
               label: 'JSON Formatter',
-              path: 'json',
-              img:
+              route: 'json',
+              image:
                 'https://storage.googleapis.com/website-dev-images/sites/default/files/shutterstock_671233504%20%281%29.jpg',
-              childs: [
-                {
-                  name: 'Json Api',
-                },
-              ],
             },
           ],
         },
         {
-          name: 'Lists',
-          childs: [
+          label: 'Lists',
+          children: [
             {
               label: 'Feeds',
-              path: 'feeds',
-              img: '/assets/images/feeds.png',
-              childs: [
-                {
-                  name: 'Feeds',
-                },
-              ],
+              route: 'feeds',
+              image: '/assets/images/feeds.png',
             },
             {
               label: 'Stacked List',
-              path: 'lists',
-              img: '/assets/images/stacked-lists.png',
-              childs: [
-                {
-                  name: 'Stacked Lists',
-                },
-              ],
+              route: 'lists',
+              image: '/assets/images/stacked-lists.png',
             },
             {
               label: 'Working....',
-              path: 'grid-lists',
-              img: '/assets/images/grid-lists.png',
-              childs: [
-                {
-                  name: 'Grid Lists',
-                },
-              ],
+              route: 'grid-lists',
+              image: '/assets/images/grid-lists.png',
+            },
+          ],
+        },
+        {
+          label: 'Page Examples',
+          children: [
+            {
+              label: 'Dashboard',
+              route: 'dashboard',
+              image: '/assets/images/stacked.png',
+            },
+            {
+              label: 'Full-Calendar',
+              route: 'full-calendars',
+              image: '/assets/images/stacked.png',
             },
           ],
         },

@@ -12,12 +12,12 @@ import { StackedList, TwoColumnStackedList } from './type.model'
         Component: libs/web/dev/feature/src/lib/dev-stacked-lists/dev-stacked-lists.component.ts
       </code>
     </ng-container>
-    <ui-preview [component_props]="[{ name: 'stackedList', value: stackedList }]" [code]="codePreview[0]">
+    <ui-preview [component_inputs]="[{ name: 'stackedList', value: stackedList }]" [code]="codePreview[0]">
       <ui-narrow-avatar-list [stackedList]="stackedList"></ui-narrow-avatar-list>
     </ui-preview>
 
     <ui-preview
-      [component_props]="[{ name: 'twoColumnStackedList', value: twoColumnStackedList }]"
+      [component_inputs]="[{ name: 'twoColumnStackedList', value: twoColumnStackedList }]"
       [code]="codePreview[1]"
     >
       <ui-two-column-stacked-list [twoColumnStackedList]="twoColumnStackedList"></ui-two-column-stacked-list>

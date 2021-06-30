@@ -4,8 +4,9 @@ import { RouterModule } from '@angular/router'
 import { ClickOutsideModule } from 'ng-click-outside'
 import { WebUiSidebarFuturisticComponent } from './web-ui-sidebar-futuristic.component'
 import { WebUiIconModule } from '@schema-driven/web/ui/icon'
+import { WebUiVerticalNavigationModule } from '@schema-driven/web/ui/vertical-navigation'
 @NgModule({
-  imports: [CommonModule, RouterModule, ClickOutsideModule, WebUiIconModule],
+  imports: [CommonModule, RouterModule, ClickOutsideModule, WebUiIconModule, WebUiVerticalNavigationModule],
   declarations: [WebUiSidebarFuturisticComponent],
   exports: [WebUiSidebarFuturisticComponent],
 })

@@ -276,6 +276,9 @@
     "web-ui-section-headings": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-sidebar": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-sidebar-classic": {
       "tags": ["scope:web", "type:ui"]
     },
