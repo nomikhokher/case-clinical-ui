@@ -129,6 +129,13 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
               import('./dev-progress-bar/dev-progress-bar.module').then((m) => m.DevProgressBarModule),
           },
           {
+            path: 'toggle-switch-button',
+            loadChildren: () =>
+              import('./dev-toggle-switch-button/dev-toggle-switch-button.module').then(
+                (m) => m.DevToggleSwitchButtonModule,
+              ),
+          },
+          {
             path: 'modals',
             loadChildren: () => import('./dev-modal/dev-modal.module').then((m) => m.DevModalModule),
           },
