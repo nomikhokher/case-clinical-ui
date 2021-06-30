@@ -1104,6 +1104,28 @@
         }
       }
     },
+    "web-ui-chips": {
+      "projectType": "library",
+      "root": "libs/web/ui/chips",
+      "sourceRoot": "libs/web/ui/chips/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/chips/src/**/*.ts", "libs/web/ui/chips/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/chips"],
+          "options": {
+            "jestConfig": "libs/web/ui/chips/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-code": {
       "projectType": "library",
       "root": "libs/web/ui/code",

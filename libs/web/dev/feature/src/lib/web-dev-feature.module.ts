@@ -120,6 +120,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
               import('./dev-range-slider/dev-range-slider.module').then((m) => m.DevRangeSliderModule),
           },
           {
+            path: 'chips',
+            loadChildren: () => import('./dev-chips/dev-chips.module').then((m) => m.DevChipsModule),
+          },
+          {
             path: 'progress-bar',
             loadChildren: () =>
               import('./dev-progress-bar/dev-progress-bar.module').then((m) => m.DevProgressBarModule),

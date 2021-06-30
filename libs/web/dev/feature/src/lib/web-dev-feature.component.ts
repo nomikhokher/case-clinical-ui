@@ -453,6 +453,16 @@ export class WebDevFeatureComponent {
               ],
             },
             {
+              label: 'Chips',
+              path: 'chips',
+              img: '/assets/images/button-groups.png',
+              childs: [
+                {
+                  name: 'Chips',
+                },
+              ],
+            },
+            {
               label: 'Progress Bar',
               path: 'progress-bar',
               img: '/assets/images/button-groups.png',
