@@ -547,6 +547,16 @@ export class WebDevFeatureComponent {
                 },
               ],
             },
+            {
+              label: 'Toolbar',
+              path: 'toolbar',
+              img: '/assets/images/navbars.png',
+              childs: [
+                {
+                  name: 'Toolbar',
+                },
+              ],
+            },
           ],
         },
         {

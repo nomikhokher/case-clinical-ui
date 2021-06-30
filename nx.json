@@ -336,6 +336,9 @@
     "web-ui-toast": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-toolbar": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-tree": {
       "tags": ["scope:web", "type:ui"]
     },
