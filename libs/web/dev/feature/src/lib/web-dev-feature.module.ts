@@ -132,6 +132,13 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
           import('./dev-vertical-navigation/dev-vertical-navigation.module').then((m) => m.DevVerticalNavigationModule),
       },
       {
+        path: 'toggle-switch-button',
+        loadChildren: () =>
+          import('./dev-toggle-switch-button/dev-toggle-switch-button.module').then(
+            (m) => m.DevToggleSwitchButtonModule,
+          ),
+      },
+      {
         path: 'paginations',
         loadChildren: () => import('./dev-pagination/dev-pagination.module').then((m) => m.DevPaginationModule),
       },
