@@ -11,25 +11,8 @@ export interface WebLayoutLink {
   role?: Role
   icon?: string
   dropDown?: boolean
-  children?: {
-    dropDown?: boolean
-    label: string
-    route?: string
-    role?: Role
-    icon?: string
-    children?: {
-      dropDown?: boolean
-      label: string
-      route?: string
-      role?: Role
-      children?: {
-        dropDown?: boolean
-        label: string
-        route?: string
-        role?: Role
-      }[]
-    }[]
-  }[]
+  image?: string
+  children?: WebLayoutLink[]
 }
 
 export interface WebLayoutState {

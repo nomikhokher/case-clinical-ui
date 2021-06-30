@@ -96,6 +96,7 @@
       "@schema-driven/web/ui/progress-bar": ["libs/web/ui/progress-bar/src/index.ts"],
       "@schema-driven/web/ui/range-slider": ["libs/web/ui/range-slider/src/index.ts"],
       "@schema-driven/web/ui/section-headings": ["libs/web/ui/section-headings/src/index.ts"],
+      "@schema-driven/web/ui/sidebar": ["libs/web/ui/sidebar/src/index.ts"],
       "@schema-driven/web/ui/sidebar-classic": ["libs/web/ui/sidebar-classic/src/index.ts"],
       "@schema-driven/web/ui/sidebar-classy": ["libs/web/ui/sidebar-classy/src/index.ts"],
       "@schema-driven/web/ui/sidebar-compact": ["libs/web/ui/sidebar-compact/src/index.ts"],
