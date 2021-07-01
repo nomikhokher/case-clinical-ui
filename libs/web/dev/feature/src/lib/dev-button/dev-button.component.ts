@@ -43,12 +43,15 @@ export class DevButtonComponent {
 
   constructor(private readonly store: DevButtonStore) {}
   public codePreview = [
-    ` import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="Indigo" type="button" color="indigo"></ui-button>`,
-    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="red" type="button" color="red"></ui-button>`,
-    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="Gray" type="button" color="gray"></ui-button>`,
-    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button [disabled]="true" label="Disabled" type="button" color="red"></ui-button>`,
-    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="Border 3D "type="button" color="green" border="border-b-4 border-green-900 rounded"></ui-button>`,
-    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="Rounded Full " type="button" color="red" border="rounded-full"></ui-button>`,
-    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="Transparent" type="button" color="transparent" border="border border-blue-500 hover:border-transparent text-blue-700 rounded"></ui-button>`,
+    ` import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="Indigo" type="button" color="indigo"  textTransform='upperase'></ui-button>`,
+    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="red" type="button" color="red"  textTransform='lowercase'></ui-button>`,
+    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="Gray" type="button" color="gray"  textTransform='capitalize'></ui-button>`,
+    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button [disabled]="true" label="Disabled" type="button" color="red"  textTransform='normal-case'></ui-button>`,
+    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="Border 3D "type="button" color="green" border="border-b-4 border-green-900 rounded"  textTransform='normal-case'></ui-button>`,
+    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="Rounded Full " type="button" color="red" border="rounded-full"  textTransform='capitalize'></ui-button>`,
+    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="Transparent" type="button" color="transparent" border="border border-blue-500 hover:border-transparent text-blue-700 rounded"  textTransform='capitalize'></ui-button>`,
+    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="Icon on left" type="button" color="indigo" position="right"  textTransform='capitalize'></ui-button>`,
+    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button label="Icon on Right" type="button" color="indigo" position="left"  textTransform='capitalize'></ui-button>`,
+    `import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button  type="circlebtn" color="indigo"></ui-button>`,
   ]
 }

@@ -4,7 +4,11 @@ import { Component, Input } from '@angular/core'
   selector: 'ui-avatar',
   template: `
     <ng-container [ngSwitch]="mode">
-      <span *ngSwitchCase="'img'" class="{{ __badge_enable() ? 'inline-block relative' : '' }}">
+      <span
+        (click)="onAvatar()"
+        *ngSwitchCase="'img'"
+        class="{{ __badge_enable() ? 'inline-block relative' : '' }} cursor-pointer relative hover:opacity-80"
+      >
         <img
           *ngIf="!__badge_enable()"
           class="inline-block {{ __size() }} {{ __radius() }}"
@@ -18,10 +22,45 @@ import { Component, Input } from '@angular/core'
             __badge_position() + __badge_color()
           }}"
         ></span>
+        <div
+          *ngIf="avt"
+          class="origin-top-right absolute left-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+          role="menu"
+          aria-orientation="vertical"
+          aria-labelledby="user-menu-button"
+          tabindex="-1"
+        >
+          <!-- Active: "bg-gray-100", Not Active: "" -->
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-500 cursor-pointer hover:text-white"
+            role="menuitem"
+            tabindex="-1"
+            id="user-menu-item-0"
+            >Demo 1</a
+          >
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-500 cursor-pointer hover:text-white"
+            role="menuitem"
+            tabindex="-1"
+            id="user-menu-item-1"
+            >Demo 2</a
+          >
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-500 cursor-pointer hover:text-white"
+            role="menuitem"
+            tabindex="-1"
+            id="user-menu-item-2"
+            >Demo 3</a
+          >
+        </div>
       </span>
       <span
+        (click)="onAvatar()"
         *ngSwitchCase="'icon'"
-        class="inline-block {{ __size() }} {{ __radius() }} overflow-hidden bg-gray-100 {{
+        class="cursor-pointer inline-block {{ __size() }} {{ __radius() }} overflow-hidden bg-gray-100 {{
           __badge_enable() ? 'inline-block relative' : ''
         }}"
       >
@@ -45,10 +84,11 @@ import { Component, Input } from '@angular/core'
         ></span>
       </span>
       <span
+        (click)="onAvatar()"
         *ngSwitchCase="'text'"
-        class="inline-flex {{ __badge_enable() ? 'inline-block relative' : '' }} items-center justify-center {{
-          __size()
-        }} {{ __radius() }} bg-gray-500"
+        class="relative  hover:opacity-80 cursor-pointer inline-flex {{
+          __badge_enable() ? 'inline-block relative' : ''
+        }} items-center justify-center {{ __size() }} {{ __radius() }} bg-gray-500"
       >
         <span *ngIf="!__badge_enable()" class="inline-block text-xs font-medium leading-none text-white">{{
           payload
@@ -60,6 +100,40 @@ import { Component, Input } from '@angular/core'
             __badge_position() + __badge_color()
           }}"
         ></span>
+        <div
+          *ngIf="avt1"
+          class="origin-top-right absolute top-14 left-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+          role="menu"
+          aria-orientation="vertical"
+          aria-labelledby="user-menu-button"
+          tabindex="-1"
+        >
+          <!-- Active: "bg-gray-100", Not Active: "" -->
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-500 cursor-pointer hover:text-white"
+            role="menuitem"
+            tabindex="-1"
+            id="user-menu-item-0"
+            >Demo 1</a
+          >
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-500 cursor-pointer hover:text-white"
+            role="menuitem"
+            tabindex="-1"
+            id="user-menu-item-1"
+            >Demo 2</a
+          >
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-500 cursor-pointer hover:text-white"
+            role="menuitem"
+            tabindex="-1"
+            id="user-menu-item-2"
+            >Demo 3</a
+          >
+        </div>
       </span>
     </ng-container>
   `,
@@ -74,6 +148,13 @@ export class WebUiAvatarComponent {
   @Input() width?: string
   @Input() height?: string
   ngOnInit() {}
+  public avt = false
+  public avt1 = false
+  onAvatar() {
+    this.avt = !this.avt
+    this.avt1 = !this.avt1
+    // alert('Avatar Clicked!')
+  }
 
   __radius() {
     return this.radius !== undefined ? (this.radius === 'circle' ? 'rounded-full' : 'rounded-md') : 'rounded-full'
