@@ -2203,6 +2203,28 @@
         }
       }
     },
+    "web-ui-split-button": {
+      "projectType": "library",
+      "root": "libs/web/ui/split-button",
+      "sourceRoot": "libs/web/ui/split-button/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/split-button/src/**/*.ts", "libs/web/ui/split-button/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/split-button"],
+          "options": {
+            "jestConfig": "libs/web/ui/split-button/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-stacked-centered": {
       "projectType": "library",
       "root": "libs/web/ui/stacked-centered",

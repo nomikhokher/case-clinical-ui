@@ -269,14 +269,14 @@ export class WebDevFeatureComponent {
             },
             {
               label: 'Progress Button',
-              path: 'progress-button',
-              img: '/assets/images/button-groups.png',
-              childs: [
-                {
-                  name: 'Progress Button',
-                },
-              ],
+              route: 'progress-button',
+              image: '/assets/images/button-groups.png',
             },
+            {
+              label: 'Split Button',
+              route: 'split-button',
+              image: 'assets/images/button-groups.png',
+            }
           ],
         },
         {
