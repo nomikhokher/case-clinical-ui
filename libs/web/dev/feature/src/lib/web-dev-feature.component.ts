@@ -267,6 +267,16 @@ export class WebDevFeatureComponent {
               route: 'toggle-switch-button',
               image: '/assets/images/button-groups.png',
             },
+            {
+              label: 'Progress Button',
+              route: 'progress-button',
+              image: '/assets/images/button-groups.png',
+            },
+            {
+              label: 'Split Button',
+              route: 'split-button',
+              image: 'assets/images/button-groups.png',
+            },
           ],
         },
         {
@@ -305,6 +315,11 @@ export class WebDevFeatureComponent {
             {
               label: 'Navbars',
               route: 'navbars',
+              image: '/assets/images/navbars.png',
+            },
+            {
+              label: 'Toolbar',
+              route: 'toolbar',
               image: '/assets/images/navbars.png',
             },
           ],

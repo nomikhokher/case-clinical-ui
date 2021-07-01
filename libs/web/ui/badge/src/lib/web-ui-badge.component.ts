@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, ElementRef, Input } from '@angular/core'
 
 @Component({
   selector: 'ui-badge',
@@ -7,41 +7,55 @@ import { Component, Input } from '@angular/core'
       <div>
         <ng-container *ngIf="!removeIcon">
           <h1 class="my-4">Badges</h1>
-          <span
-            class="inline-flex items-center px-2.5 py-0.5 text-{{ size }} font-medium bg-{{ color }}-100 text-{{
-              color
-            }}-800"
-            [ngClass]="rounded ? 'rounded' : 'rounded-full'"
-          >
-            <ui-icon *ngIf="icon" [icon]="icon" [class]="icon_size"></ui-icon>
-            Badge
-          </span>
+          <div class="relative">
+            <span
+              (click)="badgeClick('onClick')"
+              class=" px-2.5 py-0.5 hover:opacity-80 cursor-pointer text-{{ size }} font-medium bg-{{
+                color
+              }}-100 text-{{ color }}-800"
+              [ngClass]="[rounded ? 'rounded' : 'rounded-full', position == 'right' ? 'right-1 absolute bottom-0' : '']"
+            >
+              <ui-icon *ngIf="icon" [icon]="icon" [class]="icon_size"></ui-icon>
+              Badge
+            </span>
+          </div>
         </ng-container>
 
         <ng-container *ngIf="removeIcon">
           <h1 class="my-4">Badges with remove button</h1>
-
-          <span
-            class="inline-flex rounded-full items-center text-{{ size }} font-medium bg-{{ color }}-100 text-{{
-              color
-            }}-700"
-            [ngClass]="size == 'sm' ? 'py-0.5 pl-2.5 pr-1' : 'py-0.5 pl-2 pr-0.5'"
-          >
-            badge
-            <button
-              type="button"
-              class="flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center text-{{
+          <div class="relative">
+            <span
+              (click)="badgeClick('onClick')"
+              class="rounded-full hover:opacity-80 removeIcon cursor-pointer text-{{ size }} font-medium bg-{{
                 color
-              }}-400 hover:bg-{{ color }}-200 hover:text-{{ color }}-500 focus:outline-none focus:bg-{{
-                color
-              }}-500 focus:text-white"
+              }}-100 text-{{ color }}-700"
+              [ngClass]="[
+                size == 'sm' ? 'py-0.5 pl-2.5 pr-1' : 'py-0.5 pl-2 pr-0.5',
+                position == 'right' ? 'right-1 absolute bottom-0' : ''
+              ]"
             >
-              <span class="sr-only">Remove large option</span>
-              <svg class="h-2 w-2" stroke="currentColor" fill="none" viewBox="0 0 8 8">
-                <path stroke-linecap="round" stroke-width="1.5" d="M1 1l6 6m0-6L1 7" />
-              </svg>
-            </button>
-          </span>
+              badge
+              <button
+                type="button"
+                class="flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center text-{{
+                  color
+                }}-400 hover:bg-{{ color }}-200 hover:text-{{ color }}-500 focus:outline-none focus:bg-{{
+                  color
+                }}-500 focus:text-white"
+              >
+                <span class="sr-only">Remove large option</span>
+                <svg
+                  (click)="badgeClick('onClose')"
+                  class="h-2 w-2"
+                  stroke="currentColor"
+                  fill="none"
+                  viewBox="0 0 8 8"
+                >
+                  <path stroke-linecap="round" stroke-width="1.5" d="M1 1l6 6m0-6L1 7" />
+                </svg>
+              </button>
+            </span>
+          </div>
         </ng-container>
       </div>
     </div>
@@ -53,9 +67,22 @@ export class WebUiBadgeComponent {
   @Input() rounded?: string
   @Input() icon?: string
   @Input() removeIcon: string
+  @Input() position: string
 
   public icon_size: string
   public remove_icon_size: string
+
+  constructor(public elm: ElementRef) {}
+  badgeClick(value) {
+    if (value == 'onClose') {
+      this.elm.nativeElement.querySelector('.removeIcon').classList.add('opacity-0')
+      setTimeout(() => {
+        this.elm.nativeElement.querySelector('.removeIcon').classList.remove('opacity-0')
+      }, 5000)
+    } else {
+      alert('You clicked on a Badge!')
+    }
+  }
 
   ngOnInit() {
     if (!this.color) {

@@ -17,7 +17,9 @@ import { DevNotificationStore } from './dev-notification.store'
           [title]="'Anyone with a link can now view this file.'"
           [closeBtn]="true"
           [show]="show"
+          [timeInSec]="timeInSec"
           (closeValue)="closeAction($event)"
+          (timeSec)="time($event)"
         ></ui-notification>
       </ui-preview>
       <ui-preview [code]="codePreview[1]">
@@ -26,6 +28,9 @@ import { DevNotificationStore } from './dev-notification.store'
           [name]="'Successfully saved!'"
           [title]="'Anyone with a link can now view this file.'"
           [icon]="'check_circle'"
+          [timeInSec]="timeInSec"
+          (timeSec)="time($event)"
+          (closeValue)="closeAction($event)"
           [show]="show"
         ></ui-notification>
       </ui-preview>
@@ -36,6 +41,8 @@ import { DevNotificationStore } from './dev-notification.store'
           [title]="'Anyone with a link can now view this file.'"
           [icon]="'check_circle'"
           [closeBtn]="true"
+          [timeInSec]="timeInSec"
+          (timeSec)="time($event)"
           [bottomSectionButton]="bottomSectionButton"
           (closeValue)="closeAction($event)"
           [show]="show"
@@ -47,6 +54,8 @@ import { DevNotificationStore } from './dev-notification.store'
           [name]="'Successfully saved!'"
           [title]="'Anyone with a link can now view this file.'"
           [show]="show"
+          [timeInSec]="timeInSec"
+          (timeSec)="time($event)"
           [avatarImg]="
             'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80'
           "
@@ -58,6 +67,8 @@ import { DevNotificationStore } from './dev-notification.store'
           [name]="'Successfully saved!'"
           [title]="'Anyone with a link can now view this file.'"
           [closeBtn]="true"
+          [timeInSec]="timeInSec"
+          (timeSec)="time($event)"
           (closeValue)="closeAction($event)"
           [show]="show"
           [avatarImg]="
@@ -72,6 +83,8 @@ import { DevNotificationStore } from './dev-notification.store'
           [title]="'Anyone with a link can now view this file.'"
           [leftSectionButton]="leftSectionButton"
           [show]="show"
+          [timeInSec]="timeInSec"
+          (timeSec)="time($event)"
         ></ui-notification-image>
       </ui-preview>
       <ui-preview [code]="codePreview[6]">
@@ -82,6 +95,8 @@ import { DevNotificationStore } from './dev-notification.store'
           [leftSectionButton]="leftSectionButton"
           (closeValue)="closeAction($event)"
           [show]="show"
+          [timeInSec]="timeInSec"
+          (timeSec)="time($event)"
           [avatarImg]="
             'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80'
           "
@@ -94,6 +109,8 @@ import { DevNotificationStore } from './dev-notification.store'
           [title]="'Anyone with a link can now view this file.'"
           [leftSectionButton]="leftSectionButton"
           [show]="show"
+          [timeInSec]="timeInSec"
+          (timeSec)="time($event)"
           [avatarImg]="
             'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80'
           "
@@ -107,6 +124,8 @@ import { DevNotificationStore } from './dev-notification.store'
           [closeBtn]="true"
           (closeValue)="closeAction($event)"
           [show]="show"
+          [timeInSec]="timeInSec"
+          (timeSec)="time($event)"
           [bottomSectionButton]="bottomSectionButton"
           [avatarImg]="
             'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80'
@@ -123,6 +142,8 @@ import { DevNotificationStore } from './dev-notification.store'
           [show]="show"
           [bottomSectionButton]="bottomSectionButton"
           [leftSectionButton]="leftSectionButton"
+          [timeInSec]="timeInSec"
+          (timeSec)="time($event)"
           [avatarImg]="
             'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80'
           "
@@ -141,10 +162,14 @@ export class DevNotificationComponent {
   title?: string
   closeBtn?: boolean
   show: boolean = false
-
+  setTime?: number
   public subTimeout: ReturnType<typeof setTimeout> | any
 
   constructor(private readonly store: DevNotificationStore) {}
+  timeInSec = 5
+  time(second: number) {
+    this.setTime = second
+  }
 
   public codePreview = [
     `import { WebUiNotificationModule } from '@schema-driven/web/ui/notification'\n\n
@@ -265,13 +290,13 @@ import { WebUiButtonModule } from '@schema-driven/web/ui/button\n\n'<ui-button c
     "
   ></ui-notification-image>`,
   ]
-
   showFn() {
     this.show = true
     if (!this.subTimeout) {
       this.subTimeout = window.setTimeout(() => {
         this.show = false
-      }, 5000)
+        this.closeAction(false)
+      }, this.setTime * 1000)
     }
   }
 
