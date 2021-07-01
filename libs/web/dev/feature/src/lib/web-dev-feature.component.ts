@@ -267,6 +267,16 @@ export class WebDevFeatureComponent {
               route: 'toggle-switch-button',
               image: '/assets/images/button-groups.png',
             },
+            {
+              label: 'Progress Button',
+              path: 'progress-button',
+              img: '/assets/images/button-groups.png',
+              childs: [
+                {
+                  name: 'Progress Button',
+                },
+              ],
+            },
           ],
         },
         {

@@ -143,6 +143,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-pagination/dev-pagination.module').then((m) => m.DevPaginationModule),
       },
       { path: 'navbars', loadChildren: () => import('./navbars/navbars.module').then((m) => m.NavbarsModule) },
+      {
+        path: 'progress-button',
+        loadChildren: () =>
+          import('./dev-progress-button/dev-progress-button.module').then((m) => m.DevProgressButtonModule),
+      },
     ]),
     WebUiMainPageModule,
   ],

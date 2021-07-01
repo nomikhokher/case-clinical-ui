@@ -270,6 +270,9 @@
     "web-ui-progress-bar": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-progress-button": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-range-slider": {
       "tags": ["scope:web", "type:ui"]
     },
