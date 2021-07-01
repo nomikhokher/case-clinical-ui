@@ -276,7 +276,7 @@ export class WebDevFeatureComponent {
               label: 'Split Button',
               route: 'split-button',
               image: 'assets/images/button-groups.png',
-            }
+            },
           ],
         },
         {
@@ -319,13 +319,8 @@ export class WebDevFeatureComponent {
             },
             {
               label: 'Toolbar',
-              path: 'toolbar',
-              img: '/assets/images/navbars.png',
-              childs: [
-                {
-                  name: 'Toolbar',
-                },
-              ],
+              route: 'toolbar',
+              image: '/assets/images/navbars.png',
             },
           ],
         },
