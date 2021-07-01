@@ -276,7 +276,7 @@ export class WebDevFeatureComponent {
               label: 'Split Button',
               route: 'split-button',
               image: 'assets/images/button-groups.png',
-            }
+            },
           ],
         },
         {
@@ -361,6 +361,11 @@ export class WebDevFeatureComponent {
             {
               label: 'Full-Calendar',
               route: 'full-calendars',
+              image: '/assets/images/stacked.png',
+            },
+            {
+              label: 'Date Picker',
+              route: 'date-picker',
               image: '/assets/images/stacked.png',
             },
           ],

@@ -127,6 +127,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-full-calendar/dev-full-calendar.module').then((m) => m.DevFullCalendarModule),
       },
       {
+        path: 'date-picker',
+        loadChildren: () => import('./dev-date-picker/dev-date-picker.module').then((m) => m.DevDatePickerModule),
+      },
+      {
         path: 'vertical-nav',
         loadChildren: () =>
           import('./dev-vertical-navigation/dev-vertical-navigation.module').then((m) => m.DevVerticalNavigationModule),

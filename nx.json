@@ -180,6 +180,9 @@
     "web-ui-container": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-date-picker": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-description-list": {
       "tags": ["scope:web", "type:ui"]
     },
