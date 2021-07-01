@@ -1,4 +1,4 @@
-import { Component, HostListener, Input } from '@angular/core'
+import { Component, HostListener, Input, SimpleChanges } from '@angular/core'
 
 @Component({
   selector: 'ui-modal',
@@ -13,7 +13,7 @@ import { Component, HostListener, Input } from '@angular/core'
           *ngIf="modalHide"
         >
           <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity " aria-hidden="true"></div>
 
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
@@ -54,14 +54,17 @@ export class WebUiModalComponent {
   @Input() closeButton?: boolean
   @Input() display?: boolean
   @Input() width?: string
+  @Input() isActive?: boolean
   @HostListener('click')
   clicked() {
     this.modalHide = this.display === this.modalHide ? true : false
   }
 
-  ngOnInit() {}
+  ngOnChanges(changes: SimpleChanges): void {
+    this.closeModal(changes.isActive.firstChange)
+  }
 
-  closeModal() {
-    this.modalHide = !this.modalHide
+  closeModal(value: boolean) {
+    this.modalHide = value
   }
 }

@@ -103,7 +103,10 @@ module.exports = {
     '<rootDir>/libs/web/ui/range-slider',
     '<rootDir>/libs/web/ui/progress-bar',
     '<rootDir>/libs/web/ui/color-picker',
+    '<rootDir>/libs/web/ui/progress-button',
     '<rootDir>/libs/web/ui/toggle-switch-button',
     '<rootDir>/libs/web/ui/chips',
+    '<rootDir>/libs/web/ui/toolbar',
+    '<rootDir>/libs/web/ui/split-button',
   ],
 }

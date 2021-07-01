@@ -270,6 +270,9 @@
     "web-ui-progress-bar": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-progress-button": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-range-slider": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -309,6 +312,9 @@
     "web-ui-slide-over-layout": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-split-button": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-stacked-centered": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -337,6 +343,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-toast": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-toolbar": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-toggle-switch-button": {

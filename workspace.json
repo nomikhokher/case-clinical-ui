@@ -1883,6 +1883,28 @@
         }
       }
     },
+    "web-ui-progress-button": {
+      "projectType": "library",
+      "root": "libs/web/ui/progress-button",
+      "sourceRoot": "libs/web/ui/progress-button/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/progress-button/src/**/*.ts", "libs/web/ui/progress-button/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/progress-button"],
+          "options": {
+            "jestConfig": "libs/web/ui/progress-button/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-range-slider": {
       "projectType": "library",
       "root": "libs/web/ui/range-slider",
@@ -1899,7 +1921,7 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/web/ui/range-slider"],
           "options": {
-            "jestConfig": "libs/web/ui/progress-bar/jest.config.js",
+            "jestConfig": "libs/web/ui/range-slider/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -2181,6 +2203,28 @@
         }
       }
     },
+    "web-ui-split-button": {
+      "projectType": "library",
+      "root": "libs/web/ui/split-button",
+      "sourceRoot": "libs/web/ui/split-button/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/split-button/src/**/*.ts", "libs/web/ui/split-button/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/split-button"],
+          "options": {
+            "jestConfig": "libs/web/ui/split-button/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-stacked-centered": {
       "projectType": "library",
       "root": "libs/web/ui/stacked-centered",
@@ -2402,6 +2446,28 @@
           "outputs": ["coverage/libs/web/ui/toast"],
           "options": {
             "jestConfig": "libs/web/ui/toast/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-toolbar": {
+      "projectType": "library",
+      "root": "libs/web/ui/toolbar",
+      "sourceRoot": "libs/web/ui/toolbar/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/toolbar/src/**/*.ts", "libs/web/ui/toolbar/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/toolbar"],
+          "options": {
+            "jestConfig": "libs/web/ui/toolbar/jest.config.js",
             "passWithNoTests": true
           }
         }
