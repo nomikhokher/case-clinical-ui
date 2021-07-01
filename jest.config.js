@@ -106,6 +106,7 @@ module.exports = {
     '<rootDir>/libs/web/ui/progress-button',
     '<rootDir>/libs/web/ui/toggle-switch-button',
     '<rootDir>/libs/web/ui/chips',
+    '<rootDir>/libs/web/ui/toolbar',
     '<rootDir>/libs/web/ui/split-button',
   ],
 }

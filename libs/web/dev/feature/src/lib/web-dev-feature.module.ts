@@ -152,6 +152,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () =>
           import('./dev-progress-button/dev-progress-button.module').then((m) => m.DevProgressButtonModule),
       },
+      {
+        path: 'toolbar',
+        loadChildren: () => import('./dev-toolbar/dev-toolbar.module').then((m) => m.DevToolbarModule),
+      },
     ]),
     WebUiMainPageModule,
   ],

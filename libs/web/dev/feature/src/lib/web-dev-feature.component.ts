@@ -317,6 +317,16 @@ export class WebDevFeatureComponent {
               route: 'navbars',
               image: '/assets/images/navbars.png',
             },
+            {
+              label: 'Toolbar',
+              path: 'toolbar',
+              img: '/assets/images/navbars.png',
+              childs: [
+                {
+                  name: 'Toolbar',
+                },
+              ],
+            },
           ],
         },
         {
