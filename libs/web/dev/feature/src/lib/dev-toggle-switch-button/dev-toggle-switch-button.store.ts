@@ -9,13 +9,13 @@ export interface Item {
   name?: string
 }
 
-interface VerticalNavigationState {
+interface DevToggleSwitchButtonState {
   items?: Item[]
   loading?: boolean
 }
 
 @Injectable()
-export class VerticalNavigationStore extends ComponentStore<VerticalNavigationState> {
+export class DevToggleSwitchButtonStore extends ComponentStore<DevToggleSwitchButtonState> {
   constructor(private readonly sdk: ApolloAngularSDK) {
     super({})
     this.loadItemsEffect()

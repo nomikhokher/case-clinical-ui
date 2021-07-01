@@ -49,4 +49,8 @@ export enum UiIcon {
   phone = 'phone',
   email = 'email',
   spinners = 'spinners',
+  folder = 'folder',
+  eye = 'eye',
+  code = 'code',
+  users = 'users'
 }

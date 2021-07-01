@@ -59,6 +59,7 @@
       "@schema-driven/web/ui/calendar": ["libs/web/ui/calendar/src/index.ts"],
       "@schema-driven/web/ui/card-heading": ["libs/web/ui/card-heading/src/index.ts"],
       "@schema-driven/web/ui/checkbox-dropdown-button": ["libs/web/ui/checkbox-dropdown-button/src/index.ts"],
+      "@schema-driven/web/ui/chips": ["libs/web/ui/chips/src/index.ts"],
       "@schema-driven/web/ui/code": ["libs/web/ui/code/src/index.ts"],
       "@schema-driven/web/ui/color-picker": ["libs/web/ui/color-picker/src/index.ts"],
       "@schema-driven/web/ui/contact-card": ["libs/web/ui/contact-card/src/index.ts"],
@@ -96,6 +97,7 @@
       "@schema-driven/web/ui/progress-button": ["libs/web/ui/progress-button/src/index.ts"],
       "@schema-driven/web/ui/range-slider": ["libs/web/ui/range-slider/src/index.ts"],
       "@schema-driven/web/ui/section-headings": ["libs/web/ui/section-headings/src/index.ts"],
+      "@schema-driven/web/ui/sidebar": ["libs/web/ui/sidebar/src/index.ts"],
       "@schema-driven/web/ui/sidebar-classic": ["libs/web/ui/sidebar-classic/src/index.ts"],
       "@schema-driven/web/ui/sidebar-classy": ["libs/web/ui/sidebar-classy/src/index.ts"],
       "@schema-driven/web/ui/sidebar-compact": ["libs/web/ui/sidebar-compact/src/index.ts"],
@@ -116,6 +118,7 @@
       "@schema-driven/web/ui/table": ["libs/web/ui/table/src/index.ts"],
       "@schema-driven/web/ui/table-lists": ["libs/web/ui/table-lists/src/index.ts"],
       "@schema-driven/web/ui/toast": ["libs/web/ui/toast/src/index.ts"],
+      "@schema-driven/web/ui/toggle-switch-button": ["libs/web/ui/toggle-switch-button/src/index.ts"],
       "@schema-driven/web/ui/tree": ["libs/web/ui/tree/src/index.ts"],
       "@schema-driven/web/ui/two-column-stacked-list": ["libs/web/ui/two-column-stacked-list/src/index.ts"],
       "@schema-driven/web/ui/vertical-navigation": ["libs/web/ui/vertical-navigation/src/index.ts"]

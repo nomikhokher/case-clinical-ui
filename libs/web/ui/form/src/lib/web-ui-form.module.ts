@@ -10,7 +10,7 @@ import { UiFormRadioModule } from './types/radio/ui-form-radio.module'
 import { UiFormRepeatModule } from './types/repeat/ui-form-repeat.module'
 import { UiFormSelectModule } from './types/select/ui-form-select.module'
 import { UiFormTextareaModule } from './types/textarea/ui-form-textarea.module'
-
+import { UiFormTypeaheadModule } from './types/typeahead/ui-form-typeahead.module'
 import { WebUiFormComponent } from './web-ui-form.component'
 
 // Validators
@@ -26,6 +26,7 @@ import { UiFormFieldModule } from './wrappers/form-field/ui-form-field.module'
   imports: [
     ReactiveFormsModule,
     FormlyModule.forRoot(),
+
     // Types
     UiFormCheckboxModule,
     UiFormInputModule,
@@ -34,8 +35,11 @@ import { UiFormFieldModule } from './wrappers/form-field/ui-form-field.module'
     UiFormRepeatModule,
     UiFormSelectModule,
     UiFormTextareaModule,
+    UiFormTypeaheadModule,
+
     // Validators
     UiFormValidatorsModule,
+
     // Wrappers
     UiFormAddonsModule,
     UiFormFieldModule,

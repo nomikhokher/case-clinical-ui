@@ -165,6 +165,9 @@
     "web-ui-checkbox-dropdown-button": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-chips": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-code": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -276,6 +279,9 @@
     "web-ui-section-headings": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-sidebar": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-sidebar-classic": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -334,6 +340,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-toast": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-toggle-switch-button": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-tree": {
