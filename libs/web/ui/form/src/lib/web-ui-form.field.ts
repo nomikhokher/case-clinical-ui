@@ -38,7 +38,7 @@ export class WebUiFormField implements FormlyFieldConfig {
   static repeat(
     key: string,
     fieldGroup: FormlyFieldConfig,
-    templateOptions?: FormlyTemplateOptions,
+    templateOptions: FormlyTemplateOptions = {},
   ): FormlyFieldConfig {
     return {
       key,
@@ -92,6 +92,10 @@ export class WebUiFormField implements FormlyFieldConfig {
     }
 
     return this.input(key, { ...defaults, ...templateOptions }, options)
+  }
+
+  static typeahead(key: string, templateOptions: FormlyTemplateOptions = {}, options: any = {}): FormlyFieldConfig {
+    return this.field(key, 'typeahead', templateOptions, options)
   }
 
   static radio(key: string, templateOptions?: FormlyTemplateOptions, options?: any): FormlyFieldConfig {

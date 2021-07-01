@@ -9,13 +9,13 @@ export interface Item {
   name?: string
 }
 
-interface VerticalNavigationState {
+interface DevProgressButtonState {
   items?: Item[]
   loading?: boolean
 }
 
 @Injectable()
-export class VerticalNavigationStore extends ComponentStore<VerticalNavigationState> {
+export class DevProgressButtonStore extends ComponentStore<DevProgressButtonState> {
   constructor(private readonly sdk: ApolloAngularSDK) {
     super({})
     this.loadItemsEffect()

@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators'
   template: `
     <ui-page headerTitle="Dashboard">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class=" dark:bg-gray-800 bg-white px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
+        <div class="dark:bg-gray-800 bg-white px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
           <ng-container *ngIf="me$ | async as user">
             <div class="flex items-center justify-between">
               <div class="flex items-center">

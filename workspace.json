@@ -1883,6 +1883,28 @@
         }
       }
     },
+    "web-ui-progress-button": {
+      "projectType": "library",
+      "root": "libs/web/ui/progress-button",
+      "sourceRoot": "libs/web/ui/progress-button/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/progress-button/src/**/*.ts", "libs/web/ui/progress-button/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/progress-button"],
+          "options": {
+            "jestConfig": "libs/web/ui/progress-button/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-range-slider": {
       "projectType": "library",
       "root": "libs/web/ui/range-slider",
@@ -1899,7 +1921,7 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/web/ui/range-slider"],
           "options": {
-            "jestConfig": "libs/web/ui/progress-bar/jest.config.js",
+            "jestConfig": "libs/web/ui/range-slider/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -1925,6 +1947,28 @@
           "outputs": ["coverage/libs/web/ui/section-headings"],
           "options": {
             "jestConfig": "libs/web/ui/section-headings/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-sidebar": {
+      "projectType": "library",
+      "root": "libs/web/ui/sidebar",
+      "sourceRoot": "libs/web/ui/sidebar/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/sidebar/src/**/*.ts", "libs/web/ui/sidebar/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/sidebar"],
+          "options": {
+            "jestConfig": "libs/web/ui/sidebar/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -2154,6 +2198,28 @@
           "outputs": ["coverage/libs/web/ui/slide-over-layout"],
           "options": {
             "jestConfig": "libs/web/ui/slide-over-layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-split-button": {
+      "projectType": "library",
+      "root": "libs/web/ui/split-button",
+      "sourceRoot": "libs/web/ui/split-button/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/split-button/src/**/*.ts", "libs/web/ui/split-button/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/split-button"],
+          "options": {
+            "jestConfig": "libs/web/ui/split-button/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -2402,6 +2468,28 @@
           "outputs": ["coverage/libs/web/ui/toolbar"],
           "options": {
             "jestConfig": "libs/web/ui/toolbar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-toggle-switch-button": {
+      "projectType": "library",
+      "root": "libs/web/ui/toggle-switch-button",
+      "sourceRoot": "libs/web/ui/toggle-switch-button/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/toggle-switch-button/src/**/*.ts", "libs/web/ui/toggle-switch-button/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/toggle-switch-button"],
+          "options": {
+            "jestConfig": "libs/web/ui/toggle-switch-button/jest.config.js",
             "passWithNoTests": true
           }
         }
