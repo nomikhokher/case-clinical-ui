@@ -14,6 +14,7 @@ import { ServiceCodepreview } from '../../../../../ui/codepreview.service'
     RouterModule.forChild([{ path: '', component: DevAlertComponent }]),
     WebUiAlertModule,
     WebUiPreviewModule,
+    WebUiIconModule,
   ],
   exports: [DevAlertComponent],
   providers: [ServiceCodepreview],
