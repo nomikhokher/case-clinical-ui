@@ -1,6 +1,7 @@
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
+  important: true,
   prefix: '',
   purge: {
     content: ['./apps/**/*.{html,ts}', './libs/**/*.{html,ts}'],

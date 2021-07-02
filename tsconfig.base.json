@@ -65,6 +65,7 @@
       "@schema-driven/web/ui/contact-card": ["libs/web/ui/contact-card/src/index.ts"],
       "@schema-driven/web/ui/container": ["libs/web/ui/container/src/index.ts"],
       "@schema-driven/web/ui/date-picker": ["libs/web/ui/date-picker/src/index.ts"],
+      "@schema-driven/web/ui/date-range-picker": ["libs/web/ui/date-range-picker/src/index.ts"],
       "@schema-driven/web/ui/description-list": ["libs/web/ui/description-list/src/index.ts"],
       "@schema-driven/web/ui/divider": ["libs/web/ui/divider/src/index.ts"],
       "@schema-driven/web/ui/divider-toolbar": ["libs/web/ui/divider-toolbar/src/index.ts"],
