@@ -12,7 +12,12 @@ import { DevTableListsStore } from './dev-table-lists.store'
         Component: libs/web/dev/feature/src/lib/dev-table-lists/dev-table-lists.component.ts
       </code>
       <ui-preview [code]="codePreview[0]">
-        <ui-table-lists [columns]="columns" [dataList]="dataList"></ui-table-lists>
+        <ui-table-lists
+          [columns]="columns"
+          [dataList]="dataList"
+          [width]="width"
+          [background]="background"
+        ></ui-table-lists>
       </ui-preview>
     </ng-container>
   `,
@@ -75,7 +80,8 @@ export class DevTableListsComponent {
       ]
     `,
   ]
-
+  public width = '7xl' //width can be [xs, sm , md , lg, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl]
+  public background = 'indigo'
   public columns: Columns[] = [{ title: 'Name' }, { title: 'Title' }, { title: 'Role' }, { title: '' }]
 
   public dataList: Data[] = [
