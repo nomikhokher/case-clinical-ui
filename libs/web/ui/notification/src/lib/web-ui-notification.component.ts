@@ -73,8 +73,13 @@ export class WebUiNotificationComponent {
   @Input() closeBtn?: boolean
   @Input() show: boolean
   @Input() bottomSectionButton?: any
+  @Input() timeInSec?: number
 
   @Output() closeValue = new EventEmitter<any>()
+  @Output() timeSec = new EventEmitter<number>()
+  ngOnInit(): void {
+    this.timeSec.emit(this.timeInSec ? this.timeInSec : 3)
+  }
 
   close() {
     this.closeValue.emit(!this.show)

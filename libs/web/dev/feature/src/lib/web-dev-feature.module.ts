@@ -139,10 +139,23 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
           ),
       },
       {
+        path: 'split-button',
+        loadChildren: () => import('./dev-split-button/dev-split-button.module').then((m) => m.DevSplitButtonModule),
+      },
+      {
         path: 'paginations',
         loadChildren: () => import('./dev-pagination/dev-pagination.module').then((m) => m.DevPaginationModule),
       },
       { path: 'navbars', loadChildren: () => import('./navbars/navbars.module').then((m) => m.NavbarsModule) },
+      {
+        path: 'progress-button',
+        loadChildren: () =>
+          import('./dev-progress-button/dev-progress-button.module').then((m) => m.DevProgressButtonModule),
+      },
+      {
+        path: 'toolbar',
+        loadChildren: () => import('./dev-toolbar/dev-toolbar.module').then((m) => m.DevToolbarModule),
+      },
     ]),
     WebUiMainPageModule,
   ],
