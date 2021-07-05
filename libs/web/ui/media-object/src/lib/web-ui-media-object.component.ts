@@ -49,31 +49,8 @@ import { Component, Input } from '@angular/core'
         </div>
       </ng-container>
 
-      <ng-container *ngIf="data">
-        <ng-container *ngIf="horizontalDirection == 'lefts'">
-          <div class="mr-4 flex-shrink-0">
-            <svg
-              class="h-12 w-12 border border-gray-300 bg-white text-gray-300"
-              preserveAspectRatio="none"
-              stroke="currentColor"
-              fill="none"
-              viewBox="0 0 200 200"
-              aria-hidden="true"
-              [ngClass]="[circle ? 'rounded-full' : '', height ? 'h-' + height : 'h-16', width ? 'w-' + width : 'w-16']"
-            >
-              <path vector-effect="non-scaling-stroke" stroke-width="1" d="M0 0l200 200M0 200L200 0" />
-            </svg>
-          </div>
-          <div>
-            <h4 class="text-lg font-bold">{{ data.name }}</h4>
-            <p class="mt-1">{{ data.des }}</p>
-            <div>
-              <ng-content select=".objectData2"></ng-content>
-            </div>
-          </div>
-        </ng-container>
-
-        <ng-container *ngIf="horizontalDirection == 'rights'">
+      <ng-container *ngIf="data && horizontalDirection == 'rights'">
+        <ng-container>
           <div class="ml-4 flex-shrink-0">
             <h4 class="text-lg font-bold">{{ data.name }}</h4>
             <p class="mt-1">{{ data.des }}</p>
@@ -93,6 +70,31 @@ import { Component, Input } from '@angular/core'
             >
               <path vector-effect="non-scaling-stroke" stroke-width="1" d="M0 0l200 200M0 200L200 0" />
             </svg>
+          </div>
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="data && horizontalDirection == 'lefts'">
+        <ng-container>
+          <div class="mr-4 flex-shrink-0">
+            <svg
+              class="h-12 w-12 border border-gray-300 bg-white text-gray-300"
+              preserveAspectRatio="none"
+              stroke="currentColor"
+              fill="none"
+              viewBox="0 0 200 200"
+              aria-hidden="true"
+              [ngClass]="[circle ? 'rounded-full' : '', height ? 'h-' + height : 'h-16', width ? 'w-' + width : 'w-16']"
+            >
+              <path vector-effect="non-scaling-stroke" stroke-width="1" d="M0 0l200 200M0 200L200 0" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold">{{ data.name }}</h4>
+            <p class="mt-1">{{ data.des }}</p>
+            <div>
+              <ng-content select=".objectData3"></ng-content>
+            </div>
           </div>
         </ng-container>
       </ng-container>
