@@ -18,57 +18,7 @@ import { ServiceCodepreview } from '../../../../../ui/codepreview.service'
           [bg_color]="dataArr[0].bg_color"
           [icon]="dataArr[0].icon"
           [icon_show]="dataArr[0].icon_show"
-        ></ui-alert>
-      </ui-preview>
-
-      <ui-preview [codeObj]="dataArr[1]" [code]="codePreview[1]">
-        <ui-alert
-          [icon]="dataArr[1].icon"
-          [icon_show]="true"
-          class="mb-4 mt-4"
-          subject="There were 2 errors with your submission"
-          [bg_color]="dataArr[1].bg_color"
-          [list]="_list()"
-        ></ui-alert>
-      </ui-preview>
-      <ui-preview [codeObj]="dataArr[2]" [code]="codePreview[2]">
-        <ui-alert
-          [icon_show]="true"
-          [icon]="dataArr[2].icon"
-          class="mb-4 mt-4"
-          subject="Order completed"
-          [message]="dataArr[2].message"
-          [bg_color]="dataArr[2].bg_color"
-          [actionLink]="_actionLink()"
-        ></ui-alert>
-      </ui-preview>
-      <ui-preview [codeObj]="dataArr[3]" [code]="codePreview[3]">
-        <ui-alert
-          class="mb-4 mt-4"
-          [icon_show]="true"
-          icon="information_circle"
-          message="A new software update is available. See what’s new in version 2.0.4."
-          [bg_color]="dataArr[3].bg_color"
-        ></ui-alert>
-      </ui-preview>
-      <ui-preview [codeObj]="dataArr[4]" [component_preview]="component_preview" [code]="codePreview[4]">
-        <ui-alert
-          icon="check_circle"
-          [icon_show]="true"
-          class="mb-4 mt-4 desh"
-          [message]="htmlstring"
-          [bg_color]="dataArr[4].bg_color"
-          [accent_border]="true"
-        ></ui-alert>
-      </ui-preview>
-
-      <ui-preview [codeObj]="dataArr[5]" [component_preview]="component_preview" [code]="codePreview[5]">
-        <ui-alert
-          icon="check_circle"
-          [icon_show]="true"
-          class="mb-4 mt-4"
-          message="Successfully updated"
-          [bg_color]="dataArr[5].bg_color"
+          [content_align]="content_align"
         ></ui-alert>
       </ui-preview>
     </ng-container>
@@ -161,14 +111,14 @@ bg_color="success"
 
   htmlstring = 'You have no credits left. <a href="#"><u>Upgrade your account to add more credits</u></a>'
   constructor(private readonly store: DevAlertStore, public readonly serviceData: ServiceCodepreview) {}
-
+  public content_align = 'left' // it should be three types [center, left, right]
   public dataArr = [
     {
       id: 0,
       class: 'mb-4 mt-4',
       subject: 'Attention needed',
       message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      bg_color: 'warning',
+      bg_color: 'info',
       icon: 'exclamation',
       icon_show: true,
     },

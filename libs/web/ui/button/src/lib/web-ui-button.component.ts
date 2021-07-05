@@ -18,7 +18,7 @@ export enum Size {
 @Component({
   selector: 'ui-button',
   template: `
-    <button (click)="this.click.emit($event)" [class]="computedClasses" [disabled]="disabled" [type]="type">
+    <button (click)="this.handler.emit($event)" [class]="computedClasses" [disabled]="disabled" [type]="type">
       <ui-icon *ngIf="icon" class="-ml-0.5 mr-2 h-4 w-4" [icon]="icon"></ui-icon>
       {{ label }}
     </button>
@@ -32,7 +32,7 @@ export class WebUiButtonComponent {
   @Input() disabled: boolean
   @Input() type = 'button'
 
-  @Output() click = new EventEmitter<string>()
+  @Output() handler = new EventEmitter<string>()
 
   baseClasses = `inline-flex items-center shadow border disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-offset-2 font-medium`
 

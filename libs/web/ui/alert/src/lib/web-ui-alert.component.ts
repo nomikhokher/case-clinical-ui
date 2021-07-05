@@ -9,12 +9,23 @@ import { Component, Input } from '@angular/core'
         accent_border ? 'border-l-4 border-' + _filter_color() + '-400' : ''
       }} p-4"
     >
-      <div class="flex">
-        <div class="flex-shrink-0">
-          <ui-icon *ngIf="icon_show" size="lg" icon="{{ icon }}" class="h-5 w-5 {{ _svg_text_color() }}"></ui-icon>
-        </div>
-        <div class="ml-3">
-          <h3 *ngIf="subject" class="text-sm font-medium {{ _subject_text_color() }}">{{ __subject() }}</h3>
+      <div
+        class="flex"
+        [ngClass]="{
+          'justify-center': content_align == 'center',
+          'justify-start': content_align == 'left',
+          'justify-end': content_align == 'right'
+        }"
+      >
+        <ui-icon *ngIf="icon_show" size="lg" [icon]="icon" class="h-5 w-5 ml-3 {{ _svg_text_color() }}"></ui-icon>
+        <div class="ml-1">
+          <h3
+            *ngIf="subject"
+            [ngClass]="{ 'flex justify-center': content_align == 'center' }"
+            class="text-sm font-medium flex {{ _subject_text_color() }}"
+          >
+            {{ __subject() }}
+          </h3>
           <div class="{{ subject !== undefined ? 'mt-2' : '' }}text-sm {{ _message_text_color() }}">
             <p [innerHTML]="__message()"></p>
             <ul *ngIf="list" class="list-disc pl-5 space-y-1">
@@ -74,6 +85,7 @@ export class WebUiAlertComponent {
   @Input() dismiss?: boolean
   @Input() icon_show?: boolean
   @Input() icon?: string
+  @Input() content_align?: string
   @Input() accent_border?: boolean
 
   constructor() {}
