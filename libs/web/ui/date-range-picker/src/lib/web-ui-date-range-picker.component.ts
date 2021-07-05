@@ -2,13 +2,6 @@ import { Component, ElementRef } from '@angular/core'
 
 @Component({
   selector: 'ui-date-range-picker',
-  styles: [
-    `
-      [ng-cloak] {
-        display: none;
-      }
-    `,
-  ],
   template: `
     <div class="antialiased sans-serif">
       <div>
@@ -18,9 +11,8 @@ import { Component, ElementRef } from '@angular/core'
             <div class="flex items-center border rounded-md mt-3 bg-gray-200">
               <input
                 type="text"
-                (click)="!ets ? (endToShow = 'from') : (endToShow = 'to'); initDate(); showDatepicker = true"
+                (click)="initDate(); showDatepicker = true"
                 [(ngModel)]="dateFromandTo"
-                [ngClass]="{ 'font-semibold': endToShow == 'from' }"
                 class="focus:outline-none border-0 p-2 w-96 rounded-l-md border-r border-gray-300"
               />
             </div>
@@ -195,7 +187,7 @@ export class WebUiDateRangePickerComponent {
   }
 
   showDatepicker: boolean
-  ets: boolean = true
+  ets: boolean = false
   dateFromandTo: any
   dateFromYmd: any
   dateToYmd: any
@@ -204,7 +196,7 @@ export class WebUiDateRangePickerComponent {
   currentDate: any
   dateFrom: any
   dateTo: any
-  endToShow: any
+  endToShow: number = 0
   month: any
   year: any
   no_of_days = []
@@ -236,30 +228,7 @@ export class WebUiDateRangePickerComponent {
   }
 
   initDate() {
-    this.ets = !this.ets
-    if (!this.dateFrom) {
-      if (this.dateFromYmd) {
-        this.dateFrom = this.convertFromYmd(this.dateFromYmd)
-      }
-    }
-    if (!this.dateTo) {
-      if (this.dateToYmd) {
-        this.dateTo = this.convertFromYmd(this.dateToYmd)
-      }
-    }
-    if (!this.dateFrom) {
-      this.dateFrom = this.dateTo
-    }
-    if (!this.dateTo) {
-      this.dateTo = this.dateFrom
-    }
-    if (this.endToShow === 'from' && this.dateFrom) {
-      this.currentDate = this.dateFrom
-    } else if (this.endToShow === 'to' && this.dateTo) {
-      this.currentDate = this.dateTo
-    } else {
-      this.currentDate = new Date()
-    }
+    this.currentDate = new Date()
     let currentMonth = this.currentDate.getMonth()
     let currentYear = this.currentDate.getFullYear()
     if (this.month !== currentMonth || this.year !== currentYear) {
@@ -309,24 +278,12 @@ export class WebUiDateRangePickerComponent {
     return d > this.dateFrom && d < this.dateTo
   }
 
-  isDisabled(date) {
-    const d = new Date(this.year, this.month, date)
-
-    if (this.endToShow === 'from' && this.dateTo && d > this.dateTo) {
-      return true
-    }
-    if (this.endToShow === 'to' && this.dateFrom && d < this.dateFrom) {
-      return true
-    }
-
-    return false
-  }
-
   setDateValues() {
     if (this.dateFrom) {
       this.dateFromValue = this.dateFrom.toDateString()
       this.dateFromYmd = this.convertToYmd(this.dateFrom)
-      this.dateFromandTo = this.dateFromValue + '--to--' + this.dateToValue
+      this.dateFromandTo =
+        this.dateFromValue + '--to--' + (this.dateToValue != undefined ? this.dateToValue : this.dateFromValue)
     }
     if (this.dateTo) {
       this.dateToValue = this.dateTo.toDateString()
@@ -335,14 +292,18 @@ export class WebUiDateRangePickerComponent {
   }
 
   getDateValue(date, getDateFrom) {
+    this.endToShow = this.endToShow + 1
+    alert('endtoshow = ' + this.endToShow)
     let selectedDate = new Date(this.year, getDateFrom == 1 ? this.month : this.nextMonth, date)
 
-    if (this.endToShow === 'from' && (!this.dateTo || selectedDate <= this.dateTo)) {
+    if (this.endToShow === 1 && (!this.dateTo || selectedDate <= this.dateTo)) {
+      alert('date to' + this.endToShow)
       this.dateFrom = selectedDate
       if (!this.dateTo) {
         this.dateTo = selectedDate
       }
-    } else if (this.endToShow === 'to' && (!this.dateFrom || selectedDate >= this.dateFrom)) {
+    } else if (this.endToShow > 1 && (!this.dateFrom || selectedDate >= this.dateFrom)) {
+      alert('date to')
       this.dateTo = selectedDate
       if (!this.dateFrom) {
         this.dateFrom = selectedDate
@@ -350,7 +311,6 @@ export class WebUiDateRangePickerComponent {
     }
 
     this.setDateValues()
-
     this.closeDatepicker()
   }
 
@@ -433,7 +393,7 @@ export class WebUiDateRangePickerComponent {
   }
 
   closeDatepicker() {
-    this.endToShow = ''
+    this.endToShow = 0
     this.showDatepicker = false
   }
 }
