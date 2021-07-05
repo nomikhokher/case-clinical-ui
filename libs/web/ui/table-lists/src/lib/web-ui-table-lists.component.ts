@@ -5,7 +5,7 @@ import { Columns, Data } from '../../../../dev/feature/src/lib/dev-table-lists/d
   selector: 'ui-table-lists',
   template: `
     <!-- This example requires Tailwind CSS v2.0+ -->
-    <div class="flex flex-col">
+    <div class="flex flex-col max-w-{{ width ? width : '7xl' }}">
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -22,7 +22,11 @@ import { Columns, Data } from '../../../../dev/feature/src/lib/dev-table-lists/d
                 </tr>
               </thead>
               <tbody class="bg-white divide-y divide-gray-200">
-                <tr *ngFor="let info of dataList">
+                <tr
+                  class="hover:opacity-75 bg-{{ background }}-200"
+                  *ngFor="let info of dataList; let i = index"
+                  [ngClass]="{ 'opacity-60': i % 2 != 0 }"
+                >
                   <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex items-center">
                       <div class="ml-4">
@@ -59,4 +63,6 @@ import { Columns, Data } from '../../../../dev/feature/src/lib/dev-table-lists/d
 export class WebUiTableListsComponent {
   @Input() columns: Columns
   @Input() dataList: Data
+  @Input() width?: string
+  @Input() background?: string
 }
