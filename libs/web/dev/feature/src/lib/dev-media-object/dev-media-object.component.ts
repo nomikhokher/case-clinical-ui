@@ -51,6 +51,21 @@ import { DevMediaObjectStore } from './dev-media-object.store'
           </ui-media-object>
         </ui-media-object>
       </ui-preview>
+
+      <ui-preview>
+        <ui-media-object [data]="data" [circle]="circle" height="" width="" horizontalDirection="lefts">
+          <ui-media-object
+            class="objectData3"
+            *ngFor="let childData of data1"
+            [data]="childData"
+            [circle]="circle"
+            height=""
+            width=""
+            horizontalDirection="left"
+          >
+          </ui-media-object>
+        </ui-media-object>
+      </ui-preview>
     </ng-container>
   `,
   providers: [DevMediaObjectStore],
