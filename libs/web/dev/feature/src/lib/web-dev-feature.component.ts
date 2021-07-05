@@ -368,6 +368,16 @@ export class WebDevFeatureComponent {
               route: 'full-calendars',
               image: '/assets/images/stacked.png',
             },
+            {
+              label: 'Date Picker',
+              route: 'date-picker',
+              image: '/assets/images/stacked.png',
+            },
+            {
+              label: 'Date Range Picker',
+              route: 'date-range-picker',
+              image: '/assets/images/stacked.png',
+            },
           ],
         },
       ],
