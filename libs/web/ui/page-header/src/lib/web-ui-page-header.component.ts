@@ -15,7 +15,7 @@ import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
         </h2>
         <div class="mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
           <ng-container *ngFor="let entry of meta">
-            <div class="mt-2 flex items-center text-sm text-gray-300 dark:text-gray-400 text-gray-500">
+            <div class="mt-2 flex items-center text-sm dark:text-gray-400 text-gray-500">
               <ui-icon
                 *ngIf="entry.icon"
                 class="flex-shrink-0 mr-1.5 h-5 w-5 dark:text-gray-500 text-gray-400"
