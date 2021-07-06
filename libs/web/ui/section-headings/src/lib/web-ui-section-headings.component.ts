@@ -11,7 +11,10 @@ import {
   selector: 'ui-section-headings',
   template: `
     <div class="relative pb-5 border-b border-gray-200 sm:pb-0">
-      <div class="md:flex md:items-center md:justify-between">
+      <div class="md:flex md:items-center md:justify-right space-x-3">
+        <div *ngIf="heading.imagePath && image == true">
+          <img class="h-16 w-16 rounded-full" src="{{ heading.imagePath }}" alt="Invalid URL" />
+        </div>
         <div>
           <h3 class="text-lg leading-6 font-medium text-gray-900">
             {{ heading.title }}
@@ -62,6 +65,13 @@ import {
               class="whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm"
             >
               {{ tab.title }}
+              <span
+                *ngIf="tab.badge && badge == true"
+                class="inline-flex items-center px-2 py-1 ml-1.5 rounded-full text-xs font-medium bg-red-200 text-indigo-800"
+                [ngClass]="{ 'bg-indigo-200': tab.active == true }"
+              >
+                {{ tab.badge }}
+              </span>
             </a>
           </nav>
         </div>
@@ -73,6 +83,8 @@ export class WebUiSectionHeadingsComponent {
   @Input() heading: Heading
   @Input() tabs: TabLinks[]
   @Input() buttons: Buttons
+  @Input() badge?: boolean
+  @Input() image?: boolean
 
   activateClass(tab: TabLinks) {
     console.log(true)
