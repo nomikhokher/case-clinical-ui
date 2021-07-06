@@ -127,6 +127,15 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-full-calendar/dev-full-calendar.module').then((m) => m.DevFullCalendarModule),
       },
       {
+        path: 'date-picker',
+        loadChildren: () => import('./dev-date-picker/dev-date-picker.module').then((m) => m.DevDatePickerModule),
+      },
+      {
+        path: 'date-range-picker',
+        loadChildren: () =>
+          import('./dev-date-range-picker/dev-date-range-picker.module').then((m) => m.DevDateRangePickerModule),
+      },
+      {
         path: 'vertical-nav',
         loadChildren: () =>
           import('./dev-vertical-navigation/dev-vertical-navigation.module').then((m) => m.DevVerticalNavigationModule),
@@ -155,6 +164,58 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
       {
         path: 'toolbar',
         loadChildren: () => import('./dev-toolbar/dev-toolbar.module').then((m) => m.DevToolbarModule),
+      },
+      {
+        path: 'contact-cards',
+        loadChildren: () => import('./dev-contact-card/dev-contact-card.module').then((m) => m.DevContactCardModule),
+      },
+      {
+        path: 'sign-in-and-registrations',
+        loadChildren: () =>
+          import('./dev-sign-in-and-registration/dev-sign-in-and-registration.module').then(
+            (m) => m.DevSignInAndRegistrationModule,
+          ),
+      },
+      {
+        path: 'text-areas',
+        loadChildren: () => import('./dev-textarea/dev-textarea.module').then((m) => m.DevTextareaModule),
+      },
+      {
+        path: 'select-menus',
+        loadChildren: () => import('./dev-select/dev-select.module').then((m) => m.DevSelectModule),
+      },
+      {
+        path: 'checkboxs',
+        loadChildren: () => import('./dev-checkbox/dev-checkbox.module').then((m) => m.DevCheckboxModule),
+      },
+      {
+        path: 'radio-groups',
+        loadChildren: () => import('./dev-radio-group/dev-radio-group.module').then((m) => m.DevRadioGroupModule),
+      },
+      {
+        path: 'repeats',
+        loadChildren: () => import('./dev-repeat/dev-repeat.module').then((m) => m.DevRepeatModule),
+      },
+      {
+        path: 'multi-checkboxs',
+        loadChildren: () =>
+          import('./dev-multi-checkbox/dev-multi-checkbox.module').then((m) => m.DevMultiCheckboxModule),
+      },
+      {
+        path: 'mini-calendars',
+        loadChildren: () => import('./dev-mini-calendar/dev-mini-calendar.module').then((m) => m.DevMiniCalendarModule),
+      },
+      {
+        path: 'range-sliders',
+        loadChildren: () => import('./dev-range-slider/dev-range-slider.module').then((m) => m.DevRangeSliderModule),
+      },
+      {
+        path: 'chips',
+        loadChildren: () => import('./dev-chips/dev-chips.module').then((m) => m.DevChipsModule),
+      },
+      {
+        path: 'progress-bars',
+        loadChildren: () => import('./dev-progress-bar/dev-progress-bar.module').then((m) => m.DevProgressBarModule),
       },
     ]),
     WebUiMainPageModule,

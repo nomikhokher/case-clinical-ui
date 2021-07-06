@@ -108,5 +108,7 @@ module.exports = {
     '<rootDir>/libs/web/ui/chips',
     '<rootDir>/libs/web/ui/toolbar',
     '<rootDir>/libs/web/ui/split-button',
+    '<rootDir>/libs/web/ui/date-picker',
+    '<rootDir>/libs/web/ui/date-range-picker',
   ],
 }
