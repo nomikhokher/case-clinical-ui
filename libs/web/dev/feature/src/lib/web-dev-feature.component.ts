@@ -65,7 +65,7 @@ export class WebDevFeatureComponent {
             },
             {
               label: 'Contact Card',
-              route: 'contact-card',
+              route: 'contact-cards',
               image: '/assets/images/contact-card.png',
             },
           ],
@@ -80,12 +80,12 @@ export class WebDevFeatureComponent {
             },
             {
               label: 'Sign-in and Registration',
-              route: 'sign-in-and-registration',
+              route: 'sign-in-and-registrations',
               image: '/assets/images/sign-in-and-registration.png',
             },
             {
               label: 'Color Picker',
-              route: 'color-picker',
+              route: 'color-pickers',
               image: '/assets/images/color-picker.png',
             },
             {
@@ -249,7 +249,7 @@ export class WebDevFeatureComponent {
             },
             {
               label: 'Range Slider',
-              route: 'range-slider',
+              route: 'range-sliders',
               image: '/assets/images/button-groups.png',
             },
             {
@@ -259,7 +259,7 @@ export class WebDevFeatureComponent {
             },
             {
               label: 'Progress Bar',
-              route: 'progress-bar',
+              route: 'progress-bars',
               image: '/assets/images/button-groups.png',
             },
             {
