@@ -240,6 +240,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: 'progress-bars',
         loadChildren: () => import('./dev-progress-bar/dev-progress-bar.module').then((m) => m.DevProgressBarModule),
       },
+      {
+        path: 'calendars',
+        loadChildren: () => import('./dev-calendar/dev-calendar.module').then((m) => m.DevCalendarModule),
+      },
+      { path: 'editors', loadChildren: () => import('./dev-editor/dev-editor.module').then((m) => m.DevEditorModule) },
     ]),
     WebUiMainPageModule,
   ],
