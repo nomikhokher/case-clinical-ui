@@ -85,7 +85,7 @@ export class WebDevFeatureComponent {
             },
             {
               label: 'Color Picker',
-              route: 'color-picker',
+              route: 'color-pickers',
               image: '/assets/images/color-picker.png',
             },
             {

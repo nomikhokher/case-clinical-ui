@@ -1,11 +1,5 @@
 import { Component, Input } from '@angular/core'
-import { FindValueSubscriber } from 'rxjs/internal/operators/find'
-
-import {
-  Buttons,
-  Heading,
-  TabLinks,
-} from '../../../../dev/feature/src/lib/dev-section-headings/dev-section-headings.component'
+import { Buttons, Heading, TabLinks } from '../../../../dev/feature/src/lib/dev-section-headings/model'
 
 @Component({
   selector: 'ui-section-headings',

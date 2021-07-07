@@ -29,7 +29,7 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-container/dev-container.module').then((m) => m.DevContainerModule),
       },
       {
-        path: 'color-picker',
+        path: 'color-pickers',
         loadChildren: () => import('./dev-color-picker/dev-color-picker.module').then((m) => m.DevColorPickerModule),
       },
       {
@@ -88,6 +88,18 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-group-button/dev-group-button.module').then((m) => m.DevGroupButtonModule),
       },
       {
+        path: 'range-sliders',
+        loadChildren: () => import('./dev-range-slider/dev-range-slider.module').then((m) => m.DevRangeSliderModule),
+      },
+      {
+        path: 'progress-bars',
+        loadChildren: () => import('./dev-progress-bar/dev-progress-bar.module').then((m) => m.DevProgressBarModule),
+      },
+      {
+        path: 'chips',
+        loadChildren: () => import('./dev-chips/dev-chips.module').then((m) => m.DevChipsModule),
+      },
+      {
         path: 'modals',
         loadChildren: () => import('./dev-modal/dev-modal.module').then((m) => m.DevModalModule),
       },
@@ -112,6 +124,13 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-table-lists/dev-table-lists.module').then((m) => m.DevTableListsModule),
       },
       {
+        path: 'sign-in-and-registrations',
+        loadChildren: () =>
+          import('./dev-sign-in-and-registration/dev-sign-in-and-registration.module').then(
+            (m) => m.DevSignInAndRegistrationModule,
+          ),
+      },
+      {
         path: 'section-headings',
         loadChildren: () =>
           import('./dev-section-headings/dev-section-headings.module').then((m) => m.DevSectionHeadingsModule),
@@ -121,6 +140,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: 'description-list',
         loadChildren: () =>
           import('./dev-description-list/dev-description-list.module').then((m) => m.DevDescriptionListModule),
+      },
+      {
+        path: 'contact-cards',
+        loadChildren: () => import('./dev-contact-card/dev-contact-card.module').then((m) => m.DevContactCardModule),
       },
       {
         path: 'full-calendars',
