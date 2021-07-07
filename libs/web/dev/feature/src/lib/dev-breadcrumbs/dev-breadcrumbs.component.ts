@@ -5,7 +5,7 @@ import { DevBreadcrumbsStore } from './dev-breadcrumbs.store'
   template: `
     <ng-container *ngIf="vm$ | async as vm">
       <ui-preview [component_props]="[{ name: 'crumbs', value: vm.crumbs }]" [code]="codePreview[0]">
-        <ui-breadcrumbs [crumbs]="vm.crumbs"></ui-breadcrumbs>
+        <ui-breadcrumbs [crumbs]="vm.crumbs" [alignment]="vm.alignment"></ui-breadcrumbs>
       </ui-preview>
     </ng-container>
   `,
