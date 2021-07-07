@@ -11,7 +11,13 @@ import { DevSectionHeadingsStore } from './dev-section-headings.store'
         Component: libs/web/dev/feature/src/lib/dev-section-headings/dev-section-headings.component.ts
       </code>
       <ui-preview [code]="codePreview[0]">
-        <ui-section-headings [heading]="heading" [tabs]="tabs" [buttons]="buttons"></ui-section-headings>
+        <ui-section-headings
+          [heading]="heading"
+          [tabs]="tabs"
+          [buttons]="buttons"
+          [badge]="true"
+          [image]="true"
+        ></ui-section-headings>
       </ui-preview>
     </ng-container>
   `,
@@ -76,6 +82,8 @@ export class DevSectionHeadingsComponent {
 
   public heading: Heading = {
     title: 'Candidate',
+    imagePath:
+      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     // description: 'Workcation is a property rental website. Etiam ullamcorper massa viverra consequat, consectetur id nulla tempus. Fringilla egestas justo massa purus sagittis malesuada.',
   }
 
@@ -84,6 +92,7 @@ export class DevSectionHeadingsComponent {
       id: '1',
       title: 'Applied',
       active: false,
+      badge: '20+',
     },
     {
       id: '2',
@@ -99,11 +108,13 @@ export class DevSectionHeadingsComponent {
       id: '4',
       title: 'Offer',
       active: false,
+      badge: '13',
     },
     {
       id: '5',
       title: 'Hired',
       active: false,
+      badge: '2',
     },
   ]
 
@@ -125,8 +136,8 @@ export class DevSectionHeadingsComponent {
   ]
 }
 
-export type Heading = { title: string; description?: string }
+export type Heading = { title: string; description?: string; imagePath?: string }
 
-export type TabLinks = { id: string; title: string; active?: boolean }
+export type TabLinks = { id: string; title: string; active?: boolean; badge?: string }
 
 export type Buttons = { text: string; color: string; fontColor?: string; icon?: string; hoverColor?: string }
