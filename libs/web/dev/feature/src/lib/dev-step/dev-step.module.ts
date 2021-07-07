@@ -6,6 +6,7 @@ import { WebUiStepModule } from '@schema-driven/web/ui/step'
 import { WebUiCodeModule } from '@schema-driven/web/ui/code'
 import { WebUiPreviewModule } from '@schema-driven/web/ui/preview'
 import { WebUiAlertModule } from '@schema-driven/web/ui/alert'
+import { WebUiIconModule } from '@schema-driven/web/ui/icon'
 
 @NgModule({
   declarations: [DevStepComponent],
@@ -16,6 +17,7 @@ import { WebUiAlertModule } from '@schema-driven/web/ui/alert'
     WebUiCodeModule,
     WebUiPreviewModule,
     WebUiAlertModule,
+    WebUiIconModule,
   ],
 })
 export class DevStepModule {}

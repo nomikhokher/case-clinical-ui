@@ -5,7 +5,13 @@ import { DevFormsStore } from './dev-forms.store'
   template: `
     <ng-container *ngIf="vm$ | async as vm">
       <div class="flex flex-col space-y-6">
-        <ui-preview [code]="codePreview[0]">
+        <ui-preview
+          [title]="vm.items.headerTitle"
+          [githubURL]="vm.items.githubURL"
+          [directory]="vm.items.directory"
+          [breadcrumbs]="vm.items.breadcrumbs"
+          [code]="codePreview[0]"
+        >
           <ng-container *ngFor="let demo of vm.demos">
             <div>
               <div class="shadow rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
@@ -33,6 +39,7 @@ import { DevFormsStore } from './dev-forms.store'
 })
 export class DevFormsComponent {
   readonly vm$ = this.store.vm$
+
   constructor(private readonly store: DevFormsStore) {}
   public codePreview = [
     `import { WebUiFormModule } from '@schema-driven/web/ui/form'\n\n <ui-form [model]="demo.model" [fields]="demo.fields"></ui-form>`,
