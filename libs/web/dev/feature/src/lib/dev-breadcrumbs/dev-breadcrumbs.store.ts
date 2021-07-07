@@ -6,10 +6,12 @@ export interface Crumbs {
   isactive: boolean
   tabHandler?: (Crumbs) => void
   content?: any
+  icon?: string
 }
 
 interface DevCrumbsState {
   crumbs?: Crumbs[]
+  alignment?: string
 }
 
 @Injectable()
@@ -23,21 +25,29 @@ export class DevBreadcrumbsStore extends ComponentStore<DevCrumbsState> {
   constructor() {
     super({
       crumbs: [],
+      alignment: 'center', //alignment can be [right, center, left, full]
     })
 
     this.patchState({
       crumbs: [
-        { name: 'Home', isactive: true, tabHandler: this.onTabHandler, content: this.home },
-        { name: 'Products', isactive: false, tabHandler: this.onTabHandler, content: this.products },
-        { name: 'Variants', isactive: false, tabHandler: this.onTabHandler, content: this.variants },
-        { name: 'Color', isactive: false, tabHandler: this.onTabHandler, content: this.color },
-        { name: 'Edit', isactive: false, tabHandler: this.onTabHandler, content: this.edit },
+        { name: 'Home', isactive: true, tabHandler: this.onTabHandler, content: this.home, icon: 'home' },
+        {
+          name: 'Products',
+          isactive: false,
+          tabHandler: this.onTabHandler,
+          content: this.products,
+          icon: 'development',
+        },
+        { name: 'Variants', isactive: false, tabHandler: this.onTabHandler, content: this.variants, icon: 'folder' },
+        { name: 'Color', isactive: false, tabHandler: this.onTabHandler, content: this.color, icon: 'about' },
+        { name: 'Edit', isactive: false, tabHandler: this.onTabHandler, content: this.edit, icon: 'key' },
       ],
     })
   }
 
   readonly crumbs$ = this.select(this.state$, (s) => s.crumbs)
-  readonly vm$ = this.select(this.crumbs$, (crumbs) => ({ crumbs }))
+  readonly alignment$ = this.select(this.state$, (s) => s.alignment)
+  readonly vm$ = this.select(this.crumbs$, this.alignment$, (crumbs, alignment) => ({ crumbs, alignment }))
 
   onTabHandler = (crumb: Crumbs) => {
     this.crumbs$.subscribe((res) => {
