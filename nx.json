@@ -186,6 +186,9 @@
     "web-ui-date-range-picker": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-date-time-picker": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-description-list": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -351,10 +354,10 @@
     "web-ui-toast": {
       "tags": ["scope:web", "type:ui"]
     },
-    "web-ui-toolbar": {
+    "web-ui-toggle-switch-button": {
       "tags": ["scope:web", "type:ui"]
     },
-    "web-ui-toggle-switch-button": {
+    "web-ui-toolbar": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-tree": {
