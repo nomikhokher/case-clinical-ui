@@ -30,6 +30,13 @@ const config: Configs = {
     { mode: 'text', payload: 'MB', size: 14, radius: 'rounded' },
     { mode: 'text', payload: 'TW', size: 14, radius: 'rounded', badge: { color: 'yellow', position: 'top-right' } },
   ],
+  component_inputs: [
+    { label: 'Mode', prop: '[mode]', description: 'Used to change the Avatar type', dataType: 'String' },
+    { label: 'Payload', prop: '[payload]', description: 'Source of Avatar', dataType: 'String' },
+    { label: 'Size', prop: '[size]', description: 'Adjust the size', dataType: 'Number' },
+    { label: 'Radius', prop: '[radius]', description: 'Adjust the roundness', dataType: 'String' },
+    { label: 'Badge', prop: '[badge]', description: 'Shows the badge on Avatar', dataType: 'Object' },
+  ],
 }
 
 @Injectable()

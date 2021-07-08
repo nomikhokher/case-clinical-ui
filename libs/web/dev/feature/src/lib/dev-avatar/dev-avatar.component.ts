@@ -10,6 +10,7 @@ import { DevAvatarStore } from './dev-avatar.store'
         [githubURL]="vm.config.githubURL"
         [directory]="vm.config.directory"
         [breadcrumbs]="vm.config.breadcrumbs"
+        [component_inputs]="vm.config.component_inputs"
       >
         <div class="inline-block mx-3" *ngFor="let item of vm.config.items">
           <ui-avatar

@@ -4,6 +4,7 @@ export interface Configs {
   directory?: string
   breadcrumbs?: Crumbs[]
   items?: Item[]
+  component_inputs?: Inputs[]
 }
 
 export interface Crumbs {
@@ -20,4 +21,10 @@ export interface Item {
 export interface Badge {
   color?: string
   position?: string
+}
+export interface Inputs {
+  label?: string
+  prop?: string
+  description?: string
+  dataType?: string
 }
