@@ -5,7 +5,10 @@ import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
 @Component({
   selector: 'ui-page-header',
   template: `
-    <div class="lg:flex lg:items-center lg:justify-between mx-auto py-10">
+    <div class="sm:flex items-center justify-center lg:items-center lg:justify-between mx-auto py-5 block">
+      <div class="mr-3" *ngIf="imgSource">
+        <img class="h-16 w-16 rounded-full" src="{{ imgSource }}" alt="Invalid URL" />
+      </div>
       <div class="flex-1 min-w-0">
         <div class="mb-3">
           <ui-breadcrumbs *ngIf="breadcrumbs" [crumbs]="breadcrumbs"></ui-breadcrumbs>
@@ -15,7 +18,7 @@ import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
         </h2>
         <div class="mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
           <ng-container *ngFor="let entry of meta">
-            <div class="mt-2 flex items-center text-sm text-gray-300 dark:text-gray-400 text-gray-500">
+            <div class="mt-2 flex items-center text-sm dark:text-gray-400 text-gray-500">
               <ui-icon
                 *ngIf="entry.icon"
                 class="flex-shrink-0 mr-1.5 h-5 w-5 dark:text-gray-500 text-gray-400"
@@ -39,4 +42,5 @@ export class WebUiPageHeaderComponent {
   @Input() title?: string
   @Input() meta?: Meta[]
   @Input() controlsTemplate: TemplateRef<any>
+  @Input() imgSource?: string
 }

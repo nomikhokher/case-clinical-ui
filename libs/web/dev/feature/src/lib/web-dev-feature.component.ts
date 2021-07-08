@@ -90,7 +90,7 @@ export class WebDevFeatureComponent {
             },
             {
               label: 'Text Area',
-              route: 'text-area',
+              route: 'text-areas',
               image: '/assets/images/form-layouts.png',
             },
             {
@@ -100,22 +100,22 @@ export class WebDevFeatureComponent {
             },
             {
               label: 'Radio Groups',
-              route: 'radio-group',
+              route: 'radio-groups',
               image: '/assets/images/radio-groups.png',
             },
             {
               label: 'Checkbox',
-              route: 'checkbox',
-              image: '/assets/images/form-layouts.png',
+              route: 'checkboxs',
+              image: '/assets/images/checkbox.png',
             },
             {
               label: 'Repeat',
-              route: 'repeat',
+              route: 'repeats',
               image: '/assets/images/form-layouts.png',
             },
             {
               label: 'Multi Checkbox',
-              route: 'multi-checkbox',
+              route: 'multi-checkboxs',
               image: '/assets/images/form-layouts.png',
             },
           ],
@@ -167,13 +167,13 @@ export class WebDevFeatureComponent {
           children: [
             {
               label: 'Calendars Ui',
-              route: 'calendars',
-              image: '/assets/images/tables.png',
+              route: 'full-calendars',
+              image: '/assets/images/full-calenadr.png',
             },
             {
               label: 'Mini Calendars Ui',
               route: 'mini-calendars',
-              image: '/assets/images/tables.png',
+              image: '/assets/images/mini-calendars.png',
             },
           ],
         },
@@ -215,7 +215,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Slide-overs',
               route: 'slideovers',
-              image: '/assets/images/notifications.png',
+              image: '/assets/images/slide-overs.png',
             },
           ],
         },
@@ -250,32 +250,32 @@ export class WebDevFeatureComponent {
             {
               label: 'Range Slider',
               route: 'range-sliders',
-              image: '/assets/images/button-groups.png',
+              image: '/assets/images/multi-range-silder.png',
             },
             {
               label: 'Chips',
               route: 'chips',
-              image: '/assets/images/button-groups.png',
+              image: '/assets/images/chips.png',
             },
             {
               label: 'Progress Bar',
               route: 'progress-bars',
-              image: '/assets/images/button-groups.png',
+              image: '/assets/images/progress-bar.png',
             },
             {
               label: 'Toggle Switch Button',
               route: 'toggle-switch-button',
-              image: '/assets/images/button-groups.png',
+              image: '/assets/images/toggles.png',
             },
             {
               label: 'Progress Button',
               route: 'progress-button',
-              image: '/assets/images/button-groups.png',
+              image: '/assets/images/progress-button.png',
             },
             {
               label: 'Split Button',
               route: 'split-button',
-              image: 'assets/images/button-groups.png',
+              image: 'assets/images/split-button.png',
             },
           ],
         },
@@ -320,7 +320,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Toolbar',
               route: 'toolbar',
-              image: '/assets/images/navbars.png',
+              image: '/assets/images/toolbar.png',
             },
           ],
         },

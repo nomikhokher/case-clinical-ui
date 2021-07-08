@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core'
+import { WebUiToastService } from '@schema-driven/web/ui/toast'
 
 @Component({
   selector: 'ui-step',
@@ -14,10 +15,18 @@ import { Component, Input } from '@angular/core'
               class="group cursor-pointer pl-4 py-2 flex flex-col border-l-4 hover:border-indigo-800 md:pl-0 md:pt-4 md:pb-0 md:border-l-0 md:border-t-4"
               [ngClass]="item.stepActive ? 'border-indigo-600' : ''"
             >
-              <span class="text-xs text-indigo-600 font-semibold tracking-wide uppercase group-hover:text-indigo-800">{{
-                item.stepTitle
-              }}</span>
-              <span class="text-sm font-medium">{{ item.stepDetails }}</span>
+              <span class="text-xs text-indigo-600 font-semibold tracking-wide uppercase group-hover:text-indigo-800">
+                {{ item.stepTitle }}</span
+              >
+              <div class="group pl-4 py-2 flex flex-row space-x-2">
+                <ui-icon
+                  *ngIf="item.icon && icon == true"
+                  size="lg"
+                  [icon]="item.icon"
+                  class="h-5 w-5 text-center"
+                ></ui-icon>
+                <span class="text-sm font-medium">{{ item.stepDetails }} </span>
+              </div>
             </a>
           </li>
         </ol>
@@ -41,8 +50,10 @@ import { Component, Input } from '@angular/core'
 export class WebUiStepComponent {
   @Input() mode?: any
   @Input() stepIems: any
+  @Input() icon?: boolean
 
   public stepValue: number[] = [1]
+  constructor(public toast: WebUiToastService) {}
 
   step(number: number) {
     const stepNumber: number[] = []
@@ -55,5 +66,6 @@ export class WebUiStepComponent {
       }
       return { ...value, stepActive: false }
     })
+    this.toast.success('Changes of Step ' + number + ' saved!', { duration: 1500 })
   }
 }

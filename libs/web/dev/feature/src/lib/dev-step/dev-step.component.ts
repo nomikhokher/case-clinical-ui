@@ -6,13 +6,14 @@ type StepItems = {
   stepActive?: boolean
   stepTitle: string
   stepDetails: string
+  icon?: string
 }
 
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
       <ui-preview [component_props]="[{ name: 'stepIems', value: stepIems }]" [code]="codePreview[0]">
-        <ui-step [stepIems]="stepIems"></ui-step>
+        <ui-step [stepIems]="stepIems" [icon]="true"></ui-step>
       </ui-preview>
     </ng-container>
   `,
@@ -32,24 +33,28 @@ export class DevStepComponent {
       stepActive: true,
       stepTitle: 'Step 1',
       stepDetails: 'Job details',
+      icon: 'office',
     },
     {
       id: 2,
       stepActive: false,
       stepTitle: 'Step 2',
-      stepDetails: 'Job details',
+      stepDetails: 'Personal details',
+      icon: 'team',
     },
     {
       id: 3,
       stepActive: false,
       stepTitle: 'Step 3',
-      stepDetails: 'Job details',
+      stepDetails: 'Educational details',
+      icon: 'document',
     },
     {
       id: 4,
       stepActive: false,
       stepTitle: 'Step 4',
-      stepDetails: 'Job details',
+      stepDetails: 'Privay & Policy',
+      icon: 'clipboardList',
     },
   ]
 
