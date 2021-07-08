@@ -71,4 +71,5 @@ export enum UiIcon {
   clipboardCheck = 'clipboardCheck',
   clipboardCopy = 'clipboardCopy',
   clipboardList = 'clipboardList',
+  attachment = 'attachment',
 }

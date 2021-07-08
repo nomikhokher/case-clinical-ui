@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core'
-import { ProfileLink, Button } from '../../../../dev/feature/src/lib/dev-card-heading/dev-card-heading.component'
+import { ProfileLink, Button } from '../../../../dev/feature/src/lib/dev-card-heading/model'
 @Component({
   selector: 'ui-card-heading',
   template: `

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
+import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
 import { WebUiFormField } from '@schema-driven/web/ui/form'
 import { UiIcon } from '@schema-driven/web/ui/icon'
 
@@ -9,7 +10,15 @@ export interface Demo {
   fields?: WebUiFormField[]
 }
 
+interface Items {
+  headerTitle?: string
+  githubURL?: string
+  breadcrumbs?: Crumb[]
+  directory?: string
+}
+
 interface DevFormsState {
+  items: Items
   demos?: Demo[]
   loading?: boolean
 }
@@ -95,9 +104,21 @@ const demos: Demo[] = [
 @Injectable()
 export class DevFormsStore extends ComponentStore<DevFormsState> {
   constructor() {
-    super({ demos })
+    super({
+      items: {
+        headerTitle: 'Forms',
+        githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/form/src/lib/types/input',
+        breadcrumbs: [
+          { label: 'Components', path: '/dev' },
+          { label: 'Forms', path: '/dev/forms' },
+        ],
+        directory: '/libs/web/dev/feature/src/lib/dev-forms/dev-forms.component.ts',
+      },
+      demos,
+    })
   }
 
   readonly demos$ = this.select(this.state$, (s) => s.demos)
-  readonly vm$ = this.select(this.demos$, (demos) => ({ demos }))
+  readonly items$ = this.select(this.state$, (s) => s.items)
+  readonly vm$ = this.select(this.demos$, this.items$, (demos, items) => ({ demos, items }))
 }

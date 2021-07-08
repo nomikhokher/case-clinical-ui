@@ -1,40 +1,91 @@
 import { Injectable } from '@angular/core'
-import { ComponentStore, tapResponse } from '@ngrx/component-store'
+import { ComponentStore } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
-import { of } from 'rxjs'
-import { switchMap, tap } from 'rxjs/operators'
+import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
+import { ComponentProps, Config } from './models'
 
 export interface Item {
   id?: string
   name?: string
+  config?: Config
 }
 
 interface DevPageHeadingsState {
-  items?: Item[]
+  componentProps?: ComponentProps[]
+  headerTitle?: string
+  githubURL?: string
+  breadcrumbs?: Crumb[]
+  directory?: string
+  items?: Item
   loading?: boolean
 }
 
 @Injectable()
 export class DevPageHeadingsStore extends ComponentStore<DevPageHeadingsState> {
   constructor(private readonly sdk: ApolloAngularSDK) {
-    super({})
-    this.loadItemsEffect()
+    super({
+      headerTitle: 'Page Headings',
+      githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/page-headings/src/lib',
+      breadcrumbs: [
+        { label: 'Components', path: '/dev' },
+        { label: 'Page Headings', path: '/dev/page/headings' },
+      ],
+      directory: '/libs/web/dev/feature/src/lib/dev-page-headings/dev-page-headings.component.ts',
+      componentProps: [
+        { name: 'buttons', value: 'buttons' },
+        { name: 'lowerSubHeadings', value: 'lowerSubHeadings' },
+        { name: 'upperSubHeadings', value: 'upperSubHeadings' },
+      ],
+      items: {
+        config: {
+          title: 'Example Title',
+          meta: [
+            { label: 'Jobs', icon: 'briefcase' },
+            { label: 'Remote', icon: 'locationMarker' },
+            { label: '$120k – $140k', icon: 'currencyDollar' },
+          ],
+          controls: [
+            {
+              icon: 'chevronDown',
+              text: 'More',
+              color: 'gray',
+            },
+            {
+              icon: 'link',
+              text: 'View',
+              color: 'gray',
+            },
+            {
+              icon: 'pencil',
+              text: 'Edit',
+              color: 'gray',
+            },
+            {
+              icon: 'check',
+              text: 'Publish',
+              color: 'indigo',
+            },
+          ],
+        },
+      },
+    })
+    // this.loadItemsEffect()
   }
 
-  readonly items$ = this.select(this.state$, (s) => s.items)
-  readonly vm$ = this.select(this.items$, (items) => ({ items }))
+  // readonly items$ = this.select(this.state$, (s) => s.items)
+  readonly vm$ = this.select(this.state$, (s) => s)
 
-  readonly loadItemsEffect = this.effect(($) =>
-    $.pipe(
-      tap(() => this.patchState({ loading: true })),
-      switchMap(() =>
-        of([{ id: Date.now().toString(), name: 'Item 1' }]).pipe(
-          tapResponse(
-            (res) => this.patchState({ items: res }),
-            (e: any) => console.error('An error occurred', e),
-          ),
-        ),
-      ),
-    ),
-  )
+  // readonly loadItemsEffect = this.effect(($) =>
+  //   $.pipe(
+  //     tap(() => this.patchState({ loading: true })),
+  //     switchMap(() =>
+  //       of([{ id: Date.now().toString(), name: 'Item 1' }]).pipe(
+  //         tapResponse(
+  //           (res) => this.patchState({ items: res }),
+  //           (e: any) => console.error('An error occurred', e),
+  //         ),
+  //       ),
+  //     ),
+  //   ),
+  // )
 }
