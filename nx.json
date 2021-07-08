@@ -189,6 +189,9 @@
     "web-ui-date-time-picker": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-date-time-range-picker": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-description-list": {
       "tags": ["scope:web", "type:ui"]
     },

@@ -159,6 +159,13 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
           import('./dev-date-time-picker/dev-date-time-picker.module').then((m) => m.DevDateTimePickerModule),
       },
       {
+        path: 'date-time-range-pickers',
+        loadChildren: () =>
+          import('./dev-date-time-range-picker/dev-date-time-range-picker.module').then(
+            (m) => m.DevDateTimeRangePickerModule,
+          ),
+      },
+      {
         path: 'date-range-picker',
         loadChildren: () =>
           import('./dev-date-range-picker/dev-date-range-picker.module').then((m) => m.DevDateRangePickerModule),

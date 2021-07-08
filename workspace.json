@@ -1290,6 +1290,31 @@
         }
       }
     },
+    "web-ui-date-time-range-picker": {
+      "projectType": "library",
+      "root": "libs/web/ui/date-time-range-picker",
+      "sourceRoot": "libs/web/ui/date-time-range-picker/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/date-time-range-picker/src/**/*.ts",
+              "libs/web/ui/date-time-range-picker/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/date-time-range-picker"],
+          "options": {
+            "jestConfig": "libs/web/ui/date-time-range-picker/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-description-list": {
       "projectType": "library",
       "root": "libs/web/ui/description-list",

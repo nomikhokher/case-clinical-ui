@@ -174,7 +174,7 @@ export class WebUiDateTimePickerComponent {
   AmPm: boolean = true
   AmPmText: string = ''
 
-  // for time picker variables declaration
+  // for date picker variables declaration
   date: any
   month: any
   year: any
