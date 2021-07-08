@@ -9,18 +9,17 @@ import { DevCardHeadingStore } from './dev-card-heading.store'
         [githubURL]="vm.githubURL"
         [directory]="vm.directory"
         [breadcrumbs]="vm.breadcrumbs"
+        [component_outputs]="vm.component_outputs"
+        [component_inputs]="vm.component_inputs"
         [code]="codePreview[0]"
       >
         <!-- INSERT YOUR UI-COMPONENT HERE  -->
         <ui-card-heading
-          [sectionToggle]="false"
+          [sectionToggle]="vm.items.sectionToggle"
           [profile]="vm.items.profile"
           [buttons]="vm.items.buttons"
         ></ui-card-heading>
       </ui-preview>
-      <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800">
-        <pre class="text-xs dark:text-gray-500">{{ vm.items | json }}</pre>
-      </div>
     </ng-container>
   `,
   providers: [DevCardHeadingStore],
