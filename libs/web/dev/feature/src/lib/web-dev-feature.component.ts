@@ -379,6 +379,11 @@ export class WebDevFeatureComponent {
               image: '/assets/images/stacked.png',
             },
             {
+              label: 'Date Time Range Picker',
+              route: 'date-time-range-pickers',
+              image: '/assets/images/stacked.png',
+            },
+            {
               label: 'Date Range Picker',
               route: 'date-range-picker',
               image: '/assets/images/stacked.png',
