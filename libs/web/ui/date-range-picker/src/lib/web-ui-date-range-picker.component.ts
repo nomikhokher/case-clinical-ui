@@ -1,20 +1,36 @@
-import { Component, ElementRef } from '@angular/core'
+import { Component, ElementRef, Input } from '@angular/core'
 
 @Component({
   selector: 'ui-date-range-picker',
   template: `
-    <div class="antialiased sans-serif">
+    <div class="antialiased sans-serif" (clickOutside)="showDatepicker = false">
       <div>
         <div class="container mx-auto px-4 py-2 md:py-10">
           <label for="datepicker" class="font-bold mt-3 mb-1 text-gray-700 block">Select Date Range</label>
           <div class="relative">
             <div class="flex items-center border rounded-md mt-3 bg-gray-200">
               <input
+                *ngIf="!icon"
                 type="text"
                 (click)="initDate(); showDatepicker = true"
                 [(ngModel)]="dateFromandTo"
                 class="focus:outline-none border-0 p-2 w-96 rounded-l-md border-r border-gray-300"
               />
+              <svg
+                *ngIf="icon"
+                class="h-6 w-6 text-gray-600 m-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                (click)="initDate(); showDatepicker = true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
             </div>
 
             <!-- first picker -->
@@ -84,13 +100,13 @@ import { Component, ElementRef } from '@angular/core'
                       <div style="width: 14.28%" class="px-1 mb-1">
                         <div
                           (click)="getDateValue(date, 1)"
-                          (click)="isDateFrom(date, 1)"
+                          (mouseover)="hoverDate(date, 1)"
                           class="p-1 cursor-pointer text-center text-sm leading-none hover:bg-blue-200 leading-loose transition ease-in-out duration-100"
                           [ngClass]="{
-                            'font-bold': isToday(date) == true,
-                            'bg-blue-900 text-gray-50 opacity-90 rounded-l-full': isDateFrom(date, 1) == true,
-                            'bg-blue-800 text-white rounded-r-full': isDateTo(date, 1) == true,
-                            'bg-blue-200': isInRange(date, 1) == true
+                            'bg-blue-800 text-gray-50 opacity-90 rounded-l-full': isToday(date) == true,
+                            'bg-blue-900 text-white opacity-90 rounded-r-full': isDateTo(date, 1) == true,
+                            'bg-blue-200': isInRange(date, 1) == true,
+                            'cursor-not-allowed opacity-25': isDisabledPrevDays(date)
                           }"
                         >
                           {{ date }}
@@ -159,9 +175,9 @@ import { Component, ElementRef } from '@angular/core'
                       <div style="width: 14.28%" class="px-1 mb-1">
                         <div
                           (click)="getDateValue(date, 2)"
+                          (mouseover)="hoverDate(date, 2)"
                           class="p-1 cursor-pointer text-center text-sm leading-none hover:bg-blue-200 leading-loose transition ease-in-out duration-100"
                           [ngClass]="{
-                            'bg-blue-800 text-white rounded-l-full': isDateFrom(date, 2) == true,
                             'bg-blue-800 text-white rounded-r-full': isDateTo(date, 2) == true,
                             'bg-blue-200': isInRange(date, 2) == true
                           }"
@@ -181,22 +197,28 @@ import { Component, ElementRef } from '@angular/core'
   `,
 })
 export class WebUiDateRangePickerComponent {
+  // get the date format parameter from the user
+  @Input() dateFormat: string
+  @Input() icon: boolean
+
   constructor(public elm: ElementRef) {}
+
   ngOnInit() {
     this.initDate()
   }
 
+  // variable declaration
+  startStopHover: boolean = true
+  dateToAndFrom: boolean = false
+  endToShow: boolean = false
   showDatepicker: boolean
-  ets: boolean = false
   dateFromandTo: any
-  dateFromYmd: any
-  dateToYmd: any
   dateFromValue: any
   dateToValue: any
   currentDate: any
   dateFrom: any
   dateTo: any
-  endToShow: number = 0
+  color: string = ''
   month: any
   year: any
   no_of_days = []
@@ -211,22 +233,29 @@ export class WebUiDateRangePickerComponent {
   days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
   months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-  convertFromYmd(dateYmd) {
-    const year = Number(dateYmd.substr(0, 4))
-    const month = Number(dateYmd.substr(5, 2)) - 1
-    const date = Number(dateYmd.substr(8, 2))
-
-    return new Date(year, month, date)
-  }
-
-  convertToYmd(dateObject) {
+  // convet the simple date to formated date
+  convertToDateFormat(dateObject) {
     const year = dateObject.getFullYear()
     const month = dateObject.getMonth() + 1
     const date = dateObject.getDate()
-
-    return year + '-' + ('0' + month).slice(-2) + '-' + ('0' + date).slice(-2)
+    if (this.dateFormat == 'DDMMYYYY') {
+      return ('0' + date).slice(-2) + '-' + ('0' + month).slice(-2) + '-' + year
+    } else if (this.dateFormat == 'MMDDYYYY') {
+      return ('0' + month).slice(-2) + '-' + ('0' + date).slice(-2) + '-' + year
+    } else if (this.dateFormat == 'YYYYMMDD') {
+      return year + '-' + ('0' + month).slice(-2) + '-' + ('0' + date).slice(-2)
+    } else {
+      if (this.dateFrom && this.dateToAndFrom == true) {
+        this.dateToAndFrom = false
+        return this.dateFrom.toDateString()
+      }
+      if (this.dateTo) {
+        return this.dateTo.toDateString()
+      }
+    }
   }
 
+  // give initial value to the variables
   initDate() {
     this.currentDate = new Date()
     let currentMonth = this.currentDate.getMonth()
@@ -242,32 +271,28 @@ export class WebUiDateRangePickerComponent {
     this.setDateValues()
   }
 
+  // get current day
   isToday(date) {
     const today = new Date()
     const d = new Date(this.year, this.month, date)
-
-    return today.toDateString() === d.toDateString()
+    if (today.toDateString() === d.toDateString()) {
+      this.dateFrom = d
+      return true
+    }
   }
 
-  isDateFrom(date, getDateFrom) {
-    // console.log(1);
-    const d = new Date(
-      getDateFrom == 1 ? this.year : this.nextYear,
-      getDateFrom == 1 ? this.month : this.nextMonth,
-      date,
-    )
-    return d.toDateString() === this.dateFromValue
-  }
-
+  // set last date
   isDateTo(date, getDateFrom) {
-    const d = new Date(
-      getDateFrom == 1 ? this.year : this.nextYear,
-      getDateFrom == 1 ? this.month : this.nextMonth,
-      date,
-    )
+    let d = new Date(getDateFrom == 1 ? this.year : this.nextYear, getDateFrom == 1 ? this.month : this.nextMonth, date)
+    if (this.dateFormat) {
+      d = this.convertToDateFormat(d)
+      return d === this.dateToValue
+    }
+
     return d.toDateString() === this.dateToValue
   }
 
+  // highlited the days in the given range
   isInRange(date, getDateFrom) {
     const d = new Date(
       getDateFrom == 1 ? this.year : this.nextYear,
@@ -278,42 +303,65 @@ export class WebUiDateRangePickerComponent {
     return d > this.dateFrom && d < this.dateTo
   }
 
-  setDateValues() {
-    if (this.dateFrom) {
-      this.dateFromValue = this.dateFrom.toDateString()
-      this.dateFromYmd = this.convertToYmd(this.dateFrom)
-      this.dateFromandTo =
-        this.dateFromValue + '--to--' + (this.dateToValue != undefined ? this.dateToValue : this.dateFromValue)
+  // select days on hover
+  hoverDate(date, getDateFrom) {
+    let hoverdDate = new Date(
+      getDateFrom == 1 ? this.year : this.nextYear,
+      getDateFrom == 1 ? this.month : this.nextMonth,
+      date,
+    )
+
+    // if dateFrom has date then give the date to the variable dateFrom or dateTo
+    if (hoverdDate > this.dateFrom && this.startStopHover == true) {
+      this.dateTo = hoverdDate
     }
+    this.isInRange(date, getDateFrom)
+    this.initDate()
+  }
+
+  // set date in the input field to show the date
+  setDateValues() {
+    // format the date and give it to dateFromValue
+    if (this.dateFrom) {
+      this.dateToAndFrom = true
+      this.dateFromValue = this.convertToDateFormat(this.dateFrom)
+      // bind the value to input
+      this.dateFromandTo =
+        this.dateFromValue + ' - ' + (this.dateToValue != undefined ? this.dateToValue : this.dateFromValue)
+    }
+    // format the date and give it to dateToValue
     if (this.dateTo) {
-      this.dateToValue = this.dateTo.toDateString()
-      this.dateToYmd = this.convertToYmd(this.dateTo)
+      this.dateToValue = this.convertToDateFormat(this.dateTo)
     }
   }
 
+  // select date in your given range
   getDateValue(date, getDateFrom) {
-    this.endToShow = this.endToShow + 1
-    alert('endtoshow = ' + this.endToShow)
-    let selectedDate = new Date(this.year, getDateFrom == 1 ? this.month : this.nextMonth, date)
+    let selectedDate = new Date(
+      getDateFrom == 1 ? this.year : this.nextYear,
+      getDateFrom == 1 ? this.month : this.nextMonth,
+      date,
+    )
 
-    if (this.endToShow === 1 && (!this.dateTo || selectedDate <= this.dateTo)) {
-      alert('date to' + this.endToShow)
+    selectedDate = this.convertToDateFormat(selectedDate)
+
+    if (!this.dateFrom || selectedDate <= this.dateFrom) {
+      this.endToShow = true
       this.dateFrom = selectedDate
-      if (!this.dateTo) {
-        this.dateTo = selectedDate
-      }
-    } else if (this.endToShow > 1 && (!this.dateFrom || selectedDate >= this.dateFrom)) {
-      alert('date to')
+    } else if (
+      this.endToShow == true &&
+      (!this.dateTo || selectedDate == this.dateFrom || selectedDate >= this.dateFrom)
+    ) {
       this.dateTo = selectedDate
-      if (!this.dateFrom) {
-        this.dateFrom = selectedDate
-      }
     }
 
     this.setDateValues()
-    this.closeDatepicker()
+    this.initDate()
+
+    this.startStopHover = !this.startStopHover
   }
 
+  // set no of days in a month for 1st page
   getNoOfDays(arrow?: string) {
     // prev month
     if (arrow == 'leftArrow') {
@@ -353,6 +401,7 @@ export class WebUiDateRangePickerComponent {
     this.no_of_days = daysArray
   }
 
+  // set no of days in a month for 2nd page
   nextgetNoOfDays(arrow?: string) {
     // prev month
     if (arrow == 'leftArrow') {
@@ -392,8 +441,18 @@ export class WebUiDateRangePickerComponent {
     this.next_no_of_days = daysArray
   }
 
+  // disabled days
+  isDisabledPrevDays(date) {
+    let d = new Date(this.year, this.month, date)
+
+    if (this.dateFrom && d < this.dateFrom) {
+      return true
+    }
+    return false
+  }
+
+  // close the date picker
   closeDatepicker() {
-    this.endToShow = 0
     this.showDatepicker = false
   }
 }
