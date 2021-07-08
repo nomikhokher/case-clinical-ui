@@ -11,7 +11,10 @@ import { DevEditorStore } from './dev-editor.store'
         [directory]="vm.config.previewData.directory"
         [breadcrumbs]="vm.config.previewData.breadcrumbs"
       >
-        <ui-editor></ui-editor>
+        <ui-editor
+          [froalaOptions]="vm.config.items.froalaData.froalaOptions"
+          [modelData]="vm.config.items.froalaData.firstModel"
+        ></ui-editor>
       </ui-preview>
     </ng-container>
   `,
