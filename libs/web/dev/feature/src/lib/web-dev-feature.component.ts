@@ -118,6 +118,11 @@ export class WebDevFeatureComponent {
               route: 'multi-checkboxs',
               image: '/assets/images/form-layouts.png',
             },
+            {
+              label: 'Editor',
+              route: 'editors',
+              image: '/assets/images/froalaeditor.png',
+            },
           ],
         },
         {

@@ -396,8 +396,12 @@
                 "output": "assets"
               }
             ],
-            "styles": ["libs/web/style/src/index.css"],
-            "scripts": [],
+            "styles": [
+              "libs/web/style/src/index.css",
+              "./node_modules/froala-editor/css/froala_editor.pkgd.min.css",
+              "./node_modules/froala-editor/css/froala_style.min.css"
+            ],
+            "scripts": ["./node_modules/froala-editor/js/froala_editor.pkgd.min.js"],
             "allowedCommonJsDependencies": ["graphql-tag", "subscriptions-transport-ws", "zen-observable"],
             "customWebpackConfig": {
               "path": "webpack.config.js"
@@ -1394,6 +1398,28 @@
           "outputs": ["coverage/libs/web/ui/dropdown-button"],
           "options": {
             "jestConfig": "libs/web/ui/dropdown-button/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-editor": {
+      "projectType": "library",
+      "root": "libs/web/ui/editor",
+      "sourceRoot": "libs/web/ui/editor/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/editor/src/**/*.ts", "libs/web/ui/editor/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/editor"],
+          "options": {
+            "jestConfig": "libs/web/ui/editor/jest.config.js",
             "passWithNoTests": true
           }
         }

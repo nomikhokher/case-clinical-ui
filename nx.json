@@ -204,6 +204,9 @@
     "web-ui-dropdown-button": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-editor": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-feed": {
       "tags": ["scope:web", "type:ui"]
     },

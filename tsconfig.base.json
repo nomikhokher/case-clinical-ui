@@ -72,6 +72,7 @@
       "@schema-driven/web/ui/divider-toolbar": ["libs/web/ui/divider-toolbar/src/index.ts"],
       "@schema-driven/web/ui/dropdown": ["libs/web/ui/dropdown/src/index.ts"],
       "@schema-driven/web/ui/dropdown-button": ["libs/web/ui/dropdown-button/src/index.ts"],
+      "@schema-driven/web/ui/editor": ["libs/web/ui/editor/src/index.ts"],
       "@schema-driven/web/ui/feed": ["libs/web/ui/feed/src/index.ts"],
       "@schema-driven/web/ui/form": ["libs/web/ui/form/src/index.ts"],
       "@schema-driven/web/ui/full-calendar": ["libs/web/ui/full-calendar/src/index.ts"],
