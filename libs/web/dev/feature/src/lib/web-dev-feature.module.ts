@@ -154,6 +154,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-date-picker/dev-date-picker.module').then((m) => m.DevDatePickerModule),
       },
       {
+        path: 'date-time-pickers',
+        loadChildren: () =>
+          import('./dev-date-time-picker/dev-date-time-picker.module').then((m) => m.DevDateTimePickerModule),
+      },
+      {
         path: 'date-range-picker',
         loadChildren: () =>
           import('./dev-date-range-picker/dev-date-range-picker.module').then((m) => m.DevDateRangePickerModule),

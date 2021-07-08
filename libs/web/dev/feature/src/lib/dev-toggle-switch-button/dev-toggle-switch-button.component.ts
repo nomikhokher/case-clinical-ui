@@ -44,7 +44,7 @@ export class DevToggleSwitchButtonComponent {
       id: 1,
       height: 'h-6',
       width: 'w-6',
-      left: 'left-96',
+      left: 'left-94',
       bgColor: 'bg-green-600',
       divWidth: 'w-12',
       divHeight: 'h-8',

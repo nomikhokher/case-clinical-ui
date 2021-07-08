@@ -12,9 +12,7 @@ import { Chips } from '../../../../dev/feature/src/lib/dev-chips/dev-chips.compo
             chip.bgColor
           }} border hover:{{ chip.hoverColor }} cursor-pointer "
         >
-          <div *ngIf="chip.icon">
-            <ui-icon icon="{{ chip.icon }}" class="feather feather-heart w-4 h-5 mr-1"></ui-icon>
-          </div>
+          <ui-icon *ngIf="chip.icon" icon="{{ chip.icon }}" class="feather feather-heart w-4 h-5 mr-1"></ui-icon>
           <div
             slot="avatar"
             *ngIf="chip.img"
@@ -24,13 +22,12 @@ import { Chips } from '../../../../dev/feature/src/lib/dev-chips/dev-chips.compo
           </div>
           <div class="text-xs font-normal leading-none max-w-full flex-initial">Hello!</div>
           <div class="flex flex-auto flex-row-reverse">
-            <div *ngIf="chip.cross">
-              <ui-icon
-                icon="{{ chip.cross }}"
-                class="feather feather-x cursor-pointer hover:text-yellow-400 rounded-full w-4 h-5 mx-1"
-                (click)="deleteItem(i)"
-              ></ui-icon>
-            </div>
+            <ui-icon
+              *ngIf="chip.cross"
+              icon="{{ chip.cross }}"
+              class="feather feather-x cursor-pointer hover:text-yellow-400 rounded-full w-4 h-5 mx-1"
+              (click)="deleteItem(i)"
+            ></ui-icon>
           </div>
         </div>
       </div>
