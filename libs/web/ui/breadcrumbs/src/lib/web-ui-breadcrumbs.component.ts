@@ -51,9 +51,9 @@ import { Crumb } from './models'
       class="flex mx-auto "
       aria-label="Breadcrumb"
       [ngClass]="{
-        'justify-end': alignment == 'left',
+        'justify-end': alignment == 'right',
         'justify-center': alignment == 'center',
-        'justify-start': alignment == 'right',
+        'justify-start': alignment == 'left',
         'justify-between': alignment == 'full'
       }"
     >
@@ -95,6 +95,11 @@ export class WebUiBreadcrumbsComponent {
   @Input() useSlashes?: boolean
   @Input() alignment?: string
   public crumbIcon = 'home'
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    console.log(this.crumbs)
+  }
   breadCrumbs(data) {
     this.crumbIcon = data.icon
   }
