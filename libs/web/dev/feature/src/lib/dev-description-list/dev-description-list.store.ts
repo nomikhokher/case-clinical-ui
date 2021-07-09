@@ -63,6 +63,7 @@ const config: Configs = {
     background: 'indigo',
     showIcon: true,
   },
+
   component_inputs: [
     { label: 'Data', prop: '[data]', description: 'Shows all data of list', dataType: 'Object' },
     { label: 'Form Title', prop: '[formTitle]', description: 'Shows the title of form.', dataType: 'String' },
