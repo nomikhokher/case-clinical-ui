@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core'
-import { Button, Contact } from '../../../../dev/feature/src/lib/dev-contact-card/dev-contact-card.component'
+import { Buttons, Contact } from '../../../../dev/feature/src/lib/dev-contact-card/model'
 
 @Component({
   selector: 'ui-contact-card',
@@ -84,6 +84,6 @@ import { Button, Contact } from '../../../../dev/feature/src/lib/dev-contact-car
 })
 export class WebUiContactCardComponent {
   @Input() contactCard: Contact
-  @Input() buttons: Button
+  @Input() buttons: Buttons
   @Input() toggleCard: boolean
 }
