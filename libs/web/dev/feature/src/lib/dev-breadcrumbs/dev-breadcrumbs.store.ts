@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
+import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
+import { Configs } from './model'
 
 export interface Crumbs {
   name: string
@@ -11,52 +13,56 @@ export interface Crumbs {
 
 interface DevCrumbsState {
   crumbs?: Crumbs[]
-  alignment?: string
+  config?: Configs
+}
+
+const config = {
+  headerTitle: 'Breadcrumbs',
+  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/breadcrumbs/src/lib',
+  breadcrumbs: [
+    { label: 'Components', path: '/dev' },
+    { label: 'Breadcrumbs', path: '/dev/Breadcrumbs' },
+  ],
+  directory: '/libs/web/dev/feature/src/lib/dev-section-headings/dev-breadcrumbs.component.ts',
+  items: [
+    { name: 'Home', isactive: true, icon: 'home' },
+    {
+      name: 'Products',
+      isactive: false,
+      icon: 'development',
+    },
+    { name: 'Variants', isactive: false, icon: 'folder' },
+    { name: 'Color', isactive: false, icon: 'about' },
+    { name: 'Edit', isactive: false, icon: 'key' },
+  ],
+  alignment: 'left', // it can be [left, right, center, full]
+  component_inputs: [
+    {
+      label: 'Breadcrumb Items',
+      prop: '[crumbs]',
+      description: 'This array contains the name and icons of breadcrumbs',
+      dataType: 'String',
+    },
+    {
+      label: 'Alignment',
+      prop: '[alignment]',
+      description: 'Adjust the position of breadcrumbs',
+      dataType: 'Array',
+    },
+  ],
+  component_outputs: [
+    { label: 'Click', prop: '(click)', description: 'Invoked when button is clicked', dataType: '() => void' },
+  ],
 }
 
 @Injectable()
 export class DevBreadcrumbsStore extends ComponentStore<DevCrumbsState> {
-  home: string = `Home`
-  products: string = `Products`
-  variants: string = `Variants`
-  color: string = `Color`
-  edit: string = `Edit`
-
-  constructor() {
+  constructor(private readonly sdk: ApolloAngularSDK) {
     super({
-      crumbs: [],
-      alignment: 'center', //alignment can be [right, center, left, full]
-    })
-
-    this.patchState({
-      crumbs: [
-        { name: 'Home', isactive: true, tabHandler: this.onTabHandler, content: this.home, icon: 'home' },
-        {
-          name: 'Products',
-          isactive: false,
-          tabHandler: this.onTabHandler,
-          content: this.products,
-          icon: 'development',
-        },
-        { name: 'Variants', isactive: false, tabHandler: this.onTabHandler, content: this.variants, icon: 'folder' },
-        { name: 'Color', isactive: false, tabHandler: this.onTabHandler, content: this.color, icon: 'about' },
-        { name: 'Edit', isactive: false, tabHandler: this.onTabHandler, content: this.edit, icon: 'key' },
-      ],
+      config,
     })
   }
 
-  readonly crumbs$ = this.select(this.state$, (s) => s.crumbs)
-  readonly alignment$ = this.select(this.state$, (s) => s.alignment)
-  readonly vm$ = this.select(this.crumbs$, this.alignment$, (crumbs, alignment) => ({ crumbs, alignment }))
-
-  onTabHandler = (crumb: Crumbs) => {
-    this.crumbs$.subscribe((res) => {
-      res.forEach((res) => {
-        if (res.isactive == true) {
-          res.isactive = false
-        }
-      })
-    })
-    crumb.isactive = true
-  }
+  readonly config$ = this.select(this.state$, (s) => s.config)
+  readonly vm$ = this.select(this.config$, (config) => ({ config }))
 }
