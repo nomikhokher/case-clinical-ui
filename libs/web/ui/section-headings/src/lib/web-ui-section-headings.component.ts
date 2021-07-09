@@ -6,8 +6,8 @@ import { Buttons, Heading, TabLinks } from '../../../../dev/feature/src/lib/dev-
   template: `
     <div class="relative pb-5 border-b border-gray-200 sm:pb-0">
       <div class="md:flex md:items-center md:justify-right space-x-3">
-        <div *ngIf="heading.imagePath && image == true">
-          <img class="h-16 w-16 rounded-full" src="{{ heading.imagePath }}" alt="Invalid URL" />
+        <div *ngIf="image">
+          <img class="h-16 w-16 rounded-full" src="" alt="Invalid URL" />
         </div>
         <div>
           <h3 class="text-lg leading-6 font-medium text-gray-900">

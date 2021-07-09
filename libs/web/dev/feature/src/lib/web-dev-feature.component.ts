@@ -118,6 +118,11 @@ export class WebDevFeatureComponent {
               route: 'multi-checkboxs',
               image: '/assets/images/form-layouts.png',
             },
+            {
+              label: 'Editor',
+              route: 'editors',
+              image: '/assets/images/froalaeditor.png',
+            },
           ],
         },
         {
@@ -371,6 +376,16 @@ export class WebDevFeatureComponent {
             {
               label: 'Date Picker',
               route: 'date-picker',
+              image: '/assets/images/stacked.png',
+            },
+            {
+              label: 'Date Time Picker',
+              route: 'date-time-pickers',
+              image: '/assets/images/stacked.png',
+            },
+            {
+              label: 'Date Time Range Picker',
+              route: 'date-time-range-pickers',
               image: '/assets/images/stacked.png',
             },
             {

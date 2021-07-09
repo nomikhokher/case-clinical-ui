@@ -15,7 +15,7 @@ import { Component, Input } from '@angular/core'
           src="{{ payload }}"
           alt=""
         />
-        <img *ngIf="__badge_enable()" class="{{ __size() }} {{ __radius() }}" src="{{ payload }}" alt="" />
+        <img *ngIf="__badge_enable()" class="inline-block {{ __size() }} {{ __radius() }}" src="{{ payload }}" alt="" />
         <span
           *ngIf="__badge_enable()"
           class="absolute block {{ __badge_size() }} rounded-full ring-2 ring-white {{
