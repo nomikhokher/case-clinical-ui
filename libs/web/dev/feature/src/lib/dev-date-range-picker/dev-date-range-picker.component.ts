@@ -11,7 +11,7 @@ import { DevDateRangePickerStore } from './dev-date-range-picker.store'
         Component: libs/web/dev/feature/src/lib/dev-date-range-picker/dev-date-range-picker.component.ts
       </code>
       <ui-preview>
-        <ui-date-range-picker></ui-date-range-picker>
+        <ui-date-range-picker [dateFormat]="''" [icon]="false"></ui-date-range-picker>
       </ui-preview>
     </ng-container>
   `,
@@ -21,3 +21,10 @@ export class DevDateRangePickerComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevDateRangePickerStore) {}
 }
+
+// export enum DateFormat {
+//   DDMMYYYY = 'DD-MM-YYYY',
+//   MMDDYYYY = 'MM-DD-YYYY',
+//   YYYYMMDD = 'YYYY-MM-DD',
+//   Ll = 'll',
+// }
