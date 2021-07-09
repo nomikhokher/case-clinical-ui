@@ -42,11 +42,7 @@ import { Component, Input } from '@angular/core'
       <ul class="divide-y divide-gray-200">
         <li class="py-4" *ngFor="let list of feedsListing; let i = inex">
           <div class="flex space-x-3">
-            <img
-              class="h-6 w-6 rounded-full"
-              src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-              alt=""
-            />
+            <img *ngIf="list.img" class="h-10 w-10 rounded-full" src="{{ list.img }}" alt="{{ list.img }}" />
             <div class="flex-1 space-y-1">
               <div class="flex items-center justify-between">
                 <h3 class="text-sm font-medium">{{ list.heading }}</h3>
