@@ -2,23 +2,28 @@ import { Component, ViewChild, ViewChildren, QueryList } from '@angular/core'
 import { WebUiAlertComponent } from '@schema-driven/web/ui/alert'
 import { WebUiPreviewComponent } from '@schema-driven/web/ui/preview'
 import { DevAlertStore } from './dev-alert.store'
-import { ServiceCodepreview } from '../../../../../ui/codepreview.service'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800">
-        <pre class="text-xs dark:text-gray-500">{{ __usage() | json }}</pre>
-      </div>
-
-      <ui-preview [component_props]="[{ name: 'settings', value: {} }]" [codeObj]="dataArr[0]" [code]="codePreview[0]">
+      <ui-preview
+        [component_props]="[{ name: 'settings', value: {} }]"
+        [codeObj]=""
+        [code]="codePreview[0]"
+        [title]="vm.config.previewData.header"
+        [githubURL]="vm.config.previewData.githubURL"
+        [directory]="vm.config.previewData.directory"
+        [breadcrumbs]="vm.config.previewData.breadcrumbs"
+        [component_inputs]="vm.config.items.component_inputs"
+        [component_outputs]="vm.config.items.component_outputs"
+      >
         <ui-alert
-          [class]="dataArr[0].class"
-          [subject]="dataArr[0].subject"
-          [message]="dataArr[0].message"
-          [bg_color]="dataArr[0].bg_color"
-          [icon]="dataArr[0].icon"
-          [icon_show]="dataArr[0].icon_show"
-          [content_align]="content_align"
+          [class]="vm.config.items.data.class"
+          [subject]="vm.config.items.data.subject"
+          [message]="vm.config.items.data.message"
+          [bg_color]="vm.config.items.data.bg_color"
+          [icon]="vm.config.items.data.icon"
+          [icon_show]="vm.config.items.data.icon_show"
+          [content_align]="vm.config.items.data.alignment"
         ></ui-alert>
       </ui-preview>
     </ng-container>
@@ -28,21 +33,6 @@ import { ServiceCodepreview } from '../../../../../ui/codepreview.service'
 export class DevAlertComponent {
   readonly vm$ = this.store.vm$
 
-  public data = [
-    {
-      display: false,
-      image: 'https://images.com/iajkrgRAa',
-      zoom: {
-        toggle: true,
-        child_id: 244,
-      },
-      childs: [
-        {
-          hello: 'Hello World',
-        },
-      ],
-    },
-  ]
   @ViewChild(WebUiPreviewComponent) component_preview: WebUiPreviewComponent
   @ViewChildren(WebUiAlertComponent) items: QueryList<WebUiAlertComponent>
   public codePreview = [
@@ -56,161 +46,8 @@ export class DevAlertComponent {
     icon="exclamation"
     [icon_show]="true"
   ></ui-alert>`,
-    `import { WebUiAlertModule } from '@schema-driven/web/ui/alert'
-    \n\n<ui-alert
-  icon="x_circle"
-  [icon_show]="true"
-  class="mb-4 mt-4"
-  subject="There were 2 errors with your submission"
-  bg_color="danger"
-  [list]="_list()"
-></ui-alert>`,
-    `import { WebUiAlertModule } from '@schema-driven/web/ui/alert'
-    \n\n <ui-alert
-[icon_show]="true"
-icon="check_circle"
-class="mb-4 mt-4"
-subject="Order completed"
-message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam."
-bg_color="success"
-[actionLink]="_actionLink()"
-></ui-alert>`,
-    ` import { WebUiAlertModule } from '@schema-driven/web/ui/alert'
-    \n\n<ui-alert
-class="mb-4 mt-4"
-[icon_show]="true"
-icon="information_circle"
-message="A new software update is available. See what’s new in version 2.0.4."
-bg_color="info"
-></ui-alert>`,
-    `import { WebUiAlertModule } from '@schema-driven/web/ui/alert'
-    \n\n<ui-alert
-icon="check_circle"
-[icon_show]="true"
-class="mb-4 mt-4 desh"
-[message]="htmlstring"
-bg_color="warning"
-[accent_border]="true"
-></ui-alert>`,
-    `import { WebUiAlertModule } from '@schema-driven/web/ui/alert'
-    \n\n<ui-alert
-icon="check_circle"
-[icon_show]="true"
-class="mb-4 mt-4"
-message="Successfully updated"
-bg_color="success"
-></ui-alert>`,
   ]
-  ngAfterViewInit() {
-    //console.log(this.component_preview);
-    console.log({
-      items: this.items,
-    })
-    // this.render_html_code();
-  }
 
   htmlstring = 'You have no credits left. <a href="#"><u>Upgrade your account to add more credits</u></a>'
-  constructor(private readonly store: DevAlertStore, public readonly serviceData: ServiceCodepreview) {}
-  public content_align = 'left' // it should be three types [center, left, right]
-  public dataArr = [
-    {
-      id: 0,
-      class: 'mb-4 mt-4',
-      subject: 'Attention needed',
-      message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      bg_color: 'info',
-      icon: 'exclamation',
-      icon_show: true,
-    },
-    {
-      id: 1,
-      class: 'mb-4 mt-4',
-      subject: 'There were 2 errors with your submission',
-      message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      bg_color: 'danger',
-      icon: 'x_circle',
-      icon_show: true,
-    },
-    {
-      id: 2,
-      class: 'mb-4 mt-4',
-      icon_show: true,
-      icon: 'information_circle',
-      message: 'A new software update is available. See what’s new in version 2.0.4.',
-      bg_color: 'info',
-    },
-    {
-      id: 3,
-      class: 'mb-4 mt-4',
-      icon_show: true,
-      icon: 'information_circle',
-      message: 'A new software update is available. See what’s new in version 2.0.4.',
-      bg_color: 'info',
-    },
-    {
-      id: 4,
-      icon: 'check_circle',
-      icon_show: true,
-      class: 'mb-4 mt-4 desh',
-      message: 'htmlstring',
-      bg_color: 'warning',
-      accent_border: 'true',
-    },
-    {
-      id: 5,
-      icon: 'check_circle',
-      icon_show: true,
-      class: 'mb-4 mt-4',
-      message: 'Successfully updated',
-      bg_color: 'success',
-    },
-  ]
-
-  ngOnInit(): void {
-    this.serviceData.codePreview$.subscribe((x) => {
-      this.dataArr[x.id] = x
-    })
-  }
-
-  _list() {
-    return [
-      'Your password must be at least 8 characters',
-      'Your password must include at least one pro wrestling finishing move',
-    ]
-  }
-
-  _actionLink() {
-    return [
-      {
-        title: 'View status',
-        click_event: (child) => {
-          console.log('event triggered')
-        },
-      },
-      {
-        title: 'Dismiss',
-        click_event: (child) => {
-          child.show = false
-        },
-      },
-    ]
-  }
-
-  __usage() {
-    return {
-      component: 'ui-alert',
-      parameters: {
-        show: 'boolean',
-        class: 'string',
-        subject: 'string',
-        message: 'string',
-        list: 'string []',
-        actionLink: 'Object []',
-        type: 'string',
-        bg_color: 'string',
-        dismiss: 'boolean',
-        icon_show: 'boolean',
-      },
-    }
-  }
+  constructor(private readonly store: DevAlertStore) {}
 }
