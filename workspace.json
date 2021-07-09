@@ -396,8 +396,12 @@
                 "output": "assets"
               }
             ],
-            "styles": ["libs/web/style/src/index.css"],
-            "scripts": [],
+            "styles": [
+              "libs/web/style/src/index.css",
+              "./node_modules/froala-editor/css/froala_editor.pkgd.min.css",
+              "./node_modules/froala-editor/css/froala_style.min.css"
+            ],
+            "scripts": ["./node_modules/froala-editor/js/froala_editor.pkgd.min.js"],
             "allowedCommonJsDependencies": ["graphql-tag", "subscriptions-transport-ws", "zen-observable"],
             "customWebpackConfig": {
               "path": "webpack.config.js"
@@ -1261,6 +1265,56 @@
         }
       }
     },
+    "web-ui-date-time-picker": {
+      "projectType": "library",
+      "root": "libs/web/ui/date-time-picker",
+      "sourceRoot": "libs/web/ui/date-time-picker/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/date-time-picker/src/**/*.ts",
+              "libs/web/ui/date-time-picker/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/date-time-picker"],
+          "options": {
+            "jestConfig": "libs/web/ui/date-time-picker/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-date-time-range-picker": {
+      "projectType": "library",
+      "root": "libs/web/ui/date-time-range-picker",
+      "sourceRoot": "libs/web/ui/date-time-range-picker/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/date-time-range-picker/src/**/*.ts",
+              "libs/web/ui/date-time-range-picker/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/date-time-range-picker"],
+          "options": {
+            "jestConfig": "libs/web/ui/date-time-range-picker/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-description-list": {
       "projectType": "library",
       "root": "libs/web/ui/description-list",
@@ -1369,6 +1423,28 @@
           "outputs": ["coverage/libs/web/ui/dropdown-button"],
           "options": {
             "jestConfig": "libs/web/ui/dropdown-button/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-editor": {
+      "projectType": "library",
+      "root": "libs/web/ui/editor",
+      "sourceRoot": "libs/web/ui/editor/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/editor/src/**/*.ts", "libs/web/ui/editor/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/editor"],
+          "options": {
+            "jestConfig": "libs/web/ui/editor/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -2498,28 +2574,6 @@
         }
       }
     },
-    "web-ui-toolbar": {
-      "projectType": "library",
-      "root": "libs/web/ui/toolbar",
-      "sourceRoot": "libs/web/ui/toolbar/src",
-      "prefix": "ui",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/web/ui/toolbar/src/**/*.ts", "libs/web/ui/toolbar/src/**/*.html"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/ui/toolbar"],
-          "options": {
-            "jestConfig": "libs/web/ui/toolbar/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "web-ui-toggle-switch-button": {
       "projectType": "library",
       "root": "libs/web/ui/toggle-switch-button",
@@ -2540,6 +2594,28 @@
           "outputs": ["coverage/libs/web/ui/toggle-switch-button"],
           "options": {
             "jestConfig": "libs/web/ui/toggle-switch-button/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-toolbar": {
+      "projectType": "library",
+      "root": "libs/web/ui/toolbar",
+      "sourceRoot": "libs/web/ui/toolbar/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/toolbar/src/**/*.ts", "libs/web/ui/toolbar/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/toolbar"],
+          "options": {
+            "jestConfig": "libs/web/ui/toolbar/jest.config.js",
             "passWithNoTests": true
           }
         }

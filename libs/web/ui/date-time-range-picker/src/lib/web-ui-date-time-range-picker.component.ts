@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input } from '@angular/core'
 
 @Component({
-  selector: 'ui-date-range-picker',
+  selector: 'ui-date-time-range-picker',
   template: `
     <div class="antialiased sans-serif" (clickOutside)="showDatepicker = false">
       <div>
@@ -14,8 +14,15 @@ import { Component, ElementRef, Input } from '@angular/core'
                 type="text"
                 (click)="initDate(); showDatepicker = true"
                 [(ngModel)]="dateFromandTo"
-                class="focus:outline-none border-0 p-2 w-96 rounded-l-md border-r border-gray-300"
+                class="focus:outline-none border-0 p-2 w-1/2 rounded-l-md border-r border-gray-300"
               />
+              <ng-container>
+                <div
+                  class="bg-white border-2 rounded border-gray-400 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-blue-500"
+                >
+                  <input type="checkbox" (click)="toggleTime()" class="w-6 h-6 p-2" />
+                </div>
+              </ng-container>
               <svg
                 *ngIf="icon"
                 class="h-6 w-6 text-gray-600 m-5"
@@ -113,11 +120,51 @@ import { Component, ElementRef, Input } from '@angular/core'
                         </div>
                       </div>
                     </ng-container>
+                    <ng-container *ngIf="!timeHideShow">
+                      <div class="flex items-center w-full">
+                        <div>
+                          <input
+                            [(ngModel)]="hours"
+                            #hour
+                            (input)="changeInputHours(hour.value, 1)"
+                            class="w-15 h-10 text-center bg-gray-100 hover:bg-gray-200 border-none focus:outline-none focus:ring-2 focus:ring-gray-100"
+                            type="number"
+                            aria-label="Hour"
+                            step="1"
+                            min="1"
+                            max="13"
+                            maxlength="2"
+                          />
+                        </div>
+                        <span>:</span>
+                        <div>
+                          <input
+                            [(ngModel)]="minutes"
+                            #minute
+                            (input)="changeInputMinutes(minute.value, 1)"
+                            class="w-15 h-10 text-center bg-gray-100 hover:bg-gray-200 border-none focus:outline-none focus:ring-2 focus:ring-gray-100"
+                            type="number"
+                            aria-label="Minute"
+                            step="1"
+                            min="0"
+                            max="60"
+                            maxlength="2"
+                          />
+                        </div>
+                        <button
+                          class="w-full ml-1 h-10 bg-gray-100 hover:bg-gray-200 focus:outline-none"
+                          title="Click to toggle"
+                          (click)="toggle(1)"
+                        >
+                          {{ AmPmText }}
+                        </button>
+                      </div>
+                    </ng-container>
                   </div>
                 </div>
 
+                <!-- second picker starts here -->
                 <div class="ml-5">
-                  <!-- second picker starts here -->
                   <div class="flex justify-between items-center mb-2">
                     <div>
                       <button
@@ -186,6 +233,46 @@ import { Component, ElementRef, Input } from '@angular/core'
                         </div>
                       </div>
                     </ng-container>
+                    <ng-container *ngIf="!timeHideShow">
+                      <div class="flex items-center w-full">
+                        <div>
+                          <input
+                            [(ngModel)]="nextHours"
+                            #nextHour
+                            (input)="changeInputHours(nextHour.value, 2)"
+                            class="w-15 h-10 text-center bg-gray-100 hover:bg-gray-200 border-none focus:outline-none focus:ring-2 focus:ring-gray-100"
+                            type="number"
+                            aria-label="Hour"
+                            step="1"
+                            min="1"
+                            max="13"
+                            maxlength="2"
+                          />
+                        </div>
+                        <span>:</span>
+                        <div>
+                          <input
+                            [(ngModel)]="nextMinutes"
+                            #nextMinute
+                            (input)="changeInputMinutes(nextMinute.value, 2)"
+                            class="w-15 h-10 text-center bg-gray-100 hover:bg-gray-200 border-none focus:outline-none focus:ring-2 focus:ring-gray-100"
+                            type="number"
+                            aria-label="Minute"
+                            step="1"
+                            min="0"
+                            max="60"
+                            maxlength="2"
+                          />
+                        </div>
+                        <button
+                          class="w-full ml-1 h-10 bg-gray-100 hover:bg-gray-200 focus:outline-none"
+                          title="Click to toggle"
+                          (click)="toggle(2)"
+                        >
+                          {{ nextAmPmText }}
+                        </button>
+                      </div>
+                    </ng-container>
                   </div>
                 </div>
               </div>
@@ -196,7 +283,7 @@ import { Component, ElementRef, Input } from '@angular/core'
     </div>
   `,
 })
-export class WebUiDateRangePickerComponent {
+export class WebUiDateTimeRangePickerComponent {
   // get the date format parameter from the user
   @Input() dateFormat: string
   @Input() icon: boolean
@@ -205,7 +292,22 @@ export class WebUiDateRangePickerComponent {
 
   ngOnInit() {
     this.initDate()
+    this.currentTime()
   }
+
+  // for first page time picker variables declaration
+  setDate: any = new Date()
+  timeHideShow: boolean = true
+  hours: any = 1
+  minutes: any = 0
+  AmPm: boolean = false
+  AmPmText: string = ''
+
+  // for second page time picker variables declaration
+  nextHours: any = 1
+  nextMinutes: any = 0
+  nextAmPm: boolean = false
+  nextAmPmText: string = ''
 
   // variable declaration
   startStopHover: boolean = true
@@ -326,8 +428,15 @@ export class WebUiDateRangePickerComponent {
       this.dateToAndFrom = true
       this.dateFromValue = this.convertToDateFormat(this.dateFrom)
       // bind the value to input
-      this.dateFromandTo =
-        this.dateFromValue + ' - ' + (this.dateToValue != undefined ? this.dateToValue : this.dateFromValue)
+      this.dateFromandTo = this.timeHideShow
+        ? this.dateFromValue + ' - ' + (this.dateToValue != undefined ? this.dateToValue : this.dateFromValue)
+        : this.dateFromValue +
+          ' - ' +
+          this.setTimeValue() +
+          ' | ' +
+          (this.dateToValue != undefined ? this.dateToValue : this.dateFromValue) +
+          ' - ' +
+          this.setNextTimeValue()
     }
     // format the date and give it to dateToValue
     if (this.dateTo) {
@@ -454,5 +563,97 @@ export class WebUiDateRangePickerComponent {
   // close the date picker
   closeDatepicker() {
     this.showDatepicker = false
+  }
+
+  // for time picker functions here
+
+  // show the selected time
+  setTimeValue() {
+    return this.hours + ' : ' + this.minutes + ' ' + this.AmPmText
+  }
+  // show the selected time
+  setNextTimeValue() {
+    return this.nextHours + ' : ' + this.nextMinutes + ' ' + this.nextAmPmText
+  }
+
+  // get current time
+  currentTime(): void {
+    let date = new Date()
+    let hours = date.getHours()
+    let minutes = date.getMinutes()
+    this.hours = hours > 12 ? (hours - 12 < 10 ? '0' + (hours - 12) : hours - 12) : hours < 10 ? '0' + hours : hours
+    this.nextHours = this.hours
+    this.minutes = minutes < 10 ? '0' + minutes : minutes
+    this.nextMinutes = this.minutes
+    this.AmPmText = hours > 12 && minutes > 0 ? 'PM' : 'AM'
+    this.nextAmPmText = hours > 12 && minutes > 0 ? 'PM' : 'AM'
+    this.setDateValues()
+  }
+
+  // get hours
+  changeInputHours(hour: number, hourFrom: number): void {
+    if (this.nextHours > 12) {
+      this.nextHours = '01'
+      return
+    }
+    if (this.hours > 12) {
+      this.hours = '01'
+      return
+    }
+    if (this.hours == 12) {
+      this.toggle(hourFrom)
+      return
+    }
+    if (this.nextHours == 12) {
+      this.toggle(hourFrom)
+      return
+    }
+    hourFrom == 1 ? (this.hours = hour < 10 ? '0' + hour : hour) : (this.nextHours = hour < 10 ? '0' + hour : hour)
+    this.setDateValues()
+  }
+
+  // get minutes
+  changeInputMinutes(minute: number, minuteFrom: number): void {
+    if (this.nextMinutes > 59) {
+      this.nextMinutes = '00'
+      this.nextHours++
+      this.changeInputHours(this.nextHours, minuteFrom)
+      return
+    }
+    if (this.minutes > 59) {
+      this.minutes = '00'
+      this.hours++
+      this.changeInputHours(this.hours, minuteFrom)
+      return
+    }
+    minuteFrom == 1
+      ? (this.minutes = minute < 10 ? '0' + minute : minute)
+      : (this.nextMinutes = minute < 10 ? '0' + minute : minute)
+    this.setDateValues()
+  }
+  // get AmPmText
+  toggle(toggleFrom: number): void {
+    if (toggleFrom == 1) {
+      if (this.AmPm) {
+        this.AmPmText = 'PM'
+      } else {
+        this.AmPmText = 'AM'
+      }
+      this.AmPm = !this.AmPm
+    } else {
+      if (this.nextAmPm) {
+        this.nextAmPmText = 'PM'
+      } else {
+        this.nextAmPmText = 'AM'
+      }
+      this.nextAmPm = !this.nextAmPm
+    }
+    this.setDateValues()
+  }
+
+  // hide and show time picker
+  toggleTime(): void {
+    this.timeHideShow = !this.timeHideShow
+    this.setDateValues()
   }
 }

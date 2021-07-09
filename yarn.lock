@@ -4176,6 +4176,14 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
+angular-froala-wysiwyg@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/angular-froala-wysiwyg/-/angular-froala-wysiwyg-4.0.3.tgz#d1174e5252e9e904c90602aaf95b83a709c08a38"
+  integrity sha512-eVxMan6IUZQw8pKZ/i/eD2SFlgxGt1mDZBs/OiBJP3lGnsDbHOcMGsATa7+06oRTd6kjxOcK+h+5okQuKc8aTQ==
+  dependencies:
+    froala-editor "4.0.3"
+    tslib "^2.0.0"
+
 ansi-colors@4.1.1, ansi-colors@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-4.1.1.tgz#cbb9ae256bf750af1eab344f229aa27fe94ba348"
@@ -7949,6 +7957,11 @@ fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
   integrity sha1-PYyt2Q2XZWn6g1qx+OSyOhBWBac=
+
+froala-editor@4.0.3, froala-editor@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/froala-editor/-/froala-editor-4.0.3.tgz#f5d69e29b8fe2ce89ecde081c40d5e5a24ec9c4a"
+  integrity sha512-NlnmxD3iTY6ji4ht1jZBoOg1TYzukNGJfR7rt1E/ol0zhd120SpJXSRRV4MGGeJfRAqVjz0AzxQy/8t+mZmLTw==
 
 from2@^2.1.0:
   version "2.3.0"

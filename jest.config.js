@@ -110,5 +110,8 @@ module.exports = {
     '<rootDir>/libs/web/ui/split-button',
     '<rootDir>/libs/web/ui/date-picker',
     '<rootDir>/libs/web/ui/date-range-picker',
+    '<rootDir>/libs/web/ui/editor',
+    '<rootDir>/libs/web/ui/date-time-picker',
+    '<rootDir>/libs/web/ui/date-time-range-picker',
   ],
 }
