@@ -11,20 +11,26 @@ import { Component, Input } from '@angular/core'
             <ng-container>
               <button
                 type="button"
-                class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+                class="relative inline-flex items-center px-3 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                 [ngClass]="[
                   firstElement ? 'rounded-l-md' : '-ml-px relative',
                   lastElementlast ? '-ml-px relative rounded-r-md' : ''
                 ]"
               >
-                <ng-container *ngIf="!button.dircetion || button.dircetion === 'left'">
-                  <ui-icon class="absolute left-0" [icon]="button.icon"></ui-icon>&nbsp;
-                </ng-container>
-                <ng-container *ngIf="button.dircetion == 'right'">
-                  <ui-icon class="absolute right-0" [icon]="button.icon"></ui-icon>
-                </ng-container>
-
+                <ui-icon
+                  *ngIf="(!button.dircetion || button.dircetion === 'left') && button.icon"
+                  size="lg"
+                  class="h-5 w-5 mr-1"
+                  icon="{{ button.icon }}"
+                ></ui-icon>
                 {{ button.name }}
+
+                <ui-icon
+                  *ngIf="button.dircetion === 'right' && button.icon"
+                  size="lg"
+                  class=" h-5 w-5 ml-1"
+                  icon="{{ button.icon }}"
+                ></ui-icon>
               </button>
             </ng-container>
           </ng-container>
@@ -36,5 +42,7 @@ import { Component, Input } from '@angular/core'
 export class WebUiGroupButtonComponent {
   @Input() buttons: any
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.buttons)
+  }
 }
