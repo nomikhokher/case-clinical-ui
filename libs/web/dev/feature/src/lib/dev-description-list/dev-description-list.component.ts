@@ -13,13 +13,22 @@ import { DevDescriptionListStore } from './dev-description-list.store'
 
       <!-- INSERT YOUR UI-COMPONENT HERE  -->
 
-      <ui-preview [component_props]="[{ name: 'dataListing', value: dataListing }]" [code]="codePreview[0]">
+      <ui-preview
+        [component_props]="[{ name: 'dataListing', value: dataListing }]"
+        [code]="codePreview[0]"
+        [title]="vm.config.headerTitle"
+        [githubURL]="vm.config.githubURL"
+        [directory]="vm.config.directory"
+        [breadcrumbs]="vm.config.breadcrumbs"
+        [component_outputs]="vm.config.component_outputs"
+        [component_inputs]="vm.config.component_inputs"
+      >
         <ui-description-list
-          [data]="data"
-          [tagLine]="tagLine"
-          [formTitle]="formTitle"
-          [background]="background"
-          showIcon="true"
+          [data]="vm.config.items.data"
+          [tagLine]="vm.config.items.tagLine"
+          [formTitle]="vm.config.items.formTitle"
+          [background]="vm.config.items.background"
+          showIcon="vm.config.items.showIcon"
         >
         </ui-description-list>
       </ui-preview>
@@ -28,9 +37,6 @@ import { DevDescriptionListStore } from './dev-description-list.store'
   providers: [DevDescriptionListStore],
 })
 export class DevDescriptionListComponent {
-  public formTitle = 'Applicant Information'
-  public tagLine = 'Personal details and application.'
-
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevDescriptionListStore) {}
   public background = 'indigo'
