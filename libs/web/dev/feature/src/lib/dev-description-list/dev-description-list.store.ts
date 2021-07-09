@@ -11,7 +11,6 @@ export interface Item {
 }
 
 interface DevDescriptionListState {
-  items?: Item[]
   loading?: boolean
   config?: Configs
 }
@@ -80,9 +79,8 @@ export class DevDescriptionListStore extends ComponentStore<DevDescriptionListSt
     // this.loadItemsEffect()
   }
 
-  readonly items$ = this.select(this.state$, (s) => s.items)
   readonly config$ = this.select(this.state$, (s) => s.config)
-  readonly vm$ = this.select(this.items$, this.config$, (items, config) => ({ items, config }))
+  readonly vm$ = this.select(this.config$, (config) => ({ config }))
 
   // readonly loadItemsEffect = this.effect(($) =>
   //   $.pipe(

@@ -39,7 +39,7 @@ import { DevDescriptionListStore } from './dev-description-list.store'
 export class DevDescriptionListComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevDescriptionListStore) {}
-  public background = 'indigo'
+
   public codePreview = [
     `import { WebUiDescriptionListModule } from '@schema-driven/web/ui/description-list' \n\n <ui-feed [dataListing]="dataListing"></ui-feed> \n\ndataListing=[
       {
@@ -71,40 +71,5 @@ export class DevDescriptionListComponent {
         type : 'attachment'
       },
   ]`,
-  ]
-
-  public data = [
-    {
-      title: 'Fullname',
-      value: 'Margot Foster',
-      icon: 'team',
-    },
-    {
-      title: 'Application For',
-      value: 'Backend Developer',
-      icon: 'office',
-    },
-    {
-      title: 'Email address',
-      value: 'margotfoster@example.com',
-      icon: 'email',
-    },
-    {
-      title: 'Salary expectation',
-      value: '$120,000',
-      icon: 'dollar',
-    },
-    {
-      title: 'About',
-      value:
-        'ugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.',
-      icon: 'about',
-    },
-    {
-      title: 'Attachments',
-      icon: 'attachment',
-      value: ['resume_back_end_developer.pdf', 'coverletter_back_end_developer.pdf'],
-      type: 'attachment',
-    },
   ]
 }
