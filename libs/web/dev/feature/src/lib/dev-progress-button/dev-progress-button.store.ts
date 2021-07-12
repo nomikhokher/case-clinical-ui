@@ -16,13 +16,13 @@ interface DevProgressButtonState {
 }
 
 const config: Configs = {
-  headerTitle: 'Feeds',
-  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/feed/src/lib',
+  headerTitle: 'Progress Button',
+  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/progress-button/src/lib',
   breadcrumbs: [
     { label: 'Components', path: '/dev' },
-    { label: 'Feeds', path: '/dev/feed' },
+    { label: 'Progress Button', path: '/dev/progress-button' },
   ],
-  directory: '/libs/web/dev/feature/src/lib/dev-feed.component.ts',
+  directory: '/libs/web/dev/feature/src/lib/dev-progress-button.component.ts',
   items: {
     buttons: [
       {
