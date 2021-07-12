@@ -13,13 +13,22 @@ import { DevDescriptionListStore } from './dev-description-list.store'
 
       <!-- INSERT YOUR UI-COMPONENT HERE  -->
 
-      <ui-preview [component_props]="[{ name: 'dataListing', value: dataListing }]" [code]="codePreview[0]">
+      <ui-preview
+        [component_props]="[{ name: 'dataListing', value: dataListing }]"
+        [code]="codePreview[0]"
+        [title]="vm.config.headerTitle"
+        [githubURL]="vm.config.githubURL"
+        [directory]="vm.config.directory"
+        [breadcrumbs]="vm.config.breadcrumbs"
+        [component_outputs]="vm.config.component_outputs"
+        [component_inputs]="vm.config.component_inputs"
+      >
         <ui-description-list
-          [data]="data"
-          [tagLine]="tagLine"
-          [formTitle]="formTitle"
-          [background]="background"
-          showIcon="true"
+          [data]="vm.config.items.data"
+          [tagLine]="vm.config.items.tagLine"
+          [formTitle]="vm.config.items.formTitle"
+          [background]="vm.config.items.background"
+          showIcon="vm.config.items.showIcon"
         >
         </ui-description-list>
       </ui-preview>
@@ -28,12 +37,9 @@ import { DevDescriptionListStore } from './dev-description-list.store'
   providers: [DevDescriptionListStore],
 })
 export class DevDescriptionListComponent {
-  public formTitle = 'Applicant Information'
-  public tagLine = 'Personal details and application.'
-
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevDescriptionListStore) {}
-  public background = 'indigo'
+
   public codePreview = [
     `import { WebUiDescriptionListModule } from '@schema-driven/web/ui/description-list' \n\n <ui-feed [dataListing]="dataListing"></ui-feed> \n\ndataListing=[
       {
@@ -65,40 +71,5 @@ export class DevDescriptionListComponent {
         type : 'attachment'
       },
   ]`,
-  ]
-
-  public data = [
-    {
-      title: 'Fullname',
-      value: 'Margot Foster',
-      icon: 'team',
-    },
-    {
-      title: 'Application For',
-      value: 'Backend Developer',
-      icon: 'office',
-    },
-    {
-      title: 'Email address',
-      value: 'margotfoster@example.com',
-      icon: 'email',
-    },
-    {
-      title: 'Salary expectation',
-      value: '$120,000',
-      icon: 'dollar',
-    },
-    {
-      title: 'About',
-      value:
-        'ugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.',
-      icon: 'about',
-    },
-    {
-      title: 'Attachments',
-      icon: 'attachment',
-      value: ['resume_back_end_developer.pdf', 'coverletter_back_end_developer.pdf'],
-      type: 'attachment',
-    },
   ]
 }
