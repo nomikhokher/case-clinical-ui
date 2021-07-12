@@ -22,7 +22,7 @@ import { Component, Input } from '@angular/core'
                 >
                   {{ divider.label }}
                 </span>
-                <ng-container *ngIf="divider.toolbar">
+                <ng-container *ngIf="toolbar">
                   <ng-content select="#toolbar"></ng-content>
                 </ng-container>
               </div>
@@ -35,4 +35,5 @@ import { Component, Input } from '@angular/core'
 })
 export class WebUiDividerComponent {
   @Input() dividers?: any
+  @Input() toolbar?: any
 }
