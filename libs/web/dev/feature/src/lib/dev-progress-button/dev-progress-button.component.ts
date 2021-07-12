@@ -41,21 +41,12 @@ export class DevProgressButtonComponent {
 
   public codePreview = [
     `import { WebUiProgressButtonModule } from '@schema-driven/web/ui/progress-button' \n\n 
-    <ui-progress-button [buttons]="buttons"></ui-progress-button> \n\n
-      buttons=[
-        {
-          text:'Spin Left',
-          color:'red',
-          position:'left',
-          icon:'spinners',
-        },
-        {
-          text:'Spin Right',
-          color:'green',
-          position:'right',
-          icon:'spinners',
-        },
-    ]
+    <ui-progress-button 
+    [text]="Spin Right"
+    [color]="green"
+    [position]="right"
+    [icon]="spinners"></ui-progress-button>
+   
   `,
   ]
 }
