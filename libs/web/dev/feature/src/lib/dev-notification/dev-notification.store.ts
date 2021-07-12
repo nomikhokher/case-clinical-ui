@@ -15,13 +15,13 @@ interface DevNotificationState {
 }
 
 const config: Configs = {
-  headerTitle: 'Avatars',
-  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/avatar/src/lib',
+  headerTitle: 'Notification',
+  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/notification/src/lib',
   breadcrumbs: [
     { label: 'Components', path: '/dev' },
-    { label: 'Avatar', path: '/dev/avatar' },
+    { label: 'Notification', path: '/dev/notification' },
   ],
-  directory: '/libs/web/dev/feature/src/lib/dev-section-headings/dev-avatar.component.ts',
+  directory: 'libs/web/dev/feature/src/lib/dev-notification/dev-notification.component.ts',
   items: [
     {
       icon: 'team',
@@ -32,7 +32,7 @@ const config: Configs = {
       closeBtn: true,
       show: true,
       timeInSec: 5,
-      background: 'green',
+      background: 'indigo',
       bottomSectionButton: [
         {
           id: 1,
@@ -59,11 +59,26 @@ const config: Configs = {
     },
   ],
   component_inputs: [
-    { label: 'Mode', prop: '[mode]', description: 'Used to change the Avatar type', dataType: 'String' },
-    { label: 'Payload', prop: '[payload]', description: 'Source of Avatar', dataType: 'String' },
-    { label: 'Size', prop: '[size]', description: 'Adjust the size', dataType: 'Number' },
-    { label: 'Radius', prop: '[radius]', description: 'Adjust the roundness', dataType: 'String' },
-    { label: 'Badge', prop: '[badge]', description: 'Shows the badge on Avatar', dataType: 'Object' },
+    { label: 'Icon', prop: '[icon]', description: 'Shows the icon.', dataType: 'String' },
+    { label: 'Avatar Image', prop: '[avatarImg]', description: 'Shows the image.', dataType: 'String' },
+    { label: 'Name', prop: '[name]', description: 'Shows the name of notification.', dataType: 'String' },
+    { label: 'Title', prop: '[title]', description: 'Show the title of notification.', dataType: 'String' },
+    {
+      label: 'Time in Seconds',
+      prop: '[timeInSec]',
+      description: 'Holds the notification for x seconds.',
+      dataType: 'Number',
+    },
+    { label: 'Background', prop: '[background]', description: 'Adjust the background color.', dataType: 'String' },
+    {
+      label: 'bottomSectionButton',
+      prop: '[bottomSectionButton]',
+      description: 'Bottom buttons of notification',
+      dataType: 'Object',
+    },
+  ],
+  component_outputs: [
+    { label: 'Click', prop: '	(click)', description: 'Invoked when button is clicked', dataType: '() => void' },
   ],
 }
 

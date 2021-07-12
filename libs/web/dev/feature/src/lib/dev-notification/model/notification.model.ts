@@ -5,6 +5,7 @@ export interface Configs {
   breadcrumbs?: Crumbs[]
   items?: Item[]
   component_inputs?: Inputs[]
+  component_outputs?: Outputs[]
 }
 
 export interface Crumbs {
