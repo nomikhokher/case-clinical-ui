@@ -46,7 +46,6 @@ export class DevProgressButtonComponent {
     [color]="green"
     [position]="right"
     [icon]="spinners"></ui-progress-button>
-   
   `,
   ]
 }
