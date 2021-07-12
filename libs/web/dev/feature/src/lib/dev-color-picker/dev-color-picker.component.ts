@@ -11,12 +11,20 @@ import { DevColorPickerStore } from './dev-color-picker.store'
       <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
         Component: libs/web/dev/feature/src/lib/dev-color-picker/dev-color-picker.component.ts
       </code>
-      <ui-preview [code]="codePreview[0]">
+      <ui-preview
+        [code]="codePreview[0]"
+        [title]="vm.config.headerTitle"
+        [githubURL]="vm.config.githubURL"
+        [directory]="vm.config.directory"
+        [breadcrumbs]="vm.config.breadcrumbs"
+        [component_outputs]="vm.config.component_outputs"
+        [component_inputs]="vm.config.component_inputs"
+      >
         <ui-color-picker
-          [position]="'right'"
-          [hideInput]="true"
-          [userColors]="userColors"
-          [userVariants]="userVariants"
+          [position]="vm.config.items.position"
+          [hideInput]="vm.config.items.hideInput"
+          [userColors]="vm.config.items.userColors"
+          [userVariants]="vm.config.items.userVariants"
         >
         </ui-color-picker>
       </ui-preview>
@@ -37,7 +45,4 @@ export class DevColorPickerComponent {
     userVariants=[50, 100, 200]
   `,
   ]
-
-  public userColors: string[] = ['gray', 'red', 'yellow', 'green', 'blue', 'indigo', 'pink']
-  public userVariants: number[] = [50, 100, 200]
 }
