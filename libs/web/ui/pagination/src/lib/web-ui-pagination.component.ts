@@ -3,257 +3,126 @@ import { Component, Input } from '@angular/core'
 @Component({
   selector: 'ui-pagination',
   template: `
-    <div class="dark:bg-gray-800 border dark:border-indigo-700 px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
-      <div>
-        <code>
-          <div
-            *ngIf="direction == 'right'"
-            class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6"
-          >
-            <div *ngIf="direction == 'right'" class="flex-1 flex justify-between sm:hidden">
-              <a
-                href="#"
-                class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
-              >
-                Previous
-              </a>
-              <a
-                href="#"
-                class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
-              >
-                Next
-              </a>
-            </div>
-            <div
-              class="hidden"
-              [ngClass]="direction == 'right' ? 'sm:flex-1 sm:flex sm:items-center sm:justify-between' : ''"
+    <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+      <div class="flex-1 flex justify-between sm:hidden">
+        <a
+          href="#"
+          class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+        >
+          Previous
+        </a>
+        <a
+          href="#"
+          class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+        >
+          Next
+        </a>
+      </div>
+      <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+        <div>
+          <p class="text-sm text-gray-700">
+            Showing
+            <span class="font-medium">{{ n + 1 }}</span>
+            to
+            <span class="font-medium">{{ n + difference >= pages ? pages : n + difference }}</span>
+            of
+            <span class="font-medium">{{ pages }}</span>
+            results
+          </p>
+        </div>
+        <div>
+          <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+            <a
+              (click)="onPervious()"
+              href="javascript:void(0)"
+              class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
             >
-              <div *ngIf="direction == 'right'">
-                <p class="text-sm text-gray-700">
-                  Showing
-                  <span class="font-medium">{{ this.n + 1 }}</span>
-                  to
-                  <span class="font-medium">{{ this.n + 10 }}</span>
-                  of
-                  <span class="font-medium">{{ this.pages.length }}</span>
-                  results
-                </p>
-              </div>
-              <nav
-                [ngClass]="
-                  direction == 'right'
-                    ? 'relative z-0 inline-flex rounded-md shadow-sm -space-x-px'
-                    : 'border-t border-gray-200 px-4 flex items-center justify-between sm:px-0'
-                "
-                aria-label="Pagination"
-              >
-                <a
-                  href="javascript:void(0)"
-                  (click)="onPervious()"
-                  class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-                >
-                  <span class="sr-only">Previous</span>
-                  <!-- Heroicon name: solid/chevron-left -->
-                  <svg
-                    class="h-5 w-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </a>
-                <!-- Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" -->
-                <a
-                  *ngFor="let item of pages.slice(this.n, this.n + 3)"
-                  href="#"
-                  aria-current="page"
-                  class="z-10 bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
-                >
-                  {{ item.page }}
-                </a>
-                <span
-                  *ngIf="isPageSpan"
-                  class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700"
-                >
-                  ...
-                </span>
-                <a
-                  *ngFor="let item of pages.slice(this.n + 7, this.n + 10)"
-                  href="#"
-                  class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium"
-                >
-                  {{ item.page }}
-                </a>
-                <a
-                  href="javascript:void(0)"
-                  (click)="onNext()"
-                  class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-                >
-                  <span class="sr-only">Next</span>
-                  <!-- Heroicon name: solid/chevron-right -->
-                  <svg
-                    class="h-5 w-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </a>
-              </nav>
-            </div>
-          </div>
-          <nav
-            *ngIf="direction == 'center'"
-            class="border-t border-gray-200 px-4 flex items-center justify-between sm:px-0"
-          >
-            <div class="-mt-px w-0 flex-1 flex">
-              <a
-                href="javascript:void(0)"
-                (click)="onPervious()"
-                class="border-t-2 border-transparent pt-4 pr-1 inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300"
-              >
-                <!-- Heroicon name: solid/arrow-narrow-left -->
-                <svg
-                  class="mr-3 h-5 w-5 text-gray-400"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-                Previous
-              </a>
-            </div>
-            <div class="hidden md:-mt-px md:flex">
-              <a
-                href="#"
-                *ngFor="let item of pages.slice(this.n, this.n + 3)"
-                class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 border-t-2 pt-4 px-4 inline-flex items-center text-sm font-medium"
-              >
-                {{ item.page }}
-              </a>
-              <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
-              <span
-                class="border-transparent text-gray-500 border-t-2 pt-4 px-4 inline-flex items-center text-sm font-medium"
-              >
-                ...
-              </span>
-              <a
-                href="#"
-                *ngFor="let item of pages.slice(this.n + 7, this.n + 10)"
-                class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 border-t-2 pt-4 px-4 inline-flex items-center text-sm font-medium"
-              >
-                {{ item.page }}
-              </a>
-            </div>
-            <div class="-mt-px w-0 flex-1 flex justify-end">
-              <a
-                href="javascript:void(0)"
-                (click)="onNext()"
-                class="border-t-2 border-transparent pt-4 pl-1 inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300"
-              >
-                Next
-                <!-- Heroicon name: solid/arrow-narrow-right -->
-                <svg
-                  class="ml-3 h-5 w-5 text-gray-400"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </a>
-            </div>
+              <span class="sr-only">Previous</span>
+              <ui-icon size="lg" class="h-6 w-6" icon="chevronLeft"></ui-icon>
+            </a>
+            <!-- Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" -->
+            <a
+              href="#"
+              aria-current="page"
+              class="z-10 bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+            >
+              {{ n + 1 }}
+            </a>
+            <a
+              href="#"
+              class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+            >
+              {{ n + 2 }}
+            </a>
+            <a
+              href="#"
+              class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium"
+            >
+              {{ n + 3 }}
+            </a>
+            <span
+              *ngIf="n + 3 < pages"
+              class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700"
+            >
+              ...
+            </span>
+            <a
+              href="#"
+              *ngIf="n + 3 < pages"
+              class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium"
+            >
+              {{ n + difference - 2 }}
+            </a>
+            <a
+              href="#"
+              *ngIf="n + 3 < pages"
+              class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+            >
+              {{ n + difference - 1 }}
+            </a>
+            <a
+              href="#"
+              *ngIf="n + 3 < pages"
+              class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+            >
+              {{ n + difference }}
+            </a>
+            <a
+              (click)="onNext()"
+              href="javascript:void(0)"
+              class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+            >
+              <span class="sr-only">Next</span>
+              <ui-icon size="lg" class="h-6 w-6" icon="chevronRight"></ui-icon>
+            </a>
           </nav>
-          <nav
-            *ngIf="direction == 'simple'"
-            class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6"
-            aria-label="Pagination"
-          >
-            <div class="hidden sm:block">
-              <p class="text-sm text-gray-700">
-                Showing
-                <span class="font-medium">{{ n + 1 }}</span>
-                to
-                <span class="font-medium">{{ n > pages.length ? pages.length : n + 10 }}</span>
-                of
-                <span class="font-medium">{{ pages.length }}</span>
-                results
-              </p>
-            </div>
-            <div class="flex-1 flex justify-between sm:justify-end">
-              <a
-                href="javascript:void(0)"
-                (click)="onPervious()"
-                class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
-              >
-                Previous
-              </a>
-              <a
-                href="javascript:void(0)"
-                (click)="onNext()"
-                class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
-              >
-                Next
-              </a>
-            </div>
-          </nav>
-        </code>
+        </div>
       </div>
     </div>
   `,
 })
 export class WebUiPaginationComponent {
-  @Input() pages?: Array<any>
-  @Input() isPages?: Boolean
-  @Input() isPageSpan?: Boolean
-  @Input() direction?: string
+  @Input() pages?: number
+  @Input() difference?: number
 
   public threeDots = false
   ngOnInit() {
-    if (!this.direction) {
-      this.direction = 'right'
-    }
-    if (this.pages.length > 3) {
+    if (this.pages > 3) {
       this.threeDots = true
     }
   }
 
   public n = 0
   public onNext() {
-    if (this.n + 10 <= this.pages.length) {
-      this.n = this.n + 10
-    } else if (this.n > this.pages.length + 10) {
-      this.n = this.n + (this.pages.length - this.n)
+    this.n += this.difference
+    if (this.n + this.difference + 3 > this.pages) {
+      this.n = this.pages - 3
     }
   }
   public onPervious() {
-    // alert('running')
-    if (this.n - 10 >= 0) {
-      this.n = this.n - 10
-    } else if (this.n - 10 < 0) {
+    if (this.n - this.difference >= 0) {
+      this.n = this.n - this.difference
+    } else if (this.n - this.difference < 0) {
       this.n = 0
     }
   }
