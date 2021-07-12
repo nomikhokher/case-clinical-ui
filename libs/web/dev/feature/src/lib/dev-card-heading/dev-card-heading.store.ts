@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
-import { Button, ProfileLink } from './model'
+import { Button, ProfileLink, Input, Output } from './model'
 
 export interface Item {
   id?: string
   name?: string
   buttons?: Button[]
   profile?: ProfileLink
+  sectionToggle?: boolean
 }
 
 interface DevCardHeadingState {
@@ -18,6 +19,8 @@ interface DevCardHeadingState {
   directory?: string
   items?: Item
   loading?: boolean
+  component_inputs?: Input[]
+  component_outputs?: Output[]
 }
 
 @Injectable()
@@ -54,7 +57,31 @@ export class DevCardHeadingStore extends ComponentStore<DevCardHeadingState> {
           tagLine: '@tom_cook',
           icon: 'user',
         },
+        sectionToggle: false,
       },
+      component_inputs: [
+        {
+          label: 'Buttons',
+          prop: '[button]',
+          description: `This object takes button's name, color and icon values and display it.`,
+          dataType: 'Object',
+        },
+        {
+          label: 'Profile Content',
+          prop: '[profile]',
+          description: 'This object takes profile details and shows it.',
+          dataType: 'Object',
+        },
+        {
+          label: 'Section Toggle',
+          prop: '[sectionToggle]',
+          description: 'Change the position of button and profile',
+          dataType: 'Boolean',
+        },
+      ],
+      component_outputs: [
+        { label: 'Click', prop: '(click)', description: 'Invoked when button is clicked', dataType: '() => void' },
+      ],
     })
   }
 

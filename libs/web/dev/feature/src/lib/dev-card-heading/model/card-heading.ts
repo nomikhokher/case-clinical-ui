@@ -11,3 +11,15 @@ export interface Button {
   fontColor?: string
   icon?: string
 }
+export interface Input {
+  label?: string
+  prop?: string
+  description?: string
+  dataType?: string
+}
+export interface Output {
+  label?: string
+  prop?: string
+  description?: string
+  dataType?: string
+}
