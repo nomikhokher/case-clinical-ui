@@ -1,1 +1,1 @@
-export { Buttons, TabLinks, Heading } from './section-headings'
+export { Buttons, TabLinks, Heading, Inputs } from './section-headings'
