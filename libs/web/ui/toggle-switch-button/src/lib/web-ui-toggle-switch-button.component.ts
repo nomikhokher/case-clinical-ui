@@ -10,13 +10,13 @@ import { Buttons } from '../../../../dev/feature/src/lib/dev-toggle-switch-butto
       }
     `,
     `
-      .left-4 {
-        left: 4%;
+      .left-6 {
+        left: 6%;
       }
     `,
     `
-    .left-96 {
-      left: 96%
+    .left-94 {
+      left: 94%;
     },
     `,
   ],
