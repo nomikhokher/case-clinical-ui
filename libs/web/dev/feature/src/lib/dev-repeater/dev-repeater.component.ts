@@ -11,6 +11,7 @@ import { DevRepeaterStore } from './dev-repeater.store'
         [directory]="vm.directory"
         [breadcrumbs]="vm.breadcrumbs"
         [code]="codePreview[0]"
+        [component_inputs]="vm.component_inputs"
       >
         <ui-form [fields]="vm.demo.fields" [model]="vm.demo.model"></ui-form>
       </ui-preview>
