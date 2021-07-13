@@ -5,6 +5,7 @@ import { DevDividerComponent } from './dev-divider.component'
 import { WebUiPreviewModule } from '@schema-driven/web/ui/preview'
 import { WebUiDividerModule } from '@schema-driven/web/ui/divider'
 import { WebUiDividerToolbarModule } from '@schema-driven/web/ui/divider-toolbar'
+import { WebUiIconModule } from '@schema-driven/web/ui/icon'
 
 @NgModule({
   declarations: [DevDividerComponent],
@@ -14,6 +15,7 @@ import { WebUiDividerToolbarModule } from '@schema-driven/web/ui/divider-toolbar
     WebUiPreviewModule,
     WebUiDividerModule,
     WebUiDividerToolbarModule,
+    WebUiIconModule,
   ],
 })
 export class DevDividerModule {}

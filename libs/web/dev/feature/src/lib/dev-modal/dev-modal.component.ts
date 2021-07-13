@@ -41,8 +41,8 @@ import { DevModalStore } from './dev-modal.store'
           </div>
           <div class="mt-5 sm:mt-6">
             <button
-              (click)="myfun()"
               type="button"
+              (click)="myFun()"
               class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
             >
               Go back to dashboard
@@ -60,8 +60,8 @@ export class DevModalComponent {
   public width = '2xl' // width can be [sm, md, lg, xl, 1xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl0, full]
 
   constructor(private readonly store: DevModalStore) {}
-  myfun() {
-    this.isActive = true
+  myFun() {
+    this.isActive = !this.isActive
   }
   public codePreview = [
     `import { WebUiModalModule } from '@schema-driven/web/ui/modal' \n\n

@@ -74,7 +74,11 @@ export class WebUiColorPickerComponent {
   @Input() userVariants?: number[]
   @Input() position?: string
   @Input() hideInput?: boolean
-
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    console.log(this.userColors, this.userVariants)
+  }
   public colors: string[] = ['gray', 'red', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink']
   public variants: number[] = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]
 
