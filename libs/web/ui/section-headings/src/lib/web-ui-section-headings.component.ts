@@ -7,13 +7,13 @@ import { Buttons, Heading, TabLinks } from '../../../../dev/feature/src/lib/dev-
     <div class="relative pb-5 border-b border-gray-200 sm:pb-0">
       <div class="md:flex md:items-center md:justify-right space-x-3">
         <div *ngIf="image">
-          <img class="h-16 w-16 rounded-full" src="" alt="Invalid URL" />
+          <img class="h-16 w-16 rounded-full" src="{{ image }}" alt="Invalid URL" />
         </div>
         <div>
           <h3 class="text-lg leading-6 font-medium text-gray-900">
-            {{ heading.title }}
+            {{ title }}
           </h3>
-          <p class="mt-2 max-w-4xl text-sm text-gray-500" *ngIf="heading.description">{{ heading.description }}</p>
+          <p class="mt-2 max-w-4xl text-sm text-gray-500" *ngIf="description">{{ description }}</p>
         </div>
         <div class="mt-3 flex md:mt-0 md:absolute md:top-3 md:right-0" *ngIf="buttons">
           <button
@@ -74,11 +74,12 @@ import { Buttons, Heading, TabLinks } from '../../../../dev/feature/src/lib/dev-
   `,
 })
 export class WebUiSectionHeadingsComponent {
-  @Input() heading: Heading
+  @Input() description?: string
+  @Input() title?: string
   @Input() tabs: TabLinks[]
   @Input() buttons: Buttons
   @Input() badge?: boolean
-  @Input() image?: boolean
+  @Input() image?: string
 
   activateClass(tab: TabLinks) {
     console.log(true)

@@ -7,6 +7,7 @@ export interface TabLinks {
   id?: string
   title?: string
   active?: boolean
+  badge?: string
 }
 
 export interface Buttons {
@@ -15,4 +16,10 @@ export interface Buttons {
   fontColor?: string
   icon?: string
   hoverColor?: string
+}
+export interface Inputs {
+  label?: string
+  description?: string
+  prop?: string
+  dataType?: string
 }

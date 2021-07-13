@@ -10,16 +10,17 @@ import { DevSectionHeadingsStore } from './dev-section-headings.store'
         [directory]="vm.directory"
         [breadcrumbs]="vm.breadcrumbs"
         [code]="codePreview[0]"
+        [component_inputs]="vm.component_inputs"
       >
         <ui-section-headings
-          [heading]="vm.items.heading"
+          [title]="vm.items.title"
+          [description]="vm.items.description"
+          [image]="vm.items.image"
           [tabs]="vm.items.tabs"
           [buttons]="vm.items.buttons"
+          [badge]="vm.items.badge"
         ></ui-section-headings>
       </ui-preview>
-      <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800">
-        <pre class="text-xs dark:text-gray-500">{{ vm.items | json }}</pre>
-      </div>
     </ng-container>
   `,
   providers: [DevSectionHeadingsStore],
