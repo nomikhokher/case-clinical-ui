@@ -16,6 +16,14 @@ interface DevRepeaterState {
   directory?: string
   demo?: Demo
   loading?: boolean
+  component_inputs?: Inputs[]
+}
+
+interface Inputs {
+  label?: string
+  prop?: string
+  description?: string
+  dataType?: string
 }
 
 @Injectable()
@@ -41,6 +49,15 @@ export class DevRepeaterStore extends ComponentStore<DevRepeaterState> {
           }),
         ],
       },
+      component_inputs: [
+        { label: 'Model', prop: '[model]', description: 'Model', dataType: 'Object' },
+        {
+          label: 'Fields',
+          prop: '[fields]',
+          description: 'Shows the element that user wants to repeat.',
+          dataType: 'Object',
+        },
+      ],
     })
   }
 
