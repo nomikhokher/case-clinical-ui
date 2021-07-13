@@ -11,9 +11,16 @@ import { DevPaginationStore } from './dev-pagination.store'
         Component: libs/web/dev/feature/src/lib/dev-pagination/dev-pagination.component.ts
       </code>
 
-      <ui-preview [code]="codePreview[0]">
-        <ui-pagination [pages]="pages" [isPages]="isPages" [isPageSpan]="isPageSpan" [direction]="direction">
-        </ui-pagination>
+      <ui-preview
+        [code]="codePreview[0]"
+        [title]="vm.headerTitle"
+        [githubURL]="vm.config.githubURL"
+        [directory]="vm.config.directory"
+        [breadcrumbs]="vm.config.breadcrumbs"
+        [component_outputs]="vm.config.component_outputs"
+        [component_inputs]="vm.config.component_inputs"
+      >
+        <ui-pagination [pages]="vm.config.items.pages" [difference]="vm.config.items.difference"> </ui-pagination>
       </ui-preview>
     </ng-container>
   `,
@@ -24,80 +31,8 @@ export class DevPaginationComponent {
   constructor(private readonly store: DevPaginationStore) {}
   public codePreview = [
     `import { WebUiPaginationModule } from '@schema-driven/web/ui/pagination'\n\n<ui-pagination [pages]="pages" [isPages]="isPages" [isPageSpan]="isPageSpan" [direction]="direction">
-    </ui-pagination>\n\n direction = 'right' \n\n pages = [{ page: 1 },
-      { page: 2 },
-      { page: 3 },
-      { page: 4 },
-      { page: 5 },
-      { page: 6 },
-      { page: 7 },
-      { page: 8 },
-      { page: 9 },
-      { page: 10 },
-      { page: 11 },
-      { page: 12 },
-      { page: 13 },
-      { page: 14 },
-      { page: 15 },
-      { page: 16 },
-      { page: 17 },
-      { page: 18 },
-      { page: 19 },
-      { page: 20 },
-      { page: 21 },
-      { page: 22 },
-      { page: 23 },
-      { page: 24 },
-      { page: 25 },
-      { page: 26 },
-      { page: 27 },
-      { page: 28 },
-      { page: 29 },
-      { page: 30 },
-      { page: 31 },
-      { page: 32 },
-      { page: 33 },
-      { page: 34 },]`,
+    </ui-pagination>\n\n direction = 'right' \n\n pages = 50 \n\n difference = 7`,
   ]
-  // 3 types of parameter can be passed (center, right, simple)
-  public direction = 'right'
-  public pages: Array<any> = [
-    { page: 1 },
-    { page: 2 },
-    { page: 3 },
-    { page: 4 },
-    { page: 5 },
-    { page: 6 },
-    { page: 7 },
-    { page: 8 },
-    { page: 9 },
-    { page: 10 },
-    { page: 11 },
-    { page: 12 },
-    { page: 13 },
-    { page: 14 },
-    { page: 15 },
-    { page: 16 },
-    { page: 17 },
-    { page: 18 },
-    { page: 19 },
-    { page: 20 },
-    { page: 21 },
-    { page: 22 },
-    { page: 23 },
-    { page: 24 },
-    { page: 25 },
-    { page: 26 },
-    { page: 27 },
-    { page: 28 },
-    { page: 29 },
-    { page: 30 },
-    { page: 31 },
-    { page: 32 },
-    { page: 33 },
-    { page: 34 },
-  ]
-
-  public isPages: Boolean = this.pages.length ? true : false
-  public isPageSpan: Boolean = this.pages.length > 3 ? true : false
+  public pages = 50
+  public difference = 7
 }
