@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core'
-import { Buttons } from '../../../../dev/feature/src/lib/dev-toggle-switch-button/dev-toggle-switch-button.component'
+import { StoreToggleSwitchButton } from '../../../../dev/feature/src/lib/dev-toggle-switch-button/model'
 
 @Component({
   selector: 'ui-toggle-switch-button',
@@ -23,12 +23,12 @@ import { Buttons } from '../../../../dev/feature/src/lib/dev-toggle-switch-butto
   template: `
     <div class="p-5">
       <div class="flex flex-col md:flex-row">
-        <div class="flex-auto flex flex-col items-center h-64 mr-8">
+        <div class="flex-auto flex flex-col items-center mr-8">
           <ng-container *ngFor="let button of buttons">
             <div class="{{ button.divWidth }} relative my-1 cursor-pointer">
               <div
                 class="{{ button.divHeight }} {{ button.divWidth }} rounded-full"
-                (click)="Toggle(button.id)"
+                (click)="toggle(button.id)"
                 [ngClass]="[button.onOff ? button.bgColor : 'bg-gray-300']"
               >
                 <div
@@ -46,9 +46,9 @@ import { Buttons } from '../../../../dev/feature/src/lib/dev-toggle-switch-butto
   `,
 })
 export class WebUiToggleSwitchButtonComponent {
-  @Input() buttons: Buttons[]
+  @Input() buttons: StoreToggleSwitchButton[]
 
-  Toggle(id: number) {
+  toggle(id: number) {
     return this.buttons.map((button) => {
       if (button.id == id) {
         if (button.onOff) {
