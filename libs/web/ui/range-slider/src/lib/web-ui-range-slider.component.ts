@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 
 @Component({
   selector: 'ui-range-slider',
@@ -46,12 +46,12 @@ import { Component } from '@angular/core'
             ></div>
 
             <div
-              class="absolute z-30 w-6 h-6 top-0 left-0 bg-green-300 rounded-full -mt-2 -ml-1"
+              class="absolute z-30 w-6 h-6 top-0 bg-green-300 rounded-full -mt-2 -ml-1"
               [style]="'left: ' + minthumb + '%'"
             ></div>
 
             <div
-              class="absolute z-30 w-6 h-6 top-0 right-0 bg-green-300 rounded-full -mt-2 -mr-3"
+              class="absolute z-30 w-6 h-6 top-0 bg-green-300 rounded-full -mt-2 -mr-3"
               [style]="'right: ' + maxthumb + '%'"
             ></div>
           </div>
@@ -82,25 +82,28 @@ import { Component } from '@angular/core'
   `,
 })
 export class WebUiRangeSliderComponent {
+  @Input() minprice: number
+  @Input() maxprice: number
+  @Input() difference: number
+
   ngOnInit() {
+    this.min = this.minprice
+    this.max = this.maxprice
     this.mintrigger()
     this.maxtrigger()
   }
-
-  minprice: number = 1000
-  maxprice: number = 7000
-  min: number = 1000
-  max: number = 7000
+  min: number
+  max: number
   minthumb: number = 0
   maxthumb: number = 0
 
   mintrigger() {
-    this.minprice = Math.min(this.minprice, this.maxprice - 500)
+    this.minprice = Math.min(this.minprice, this.maxprice - this.difference)
     this.minthumb = ((this.minprice - this.min) / (this.max - this.min)) * 100
   }
 
   maxtrigger() {
-    this.maxprice = Math.max(this.maxprice, this.minprice + 500)
+    this.maxprice = Math.max(this.maxprice, this.minprice + this.difference)
     this.maxthumb = 100 - ((this.maxprice - this.min) / (this.max - this.min)) * 100
   }
 }
