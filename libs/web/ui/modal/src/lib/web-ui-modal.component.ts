@@ -1,8 +1,19 @@
-import { Component, HostListener, Input, SimpleChanges } from '@angular/core'
+import { Component, HostListener, Input, SimpleChange, SimpleChanges } from '@angular/core'
 
 @Component({
   selector: 'ui-modal',
   template: `
+    <ng-container>
+      <div class="mt-5 sm:mt-6">
+        <button
+          (click)="openModal()"
+          type="button"
+          class="inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+        >
+          Open Modal
+        </button>
+      </div>
+    </ng-container>
     <div class="dark:bg-gray-800 border dark:border-indigo-700 px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
       <div>
         <div
@@ -64,7 +75,11 @@ export class WebUiModalComponent {
     this.closeModal(changes.isActive.firstChange)
   }
 
-  closeModal(value: boolean) {
-    this.modalHide = value
+  closeModal(val: boolean) {
+    this.modalHide = val
+  }
+
+  openModal() {
+    this.modalHide = !this.modalHide
   }
 }
