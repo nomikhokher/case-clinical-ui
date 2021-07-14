@@ -1984,6 +1984,28 @@
         }
       }
     },
+    "web-ui-pricing-plan": {
+      "projectType": "library",
+      "root": "libs/web/ui/pricing-plan",
+      "sourceRoot": "libs/web/ui/pricing-plan/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/pricing-plan/src/**/*.ts", "libs/web/ui/pricing-plan/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/pricing-plan"],
+          "options": {
+            "jestConfig": "libs/web/ui/pricing-plan/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-progress-bar": {
       "projectType": "library",
       "root": "libs/web/ui/progress-bar",
