@@ -113,5 +113,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/editor',
     '<rootDir>/libs/web/ui/date-time-picker',
     '<rootDir>/libs/web/ui/date-time-range-picker',
+    '<rootDir>/libs/web/ui/faq-section',
   ],
 }
