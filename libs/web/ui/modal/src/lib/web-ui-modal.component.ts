@@ -3,18 +3,18 @@ import { Component, HostListener, Input, SimpleChange, SimpleChanges } from '@an
 @Component({
   selector: 'ui-modal',
   template: `
-    <ng-container>
-      <div class="mt-5 sm:mt-6">
-        <button
-          (click)="openModal()"
-          type="button"
-          class="inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
-        >
-          Open Modal
-        </button>
-      </div>
-    </ng-container>
     <div class="dark:bg-gray-800 border dark:border-indigo-700 px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
+      <ng-container>
+        <div>
+          <button
+            (click)="openModal()"
+            type="button"
+            class="inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+          >
+            Open Modal
+          </button>
+        </div>
+      </ng-container>
       <div>
         <div
           class="fixed z-10 inset-0 overflow-y-auto"

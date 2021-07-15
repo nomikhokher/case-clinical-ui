@@ -10,7 +10,7 @@ import { Component, Input } from '@angular/core'
         <h1 class="py-2" *ngIf="icon">Icon Dropdowns</h1>
         <h1 class="py-2" *ngIf="heading">Header Dropdowns</h1>
         <div class="relative inline-block text-left">
-          <div>
+          <div (clickOutside)="show = false">
             <button
               *ngIf="!icon"
               type="button"
@@ -53,7 +53,7 @@ import { Component, Input } from '@angular/core'
           <div
             class="origin-top-{{ direction }} absolute {{
               direction
-            }}-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+            }}-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none left-0"
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="options-menu"
@@ -66,7 +66,7 @@ import { Component, Input } from '@angular/core'
               </div>
               <a
                 *ngFor="let item of items"
-                href="#"
+                href="javascript:void(0)"
                 [ngClass]="item.icons ? 'group flex' : 'block'"
                 class="items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
