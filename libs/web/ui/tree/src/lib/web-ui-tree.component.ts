@@ -1,15 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core'
 import { ArrayDataSource } from '@angular/cdk/collections'
 import { FlatTreeControl } from '@angular/cdk/tree'
-
-/** Flat node with expandable and level information */
-export interface FlatNode {
-  expandable: boolean
-  name: string
-  level: number
-  isExpanded?: boolean
-}
-
+import { FlatNode } from '../../../../dev/feature/src/lib/dev-tree/model'
 @Component({
   selector: 'ui-tree',
   template: `
