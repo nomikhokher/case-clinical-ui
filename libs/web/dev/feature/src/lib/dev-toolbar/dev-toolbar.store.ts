@@ -3,6 +3,7 @@ import { ComponentStore, tapResponse } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { of } from 'rxjs'
 import { switchMap, tap } from 'rxjs/operators'
+import { Configs } from './model/index'
 
 export interface Item {
   id?: string
@@ -12,17 +13,98 @@ export interface Item {
 interface DevToolbarState {
   items?: Item[]
   loading?: boolean
+  config?: Configs
+}
+
+const config: Configs = {
+  headerTitle: 'Toolbar',
+  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/toolbar/src/lib',
+  breadcrumbs: [
+    { label: 'Components', path: '/dev' },
+    { label: 'Toolbar', path: '/dev/toolbar' },
+  ],
+  directory: '/libs/web/dev/feature/src/lib/dev-toolbar/dev-toolbar.component.ts',
+  items: {
+    background: 'gray',
+    buttons: [
+      {
+        icon: 'scissors',
+        title: 'Cut',
+      },
+      {
+        icon: 'copy',
+        title: 'Copy',
+      },
+      {
+        icon: 'clipboard',
+        title: 'Paste',
+      },
+      {
+        icon: 'colorPicker',
+        title: 'Color Picker',
+      },
+      {
+        icon: 'alignLeft',
+        title: 'Align Left',
+      },
+      {
+        icon: 'alignRight',
+        title: 'Align Right',
+      },
+      {
+        icon: 'alignCenter',
+        title: 'Align Center',
+      },
+      {
+        icon: 'arrowExpand',
+        title: 'Arrow Expand',
+      },
+      {
+        icon: 'setting',
+        title: 'Setting',
+      },
+      {
+        icon: 'cursor',
+        title: 'Cursor',
+      },
+      {
+        icon: 'download',
+        title: 'Download',
+      },
+      {
+        icon: 'upload',
+        title: 'Upload',
+      },
+      {
+        icon: 'mail',
+        title: 'Mail Box',
+      },
+      {
+        icon: 'edit',
+        title: 'Edit',
+      },
+    ],
+  },
+  component_inputs: [
+    { label: 'Buttons', prop: '[buttons]', description: 'Shows the icons of toolbar.', dataType: 'Object' },
+    {
+      label: 'Background Color',
+      prop: '[background]',
+      description: 'Adjust the background color of toolbar.',
+      dataType: 'String',
+    },
+  ],
 }
 
 @Injectable()
 export class DevToolbarStore extends ComponentStore<DevToolbarState> {
   constructor(private readonly sdk: ApolloAngularSDK) {
-    super({})
+    super({ config })
     this.loadItemsEffect()
   }
 
-  readonly items$ = this.select(this.state$, (s) => s.items)
-  readonly vm$ = this.select(this.items$, (items) => ({ items }))
+  readonly config$ = this.select(this.state$, (s) => s.config)
+  readonly vm$ = this.select(this.config$, (config) => ({ config }))
 
   readonly loadItemsEffect = this.effect(($) =>
     $.pipe(
