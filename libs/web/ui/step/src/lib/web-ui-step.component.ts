@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core'
 import { WebUiToastService } from '@schema-driven/web/ui/toast'
+import { StepItems } from '../../../../dev/feature/src/lib/dev-step/model'
 
 @Component({
   selector: 'ui-step',
@@ -49,7 +50,7 @@ import { WebUiToastService } from '@schema-driven/web/ui/toast'
 })
 export class WebUiStepComponent {
   @Input() mode?: any
-  @Input() stepIems: any
+  @Input() stepIems: StepItems[]
   @Input() icon?: boolean
 
   public stepValue: number[] = [1]
