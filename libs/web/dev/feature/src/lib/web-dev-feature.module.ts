@@ -257,6 +257,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-calendar/dev-calendar.module').then((m) => m.DevCalendarModule),
       },
       { path: 'editors', loadChildren: () => import('./dev-editor/dev-editor.module').then((m) => m.DevEditorModule) },
+      {
+        path: 'grid-lists',
+        loadChildren: () => import('./dev-grid-list/dev-grid-list.module').then((m) => m.DevGridListModule),
+      },
     ]),
     WebUiMainPageModule,
   ],

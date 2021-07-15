@@ -8,7 +8,10 @@ import { Component, Input } from '@angular/core'
         md
       }} lg:grid-cols-{{ lg }}"
     >
-      <ng-content></ng-content>
+      <ng-content select="#gridList"></ng-content>
+      <ng-content select="#gridList1"></ng-content>
+      <ng-content select="#gridList2"></ng-content>
+      <ng-content select="#gridList3"></ng-content>
     </ul>
   `,
 })

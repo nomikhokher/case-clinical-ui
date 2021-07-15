@@ -354,7 +354,7 @@ export class WebDevFeatureComponent {
               image: '/assets/images/stacked-lists.png',
             },
             {
-              label: 'Working....',
+              label: 'Grid Lists',
               route: 'grid-lists',
               image: '/assets/images/grid-lists.png',
             },
