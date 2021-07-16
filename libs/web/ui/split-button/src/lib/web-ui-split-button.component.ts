@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core'
-import { Lists } from '../../../../dev/feature/src/lib/dev-split-button/model'
 
 @Component({
   selector: 'ui-split-button',
@@ -70,4 +69,10 @@ export class WebUiSplitButtonComponent {
   @Input() lists: Lists[]
 
   dropdownOpen: boolean = false
+}
+
+interface Lists {
+  id?: string
+  icon?: string
+  label?: string
 }

@@ -91,7 +91,7 @@ export class WebUiDropdownComponent {
   @Input() direction?: string
   @Input() icon?: string
   @Input() heading?: string
-  @Input() items: { id: string; name: string; icons: string }[]
+  @Input() items: Item[]
 
   public show: boolean = false
 
@@ -103,4 +103,10 @@ export class WebUiDropdownComponent {
   closeMenu() {
     this.show = !this.show
   }
+}
+
+interface Item {
+  id: string
+  name: string
+  icons: string
 }

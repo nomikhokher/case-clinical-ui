@@ -59,5 +59,16 @@ import { Component, Input } from '@angular/core'
   `,
 })
 export class WebUiFeedComponent {
-  @Input() feedsListing: any
+  @Input() feedsListing: FeedsLists[]
+}
+
+interface FeedsLists {
+  id?: number
+  heading?: string
+  title?: string
+  time?: string
+  img?: string
+  icon?: string
+  size?: string
+  iconClass?: string
 }
