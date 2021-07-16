@@ -153,23 +153,7 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: 'date-picker',
         loadChildren: () => import('./dev-date-picker/dev-date-picker.module').then((m) => m.DevDatePickerModule),
       },
-      {
-        path: 'date-time-pickers',
-        loadChildren: () =>
-          import('./dev-date-time-picker/dev-date-time-picker.module').then((m) => m.DevDateTimePickerModule),
-      },
-      {
-        path: 'date-time-range-pickers',
-        loadChildren: () =>
-          import('./dev-date-time-range-picker/dev-date-time-range-picker.module').then(
-            (m) => m.DevDateTimeRangePickerModule,
-          ),
-      },
-      {
-        path: 'date-range-picker',
-        loadChildren: () =>
-          import('./dev-date-range-picker/dev-date-range-picker.module').then((m) => m.DevDateRangePickerModule),
-      },
+
       {
         path: 'vertical-nav',
         loadChildren: () =>
@@ -251,10 +235,6 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
       {
         path: 'progress-bars',
         loadChildren: () => import('./dev-progress-bar/dev-progress-bar.module').then((m) => m.DevProgressBarModule),
-      },
-      {
-        path: 'calendars',
-        loadChildren: () => import('./dev-calendar/dev-calendar.module').then((m) => m.DevCalendarModule),
       },
       { path: 'editors', loadChildren: () => import('./dev-editor/dev-editor.module').then((m) => m.DevEditorModule) },
     ]),

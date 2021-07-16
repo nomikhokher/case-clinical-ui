@@ -133,11 +133,11 @@ export class WebDevFeatureComponent {
               route: 'containers',
               image: '/assets/images/containers.png',
             },
-            {
-              label: 'Panels',
-              route: 'panels',
-              image: '/assets/images/panels.png',
-            },
+            // {
+            //   label: 'Panels',
+            //   route: 'panels',
+            //   image: '/assets/images/panels.png',
+            // },
             {
               label: 'List Containers',
               route: 'list-containers',
@@ -171,14 +171,14 @@ export class WebDevFeatureComponent {
           label: 'Calendars',
           children: [
             {
-              label: 'Calendars Ui',
+              label: 'Full Calendar Ui',
               route: 'full-calendars',
-              image: '/assets/images/full-calenadr.png',
+              image: '/assets/images/full-calendar.png',
             },
             {
-              label: 'Mini Calendars Ui',
-              route: 'mini-calendars',
-              image: '/assets/images/mini-calendars.png',
+              label: 'Date Picker',
+              route: 'date-picker',
+              image: '/assets/images//mini-calendars.png',
             },
           ],
         },
@@ -290,7 +290,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Tree',
               route: 'tree',
-              image: '/assets/images/vertical-navigation.png',
+              image: '/assets/images/tree.png',
             },
             {
               label: 'Steps',
@@ -335,8 +335,7 @@ export class WebDevFeatureComponent {
             {
               label: 'JSON Formatter',
               route: 'json',
-              image:
-                'https://storage.googleapis.com/website-dev-images/sites/default/files/shutterstock_671233504%20%281%29.jpg',
+              image: '/assets/images/json.png',
             },
           ],
         },
@@ -366,31 +365,6 @@ export class WebDevFeatureComponent {
             {
               label: 'Dashboard',
               route: 'dashboard',
-              image: '/assets/images/stacked.png',
-            },
-            {
-              label: 'Full-Calendar',
-              route: 'full-calendars',
-              image: '/assets/images/stacked.png',
-            },
-            {
-              label: 'Date Picker',
-              route: 'date-picker',
-              image: '/assets/images/stacked.png',
-            },
-            {
-              label: 'Date Time Picker',
-              route: 'date-time-pickers',
-              image: '/assets/images/stacked.png',
-            },
-            {
-              label: 'Date Time Range Picker',
-              route: 'date-time-range-pickers',
-              image: '/assets/images/stacked.png',
-            },
-            {
-              label: 'Date Range Picker',
-              route: 'date-range-picker',
               image: '/assets/images/stacked.png',
             },
           ],
