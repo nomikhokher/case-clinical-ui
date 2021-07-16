@@ -36,6 +36,16 @@ export class WebDevFeatureComponent {
           ],
         },
         {
+          label: 'Page Section',
+          children: [
+            {
+              label: 'Pricing Plans',
+              route: 'pricing-plans',
+              image: '/assets/images/pricing-plan.png',
+            },
+          ],
+        },
+        {
           label: 'Forms',
           children: [
             {
@@ -47,6 +57,16 @@ export class WebDevFeatureComponent {
               label: 'Repeater',
               route: 'repeater',
               image: '/assets/images/stacked-lists.png',
+            },
+          ],
+        },
+        {
+          label: 'Page Sections',
+          children: [
+            {
+              label: 'FAQs',
+              route: 'faq-section',
+              image: '/assets/images/faq-sections.png',
             },
           ],
         },
