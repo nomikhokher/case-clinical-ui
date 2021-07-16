@@ -101,7 +101,7 @@ import { Component, ElementRef, Input } from '@angular/core'
                         <div
                           (click)="getDateValue(date, 1)"
                           (mouseover)="hoverDate(date, 1)"
-                          class="p-1 cursor-pointer text-center text-sm leading-none hover:bg-blue-200 leading-loose transition ease-in-out duration-100"
+                          class="p-1 cursor-pointer text-center text-sm hover:bg-blue-200 leading-loose transition ease-in-out duration-100"
                           [ngClass]="{
                             'bg-blue-800 text-gray-50 opacity-90 rounded-l-full': isToday(date) == true,
                             'bg-blue-900 text-white opacity-90 rounded-r-full': isDateTo(date, 1) == true,
@@ -176,7 +176,7 @@ import { Component, ElementRef, Input } from '@angular/core'
                         <div
                           (click)="getDateValue(date, 2)"
                           (mouseover)="hoverDate(date, 2)"
-                          class="p-1 cursor-pointer text-center text-sm leading-none hover:bg-blue-200 leading-loose transition ease-in-out duration-100"
+                          class="p-1 cursor-pointer text-center text-sm hover:bg-blue-200 leading-loose transition ease-in-out duration-100"
                           [ngClass]="{
                             'bg-blue-800 text-white rounded-r-full': isDateTo(date, 2) == true,
                             'bg-blue-200': isInRange(date, 2) == true
