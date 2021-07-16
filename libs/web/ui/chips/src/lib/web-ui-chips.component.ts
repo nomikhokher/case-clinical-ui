@@ -23,9 +23,21 @@ import { Component, Input } from '@angular/core'
             <img class="rounded-full" alt="A" src="{{ chip.img }}" />
           </div>
           <div class="text-xs font-normal leading-none max-w-full flex-initial">{{ chip.text }}</div>
-
-          <div *ngIf="chip.cross" class="ml-2">
-            <ui-icon size="lg" class="h-3 w-3" icon="cross" (click)="deleteItem(i)"></ui-icon>
+          <div *ngIf="chip.cross">
+            <svg
+              (click)="deleteItem(i)"
+              class="w-4 h-4"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
           </div>
         </div>
       </div>
@@ -36,8 +48,6 @@ export class WebUiChipsComponent {
   @Input() chips?: Array<any>
 
   deleteItem(i) {
-    console.log(i)
-
     this.chips.splice(i, 1)
   }
 }
