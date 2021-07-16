@@ -4,9 +4,18 @@ import { DevTabsStore } from './dev-tab.store'
 
 @Component({
   template: `
-    <ui-preview [code]="codePreview[0]">
-      <ui-tab [tabs]="tabs" [style]="style" [alignment]="alignment"></ui-tab>
-    </ui-preview>
+    <ng-container *ngIf="vm$ | async as vm">
+      <ui-preview
+        [title]="vm.config.previewData.headerTitle"
+        [githubURL]="vm.config.previewData.githubURL"
+        [directory]="vm.config.previewData.directory"
+        [breadcrumbs]="vm.config.previewData.breadcrumbs"
+        [code]="codePreview[0]"
+        [component_inputs]="vm.config.component_inputs"
+      >
+        <ui-tab [tabs]="vm.config.tabs" [style]="vm.config.style" [alignment]="vm.config.alignment"></ui-tab>
+      </ui-preview>
+    </ng-container>
   `,
   providers: [DevTabsStore],
 })
@@ -30,24 +39,4 @@ export class DevTabComponent {
       {item : "Billing"},
     ]`,
   ]
-  public tabs = [
-    { item: 'My Account', path: '/dev/tabs' },
-    { item: 'Company', path: '/dev/tabs' },
-    { item: 'Team Member', path: '/dev/tabs' },
-    { item: 'Billing', path: '/dev/tabs' },
-  ]
-  public tabswithBadges = [
-    { item: 'My Account', badge: '4' },
-    { item: 'Company' },
-    { item: 'Team Member', badge: '12' },
-    { item: 'Billing', badge: '3' },
-  ]
-  public tabsWithIcons = [
-    { item: 'My Account', icon: 'user' },
-    { item: 'Company', icon: 'office' },
-    { item: 'Team Member', icon: 'team' },
-    { item: 'Billing', icon: 'credit' },
-  ]
-  public style = 'underline'
-  public alignment = 'right' //alignment can be [center, right, left, full]
 }

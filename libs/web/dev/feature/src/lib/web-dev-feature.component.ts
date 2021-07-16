@@ -36,6 +36,16 @@ export class WebDevFeatureComponent {
           ],
         },
         {
+          label: 'Page Section',
+          children: [
+            {
+              label: 'Pricing Plans',
+              route: 'pricing-plans',
+              image: '/assets/images/pricing-plan.png',
+            },
+          ],
+        },
+        {
           label: 'Forms',
           children: [
             {

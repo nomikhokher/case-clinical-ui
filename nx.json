@@ -285,6 +285,9 @@
     "web-ui-preview": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-pricing-plan": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-progress-bar": {
       "tags": ["scope:web", "type:ui"]
     },

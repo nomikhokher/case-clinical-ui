@@ -1,63 +1,24 @@
 import { Component } from '@angular/core'
 import { DevStepStore } from './dev-step.store'
 
-type StepItems = {
-  id: number
-  stepActive?: boolean
-  stepTitle: string
-  stepDetails: string
-  icon?: string
-}
-
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <ui-preview [component_props]="[{ name: 'stepIems', value: stepIems }]" [code]="codePreview[0]">
-        <ui-step [stepIems]="stepIems" [icon]="true"></ui-step>
+      <ui-preview
+        [title]="vm.config.previewData.headerTitle"
+        [githubURL]="vm.config.previewData.githubURL"
+        [directory]="vm.config.previewData.directory"
+        [breadcrumbs]="vm.config.previewData.breadcrumbs"
+        [code]="codePreview[0]"
+        [component_inputs]="vm.config.component_inputs"
+      >
+        <ui-step [stepIems]="vm.config.items.step" [icon]="true"></ui-step>
       </ui-preview>
     </ng-container>
   `,
   providers: [DevStepStore],
 })
 export class DevStepComponent {
-  demo = {
-    code: '<ui-step></ui-step>',
-    lang: 'html',
-  }
-
-  code_toggle = false
-
-  public stepIems: StepItems[] = [
-    {
-      id: 1,
-      stepActive: true,
-      stepTitle: 'Step 1',
-      stepDetails: 'Job details',
-      icon: 'office',
-    },
-    {
-      id: 2,
-      stepActive: false,
-      stepTitle: 'Step 2',
-      stepDetails: 'Personal details',
-      icon: 'team',
-    },
-    {
-      id: 3,
-      stepActive: false,
-      stepTitle: 'Step 3',
-      stepDetails: 'Educational details',
-      icon: 'document',
-    },
-    {
-      id: 4,
-      stepActive: false,
-      stepTitle: 'Step 4',
-      stepDetails: 'Privay & Policy',
-      icon: 'clipboardList',
-    },
-  ]
-
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevStepStore) {}
 
