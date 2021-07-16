@@ -1450,6 +1450,28 @@
         }
       }
     },
+    "web-ui-faq-section": {
+      "projectType": "library",
+      "root": "libs/web/ui/faq-section",
+      "sourceRoot": "libs/web/ui/faq-section/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/faq-section/src/**/*.ts", "libs/web/ui/faq-section/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/faq-section"],
+          "options": {
+            "jestConfig": "libs/web/ui/faq-section/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-feed": {
       "projectType": "library",
       "root": "libs/web/ui/feed",

@@ -61,6 +61,16 @@ export class WebDevFeatureComponent {
           ],
         },
         {
+          label: 'Page Sections',
+          children: [
+            {
+              label: 'FAQs',
+              route: 'faq-section',
+              image: '/assets/images/faq-sections.png',
+            },
+          ],
+        },
+        {
           label: 'Data Display',
           children: [
             {
