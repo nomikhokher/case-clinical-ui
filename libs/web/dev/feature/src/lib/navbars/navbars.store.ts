@@ -3,6 +3,7 @@ import { ComponentStore, tapResponse } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { of } from 'rxjs'
 import { switchMap, tap } from 'rxjs/operators'
+import { Configs } from './model/index'
 
 export interface Item {
   id?: string
@@ -12,17 +13,50 @@ export interface Item {
 interface NavbarsState {
   items?: Item[]
   loading?: boolean
+  config?: Configs
+}
+
+const config: Configs = {
+  headerTitle: 'Navbars',
+  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/navbars/src/lib',
+  breadcrumbs: [
+    { label: 'Components', path: '/dev' },
+    { label: 'Navbars', path: '/dev/navbars' },
+  ],
+  directory: '/libs/web/dev/feature/src/lib/navbars/navbars.component.ts',
+  items: {
+    quickAction: 'button', //it can be [button, search, or empty if you do not want any qiuck action bar]
+    background: 'indigo',
+    optionList: [{ item: 'Your Profile' }, { item: 'Setting' }, { item: 'Sign out' }],
+    menuItems: [{ menu: 'Dashboard' }, { menu: 'Team' }, { menu: 'Project' }, { menu: 'Calendar' }],
+  },
+  component_inputs: [
+    {
+      label: 'quickAction',
+      prop: '[quickAction]',
+      description: 'Show Quick Button or Quick Search bar',
+      dataType: 'String',
+    },
+    { label: 'Background Color', prop: '[background]', description: 'Adjust background color.', dataType: 'String' },
+    {
+      label: 'Options List',
+      prop: '[optionList]',
+      description: 'Shows the options when click on avatar.',
+      dataType: 'Object',
+    },
+    { label: 'Menu Items', prop: '[menuItems]', description: 'Shows the menu item on navbar.', dataType: 'Object' },
+  ],
 }
 
 @Injectable()
 export class NavbarsStore extends ComponentStore<NavbarsState> {
   constructor(private readonly sdk: ApolloAngularSDK) {
-    super({})
+    super({ config })
     this.loadItemsEffect()
   }
 
-  readonly items$ = this.select(this.state$, (s) => s.items)
-  readonly vm$ = this.select(this.items$, (items) => ({ items }))
+  readonly config$ = this.select(this.state$, (s) => s.config)
+  readonly vm$ = this.select(this.config$, (config) => ({ config }))
 
   readonly loadItemsEffect = this.effect(($) =>
     $.pipe(
