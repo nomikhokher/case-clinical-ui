@@ -262,6 +262,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
       },
       { path: 'editors', loadChildren: () => import('./dev-editor/dev-editor.module').then((m) => m.DevEditorModule) },
       {
+        path: 'grid-lists',
+        loadChildren: () => import('./dev-grid-list/dev-grid-list.module').then((m) => m.DevGridListModule),
+      },
+      {
         path: 'faq-section',
         loadChildren: () => import('./dev-faq-section/dev-faq-section.module').then((m) => m.DevFaqSectionModule),
       },
