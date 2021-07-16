@@ -210,6 +210,9 @@
     "web-ui-editor": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-faq-section": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-feed": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -280,6 +283,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-preview": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-pricing-plan": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-progress-bar": {

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core'
-import { Lists } from '../../../../dev/feature/src/lib/dev-split-button/dev-split-button.component'
+import { Lists } from '../../../../dev/feature/src/lib/dev-split-button/model'
 
 @Component({
   selector: 'ui-split-button',
@@ -57,7 +57,7 @@ import { Lists } from '../../../../dev/feature/src/lib/dev-split-button/dev-spli
             <ng-container *ngFor="let list of lists">
               <li class="flex hover:bg-gray-100 py-2">
                 <ui-icon [icon]="list.icon" [class]="'h6 w-6'"></ui-icon>
-                <a href="javascript:void(0)" class="block px-2">{{ list.text }}</a>
+                <a href="javascript:void(0)" class="block px-2">{{ list.label }}</a>
               </li>
             </ng-container>
           </div>

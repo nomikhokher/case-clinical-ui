@@ -135,6 +135,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () =>
           import('./dev-section-headings/dev-section-headings.module').then((m) => m.DevSectionHeadingsModule),
       },
+      {
+        path: 'pricing-plans',
+        loadChildren: () => import('./dev-pricing-plan/dev-pricing-plan.module').then((m) => m.DevPricingPlanModule),
+      },
       { path: 'stats', loadChildren: () => import('./dev-stats/dev-stats.module').then((m) => m.DevStatsModule) },
       {
         path: 'description-list',
@@ -260,6 +264,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
       {
         path: 'grid-lists',
         loadChildren: () => import('./dev-grid-list/dev-grid-list.module').then((m) => m.DevGridListModule),
+      },
+      {
+        path: 'faq-section',
+        loadChildren: () => import('./dev-faq-section/dev-faq-section.module').then((m) => m.DevFaqSectionModule),
       },
     ]),
     WebUiMainPageModule,
