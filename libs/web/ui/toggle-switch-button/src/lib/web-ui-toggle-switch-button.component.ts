@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core'
-import { StoreToggleSwitchButton } from '../../../../dev/feature/src/lib/dev-toggle-switch-button/model'
 
 @Component({
   selector: 'ui-toggle-switch-button',
@@ -60,4 +59,15 @@ export class WebUiToggleSwitchButtonComponent {
       return button.onOff
     })
   }
+}
+
+interface StoreToggleSwitchButton {
+  id?: number
+  height: string
+  width: string
+  left: string
+  bgColor: string
+  divWidth: string
+  divHeight: string
+  onOff: boolean
 }
