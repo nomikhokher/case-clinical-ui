@@ -12,17 +12,28 @@ export interface Item {
 interface DevProgressBarState {
   items?: Item[]
   loading?: boolean
+  config
+}
+
+const config = {
+  headerTitle: 'Progress Bar',
+  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/progress-bar',
+  breadcrumbs: [
+    { label: 'Components', path: '/dev' },
+    { label: 'Progress Bar', path: '/dev/progress-bar' },
+  ],
+  directory: '/libs/web/dev/feature/src/lib/dev-progress-bar.component.ts',
 }
 
 @Injectable()
 export class DevProgressBarStore extends ComponentStore<DevProgressBarState> {
   constructor(private readonly sdk: ApolloAngularSDK) {
-    super({})
+    super({ config })
     this.loadItemsEffect()
   }
 
-  readonly items$ = this.select(this.state$, (s) => s.items)
-  readonly vm$ = this.select(this.items$, (items) => ({ items }))
+  readonly config$ = this.select(this.state$, (s) => s.config)
+  readonly vm$ = this.select(this.config$, (config) => ({ config }))
 
   readonly loadItemsEffect = this.effect(($) =>
     $.pipe(

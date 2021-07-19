@@ -4,14 +4,20 @@ import { DevModalStore } from './dev-modal.store'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800">
-        <pre class="text-xs dark:text-gray-500">{{ vm.items | json }}</pre>
-      </div>
-      <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
-        Component: libs/web/dev/feature/src/lib/dev-modal/dev-modal.component.ts
-      </code>
-      <ui-preview [code]="codePreview[0]">
-        <ui-modal [closeButton]="true" [width]="width" [display]="true" [isActive]="isActive">
+      <ui-preview
+        [code]="codePreview[0]"
+        [title]="vm.config.headerTitle"
+        [githubURL]="vm.config.githubURL"
+        [directory]="vm.config.directory"
+        [breadcrumbs]="vm.config.breadcrumbs"
+        [component_inputs]="vm.config.component_inputs"
+      >
+        <ui-modal
+          [closeButton]="vm.config.items.closeButton"
+          [width]="vm.config.items.width"
+          [display]="vm.config.items.display"
+          [isActive]="vm.config.items.isActive"
+        >
           <div>
             <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
               <svg
@@ -56,16 +62,20 @@ import { DevModalStore } from './dev-modal.store'
 })
 export class DevModalComponent {
   readonly vm$ = this.store.vm$
-  public isActive = false
-  public width = '2xl' // width can be [sm, md, lg, xl, 1xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl0, full]
 
-  constructor(private readonly store: DevModalStore) {}
+  constructor(private store: DevModalStore) {}
   myFun() {
-    this.isActive = !this.isActive
+    this
+    let myVal
+    this.store.config$.subscribe((x) => {
+      myVal = x
+    })
+
+    myVal.items.isActive = !myVal.items.isActive
   }
   public codePreview = [
     `import { WebUiModalModule } from '@schema-driven/web/ui/modal' \n\n
-     <ui-modal [closeButton]="true" width="lg" [display]="true">
+     <ui-modal [closeButton]="vm.config.items.closeButton" [width]="vm.config.items.width" [display]="vm.config.items.display" [isActive]="vm.config.items.isActive">
     <div>
       <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
         <svg

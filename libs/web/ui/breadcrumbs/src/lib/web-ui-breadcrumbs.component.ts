@@ -81,7 +81,7 @@ import { Crumb } from './models'
                 [routerLink]="crumb.path"
                 class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-400"
               >
-                {{ crumb.name }}
+                {{ crumb.label }}
               </a>
             </div>
           </li>
@@ -98,7 +98,6 @@ export class WebUiBreadcrumbsComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    console.log(this.crumbs)
   }
   breadCrumbs(data) {
     this.crumbIcon = data.icon
