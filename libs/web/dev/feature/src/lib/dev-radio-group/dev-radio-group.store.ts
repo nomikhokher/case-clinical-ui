@@ -29,12 +29,23 @@ interface DevRadioGroupState {
   demos?: Demo[]
   items?: Item[]
   loading?: boolean
+  config
 }
 const opts: opts[] = [
   { id: 1, label: 'Male', value: 'Male' },
   { id: 2, label: 'Female', value: 'Female' },
   { id: 3, label: 'Others', value: 'Others' },
 ]
+
+const config = {
+  headerTitle: 'Radio Groups',
+  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/form/src/lib/types/radio',
+  breadcrumbs: [
+    { label: 'Components', path: '/dev' },
+    { label: 'Radio Groups', path: '/dev/radio-group' },
+  ],
+  directory: '/libs/web/dev/feature/src/lib/dev-radio-group.component.ts',
+}
 
 const demos: Demo[] = [
   {
@@ -87,9 +98,10 @@ const demos: Demo[] = [
 @Injectable()
 export class DevRadioGroupStore extends ComponentStore<DevRadioGroupState> {
   constructor() {
-    super({ demos })
+    super({ demos, config })
   }
 
   readonly demos$ = this.select(this.state$, (s) => s.demos)
-  readonly vm$ = this.select(this.demos$, (demos) => ({ demos }))
+  readonly config$ = this.select(this.state$, (s) => s.config)
+  readonly vm$ = this.select(this.demos$, this.config$, (demos, config) => ({ demos, config }))
 }

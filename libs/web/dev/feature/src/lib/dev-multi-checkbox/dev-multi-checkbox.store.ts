@@ -11,12 +11,23 @@ export interface Item {
   name?: string
 }
 
+const config = {
+  headerTitle: 'Multi Checkbox',
+  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/form/src/lib/types/multicheckbox',
+  breadcrumbs: [
+    { label: 'Components', path: '/dev' },
+    { label: 'Multi Checkbox', path: '/dev/multi-checkbox' },
+  ],
+  directory: '/libs/web/dev/feature/src/lib/dev-multi-checkbox.component.ts',
+}
+
 interface DevMultiCheckboxState {
   optsReq?: optsReq[]
   opts?: opts[]
   demos?: Demo[]
   items?: Item[]
   loading?: boolean
+  config
 }
 export interface Demo {
   name?: string
@@ -80,9 +91,10 @@ const demos: Demo[] = [
 @Injectable()
 export class DevMultiCheckboxStore extends ComponentStore<DevMultiCheckboxState> {
   constructor() {
-    super({ demos })
+    super({ demos, config })
   }
 
   readonly demos$ = this.select(this.state$, (s) => s.demos)
-  readonly vm$ = this.select(this.demos$, (demos) => ({ demos }))
+  readonly config$ = this.select(this.state$, (s) => s.config)
+  readonly vm$ = this.select(this.demos$, this.config$, (demos, config) => ({ demos, config }))
 }

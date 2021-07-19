@@ -10,10 +10,21 @@ export interface Item {
   name?: string
 }
 
+const config = {
+  headerTitle: 'Repeat',
+  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/form/src/lib/types/repeat',
+  breadcrumbs: [
+    { label: 'Components', path: '/dev' },
+    { label: 'Repeat', path: '/dev/repeat' },
+  ],
+  directory: '/libs/web/dev/feature/src/lib/dev-repeat.component.ts',
+}
+
 interface DevRepeatState {
   demos?: Demo[]
   items?: Item[]
   loading?: boolean
+  config
 }
 export interface Demo {
   name?: string
@@ -32,9 +43,10 @@ const demos: Demo[] = [
 @Injectable()
 export class DevRepeatStore extends ComponentStore<DevRepeatState> {
   constructor() {
-    super({ demos })
+    super({ demos, config })
   }
 
   readonly demos$ = this.select(this.state$, (s) => s.demos)
-  readonly vm$ = this.select(this.demos$, (demos) => ({ demos }))
+  readonly config$ = this.select(this.state$, (s) => s.config)
+  readonly vm$ = this.select(this.demos$, this.config$, (demos, config) => ({ demos, config }))
 }

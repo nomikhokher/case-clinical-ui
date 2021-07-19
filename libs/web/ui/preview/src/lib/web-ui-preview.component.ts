@@ -117,7 +117,7 @@ export interface ComponentProp {
         </div>
       </div>
 
-      <div *ngIf="component_inputs?.length > 0" class="flex flex-col mt-10">
+      <div *ngIf="component_inputs?.length > 0" class="flex flex-col my-10">
         <div class="-my-2 overflow-x-auto">
           <div class="pb-2">
             <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">Inputs</h3>
@@ -178,7 +178,7 @@ export interface ComponentProp {
           </div>
         </div>
       </div>
-      <div *ngIf="component_outputs?.length > 0" class="flex flex-col mt-10">
+      <div *ngIf="component_outputs?.length > 0" class="flex flex-col my-10">
         <div class="-my-2 overflow-x-auto">
           <div class="pb-2">
             <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">Outputs</h3>

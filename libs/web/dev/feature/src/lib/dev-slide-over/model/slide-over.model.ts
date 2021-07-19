@@ -12,7 +12,11 @@ export interface Crumbs {
   path?: string
 }
 export interface Item {
-  buttons?: Button[]
+  width?: string
+  overlay?: string
+  slideOverHeader?: boolean
+  slideOverFooter?: boolean
+  closeButtonOutSide?: boolean
 }
 
 export interface Inputs {
@@ -27,14 +31,4 @@ export interface Outputs {
   prop?: string
   description?: string
   dataType?: string
-}
-
-// define  data types
-
-export interface Button {
-  text?: string
-  color?: string
-  position?: string
-  icon?: string
-  showHide?: boolean
 }

@@ -4,20 +4,31 @@ import { DevDatePickerStore } from './dev-date-picker.store'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800">
-        <pre class="text-xs dark:text-gray-500">{{ vm.items | json }}</pre>
-      </div>
-      <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
-        Component: libs/web/dev/feature/src/lib/dev-date-picker/dev-date-picker.component.ts
-      </code>
-      <ui-preview>
-        <ui-date-picker></ui-date-picker>
+      <ui-preview
+        [title]="vm.config.previewData.headerTitle"
+        [githubURL]="vm.config.previewData.githubURL"
+        [directory]="vm.config.previewData.directory"
+        [breadcrumbs]="vm.config.previewData.breadcrumbs"
+        [component_inputs]="vm.config.component_inputs"
+      >
+        <ui-date-picker
+          [dateFormat]="vm.config.items.dateFormat"
+          [inputGivenOrNot]="vm.config.items.inputGivenOrNot"
+          [rangePicker]="vm.config.items.rangePicker"
+          [timePicker]="vm.config.items.timePicker"
+          (getValueOfDate)="getValueOfDateEvent($event)"
+        ></ui-date-picker>
       </ui-preview>
     </ng-container>
   `,
   providers: [DevDatePickerStore],
 })
 export class DevDatePickerComponent {
+  public getValueDate: any
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevDatePickerStore) {}
+
+  public getValueOfDateEvent(value: any): void {
+    this.getValueDate = value
+  }
 }
