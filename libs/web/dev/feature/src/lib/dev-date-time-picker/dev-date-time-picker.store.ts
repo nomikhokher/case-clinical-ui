@@ -12,17 +12,28 @@ export interface Item {
 interface DevDateTimePickerState {
   items?: Item[]
   loading?: boolean
+  config
+}
+
+const config = {
+  headerTitle: 'Date Time Picker',
+  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/date-time-picker/src/lib',
+  breadcrumbs: [
+    { label: 'Components', path: '/dev' },
+    { label: 'Date Time Picker', path: '/dev/date-time-picker' },
+  ],
+  directory: '/libs/web/dev/feature/src/lib/dev-section-headings/dev-date-time-picker.component.ts',
 }
 
 @Injectable()
 export class DevDateTimePickerStore extends ComponentStore<DevDateTimePickerState> {
   constructor(private readonly sdk: ApolloAngularSDK) {
-    super({})
+    super({ config })
     this.loadItemsEffect()
   }
 
-  readonly items$ = this.select(this.state$, (s) => s.items)
-  readonly vm$ = this.select(this.items$, (items) => ({ items }))
+  readonly config$ = this.select(this.state$, (s) => s.config)
+  readonly vm$ = this.select(this.config$, (config) => ({ config }))
 
   readonly loadItemsEffect = this.effect(($) =>
     $.pipe(

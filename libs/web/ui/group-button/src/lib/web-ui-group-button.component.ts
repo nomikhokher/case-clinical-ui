@@ -40,9 +40,16 @@ import { Component, Input } from '@angular/core'
   `,
 })
 export class WebUiGroupButtonComponent {
-  @Input() buttons: any
+  @Input() buttons: Button[]
 
   ngOnInit() {
     console.log(this.buttons)
   }
+}
+
+interface Button {
+  id?: string
+  name?: string
+  icon?: string
+  dircetion?: string
 }

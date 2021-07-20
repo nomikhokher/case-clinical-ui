@@ -22,9 +22,6 @@ import { DevAvatarStore } from './dev-avatar.store'
           ></ui-avatar>
         </div>
       </ui-preview>
-      <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
-        Component: libs/web/dev/feature/src/lib/dev-avatar/dev-avatar.component.ts
-      </code>
     </ng-container>
   `,
   providers: [DevAvatarStore],

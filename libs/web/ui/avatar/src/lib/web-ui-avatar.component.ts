@@ -5,6 +5,7 @@ import { Component, Input } from '@angular/core'
   template: `
     <ng-container [ngSwitch]="mode">
       <span
+        (clickOutside)="avt = false"
         (click)="onAvatar()"
         *ngSwitchCase="'img'"
         class="{{ __badge_enable() ? 'inline-block relative' : '' }} cursor-pointer relative hover:opacity-80"
@@ -58,6 +59,7 @@ import { Component, Input } from '@angular/core'
         </div>
       </span>
       <span
+        (clickOutside)="avt = false"
         (click)="onAvatar()"
         *ngSwitchCase="'icon'"
         class="cursor-pointer inline-block {{ __size() }} {{ __radius() }} overflow-hidden bg-gray-100 {{
@@ -84,6 +86,7 @@ import { Component, Input } from '@angular/core'
         ></span>
       </span>
       <span
+        (clickOutside)="avt1 = false"
         (click)="onAvatar()"
         *ngSwitchCase="'text'"
         class="relative  hover:opacity-80 cursor-pointer inline-flex {{

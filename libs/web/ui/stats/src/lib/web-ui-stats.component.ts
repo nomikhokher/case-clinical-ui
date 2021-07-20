@@ -68,10 +68,10 @@ import { Component, Input } from '@angular/core'
   `,
 })
 export class WebUiStatsComponent {
-  @Input() stats: any
+  @Input() stats: Stats
 
   public increased: boolean = false
-  public avg: number
+  public avg: any
 
   ngOnInit() {
     if (!this.stats.values.overwrite) {
@@ -92,4 +92,27 @@ export class WebUiStatsComponent {
       }
     }
   }
+}
+
+interface Stats {
+  title?: string
+  border_none?: string
+  values?: Values
+  icon: string
+  link: string
+}
+
+interface Values {
+  type: string
+  total: string
+  current: string
+  previous: string
+  difference: Difference
+  overwrite: boolean
+}
+
+interface Difference {
+  numeric: number
+  percentage: string
+  type: string
 }

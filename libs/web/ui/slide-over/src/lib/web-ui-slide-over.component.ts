@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, Output, EventEmitter } from '@angular/core'
 
 @Component({
   selector: 'ui-slide-over',
@@ -57,6 +57,7 @@ import { Component, Input } from '@angular/core'
                   <ng-container *ngIf="!closeButtonOutSide">
                     <div class="ml-3 h-7 flex items-center">
                       <button
+                        (click)="hideLayout()"
                         class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                       >
                         <span class="sr-only">Close panel</span>
@@ -82,6 +83,7 @@ import { Component, Input } from '@angular/core'
                   <ng-container *ngIf="closeButtonOutSide">
                     <div class="absolute top-0 left-0 -ml-8 pt-4 pr-2 flex sm:-ml-10 sm:pr-4">
                       <button
+                        (click)="hideLayout()"
                         class="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
                       >
                         <span class="sr-only">Close panel</span>
@@ -122,6 +124,12 @@ import { Component, Input } from '@angular/core'
 })
 export class WebUiSlideOverComponent {
   @Input() width?: string
-  @Input() overlay?: string
   @Input() closeButtonOutSide?: boolean
+  @Input() overlay?: string
+
+  @Output() hideCurrentLayout = new EventEmitter()
+
+  hideLayout() {
+    this.hideCurrentLayout.emit()
+  }
 }

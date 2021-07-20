@@ -37,7 +37,7 @@ import { Component, ElementRef, Input, Output, EventEmitter } from '@angular/cor
               <div
                 *ngIf="showDatepicker"
                 class="bg-white mt-12 rounded-lg shadow p-4 absolute top-0 left-0 transition ease-in-out duration-500"
-                style="width: 17rem"
+                style="width: 16rem"
               >
                 <div class="flex justify-between items-center mb-2">
                   <div>
@@ -100,8 +100,9 @@ import { Component, ElementRef, Input, Output, EventEmitter } from '@angular/cor
                         (click)="getDateValue(date)"
                         class="cursor-pointer text-center text-sm rounded-full leading-loose transition ease-in-out duration-100"
                         [ngClass]="{
-                          'bg-blue-500 text-white': isToday(date) == true,
-                          'text-gray-700 hover:bg-blue-200': isToday(date) == false
+                          'bg-indigo-200': isToday(date) == true,
+                          'text-gray-600 hover:bg-indigo-200': isToday(date) == false && isSelectedDate(date) == false,
+                          'bg-indigo-500 text-white hover:bg-opacity-75': isSelectedDate(date) == true
                         }"
                       >
                         {{ date }}
@@ -347,6 +348,7 @@ import { Component, ElementRef, Input, Output, EventEmitter } from '@angular/cor
         </div>
       </div>
     </div>
+
 
     <div class="px-4 py-2 bg-gray-100 border-b order-2 mt-5">
       <fieldset>

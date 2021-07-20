@@ -14,6 +14,17 @@ export interface Demo {
 
 interface DevToastState {
   demos?: Demo[]
+  config
+}
+
+const config = {
+  headerTitle: 'Toast',
+  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/toast/src/lib',
+  breadcrumbs: [
+    { label: 'Components', path: '/dev' },
+    { label: 'Toast', path: '/dev/toast' },
+  ],
+  directory: '/libs/web/dev/feature/src/lib/dev-toast.component.ts',
 }
 
 @Injectable()
@@ -21,6 +32,7 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   constructor(private readonly toast: WebUiToastService) {
     super({
       demos: [],
+      config,
     })
     this.patchState({
       demos: [
@@ -77,7 +89,8 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   }
 
   readonly demos$ = this.select(this.state$, (s) => s.demos)
-  readonly vm$ = this.select(this.demos$, (demos) => ({ demos }))
+  readonly config$ = this.select(this.state$, (s) => s.config)
+  readonly vm$ = this.select(this.demos$, this.config$, (demos, config) => ({ demos, config }))
 
   readonly showToastEffect = this.effect(($) =>
     $.pipe(

@@ -20,6 +20,17 @@ interface DevTextareaState {
   demos?: Demo[]
   items?: Item[]
   loading?: boolean
+  config
+}
+
+const config = {
+  headerTitle: 'Text Area',
+  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/form/src/lib/types/textarea',
+  breadcrumbs: [
+    { label: 'Components', path: '/dev' },
+    { label: 'Text Area', path: '/dev/textarea' },
+  ],
+  directory: '/libs/web/dev/feature/src/lib/dev-textarea.component.ts',
 }
 
 const demos: Demo[] = [
@@ -82,9 +93,10 @@ const demos: Demo[] = [
 @Injectable()
 export class DevTextareaStore extends ComponentStore<DevTextareaState> {
   constructor() {
-    super({ demos })
+    super({ demos, config })
   }
 
   readonly demos$ = this.select(this.state$, (s) => s.demos)
-  readonly vm$ = this.select(this.demos$, (demos) => ({ demos }))
+  readonly config$ = this.select(this.state$, (s) => s.config)
+  readonly vm$ = this.select(this.demos$, this.config$, (demos, config) => ({ demos, config }))
 }
