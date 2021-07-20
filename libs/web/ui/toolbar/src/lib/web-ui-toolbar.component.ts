@@ -27,6 +27,11 @@ import { Component, Input } from '@angular/core'
   `,
 })
 export class WebUiToolbarComponent {
-  @Input() buttons: any
+  @Input() buttons: Button
   @Input() background?: string
+}
+
+interface Button {
+  icon: string
+  title?: string
 }
