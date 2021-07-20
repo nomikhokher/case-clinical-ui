@@ -71,7 +71,7 @@ export class WebUiNotificationComponent {
   @Input() icon?: string
   @Input() closeBtn?: boolean
   @Input() show: boolean
-  @Input() bottomSectionButton?: any
+  @Input() bottomSectionButton?: ButtonReply[]
   @Input() timeInSec?: number
   @Input() avatarImg?: string
   @Input() background?: string
@@ -85,4 +85,10 @@ export class WebUiNotificationComponent {
   close() {
     this.closeValue.emit(!this.show)
   }
+}
+
+interface ButtonReply {
+  id?: number
+  name: string
+  fn?: (x: any) => any
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
-import { ComponentProps, Config } from './models'
+import { ComponentProps, Config, Input } from './models'
 
 export interface Item {
   id?: string
@@ -18,6 +18,7 @@ interface DevPageHeadingsState {
   directory?: string
   items?: Item
   loading?: boolean
+  component_inputs?: Input[]
 }
 
 @Injectable()
@@ -68,6 +69,27 @@ export class DevPageHeadingsStore extends ComponentStore<DevPageHeadingsState> {
           ],
         },
       },
+
+      component_inputs: [
+        {
+          label: 'Title',
+          prop: '[title]',
+          description: 'Title of the header',
+          dataType: 'String',
+        },
+        {
+          label: 'Data',
+          prop: '[meta]',
+          description: 'Show all data of the header',
+          dataType: 'Array',
+        },
+        {
+          label: 'Controls',
+          prop: '[controls]',
+          description: 'Show the controls of header',
+          dataType: 'Array',
+        },
+      ],
     })
     // this.loadItemsEffect()
   }

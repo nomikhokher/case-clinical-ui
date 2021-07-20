@@ -6,7 +6,16 @@ import { DevTableStore } from './dev-table.store'
     <ng-container *ngIf="vm$ | async as vm">
       <div class="flex flex-col space-y-6">
         <ng-container *ngFor="let demo of vm.demos">
-          <ui-preview [title]="demo.label" [code]="codePreview[0]">
+          <ui-preview
+            [title]="demo.label"
+            [code]="codePreview[0]"
+            [title]="vm.config.headerTitle"
+            [githubURL]="vm.config.githubURL"
+            [directory]="vm.config.directory"
+            [breadcrumbs]="vm.config.breadcrumbs"
+            [component_outputs]="vm.config.component_outputs"
+            [component_inputs]="vm.config.component_inputs"
+          >
             <ui-table [cols]="demo.cols" [data]="demo.data"></ui-table>
           </ui-preview>
         </ng-container>

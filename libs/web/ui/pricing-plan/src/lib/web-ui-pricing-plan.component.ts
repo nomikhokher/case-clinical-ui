@@ -61,9 +61,44 @@ import { Component, Input } from '@angular/core'
   `,
 })
 export class WebUiPricingPlanComponent {
-  @Input() planSections: any
-  @Input() cards: any
+  @Input() cards: Card[]
+  @Input() planSections: PlanSection
   ngOnInit(): void {
     console.log(this.cards[0].cardHeader.btnColor)
   }
+}
+
+interface PlanSection {
+  title?: string
+  description?: string
+  buttons?: Buttons[]
+}
+
+interface Buttons {
+  label?: string
+  bgColor?: string
+}
+
+interface Card {
+  cardHeader?: CardHead
+  cardBody?: CardBody
+}
+
+interface CardHead {
+  heading?: string
+  description?: string
+  icon?: string
+  price?: number
+  btnLabel?: string
+  btnColor?: string
+}
+
+interface CardBody {
+  heading?: string
+  points?: Point[]
+}
+
+interface Point {
+  text?: string
+  icon?: string
 }

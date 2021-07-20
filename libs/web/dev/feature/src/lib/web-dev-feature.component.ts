@@ -40,7 +40,12 @@ export class WebDevFeatureComponent {
           children: [
             {
               label: 'Pricing Plans',
-              route: 'pricing-plans',
+              route: 'Testimonials',
+              image: '/assets/images/pricing-plan.png',
+            },
+            {
+              label: 'Testimonials',
+              route: 'testimonials',
               image: '/assets/images/pricing-plan.png',
             },
           ],

@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core'
 import { WebUiToastService } from '@schema-driven/web/ui/toast'
-import { StepItems } from '../../../../dev/feature/src/lib/dev-step/model'
 
 @Component({
   selector: 'ui-step',
@@ -69,4 +68,12 @@ export class WebUiStepComponent {
     })
     this.toast.success('Changes of Step ' + number + ' saved!', { duration: 1500 })
   }
+}
+
+interface StepItems {
+  id: number
+  stepActive?: boolean
+  stepTitle: string
+  stepDetails: string
+  icon?: string
 }

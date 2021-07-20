@@ -10,6 +10,17 @@ export interface Demo {
 
 interface DevTableState {
   demos?: Demo[]
+  config
+}
+
+const config = {
+  headerTitle: 'Table',
+  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/table/src/lib',
+  breadcrumbs: [
+    { label: 'Components', path: '/dev' },
+    { label: 'Table', path: '/dev/table' },
+  ],
+  directory: '/libs/web/dev/feature/src/lib/dev-table.component.ts',
 }
 
 const demos: Demo[] = [
@@ -39,9 +50,10 @@ const demos: Demo[] = [
 @Injectable()
 export class DevTableStore extends ComponentStore<DevTableState> {
   constructor() {
-    super({ demos })
+    super({ demos, config })
   }
 
   readonly demos$ = this.select(this.state$, (s) => s.demos)
-  readonly vm$ = this.select(this.demos$, (demos) => ({ demos }))
+  readonly config$ = this.select(this.state$, (s) => s.config)
+  readonly vm$ = this.select(this.demos$, this.config$, (demos, config) => ({ demos, config }))
 }

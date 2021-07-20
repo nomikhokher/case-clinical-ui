@@ -25,5 +25,10 @@ import { Component, Input } from '@angular/core'
   `,
 })
 export class WebUiCheckboxDropdownButtonComponent {
-  @Input() dropDownMenus: [{ id?: string; name: string }]
+  @Input() dropDownMenus: dropDown[]
+}
+
+interface dropDown {
+  id?: string
+  name: string
 }

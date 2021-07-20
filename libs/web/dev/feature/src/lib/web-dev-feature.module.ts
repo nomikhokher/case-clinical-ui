@@ -139,6 +139,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: 'pricing-plans',
         loadChildren: () => import('./dev-pricing-plan/dev-pricing-plan.module').then((m) => m.DevPricingPlanModule),
       },
+      {
+        path: 'testimonials',
+        loadChildren: () => import('./dev-testimonials/dev-testimonials.module').then((m) => m.DevTestimonialsModule),
+      },
       { path: 'stats', loadChildren: () => import('./dev-stats/dev-stats.module').then((m) => m.DevStatsModule) },
       {
         path: 'description-list',
