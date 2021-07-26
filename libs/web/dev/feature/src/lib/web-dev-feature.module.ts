@@ -66,6 +66,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-badge/dev-badge.module').then((m) => m.DevBadgeModule),
       },
       {
+        path: 'banners',
+        loadChildren: () => import('./dev-banners/dev-banners.module').then((m) => m.DevBannersModule),
+      },
+      {
         path: 'repeater',
         loadChildren: () => import('./dev-repeater/dev-repeater.module').then((m) => m.DevRepeaterModule),
       },

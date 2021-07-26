@@ -54,6 +54,7 @@
       "@schema-driven/web/ui/alert": ["libs/web/ui/alert/src/index.ts"],
       "@schema-driven/web/ui/avatar": ["libs/web/ui/avatar/src/index.ts"],
       "@schema-driven/web/ui/badge": ["libs/web/ui/badge/src/index.ts"],
+      "@schema-driven/web/ui/banners": ["libs/web/ui/banners/src/index.ts"],
       "@schema-driven/web/ui/breadcrumbs": ["libs/web/ui/breadcrumbs/src/index.ts"],
       "@schema-driven/web/ui/button": ["libs/web/ui/button/src/index.ts"],
       "@schema-driven/web/ui/calendar": ["libs/web/ui/calendar/src/index.ts"],
