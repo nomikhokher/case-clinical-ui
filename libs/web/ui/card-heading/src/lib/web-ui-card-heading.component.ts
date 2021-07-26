@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core'
-import { ProfileLink, Button } from '../../../../dev/feature/src/lib/dev-card-heading/model'
 @Component({
   selector: 'ui-card-heading',
   template: `
@@ -56,4 +55,17 @@ export class WebUiCardHeadingComponent {
   @Input() sectionToggle: boolean
   @Input() profile: ProfileLink
   @Input() buttons: Button
+}
+interface ProfileLink {
+  title?: string
+  image?: string
+  tagLine?: string
+  icon?: string
+}
+
+interface Button {
+  text?: string
+  color?: string
+  fontColor?: string
+  icon?: string
 }

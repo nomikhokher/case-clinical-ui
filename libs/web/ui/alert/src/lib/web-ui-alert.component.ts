@@ -159,3 +159,7 @@ export class WebUiAlertComponent {
     this.show = false
   }
 }
+
+interface Object {
+  title?: string
+}

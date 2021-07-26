@@ -12,17 +12,28 @@ export interface Item {
 interface DevMediaObjectState {
   items?: Item[]
   loading?: boolean
+  config
+}
+
+const config = {
+  headerTitle: 'Media Object',
+  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/media-object/src/lib',
+  breadcrumbs: [
+    { label: 'Components', path: '/dev' },
+    { label: 'Media Object', path: '/dev/media-object' },
+  ],
+  directory: '/libs/web/dev/feature/src/lib/dev-section-headings/dev-media-object.component.ts',
 }
 
 @Injectable()
 export class DevMediaObjectStore extends ComponentStore<DevMediaObjectState> {
   constructor(private readonly sdk: ApolloAngularSDK) {
-    super({})
+    super({ config })
     this.loadItemsEffect()
   }
 
-  readonly items$ = this.select(this.state$, (s) => s.items)
-  readonly vm$ = this.select(this.items$, (items) => ({ items }))
+  readonly config$ = this.select(this.state$, (s) => s.config)
+  readonly vm$ = this.select(this.config$, (config) => ({ config }))
 
   readonly loadItemsEffect = this.effect(($) =>
     $.pipe(
