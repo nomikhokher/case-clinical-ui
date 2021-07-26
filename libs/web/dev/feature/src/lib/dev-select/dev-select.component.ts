@@ -5,7 +5,14 @@ import { DevSelectStore } from './dev-select.store'
   template: `
     <ng-container *ngIf="vm$ | async as vm">
       <div class="flex flex-col space-y-6">
-        <ui-preview>
+        <ui-preview
+          [title]="vm.config.headerTitle"
+          [githubURL]="vm.config.githubURL"
+          [directory]="vm.config.directory"
+          [breadcrumbs]="vm.config.breadcrumbs"
+          [component_outputs]="vm.config.component_outputs"
+          [component_inputs]="vm.config.component_inputs"
+        >
           <ng-container *ngFor="let demo of vm.demos">
             <div>
               <div class="shadow rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">

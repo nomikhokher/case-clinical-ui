@@ -10,6 +10,7 @@ import { DevPageHeadingsStore } from './dev-page-headings.store'
         [directory]="vm.directory"
         [breadcrumbs]="vm.breadcrumbs"
         [component_props]="[vm.componentProps]"
+        [component_inputs]="vm.component_inputs"
         [code]="codePreview[0]"
       >
         <ng-template #headerControls>
@@ -33,10 +34,6 @@ import { DevPageHeadingsStore } from './dev-page-headings.store'
         >
         </ui-page-headings> -->
       </ui-preview>
-
-      <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800">
-        <pre class="text-xs dark:text-gray-500">{{ vm.items | json }}</pre>
-      </div>
     </ng-container>
   `,
   providers: [DevPageHeadingsStore],

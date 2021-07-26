@@ -4,14 +4,15 @@ import { DevSplitButtonStore } from './dev-split-button.store'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800">
-        <pre class="text-xs dark:text-gray-500">{{ vm.items | json }}</pre>
-      </div>
-      <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
-        Component: libs/web/dev/feature/src/lib/dev-split-button/dev-split-button.component.ts
-      </code>
-      <ui-preview [code]="codePreview[0]">
-        <ui-split-button [lists]="lists"></ui-split-button>
+      <ui-preview
+        [title]="vm.config.previewData.headerTitle"
+        [githubURL]="vm.config.previewData.githubURL"
+        [directory]="vm.config.previewData.directory"
+        [breadcrumbs]="vm.config.previewData.breadcrumbs"
+        [code]="codePreview[0]"
+        [component_inputs]="vm.config.component_inputs"
+      >
+        <ui-split-button [lists]="vm.config.items.lists"></ui-split-button>
       </ui-preview>
     </ng-container>
   `,
@@ -44,28 +45,4 @@ export class DevSplitButtonComponent {
     ]
       `,
   ]
-
-  public lists: Lists[] = [
-    {
-      icon: 'clipboard',
-      text: 'Paste',
-    },
-    {
-      icon: 'clipboardCopy',
-      text: 'Paste Special',
-    },
-    {
-      icon: 'clipboardCheck',
-      text: 'Paste as Formula',
-    },
-    {
-      icon: 'clipboardList',
-      text: 'Paste as Hyperlink',
-    },
-  ]
-}
-
-export type Lists = {
-  icon?: string
-  text?: string
 }

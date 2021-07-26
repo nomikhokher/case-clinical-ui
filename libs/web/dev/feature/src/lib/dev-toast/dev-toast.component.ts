@@ -5,7 +5,15 @@ import { DevToastStore } from './dev-toast.store'
   template: `
     <ng-container *ngIf="vm$ | async as vm">
       <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800 flex space-x-6">
-        <ui-preview [code]="codePreview[0]">
+        <ui-preview
+          [code]="codePreview[0]"
+          [title]="vm.config.headerTitle"
+          [githubURL]="vm.config.githubURL"
+          [directory]="vm.config.directory"
+          [breadcrumbs]="vm.config.breadcrumbs"
+          [component_outputs]="vm.config.component_outputs"
+          [component_inputs]="vm.config.component_inputs"
+        >
           <div class="my-5">
             <h1>Toasts</h1>
             <ng-container *ngFor="let demo of vm.demos">

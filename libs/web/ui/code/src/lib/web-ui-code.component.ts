@@ -28,7 +28,7 @@ export type UiCodeLanguage = 'html' | 'graphql' | 'javascript' | 'json' | 'markd
   `,
 })
 export class WebUiCodeComponent {
-  @Input() code = ''
+  @Input() code: string
   @Input() copyButton = true
   @Input() language: UiCodeLanguage = 'json'
   constructor(private readonly toast: WebUiToastService) {}

@@ -19,3 +19,10 @@ export interface ComponentProps {
   name?: string
   value?: any
 }
+
+export interface Input {
+  label?: string
+  prop?: string
+  description?: string
+  dataType?: string
+}

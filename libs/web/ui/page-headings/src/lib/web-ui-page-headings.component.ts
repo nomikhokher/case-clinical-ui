@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core'
     <div>
       <div>
         <nav class="sm:hidden" aria-label="Back">
-          <a href="#" class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700">
+          <a href="javascript:void(0)" class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700">
             <ui-icon size="lg" icon="arrow-left" class="text-gray-400 flex-shrink-0 -ml-1 mr-1"></ui-icon>
             Back
           </a>
@@ -18,7 +18,7 @@ import { Component, Input } from '@angular/core'
               <div class="flex items-center">
                 <ui-icon size="lg" icon="arrowRight" class="text-gray-400 flex-shrink-0" *ngIf="i > 0"></ui-icon>
                 <a
-                  href="#"
+                  href="javascript:void(0)"
                   [ngClass]="{ 'ml-4': i > 0 }"
                   class=" text-sm font-medium text-gray-500 dark:text-gray-400 dark:hover:text-gray-200 hover:text-gray-700"
                   >{{ subHeading.text }}</a
@@ -93,7 +93,7 @@ import { Component, Input } from '@angular/core'
               >
                 <!-- Active: "bg-gray-100", Not Active: "" -->
                 <a
-                  href="#"
+                  href="javascript:void(0)"
                   class="block px-4 py-2 text-sm text-gray-700"
                   role="menuitem"
                   tabindex="-1"
@@ -101,7 +101,7 @@ import { Component, Input } from '@angular/core'
                   >Edit</a
                 >
                 <a
-                  href="#"
+                  href="javascript:void(0)"
                   class="block px-4 py-2 text-sm text-gray-700"
                   role="menuitem"
                   tabindex="-1"

@@ -49,7 +49,7 @@ import { WebUiToastService } from '@schema-driven/web/ui/toast'
 })
 export class WebUiStepComponent {
   @Input() mode?: any
-  @Input() stepIems: any
+  @Input() stepIems: StepItems[]
   @Input() icon?: boolean
 
   public stepValue: number[] = [1]
@@ -68,4 +68,12 @@ export class WebUiStepComponent {
     })
     this.toast.success('Changes of Step ' + number + ' saved!', { duration: 1500 })
   }
+}
+
+interface StepItems {
+  id: number
+  stepActive?: boolean
+  stepTitle: string
+  stepDetails: string
+  icon?: string
 }

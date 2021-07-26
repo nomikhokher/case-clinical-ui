@@ -5,6 +5,7 @@ import { DevSlideOverComponent } from './dev-slide-over.component'
 import { WebUiPreviewModule } from '@schema-driven/web/ui/preview'
 import { WebUiSlideOverModule } from '@schema-driven/web/ui/slide-over'
 import { WebUiSlideOverLayoutModule } from '@schema-driven/web/ui/slide-over-layout'
+import { WebUiButtonModule } from '@schema-driven/web/ui/button'
 
 @NgModule({
   declarations: [DevSlideOverComponent],
@@ -14,6 +15,7 @@ import { WebUiSlideOverLayoutModule } from '@schema-driven/web/ui/slide-over-lay
     WebUiPreviewModule,
     WebUiSlideOverModule,
     WebUiSlideOverLayoutModule,
+    WebUiButtonModule,
   ],
 })
 export class DevSlideOverModule {}

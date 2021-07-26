@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core'
-import { Buttons, Heading, TabLinks } from '../../../../dev/feature/src/lib/dev-section-headings/model'
 
 @Component({
   selector: 'ui-section-headings',
@@ -91,4 +90,19 @@ export class WebUiSectionHeadingsComponent {
       return (x.active = false)
     })
   }
+}
+
+interface TabLinks {
+  id?: string
+  title?: string
+  active?: boolean
+  badge?: string
+}
+
+interface Buttons {
+  text: string
+  color: string
+  fontColor?: string
+  icon?: string
+  hoverColor?: string
 }
