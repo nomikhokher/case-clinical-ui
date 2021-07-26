@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 
 @Component({
   selector: 'ui-testimonials',
@@ -67,36 +67,13 @@ import { Component } from '@angular/core'
   `,
 })
 export class WebUiTestimonialsComponent {
-  data?: Object[] = [
-    {
-      title: 'Judith Black',
-      message:
-        '“Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.”',
-      position: 'Director',
-      img:
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-    {
-      title: 'Tom Cook',
-      message:
-        '“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed urna nulla vitae laoreet augue. Amet feugiat est integer dolor auctor adipiscing nunc urna, sit.”',
-      position: 'Manager',
-      img:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-    {
-      title: 'Joseph Rodriguez',
-      message:
-        '“Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis. Nemo expedita voluptas culpa sapiente alias molestiae.”',
-      position: 'CEO',
-      img:
-        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-  ]
+  @Input() data?: Data[]
 
   active: number = 0
 
   ngOnInit() {
+    console.log(this.data)
+
     setInterval(() => {
       if (this.data.length - 1 != this.active) {
         this.active++
@@ -111,4 +88,11 @@ export class WebUiTestimonialsComponent {
     console.log(act)
     return (this.active = act)
   }
+}
+
+interface Data {
+  title: string
+  message?: string
+  position?: string
+  img?: string
 }
