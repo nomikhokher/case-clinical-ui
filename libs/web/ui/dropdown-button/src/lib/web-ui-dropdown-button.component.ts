@@ -59,10 +59,14 @@ import { Component, Input } from '@angular/core'
   `,
 })
 export class WebUiDropdownButtonComponent {
-  @Input() dropDownMenus: [{ id?: string; name: string }]
+  @Input() dropDownMenus: dropDown[]
   public dropDownToggle: boolean = false
 
   menuToggle() {
     this.dropDownToggle = !this.dropDownToggle
   }
+}
+interface dropDown {
+  id?: string
+  name: string
 }

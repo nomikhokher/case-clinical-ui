@@ -4,13 +4,15 @@ import { DevMediaObjectStore } from './dev-media-object.store'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800">
-        <pre class="text-xs dark:text-gray-500">{{ vm.items | json }}</pre>
-      </div>
-      <code class="text-xs px-2 py-1 dark:bg-gray-800 rounded-md opacity-70">
-        Component: libs/web/dev/feature/src/lib/dev-media-object/dev-media-object.component.ts
-      </code>
-      <ui-preview [code]="codePreview[0]">
+      <ui-preview
+        [code]="codePreview[0]"
+        [title]="vm.config.headerTitle"
+        [githubURL]="vm.config.githubURL"
+        [directory]="vm.config.directory"
+        [breadcrumbs]="vm.config.breadcrumbs"
+        [component_outputs]="vm.config.component_outputs"
+        [component_inputs]="vm.config.component_inputs"
+      >
         <!-- you add vertical direction 'start' or 'center' or 'end' -->
         <!-- you add horizontal direction,  'left' or 'right' -->
         <ui-media-object icon="imageAvatar" [circle]="circle" verticalDirection="center" horizontalDirection="left">

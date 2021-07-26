@@ -1,7 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core'
 import { ArrayDataSource } from '@angular/cdk/collections'
 import { FlatTreeControl } from '@angular/cdk/tree'
-import { FlatNode } from '../../../../dev/feature/src/lib/dev-tree/model'
 @Component({
   selector: 'ui-tree',
   template: `
@@ -91,4 +90,11 @@ export class WebUiTreeComponent implements OnChanges {
     }
     return true
   }
+}
+
+interface FlatNode {
+  expandable: boolean
+  name: string
+  level: number
+  isExpanded?: boolean
 }

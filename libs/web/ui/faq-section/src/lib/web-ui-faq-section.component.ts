@@ -77,11 +77,12 @@ import { Component, ElementRef, Input } from '@angular/core'
   `,
 })
 export class WebUiFaqSectionComponent {
-  @Input() title
-  @Input() description
-  @Input() content
-  @Input() faqStyle
-  @Input() background
+  @Input() title?: string
+  @Input() description?: string
+  @Input() content?: Content[]
+  @Input() faqStyle: string
+  @Input() background?: string
+
   constructor(public elm: ElementRef) {}
 
   isActive(value: any): void {
@@ -99,4 +100,9 @@ export class WebUiFaqSectionComponent {
       this.elm.nativeElement.querySelector('.icon_' + value).classList.remove('rotate-180')
     }
   }
+}
+
+interface Content {
+  question?: string
+  answer?: string
 }

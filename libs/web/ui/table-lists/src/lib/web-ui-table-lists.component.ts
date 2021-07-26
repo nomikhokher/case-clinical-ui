@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core'
-import { Columns, Data } from '../../../../dev/feature/src/lib/dev-table-lists/model/table-lists-model'
 
 @Component({
   selector: 'ui-table-lists',
@@ -62,4 +61,19 @@ export class WebUiTableListsComponent {
   @Input() dataList: Data
   @Input() width?: string
   @Input() background?: string
+}
+
+interface Columns {
+  title?: string
+}
+interface Data {
+  title?: Title
+  jobTitle?: Title
+  role?: string
+  button?: string
+}
+
+interface Title {
+  title?: string
+  tagLine?: string
 }

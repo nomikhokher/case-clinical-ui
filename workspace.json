@@ -2596,6 +2596,28 @@
         }
       }
     },
+    "web-ui-testimonials": {
+      "projectType": "library",
+      "root": "libs/web/ui/testimonials",
+      "sourceRoot": "libs/web/ui/testimonials/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/testimonials/src/**/*.ts", "libs/web/ui/testimonials/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/testimonials"],
+          "options": {
+            "jestConfig": "libs/web/ui/testimonials/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-toast": {
       "projectType": "library",
       "root": "libs/web/ui/toast",
