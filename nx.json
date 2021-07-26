@@ -150,6 +150,9 @@
     "web-ui-badge": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-banners": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-breadcrumbs": {
       "tags": ["scope:web", "type:ui"]
     },

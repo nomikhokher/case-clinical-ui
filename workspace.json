@@ -995,6 +995,28 @@
         }
       }
     },
+    "web-ui-banners": {
+      "projectType": "library",
+      "root": "libs/web/ui/banners",
+      "sourceRoot": "libs/web/ui/banners/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/banners/src/**/*.ts", "libs/web/ui/banners/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/banners"],
+          "options": {
+            "jestConfig": "libs/web/ui/banners/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-breadcrumbs": {
       "projectType": "library",
       "root": "libs/web/ui/breadcrumbs",
