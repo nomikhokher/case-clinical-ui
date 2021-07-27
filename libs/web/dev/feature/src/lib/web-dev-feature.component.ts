@@ -48,6 +48,11 @@ export class WebDevFeatureComponent {
               route: 'testimonials',
               image: '/assets/images/testimonials.png',
             },
+            {
+              label: 'NewsLetter Sections',
+              route: 'newsletters',
+              image: '/assets/images/newsletter-sections.png',
+            },
           ],
         },
         {

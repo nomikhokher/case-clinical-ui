@@ -1871,6 +1871,28 @@
         }
       }
     },
+    "web-ui-newsletter": {
+      "projectType": "library",
+      "root": "libs/web/ui/newsletter",
+      "sourceRoot": "libs/web/ui/newsletter/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/newsletter/src/**/*.ts", "libs/web/ui/newsletter/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/newsletter"],
+          "options": {
+            "jestConfig": "libs/web/ui/newsletter/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-notification": {
       "projectType": "library",
       "root": "libs/web/ui/notification",

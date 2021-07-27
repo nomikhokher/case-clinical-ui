@@ -267,6 +267,9 @@
     "web-ui-navbars": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-newsletter": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-notification": {
       "tags": ["scope:web", "type:ui"]
     },
