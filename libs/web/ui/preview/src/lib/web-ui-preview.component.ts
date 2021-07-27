@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, OnInit, SimpleChange, SimpleChanges, ViewChild } from '@angular/core'
 import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
+import { ServiceCodepreview } from '../../../codepreview.service'
 
 enum DisplayMode {
   Preview,
@@ -239,10 +240,84 @@ export interface ComponentProp {
           </div>
         </div>
       </div>
+      <div class="flex flex-col mt-4">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Prop
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Data Type
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Value
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <tr *ngFor="let item of codeObj | keyvalue; let i = index">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ item.key }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ typeOf(item.value) }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <div>
+                        <div class="relative rounded-md shadow-sm">
+                          <input
+                            [id]="account_number + '_' + i"
+                            [value]="stringify(item.value)"
+                            type="text"
+                            name="account_number"
+                            id="account_number"
+                            class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pr-10 sm:text-sm border-gray-300 rounded-md"
+                            placeholder="Default Value"
+                            [ngModel]="stringify(item.value)"
+                            (ngModelChange)="modelChangeFn(item.key, $event)"
+                          />
+                          <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                            <button>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5 text-gray-400"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                                />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </ui-page>
   `,
 })
 export class WebUiPreviewComponent implements OnInit {
+  constructor(private readonly codePreview: ServiceCodepreview) {}
   DISPLAY_MODE: typeof DisplayMode = DisplayMode
 
   @Input() title?: string
@@ -255,6 +330,11 @@ export class WebUiPreviewComponent implements OnInit {
   @Input() breadcrumbs: Crumb[]
   @Input() githubURL?: string
 
+  @Input() codeObj
+  public keys: Array<any>
+  public values: Array<any>
+
+  public myVal = ''
   activeTab: DisplayMode = DisplayMode.Preview
   code_toggle = false
 
@@ -277,5 +357,42 @@ export class WebUiPreviewComponent implements OnInit {
   handleGithubClick() {
     if (!this.githubURL) return
     window.open(this.githubURL, '_blank')
+  }
+  debounce = {
+    interval: null,
+    wait: 500,
+    func: () => {},
+    __: function (f, w) {
+      if (this.interval) {
+        clearTimeout(this.interval)
+      }
+      this.wait = w
+      this.func = f
+      this.interval = setTimeout(this.func, this.wait)
+    },
+  }
+  typeOf(value: any) {
+    return (typeof value).toUpperCase()
+  }
+  stringify(value: any) {
+    if (typeof value === 'object') {
+      return JSON.stringify(value)
+    }
+    return value
+  }
+
+  public modelChangeFn(myKey, newValue) {
+    this.debounce.__(() => {
+      this.myVal = newValue
+      if (newValue == 'true' || newValue == 'false') {
+        newValue == 'true' ? (this.codeObj[myKey] = true) : (this.codeObj[myKey] = false)
+      } else if (typeof this.codeObj[myKey] === 'number') {
+        this.codeObj[myKey] = Number(this.myVal)
+      } else {
+        this.codeObj[myKey] = this.myVal
+      }
+      this.codePreview.codePreview$.next(this.codeObj)
+    }, 1000)
+    // newValue.preventDefault();
   }
 }

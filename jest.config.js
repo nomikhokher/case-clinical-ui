@@ -117,5 +117,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/pricing-plan',
     '<rootDir>/libs/web/ui/testimonials',
     '<rootDir>/libs/web/ui/banners',
+    '<rootDir>/libs/web/ui/newsletter',
   ],
 }

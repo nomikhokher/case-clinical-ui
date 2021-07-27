@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
+import { ServiceCodepreview } from 'libs/web/ui/codepreview.service'
 import { DataArray, Input } from './model'
 
 export interface Item {
@@ -14,6 +15,7 @@ interface DevAlertState {
   items?: Item
   loading?: boolean
   config?: Config
+  data?: DataArray
 }
 
 interface Config {
@@ -28,11 +30,11 @@ interface PreviewData {
   directory?: string
 }
 
-const data = {
+let data = {
   class: 'mb-4 mt-4',
   subject: 'Attention needed',
   message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-  bg_color: 'info',
+  bg_color: 'warning',
   icon: 'exclamation',
   icon_show: true,
   alignment: 'left',
@@ -69,14 +71,20 @@ const config = {
 
 @Injectable()
 export class DevAlertStore extends ComponentStore<DevAlertState> {
-  constructor(private readonly sdk: ApolloAngularSDK) {
-    super({ config })
+  constructor(private readonly sdk: ApolloAngularSDK, public readonly serviceData: ServiceCodepreview) {
+    super({ config, data })
     // this.loadItemsEffect()
+  }
+  ngOnInit(): void {
+    this.serviceData.codePreview$.subscribe((x) => {
+      this.data$ = x
+    })
   }
 
   readonly config$ = this.select(this.state$, (s) => s.config)
+  data$ = this.select(this.state$, (s) => s.data)
 
-  readonly vm$ = this.select(this.config$, (config) => ({ config }))
+  readonly vm$ = this.select(this.config$, this.data$, (config, data) => ({ config, data }))
 
   // readonly loadItemsEffect = this.effect(($) =>
   //   $.pipe(
