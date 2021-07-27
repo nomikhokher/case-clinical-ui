@@ -6,10 +6,21 @@ import { WebUiPreviewComponent } from './web-ui-preview.component'
 import { WebUiPageModule } from '@schema-driven/web/ui/page'
 import { WebUiIconModule } from '@schema-driven/web/ui/icon'
 import { WebUiButtonModule } from '@schema-driven/web/ui/button'
+import { FormsModule } from '@angular/forms'
+import { ServiceCodepreview } from '../../../codepreview.service'
 
 @NgModule({
-  imports: [CommonModule, RouterModule, WebUiCodeModule, WebUiPageModule, WebUiIconModule, WebUiButtonModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    WebUiCodeModule,
+    WebUiPageModule,
+    WebUiIconModule,
+    WebUiButtonModule,
+    FormsModule,
+  ],
   declarations: [WebUiPreviewComponent],
   exports: [WebUiPreviewComponent],
+  providers: [ServiceCodepreview],
 })
 export class WebUiPreviewModule {}
