@@ -53,6 +53,11 @@ export class WebDevFeatureComponent {
               route: 'newsletters',
               image: '/assets/images/newsletter-sections.png',
             },
+            {
+              label: 'Carousel',
+              route: 'carousel',
+              image: '/assets/images/newsletter-sections.png',
+            },
           ],
         },
         {
