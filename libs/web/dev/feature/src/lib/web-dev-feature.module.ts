@@ -66,6 +66,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-badge/dev-badge.module').then((m) => m.DevBadgeModule),
       },
       {
+        path: 'banners',
+        loadChildren: () => import('./dev-banners/dev-banners.module').then((m) => m.DevBannersModule),
+      },
+      {
         path: 'repeater',
         loadChildren: () => import('./dev-repeater/dev-repeater.module').then((m) => m.DevRepeaterModule),
       },
@@ -142,6 +146,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
       {
         path: 'testimonials',
         loadChildren: () => import('./dev-testimonials/dev-testimonials.module').then((m) => m.DevTestimonialsModule),
+      },
+      {
+        path: 'newsletters',
+        loadChildren: () => import('./dev-newsletter/dev-newsletter.module').then((m) => m.DevNewsletterModule),
       },
       { path: 'stats', loadChildren: () => import('./dev-stats/dev-stats.module').then((m) => m.DevStatsModule) },
       {

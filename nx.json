@@ -150,6 +150,9 @@
     "web-ui-badge": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-banners": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-breadcrumbs": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -262,6 +265,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-navbars": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-newsletter": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-notification": {

@@ -46,7 +46,12 @@ export class WebDevFeatureComponent {
             {
               label: 'Testimonials',
               route: 'testimonials',
-              image: '/assets/images/pricing-plan.png',
+              image: '/assets/images/testimonials.png',
+            },
+            {
+              label: 'NewsLetter Sections',
+              route: 'newsletters',
+              image: '/assets/images/newsletter-sections.png',
             },
           ],
         },
@@ -266,6 +271,11 @@ export class WebDevFeatureComponent {
               label: 'badge',
               route: 'badges',
               image: '/assets/images/badges.png',
+            },
+            {
+              label: 'Banner',
+              route: 'banners',
+              image: '/assets/images/banners.png',
             },
             {
               label: 'Buttons',

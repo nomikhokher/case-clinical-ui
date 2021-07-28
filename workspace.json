@@ -995,6 +995,28 @@
         }
       }
     },
+    "web-ui-banners": {
+      "projectType": "library",
+      "root": "libs/web/ui/banners",
+      "sourceRoot": "libs/web/ui/banners/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/banners/src/**/*.ts", "libs/web/ui/banners/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/banners"],
+          "options": {
+            "jestConfig": "libs/web/ui/banners/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-breadcrumbs": {
       "projectType": "library",
       "root": "libs/web/ui/breadcrumbs",
@@ -1844,6 +1866,28 @@
           "outputs": ["coverage/libs/web/ui/navbars"],
           "options": {
             "jestConfig": "libs/web/ui/navbars/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-newsletter": {
+      "projectType": "library",
+      "root": "libs/web/ui/newsletter",
+      "sourceRoot": "libs/web/ui/newsletter/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/newsletter/src/**/*.ts", "libs/web/ui/newsletter/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/newsletter"],
+          "options": {
+            "jestConfig": "libs/web/ui/newsletter/jest.config.js",
             "passWithNoTests": true
           }
         }
