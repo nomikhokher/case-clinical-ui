@@ -1105,6 +1105,28 @@
         }
       }
     },
+    "web-ui-carousel": {
+      "projectType": "library",
+      "root": "libs/web/ui/carousel",
+      "sourceRoot": "libs/web/ui/carousel/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/carousel/src/**/*.ts", "libs/web/ui/carousel/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/carousel"],
+          "options": {
+            "jestConfig": "libs/web/ui/carousel/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-checkbox-dropdown-button": {
       "projectType": "library",
       "root": "libs/web/ui/checkbox-dropdown-button",
