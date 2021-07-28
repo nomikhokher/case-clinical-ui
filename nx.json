@@ -222,6 +222,9 @@
     "web-ui-feed": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-footer": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-form": {
       "tags": ["scope:web", "type:ui"]
     },
