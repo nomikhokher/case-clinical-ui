@@ -151,6 +151,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: 'newsletters',
         loadChildren: () => import('./dev-newsletter/dev-newsletter.module').then((m) => m.DevNewsletterModule),
       },
+      {
+        path: 'carousel',
+        loadChildren: () => import('./dev-carousel/dev-carousel.module').then((m) => m.DevCarouselModule),
+      },
       { path: 'stats', loadChildren: () => import('./dev-stats/dev-stats.module').then((m) => m.DevStatsModule) },
       {
         path: 'description-list',
