@@ -139,13 +139,15 @@ export interface ComponentProp {
             </div>
           </div>
         </div>
-        <div [ngClass]="darkMode ? 'bg-gray-800' : ''" class="p-8 bg-gray-200 bg-opacity-70 sm:rounded-lg">
-          <ng-container *ngIf="activeTab === DISPLAY_MODE.Preview">
-            <ng-content></ng-content>
-          </ng-container>
-          <ng-container *ngIf="activeTab === DISPLAY_MODE.Code">
-            <ui-code [copyButton]="false" [code]="code" [language]="'json'"></ui-code>
-          </ng-container>
+        <div [ngClass]="darkMode ? 'dark' : ''" class="">
+          <div class="p-8 dark:bg-gray-600 bg-gray-200 bg-opacity-70 sm:rounded-lg">
+            <ng-container *ngIf="activeTab === DISPLAY_MODE.Preview">
+              <ng-content></ng-content>
+            </ng-container>
+            <ng-container *ngIf="activeTab === DISPLAY_MODE.Code">
+              <ui-code [copyButton]="false" [code]="code" [language]="'json'"></ui-code>
+            </ng-container>
+          </div>
         </div>
       </div>
 
