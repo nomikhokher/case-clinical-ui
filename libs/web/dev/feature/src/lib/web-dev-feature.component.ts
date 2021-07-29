@@ -83,6 +83,11 @@ export class WebDevFeatureComponent {
               route: 'faq-section',
               image: '/assets/images/faq-sections.png',
             },
+            {
+              label: 'Footer',
+              route: 'footer',
+              image: '/assets/images/footers.png',
+            },
           ],
         },
         {
