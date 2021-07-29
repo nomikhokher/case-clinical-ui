@@ -78,6 +78,7 @@
       "@schema-driven/web/ui/editor": ["libs/web/ui/editor/src/index.ts"],
       "@schema-driven/web/ui/faq-section": ["libs/web/ui/faq-section/src/index.ts"],
       "@schema-driven/web/ui/feed": ["libs/web/ui/feed/src/index.ts"],
+      "@schema-driven/web/ui/footer": ["libs/web/ui/footer/src/index.ts"],
       "@schema-driven/web/ui/form": ["libs/web/ui/form/src/index.ts"],
       "@schema-driven/web/ui/full-calendar": ["libs/web/ui/full-calendar/src/index.ts"],
       "@schema-driven/web/ui/grid-list": ["libs/web/ui/grid-list/src/index.ts"],
