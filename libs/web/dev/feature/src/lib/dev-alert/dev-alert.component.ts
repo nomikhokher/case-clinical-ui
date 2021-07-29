@@ -7,7 +7,7 @@ import { DevAlertStore } from './dev-alert.store'
     <ng-container *ngIf="vm$ | async as vm">
       <ui-preview
         [component_props]="[{ name: 'settings', value: {} }]"
-        [codeObj]=""
+        [codeObj]="vm.config.items.data"
         [code]="codePreview[0]"
         [title]="vm.config.previewData.header"
         [githubURL]="vm.config.previewData.githubURL"

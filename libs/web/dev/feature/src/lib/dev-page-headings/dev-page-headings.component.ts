@@ -12,13 +12,14 @@ import { DevPageHeadingsStore } from './dev-page-headings.store'
         [component_props]="[vm.componentProps]"
         [component_inputs]="vm.component_inputs"
         [code]="codePreview[0]"
+        [codeObj]="vm.items.config"
       >
         <ng-template #headerControls>
           <ng-container>
             <ui-button label="Gray" type="button" color="gray"></ui-button>
           </ng-container>
         </ng-template>
-        <div class="bg-white rounded-xl px-8 shadow">
+        <div class="bg-white rounded-xl px-8 dark:bg-gray-700 shadow">
           <ui-page-header
             [title]="vm.items.config.title"
             [meta]="vm.items.config.meta"

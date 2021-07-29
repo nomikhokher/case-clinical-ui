@@ -5,6 +5,10 @@ export enum UiIcon {
   dollar = 'dollar',
   euro = 'euro',
   github = 'github',
+  facebook = 'facebook',
+  instagram = 'instagram',
+  twitter = 'twitter',
+  dribbble = 'dribbble',
   key = 'key',
   menu = 'menu',
   minusCircle = 'minusCircle',
@@ -72,4 +76,6 @@ export enum UiIcon {
   clipboardCopy = 'clipboardCopy',
   clipboardList = 'clipboardList',
   attachment = 'attachment',
+  speakerphone = 'speakerphone',
+  x = 'x',
 }

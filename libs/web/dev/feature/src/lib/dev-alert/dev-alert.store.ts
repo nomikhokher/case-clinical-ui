@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
+import { ServiceCodepreview } from 'libs/web/ui/codepreview.service'
 import { DataArray, Input } from './model'
+import { UiIcon } from '@schema-driven/web/ui/icon'
 
 export interface Item {
   id?: string
@@ -14,6 +16,7 @@ interface DevAlertState {
   items?: Item
   loading?: boolean
   config?: Config
+  data?: DataArray
 }
 
 interface Config {
@@ -28,16 +31,16 @@ interface PreviewData {
   directory?: string
 }
 
-const data = {
+let data = {
   class: 'mb-4 mt-4',
   subject: 'Attention needed',
   message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-  bg_color: 'info',
+  bg_color: 'warning',
   icon: 'exclamation',
   icon_show: true,
   alignment: 'left',
 }
-
+let icons = Object.values(UiIcon)
 const config = {
   previewData: {
     header: 'Alerts',
@@ -51,32 +54,46 @@ const config = {
   items: {
     data: data,
     component_inputs: [
-      { label: 'Class', prop: '[class]', description: 'Used for margin and padding', dataType: 'String' },
-      { label: 'Subject', prop: '[subject]', description: `Shows the main heading of Alert`, dataType: 'String' },
-      { label: 'Message', prop: '[message]', description: 'Shows the message of Alert', dataType: 'String' },
+      {
+        label: 'Position',
+        prop: '[alignment]',
+        description: `Adjust the position of Alert`,
+        dataType: 'String',
+        type: ['left', 'center', 'right'],
+      },
       {
         label: 'Color',
         prop: '[bg_color]',
         description: `Adjust Alert's background and text color`,
         dataType: 'String',
+        type: ['success', 'danger', 'info', 'warning'],
       },
-      { label: 'Icon', prop: '[icon]', description: `Change the icon`, dataType: 'String' },
-      { label: 'Display Icon', prop: '[icon_show]', description: `Display or Hide the icon`, dataType: 'Boolean' },
-      { label: 'Position', prop: '[alignment]', description: `Adjust the position of Alert`, dataType: 'String' },
+      { label: 'Class', prop: '[class]', description: 'Used for margin and padding', dataType: 'String' },
+      { label: 'Icon', prop: '[icon]', description: `Change the icon`, dataType: 'String', type: icons },
+      {
+        label: 'Display Icon',
+        prop: '[icon_show]',
+        description: `Display or Hide the icon`,
+        dataType: 'Boolean',
+        type: ['true', 'false'],
+      },
+      { label: 'Message', prop: '[message]', description: 'Shows the message of Alert', dataType: 'String' },
+      { label: 'Subject', prop: '[subject]', description: `Shows the main heading of Alert`, dataType: 'String' },
     ],
   },
 }
 
 @Injectable()
 export class DevAlertStore extends ComponentStore<DevAlertState> {
-  constructor(private readonly sdk: ApolloAngularSDK) {
-    super({ config })
+  constructor(private readonly sdk: ApolloAngularSDK, public readonly serviceData: ServiceCodepreview) {
+    super({ config, data })
     // this.loadItemsEffect()
   }
 
   readonly config$ = this.select(this.state$, (s) => s.config)
+  data$ = this.select(this.state$, (s) => s.data)
 
-  readonly vm$ = this.select(this.config$, (config) => ({ config }))
+  readonly vm$ = this.select(this.config$, this.data$, (config, data) => ({ config, data }))
 
   // readonly loadItemsEffect = this.effect(($) =>
   //   $.pipe(
