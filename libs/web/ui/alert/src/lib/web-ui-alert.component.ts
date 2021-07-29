@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, SimpleChanges } from '@angular/core'
 
 @Component({
   selector: 'ui-alert',
@@ -17,7 +17,12 @@ import { Component, Input } from '@angular/core'
           'justify-end': content_align == 'right'
         }"
       >
-        <ui-icon *ngIf="icon_show" size="lg" [icon]="icon" class="h-5 w-5 ml-3 {{ _svg_text_color() }}"></ui-icon>
+        <ui-icon
+          *ngIf="icon_show == 'true' || icon_show == true"
+          size="lg"
+          [icon]="icon"
+          class="h-5 w-5 ml-3 {{ _svg_text_color() }}"
+        ></ui-icon>
         <div class="ml-1">
           <h3
             *ngIf="subject"
@@ -93,7 +98,6 @@ export class WebUiAlertComponent {
   ngOnInit() {
     this.show = this.show === undefined ? true : false
     this.dismiss = this.dismiss === undefined ? false : true
-    this.icon_show = this.icon_show === undefined ? false : true
   }
   __class() {
     return this.class

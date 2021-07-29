@@ -15,7 +15,7 @@ export interface Item {
   mode?: string
   payload?: string
   size?: number
-  radius?: string
+  radius?: string | Array<string>
   badge?: Badge
 }
 export interface Badge {
@@ -27,4 +27,6 @@ export interface Inputs {
   prop?: string
   description?: string
   dataType?: string
+  type?: Array<string | object>
+  typeObj?
 }
