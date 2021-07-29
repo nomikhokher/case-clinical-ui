@@ -45,38 +45,32 @@ export class DevPageHeadingsStore extends ComponentStore<DevPageHeadingsState> {
             { label: 'Remote', icon: 'locationMarker' },
             { label: '$120k – $140k', icon: 'currencyDollar' },
           ],
-          controls: [
-            {
-              icon: 'chevronDown',
-              text: 'More',
-              color: 'gray',
-            },
-            {
-              icon: 'link',
-              text: 'View',
-              color: 'gray',
-            },
-            {
-              icon: 'pencil',
-              text: 'Edit',
-              color: 'gray',
-            },
-            {
-              icon: 'check',
-              text: 'Publish',
-              color: 'indigo',
-            },
-          ],
+          // controls: [
+          //   {
+          //     icon: 'chevronDown',
+          //     text: 'More',
+          //     color: 'gray',
+          //   },
+          //   {
+          //     icon: 'link',
+          //     text: 'View',
+          //     color: 'gray',
+          //   },
+          //   {
+          //     icon: 'pencil',
+          //     text: 'Edit',
+          //     color: 'gray',
+          //   },
+          //   {
+          //     icon: 'check',
+          //     text: 'Publish',
+          //     color: 'indigo',
+          //   },
+          // ],
         },
       },
 
       component_inputs: [
-        {
-          label: 'Title',
-          prop: '[title]',
-          description: 'Title of the header',
-          dataType: 'String',
-        },
         {
           label: 'Data',
           prop: '[meta]',
@@ -84,11 +78,18 @@ export class DevPageHeadingsStore extends ComponentStore<DevPageHeadingsState> {
           dataType: 'Array',
         },
         {
-          label: 'Controls',
-          prop: '[controls]',
-          description: 'Show the controls of header',
-          dataType: 'Array',
+          label: 'Title',
+          prop: '[title]',
+          description: 'Title of the header',
+          dataType: 'String',
+          // type : ['Exanple', "Another", 'example']
         },
+        // {
+        //   label: 'Controls',
+        //   prop: '[controls]',
+        //   description: 'Show the controls of header',
+        //   dataType: 'Array',
+        // },
       ],
     })
     // this.loadItemsEffect()
