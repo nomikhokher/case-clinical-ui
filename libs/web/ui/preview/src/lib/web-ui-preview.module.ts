@@ -8,6 +8,7 @@ import { WebUiIconModule } from '@schema-driven/web/ui/icon'
 import { WebUiButtonModule } from '@schema-driven/web/ui/button'
 import { FormsModule } from '@angular/forms'
 import { ServiceCodepreview } from '../../../codepreview.service'
+import { WebUiToggleSwitchButtonModule } from '@schema-driven/web/ui/toggle-switch-button'
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
     WebUiIconModule,
     WebUiButtonModule,
     FormsModule,
+    WebUiToggleSwitchButtonModule,
   ],
   declarations: [WebUiPreviewComponent],
   exports: [WebUiPreviewComponent],

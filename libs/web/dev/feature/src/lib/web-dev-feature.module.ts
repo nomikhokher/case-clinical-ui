@@ -265,6 +265,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: 'faq-section',
         loadChildren: () => import('./dev-faq-section/dev-faq-section.module').then((m) => m.DevFaqSectionModule),
       },
+      {
+        path: 'footer',
+        loadChildren: () => import('./dev-footer/dev-footer.module').then((m) => m.DevFooterModule),
+      },
     ]),
     WebUiMainPageModule,
   ],
