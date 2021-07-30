@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core'
   selector: 'ui-testimonials',
   template: `
     <ng-contianer *ngFor="let info of data; let i = index">
-      <section class="py-12 bg-gray-50 overflow-hidden md:py-20 lg:py-24" *ngIf="active == i">
+      <section class="py-12 bg-gray-50 dark:bg-gray-800 overflow-hidden md:py-20 lg:py-24" *ngIf="active == i">
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <svg
             class="absolute top-full right-full transform translate-x-1/3 -translate-y-1/4 lg:translate-x-1/2 xl:-translate-y-1/2"
@@ -38,7 +38,9 @@ import { Component, Input } from '@angular/core'
               alt="Workcation"
             />
             <blockquote class="mt-10">
-              <div class="max-w-3xl mx-auto text-center text-2xl leading-9 font-medium text-gray-900">
+              <div
+                class="max-w-3xl mx-auto text-center text-2xl leading-9 font-medium text-gray-900 dark:text-gray-100"
+              >
                 <p>
                   {{ info.message }}
                 </p>
@@ -49,7 +51,7 @@ import { Component, Input } from '@angular/core'
                     <img class="mx-auto h-10 w-10 rounded-full" src="{{ info.img }}" alt="" />
                   </div>
                   <div class="mt-3 text-center md:mt-0 md:ml-4 md:flex md:items-center">
-                    <div class="text-base font-medium text-gray-900">{{ info.title }}</div>
+                    <div class="text-base font-medium text-gray-900 dark:text-gray-100">{{ info.title }}</div>
 
                     <svg class="hidden md:block mx-1 h-5 w-5 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M11 0h3L9 20H6l5-20z" />
@@ -72,8 +74,6 @@ export class WebUiTestimonialsComponent {
   active: number = 0
 
   ngOnInit() {
-    console.log(this.data)
-
     setInterval(() => {
       if (this.data.length - 1 != this.active) {
         this.active++
@@ -85,7 +85,6 @@ export class WebUiTestimonialsComponent {
   }
 
   activeTestimonial(act) {
-    console.log(act)
     return (this.active = act)
   }
 }

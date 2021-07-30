@@ -6,10 +6,7 @@ import { Component, Input } from '@angular/core'
     <div>
       <dl class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         <div
-          class="relative bg-white pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow overflow-hidden md:rounded-lg"
-          [ngClass]="
-            stats.border_none === 'first' ? 'rounded-l' : stats.border_none === 'last' ? 'rounded-r' : 'rounded-lg'
-          "
+          class="relative bg-white dark:bg-gray-800 border pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow overflow-hidden md:rounded-lg"
         >
           <dt>
             <ng-container *ngIf="stats.icon">
@@ -17,13 +14,13 @@ import { Component, Input } from '@angular/core'
                 <ui-icon class="text-white h-5 w-5" [icon]="stats.icon"></ui-icon>
               </div>
             </ng-container>
-            <p class="text-sm font-medium text-gray-500 truncate" [ngClass]="stats.icon && 'ml-16'">
+            <p class="text-sm font-medium text-gray-500 dark:text-gray-300 truncate" [ngClass]="stats.icon && 'ml-16'">
               {{ stats.title }}
             </p>
           </dt>
           <dd class="pb-6 flex items-baseline" [ngClass]="stats.icon ? 'ml-16 sm:pb-7' : 'mt-1 text-3xl font-semibold'">
-            <p class="text-2xl font-semibold text-gray-900">{{ stats.values.current }}</p>
-            <p class="ml-2 flex items-baseline text-sm font-semibold">
+            <p class="text-2xl font-semibold text-gray-900 dark:text-gray-100">{{ stats.values.current }}</p>
+            <p class="ml-2 flex items-baseline text-sm font-semibold dark:text-gray-100">
               <!-- Heroicon name: solid/arrow-sm-up -->
               <svg
                 class="self-center flex-shrink-0 h-5 w-5"
