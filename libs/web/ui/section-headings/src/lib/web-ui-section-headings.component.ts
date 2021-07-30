@@ -3,16 +3,16 @@ import { Component, Input } from '@angular/core'
 @Component({
   selector: 'ui-section-headings',
   template: `
-    <div class="relative pb-5 border-b border-gray-200 sm:pb-0">
+    <div class="relative pb-5 border-b border-gray-200 sm:pb-0 dark:bg-gray-800">
       <div class="md:flex md:items-center md:justify-right space-x-3">
         <div *ngIf="image">
           <img class="h-16 w-16 rounded-full" src="{{ image }}" alt="Invalid URL" />
         </div>
         <div>
-          <h3 class="text-lg leading-6 font-medium text-gray-900">
+          <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">
             {{ title }}
           </h3>
-          <p class="mt-2 max-w-4xl text-sm text-gray-500" *ngIf="description">{{ description }}</p>
+          <p class="mt-2 max-w-4xl text-sm text-gray-500 dark:text-gray-300" *ngIf="description">{{ description }}</p>
         </div>
         <div class="mt-3 flex md:mt-0 md:absolute md:top-3 md:right-0" *ngIf="buttons">
           <button
@@ -21,9 +21,9 @@ import { Component, Input } from '@angular/core'
             [ngClass]="i == 0 ? '' : 'ml-2'"
             class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-{{
               button.fontColor
-            }} bg-{{ button.color }} hover:bg-{{
-              button.hoverColor
-            }} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            }} bg-{{ button.color }} hover:bg-{{ button.hoverColor }} dark:text-{{
+              button.fontColor
+            }}-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             {{ button.text }}
           </button>
@@ -53,7 +53,7 @@ import { Component, Input } from '@angular/core'
               [ngClass]="
                 tab.active == true
                   ? 'border-indigo-500 text-indigo-600'
-                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                  : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 hover:border-gray-300'
               "
               class="whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm"
             >

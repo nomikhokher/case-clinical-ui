@@ -140,9 +140,36 @@ export interface ComponentProp {
           </div>
         </div>
         <div [ngClass]="darkMode ? 'dark' : ''" class="">
+          <p
+            *ngIf="activeTab === DISPLAY_MODE.Preview"
+            class="float-right font-mono h-3 mr-8 dark:text-white text-gray-500"
+          >
+            {{ current_container_width }} x {{ current_container_height }}
+          </p>
           <div class="p-8 dark:bg-gray-600 bg-gray-200 bg-opacity-70 sm:rounded-lg">
             <ng-container *ngIf="activeTab === DISPLAY_MODE.Preview">
-              <ng-content></ng-content>
+              <div class="relative">
+                <div
+                  #dragger
+                  (mousedown)="dragger_init($event)"
+                  class="relative sr-only sm:not-sr-only sm:border-l border-gray-200 dark:border-gray-500 bg-gray-200 dark:bg-gray-500 sm:absolute sm:inset-y-0 sm:flex sm:items-center sm:w-4"
+                  [style]="'cursor: ew-resize; right : 0px'"
+                >
+                  <div class="absolute right-0"></div>
+                  <svg
+                    class="h-4 w-4 text-gray-600 dark:text-gray-200 pointer-events-none"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5h2v14H8zM14 5h2v14h-2z"></path>
+                  </svg>
+                </div>
+                <div class="p-8 bg-white dark:bg-gray-800" #container>
+                  <div class="max-w-7xl mx-auto" #child_dom>
+                    <ng-content></ng-content>
+                  </div>
+                </div>
+              </div>
             </ng-container>
             <ng-container *ngIf="activeTab === DISPLAY_MODE.Code">
               <ui-code [copyButton]="false" [code]="code" [language]="'json'"></ui-code>
@@ -152,13 +179,115 @@ export interface ComponentProp {
       </div>
 
       <div *ngIf="component_inputs?.length > 0" class="flex flex-col my-10">
-        <div class="-my-2 overflow-x-auto">
+        <div class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg overflow-x-auto">
+          <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 overflow-x-auto">
+            <thead class="bg-white dark:bg-gray-800">
+              <tr>
+                <th
+                  scope="col"
+                  class="px-3 py-3 relative text-center text-xs font-medium text-indigo-700 dark:text-gray-400 uppercase tracking-wider"
+                >
+                  <svg
+                    *ngIf="secondBody"
+                    (click)="tableToggler('toggle')"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 cursor-pointer mx-3 my-2 hover:text-gray-500 absolute left-0 top-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                  </svg>
+                  Play Ground
+                </th>
+              </tr>
+            </thead>
+            <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700" *ngIf="firstBody">
+              <tr *ngFor="let item of codeObj | keyvalue; let i = index">
+                <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-700 dark:text-gray-200 ">
+                  <div class="flex rounded-md shadow-sm">
+                    <div class="w-full relative" *ngIf="input_enabled(item)">
+                      <input
+                        [id]="account_number + '_' + i"
+                        [value]="stringify(item.value)"
+                        type="text"
+                        name="account_number"
+                        id="account_number"
+                        class="focus:ring-indigo-500 focus:border-indigo-500 w-full block sm:text-sm border-gray-300 rounded-md"
+                        placeholder="Default Value"
+                        [ngModel]="stringify(item.value)"
+                        (ngModelChange)="modelChangeFn(item.key, $event)"
+                      />
+                      <span
+                        class="absolute right-0 top-2 cursor-pointer text-gray-400 hover:text-gray-800"
+                        *ngIf="input_icon(item)"
+                      >
+                        <svg
+                          (click)="tableToggler(select_options(item))"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </span>
+                    </div>
+
+                    <div class=" w-full" *ngIf="!input_enabled(item)">
+                      <select
+                        (change)="selectChange(item.key, $event.target.value)"
+                        class="rounded-lg border-gray-400 w-full"
+                      >
+                        <option class="rounded" *ngFor="let i of select_options(item)" [selected]="i === item.value">
+                          {{ i }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            <tbody
+              class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700 w-full"
+              *ngIf="secondBody"
+            >
+              <tr class="my-2 text-center w-full space-y-2" *ngFor="let item of tableData; let i = index">
+                <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-700 dark:text-gray-200">
+                  <div *ngIf="!input_second_enabled(item)">
+                    <select
+                      class="rounded-lg border-gray-400 w-full"
+                      (change)="selectObjChange(item, $event.target.value)"
+                    >
+                      <option *ngFor="let val of object_first_value(item)">{{ val }}</option>
+                    </select>
+                  </div>
+                  <div *ngIf="input_second_enabled(item)">
+                    <input
+                      [id]="'secondBody_' + i"
+                      [value]="stringify_value(item)"
+                      type="text"
+                      name="account_number"
+                      id="account_number"
+                      class="focus:ring-indigo-500  focus:border-indigo-500 w-full block sm:text-sm border-gray-300 rounded-md"
+                      placeholder="Default Value"
+                      [ngModel]="stringify_value(item)"
+                      (ngModelChange)="selectObjChange(item, $event)"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="my-2 overflow-x-auto">
           <div class="pb-2">
-            <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">Inputs</h3>
+            <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100 mt-3 ml-3">Inputs</h3>
           </div>
-          <div class="py-2 align-middle grid grid-cols-4 gap-3">
-            <div class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg col-span-2">
-              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+          <div class="py-2 align-middle">
+            <div class="shadow border-b border-gray-200 dark:border-gray-700 sm:rounded-lg overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 ">
                 <thead class="bg-white dark:bg-gray-800">
                   <tr>
                     <th
@@ -209,94 +338,6 @@ export interface ComponentProp {
                 </tbody>
               </table>
             </div>
-            <div class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg col-span-2">
-              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                <thead class="bg-white dark:bg-gray-800">
-                  <tr>
-                    <th
-                      scope="col"
-                      class="px-3 py-3 relative text-center text-xs font-medium text-indigo-700 dark:text-gray-400 uppercase tracking-wider"
-                    >
-                      <svg
-                        *ngIf="secondBody"
-                        (click)="tableToggler('toggle')"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6 cursor-pointer mx-3 my-2 hover:text-gray-500 absolute left-0 top-0"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                      </svg>
-                      Play Ground
-                    </th>
-                  </tr>
-                </thead>
-                <tbody
-                  class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700"
-                  *ngIf="firstBody"
-                >
-                  <tr *ngFor="let item of codeObj | keyvalue; let i = index">
-                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-700 dark:text-gray-200 ">
-                      <div class="flex rounded-md shadow-sm">
-                        <div class="w-full relative" *ngIf="input_enabled(item)">
-                          <input
-                            [id]="account_number + '_' + i"
-                            [value]="stringify(item.value)"
-                            type="text"
-                            name="account_number"
-                            id="account_number"
-                            class="focus:ring-indigo-500 focus:border-indigo-500 w-full block sm:text-sm border-gray-300 rounded-md"
-                            placeholder="Default Value"
-                            [ngModel]="stringify(item.value)"
-                            (ngModelChange)="modelChangeFn(item.key, $event)"
-                          />
-                          <span class="absolute right-0 top-2 cursor-pointer text-gray-400 hover:text-gray-800">
-                            <svg
-                              (click)="tableToggler(select_options(item))"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-6 w-6"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                          </span>
-                        </div>
-
-                        <div class=" w-full" *ngIf="!input_enabled(item)">
-                          <select
-                            (change)="selectChange(item.key, $event.target.value)"
-                            class="rounded-lg border-gray-400 w-full"
-                          >
-                            <option
-                              class="rounded"
-                              *ngFor="let i of select_options(item)"
-                              [selected]="i === item.value"
-                            >
-                              {{ i }}
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-                <tbody *ngIf="secondBody">
-                  <div>
-                    <div class="my-2 text-center" *ngFor="let item of tableData; let i = index">
-                      <select
-                        class="rounded-lg border-gray-400 w-11/12"
-                        (change)="selectObjChange(item, $event.target.value)"
-                      >
-                        <option *ngFor="let val of object_first_value(item)">{{ val }}</option>
-                      </select>
-                    </div>
-                  </div>
-                </tbody>
-              </table>
-            </div>
           </div>
         </div>
       </div>
@@ -306,8 +347,8 @@ export interface ComponentProp {
             <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">Outputs</h3>
           </div>
           <div class="py-2 align-middle inline-block min-w-full">
-            <div class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg">
-              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+            <div class="shadow border-b border-gray-200 dark:border-gray-700 sm:rounded-lg">
+              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 overflow-x-auto">
                 <thead class="bg-white dark:bg-gray-800">
                   <tr>
                     <th
@@ -382,6 +423,10 @@ export class WebUiPreviewComponent implements OnInit {
   public keys: Array<any>
   public values: Array<any>
 
+  @ViewChild('child_dom') child_dom: ElementRef
+  @ViewChild('dragger') dragger: ElementRef
+  @ViewChild('container') container: ElementRef
+
   public myVal = ''
   public objectKeys: string
   public darkMode: boolean = false
@@ -390,8 +435,87 @@ export class WebUiPreviewComponent implements OnInit {
   firstBody = true
   secondBody = false
 
+  public isResizing = false
+  public lastDownX = 0
+  public draggerDownX = null
+  public containerWidth = null
+
+  public current_container_width = 0
+  public current_container_height = 0
+
   get directoryMeta() {
     return [{ icon: 'folder', label: this.directory }]
+  }
+
+  dragger_init(e) {
+    this.isResizing = true
+    this.startDrag(e)
+    this.lastDownX = e.clientX
+    if (this.draggerDownX === null) {
+      this.draggerDownX = e.clientX
+    }
+  }
+  ngAfterViewInit() {
+    document.addEventListener('mousemove', (e) => {
+      this.current_container_width = this.container.nativeElement.offsetWidth - this.dragger.nativeElement.offsetWidth
+      this.current_container_height = this.container.nativeElement.offsetHeight
+      if (!this.isResizing) {
+        return
+      }
+      if (this.containerWidth === null) {
+        this.containerWidth = this.container.nativeElement.offsetWidth - this.dragger.nativeElement.offsetWidth
+      }
+      let change = this.draggerDownX - e.clientX
+      if (change > 0 && change < this.containerWidth - 300) {
+        this.dragger.nativeElement.style.right = change.toString() + 'px'
+        this.container.nativeElement.style.width = (this.containerWidth - change).toString() + 'px'
+      }
+    })
+    document.addEventListener('mouseup', () => {
+      this.isResizing = false
+    })
+  }
+
+  disableSelect(event) {
+    if (window['is_drag']) {
+      event.preventDefault()
+    }
+  }
+
+  startDrag(event) {
+    window['is_drag'] = true
+    window.addEventListener('mouseup', this.onDragEnd)
+    window.addEventListener('selectstart', this.disableSelect)
+    // ... my other code
+  }
+
+  onDragEnd() {
+    window['is_drag'] = false
+    window.removeEventListener('mouseup', this.onDragEnd)
+    window.removeEventListener('selectstart', this.disableSelect)
+    // ... my other code
+  }
+
+  ngAfterViewChecked() {
+    /* 
+     document.addEventListener('mousemove', (e) => {
+        if (!this.isResizing) {
+          return
+        }
+        if (this.containerWidth === null) {
+          this.containerWidth = this.container.nativeElement.offsetWidth - this.dragger.nativeElement.offsetWidth
+        }
+        let change = this.draggerDownX - e.clientX
+        if (change > 0 && change < this.containerWidth - 300) {
+          this.dragger.nativeElement.style.right = change.toString() + 'px'
+          this.container.nativeElement.style.width = (this.containerWidth - change).toString() + 'px'
+        }
+      })
+  
+      document.addEventListener('mouseup', () => {
+        this.isResizing = false
+      })
+      */
   }
 
   ngOnInit() {
@@ -401,6 +525,14 @@ export class WebUiPreviewComponent implements OnInit {
   input_enabled(item) {
     let inputs = this.component_inputs.find((r) => r.prop.slice(1, -1) === item.key)
     return inputs.type == undefined ? true : false
+  }
+  input_second_enabled(item) {
+    let key = Object.keys(item)
+    let keyObj = key[0]
+    if (typeof item[keyObj] === 'string') {
+      return true
+    }
+    return false
   }
   select_options(item) {
     let inputs = this.component_inputs.find((r) => r.prop.slice(1, -1) === item.key)
@@ -490,5 +622,15 @@ export class WebUiPreviewComponent implements OnInit {
   }
   onDarkMode() {
     this.darkMode = !this.darkMode
+  }
+  stringify_value(item) {
+    let val = Object.values(item)
+    return val[0]
+  }
+  input_icon(item) {
+    if (typeof item.value === 'object') {
+      return true
+    }
+    return false
   }
 }

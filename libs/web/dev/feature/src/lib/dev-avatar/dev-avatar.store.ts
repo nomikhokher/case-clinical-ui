@@ -37,10 +37,7 @@ const config: Configs = {
       prop: '[badge]',
       description: 'Shows the badge on Avatar',
       dataType: 'Object',
-      typeObj: [
-        { color: ['yellow', 'gray', 'red', 'green', 'blue', 'purple', 'indigo'] },
-        { position: ['bottom-left', 'bottom-right', 'top-left', 'top-right'] },
-      ],
+      typeObj: [{ position: ['bottom-left', 'bottom-right', 'top-left', 'top-right'] }, { color: 'gray' }],
     },
     {
       label: 'Mode',

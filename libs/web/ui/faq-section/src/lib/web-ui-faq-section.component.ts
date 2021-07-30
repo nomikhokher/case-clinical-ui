@@ -3,7 +3,7 @@ import { Component, ElementRef, Input } from '@angular/core'
 @Component({
   selector: 'ui-faq-section',
   template: `
-    <div class="bg-{{ background ? background : 'gray' }}-{{ background == 'gray' ? 100 : 200 }}">
+    <div class="bg-{{ background ? background : 'gray' }}-{{ background == 'gray' ? 100 : 200 }} dark:bg-gray-800">
       <div
         class=""
         [ngClass]="
@@ -14,10 +14,13 @@ import { Component, ElementRef, Input } from '@angular/core'
       >
         <div class="" [ngClass]="faqStyle == 'sideByside' ? '' : 'max-w-3xl mx-auto divide-y-2 divide-gray-200'">
           <div class="" [ngClass]="faqStyle == 'sideByside' ? '' : 'max-w-2xl lg:mx-auto lg:text-center'">
-            <h2 *ngIf="title" class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            <h2
+              *ngIf="title"
+              class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl"
+            >
               {{ title }}
             </h2>
-            <p *ngIf="description" class="mt-4 text-gray-500">{{ description }}</p>
+            <p *ngIf="description" class="mt-4 text-gray-500 dark:text-gray-400">{{ description }}</p>
           </div>
           <div class="mt-6 space-y-6 divide-y divide-gray-200" *ngIf="faqStyle == 'hidden' || faqStyle == 'show'">
             <dl *ngFor="let item of content; let i = index">
@@ -31,7 +34,7 @@ import { Component, ElementRef, Input } from '@angular/core'
                     aria-controls="faq-0"
                     aria-expanded="false"
                   >
-                    <span class="font-medium text-gray-900">
+                    <span class="font-medium text-gray-900 dark:text-gray-100">
                       {{ item.question }}
                     </span>
                     <span class="ml-6 h-7 flex items-center" *ngIf="faqStyle == 'hidden'">
@@ -49,7 +52,7 @@ import { Component, ElementRef, Input } from '@angular/core'
                   </button>
                 </dt>
                 <dd class="mt-2 pr-12 class_{{ i }}" [ngClass]="{ hidden: faqStyle == 'hidden' }" id="faq-0">
-                  <p class="text-base text-gray-500">
+                  <p class="text-base text-gray-500 dark:text-gray-400">
                     {{ item.answer }}
                   </p>
                 </dd>
@@ -60,7 +63,7 @@ import { Component, ElementRef, Input } from '@angular/core'
           <div class="mt-8" *ngIf="faqStyle == 'sideByside'">
             <dl class="divide-y divide-gray-200" *ngFor="let item of content; let i = index">
               <div class="pt-6 pb-8 md:grid md:grid-cols-12 md:gap-8">
-                <dt class="text-base font-medium text-gray-900 md:col-span-5">
+                <dt class="text-base font-medium text-gray-900 dark:text-gray-100 md:col-span-5">
                   {{ item.question }}
                 </dt>
                 <dd class="mt-2 md:mt-0 md:col-span-7">
