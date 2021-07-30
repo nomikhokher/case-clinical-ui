@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core'
 @Component({
   selector: 'ui-newsletter',
   template: `
-    <div class="bg-white">
+    <div class="bg-white dark:bg-gray-800">
       <div class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:py-16 lg:px-8">
         <div class="py-10 px-6 bg-{{ bgColor }}-700 rounded-3xl sm:py-16 sm:px-12 lg:p-20 lg:flex lg:items-center">
           <div class="lg:w-0 lg:flex-1">
