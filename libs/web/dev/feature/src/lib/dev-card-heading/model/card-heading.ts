@@ -16,6 +16,8 @@ export interface Input {
   prop?: string
   description?: string
   dataType?: string
+  type?
+  typeObj?
 }
 export interface Output {
   label?: string

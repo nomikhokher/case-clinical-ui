@@ -3,6 +3,7 @@ import { ComponentStore } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
 import { Button, ProfileLink, Input, Output } from './model'
+import { UiIcon } from '@schema-driven/web/ui/icon'
 
 export interface Item {
   id?: string
@@ -23,6 +24,8 @@ interface DevCardHeadingState {
   component_outputs?: Output[]
 }
 
+let icon = Object.values(UiIcon)
+
 @Injectable()
 export class DevCardHeadingStore extends ComponentStore<DevCardHeadingState> {
   constructor(private readonly sdk: ApolloAngularSDK) {
@@ -40,13 +43,13 @@ export class DevCardHeadingStore extends ComponentStore<DevCardHeadingState> {
             text: 'Phone',
             color: 'white',
             icon: 'phone',
-            fontColor: 'gray-700',
+            fontColor: 'gray',
           },
           {
             text: 'Email',
             color: 'white',
             icon: 'email',
-            fontColor: 'gray-700',
+            fontColor: 'gray',
           },
         ],
 
@@ -62,7 +65,7 @@ export class DevCardHeadingStore extends ComponentStore<DevCardHeadingState> {
       component_inputs: [
         {
           label: 'Buttons',
-          prop: '[button]',
+          prop: '[buttons]',
           description: `This object takes button's name, color and icon values and display it.`,
           dataType: 'Object',
         },
@@ -71,12 +74,25 @@ export class DevCardHeadingStore extends ComponentStore<DevCardHeadingState> {
           prop: '[profile]',
           description: 'This object takes profile details and shows it.',
           dataType: 'Object',
+          typeObj: [
+            { title: ['Ton Cook', 'Judith Black', 'Joseph Rodriguez'] },
+            {
+              image: [
+                'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+                'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+              ],
+            },
+            { icon: icon },
+            { tagLine: ['@tom_cook', '@judith_black', '@joseph_rodriguez'] },
+          ],
         },
         {
           label: 'Section Toggle',
           prop: '[sectionToggle]',
           description: 'Change the position of button and profile',
           dataType: 'Boolean',
+          type: [false, true],
         },
       ],
       component_outputs: [
