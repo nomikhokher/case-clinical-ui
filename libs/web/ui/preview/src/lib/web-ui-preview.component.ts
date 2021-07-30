@@ -142,7 +142,24 @@ export interface ComponentProp {
         <div [ngClass]="darkMode ? 'dark' : ''" class="">
           <div class="p-8 dark:bg-gray-600 bg-gray-200 bg-opacity-70 sm:rounded-lg">
             <ng-container *ngIf="activeTab === DISPLAY_MODE.Preview">
-              <ng-content></ng-content>
+              <div class="relative">
+                <div
+                  #dragger
+                  (mousedown)="dragger_init($event)"
+                  class="relative sr-only sm:not-sr-only sm:border-l sm:bg-gray-100 sm:absolute sm:inset-y-0 sm:flex sm:items-center sm:w-4"
+                  [style]="'cursor: ew-resize; right : 0px'"
+                >
+                  <div class="absolute right-0"></div>
+                  <svg class="h-4 w-4 text-gray-600 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5h2v14H8zM14 5h2v14h-2z"></path>
+                  </svg>
+                </div>
+                <div class="p-8 bg-white dark:bg-gray-800" #container>
+                  <div class="max-w-7xl mx-auto" #child_dom>
+                    <ng-content></ng-content>
+                  </div>
+                </div>
+              </div>
             </ng-container>
             <ng-container *ngIf="activeTab === DISPLAY_MODE.Code">
               <ui-code [copyButton]="false" [code]="code" [language]="'json'"></ui-code>
@@ -157,10 +174,9 @@ export interface ComponentProp {
             <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">Inputs</h3>
           </div>
           <div class="py-2 align-middle grid grid-cols-4 gap-3">
-            <div
-              class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg col-span-2 overflow-x-auto"
-            >
-              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+
+            <div class="shadow border-b border-gray-200 dark:border-gray-700 sm:rounded-lg col-span-2 overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 ">
                 <thead class="bg-white dark:bg-gray-800">
                   <tr>
                     <th
@@ -211,7 +227,10 @@ export interface ComponentProp {
                 </tbody>
               </table>
             </div>
-            <div class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg col-span-2">
+            <div
+              class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg col-span-2 overflow-x-auto"
+            >
+
               <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 overflow-x-auto">
                 <thead class="bg-white dark:bg-gray-800">
                   <tr>
@@ -308,8 +327,8 @@ export interface ComponentProp {
             <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">Outputs</h3>
           </div>
           <div class="py-2 align-middle inline-block min-w-full">
-            <div class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg">
-              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+            <div class="shadow border-b border-gray-200 dark:border-gray-700 sm:rounded-lg">
+              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 overflow-x-auto">
                 <thead class="bg-white dark:bg-gray-800">
                   <tr>
                     <th
@@ -384,6 +403,10 @@ export class WebUiPreviewComponent implements OnInit {
   public keys: Array<any>
   public values: Array<any>
 
+  @ViewChild('child_dom') child_dom: ElementRef
+  @ViewChild('dragger') dragger: ElementRef
+  @ViewChild('container') container: ElementRef
+
   public myVal = ''
   public objectKeys: string
   public darkMode: boolean = false
@@ -392,8 +415,63 @@ export class WebUiPreviewComponent implements OnInit {
   firstBody = true
   secondBody = false
 
+  public isResizing = false
+  public lastDownX = 0
+  public draggerDownX = null
+  public containerWidth = null
+
   get directoryMeta() {
     return [{ icon: 'folder', label: this.directory }]
+  }
+
+  dragger_init(e) {
+    console.log(e)
+    this.isResizing = true
+    this.lastDownX = e.clientX
+    if (this.draggerDownX === null) {
+      this.draggerDownX = e.clientX
+    }
+  }
+  ngAfterViewInit() {
+    console.log('BRAVO!')
+    document.addEventListener('mousemove', (e) => {
+      if (!this.isResizing) {
+        return
+      }
+      if (this.containerWidth === null) {
+        this.containerWidth = this.container.nativeElement.offsetWidth - this.dragger.nativeElement.offsetWidth
+      }
+      let change = this.draggerDownX - e.clientX
+      if (change > 0 && change < this.containerWidth - 300) {
+        this.dragger.nativeElement.style.right = change.toString() + 'px'
+        this.container.nativeElement.style.width = (this.containerWidth - change).toString() + 'px'
+      }
+    })
+    document.addEventListener('mouseup', () => {
+      this.isResizing = false
+    })
+  }
+
+  ngAfterViewChecked() {
+    /* 
+     document.addEventListener('mousemove', (e) => {
+        if (!this.isResizing) {
+          return
+        }
+        if (this.containerWidth === null) {
+          this.containerWidth = this.container.nativeElement.offsetWidth - this.dragger.nativeElement.offsetWidth
+        }
+        let change = this.draggerDownX - e.clientX
+        if (change > 0 && change < this.containerWidth - 300) {
+          this.dragger.nativeElement.style.right = change.toString() + 'px'
+          this.container.nativeElement.style.width = (this.containerWidth - change).toString() + 'px'
+        }
+      })
+  
+      document.addEventListener('mouseup', () => {
+        this.isResizing = false
+      })
+      */
   }
 
   ngOnInit() {
