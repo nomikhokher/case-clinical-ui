@@ -400,7 +400,6 @@ export class WebUiPreviewComponent implements OnInit {
   @Input() codeObj
   public keys: Array<any>
   public values: Array<any>
-  initWidth = true
 
   @ViewChild('child_dom') child_dom: ElementRef
   @ViewChild('dragger') dragger: ElementRef
@@ -431,7 +430,6 @@ export class WebUiPreviewComponent implements OnInit {
       this.draggerDownX = e.clientX
     }
   }
-  public width
   ngAfterViewInit() {
     console.log('BRAVO!')
     document.addEventListener('mousemove', (e) => {
@@ -440,14 +438,11 @@ export class WebUiPreviewComponent implements OnInit {
       }
       if (this.containerWidth === null) {
         this.containerWidth = this.container.nativeElement.offsetWidth - this.dragger.nativeElement.offsetWidth
-        this.initWidth = false
       }
       let change = this.draggerDownX - e.clientX
       if (change > 0 && change < this.containerWidth - 300) {
         this.dragger.nativeElement.style.right = change.toString() + 'px'
         this.container.nativeElement.style.width = (this.containerWidth - change).toString() + 'px'
-        this.width = this.container.nativeElement.style.width = (this.containerWidth - change).toString() + 'px'
-        console.log(this.width)
       }
     })
     document.addEventListener('mouseup', () => {
