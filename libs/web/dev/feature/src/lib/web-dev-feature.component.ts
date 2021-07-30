@@ -46,7 +46,17 @@ export class WebDevFeatureComponent {
             {
               label: 'Testimonials',
               route: 'testimonials',
-              image: '/assets/images/pricing-plan.png',
+              image: '/assets/images/testimonials.png',
+            },
+            {
+              label: 'NewsLetter Sections',
+              route: 'newsletters',
+              image: '/assets/images/newsletter-sections.png',
+            },
+            {
+              label: 'Carousel',
+              route: 'carousel',
+              image: '/assets/images/newsletter-sections.png',
             },
           ],
         },
@@ -72,6 +82,11 @@ export class WebDevFeatureComponent {
               label: 'FAQs',
               route: 'faq-section',
               image: '/assets/images/faq-sections.png',
+            },
+            {
+              label: 'Footer',
+              route: 'footer',
+              image: '/assets/images/footers.png',
             },
           ],
         },
@@ -266,6 +281,11 @@ export class WebDevFeatureComponent {
               label: 'badge',
               route: 'badges',
               image: '/assets/images/badges.png',
+            },
+            {
+              label: 'Banner',
+              route: 'banners',
+              image: '/assets/images/banners.png',
             },
             {
               label: 'Buttons',

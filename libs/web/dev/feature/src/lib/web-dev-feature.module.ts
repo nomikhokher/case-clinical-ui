@@ -66,6 +66,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-badge/dev-badge.module').then((m) => m.DevBadgeModule),
       },
       {
+        path: 'banners',
+        loadChildren: () => import('./dev-banners/dev-banners.module').then((m) => m.DevBannersModule),
+      },
+      {
         path: 'repeater',
         loadChildren: () => import('./dev-repeater/dev-repeater.module').then((m) => m.DevRepeaterModule),
       },
@@ -142,6 +146,14 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
       {
         path: 'testimonials',
         loadChildren: () => import('./dev-testimonials/dev-testimonials.module').then((m) => m.DevTestimonialsModule),
+      },
+      {
+        path: 'newsletters',
+        loadChildren: () => import('./dev-newsletter/dev-newsletter.module').then((m) => m.DevNewsletterModule),
+      },
+      {
+        path: 'carousel',
+        loadChildren: () => import('./dev-carousel/dev-carousel.module').then((m) => m.DevCarouselModule),
       },
       { path: 'stats', loadChildren: () => import('./dev-stats/dev-stats.module').then((m) => m.DevStatsModule) },
       {
@@ -252,6 +264,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
       {
         path: 'faq-section',
         loadChildren: () => import('./dev-faq-section/dev-faq-section.module').then((m) => m.DevFaqSectionModule),
+      },
+      {
+        path: 'footer',
+        loadChildren: () => import('./dev-footer/dev-footer.module').then((m) => m.DevFooterModule),
       },
     ]),
     WebUiMainPageModule,

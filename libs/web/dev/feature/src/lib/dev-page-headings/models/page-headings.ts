@@ -1,7 +1,7 @@
 export interface Config {
   title?: string
   meta?: Meta[]
-  controls: Controls[]
+  controls?: Controls[]
 }
 
 export type Meta = {
@@ -25,4 +25,5 @@ export interface Input {
   prop?: string
   description?: string
   dataType?: string
+  type?
 }
