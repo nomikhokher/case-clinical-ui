@@ -157,7 +157,9 @@ export interface ComponentProp {
             <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">Inputs</h3>
           </div>
           <div class="py-2 align-middle grid grid-cols-4 gap-3">
-            <div class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg col-span-2">
+            <div
+              class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg col-span-2 overflow-x-auto"
+            >
               <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <thead class="bg-white dark:bg-gray-800">
                   <tr>
@@ -210,7 +212,7 @@ export interface ComponentProp {
               </table>
             </div>
             <div class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg col-span-2">
-              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 overflow-x-auto">
                 <thead class="bg-white dark:bg-gray-800">
                   <tr>
                     <th
