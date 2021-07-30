@@ -12,6 +12,7 @@ import { DevCardHeadingStore } from './dev-card-heading.store'
         [component_outputs]="vm.component_outputs"
         [component_inputs]="vm.component_inputs"
         [code]="codePreview[0]"
+        [codeObj]="vm.items"
       >
         <!-- INSERT YOUR UI-COMPONENT HERE  -->
         <ui-card-heading

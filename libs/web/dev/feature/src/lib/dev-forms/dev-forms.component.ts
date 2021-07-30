@@ -24,7 +24,9 @@ import { DevFormsStore } from './dev-forms.store'
                       <ui-form [model]="demo.model" [fields]="demo.fields"></ui-form>
                     </div>
                     <div>
-                      <pre class="dark:bg-gray-900 rounded-md p-2 text-xs">{{ demo.model | json }}</pre>
+                      <pre class="dark:bg-gray-900 dark:text-gray-100 rounded-md p-2 text-xs">{{
+                        demo.model | json
+                      }}</pre>
                     </div>
                   </div>
                 </div>
