@@ -39,6 +39,6 @@ export class UiFormInputComponent extends FieldType {
   }
 
   get classes(): string {
-    return `shadow-sm dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:ring-pink-500 focus:border-pink-500 border-gray-300 block w-full sm:text-sm ${this.field.templateOptions.border}`
+    return `shadow-sm dark:bg-gray-800 dark:text-gray-200 dark:placeholder-gray-50 dark:border-gray-600 focus:ring-pink-500 focus:border-pink-500 border-gray-300 block w-full sm:text-sm ${this.field.templateOptions.border}`
   }
 }

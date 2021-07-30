@@ -41,7 +41,7 @@ import { FieldWrapper } from '@ngx-formly/core'
         <formly-validation-message [field]="field"></formly-validation-message>
       </div>
 
-      <small *ngIf="to.description" class="mt-2 text-sm text-gray-500">{{ to.description }}</small>
+      <small *ngIf="to.description" class="mt-2 text-sm text-gray-500 dark:text-gray-200">{{ to.description }}</small>
     </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
