@@ -40,7 +40,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
     <!-- This example requires Tailwind CSS v2.0+ -->
 
     <section
-      class="fixed inset-0 overflow-hidden z-50"
+      class="fixed inset-0 overflow-hidden z-50 "
       aria-labelledby="slide-over-title"
       role="dialog"
       aria-modal="true"
@@ -50,15 +50,15 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
         <div class="absolute inset-0" [ngClass]="overlay ? overlay : ''" aria-hidden="true"></div>
         <div class="fixed inset-y-0 right-0 pl-10 max-w-full flex">
           <div class="w-screen" [ngClass]="width ? width : 'max-w-md'">
-            <div class="h-full flex flex-col py-6 bg-white shadow-xl overflow-y-scroll">
+            <div class="h-full flex flex-col py-6 bg-white dark:bg-gray-800 shadow-xl overflow-y-scroll">
               <div class="px-4 sm:px-6">
                 <div class="flex items-start justify-between">
-                  <h2 class="text-lg font-medium text-gray-900" id="slide-over-title"></h2>
+                  <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100" id="slide-over-title"></h2>
                   <ng-container *ngIf="!closeButtonOutSide">
                     <div class="ml-3 h-7 flex items-center">
                       <button
                         (click)="hideLayout()"
-                        class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        class="bg-white rounded-md text-gray-400 dark:text-gray-200 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                       >
                         <span class="sr-only">Close panel</span>
                         <svg

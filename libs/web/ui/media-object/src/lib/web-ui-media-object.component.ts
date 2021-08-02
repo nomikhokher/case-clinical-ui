@@ -52,8 +52,8 @@ import { Component, Input } from '@angular/core'
       <ng-container *ngIf="data && horizontalDirection == 'rights'">
         <ng-container>
           <div class="ml-4 flex-shrink-0">
-            <h4 class="text-lg font-bold">{{ data.name }}</h4>
-            <p class="mt-1">{{ data.des }}</p>
+            <h4 class="text-lg font-bold dark:text-gray-100">{{ data.name }}</h4>
+            <p class="mt-1 dark:text-gray-300">{{ data.des }}</p>
             <div class="ml-4 flex-shrink-0">
               <ng-content select=".objectData2"></ng-content>
             </div>
@@ -90,8 +90,8 @@ import { Component, Input } from '@angular/core'
             </svg>
           </div>
           <div>
-            <h4 class="text-lg font-bold">{{ data.name }}</h4>
-            <p class="mt-1">{{ data.des }}</p>
+            <h4 class="text-lg font-bold dark:text-gray-100">{{ data.name }}</h4>
+            <p class="mt-1 dark:text-gray-300">{{ data.des }}</p>
             <div>
               <ng-content select=".objectData3"></ng-content>
             </div>

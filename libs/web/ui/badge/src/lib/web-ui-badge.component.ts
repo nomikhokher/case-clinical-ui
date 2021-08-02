@@ -6,7 +6,7 @@ import { Component, ElementRef, Input } from '@angular/core'
     <div class="dark:bg-gray-800 border dark:border-indigo-700 px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
       <div>
         <ng-container *ngIf="!removeIcon">
-          <h1 class="my-4">Badges</h1>
+          <h1 class="my-4 dark:text-gray-100">Badges</h1>
           <div class="relative">
             <span
               (click)="badgeClick('onClick')"
