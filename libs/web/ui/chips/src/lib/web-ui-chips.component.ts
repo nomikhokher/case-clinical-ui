@@ -7,9 +7,9 @@ import { Component, Input } from '@angular/core'
       <div class="flex flex-wrap justify-center">
         <div
           *ngFor="let chip of chips; let i = index"
-          class="flex justify-center items-center m-1 font-medium py-1.5  rounded-full {{ chip.textColor }} {{
-            chip.bgColor
-          }} border hover:{{ chip.hoverColor }} cursor-pointer "
+          class="flex justify-center items-center m-1 font-medium py-1.5  rounded-full text-{{
+            chip.textColor
+          }}-100 bg-{{ chip.bgColor }}-700 border hover:bg-{{ chip.hoverColor }}-600 cursor-pointer "
           [ngClass]="chip.cross ? 'px-2' : 'px-4'"
         >
           <div *ngIf="chip.icon" class="flex flex-auto flex-row-reverse">
@@ -18,7 +18,9 @@ import { Component, Input } from '@angular/core'
           <div
             slot="avatar"
             *ngIf="chip.img"
-            class="flex relative w-4 h-4 bg-orange-500 justify-center items-center m-1 mr-2 ml-0 my-0 text-xs rounded-full"
+            class="flex relative w-4 h-4 bg-{{
+              chip.bgColor
+            }}-500 justify-center items-center m-1 mr-2 ml-0 my-0 text-xs rounded-full"
           >
             <img class="rounded-full" alt="A" src="{{ chip.img }}" />
           </div>

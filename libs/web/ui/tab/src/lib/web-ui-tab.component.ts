@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
 @Component({
   selector: 'ui-tab',
   template: `
-    <div *ngIf="style == 'underline' || style == 'pills'" class="dark:bg-white dark:text-gray-900 ">
+    <div *ngIf="style == 'underline' || style == 'pills'" class="dark:bg-gray-800 dark:text-gray-900 ">
       <div class="sm:hidden">
         <label for="tabs" class="sr-only">Select a tab</label>
         <select
@@ -32,13 +32,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
               (click)="onTabs(i)"
               id="t"
               [routerLink]="['/dev/tabs']"
-              class="cursor-pointer dark:hover:text-gray-500 dark:hover:border-gray-500 "
+              class="cursor-pointer dark:hover:border-gray-500 dark:text-gray-300 dark:hover:text-gray-200"
               [ngClass]="{
-                'flex space-x-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm':
+                'flex space-x-2 border-transparent text-gray-500 hover:text-gray-900 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm':
                   style == 'underline',
-                'text-gray-500 hover:text-gray-700 hover:bg-gray-300 hover:rounded-md px-5 py-2 font-medium text-sm rounded-md dark:text-gray-900':
+                'text-gray-500  hover:bg-gray-300 hover:rounded-md px-5 py-2 font-medium text-sm rounded-md':
                   style == 'pills',
-                'bg-gray-300 px-3 rounded-md': i.active == true
+                'bg-gray-300 dark:text-gray-700 dark:hover:text-gray-900 px-3 rounded-md': i.active == true
               }"
             >
               <ui-icon *ngIf="i.icon" size="lg" icon="{{ i.icon }}" class="h-5 w-5"></ui-icon>
@@ -85,7 +85,7 @@ export class WebUiTabComponent {
       x.active = false
     })
     i.active = true
-    alert(i.item + 'tab selected!')
+    alert(i.item + ' tab selected!')
   }
 }
 

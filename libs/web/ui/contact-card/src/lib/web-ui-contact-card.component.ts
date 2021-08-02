@@ -11,21 +11,21 @@ import { Component, Input } from '@angular/core'
       ]"
     >
       <li
-        class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200"
+        class="col-span-1 bg-white dark:bg-gray-800 border rounded-lg shadow divide-y divide-gray-200"
         [ngClass]="[toggleCard == true ? '' : 'text-center']"
       >
         <ng-container *ngIf="toggleCard == true">
           <div class="w-full flex items-center justify-between p-6 space-x-6">
             <div class="flex-1 truncate">
               <div class="flex items-center space-x-3">
-                <h3 class="text-gray-900 text-sm font-medium truncate">{{ contactCard.title }}</h3>
+                <h3 class="text-gray-900 dark:text-gray-100 text-sm font-medium truncate">{{ contactCard.title }}</h3>
                 <span
                   class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full"
                   *ngIf="contactCard.role"
                   >{{ contactCard.role }}</span
                 >
               </div>
-              <p class="mt-1 text-gray-500 text-sm truncate">{{ contactCard.tagLine }}</p>
+              <p class="mt-1 text-gray-500 dark:text-gray-300 text-sm truncate">{{ contactCard.tagLine }}</p>
             </div>
 
             <span *ngIf="contactCard.image">
@@ -47,10 +47,10 @@ import { Component, Input } from '@angular/core'
                 class="w-32 h-32 flex-shrink-0 mx-auto bg-black rounded-full"
               ></ui-icon>
             </span>
-            <h3 class="mt-6 text-gray-900 text-sm font-medium">{{ contactCard.title }}</h3>
+            <h3 class="mt-6 text-gray-900 dark:text-gray-100 text-sm font-medium">{{ contactCard.title }}</h3>
             <dl class="mt-1 flex-grow flex flex-col justify-between">
               <dt class="sr-only">Title</dt>
-              <dd class="text-gray-500 text-sm">{{ contactCard.tagLine }}</dd>
+              <dd class="text-gray-500 dark:text-gray-300 text-sm">{{ contactCard.tagLine }}</dd>
               <dt class="sr-only">Role</dt>
               <dd class="mt-3">
                 <span
@@ -67,9 +67,9 @@ import { Component, Input } from '@angular/core'
             <div class="w-0 flex-1 flex" *ngFor="let button of buttons">
               <a
                 href="javascript:void(0)"
-                class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500"
+                class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 dark:text-gray-400 font-medium border border-transparent rounded-bl-lg hover:text-gray-500"
               >
-                <ui-icon class="-ml-1 mr-1 text-gray-400" icon="{{ button.icon }}"></ui-icon>
+                <ui-icon class="-ml-1 mr-1 text-gray-400 dark:text-gray-200" icon="{{ button.icon }}"></ui-icon>
                 <span class="ml-3">{{ button.text }}</span>
               </a>
             </div>

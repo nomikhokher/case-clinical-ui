@@ -10,7 +10,7 @@ import { Crumb } from './models'
           <ol class="px-6 flex space-x-4">
             <li class="flex">
               <div class="flex items-center">
-                <a href="#" class="text-gray-400 hover:text-gray-500">
+                <a href="#" class="text-gray-400 hover:text-gray-500 dark:text-gray-200">
                   <svg
                     class="flex-shrink-0 h-5 w-5"
                     xmlns="http://www.w3.org/2000/svg"

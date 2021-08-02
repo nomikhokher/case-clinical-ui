@@ -21,7 +21,7 @@ const config = {
   githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/breadcrumbs/src/lib',
   breadcrumbs: [
     { label: 'Components', path: '/dev' },
-    { label: 'Breadcrumbs', path: '/dev/Breadcrumbs' },
+    { label: 'Breadcrumbs', path: '/dev/breadcrumbs' },
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-section-headings/dev-breadcrumbs.component.ts',
   items: [

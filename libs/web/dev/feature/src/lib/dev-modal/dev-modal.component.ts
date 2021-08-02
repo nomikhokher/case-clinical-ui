@@ -32,14 +32,16 @@ import { DevModalStore } from './dev-modal.store'
               </svg>
             </div>
             <div class="mt-3 text-center sm:mt-5">
-              <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Payment successful</h3>
+              <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100" id="modal-title">
+                Payment successful
+              </h3>
               <input
                 type="text"
                 class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md my-2"
                 placeholder="Add some note"
               />
               <div class="mt-2">
-                <p class="text-sm h-14 overflow-auto">
+                <p class="text-sm h-14 overflow-auto dark:text-gray-300">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur amet labore.
                 </p>
               </div>

@@ -39,7 +39,7 @@ export class DevSplitButtonStore extends ComponentStore<DevSplitButtonState> {
           githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/split-button/src/lib',
           breadcrumbs: [
             { label: 'Components', path: '/dev' },
-            { label: 'Split button', path: '/dev/spli/button' },
+            { label: 'Split button', path: '/dev/split-button' },
           ],
           directory: '/libs/web/dev/feature/src/lib/dev-split-button/dev-split-button.component.ts',
         },
