@@ -64,7 +64,7 @@ import { Component, Input } from '@angular/core'
               maxlength="5"
               (input)="mintrigger()"
               [(ngModel)]="minprice"
-              class="px-3 py-2 border border-gray-200 rounded w-24 text-center"
+              class="px-3 py-2 border border-gray-200 rounded w-24 text-center dark:bg-gray-800 dark:text-gray-100"
             />
           </div>
           <div>
@@ -73,7 +73,7 @@ import { Component, Input } from '@angular/core'
               maxlength="5"
               (input)="maxtrigger()"
               [(ngModel)]="maxprice"
-              class="px-3 py-2 border border-gray-200 rounded w-24 text-center"
+              class="px-3 py-2 border border-gray-200 rounded w-24 text-center dark:bg-gray-800 dark:text-gray-100"
             />
           </div>
         </div>

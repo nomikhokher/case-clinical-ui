@@ -3,7 +3,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
 @Component({
   selector: 'ui-notification',
   template: `
-    <div class="dark:bg-gray-800 border dark:border-indigo-700 px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
+    <div
+      class="dark:bg-gray-800 dark:text-gray-100 border dark:border-indigo-700 px-6 py-4 mb-3 md:mb-6 rounded-lg shadow"
+    >
       <div>
         <code>ui-notification</code>
         <div
@@ -12,21 +14,21 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
           *ngIf="show"
         >
           <div
-            class="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden"
+            class="max-w-sm w-full bg-white dark:bg-gray-800 shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden"
           >
-            <div class="p-4 {{ background ? 'bg-' + background + '-200' : '' }}">
+            <div class="p-4 {{ background ? 'bg-' + background + '-200' : '' }} dark:bg-gray-800">
               <ng-container *ngIf="icon || title || bottomSectionButton || name || closeBtn">
                 <div class="flex items-start">
                   <img *ngIf="avatarImg" class="h-10 w-10 rounded-full" src="{{ avatarImg }}" alt="" />
                   <ui-icon *ngIf="avatarImg ? '' : icon" size="lg" icon="{{ icon }}" class="h-6 w-6"></ui-icon>
                   <div class="ml-3 w-0 flex-1 pt-0.5">
-                    <p class="text-sm font-medium text-gray-900" *ngIf="name">{{ name }}</p>
-                    <p class="mt-1 text-sm text-gray-500" *ngIf="title">{{ title }}</p>
+                    <p class="text-sm font-medium text-gray-900 dark:text-gray-100" *ngIf="name">{{ name }}</p>
+                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" *ngIf="title">{{ title }}</p>
                     <div class="mt-3 flex space-x-4" *ngIf="bottomSectionButton">
                       <ng-container *ngFor="let itemButton of bottomSectionButton">
                         <button
                           (click)="[itemButton.fn('bottom action')]"
-                          class="bg-transparent capitalize rounded-md px-3 py-2 transition-all ease-in-out delay-30 text-sm font-medium text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                          class="bg-transparent capitalize rounded-md px-3 py-2 transition-all ease-in-out delay-30 text-sm font-medium text-gray-600 dark:text-gray-400 dark:hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         >
                           {{ itemButton.name }}
                         </button>
@@ -37,7 +39,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
                     <div class="ml-4 flex-shrink-0 flex">
                       <button
                         (click)="close()"
-                        class="bg-transparent rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        class="bg-transparent rounded-md inline-flex text-gray-400 dark:text-gray-200 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                       >
                         <span class="sr-only">Close</span>
                         <svg

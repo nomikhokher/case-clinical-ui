@@ -23,11 +23,12 @@ import { Component, Input } from '@angular/core'
               </div>
               <div class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
                 <div>
-                  <p class="text-sm text-gray-500">
-                    {{ list.heading }} <a href="#" class="font-medium text-gray-900">{{ list.title }}</a>
+                  <p class="text-sm text-gray-500 dark:text-gray-300">
+                    {{ list.heading }}
+                    <a href="#" class="font-medium text-gray-900 dark:text-gray-100">{{ list.title }}</a>
                   </p>
                 </div>
-                <div class="text-right text-sm whitespace-nowrap text-gray-500">
+                <div class="text-right text-sm whitespace-nowrap text-gray-500 dark:text-gray-300">
                   <time datetime="2020-09-20">{{ list.time }}</time>
                 </div>
               </div>
@@ -45,10 +46,10 @@ import { Component, Input } from '@angular/core'
             <img *ngIf="list.img" class="h-10 w-10 rounded-full" src="{{ list.img }}" alt="{{ list.img }}" />
             <div class="flex-1 space-y-1">
               <div class="flex items-center justify-between">
-                <h3 class="text-sm font-medium">{{ list.heading }}</h3>
-                <p class="text-sm text-gray-500">{{ list.time }}</p>
+                <h3 class="text-sm font-medium dark:text-gray-100">{{ list.heading }}</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-300">{{ list.time }}</p>
               </div>
-              <p class="text-sm text-gray-500">{{ list.title }}</p>
+              <p class="text-sm text-gray-500 dark:text-gray-300">{{ list.title }}</p>
             </div>
           </div>
         </li>

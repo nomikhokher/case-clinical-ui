@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core'
     <div class="dark:bg-gray-800 border dark:border-indigo-700 px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
       <div>
         <!-- This example requires Tailwind CSS v2.0+ -->
-        <h1 class="py-2" *ngIf="!icon && !heading">Simple Dropdowns</h1>
+        <h1 class="py-2 dark:text-gray-100" *ngIf="!icon && !heading">Simple Dropdowns</h1>
         <h1 class="py-2" *ngIf="icon">Icon Dropdowns</h1>
         <h1 class="py-2" *ngIf="heading">Header Dropdowns</h1>
         <div class="relative inline-block text-left">
@@ -14,7 +14,7 @@ import { Component, Input } from '@angular/core'
             <button
               *ngIf="!icon"
               type="button"
-              class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+              class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
               id="options-menu"
               aria-expanded="true"
               aria-haspopup="true"
@@ -39,7 +39,7 @@ import { Component, Input } from '@angular/core'
             <button
               type="button"
               *ngIf="icon"
-              class="bg-gray-100 rounded-full flex items-center text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+              class="bg-gray-100 rounded-full flex items-center text-gray-400 dark:text-gray-200 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
               id="options-menu"
               aria-expanded="true"
               aria-haspopup="true"
@@ -53,7 +53,7 @@ import { Component, Input } from '@angular/core'
           <div
             class="origin-top-{{ direction }} absolute {{
               direction
-            }}-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none left-0"
+            }}-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none left-0"
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="options-menu"
@@ -68,7 +68,7 @@ import { Component, Input } from '@angular/core'
                 *ngFor="let item of items"
                 href="javascript:void(0)"
                 [ngClass]="item.icons ? 'group flex' : 'block'"
-                class="items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                class="items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 hover:text-gray-900 dark:hover:text-gray-700"
                 role="menuitem"
               >
                 <!-- Heroicon name: solid/pencil-alt -->
@@ -76,7 +76,7 @@ import { Component, Input } from '@angular/core'
                   *ngIf="item.icons"
                   [icon]="item.icons"
                   size="lg"
-                  class="mr-3 h-7 w-7 text-gray-400 group-hover:text-gray-500"
+                  class="mr-3 h-7 w-7 text-gray-400 dark:text-gray-200 group-hover:text-gray-500 dark:group-hover:text-gray-700"
                 ></ui-icon>
                 {{ item.name }}
               </a>

@@ -29,7 +29,7 @@ import { Component, HostListener, Input, SimpleChange, SimpleChanges } from '@an
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
             <div
-              class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full sm:p-6"
+              class="inline-block align-bottom bg-white border dark:bg-gray-800 rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full sm:p-6"
               [ngClass]="width ? 'sm:max-w-' + width : 'sm:max-w-sm'"
             >
               <div class="hidden sm:block absolute top-0 right-0 pt-4 pr-4" *ngIf="closeButton">

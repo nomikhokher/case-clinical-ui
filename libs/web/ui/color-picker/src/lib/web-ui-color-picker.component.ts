@@ -3,12 +3,12 @@ import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/
 @Component({
   selector: 'ui-color-picker',
   template: `
-    <div class="bg-white mx-auto my-auto p-6">
+    <div class="bg-white dark:bg-gray-800 mx-auto my-auto p-6">
       <div>
         <div>
           <label
             for="color-picker"
-            class="block mb-1 font-semibold"
+            class="block mb-1 font-semibold dark:text-gray-100"
             [ngClass]="{ 'ml-16': position == 'left', hidden: hideInput }"
             >Select a color</label
           >
@@ -29,7 +29,7 @@ import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   [ngClass]="iconColor"
-                  class="h-6 w-6 mx-auto my-auto"
+                  class="h-6 w-6 mx-auto my-auto dark:text-gray-100"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

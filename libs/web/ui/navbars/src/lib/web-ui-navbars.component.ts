@@ -3,13 +3,13 @@ import { Component, Input } from '@angular/core'
 @Component({
   selector: 'ui-navbars',
   template: `
-    <nav class="bg-{{ background }}-600 dark:bg-white">
+    <nav class="bg-{{ background }}-600 dark:bg-gray-800">
       <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
           <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <button
               type="button"
-              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               aria-controls="mobile-menu"
               aria-expanded="false"
             >
@@ -54,8 +54,8 @@ import { Component, Input } from '@angular/core'
             <div class="hidden sm:block sm:ml-6">
               <div class="flex space-x-4">
                 <a
-                  href="#"
-                  class="text-gray-300 dark:text-gray-900 dark:hover:text-white hover:bg-{{
+                  href="javascript:void(0)"
+                  class="text-gray-300 dark:text-gray-100 dark:hover:text-white hover:bg-{{
                     background
                   }}-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   aria-current="page"
