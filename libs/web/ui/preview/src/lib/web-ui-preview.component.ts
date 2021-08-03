@@ -14,6 +14,7 @@ export interface ComponentProp {
   prop?: string
   type?: []
   typeObj?
+  typeArray?
 }
 
 @Component({
@@ -188,8 +189,8 @@ export interface ComponentProp {
                   class="px-3 py-3 relative text-center text-xs font-medium text-indigo-700 dark:text-gray-400 uppercase tracking-wider"
                 >
                   <svg
-                    *ngIf="secondBody"
-                    (click)="tableToggler('toggle')"
+                    *ngIf="secondBody || thirdBody"
+                    (click)="secondBody ? tableToggler('toggle') : tableToggler('third_toggle')"
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-6 w-6 cursor-pointer mx-3 my-2 hover:text-gray-500 absolute left-0 top-0"
                     fill="none"
@@ -278,6 +279,39 @@ export interface ComponentProp {
                   </div>
                 </td>
               </tr>
+            </tbody>
+            <tbody
+              class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700 w-full"
+              *ngIf="thirdBody"
+            >
+              <div class="w-full my-3" *ngFor="let values of thirdBodyData; let i = index">
+                <label for="" class="text-theme-500 ml-3 text-">{{ objectKeys | uppercase }} {{ i + 1 }}</label>
+                <tr class="my-2 text-center grid grid-cols-1" *ngFor="let item of values; let j = index">
+                  <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-700 dark:text-gray-200">
+                    <div *ngIf="!input_second_enabled(item)">
+                      <select
+                        class="rounded-lg border-gray-400 w-full"
+                        (change)="selectArrayChange(item, $event.target.value, i)"
+                      >
+                        <option *ngFor="let val of object_first_value(item)">{{ val }}</option>
+                      </select>
+                    </div>
+                    <div *ngIf="input_second_enabled(item)">
+                      <input
+                        [id]="'thirdBody' + i + j"
+                        [value]="stringify_value(item)"
+                        type="text"
+                        name="account_number"
+                        id="account_number"
+                        class="focus:ring-indigo-500  focus:border-indigo-500 w-full block sm:text-sm border-gray-300 rounded-md"
+                        placeholder="Default Value"
+                        [ngModel]="stringify_value(item)"
+                        (ngModelChange)="selectArrayChange(item, $event, i)"
+                      />
+                    </div>
+                  </td>
+                </tr>
+              </div>
             </tbody>
           </table>
         </div>
@@ -434,6 +468,7 @@ export class WebUiPreviewComponent implements OnInit {
   code_toggle = false
   firstBody = true
   secondBody = false
+  thirdBody = false
 
   public isResizing = false
   public lastDownX = 0
@@ -537,7 +572,20 @@ export class WebUiPreviewComponent implements OnInit {
   select_options(item) {
     let inputs = this.component_inputs.find((r) => r.prop.slice(1, -1) === item.key)
     this.objectKeys = inputs.prop.slice(1, -1)
-    return inputs.type == undefined ? inputs.typeObj : inputs.type
+
+    if (inputs.type == undefined) {
+      if (inputs.typeObj == undefined) {
+        if (inputs.typeArray == undefined) {
+          return
+        }
+        console.log(this.objectKeys)
+        console.log(inputs.typeArray)
+        return inputs.typeArray
+      }
+      return inputs.typeObj
+    }
+    return inputs.type
+    // return inputs.type == undefined ? inputs.typeObj : inputs.type
   }
 
   code_toggler(value) {
@@ -605,8 +653,14 @@ export class WebUiPreviewComponent implements OnInit {
   }
   isTableToggle = false
   tableData
+  thirdBodyData
   tableToggler(item) {
-    if (typeof item[0] === 'object' || item == 'toggle') {
+    if ((typeof item[0][0] === 'object' && typeof item[0][0] != undefined) || item == 'third_toggle') {
+      this.firstBody = !this.firstBody
+      this.thirdBody = !this.thirdBody
+      this.thirdBodyData = item
+      console.log(this.thirdBodyData)
+    } else if (typeof item[0] === 'object' || item == 'toggle') {
       this.firstBody = !this.firstBody
       this.secondBody = !this.secondBody
       this.isTableToggle = true
@@ -619,6 +673,11 @@ export class WebUiPreviewComponent implements OnInit {
     let val = this.codeObj[this.objectKeys]
     val[keyObj] = newValue
     this.codeObj[this.objectKeys] = val
+  }
+  selectArrayChange(myKey, newValue, i) {
+    let key = Object.keys(myKey)
+    let keyObj = key[0]
+    this.codeObj[this.objectKeys][i][keyObj] = newValue
   }
   onDarkMode() {
     this.darkMode = !this.darkMode
