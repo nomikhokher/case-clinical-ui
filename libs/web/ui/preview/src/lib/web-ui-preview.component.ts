@@ -43,16 +43,47 @@ export interface ComponentProp {
           <h3 class="text-lg font-medium text-gray-700 dark:text-gray-200">UI Element</h3>
           <div class="flex items-center">
             <div>
-              <div class="sm:hidden">
+              <div class="sm:hidden inline-block xs:inline-flex">
                 <label for="tabs" class="sr-only">Select a tab</label>
                 <select
                   id="tabs"
                   name="tabs"
-                  class="block w-full focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                  class="flex w-full focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
                 >
                   <option selected>Preview</option>
                   <option>Code</option>
                 </select>
+                <nav class="flex space-x-2  " aria-label="Tabs">
+                  <ui-icon
+                    [ngClass]="darkMode ? 'opacity-40' : 'text-yellow-500'"
+                    size="lg"
+                    class="h-5 w-5 py-2"
+                    icon="sun"
+                  ></ui-icon>
+                  <span class=" py-2">
+                    <button
+                      [ngClass]="darkMode ? ' bg-gray-200' : 'bg-gray-300'"
+                      type="button"
+                      class=" relative inline-flex flex-shrink-0 h-6 w-11 border-2 rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:border-gray-100 focus:outline-none"
+                      role="switch"
+                      aria-checked="false"
+                      (click)="onDarkMode()"
+                    >
+                      <span
+                        [ngClass]="darkMode ? 'translate-x-5 bg-indigo-500' : 'translate-x-0 bg-white'"
+                        aria-hidden="true"
+                        class=" pointer-events-none inline-block h-5 w-5 rounded-full  shadow transform ring-0 transition ease-in-out duration-200"
+                      ></span>
+                    </button>
+                  </span>
+
+                  <ui-icon
+                    [ngClass]="darkMode ? 'theme-color-600' : 'opacity-40'"
+                    size="lg"
+                    class="h-5 w-5 py-2"
+                    icon="moon"
+                  ></ui-icon>
+                </nav>
               </div>
               <div class="hidden sm:block">
                 <nav class="flex space-x-2  " aria-label="Tabs">
