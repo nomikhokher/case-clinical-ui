@@ -46,7 +46,7 @@ import { FlatTreeControl } from '@angular/cdk/tree'
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
             </div>
-            <span class="text-sm">{{ node.name }}</span>
+            <span class="text-sm dark:text-gray-200">{{ node.name }}</span>
           </button>
         </cdk-tree-node>
       </cdk-tree>

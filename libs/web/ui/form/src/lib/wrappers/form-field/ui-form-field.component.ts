@@ -13,7 +13,7 @@ import { FieldWrapper } from '@ngx-formly/core'
           {{ to.label }}
           <span *ngIf="to.required && to.hideRequiredMarker !== true">*</span>
         </label>
-        <span *ngIf="to?.hint" class="text-sm text-gray-500">{{ to?.hint }}</span>
+        <span *ngIf="to?.hint" class="text-sm text-gray-500 dark:text-gray-300">{{ to?.hint }}</span>
       </div>
 
       <div class="mt-1 relative">

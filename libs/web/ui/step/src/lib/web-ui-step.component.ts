@@ -18,14 +18,14 @@ import { WebUiToastService } from '@schema-driven/web/ui/toast'
               <span class="text-xs text-indigo-600 font-semibold tracking-wide uppercase group-hover:text-indigo-800">
                 {{ item.stepTitle }}</span
               >
-              <div class="group pl-4 py-2 flex flex-row space-x-2">
+              <div class="group pl-4 py-2 flex flex-row space-x-2 dark:text-gray-300">
                 <ui-icon
                   *ngIf="item.icon && icon == true"
                   size="lg"
                   [icon]="item.icon"
                   class="h-5 w-5 text-center"
                 ></ui-icon>
-                <span class="text-sm font-medium">{{ item.stepDetails }} </span>
+                <span class="text-sm font-medium ">{{ item.stepDetails }} </span>
               </div>
             </a>
           </li>
@@ -33,7 +33,7 @@ import { WebUiToastService } from '@schema-driven/web/ui/toast'
       </nav>
     </div>
     <section>
-      <div class="mt-2 p-4">
+      <div class="mt-2 p-4 dark:text-gray-300">
         <ng-container [ngSwitch]="stepValue">
           <div *ngSwitchCase="1">1</div>
           <div *ngSwitchCase="2">2</div>

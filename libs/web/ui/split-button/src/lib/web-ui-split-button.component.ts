@@ -4,9 +4,9 @@ import { Component, Input } from '@angular/core'
   selector: 'ui-split-button',
   template: `
     <div class="flex justify-center">
-      <div class="flex items-center my-20">
+      <div class="flex items-center my-20 border">
         <button
-          class="py-2 px-4 capitalize tracking-wide bg-gray-800 text-white font-medium rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+          class="py-2 px-4 capitalize tracking-wide border-r bg-gray-800 text-white font-medium hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -24,12 +24,10 @@ import { Component, Input } from '@angular/core'
           </svg>
         </button>
 
-        <span class="border"></span>
-
         <div class="relative">
           <button
             (click)="dropdownOpen = !dropdownOpen"
-            class="relative z-10 block bg-gray-800 rounded p-2 hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+            class="relative z-10 block bg-gray-800 border-l p-2 hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
           >
             <svg
               class="h-6 w-6 text-white"
@@ -51,12 +49,12 @@ import { Component, Input } from '@angular/core'
 
           <div
             *ngIf="dropdownOpen"
-            class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-20"
+            class="absolute right-0 mt-2 w-48 bg-white border dark:bg-gray-800 rounded-md overflow-hidden shadow-xl z-20"
           >
             <ng-container *ngFor="let list of lists">
-              <li class="flex hover:bg-gray-100 py-2">
-                <ui-icon [icon]="list.icon" [class]="'h6 w-6'"></ui-icon>
-                <a href="javascript:void(0)" class="block px-2">{{ list.label }}</a>
+              <li class="flex hover:bg-gray-100 dark:hover:bg-gray-700 py-2">
+                <ui-icon [icon]="list.icon" [class]="'h6 w-6 dark:text-gray-200'"></ui-icon>
+                <a href="javascript:void(0)" class="block px-2 dark:text-gray-200">{{ list.label }}</a>
               </li>
             </ng-container>
           </div>

@@ -52,7 +52,7 @@ export class DevTabsStore extends ComponentStore<DevTabsState> {
           githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/tab/src/lib',
           breadcrumbs: [
             { label: 'Components', path: '/dev' },
-            { label: 'Tab', path: '/dev/tab' },
+            { label: 'Tab', path: '/dev/tabs' },
           ],
           directory: '/libs/web/dev/feature/src/lib/dev-tab/dev-tab.component.ts',
         },

@@ -38,7 +38,7 @@ export class DevStepStore extends ComponentStore<DevStepState> {
           githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/step/src/lib',
           breadcrumbs: [
             { label: 'Components', path: '/dev' },
-            { label: 'Step', path: '/dev/step' },
+            { label: 'Step', path: '/dev/steps' },
           ],
           directory: '/libs/web/dev/feature/src/lib/dev-step/dev-step.component.ts',
         },
