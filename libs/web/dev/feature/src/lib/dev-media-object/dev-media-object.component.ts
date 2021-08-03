@@ -17,8 +17,8 @@ import { DevMediaObjectStore } from './dev-media-object.store'
         <!-- you add horizontal direction,  'left' or 'right' -->
         <ui-media-object icon="imageAvatar" [circle]="circle" verticalDirection="center" horizontalDirection="left">
           <ng-container class="objectData">
-            <h4 class="text-lg font-bold">Lorem ipsum</h4>
-            <p class="mt-1">
+            <h4 class="text-lg font-bold dark:text-gray-100">Lorem ipsum</h4>
+            <p class="mt-1 dark:text-gray-300">
               Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam expedita quia omnis voluptatem. Minus
               quidem ipsam quia iusto.
             </p>

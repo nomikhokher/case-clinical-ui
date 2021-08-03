@@ -6,12 +6,14 @@ import { WebUiToastService } from '@schema-driven/web/ui/toast'
   template: `
     <!-- This example requires Tailwind CSS v2.0+ -->
 
-    <div class="bg-{{ background ? background : 'gray' }}-200 shadow overflow-hidden sm:rounded-lg my-2">
+    <div
+      class="bg-{{ background ? background : 'gray' }}-200 shadow overflow-hidden sm:rounded-lg my-2 dark:bg-gray-800"
+    >
       <div class="px-4 py-5 sm:px-6">
-        <h3 class="text-lg leading-6 font-medium text-gray-900">
+        <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">
           {{ formTitle }}
         </h3>
-        <p class="mt-1 max-w-2xl text-sm text-gray-500">
+        <p class="mt-1 max-w-2xl text-sm text-gray-500 dark:text-gray-300">
           {{ tagLine }}
         </p>
       </div>
@@ -20,7 +22,7 @@ import { WebUiToastService } from '@schema-driven/web/ui/toast'
           <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
             <dl class="sm:divide-y sm:divide-gray-200">
               <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6" *ngIf="!info.type">
-                <dt class="text-sm font-medium text-gray-500">
+                <dt class="text-sm font-medium text-gray-500 dark:text-gray-300">
                   <div class="inline-flex space-x-2">
                     <ui-icon
                       *ngIf="info.icon && showIcon == 'true'"
@@ -31,12 +33,12 @@ import { WebUiToastService } from '@schema-driven/web/ui/toast'
                     <span>{{ info.title }}</span>
                   </div>
                 </dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2">
                   {{ info.value }}
                 </dd>
               </div>
               <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6" *ngIf="info.type">
-                <dt class="text-sm font-medium text-gray-500">
+                <dt class="text-sm font-medium text-gray-500 dark:text-gray-300">
                   <div class="inline-flex space-x-2">
                     <ui-icon
                       *ngIf="info.icon && showIcon == 'true'"
@@ -47,13 +49,13 @@ import { WebUiToastService } from '@schema-driven/web/ui/toast'
                     <span>{{ info.title }}</span>
                   </div>
                 </dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2">
                   <ul class="border border-gray-200 rounded-md divide-y divide-gray-200">
                     <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
                       <div class="w-0 flex-1 flex items-center">
                         <!-- Heroicon name: solid/paper-clip -->
                         <svg
-                          class="flex-shrink-0 h-5 w-5 text-gray-400"
+                          class="flex-shrink-0 h-5 w-5 text-gray-400 dark:text-gray-200"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
@@ -83,7 +85,7 @@ import { WebUiToastService } from '@schema-driven/web/ui/toast'
                       <div class="w-0 flex-1 flex items-center">
                         <!-- Heroicon name: solid/paper-clip -->
                         <svg
-                          class="flex-shrink-0 h-5 w-5 text-gray-400"
+                          class="flex-shrink-0 h-5 w-5 text-gray-400 dark:text-gray-200"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"

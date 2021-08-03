@@ -4,7 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
 @Component({
   selector: 'ui-sign-in-and-registration',
   template: `
-    <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div class="min-h-screen bg-gray-50 dark:bg-gray-800 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <img
           class="mx-auto h-12 w-auto"
@@ -12,16 +12,18 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
           src="{{ image ? image : 'https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg' }}"
           alt="Workflow"
         />
-        <h2 *ngIf="title" class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        <h2 *ngIf="title" class="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-gray-100">
           {{ title == '' || title == undefined ? 'Sign up/Sign in' : title }}
         </h2>
       </div>
 
       <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <div class="bg-white dark:bg-gray-800 py-8 border px-4 shadow sm:rounded-lg sm:px-10">
           <form class="space-y-6" name="form" [formGroup]="heroForm">
             <div>
-              <label for="email" class="block text-sm font-medium text-gray-700"> Email address </label>
+              <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-400">
+                Email address
+              </label>
               <div class="mt-1">
                 <input
                   id="email"
@@ -41,7 +43,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
             </div>
 
             <div>
-              <label for="password" class="block text-sm font-medium text-gray-700"> Password </label>
+              <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-400">
+                Password
+              </label>
               <div class="mt-1">
                 <input
                   id="password"
@@ -69,7 +73,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
                   type="checkbox"
                   class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
                 />
-                <label for="remember_me" class="ml-2 block text-sm text-gray-900"> Remember me </label>
+                <label for="remember_me" class="ml-2 block text-sm text-gray-900 dark:text-gray-100">
+                  Remember me
+                </label>
               </div>
 
               <div class="text-sm">
@@ -93,7 +99,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
                 <div class="w-full border-t border-gray-300"></div>
               </div>
               <div class="relative flex justify-center text-sm">
-                <span class="px-2 bg-white text-gray-500"> Or continue with </span>
+                <span class="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-300"> Or continue with </span>
               </div>
             </div>
 

@@ -26,7 +26,9 @@ import { DevSlideOverStore } from './dev-slide-over.store'
         >
           <section id="mainSlideOver" class="p-4">
             <div>
-              <label for="project_name" class="block text-sm font-medium text-gray-900"> Project name </label>
+              <label for="project_name" class="block text-sm font-medium text-gray-900 dark:text-gray-100">
+                Project name
+              </label>
               <div class="mt-1">
                 <input
                   type="text"
@@ -37,7 +39,9 @@ import { DevSlideOverStore } from './dev-slide-over.store'
               </div>
             </div>
             <div>
-              <label for="description" class="block text-sm font-medium text-gray-900"> Description </label>
+              <label for="description" class="block text-sm font-medium text-gray-900 dark:text-gray-100">
+                Description
+              </label>
               <div class="mt-1">
                 <textarea
                   id="description"
@@ -91,7 +95,9 @@ import { DevSlideOverStore } from './dev-slide-over.store'
 
           <section id="mainSlideOverLayout">
             <div>
-              <label for="project_name" class="block text-sm font-medium text-gray-900"> Project name </label>
+              <label for="project_name" class="block text-sm font-medium text-gray-900 dark:text-gray-100">
+                Project name
+              </label>
               <div class="mt-1">
                 <input
                   type="text"
@@ -102,7 +108,9 @@ import { DevSlideOverStore } from './dev-slide-over.store'
               </div>
             </div>
             <div>
-              <label for="description" class="block text-sm font-medium text-gray-900"> Description </label>
+              <label for="description" class="block text-sm font-medium text-gray-900 dark:text-gray-100">
+                Description
+              </label>
               <div class="mt-1">
                 <textarea
                   id="description"
@@ -172,7 +180,7 @@ export class DevSlideOverComponent {
       >
         <section id="mainSlideOver" class="p-4">
           <div>
-            <label for="project_name" class="block text-sm font-medium text-gray-900"> Project name </label>
+            <label for="project_name" class="block text-sm font-medium text-gray-900 dark:text-gray-100"> Project name </label>
             <div class="mt-1">
               <input
                 type="text"
@@ -183,7 +191,7 @@ export class DevSlideOverComponent {
             </div>
           </div>
           <div>
-            <label for="description" class="block text-sm font-medium text-gray-900"> Description </label>
+            <label for="description" class="block text-sm font-medium text-gray-900 dark:text-gray-100"> Description </label>
             <div class="mt-1">
               <textarea
                 id="description"
@@ -235,7 +243,7 @@ export class DevSlideOverComponent {
 
           <section id="mainSlideOverLayout">
             <div>
-              <label for="project_name" class="block text-sm font-medium text-gray-900"> Project name </label>
+              <label for="project_name" class="block text-sm font-medium text-gray-900 dark:text-gray-100"> Project name </label>
               <div class="mt-1">
                 <input
                   type="text"
@@ -246,7 +254,7 @@ export class DevSlideOverComponent {
               </div>
             </div>
             <div>
-              <label for="description" class="block text-sm font-medium text-gray-900"> Description </label>
+              <label for="description" class="block text-sm font-medium text-gray-900 dark:text-gray-100"> Description </label>
               <div class="mt-1">
                 <textarea
                   id="description"

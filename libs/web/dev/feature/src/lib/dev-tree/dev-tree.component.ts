@@ -16,7 +16,9 @@ import { FlatNode } from './model'
         <!-- <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800">
           <pre class="text-xs dark:text-gray-500">{{ __usage() | json }}</pre>
         </div> -->
-        <div class="mb-4 mt-4"><ui-tree [treeData]="treeData" [dataSource]="dataSource"></ui-tree></div>
+        <div class="mb-4 mt-4 dark:text-gray-300">
+          <ui-tree [treeData]="treeData" [dataSource]="dataSource"></ui-tree>
+        </div>
       </ui-preview>
     </ng-container>
   `,
