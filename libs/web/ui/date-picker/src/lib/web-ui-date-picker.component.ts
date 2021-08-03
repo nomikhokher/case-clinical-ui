@@ -21,7 +21,7 @@ export enum SetDateFormatEnum {
       <div>
         <div class="container mx-auto px-4 py-2 md:py-10">
           <div class="mb-5 w-64">
-            <div class="relative">
+            <div class="relative flex">
               <div class="relative flex w-full flex-wrap items-stretch mb-3" *ngIf="inputGivenOrNot">
                 <span
                   class="z-10 h-full leading-snug font-normal text-center text-blueGray-300 absolute right-0 bg-transparent rounded text-base items-center justify-center w-8 pr-3 py-3"
@@ -76,8 +76,9 @@ export enum SetDateFormatEnum {
 
               <div
                 *ngIf="showDatepicker"
-                class="bg-white mt-12 rounded-lg shadow p-4 absolute top-0 left-0 transition ease-in-out duration-500"
+                class="bg-white mt-12 p-4 absolute top-0 left-0 transition ease-in-out duration-500"
                 style="width: 16rem"
+                [ngClass]="{ 'rounded-l': rangeDataPicker === true, 'rounded-lg shadow': rangeDataPicker === false }"
               >
                 <div class="flex justify-between items-center mb-2">
                   <div>
@@ -137,12 +138,14 @@ export enum SetDateFormatEnum {
                   <ng-container *ngFor="let date of no_of_days">
                     <div style="width: 14.28%" class="px-1 mb-1">
                       <div
-                        (click)="getDateValue(date)"
+                        (click)="getDateValue(date, 'from')"
                         class="cursor-pointer text-center text-sm rounded-full leading-loose transition ease-in-out duration-100"
                         [ngClass]="{
                           'bg-indigo-200': isToday(date) == true,
                           'text-gray-600 hover:bg-indigo-200': isToday(date) == false && isSelectedDate(date) == false,
-                          'bg-indigo-500 text-white hover:bg-opacity-75': isSelectedDate(date) == true
+                          'bg-indigo-500 text-white hover:bg-opacity-75': isSelectedDate(date) == true,
+                          'bg-blue-200': isInRange(date, 1) == true,
+                          'cursor-not-allowed opacity-25': isDisabledPrevDays(date)
                         }"
                       >
                         {{ date }}
@@ -184,80 +187,201 @@ export enum SetDateFormatEnum {
                     </div>
                   </ng-container>
                 </div>
+
+                <div
+                  *ngIf="rangeDataPicker"
+                  class="bg-white p-4 absolute top-0 left-64 ml-0 transition ease-in-out duration-500"
+                  style="width: 16rem;"
+                  [ngClass]="{ 'rounded-r': rangeDataPicker === true }"
+                >
+                  <div class="flex justify-between items-center mb-2">
+                    <div>
+                      <span class="text-lg font-bold text-gray-800">{{ months[nextMonth] }}</span>
+                      <span class="ml-1 text-lg text-gray-600 font-normal">{{ nextYear }}</span>
+                    </div>
+                    <div>
+                      <button
+                        type="button"
+                        class="transition ease-in-out duration-500 inline-flex cursor-pointer hover:bg-gray-200 p-1 rounded-full"
+                        [ngClass]="{ 'cursor-not-allowed opacity-25': month == 0 }"
+                        [disabled]="month == 0 ? true : false"
+                        (click)="getNextNoOfDays('leftArrow')"
+                      >
+                        <svg
+                          class="h-6 w-6 text-gray-500 inline-flex"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                      </button>
+                      <button
+                        type="button"
+                        class="transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-200 p-1 rounded-full"
+                        [ngClass]="{ 'cursor-not-allowed opacity-25': month == 11 }"
+                        [disabled]="month == 11 ? true : false"
+                        (click)="getNextNoOfDays('rightArrow')"
+                      >
+                        <svg
+                          class="h-6 w-6 text-gray-500 inline-flex"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-wrap mb-3 -mx-1">
+                    <ng-container *ngFor="let day of days">
+                      <div style="width: 14.26%" class="px-1">
+                        <div class="text-gray-800 font-medium text-center text-xs">
+                          {{ day }}
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+
+                  <div class="flex flex-wrap -mx-1">
+                    <ng-container *ngFor="let blankday of nextblankdays">
+                      <div style="width: 14.28%" class="text-center border p-1 border-transparent text-sm"></div>
+                    </ng-container>
+                    <ng-container *ngFor="let date of next_no_of_days">
+                      <div style="width: 14.28%" class="px-1 mb-1">
+                        <div
+                          (click)="getDateValue(date, 'to')"
+                          class="cursor-pointer text-center text-sm rounded-full leading-loose transition ease-in-out duration-100"
+                          [ngClass]="{
+                            'bg-indigo-200': isToday(date) == true,
+                            'text-gray-600 hover:bg-indigo-200':
+                              isToday(date) == false && isSelectedDate(date) == false,
+                            'bg-indigo-500 text-white hover:bg-opacity-75': isSelectedDate(date) == true,
+                            'bg-blue-200': isInRange(date, 1) == true,
+                            'cursor-not-allowed opacity-25': isDisabledPrevDays(date)
+                          }"
+                        >
+                          {{ date }}
+                        </div>
+                      </div>
+                    </ng-container>
+                    <ng-container>
+                      <div class="flex items-center w-full">
+                        <div class="mt-2 w-full" *ngIf="timePicker">
+                          <div class="grid" [ngClass]="amPmFormat ? 'grid-cols-3' : 'grid-cols-2'">
+                            <select
+                              name="hours"
+                              [(ngModel)]="hours"
+                              class="outline-none focus:ring-0 focus:border-none h-10 focus:outline-none focus:border-gray-500"
+                              (change)="hoursChange()"
+                            >
+                              <option [ngValue]="hour" *ngFor="let hour of twentyFourHours">{{ hour }}</option>
+                            </select>
+                            <select
+                              name="minutes"
+                              (change)="minutesChange()"
+                              [(ngModel)]="minutes"
+                              class="outline-none mx-1 focus:ring-0 focus:border-none h-10 px-1 focus:outline-none focus:border-gray-500"
+                            >
+                              <option [ngValue]="minute" *ngFor="let minute of minutesInOneHours">{{ minute }}</option>
+                            </select>
+                            <select
+                              *ngIf="amPmFormat"
+                              name="ampm"
+                              [(ngModel)]="AmPmText"
+                              (change)="amPmChange()"
+                              class="outline-none focus:ring-0 h-10 focus:border-none focus:outline-none focus:border-gray-500"
+                            >
+                              <option value="AM">AM</option>
+                              <option value="PM">PM</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+
+                <!-- 
+              <div *ngIf="rangeDataPicker"   class="bg-white mt-12 rounded-lg shadow p-4 absolute top-0 left-0 transition ease-in-out duration-500"
+                style="width: 16rem"> -->
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!--EXAMPLE VARIANTS  -->
-    <div class="px-4 py-2 bg-gray-100 border-b order-2 mt-5">
-      <fieldset>
-        <div class="my-3">
-          <label class="text-xs font-medium uppercase text-gray-500 leading-none">Example variants</label>
-        </div>
-        <div class="flex flex-wrap -mx-3 align-bottom">
-          <div class="mx-3">
-            <label class="text-xs font-medium uppercase text-gray-500 leading-none">User format</label>
-            <div class="">
-              <select
-                class="pl-3 pr-10 py-1 text-sm block text-black placeholder-gray-400 transition duration-100 ease-in-out bg-white border border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed"
-                [(ngModel)]="dateFormat"
-                (change)="initDate()"
-              >
-                <option value="DdMY">DdMY</option>
-                <option value="MMDDYYYY">MMDDYYYY</option>
-                <option value="YYYYMMDD">YYYYMMDD</option>
-                <option value="DDMMYYYY">DDMMYYYY</option>
-              </select>
+      <!--EXAMPLE VARIANTS  -->
+      <div class="px-4 py-2 bg-gray-100 border-b order-2 mt-5">
+        <fieldset>
+          <div class="my-3">
+            <label class="text-xs font-medium uppercase text-gray-500 leading-none">Example variants</label>
+          </div>
+          <div class="flex flex-wrap -mx-3 align-bottom">
+            <div class="mx-3">
+              <label class="text-xs font-medium uppercase text-gray-500 leading-none">User format</label>
+              <div class="">
+                <select
+                  class="pl-3 pr-10 py-1 text-sm block text-black placeholder-gray-400 transition duration-100 ease-in-out bg-white border border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  [(ngModel)]="dateFormat"
+                  (change)="initDate()"
+                >
+                  <option value="DdMY">DdMY</option>
+                  <option value="MMDDYYYY">MMDDYYYY</option>
+                  <option value="YYYYMMDD">YYYYMMDD</option>
+                  <option value="DDMMYYYY">DDMMYYYY</option>
+                </select>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="flex flex-wrap -mx-3 align-bottom">
-          <label class="flex items-center px-3 py-2 mt-4 "
-            ><input
-              (change)="inputGivenOrNot = !inputGivenOrNot"
-              checked="checked"
-              value="true"
-              type="checkbox"
-              name="inline"
-              class="text-blue-500 transition duration-100 ease-in-out border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
-            />
-            <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize"> Inline </span></label
-          >
-          <label class="flex items-center px-3 py-2 mt-4 "
-            ><input
-              value="true"
-              type="checkbox"
-              name="range"
-              class="text-blue-500 transition duration-100 ease-in-out border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
-            />
-            <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize"> Range </span></label
-          >
-          <label class="flex items-center px-3 py-2 mt-4 "
-            ><input
-              (change)="showTime($event)"
-              value="true"
-              type="checkbox"
-              name="timepicker"
-              class="text-blue-500 transition duration-100 ease-in-out border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
-            />
-            <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize"> Timepicker </span></label
-          >
-          <label class="flex items-center px-3 py-2 mt-4 "
-            ><input
-              (change)="timeFormat($event)"
-              value="true"
-              type="checkbox"
-              name="amPm"
-              [disabled]="!timePicker"
-              class="text-blue-500 transition duration-100 ease-in-out border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
-            />
-            <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize"> AM/PM </span></label
-          >
-        </div>
-      </fieldset>
+          <div class="flex flex-wrap -mx-3 align-bottom">
+            <label class="flex items-center px-3 py-2 mt-4 "
+              ><input
+                (change)="inputGivenOrNot = !inputGivenOrNot"
+                checked="checked"
+                value="true"
+                type="checkbox"
+                name="inline"
+                class="text-blue-500 transition duration-100 ease-in-out border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
+              />
+              <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize"> Inline </span></label
+            >
+            <label class="flex items-center px-3 py-2 mt-4 "
+              ><input
+                value="true"
+                type="checkbox"
+                (change)="rangeDataPickerselct()"
+                name="range"
+                class="text-blue-500 transition duration-100 ease-in-out border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
+              />
+              <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize"> Range </span></label
+            >
+            <label class="flex items-center px-3 py-2 mt-4 "
+              ><input
+                (change)="showTime($event)"
+                value="true"
+                type="checkbox"
+                name="timepicker"
+                class="text-blue-500 transition duration-100 ease-in-out border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
+              />
+              <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize"> Timepicker </span></label
+            >
+            <label class="flex items-center px-3 py-2 mt-4 "
+              ><input
+                (change)="timeFormat($event)"
+                value="true"
+                type="checkbox"
+                name="amPm"
+                [disabled]="!timePicker"
+                class="text-blue-500 transition duration-100 ease-in-out border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
+              />
+              <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize"> AM/PM </span></label
+            >
+          </div>
+        </fieldset>
+      </div>
     </div>
   `,
 })
@@ -273,6 +397,7 @@ export class WebUiDatePickerComponent {
   public datepickerValue: any
   public selectedDate: any
   public amPmFormat: boolean
+  public rangeDataPicker: boolean = false
 
   public date: any
   public month: any
@@ -330,6 +455,18 @@ export class WebUiDatePickerComponent {
   public twelveHours: string[] = []
   public minutesInOneHours: any[] = []
   public dateFormatValue: Date
+  nextYear: number
+  startStopHover: boolean
+  nextMonth: number
+  dateFrom: Date
+  dateTo: Date
+  endToShow: boolean = false
+  nextblankdays: any[]
+  next_no_of_days: any[]
+
+  dateRangePickerValue: string
+  dateRangePickerValueTime: string
+  preDate: any
 
   constructor(public elm: ElementRef) {}
 
@@ -356,6 +493,8 @@ export class WebUiDatePickerComponent {
     }
     this.month = today.getMonth()
     this.year = today.getFullYear()
+    this.nextYear = today.getFullYear()
+    this.nextMonth = this.month + 1
     this.setDate = this.formatDateForDisplay(today)
     this.setDateTimeValue(this.setDate)
     this.currentTime()
@@ -407,14 +546,26 @@ export class WebUiDatePickerComponent {
   }
 
   // select date from calander
-  getDateValue(date): void {
+  getDateValue(date: any, fromat: string): void {
     this.date = date
-    this.setDate = new Date(this.year, this.month, date)
-    this.datepickerValue = this.formatDateForDisplay(this.setDate)
-    this.setDateTimeValue(this.datepickerValue)
+
+    if (this.rangeDataPicker && fromat === 'to') {
+      this.setDate = new Date(this.nextYear, this.nextMonth, date)
+      const newDatepickerValue = this.datepickerValue + 'TO ' + this.formatDateForDisplay(this.setDate)
+      //this.setDateTimeValue(newDatepickerValue)
+      this.datepickerValue = newDatepickerValue
+      console.log(this.datepickerValue)
+    }
+    if (this.rangeDataPicker && fromat === 'from') {
+      const preDate = new Date(this.year, this.month, this.preDate)
+      this.setDate = new Date(this.year, this.month, date)
+      this.datepickerValue = this.formatDateForDisplay(this.setDate)
+      this.setDateTimeValue(this.datepickerValue)
+      console.log('from')
+    }
     //this.getValueOfDate.emit(this.datepickerValue)
-    this.isSelectedDate(date)
-    this.showDatepicker = false
+    //this.isSelectedDate(date)
+    //this.showDatepicker = false
   }
 
   // get month days
@@ -446,7 +597,40 @@ export class WebUiDatePickerComponent {
     this.no_of_days = daysArray
   }
 
-  // for time picker functions here
+  // next get month days
+  getNextNoOfDays(arrow?: string): void {
+    // prev month
+    if (arrow == 'leftArrow') {
+      this.nextMonth--
+    }
+    // next month
+    if (arrow == 'rightArrow') {
+      this.nextMonth++
+    }
+
+    let daysInMonth = new Date(this.nextYear, this.nextMonth + 1, 0).getDate()
+
+    // find where to start calendar day of week
+    let dayOfWeek = new Date(this.year, this.nextMonth).getDay()
+
+    let blankdaysArray = []
+    for (var i = 1; i <= dayOfWeek; i++) {
+      blankdaysArray.push(i)
+    }
+
+    let daysArray = []
+    for (var i = 1; i <= daysInMonth; i++) {
+      daysArray.push(i)
+    }
+
+    this.nextblankdays = blankdaysArray
+    this.next_no_of_days = daysArray
+  }
+
+  rangeDataPickerselct(): void {
+    this.rangeDataPicker = !this.rangeDataPicker
+    this.getNextNoOfDays()
+  }
 
   // get current time
   currentTime(): void {
@@ -479,6 +663,43 @@ export class WebUiDatePickerComponent {
   changeInputMinutes(minute: number): void {
     this.minutes = minute
     this.setDateTimeValue(this.setDate)
+  }
+
+  // select days on hover
+  hoverDate(date, getDateFrom): void {
+    let hoverdDate = new Date(
+      getDateFrom == 1 ? this.year : this.nextYear,
+      getDateFrom == 1 ? this.month : this.nextMonth,
+      date,
+    )
+
+    // if dateFrom has date then give the date to the variable dateFrom or dateTo
+    if (hoverdDate > this.dateFrom && this.startStopHover == true) {
+      this.date = hoverdDate
+    }
+    this.isInRange(date, getDateFrom)
+    this.initDate()
+  }
+
+  // disabled days
+  isDisabledPrevDays(date) {
+    let d = new Date(this.year, this.month, date)
+
+    if (this.dateFrom && d < this.dateFrom) {
+      return true
+    }
+    return false
+  }
+
+  // highlited the days in the given range
+  isInRange(date, getDateFrom): any {
+    const d = new Date(
+      getDateFrom == 1 ? this.year : this.nextYear,
+      getDateFrom == 1 ? this.month : this.nextMonth,
+      date,
+    )
+
+    return d > this.dateFrom && d < this.dateTo
   }
 
   hoursChange(): void {

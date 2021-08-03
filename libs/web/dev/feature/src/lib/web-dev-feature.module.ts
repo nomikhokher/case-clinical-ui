@@ -175,6 +175,12 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
       },
 
       {
+        path: 'ranges',
+        loadChildren: () =>
+          import('./dev-date-range-picker/dev-date-range-picker.module').then((m) => m.DevDateRangePickerModule),
+      },
+
+      {
         path: 'vertical-nav',
         loadChildren: () =>
           import('./dev-vertical-navigation/dev-vertical-navigation.module').then((m) => m.DevVerticalNavigationModule),
