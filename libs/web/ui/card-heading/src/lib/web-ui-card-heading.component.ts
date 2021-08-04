@@ -8,8 +8,8 @@ import { Component, Input } from '@angular/core'
         [ngClass]="sectionToggle == 'true' ? 'flex-row-reverse' : ''"
       >
         <div class="ml-4 mt-4">
-          <div class="flex items-center" [ngClass]="sectionToggle == 'true' ? 'flex-row-reverse' : ''">
-            <div class="flex-shrink-0" [ngClass]="sectionToggle == 'true' ? 'ml-2' : ''">
+          <div class="flex items-center" [ngClass]="sectionToggle == true ? 'flex-row-reverse' : ''">
+            <div class="flex-shrink-0" [ngClass]="sectionToggle == true ? 'ml-2' : ''">
               <span *ngIf="profile.image">
                 <img class="h-12 w-12 rounded-full" src="{{ profile.image }}" alt="" />
               </span>
@@ -39,7 +39,7 @@ import { Component, Input } from '@angular/core'
               type="button"
               class="relative ml-3 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-{{
                 button.fontColor
-              }}-500 bg-{{ button.color }}-700 dark:text-{{ button.fontColor }}-100 hover:bg-{{
+              }}-400 bg-{{ button.color }}-700 dark:text-{{ button.fontColor }}-100 hover:bg-{{
                 button.color
               }}-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-{{ button.color }}-800"
             >
