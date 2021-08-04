@@ -25,7 +25,7 @@ import { WebUiToastService } from '@schema-driven/web/ui/toast'
                 <dt class="text-sm font-medium text-gray-500 dark:text-gray-300">
                   <div class="inline-flex space-x-2">
                     <ui-icon
-                      *ngIf="info.icon && showIcon == 'true'"
+                      *ngIf="info.icon && (showIcon == 'true' || showIcon === true)"
                       size="lg"
                       icon="{{ info.icon }}"
                       class="h-5 w-5 "
@@ -41,7 +41,7 @@ import { WebUiToastService } from '@schema-driven/web/ui/toast'
                 <dt class="text-sm font-medium text-gray-500 dark:text-gray-300">
                   <div class="inline-flex space-x-2">
                     <ui-icon
-                      *ngIf="info.icon && showIcon == 'true'"
+                      *ngIf="info.icon && (showIcon == 'true' || showIcon === true)"
                       size="lg"
                       icon="{{ info.icon }}"
                       class="h-5 w-5 "

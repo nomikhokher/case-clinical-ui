@@ -5,6 +5,7 @@ import { DevChipsStore } from './dev-chips.store'
   template: `
     <ng-container *ngIf="vm$ | async as vm">
       <ui-preview
+        [codeObj]="vm.config.items[6]"
         [code]="codePreview[0]"
         [title]="vm.config.headerTitle"
         [githubURL]="vm.config.githubURL"

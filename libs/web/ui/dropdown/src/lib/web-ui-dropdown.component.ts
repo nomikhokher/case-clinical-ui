@@ -5,10 +5,7 @@ import { Component, Input } from '@angular/core'
   template: `
     <div class="dark:bg-gray-800 border dark:border-indigo-700 px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
       <div>
-        <!-- This example requires Tailwind CSS v2.0+ -->
-        <h1 class="py-2 dark:text-gray-100" *ngIf="!icon && !heading">Simple Dropdowns</h1>
-        <h1 class="py-2" *ngIf="icon">Icon Dropdowns</h1>
-        <h1 class="py-2" *ngIf="heading">Header Dropdowns</h1>
+        <h1 class="py-2 dark:text-gray-100 text-lg" *ngIf="heading">{{ heading }}</h1>
         <div class="relative inline-block text-left">
           <div (clickOutside)="show = false">
             <button
@@ -21,7 +18,6 @@ import { Component, Input } from '@angular/core'
               (click)="closeMenu()"
             >
               Options
-              <!-- Heroicon name: solid/chevron-down -->
               <svg
                 class="-mr-1 ml-2 h-5 w-5"
                 xmlns="http://www.w3.org/2000/svg"
@@ -60,10 +56,6 @@ import { Component, Input } from '@angular/core'
             *ngIf="show"
           >
             <div class="py-1" role="none">
-              <div class="px-4 py-3" role="none" *ngIf="heading">
-                <p class="text-sm" role="none">Signed in as</p>
-                <p class="text-sm font-medium text-gray-900 truncate" role="none">tom@example.com</p>
-              </div>
               <a
                 *ngFor="let item of items"
                 href="javascript:void(0)"
@@ -71,7 +63,6 @@ import { Component, Input } from '@angular/core'
                 class="items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 hover:text-gray-900 dark:hover:text-gray-700"
                 role="menuitem"
               >
-                <!-- Heroicon name: solid/pencil-alt -->
                 <ui-icon
                   *ngIf="item.icons"
                   [icon]="item.icons"
