@@ -10,8 +10,10 @@ import { DevBadgeStore } from './dev-badge.store'
         [title]="vm.config.headerTitle"
         [directory]="vm.config.directory"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-badge
+          [text]="vm.config.items.text"
           [color]="vm.config.items.color"
           [size]="vm.config.items.size"
           [rounded]="vm.config.items.rounded"

@@ -11,6 +11,7 @@ import { DevFaqSectionStore } from './dev-faq-section.store'
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
         [code]="previewCode[0]"
+        [codeObj]="vm.config.items"
       >
         <ui-faq-section
           [title]="vm.config.items.title"

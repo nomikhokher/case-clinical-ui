@@ -23,6 +23,9 @@ export interface Inputs {
   prop?: string
   description?: string
   dataType?: string
+  type?
+  typeArray?
+  typeObj?
 }
 
 export interface Outputs {

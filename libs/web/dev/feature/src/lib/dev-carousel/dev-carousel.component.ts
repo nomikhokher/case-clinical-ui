@@ -11,6 +11,7 @@ import { DevCarouselStore } from './dev-carousel.store'
         [directory]="vm.config.directory"
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-carousel
           [bgColor]="vm.config.items.bgColor"

@@ -24,7 +24,7 @@ import { Component, Input } from '@angular/core'
                 href="javascript:void(0)"
                 class="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm mr-2 font-medium text-{{
                   button.textColor
-                }} bg-{{ button.bgColor }}-600 hover:bg-{{ button.bgColor }}-500"
+                }}-400 bg-{{ button.bgColor }}-600 hover:bg-{{ button.bgColor }}-500"
               >
                 {{ button.text }}
               </a>

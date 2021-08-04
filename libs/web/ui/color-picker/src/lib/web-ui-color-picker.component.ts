@@ -9,7 +9,7 @@ import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/
           <label
             for="color-picker"
             class="block mb-1 font-semibold dark:text-gray-100"
-            [ngClass]="{ 'ml-16': position == 'left', hidden: hideInput }"
+            [ngClass]="{ 'ml-16': position == 'left', hidden: hideInput == 'true' }"
             >Select a color</label
           >
           <div class="flex-wrap flex flex-row relative">
@@ -18,7 +18,7 @@ import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/
                 id="color-picker"
                 class="border border-gray-400 p-2 rounded-lg"
                 [(ngModel)]="currentColor"
-                [ngClass]="{ 'ml-3': position == 'left', hidden: hideInput }"
+                [ngClass]="{ 'ml-3': position == 'left', hidden: hideInput == 'true' }"
               />
               <div
                 (click)="isOpen = !isOpen"
@@ -73,7 +73,7 @@ export class WebUiColorPickerComponent {
   @Input() userColors?: string[]
   @Input() userVariants?: number[]
   @Input() position?: string
-  @Input() hideInput?: boolean
+  @Input() hideInput?
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.

@@ -4,7 +4,7 @@ import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { of } from 'rxjs'
 import { switchMap, tap } from 'rxjs/operators'
 import { Configs } from './model'
-
+import { UiIcon } from '@schema-driven/web/ui/icon'
 export interface Item {
   id?: string
   name?: string
@@ -14,6 +14,7 @@ interface DevDescriptionListState {
   loading?: boolean
   config?: Configs
 }
+let icon = Object.values(UiIcon)
 
 const config: Configs = {
   headerTitle: 'Description List',
@@ -65,11 +66,41 @@ const config: Configs = {
   },
 
   component_inputs: [
-    { label: 'Data', prop: '[data]', description: 'Shows all data of list', dataType: 'Object' },
+    {
+      label: 'Data',
+      prop: '[data]',
+      description: 'Shows all data of list',
+      dataType: 'Object',
+      typeArray: [
+        [{ title: 'Fullname' }, { value: 'Margot Foster' }, { icon: icon }],
+        [{ title: 'Application For' }, { value: 'Backend Developer' }, { icon: icon }],
+        [{ title: 'Email address' }, { value: 'margotfoster@example.com' }, { icon: icon }],
+        [{ title: 'Salary expectation' }, { value: '$120,000' }, { icon: icon }],
+        [
+          { title: 'About' },
+          {
+            value:
+              'ugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.',
+          },
+          { icon: icon },
+        ],
+        [
+          { title: 'Attachments' },
+          { icon: icon },
+          { value: `resume_back_end_developer.pdf, coverletter_back_end_developer.pdf` },
+        ],
+      ],
+    },
     { label: 'Form Title', prop: '[formTitle]', description: 'Shows the title of form.', dataType: 'String' },
     { label: 'Tag Line', prop: '[tagLine]', description: `Shows the title's tag line.`, dataType: 'String' },
     { label: 'Background Color', prop: '[background]', description: 'Change the backgrond', dataType: 'String' },
-    { label: 'Icons', prop: '[showIcon]', description: 'Shows and hide icons.', dataType: 'Boolean' },
+    {
+      label: 'Icons',
+      prop: '[showIcon]',
+      description: 'Shows and hide icons.',
+      dataType: 'Boolean',
+      type: ['true', 'false'],
+    },
   ],
 }
 

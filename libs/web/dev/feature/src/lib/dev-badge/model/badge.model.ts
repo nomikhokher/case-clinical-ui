@@ -12,9 +12,10 @@ export interface Crumbs {
   path?: string
 }
 export interface Item {
+  text?: string
   color?: string
   size?: string
-  rounded?: string
+  rounded?: boolean
   icon?: string
   position?: string
 }
@@ -23,4 +24,5 @@ export interface Inputs {
   prop?: string
   description?: string
   dataType?: string
+  type?
 }

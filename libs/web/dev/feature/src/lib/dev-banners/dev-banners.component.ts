@@ -11,6 +11,7 @@ import { DevBannersStore } from './dev-banners.store'
         [directory]="vm.config.directory"
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-banners
           [text]="vm.config.items.text"

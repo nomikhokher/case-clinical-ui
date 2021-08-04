@@ -10,13 +10,20 @@ import { Component, ElementRef, Input } from '@angular/core'
           <div class="relative">
             <span
               (click)="badgeClick('onClick')"
-              class=" px-2.5 py-0.5 hover:opacity-80 cursor-pointer text-{{ size }} font-medium bg-{{
-                color
-              }}-100 text-{{ color }}-800"
-              [ngClass]="[rounded ? 'rounded' : 'rounded-full', position == 'right' ? 'right-1 absolute bottom-0' : '']"
+              class="inline-flex justify-items-center px-2.5 py-0.5 hover:opacity-80 cursor-pointer text-{{
+                size
+              }} font-medium bg-{{ color }}-100 text-{{ color }}-800"
+              [ngClass]="[
+                rounded == 'true' ? 'rounded-full' : 'rounded',
+                position == 'right' ? 'right-1 absolute bottom-0' : ''
+              ]"
             >
-              <ui-icon *ngIf="icon" [icon]="icon" [class]="icon_size"></ui-icon>
-              Badge
+              <div class="m-1" *ngIf="icon" [ngClass]="icon_size">
+                <ui-icon [icon]="icon" size="lg" [class]="icon_size"></ui-icon>
+              </div>
+              <span>
+                {{ text }}
+              </span>
             </span>
           </div>
         </ng-container>
@@ -62,9 +69,10 @@ import { Component, ElementRef, Input } from '@angular/core'
   `,
 })
 export class WebUiBadgeComponent {
+  @Input() text?: string
   @Input() color?: string
   @Input() size?: string
-  @Input() rounded?: string
+  @Input() rounded?: boolean
   @Input() icon?: string
   @Input() removeIcon: string
   @Input() position: string
@@ -108,5 +116,6 @@ export class WebUiBadgeComponent {
         this.icon_size = 'w-2 h-2'
         break
     }
+    console.log(this.icon_size)
   }
 }

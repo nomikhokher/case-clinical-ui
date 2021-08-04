@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core'
-import { Crumb } from './models'
 
 @Component({
   selector: 'ui-breadcrumbs',
@@ -102,4 +101,11 @@ export class WebUiBreadcrumbsComponent {
   breadCrumbs(data) {
     this.crumbIcon = data.icon
   }
+}
+
+interface Crumb {
+  label?: string
+  isactive?: boolean
+  icon?: string
+  content?: string
 }

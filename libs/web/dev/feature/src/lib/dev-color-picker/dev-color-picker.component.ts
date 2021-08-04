@@ -13,6 +13,7 @@ import { DevColorPickerStore } from './dev-color-picker.store'
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_outputs]="vm.config.component_outputs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-color-picker
           [position]="vm.config.items.position"

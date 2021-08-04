@@ -4,6 +4,7 @@ import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { of } from 'rxjs'
 import { switchMap, tap } from 'rxjs/operators'
 import { Configs } from './model'
+import { UiIcon } from '@schema-driven/web/ui/icon'
 
 export interface Item {
   id?: string
@@ -15,6 +16,7 @@ interface DevBannersState {
   loading?: boolean
   config?: Configs
 }
+let icon = Object.values(UiIcon)
 
 const config: Configs = {
   headerTitle: 'Banner',
@@ -38,7 +40,7 @@ const config: Configs = {
       {
         text: 'Get Started',
         bgColor: 'yellow',
-        textColor: 'white',
+        textColor: 'green',
       },
     ],
   },
@@ -50,9 +52,24 @@ const config: Configs = {
       description: 'Adjust the background color of banner',
       dataType: 'String',
     },
-    { label: 'Icon', prop: '[icon]', description: 'Displays the icon', dataType: 'String' },
-    { label: 'Position', prop: '[position]', description: 'Adjust the position', dataType: 'String' },
-    { label: 'Button', prop: '[buttons]', description: 'Display buttons in the banner', dataType: 'Array' },
+    { label: 'Icon', prop: '[icon]', description: 'Displays the icon', dataType: 'String', type: icon },
+    {
+      label: 'Position',
+      prop: '[position]',
+      description: 'Adjust the position',
+      dataType: 'String',
+      type: ['top', 'bottom'],
+    },
+    {
+      label: 'Button',
+      prop: '[buttons]',
+      description: 'Display buttons in the banner',
+      dataType: 'Array',
+      typeArray: [
+        [{ text: 'Learn More' }, { bgColor: 'red' }, { textColor: 'White' }],
+        [{ text: 'Get Started' }, { bgColor: 'yellow' }, { textColor: 'White' }],
+      ],
+    },
   ],
 }
 

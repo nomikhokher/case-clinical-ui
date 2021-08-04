@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
+import { UiIcon } from '@schema-driven/web/ui/icon'
 import { Configs } from './model'
 
 interface DevGroupButtonState {
   config?: Configs
 }
+
+let icon = Object.values(UiIcon)
 
 const config: Configs = {
   headerTitle: 'Group Button',
@@ -15,26 +18,38 @@ const config: Configs = {
     { label: 'Gruop Button', path: '/dev/group-button' },
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-group-button.component.ts',
-  items: [
-    {
-      id: '1',
-      name: 'Years',
-      icon: 'chevronLeft',
-      dircetion: 'right',
-    },
-    {
-      id: '2',
-      name: 'Months',
-      icon: 'chevronRight',
-      dircetion: 'right',
-    },
-    {
-      id: '3',
-      name: 'Days',
-    },
-  ],
+  items: {
+    buttons: [
+      {
+        id: '1',
+        name: 'Years',
+        icon: 'chevronLeft',
+        direction: 'left',
+      },
+      {
+        id: '2',
+        name: 'Months',
+        icon: 'chevronRight',
+        direction: 'right',
+      },
+      {
+        id: '3',
+        name: 'Days',
+      },
+    ],
+  },
   component_inputs: [
-    { label: 'Group Buttons', prop: '[buttons]', description: 'Shows all buttons together', dataType: 'Array' },
+    {
+      label: 'Group Buttons',
+      prop: '[buttons]',
+      description: 'Shows all buttons together',
+      dataType: 'Array',
+      typeArray: [
+        [{ name: 'Years' }, { icon: icon }, { direction: 'left' }],
+        [{ name: 'Months' }, { icon: icon }, { direction: 'right' }],
+        [{ name: 'Months' }],
+      ],
+    },
   ],
   component_outputs: [
     { label: 'Click', prop: '(click)', description: 'Invoked when button is clicked', dataType: '() => void' },
