@@ -25,6 +25,8 @@ interface DevCardHeadingState {
 }
 
 let icon = Object.values(UiIcon)
+let profileImg =
+  'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
 
 @Injectable()
 export class DevCardHeadingStore extends ComponentStore<DevCardHeadingState> {
@@ -55,10 +57,9 @@ export class DevCardHeadingStore extends ComponentStore<DevCardHeadingState> {
 
         profile: {
           title: 'Tom Cook',
-          image:
-            'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+          image: profileImg,
           tagLine: '@tom_cook',
-          icon: 'user',
+          icon: 'at',
         },
         sectionToggle: false,
       },
@@ -68,6 +69,10 @@ export class DevCardHeadingStore extends ComponentStore<DevCardHeadingState> {
           prop: '[buttons]',
           description: `This object takes button's name, color and icon values and display it.`,
           dataType: 'Object',
+          typeArray: [
+            [{ text: 'Phone' }, { color: 'white' }, { icon: icon }, { fontColor: 'gray' }],
+            [{ text: 'Email' }, { color: 'white' }, { icon: icon }, { fontColor: 'gray' }],
+          ],
         },
         {
           label: 'Profile Content',
@@ -75,17 +80,12 @@ export class DevCardHeadingStore extends ComponentStore<DevCardHeadingState> {
           description: 'This object takes profile details and shows it.',
           dataType: 'Object',
           typeObj: [
-            { title: ['Ton Cook', 'Judith Black', 'Joseph Rodriguez'] },
+            { title: 'Tom Cook' },
             {
-              image: [
-                '',
-                'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-                'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-              ],
+              image: '',
             },
             { icon: icon },
-            { tagLine: ['@tom_cook', '@judith_black', '@joseph_rodriguez'] },
+            { tagLine: '@tom_cook' },
           ],
         },
         {
@@ -93,7 +93,7 @@ export class DevCardHeadingStore extends ComponentStore<DevCardHeadingState> {
           prop: '[sectionToggle]',
           description: 'Change the position of button and profile',
           dataType: 'Boolean',
-          type: [false, true],
+          type: ['false', 'true'],
         },
       ],
       component_outputs: [

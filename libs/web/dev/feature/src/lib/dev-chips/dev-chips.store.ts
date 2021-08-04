@@ -4,6 +4,7 @@ import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { of } from 'rxjs'
 import { switchMap, tap } from 'rxjs/operators'
 import { Configs } from './model'
+import { UiIcon } from '@schema-driven/web/ui/icon'
 
 export interface Item {
   id?: string
@@ -15,6 +16,7 @@ interface DevChipsState {
   loading?: boolean
   config?: Configs
 }
+let icon = Object.values(UiIcon)
 
 const config: Configs = {
   headerTitle: 'Chips',
@@ -61,29 +63,36 @@ const config: Configs = {
       bgColor: 'indigo',
       textColor: 'indigo',
       hoverColor: 'indigo',
-      cross: 'cross',
+      cross: true,
     },
     {
       text: 'Custom',
       img: '',
       icon: 'office',
       bgColor: 'yellow',
-      textColor: 'yellow',
-      hoverColor: 'yellow',
-      cross: 'cross',
+      textColor: 'gray',
+      hoverColor: 'red',
+      cross: true,
     },
   ],
   component_inputs: [
     { label: 'Text', prop: '[text]', description: 'Text in chips', dataType: 'String' },
-    { label: 'Icon', prop: '[icon]', description: 'Shows the icons', dataType: 'String' },
+    { label: 'Icon', prop: '[icon]', description: 'Shows the icons', dataType: 'String', type: icon },
     {
       label: 'Background Color',
       prop: '[bgColor]',
       description: 'Used to change the background color',
       dataType: 'String',
+      type: ['yellow', 'red', 'green'],
     },
     { label: 'Text Color', prop: '[textColor]', description: 'To change the text color', dataType: 'String' },
-    { label: 'Close sign', prop: '[cross]', description: 'Cross sign to close the chips.', dataType: 'String' },
+    {
+      label: 'Close sign',
+      prop: '[cross]',
+      description: 'Cross sign to close the chips.',
+      dataType: 'Boolean',
+      type: ['true', 'false'],
+    },
     { label: 'Image', prop: '[img]', description: 'Used to show the image.', dataType: 'String' },
     {
       label: 'On Hover color',
