@@ -68,8 +68,34 @@ const config: Configs = {
       prop: '[corners]',
       description: 'Displays the rounded corners of carousel',
       dataType: 'String',
+      type: ['sm', 'md', 'lg', 'xl', '2xl', '3xl', 'full', 't-none', 't-sm', 't'],
     },
-    { label: 'Images', prop: '[images]', description: 'Display Images in the carousel', dataType: 'Array' },
+    {
+      label: 'Images',
+      prop: '[images]',
+      description: 'Display Images in the carousel',
+      dataType: 'Array',
+      typeArray: [
+        [
+          {
+            img:
+              'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+          },
+        ],
+        [
+          {
+            img:
+              'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+          },
+        ],
+        [
+          {
+            img:
+              'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+          },
+        ],
+      ],
+    },
   ],
 }
 

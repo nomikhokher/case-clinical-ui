@@ -12,6 +12,7 @@ import { DevDividerStore } from './dev-divider.store'
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_outputs]="vm.config.component_outputs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items[0]"
       >
         <ui-divider-toolbar
           [dividerToolbars]="vm.config.items"

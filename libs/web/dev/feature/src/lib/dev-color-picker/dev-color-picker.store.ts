@@ -37,9 +37,27 @@ const config: Configs = {
       description: 'Shows the different shades of color',
       dataType: 'Array<number>',
     },
-    { label: 'Colors', prop: '[userColors]', description: 'Shows the colors to choose', dataType: 'Array<string>' },
-    { label: 'hideInput', prop: '[hideInput]', description: 'Shows the value of color in input', dataType: 'Boolean' },
-    { label: 'Position', prop: '[position]', description: 'Adjust the position of color picker', dataType: 'String' },
+    {
+      label: 'Colors',
+      prop: '[userColors]',
+      description: 'Shows the colors to choose',
+      dataType: 'Array<string>',
+      // typeArray:[]
+    },
+    {
+      label: 'hideInput',
+      prop: '[hideInput]',
+      description: 'Shows the value of color in input',
+      dataType: 'Boolean',
+      type: ['false', 'true'],
+    },
+    {
+      label: 'Position',
+      prop: '[position]',
+      description: 'Adjust the position of color picker',
+      dataType: 'String',
+      type: ['right', 'left'],
+    },
   ],
 }
 

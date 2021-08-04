@@ -13,12 +13,11 @@ import { Component, Input } from '@angular/core'
             <div class="relative flex space-x-3">
               <div>
                 <span
-                  class="h-8 w-8 rounded-full bg-green-500 flex items-center justify-center ring-8 ring-white {{
+                  class="h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white bg-{{
                     list.iconClass
-                  }}"
+                  }}-500"
                 >
-                  <!-- Heroicon name: solid/user -->
-                  <ui-icon icon="{{ list.icon }}" size="{{ list.size }}"></ui-icon>
+                  <ui-icon icon="{{ list.icon }}" size="{{ list.size }}" class="w-6 h-6"></ui-icon>
                 </span>
               </div>
               <div class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">

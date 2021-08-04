@@ -13,8 +13,9 @@ import { DevBreadcrumbsStore } from './dev-breadcrumbs.store'
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
         [component_outputs]="vm.config.component_outputs"
+        [codeObj]="vm.config.items"
       >
-        <ui-breadcrumbs [crumbs]="vm.config.items" [alignment]="vm.config.alignment"></ui-breadcrumbs>
+        <ui-breadcrumbs [crumbs]="vm.config.items.crumbs" [alignment]="vm.config.items.alignment"></ui-breadcrumbs>
       </ui-preview>
     </ng-container>
   `,

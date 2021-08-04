@@ -18,7 +18,7 @@ import { Component, Input } from '@angular/core'
                 ]"
               >
                 <ui-icon
-                  *ngIf="(!button.dircetion || button.dircetion === 'left') && button.icon"
+                  *ngIf="(!button.direction || button.direction === 'left') && button.icon"
                   size="lg"
                   class="h-5 w-5 mr-1"
                   icon="{{ button.icon }}"
@@ -26,7 +26,7 @@ import { Component, Input } from '@angular/core'
                 {{ button.name }}
 
                 <ui-icon
-                  *ngIf="button.dircetion === 'right' && button.icon"
+                  *ngIf="button.direction === 'right' && button.icon"
                   size="lg"
                   class=" h-5 w-5 ml-1"
                   icon="{{ button.icon }}"
@@ -51,5 +51,5 @@ interface Button {
   id?: string
   name?: string
   icon?: string
-  dircetion?: string
+  direction?: string
 }
