@@ -23,6 +23,9 @@ export interface Inputs {
   prop?: string
   description?: string
   dataType?: string
+  type?
+  typeObj?
+  typeArray?
 }
 interface Button {
   text?: string
