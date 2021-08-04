@@ -7,14 +7,14 @@ import { Component, Input } from '@angular/core'
     <ul
       class="grid grid-cols-1 gap-6"
       [ngClass]="[
-        toggleCard == true ? 'sm:grid-cols-2 lg:grid-cols-3' : 'sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
+        toggleCard == 'true' ? 'sm:grid-cols-2 lg:grid-cols-3' : 'sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
       ]"
     >
       <li
         class="col-span-1 bg-white dark:bg-gray-800 border rounded-lg shadow divide-y divide-gray-200"
-        [ngClass]="[toggleCard == true ? '' : 'text-center']"
+        [ngClass]="[toggleCard == 'true' ? '' : 'text-center']"
       >
-        <ng-container *ngIf="toggleCard == true">
+        <ng-container *ngIf="toggleCard == 'true'">
           <div class="w-full flex items-center justify-between p-6 space-x-6">
             <div class="flex-1 truncate">
               <div class="flex items-center space-x-3">
@@ -32,11 +32,11 @@ import { Component, Input } from '@angular/core'
               <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="{{ contactCard.image }}" alt="" />
             </span>
             <span *ngIf="contactCard.icon && !contactCard.image">
-              <ui-icon icon="{{ contactCard.icon }}" class="-ml-1 mr-1 text-gray-400"></ui-icon>
+              <ui-icon icon="{{ contactCard.icon }}" class="-ml-1 mr-1 text-gray-400 w-6 h-6"></ui-icon>
             </span>
           </div>
         </ng-container>
-        <ng-container *ngIf="toggleCard == false">
+        <ng-container *ngIf="toggleCard == 'false'">
           <div class="flex-1 flex flex-col p-8">
             <span *ngIf="contactCard.image">
               <img class="w-32 h-32 flex-shrink-0 mx-auto bg-black rounded-full" src="{{ contactCard.image }}" alt="" />
@@ -69,7 +69,7 @@ import { Component, Input } from '@angular/core'
                 href="javascript:void(0)"
                 class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 dark:text-gray-400 font-medium border border-transparent rounded-bl-lg hover:text-gray-500"
               >
-                <ui-icon class="-ml-1 mr-1 text-gray-400 dark:text-gray-200" icon="{{ button.icon }}"></ui-icon>
+                <ui-icon class="-ml-1 mr-1 text-gray-400 dark:text-gray-200 w-6 h-6" icon="{{ button.icon }}"></ui-icon>
                 <span class="ml-3">{{ button.text }}</span>
               </a>
             </div>
@@ -84,7 +84,13 @@ import { Component, Input } from '@angular/core'
 export class WebUiContactCardComponent {
   @Input() contactCard: Contact
   @Input() buttons: Buttons
-  @Input() toggleCard: boolean
+  @Input() toggleCard?: String
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    console.log(this.toggleCard)
+  }
 }
 
 interface Contact {

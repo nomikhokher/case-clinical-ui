@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { ComponentStore, tapResponse } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
+import { UiIcon } from '@schema-driven/web/ui/icon'
 import { Configs } from './model'
 
 export interface Item {
@@ -14,6 +15,8 @@ interface DevDividerState {
   config?: Configs
 }
 
+let icon = Object.values(UiIcon)
+
 const config: Configs = {
   headerTitle: 'Divider',
   githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/divider/src/lib',
@@ -25,7 +28,7 @@ const config: Configs = {
   items: [
     {
       directionToolbar: 'end', // direction can be [start, end, center]
-      toolbar: true,
+      toolbar: 'false',
       icons: ['team', 'office', 'attachment', 'trash'],
     },
   ],
@@ -35,8 +38,15 @@ const config: Configs = {
       prop: '[directionToolbar]',
       description: 'Adjust the position of toolbar.',
       dataType: 'String',
+      type: ['start', 'center', 'end'],
     },
-    { label: 'Toolbar', prop: '[toolbar]', description: 'Show and hide the toolbar', dataType: 'Boolean' },
+    {
+      label: 'Toolbar',
+      prop: '[toolbar]',
+      description: 'Show and hide the toolbar',
+      dataType: 'String',
+      type: ['true', 'false'],
+    },
     { label: 'Icons', prop: '[icons]', description: 'Show the icons', dataType: 'Array<string>' },
   ],
 }

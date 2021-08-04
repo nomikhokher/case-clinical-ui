@@ -18,6 +18,7 @@ export interface Input {
   dataType?: string
   type?
   typeObj?
+  typeArray?
 }
 export interface Output {
   label?: string

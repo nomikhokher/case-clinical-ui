@@ -13,7 +13,7 @@ export interface Crumbs {
 }
 export interface Item {
   directionToolbar?: string
-  toolbar: boolean
+  toolbar: String
   icons?: Array<string>
 }
 
@@ -22,6 +22,9 @@ export interface Inputs {
   prop?: string
   description?: string
   dataType?: string
+  type?
+  typeArray?
+  typeObj?
 }
 
 export interface Outputs {

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { Configs } from './model'
+import { UiIcon } from '@schema-driven/web/ui/icon'
 
 export interface Item {
   id: string
@@ -11,6 +12,7 @@ export interface Item {
 interface DevDropdownState {
   config?: Configs
 }
+let icon = Object.values(UiIcon)
 
 const config: Configs = {
   headerTitle: 'Dropdown',
@@ -40,9 +42,24 @@ const config: Configs = {
         name: 'Delete',
       },
     ],
+    heading: 'Choose one of them options:',
   },
 
-  component_inputs: [{ label: 'Data', prop: '[data]', description: 'Shows all data of list', dataType: 'Object' }],
+  component_inputs: [
+    {
+      label: 'Data',
+      prop: '[data]',
+      description: 'Shows all data of list',
+      dataType: 'Object',
+      typeArray: [
+        [{ name: 'Account settings' }, { icons: icon }],
+        [{ name: 'Support' }, { icons: icon }],
+        [{ name: 'License' }, { icons: icon }],
+        [{ name: 'Delete' }, { icons: icon }],
+      ],
+    },
+    { label: 'Heading', prop: '[heading]', description: 'Shows the label of dropdown', dataType: 'String' },
+  ],
 }
 
 @Injectable()

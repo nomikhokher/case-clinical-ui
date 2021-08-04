@@ -5,6 +5,8 @@ export enum Variant {
   Secondary = 'secondary',
   White = 'white',
   Danger = 'danger',
+  Success = 'success',
+  Warning = 'warning',
 }
 
 export enum Size {
@@ -63,6 +65,10 @@ export class WebUiButtonComponent {
       default:
       case Variant.Primary:
         return 'text-white border-blue-600 bg-blue-600 hover:bg-blue-500 focus:ring-blue-500'
+      case Variant.Success:
+        return 'text-white border-green-600 bg-green-600 hover:bg-green-500 focus:ring-green-500'
+      case Variant.Warning:
+        return 'text-white border-yellow-600 bg-yellow-600 hover:bg-yellow-500 focus:ring-yellow-500'
     }
   }
 

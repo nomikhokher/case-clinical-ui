@@ -23,6 +23,9 @@ export interface Inputs {
   prop?: string
   description?: string
   dataType?: string
+  type?
+  typeArray?
+  typeObj?
 }
 interface Image {
   img?: string

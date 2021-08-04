@@ -13,19 +13,10 @@ import { DevDropdownStore } from './dev-dropdown.store'
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_outputs]="vm.config.component_outputs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ng-container>
-          <ui-dropdown direction="right" [items]="vm.config.items.data"></ui-dropdown>
-        </ng-container>
-      </ui-preview>
-      <ui-preview [component_props]="[{ name: 'items', value: vm.config.items.data }]" [code]="codePreview[1]">
-        <ng-container>
-          <ui-dropdown direction="left" icon="heroicon" [items]="vm.config.items.data"></ui-dropdown>
-        </ng-container>
-      </ui-preview>
-      <ui-preview [component_props]="[{ name: 'items', value: vm.config.items.data }]" [code]="codePreview[2]">
-        <ng-container>
-          <ui-dropdown direction="left" [heading]="heading" [items]="vm.config.items.data"></ui-dropdown>
+          <ui-dropdown [heading]="vm.config.items.heading" [items]="vm.config.items.data"></ui-dropdown>
         </ng-container>
       </ui-preview>
     </ng-container>

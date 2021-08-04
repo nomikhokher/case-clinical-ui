@@ -14,7 +14,7 @@ export interface Crumbs {
 export interface Item {
   contactCard?: Contact
   buttons?: Buttons[]
-  toggleCard?: Boolean
+  toggleCard?: String
 }
 
 export interface Inputs {
@@ -22,6 +22,9 @@ export interface Inputs {
   prop?: string
   description?: string
   dataType?: string
+  type?
+  typeArray?
+  typeObj?
 }
 
 export interface Outputs {
