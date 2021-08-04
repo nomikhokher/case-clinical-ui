@@ -11,6 +11,7 @@ import { DevFooterStore } from './dev-footer.store'
         [directory]="vm.config.directory"
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-footer
           [bgColor]="vm.config.items.bgColor"

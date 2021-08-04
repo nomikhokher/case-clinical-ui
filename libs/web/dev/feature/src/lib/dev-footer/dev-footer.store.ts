@@ -4,6 +4,7 @@ import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { of } from 'rxjs'
 import { switchMap, tap } from 'rxjs/operators'
 import { Configs } from './model'
+import { UiIcon } from '@schema-driven/web/ui/icon'
 
 export interface Item {
   id?: string
@@ -15,6 +16,7 @@ interface DevFooterState {
   loading?: boolean
   config: Configs
 }
+let icon = Object.values(UiIcon)
 
 const config: Configs = {
   headerTitle: 'Footer',
@@ -60,7 +62,7 @@ const config: Configs = {
         svg: 'instagram',
       },
       {
-        svg: 'dribble',
+        svg: 'dribbble',
       },
     ],
   },
@@ -73,9 +75,37 @@ const config: Configs = {
       dataType: 'String',
     },
     { label: 'Text Color', prop: '[textColor]', description: 'Adjust text color of footer', dataType: 'String' },
-    { label: 'List', prop: '[lists]', description: 'Shows all data of footer lists', dataType: 'Array' },
+    {
+      label: 'List',
+      prop: '[lists]',
+      description: 'Shows all data of footer lists',
+      dataType: 'Array',
+      typeArray: [
+        [
+          { heading: 'Solutions' },
+          { items: ` [{ title: 'Marketing' }, { title: 'Analytics' }, { title: 'Commerce' }, { title: 'Insights' }]` },
+        ],
+        [
+          { heading: 'Support' },
+          { items: `[{ title: 'Pricing' }, { title: 'Documentation' }, { title: 'Guides' }, { title: 'API Status' }]` },
+        ],
+        [
+          { heading: 'Company' },
+          {
+            items: `[{ title: 'About' }, { title: 'Blog' }, { title: 'Jobs' }, { title: 'Press' }, { title: 'Partners' }]`,
+          },
+        ],
+        [{ heading: 'Legal' }, { items: `[{ title: 'Claim' }, { title: 'Privacy' }, { title: 'Terms' }]` }],
+      ],
+    },
     { label: 'Rights', prop: '[rights]', description: 'Display the rights text of footer', dataType: 'String' },
-    { label: 'Icons', prop: '[icons]', description: 'Display social icons on footer', dataType: 'Array' },
+    {
+      label: 'Icons',
+      prop: '[icons]',
+      description: 'Display social icons on footer',
+      dataType: 'Array',
+      typeArray: [[{ svg: icon }], [{ svg: icon }], [{ svg: icon }], [{ svg: icon }], [{ svg: icon }]],
+    },
   ],
 }
 
