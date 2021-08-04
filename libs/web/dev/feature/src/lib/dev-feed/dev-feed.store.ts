@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { ComponentStore, tapResponse } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
+import { UiIcon } from '@schema-driven/web/ui/icon'
 import { of } from 'rxjs'
 import { switchMap, tap } from 'rxjs/operators'
 import { Configs } from '../dev-feed/model'
@@ -14,6 +15,8 @@ interface DevFeedState {
   loading?: boolean
   config?: Configs
 }
+
+let icon = Object.values(UiIcon)
 
 const config: Configs = {
   headerTitle: 'Feeds',
@@ -34,7 +37,7 @@ const config: Configs = {
           'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80',
         icon: 'user',
         size: 'lg',
-        iconClass: 'bg-gray-400',
+        iconClass: 'green',
       },
       {
         id: 2,
@@ -45,13 +48,42 @@ const config: Configs = {
           'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80',
         icon: 'thumb_up',
         size: 'lg',
-        iconClass: 'bg-blue-500',
+        iconClass: 'blue',
       },
     ],
   },
 
   component_inputs: [
-    { label: 'Feed Listing', prop: '[feedListings]', description: 'Shows all data of feed lists', dataType: 'Object' },
+    {
+      label: 'Feed Listing',
+      prop: '[feedsListing]',
+      description: 'Shows all data of feed lists',
+      dataType: 'Array',
+      typeArray: [
+        [
+          { heading: 'Applied to' },
+          { title: 'Front End' },
+          { time: 'set, friday 2pm' },
+          {
+            img:
+              'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80',
+          },
+          { icon: icon },
+          { iconClass: 'green' },
+        ],
+        [
+          { heading: 'Applied to' },
+          { title: 'Front End' },
+          { time: 'set, friday 2pm' },
+          {
+            img:
+              'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80',
+          },
+          { icon: icon },
+          { iconClass: 'blue' },
+        ],
+      ],
+    },
   ],
 }
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { ComponentStore, tapResponse } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
+import { UiIcon } from '@schema-driven/web/ui/icon'
 import { Configs } from './model'
 
 export interface Item {
@@ -13,6 +14,8 @@ interface DevContactCardState {
   loading?: boolean
   config?: Configs
 }
+
+let icon = Object.values(UiIcon)
 
 const config: Configs = {
   headerTitle: 'Contact Card',
@@ -43,7 +46,7 @@ const config: Configs = {
         icon: 'phone',
       },
     ],
-    toggleCard: false,
+    toggleCard: 'false',
   },
   component_inputs: [
     {
@@ -51,9 +54,35 @@ const config: Configs = {
       prop: '[contactCard]',
       description: 'It shows all your detail in contact card. ',
       dataType: 'Object',
+      typeObj: [
+        { title: 'Jane Cooper' },
+        { tagLine: 'Paradigm Representative' },
+        { email: 'janecooper@example.com' },
+        {
+          image:
+            'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+        },
+        { role: 'Admin' },
+        { icon: icon },
+      ],
     },
-    { label: 'Buttons', prop: '[buttons]', description: 'Shows the buttons. ', dataType: 'Object' },
-    { label: 'Card Style', prop: '[contactCard]', description: 'Change the card style. ', dataType: 'Boolean' },
+    {
+      label: 'Buttons',
+      prop: '[buttons]',
+      description: 'Shows the buttons. ',
+      dataType: 'Object',
+      typeArray: [
+        [{ text: 'Email' }, { icon: icon }],
+        [{ text: 'Call' }, { icon: icon }],
+      ],
+    },
+    {
+      label: 'Card Style',
+      prop: '[toggleCard]',
+      description: 'Change the card style. ',
+      dataType: 'Boolean',
+      type: ['false', 'true'],
+    },
   ],
 }
 

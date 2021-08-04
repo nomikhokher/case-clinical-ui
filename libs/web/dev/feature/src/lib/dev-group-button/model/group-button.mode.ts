@@ -3,7 +3,7 @@ export interface Configs {
   githubURL?: string
   directory?: string
   breadcrumbs?: Crumbs[]
-  items?: Item[]
+  items?: Item
   component_inputs?: Inputs[]
   component_outputs?: Outputs[]
 }
@@ -13,10 +13,7 @@ export interface Crumbs {
   path?: string
 }
 export interface Item {
-  id?: string
-  name?: string
-  icon?: string
-  dircetion?: string
+  buttons?: Button[]
 }
 
 export interface Inputs {
@@ -24,6 +21,7 @@ export interface Inputs {
   prop?: string
   description?: string
   dataType?: string
+  typeArray?
 }
 
 export interface Outputs {
@@ -31,4 +29,11 @@ export interface Outputs {
   prop?: string
   description?: string
   dataType?: string
+}
+
+interface Button {
+  id?: string
+  name?: string
+  icon?: string
+  direction?: string
 }
