@@ -15,13 +15,14 @@ import { DevDescriptionListStore } from './dev-description-list.store'
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_outputs]="vm.config.component_outputs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-description-list
           [data]="vm.config.items.data"
           [tagLine]="vm.config.items.tagLine"
           [formTitle]="vm.config.items.formTitle"
           [background]="vm.config.items.background"
-          showIcon="vm.config.items.showIcon"
+          [showIcon]="vm.config.items.showIcon"
         >
         </ui-description-list>
       </ui-preview>
