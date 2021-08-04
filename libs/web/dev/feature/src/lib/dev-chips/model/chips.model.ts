@@ -19,7 +19,7 @@ export type Item = {
   bgColor?: string
   textColor?: string
   hoverColor?: string
-  cross?: string
+  cross?: Boolean
 }
 
 export interface Inputs {
@@ -27,6 +27,9 @@ export interface Inputs {
   prop?: string
   description?: string
   dataType?: string
+  type?
+  typeObj?
+  typeArray?
 }
 
 export interface Outputs {

@@ -25,7 +25,7 @@ import { Component, Input } from '@angular/core'
             <img class="rounded-full" alt="A" src="{{ chip.img }}" />
           </div>
           <div class="text-xs font-normal leading-none max-w-full flex-initial">{{ chip.text }}</div>
-          <div *ngIf="chip.cross">
+          <div *ngIf="chip.cross == 'true' || chip.cross === true">
             <svg
               (click)="deleteItem(i)"
               class="w-4 h-4"
