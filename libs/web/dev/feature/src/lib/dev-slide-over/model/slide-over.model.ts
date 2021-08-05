@@ -13,10 +13,11 @@ export interface Crumbs {
 }
 export interface Item {
   width?: string
-  overlay?: string
+  overlayColor?: string
   slideOverHeader?: boolean
   slideOverFooter?: boolean
   closeButtonOutSide?: boolean
+  overlayOpacity?: string
 }
 
 export interface Inputs {
@@ -24,6 +25,9 @@ export interface Inputs {
   prop?: string
   description?: string
   dataType?: string
+  type?
+  typeObj?
+  typeArray?
 }
 
 export interface Outputs {

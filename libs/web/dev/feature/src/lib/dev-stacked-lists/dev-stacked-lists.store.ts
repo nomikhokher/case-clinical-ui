@@ -55,6 +55,16 @@ const config = {
       date: 'January 7, 2020',
       status: 'Completed phone screening',
     },
+    {
+      twoColumnStackedList: true,
+      id: 4,
+      name: 'Custom List',
+      email: 'custom@Customization.com',
+      img:
+        'https://www.doesport.co.uk/wp-content/uploads/2017/11/profile-icon-male-avatar-portrait-casual-person-silhouette-face-flat-design-vector-illustration-58249394.jpg',
+      date: 'January 7, 2020',
+      status: 'This list can be customize.',
+    },
   ],
   component_inputs: [
     {
@@ -62,6 +72,7 @@ const config = {
       prop: '[twoColumnStackedList]',
       description: 'Adjust Two or Single column stacked list.',
       dataType: 'Boolean',
+      type: ['true', 'false'],
     },
     { label: 'Id', prop: '[id]', description: 'ID of list.', dataType: 'String' },
     { label: 'Name', prop: '[name]', description: 'Shows the name.', dataType: 'String' },

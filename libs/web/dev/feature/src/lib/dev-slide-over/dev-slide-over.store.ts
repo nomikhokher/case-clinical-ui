@@ -24,15 +24,43 @@ const config: Configs = {
   directory: '/libs/web/dev/feature/src/lib/dev-slide-over.component.ts',
   items: {
     width: 'max-w-2xl',
-    overlay: 'bg-gray-500 bg-opacity-75 transition-opacity',
+    overlayColor: 'bg-gray-500 ',
+    overlayOpacity: 'bg-opacity-75 ',
     slideOverHeader: true,
     slideOverFooter: true,
     closeButtonOutSide: true,
   },
 
   component_inputs: [
-    { label: 'Layout Width', prop: '[width]', description: 'Set width of the layout.', dataType: 'string' },
-    { label: 'Layout Overlay', prop: '[overlay]', description: 'Show the Overlay of Layout.', dataType: 'string' },
+    {
+      label: 'Layout Width',
+      prop: '[width]',
+      description: 'Set width of the layout.',
+      dataType: 'string',
+      type: ['max-w-2xl', 'max-w-3xl', 'max-w-4xl', 'max-w-5xl', 'max-w-6xl', 'max-w-7xl'],
+    },
+    {
+      label: 'Layout Overlay Opacity',
+      prop: '[overlayOpacity]',
+      description: 'Show the Overlay of Layout.',
+      dataType: 'string',
+      type: [
+        'bg-opacity-95',
+        'bg-opacity-90',
+        'bg-opacity-80',
+        'bg-opacity-75',
+        'bg-opacity-60',
+        'bg-opacity-50',
+        'bg-opacity-40',
+      ],
+    },
+    {
+      label: 'Layout Overlay Color',
+      prop: '[overlayColor]',
+      description: 'Show the Overlay of Layout.',
+      dataType: 'string',
+      type: ['bg-gray-500', 'bg-red-500', 'bg-green-500', 'bg-blue-500', 'bg-yellow-500', 'bg-indigo-500'],
+    },
     {
       label: 'SlideOver Header',
       prop: '[slideOverHeader]',

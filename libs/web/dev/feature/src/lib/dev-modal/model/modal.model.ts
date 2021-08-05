@@ -24,6 +24,7 @@ export interface Inputs {
   prop?: string
   description?: string
   dataType?: string
+  type?
 }
 
 export interface Outputs {

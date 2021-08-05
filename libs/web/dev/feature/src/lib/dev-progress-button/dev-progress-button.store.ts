@@ -4,6 +4,7 @@ import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { of } from 'rxjs'
 import { switchMap, tap } from 'rxjs/operators'
 import { Configs } from '../dev-progress-button/model'
+import { UiIcon } from '@schema-driven/web/ui/icon'
 
 export interface Item {
   id?: string
@@ -14,6 +15,7 @@ interface DevProgressButtonState {
   items?: Item[]
   config?: Configs
 }
+let icon = Object.values(UiIcon)
 
 const config: Configs = {
   headerTitle: 'Progress Button',
@@ -41,10 +43,19 @@ const config: Configs = {
   },
 
   component_inputs: [
-    { label: 'Text', prop: '[text]', description: 'Show button text', dataType: 'string' },
-    { label: 'Color', prop: '[color]', description: 'Change background color', dataType: 'string' },
-    { label: 'Icon', prop: '[icon]', description: 'Change button icon', dataType: 'string' },
-    { label: 'Position', prop: '[position]', description: 'Adjust button position left or right', dataType: 'string' },
+    {
+      label: 'Buttons',
+      prop: '[buttons]',
+      description: 'Show buttons in progress',
+      dataType: 'Object',
+      typeArray: [
+        [{ text: 'Spin Left' }, { color: 'red' }, { position: ['left', 'right'] }, { icon: icon }],
+        [{ text: 'Spin Right' }, { color: 'green' }, { position: ['left', 'right'] }, { icon: icon }],
+      ],
+    },
+    // { label: 'Color', prop: '[color]', description: 'Change background color', dataType: 'string' },
+    // { label: 'Icon', prop: '[icon]', description: 'Change button icon', dataType: 'string' },
+    // { label: 'Position', prop: '[position]', description: 'Adjust button position left or right', dataType: 'string' },
   ],
 }
 
