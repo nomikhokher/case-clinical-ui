@@ -1,1 +1,1 @@
-export { Stats, ComponentProp } from './stats'
+export { items, ComponentProp } from './stats'
