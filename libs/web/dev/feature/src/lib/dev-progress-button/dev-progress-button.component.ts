@@ -12,6 +12,7 @@ import { DevProgressButtonStore } from './dev-progress-button.store'
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_outputs]="vm.config.component_outputs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <div class="inline-block mx-3" *ngFor="let item of vm.config.items.buttons; let i = index">
           <ui-progress-button
