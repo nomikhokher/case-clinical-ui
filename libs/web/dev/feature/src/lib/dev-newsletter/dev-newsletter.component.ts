@@ -11,6 +11,7 @@ import { DevNewsletterStore } from './dev-newsletter.store'
         [directory]="vm.config.directory"
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-newsletter
           [heading]="vm.config.items.heading"

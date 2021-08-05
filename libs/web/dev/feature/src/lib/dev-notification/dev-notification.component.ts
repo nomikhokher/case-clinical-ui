@@ -15,6 +15,7 @@ import { DevNotificationStore } from './dev-notification.store'
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
         [component_outputs]="vm.config.component_outputs"
+        [codeObj]="vm.config.items[0]"
       >
         <div class="inline-block mx-2">
           <ui-button color="indigo  " [label]="'Click me'" (click)="showFn()"></ui-button>
@@ -30,7 +31,6 @@ import { DevNotificationStore } from './dev-notification.store'
             [leftSectionButton]="vm.config.items[0].leftSectionButton"
             [bottomSectionButton]="vm.config.items[0].bottomSectionButton"
             (closeValue)="closeAction($event)"
-            (timeSec)="time($event)"
           ></ui-notification>
         </div>
       </ui-preview>
@@ -62,6 +62,10 @@ import { WebUiButtonModule } from '@schema-driven/web/ui/button\n\n'<ui-button c
   ]
   showFn() {
     this.show = true
+    this.vm$.subscribe((x: any) => {
+      console.log(x)
+      this.setTime = x.config.items[0].timeInSec
+    })
     if (!this.subTimeout) {
       this.subTimeout = window.setTimeout(() => {
         this.show = false
@@ -79,8 +83,5 @@ import { WebUiButtonModule } from '@schema-driven/web/ui/button\n\n'<ui-button c
   ngOnDestroy() {
     clearTimeout(this.subTimeout)
     this.subTimeout = undefined
-  }
-  time(second: number) {
-    this.setTime = second
   }
 }
