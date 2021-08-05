@@ -12,15 +12,27 @@ import { DevMediaObjectStore } from './dev-media-object.store'
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_outputs]="vm.config.component_outputs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <!-- you add vertical direction 'start' or 'center' or 'end' -->
         <!-- you add horizontal direction,  'left' or 'right' -->
-        <ui-media-object icon="imageAvatar" [circle]="circle" verticalDirection="center" horizontalDirection="left">
+        <ui-media-object
+          [circle]="vm.config.items.circle"
+          [verticalDirection]="vm.config.items.verticalDirection"
+          [height]="vm.config.items.height"
+          [width]="vm.config.items.width"
+          [horizontalDirection]="vm.config.items.horizontalDirection"
+        >
           <ng-container class="objectData">
-            <h4 class="text-lg font-bold dark:text-gray-100">Lorem ipsum</h4>
+            <h4 class="text-lg font-bold dark:text-gray-100">{{ vm.config.items.title }}</h4>
             <p class="mt-1 dark:text-gray-300">
-              Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam expedita quia omnis voluptatem. Minus
-              quidem ipsam quia iusto.
+              {{ vm.config.items.description }}
+            </p>
+          </ng-container>
+          <ng-container class="objectDataFullImage">
+            <h4 class="text-lg font-bold dark:text-gray-100">{{ vm.config.items.title }}</h4>
+            <p class="mt-1 dark:text-gray-300">
+              {{ vm.config.items.description }}
             </p>
           </ng-container>
         </ui-media-object>
