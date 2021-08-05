@@ -12,6 +12,7 @@ import { DevPaginationStore } from './dev-pagination.store'
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_outputs]="vm.config.component_outputs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-pagination [pages]="vm.config.items.pages" [difference]="vm.config.items.difference"> </ui-pagination>
       </ui-preview>

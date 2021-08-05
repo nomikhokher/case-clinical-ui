@@ -12,6 +12,7 @@ import { DevStackedListsStore } from './dev-stacked-lists.store'
         [directory]="vm.config.directory"
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items[3]"
       >
         <div *ngFor="let item of vm.config.items">
           <ui-two-column-stacked-list

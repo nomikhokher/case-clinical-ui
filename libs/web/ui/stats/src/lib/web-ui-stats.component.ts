@@ -9,17 +9,17 @@ import { Component, Input } from '@angular/core'
           class="relative bg-white dark:bg-gray-800 border pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow overflow-hidden md:rounded-lg"
         >
           <dt>
-            <ng-container *ngIf="stats.icon">
+            <ng-container *ngIf="icon">
               <div class="absolute bg-indigo-500 rounded-md flex items-center justify-center h-8 w-8">
-                <ui-icon class="text-white h-5 w-5" [icon]="stats.icon"></ui-icon>
+                <ui-icon class="text-white h-5 w-5" [icon]="icon"></ui-icon>
               </div>
             </ng-container>
-            <p class="text-sm font-medium text-gray-500 dark:text-gray-300 truncate" [ngClass]="stats.icon && 'ml-16'">
-              {{ stats.title }}
+            <p class="text-sm font-medium text-gray-500 dark:text-gray-300 truncate" [ngClass]="icon && 'ml-16'">
+              {{ title }}
             </p>
           </dt>
-          <dd class="pb-6 flex items-baseline" [ngClass]="stats.icon ? 'ml-16 sm:pb-7' : 'mt-1 text-3xl font-semibold'">
-            <p class="text-2xl font-semibold text-gray-900 dark:text-gray-100">{{ stats.values.current }}</p>
+          <dd class="pb-6 flex items-baseline" [ngClass]="icon ? 'ml-16 sm:pb-7' : 'mt-1 text-3xl font-semibold'">
+            <p class="text-2xl font-semibold text-gray-900 dark:text-gray-100">{{ values.current }}</p>
             <p class="ml-2 flex items-baseline text-sm font-semibold dark:text-gray-100">
               <!-- Heroicon name: solid/arrow-sm-up -->
               <svg
@@ -44,16 +44,16 @@ import { Component, Input } from '@angular/core'
                 />
               </svg>
               <span class="sr-only"> {{ increased ? 'Increased by' : 'Decreased by' }} </span>
-              <ng-container *ngIf="stats.values.difference.type === 'numeric'">
-                {{ stats.values.difference.numeric }}
+              <ng-container *ngIf="values.difference.type === 'numeric'">
+                {{ values.difference.numeric }}
               </ng-container>
-              <ng-container *ngIf="stats.values.difference.type === 'percentage'">
-                {{ stats.values.difference.percentage | number: '2.1-1' }} {{ '%' }}
+              <ng-container *ngIf="values.difference.type === 'percentage'">
+                {{ values.difference.percentage | number: '2.1-1' }} {{ '%' }}
               </ng-container>
             </p>
             <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
               <div class="text-sm">
-                <a href="{{ stats.link }}" class="font-medium text-indigo-600 hover:text-indigo-500">
+                <a href="{{ link }}" class="font-medium text-indigo-600 hover:text-indigo-500">
                   View all<span class="sr-only"> Total Subscribers stats</span></a
                 >
               </div>
@@ -66,28 +66,31 @@ import { Component, Input } from '@angular/core'
 })
 export class WebUiStatsComponent {
   @Input() stats: Stats
-
+  @Input() link
+  @Input() icon
+  @Input() values
+  @Input() title
   public increased: boolean = false
   public avg: any
 
   ngOnInit() {
-    if (!this.stats.values.overwrite) {
-      if (+this.stats.values.current > +this.stats.values.previous) {
-        let subl = +this.stats.values.current - +this.stats.values.previous
-        let mul = subl * 100
-        this.avg = mul / +this.stats.values.previous
-        this.increased = true
-        this.stats.values.difference.numeric = subl
-        this.stats.values.difference.percentage = this.avg
-      } else {
-        let subl = +this.stats.values.previous - +this.stats.values.current
-        let mul = subl * 100
-        this.avg = mul / +this.stats.values.current
-        this.increased = false
-        this.stats.values.difference.numeric = subl
-        this.stats.values.difference.percentage = this.avg
-      }
-    }
+    //   if (!this.stats.values.overwrite) {
+    //     if (+this.stats.values.current > +this.stats.values.previous) {
+    //       let subl = +this.stats.values.current - +this.stats.values.previous
+    //       let mul = subl * 100
+    //       this.avg = mul / +this.stats.values.previous
+    //       this.increased = true
+    //       this.stats.values.difference.numeric = subl
+    //       this.stats.values.difference.percentage = this.avg
+    //     } else {
+    //       let subl = +this.stats.values.previous - +this.stats.values.current
+    //       let mul = subl * 100
+    //       this.avg = mul / +this.stats.values.current
+    //       this.increased = false
+    //       this.stats.values.difference.numeric = subl
+    //       this.stats.values.difference.percentage = this.avg
+    //     }
+    //   }
   }
 }
 

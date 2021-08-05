@@ -11,8 +11,14 @@ import { DevStatsStore } from './dev-stats.store'
         [breadcrumbs]="vm.config.previewData.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
         [code]="codePreview[0]"
+        [codeObj]="vm.config.items"
       >
-        <ui-stats [stats]="vm.config.items.stats"></ui-stats>
+        <ui-stats
+          [title]="vm.config.items.title"
+          [values]="vm.config.items.values"
+          [icon]="vm.config.items.icon"
+          [link]="vm.config.items.link"
+        ></ui-stats>
       </ui-preview>
     </ng-container>
   `,

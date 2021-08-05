@@ -23,6 +23,43 @@ const config = {
     { label: 'Media Object', path: '/dev/media-object' },
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-section-headings/dev-media-object.component.ts',
+  items: {
+    circle: true,
+    verticalDirection: 'center',
+    height: 20,
+    width: 20,
+    horizontalDirection: 'left',
+    title: 'Lorem ipsum',
+    description: ` Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam expedita quia omnis voluptatem. Minus
+    quidem ipsam quia iusto.`,
+  },
+  component_inputs: [
+    {
+      label: 'Circle',
+      prop: '[circle]',
+      description: 'Adjust the roundness of object',
+      dataType: 'Boolean',
+      type: ['true', 'false'],
+    },
+    {
+      label: 'Vertical Position',
+      prop: '[verticalDirection]',
+      description: 'Adjust the vertical position of content.',
+      dataType: 'String',
+      type: ['start', 'center', 'end'],
+    },
+    {
+      label: 'Horizontal Position',
+      prop: '[horizontalDirection]',
+      description: 'Adjust the horizontal position of content.',
+      dataType: 'String',
+      type: ['left', 'right'],
+    },
+    { label: 'Title', prop: '[title]', description: 'Shows the title.', dataType: 'String' },
+    { label: 'Description', prop: '[description]', description: 'Shows the description.', dataType: 'String' },
+    { label: 'Hieght', prop: '[height]', description: 'Adjust the hieght of object', dataType: 'Number' },
+    { label: 'Width', prop: '[width]', description: 'Adjust the width of object', dataType: 'Number' },
+  ],
 }
 
 @Injectable()

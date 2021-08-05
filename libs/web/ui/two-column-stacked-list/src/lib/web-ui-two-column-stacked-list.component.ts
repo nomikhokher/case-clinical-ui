@@ -32,7 +32,7 @@ import { Component, Input } from '@angular/core'
                     </p>
                   </div>
                   <div class="hidden md:block">
-                    <div *ngIf="twoColumnStackedList">
+                    <div *ngIf="twoColumnStackedList == 'true' || twoColumnStackedList === true">
                       <p class="text-sm text-gray-900 dark:text-gray-100">
                         <time datetime="2020-01-07">{{ date }}</time>
                       </p>
@@ -67,7 +67,7 @@ import { Component, Input } from '@angular/core'
   `,
 })
 export class WebUiTwoColumnStackedListComponent {
-  @Input() twoColumnStackedList: boolean
+  @Input() twoColumnStackedList: boolean | string
   @Input() id?: string
   @Input() name?: string
   @Input() img?: string
