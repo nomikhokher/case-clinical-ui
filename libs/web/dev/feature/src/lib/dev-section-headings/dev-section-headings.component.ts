@@ -11,6 +11,7 @@ import { DevSectionHeadingsStore } from './dev-section-headings.store'
         [breadcrumbs]="vm.breadcrumbs"
         [code]="codePreview[0]"
         [component_inputs]="vm.component_inputs"
+        [codeObj]="vm.items"
       >
         <ui-section-headings
           [title]="vm.items.title"
