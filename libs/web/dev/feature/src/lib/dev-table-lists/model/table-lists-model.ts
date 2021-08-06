@@ -21,14 +21,12 @@ export interface Columns {
   title?: string
 }
 export interface Data {
-  title?: Title
-  jobTitle?: Title
+  title?: string
+  jobTitle?: string
   role?: string
   button?: string
-}
-interface Title {
-  title?: string
   tagLine?: string
+  jobTagLine?: string
 }
 
 export interface Inputs {
@@ -36,6 +34,9 @@ export interface Inputs {
   prop?: string
   description?: string
   dataType?: string
+  type?
+  typeObj?
+  typeArray?
 }
 
 export interface Outputs {

@@ -11,6 +11,7 @@ import { NavbarsStore } from './navbars.store'
         [directory]="vm.config.directory"
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-navbars
           [menuItems]="vm.config.items.menuItems"

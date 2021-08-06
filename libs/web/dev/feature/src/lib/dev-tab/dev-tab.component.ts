@@ -12,8 +12,13 @@ import { DevTabsStore } from './dev-tab.store'
         [breadcrumbs]="vm.config.previewData.breadcrumbs"
         [code]="codePreview[0]"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
-        <ui-tab [tabs]="vm.config.tabs" [style]="vm.config.style" [alignment]="vm.config.alignment"></ui-tab>
+        <ui-tab
+          [tabs]="vm.config.items.tabs"
+          [style]="vm.config.items.style"
+          [alignment]="vm.config.items.alignment"
+        ></ui-tab>
       </ui-preview>
     </ng-container>
   `,

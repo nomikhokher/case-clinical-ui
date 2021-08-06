@@ -36,6 +36,7 @@ const config: Configs = {
       prop: '[quickAction]',
       description: 'Show Quick Button or Quick Search bar',
       dataType: 'String',
+      type: ['button', 'search', 'none'],
     },
     { label: 'Background Color', prop: '[background]', description: 'Adjust background color.', dataType: 'String' },
     {
@@ -43,8 +44,15 @@ const config: Configs = {
       prop: '[optionList]',
       description: 'Shows the options when click on avatar.',
       dataType: 'Object',
+      typeArray: [[{ item: 'Your Profile' }], [{ item: 'Setting' }], [{ item: 'Sign out' }]],
     },
-    { label: 'Menu Items', prop: '[menuItems]', description: 'Shows the menu item on navbar.', dataType: 'Object' },
+    {
+      label: 'Menu Items',
+      prop: '[menuItems]',
+      description: 'Shows the menu item on navbar.',
+      dataType: 'Object',
+      typeArray: [[{ menu: 'Dashboard' }], [{ menu: 'Team' }], [{ menu: 'Project' }], [{ menu: 'Calendar' }]],
+    },
   ],
 }
 
