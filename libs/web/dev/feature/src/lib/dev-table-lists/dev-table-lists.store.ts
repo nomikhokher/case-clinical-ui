@@ -30,53 +30,78 @@ const config: Configs = {
     columns: [{ title: 'Name' }, { title: 'Title' }, { title: 'Role' }, { title: '' }],
     dataList: [
       {
-        title: {
-          title: 'Jane Cooper',
-          tagLine: 'jane.cooper@example.com',
-        },
-
-        jobTitle: {
-          title: 'Regional Paradigm Technician',
-          tagLine: 'Optimization',
-        },
-
+        title: 'Cody Fisher',
+        tagLine: 'cody.fisher@example.com',
+        jobTitle: 'Regional Paradigm Technician',
+        jobTagLine: 'Optimization',
         role: 'Admin',
         button: 'Delete',
       },
       {
-        title: {
-          title: 'Cody Fisher',
-          tagLine: 'cody.fisher@example.com',
-        },
-
-        jobTitle: {
-          title: 'Product Directives Officer',
-          tagLine: 'Intranet',
-        },
-
-        role: 'Owner',
+        title: 'Jane Cooper',
+        tagLine: 'jane.cooper@example.com',
+        jobTitle: 'Forward Response Developer',
+        jobTagLine: 'Directives',
+        role: 'Member',
         button: 'Edit',
       },
       {
-        title: {
-          title: 'Esther Howard',
-          tagLine: 'esther.howard@example.com',
-        },
-
-        jobTitle: {
-          title: 'Forward Response Developer',
-          tagLine: 'Directives',
-        },
-
+        title: 'Esther Howard',
+        tagLine: 'esther.howard@example.com',
+        jobTitle: 'Product Directives Officer',
+        jobTagLine: 'Intranet',
         role: 'Member',
         button: 'Edit',
       },
     ],
   },
   component_inputs: [
-    { label: 'Columns', prop: '[columns]', description: 'Shows the columns of table.', dataType: 'Object' },
-    { label: 'Rows Data', prop: '[dataList]', description: 'Shows the data of rows.', dataType: 'Object' },
-    { label: 'Width', prop: '[width]', description: 'Adjust the size of lists.', dataType: 'String' },
+    {
+      label: 'Columns',
+      prop: '[columns]',
+      description: 'Shows the columns of table.',
+      dataType: 'Object',
+      typeArray: [[{ title: 'Name' }], [{ title: 'Ttile' }], [{ title: 'Role' }], [{ title: ' ' }]],
+    },
+    {
+      label: 'Rows Data',
+      prop: '[dataList]',
+      description: 'Shows the data of rows.',
+      dataType: 'Object',
+      typeArray: [
+        [
+          { title: 'Cody Fisher' },
+          { tagLine: 'cody.fisher@example.com' },
+          { jobTitle: 'Regional Paradigm Technician' },
+          { jobTagLine: 'Optimization' },
+          { role: 'Admin' },
+          { button: 'Delete' },
+        ],
+        [
+          { title: 'Jane Cooper' },
+          { tagLine: 'jane.cooper@example.com' },
+          { jobTitle: 'Forward Response Developer' },
+          { jobTagLine: 'Directives' },
+          { role: 'Member' },
+          { button: 'Edit' },
+        ],
+        [
+          { title: 'Esther Howard' },
+          { tagLine: 'esther.howard@example.com' },
+          { jobTitle: 'Product Directives Officer' },
+          { jobTagLine: 'Intranet' },
+          { role: 'Member' },
+          { button: 'Edit' },
+        ],
+      ],
+    },
+    {
+      label: 'Width',
+      prop: '[width]',
+      description: 'Adjust the size of lists.',
+      dataType: 'String',
+      type: ['7xl', '6xl', '5xl', '4xl', '3xl', '2xl', 'lg', 'md', 'sm'],
+    },
     {
       label: 'Background Color',
       prop: '[background]',
