@@ -200,7 +200,9 @@ export enum SetDateFormatEnum {
                     <input
                       type="text"
                       (click)="dateRangePickerEvent()"
-                      [(ngModel)]="dateFromValueRangePicker"
+                      [(ngModel)]="
+                        (dateEvenOdd % 2 == 0 && dateFromToSame < dateToValueRangePicker) || dateFromValueRangePicker
+                      "
                       [ngClass]="{ 'font-semibold': endToShowRangePicker }"
                       class="p-2 w-56 focus:outline-none rounded border-gray-300 focus:ring-0"
                     />
@@ -208,13 +210,15 @@ export enum SetDateFormatEnum {
                     <input
                       type="text"
                       (click)="dateRangePickerEvent()"
-                      [(ngModel)]="dateToValueRangePicker"
+                      [(ngModel)]="
+                        (!dateEvenOdd % 2 == 0 && dateFromToSame > dateToValueRangePicker) || dateFromValueRangePicker
+                      "
                       [ngClass]="{ 'font-semibold': endToShowRangePicker }"
                       class="p-2 w-56 focus:outline-none rounded border-gray-300 focus:ring-0"
                     />
 
                     <div
-                      class="bg-white mt-12 rounded-lg p-4 absolute top-0 left-0"
+                      class="bg-white mt-12 h-80 rounded-lg p-4 absolute top-0 left-0"
                       style="width: 15rem"
                       [ngClass]="{
                         'rounded-r-none': endToShowRangePicker
@@ -229,7 +233,7 @@ export enum SetDateFormatEnum {
                         <div>
                           <button
                             type="button"
-                            class="transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-200 p-1 rounded-full"
+                            class="transition ease-in-out duration-100 inline-flex cursor-pointer focus:outline-none focus:ring-0 hover:bg-gray-200 p-1 rounded-full"
                             (click)="backCalendarRangePicker()"
                           >
                             <svg
@@ -258,10 +262,10 @@ export enum SetDateFormatEnum {
                       </div>
 
                       <div class="flex flex-wrap -mx-1">
-                        <ng-container *ngFor="let blankday of blankdays">
+                        <ng-container *ngFor="let blankday of blankdaysRangePicker">
                           <div style="width: 14.28%" class="text-center border p-1 border-transparent text-sm"></div>
                         </ng-container>
-                        <ng-container *ngFor="let date of no_of_days">
+                        <ng-container *ngFor="let date of no_of_daysRangePicker">
                           <div style="width: 14.28%">
                             <div
                               (click)="getDateValueRangePickerFrom(date)"
@@ -269,6 +273,7 @@ export enum SetDateFormatEnum {
                               class="p-1 cursor-pointer text-center text-sm hover:bg-blue-200 leading-loose transition ease-in-out duration-100"
                               [ngClass]="{
                                 'font-bold': isTodayRangePicker(date) == true,
+                                'bg-blue-800 text-white rounded-r-full': isDateFromToRangePicker(date) == true,
                                 'bg-blue-200': isInRangePickerFrom(date) == true
                               }"
                               [class.rangeDate]="isDateFromRangePicker(date) == true"
@@ -282,7 +287,7 @@ export enum SetDateFormatEnum {
                     </div>
 
                     <div
-                      class="bg-white mt-12 rounded-lg p-4 absolute top-0 right-0"
+                      class="bg-white mt-12 h-80 rounded-lg p-4 absolute top-0 right-0"
                       style="width: 15rem"
                       [ngClass]="{
                         'rounded-l-none': endToShowRangePicker
@@ -292,12 +297,12 @@ export enum SetDateFormatEnum {
                       <div class="flex justify-between items-center mb-2">
                         <div>
                           <span class="text-lg font-bold text-gray-800">{{ MONTH_NAMES[monthRangePickerTo] }}</span>
-                          <span class="ml-1 text-lg text-gray-600 font-normal">{{ yearRangePicker }}</span>
+                          <span class="ml-1 text-lg text-gray-600 font-normal">{{ yearRangePickerTo }}</span>
                         </div>
                         <div>
                           <button
                             type="button"
-                            class="transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-200 p-1 rounded-full"
+                            class="transition ease-in-out duration-100 inline-flex cursor-pointer focus:outline-none focus:ring-0 hover:bg-gray-200 p-1 rounded-full"
                             (click)="nextCalendarRangePicker()"
                           >
                             <svg
@@ -335,6 +340,8 @@ export enum SetDateFormatEnum {
                                 'bg-blue-800 text-white rounded-r-full': isDateToRangePicker(date) == true,
                                 'bg-blue-200': isInRangePickerTo(date) == true
                               }"
+                              [class.rangeDate]="isDateToFromRangePicker(date) == true"
+                              [class.rounded-l-full]="isDateToFromRangePicker(date) == true"
                             >
                               {{ date }}
                             </div>
@@ -493,6 +500,12 @@ export class WebUiDatePickerComponent {
   public dateFormatValue: Date
   monthRangePickerTo: any
   dateToValueRangePickerTo: any
+  yearRangePickerTo: any
+  dateFromTo: string
+  dateToFrom: any
+  dateEvenOdd: number
+  dateFromToSame: string
+  num: number = 0
 
   constructor(public elm: ElementRef) {}
 
@@ -794,7 +807,7 @@ export class WebUiDatePickerComponent {
     }
     const currentMonth = this.currentDateRangePicker.getMonth()
     const currentYear = this.currentDateRangePicker.getFullYear()
-    if (this.monthRangePicker !== currentMonth || this.year !== currentYear) {
+    if (this.monthRangePicker !== currentMonth || this.yearRangePicker !== currentYear) {
       this.monthRangePicker = currentMonth
       this.yearRangePicker = currentYear
       this.getNoOfDaysRangePickerFrom()
@@ -823,9 +836,9 @@ export class WebUiDatePickerComponent {
 
     const currentMonth = this.currentDateRangePicker.getMonth() + 1
     const currentYear = this.currentDateRangePicker.getFullYear()
-    if (this.monthRangePickerTo !== currentMonth || this.year !== currentYear) {
+    if (this.monthRangePickerTo !== currentMonth || this.yearRangePickerTo !== currentYear) {
       this.monthRangePickerTo = currentMonth
-      this.yearRangePicker = currentYear
+      this.yearRangePickerTo = currentYear
       this.getNoOfDaysRangePickerTo()
     }
     this.setDateValuesRangePickerTo()
@@ -835,44 +848,52 @@ export class WebUiDatePickerComponent {
     const today = new Date()
     const d = new Date(this.yearRangePicker, this.monthRangePicker, date)
 
-    return today.toDateString() === d.toDateString() ? true : false
+    return today.toDateString() === d.toDateString()
   }
 
   isDateFromRangePicker(date) {
     const d = new Date(this.yearRangePicker, this.monthRangePicker, date)
-
-    return d.toDateString() === this.dateFromValueRangePicker ? true : false
+    return d.toDateString() === this.dateFromValueRangePicker
   }
 
   isDateToRangePicker(date) {
-    const d = new Date(this.yearRangePicker, this.monthRangePickerTo, date)
-    return d.toDateString() === this.dateToValueRangePicker ? true : false
+    const d = new Date(this.yearRangePickerTo, this.monthRangePickerTo, date)
+    return d.toDateString() === this.dateToValueRangePicker
+  }
+
+  isDateFromToRangePicker(date) {
+    const d = new Date(this.yearRangePicker, this.monthRangePicker, date)
+    return d.toDateString() === this.dateFromTo
+  }
+
+  isDateToFromRangePicker(date) {
+    const d = new Date(this.yearRangePickerTo, this.monthRangePickerTo, date)
+    return d.toDateString() === this.dateToFrom
   }
 
   isInRangePickerFrom(date) {
     const d = new Date(this.yearRangePicker, this.monthRangePicker, date)
-
-    return d > this.dateFromRangePicker && d < this.dateToRangePicker ? true : false
+    return d > this.dateFromRangePicker && d < this.dateToRangePicker
   }
 
   isInRangePickerTo(date) {
-    const d = new Date(this.yearRangePicker, this.monthRangePickerTo, date)
-    return d > this.dateFromRangePicker && d < this.dateToRangePicker ? true : false
+    const d = new Date(this.yearRangePickerTo, this.monthRangePickerTo, date)
+    return d > this.dateFromRangePicker && d < this.dateToRangePicker
   }
 
   isDisabledRangePickerFrom(date): boolean {
     const d = new Date(this.yearRangePicker, this.monthRangePicker, date)
 
-    if (this.endToShowRangePicker && this.dateToRangePicker && d > this.dateToRangePicker) {
+    if (this.dateToRangePicker && d > this.dateToRangePicker) {
       return true
     }
     return false
   }
 
   isDisabledRangePickerTo(date): boolean {
-    const d = new Date(this.yearRangePicker, this.monthRangePickerTo, date)
+    const d = new Date(this.yearRangePickerTo, this.monthRangePickerTo, date)
 
-    if (this.endToShowRangePicker && this.dateFromRangePicker && d < this.dateFromRangePicker) {
+    if (this.dateFromRangePicker && d < this.dateFromRangePicker) {
       return true
     }
     return false
@@ -881,22 +902,31 @@ export class WebUiDatePickerComponent {
   setDateValuesRangePickerFrom(): void {
     if (this.dateFromRangePicker) {
       this.dateFromValueRangePicker = this.dateFromRangePicker.toDateString()
+      this.dateToFrom = this.dateFromValueRangePicker
       this.dateFromYmdRangePicker = this.convertToYmdRangePicker(this.dateFromRangePicker)
-      console.log(this.dateFromYmdRangePicker)
+      this.dateFromToSame = this.dateFromValueRangePicker
     }
   }
 
   setDateValuesRangePickerTo(): void {
     if (this.dateToRangePicker) {
       this.dateToValueRangePicker = this.dateToRangePicker.toDateString()
+      this.dateFromTo = this.dateToValueRangePicker
       this.dateToYmdRangePicker = this.convertToYmdRangePicker(this.dateToRangePicker)
+      this.dateFromToSame = this.dateToValueRangePicker
     }
   }
 
   getDateValueRangePickerTo(date): void {
-    console.log(date)
-    let selectedDate = new Date(this.yearRangePicker, this.monthRangePickerTo, date)
-    if (this.endToShowRangePicker && (!this.dateFromRangePicker || selectedDate >= this.dateFromRangePicker)) {
+    if (this.num === 0) {
+      this.dateEvenOdd = 0
+      this.num++
+    } else {
+      this.dateEvenOdd++
+    }
+
+    let selectedDate = new Date(this.yearRangePickerTo, this.monthRangePickerTo, date)
+    if (!this.dateFromRangePicker || selectedDate >= this.dateFromRangePicker) {
       this.dateToRangePicker = selectedDate
       if (!this.dateFromRangePicker) {
         this.dateFromRangePicker = selectedDate
@@ -906,14 +936,22 @@ export class WebUiDatePickerComponent {
   }
 
   getDateValueRangePickerFrom(date): void {
+    if (this.num === 0) {
+      this.dateEvenOdd = 0
+      this.num++
+    } else {
+      this.dateEvenOdd++
+    }
     let selectedDate = new Date(this.yearRangePicker, this.monthRangePicker, date)
-    if (this.endToShowRangePicker && (!this.dateToRangePicker || selectedDate <= this.dateToRangePicker)) {
+    if (!this.dateToRangePicker || selectedDate <= this.dateToRangePicker) {
       this.dateFromRangePicker = selectedDate
       if (!this.dateToRangePicker) {
         this.dateToRangePicker = selectedDate
       }
     }
     this.setDateValuesRangePickerFrom()
+
+    console.log(this.dateEvenOdd)
   }
 
   getNoOfDaysRangePickerFrom(): void {
@@ -936,9 +974,9 @@ export class WebUiDatePickerComponent {
   }
 
   getNoOfDaysRangePickerTo(): void {
-    let daysInMonth = new Date(this.yearRangePicker, this.monthRangePickerTo + 1, 0).getDate()
+    let daysInMonth = new Date(this.yearRangePickerTo, this.monthRangePickerTo + 1, 0).getDate()
     // find where to start calendar day of week
-    let dayOfWeek = new Date(this.yearRangePicker, this.monthRangePickerTo).getDay()
+    let dayOfWeek = new Date(this.yearRangePickerTo, this.monthRangePickerTo).getDay()
     let blankdaysArray = []
     for (var i = 1; i <= dayOfWeek; i++) {
       blankdaysArray.push(i)
@@ -951,34 +989,41 @@ export class WebUiDatePickerComponent {
 
     this.nextblankdays = blankdaysArray
     this.next_no_of_days = daysArray
-
-    this.getNoOfDaysRangePickerFrom()
   }
 
   backCalendarRangePicker(): void {
-    if (this.monthRangePicker == 0 || this.monthRangePickerTo == 0) {
+    if (this.monthRangePicker == 0) {
       this.yearRangePicker--
       this.monthRangePicker = 11
-      this.yearRangePicker--
-      this.monthRangePickerTo = 11
     } else {
       this.monthRangePicker--
+    }
+    if (this.monthRangePickerTo == 0) {
+      this.yearRangePickerTo--
+      this.monthRangePickerTo = 11
+    } else {
       this.monthRangePickerTo--
     }
 
     this.getNoOfDaysRangePickerFrom()
+    this.getNoOfDaysRangePickerTo()
   }
 
   nextCalendarRangePicker(): void {
-    if (this.monthRangePicker == 11 || this.monthRangePickerTo == 11) {
+    if (this.monthRangePicker == 11) {
       this.yearRangePicker++
       this.monthRangePicker = 0
-      this.monthRangePickerTo = 0
     } else {
       this.monthRangePicker++
+    }
+    if (this.monthRangePickerTo == 11) {
+      this.yearRangePickerTo++
+      this.monthRangePickerTo = 0
+    } else {
       this.monthRangePickerTo++
     }
     this.getNoOfDaysRangePickerTo()
+    this.getNoOfDaysRangePickerFrom()
   }
 
   closeDatepickerRangePicker(): void {
