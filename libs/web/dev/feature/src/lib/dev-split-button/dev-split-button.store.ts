@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
+import { UiIcon } from '@schema-driven/web/ui/icon'
 import { Lists, ComponentProp } from './model'
 
 export interface Item {
@@ -28,6 +29,8 @@ interface DevSplitButtonState {
   config?: Config
   loading?: boolean
 }
+
+let icon = Object.values(UiIcon)
 
 @Injectable()
 export class DevSplitButtonStore extends ComponentStore<DevSplitButtonState> {
@@ -64,8 +67,18 @@ export class DevSplitButtonStore extends ComponentStore<DevSplitButtonState> {
           ],
         },
         component_inputs: [
-          { label: 'Icon', prop: '[icon]', description: 'Shows the icon what you want.', dataType: 'String' },
-          { label: 'Label', prop: '[label]', description: 'Shows the label what you wnt.', dataType: 'String' },
+          {
+            label: 'Lists',
+            prop: '[lists]',
+            description: 'Shows the List.',
+            dataType: 'Array',
+            typeArray: [
+              [{ icon: icon }, { label: 'Paste' }],
+              [{ icon: icon }, { label: 'Paste Special' }],
+              [{ icon: icon }, { label: 'Paste as Formula' }],
+              [{ icon: icon }, { label: 'Paste as Hyperlink' }],
+            ],
+          },
         ],
       },
     })

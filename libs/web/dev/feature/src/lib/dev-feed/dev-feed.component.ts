@@ -14,6 +14,7 @@ import { DevFeedStore } from './dev-feed.store'
           [breadcrumbs]="vm.config.breadcrumbs"
           [component_outputs]="vm.config.component_outputs"
           [component_inputs]="vm.config.component_inputs"
+          [codeObj]="vm.config.items"
         >
           <ui-feed [feedsListing]="vm.config.items.feedsListing"></ui-feed>
         </ui-preview>

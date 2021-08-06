@@ -22,7 +22,7 @@ import { Component, Input } from '@angular/core'
                 >
                   {{ divider.label }}
                 </span>
-                <ng-container *ngIf="toolbar">
+                <ng-container *ngIf="toolbar == 'true'">
                   <ng-content select="#toolbar"></ng-content>
                 </ng-container>
               </div>

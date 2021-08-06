@@ -21,7 +21,7 @@ import { Component, Input } from '@angular/core'
             [ngClass]="i == 0 ? '' : 'ml-2'"
             class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-{{
               button.fontColor
-            }} bg-{{ button.color }} hover:bg-{{ button.hoverColor }} dark:text-{{
+            }}-200 bg-{{ button.color }}-500 hover:bg-{{ button.hoverColor }}-600 dark:text-{{
               button.fontColor
             }}-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
@@ -59,7 +59,7 @@ import { Component, Input } from '@angular/core'
             >
               {{ tab.title }}
               <span
-                *ngIf="tab.badge && badge == true"
+                *ngIf="tab.badge && (badge == 'true' || badge === true)"
                 class="inline-flex items-center px-2 py-1 ml-1.5 rounded-full text-xs font-medium bg-red-200 text-indigo-800"
                 [ngClass]="{ 'bg-indigo-200': tab.active == true }"
               >

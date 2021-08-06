@@ -14,12 +14,12 @@ import { DevSignInAndRegistrationStore } from './dev-sign-in-and-registration.st
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_outputs]="vm.config.component_outputs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-sign-in-and-registration
           [title]="vm.config.items.title"
           [image]="vm.config.items.image"
           [icons]="vm.config.items.icons"
-          [trash]="'trash'"
         ></ui-sign-in-and-registration>
       </ui-preview>
     </ng-container>

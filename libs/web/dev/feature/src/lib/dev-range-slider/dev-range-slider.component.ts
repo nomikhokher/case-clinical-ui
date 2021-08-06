@@ -12,6 +12,7 @@ import { DevRangeSliderStore } from './dev-range-slider.store'
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_outputs]="vm.config.component_outputs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-range-slider
           [minprice]="vm.config.items.minprice"

@@ -1,4 +1,4 @@
-export interface Stats {
+export interface items {
   title?: string
   border_none?: string
   values?: Values
@@ -26,4 +26,7 @@ export interface ComponentProp {
   description?: string
   dataType?: string
   prop?: string
+  type?
+  typeObj?
+  typeArray?
 }

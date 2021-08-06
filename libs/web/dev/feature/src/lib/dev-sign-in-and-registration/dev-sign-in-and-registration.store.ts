@@ -4,6 +4,7 @@ import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { of } from 'rxjs'
 import { switchMap, tap } from 'rxjs/operators'
 import { Configs } from './model/index'
+import { UiIcon } from '@schema-driven/web/ui/icon'
 export interface Item {
   id?: string
   name?: string
@@ -15,6 +16,7 @@ interface DevSignInAndRegistrationState {
   config: Configs
 }
 
+let icon = Object.values(UiIcon)
 const config: Configs = {
   headerTitle: 'Registration From',
   githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/sign-in-and-registration/src/lib',
@@ -37,6 +39,7 @@ const config: Configs = {
       prop: '[icons]',
       description: 'Shows the buttons on bottom of form.',
       dataType: 'Array<string>',
+      typeArray: [[{ icon: icon }], [{ icon: icon }]],
     },
   ],
 }

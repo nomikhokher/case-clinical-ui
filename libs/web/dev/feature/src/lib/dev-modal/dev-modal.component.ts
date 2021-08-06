@@ -11,6 +11,7 @@ import { DevModalStore } from './dev-modal.store'
         [directory]="vm.config.directory"
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-modal
           [closeButton]="vm.config.items.closeButton"

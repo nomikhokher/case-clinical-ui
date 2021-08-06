@@ -47,7 +47,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
     >
       <div class="absolute inset-0 overflow-hidden">
         <!-- Background overlay, show/hide based on slide-over state. -->
-        <div class="absolute inset-0" [ngClass]="overlay ? overlay : ''" aria-hidden="true"></div>
+        <div
+          class="absolute inset-0 transition-opacity"
+          [ngClass]="[overlayOpacity ? overlayOpacity : '', overlayColor ? overlayColor : '']"
+          aria-hidden="true"
+        ></div>
         <div class="fixed inset-y-0 right-0 pl-10 max-w-full flex">
           <div class="w-screen" [ngClass]="width ? width : 'max-w-md'">
             <div class="h-full flex flex-col py-6 bg-white dark:bg-gray-800 shadow-xl overflow-y-scroll">
@@ -81,7 +85,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
                   </ng-container>
 
                   <ng-container *ngIf="closeButtonOutSide">
-                    <div class="absolute top-0 left-0 -ml-8 pt-4 pr-2 flex sm:-ml-10 sm:pr-4">
+                    <div class="absolute top-0 left-0 -ml-8 pt-4 pr-2 flex sm:-ml-10 sm:pr-4 opa">
                       <button
                         (click)="hideLayout()"
                         class="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
@@ -125,7 +129,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
 export class WebUiSlideOverComponent {
   @Input() width?: string
   @Input() closeButtonOutSide?: boolean
-  @Input() overlay?: string
+  @Input() overlayOpacity?: string
+  @Input() overlayColor?: string
 
   @Output() hideCurrentLayout = new EventEmitter()
 

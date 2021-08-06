@@ -12,6 +12,7 @@ import { FlatNode } from './model'
         [directory]="vm.config.previewData.directory"
         [breadcrumbs]="vm.config.previewData.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <!-- <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800">
           <pre class="text-xs dark:text-gray-500">{{ __usage() | json }}</pre>

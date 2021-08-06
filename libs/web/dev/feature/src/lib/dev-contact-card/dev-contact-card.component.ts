@@ -12,6 +12,7 @@ import { DevContactCardStore } from './dev-contact-card.store'
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_outputs]="vm.config.component_outputs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-contact-card
           [contactCard]="vm.config.items.contactCard"
