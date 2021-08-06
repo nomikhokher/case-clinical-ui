@@ -12,6 +12,7 @@ import { DevTestimonialsStore } from './dev-testimonials.store'
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_outputs]="vm.config.component_outputs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-testimonials [data]="vm.config.items.data"></ui-testimonials>
       </ui-preview>
