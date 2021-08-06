@@ -29,7 +29,7 @@ import { FlatTreeControl } from '@angular/cdk/tree'
             class="flex items-center"
             [attr.aria-label]="'Toggle ' + node.name"
             (click)="node.isExpanded = !node.isExpanded"
-            [style.visibility]="node.expandable ? 'visible' : 'hidden'"
+            [style.visibility]="node.expandable === true || node.expandable == 'true' ? 'visible' : 'hidden'"
           >
             <!-- <mat-icon class="mat-icon-rtl-mirror">
               {{ treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right' }}
@@ -72,7 +72,7 @@ export class WebUiTreeComponent implements OnChanges {
     const nodeIndex = this.treeData.indexOf(node)
 
     for (let i = nodeIndex - 1; i >= 0; i--) {
-      if (this.treeData[i].level === node.level - 1) {
+      if (Number(this.treeData[i].level) === Number(node.level) - 1) {
         return this.treeData[i]
       }
     }
@@ -93,8 +93,8 @@ export class WebUiTreeComponent implements OnChanges {
 }
 
 interface FlatNode {
-  expandable: boolean
+  expandable: any
   name: string
-  level: number
+  level: any
   isExpanded?: boolean
 }
