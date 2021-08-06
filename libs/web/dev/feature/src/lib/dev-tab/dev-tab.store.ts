@@ -28,6 +28,7 @@ interface Config {
   tabsWithIcons?: TabsWithIcons[]
   alignment?: string
   style?: string
+  items?
 }
 
 interface DevTabsState {
@@ -56,51 +57,42 @@ export class DevTabsStore extends ComponentStore<DevTabsState> {
           ],
           directory: '/libs/web/dev/feature/src/lib/dev-tab/dev-tab.component.ts',
         },
-        tabs: [
-          { item: 'My Account', path: '/dev/tabs' },
-          { item: 'Company', path: '/dev/tabs' },
-          { item: 'Team Member', path: '/dev/tabs' },
-          { item: 'Billing', path: '/dev/tabs' },
-        ],
-        tabswithBadges: [
-          { item: 'My Account', badge: '4' },
-          { item: 'Company' },
-          { item: 'Team Member', badge: '12' },
-          { item: 'Billing', badge: '3' },
-        ],
-        tabsWithIcons: [
-          { item: 'My Account', icon: 'user' },
-          { item: 'Company', icon: 'office' },
-          { item: 'Team Member', icon: 'team' },
-          { item: 'Billing', icon: 'credit' },
-        ],
-
-        style: 'underline',
-        alignment: 'right', //alignment can be [center, right, left, full]
+        items: {
+          tabs: [
+            { item: 'My Account', path: '/dev/tabs', badge: '5' },
+            { item: 'Company', path: '/dev/tabs' },
+            { item: 'Team Member', path: '/dev/tabs' },
+            { item: 'Billing', path: '/dev/tabs', badge: '20+' },
+          ],
+          style: 'underline',
+          alignment: 'right', //alignment can be [center, right, left, full]
+        },
         component_inputs: [
           {
-            label: 'Item',
-            prop: '[item]',
-            description: 'Item props tell us what is name of your tab.',
-            dataType: 'Boolean',
-          },
-          {
-            label: 'Path',
-            prop: '[path]',
-            description: 'path tell us where is navigate your tab.',
-            dataType: 'String',
+            label: 'Tabs',
+            prop: '[tabs]',
+            description: 'Show the tabs name and contains link to redirect.',
+            dataType: 'Object',
+            typeArray: [
+              [{ item: 'My Account' }, { path: '/dev/tabs' }, { badge: '5' }],
+              [{ item: 'Company' }, { path: '/dev/tabs' }, { badge: '' }],
+              [{ item: 'Team Member' }, { path: '/dev/tabs' }, { badge: '' }],
+              [{ item: 'Billing' }, { path: '/dev/tabs' }, { badge: '20+' }],
+            ],
           },
           {
             label: 'Style',
             prop: '[style]',
             description: 'style tell us what is your anchor hover style.',
             dataType: 'String',
+            type: ['underline', 'pills'],
           },
           {
             label: 'Alignment',
             prop: '[alignment]',
             description: 'alignment tell us where is directions your tab start.',
             dataType: 'String',
+            type: ['left', 'right', 'center', 'full'],
           },
         ],
       },

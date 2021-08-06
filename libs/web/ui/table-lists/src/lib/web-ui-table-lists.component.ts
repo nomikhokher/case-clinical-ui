@@ -29,17 +29,17 @@ import { Component, Input } from '@angular/core'
                     <div class="flex items-center">
                       <div class="ml-4">
                         <div class="text-sm font-medium text-gray-900 dark:text-gray-100">
-                          {{ info.title.title }}
+                          {{ info.title }}
                         </div>
                         <div class="text-sm text-gray-500 dark:text-gray-300">
-                          {{ info.title.tagLine }}
+                          {{ info.tagLine }}
                         </div>
                       </div>
                     </div>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900 dark:text-gray-100">{{ info.jobTitle.title }}</div>
-                    <div class="text-sm text-gray-500 dark:text-gray-300">{{ info.jobTitle.tagLine }}</div>
+                    <div class="text-sm text-gray-900 dark:text-gray-100">{{ info.jobTitle }}</div>
+                    <div class="text-sm text-gray-500 dark:text-gray-300">{{ info.jobTagLine }}</div>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
                     {{ info.role }}
@@ -67,10 +67,12 @@ interface Columns {
   title?: string
 }
 interface Data {
-  title?: Title
-  jobTitle?: Title
+  title?: string
+  jobTitle?: string
   role?: string
   button?: string
+  tagLine?: string
+  jobTagLine?: string
 }
 
 interface Title {

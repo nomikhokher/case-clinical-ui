@@ -10,8 +10,9 @@ import { DevVerticalNavigationStore } from './dev-vertical-navigation.store'
         [breadcrumbs]="vm.breadcrumbs"
         [githubURL]="vm.githubURL"
         [component_inputs]="vm.component_inputs"
+        [codeObj]="vm.items"
       >
-        <ui-vertical-navigation [links]="vm.links"></ui-vertical-navigation
+        <ui-vertical-navigation [links]="vm.items.links"></ui-vertical-navigation
       ></ui-preview>
     </ng-container>
   `,

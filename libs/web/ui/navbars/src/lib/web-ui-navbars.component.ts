@@ -91,7 +91,7 @@ import { Component, Input } from '@angular/core'
                   <input
                     id="search"
                     name="search"
-                    class="block w-full dark:bg-white dark:shadow dark:border-gray-900 bg-gray-700 border border-transparent rounded-md py-2 pl-10 pr-3 text-sm dark:placeholder-gray-700 placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 dark:focus:placeholder-gray-400 focus:placeholder-gray-500 sm:text-sm"
+                    class="block w-full dark:bg-white dark:shadow dark:border-gray-900 bg-gray-100 border border-transparent rounded-md py-2 pl-10 pr-3 text-sm dark:placeholder-gray-700 placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 dark:focus:placeholder-gray-400 focus:placeholder-gray-500 sm:text-sm"
                     placeholder="Search"
                     type="search"
                   />
