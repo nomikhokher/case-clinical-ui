@@ -11,6 +11,7 @@ import { DevStepStore } from './dev-step.store'
         [breadcrumbs]="vm.config.previewData.breadcrumbs"
         [code]="codePreview[0]"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-step [stepIems]="vm.config.items.step" [icon]="true"></ui-step>
       </ui-preview>
