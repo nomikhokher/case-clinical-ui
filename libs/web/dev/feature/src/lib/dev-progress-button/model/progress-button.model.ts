@@ -20,6 +20,7 @@ export interface Inputs {
   prop?: string
   description?: string
   dataType?: string
+  typeArray?
 }
 
 export interface Outputs {

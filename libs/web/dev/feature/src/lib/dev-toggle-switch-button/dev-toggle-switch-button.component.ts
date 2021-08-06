@@ -11,8 +11,9 @@ import { DevToggleSwitchButtonStore } from './dev-toggle-switch-button.store'
         [breadcrumbs]="vm.config.previewData.breadcrumbs"
         [code]="codePreview[0]"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items.storeToggleSwitchButton"
       >
-        <ui-toggle-switch-button [buttons]="vm.config.items.storeToggleSwitchButton"></ui-toggle-switch-button>
+        <ui-toggle-switch-button [button]="vm.config.items.storeToggleSwitchButton"></ui-toggle-switch-button>
       </ui-preview>
     </ng-container>
   `,
@@ -24,19 +25,18 @@ export class DevToggleSwitchButtonComponent {
 
   public codePreview = [
     `import { WebUiToggleSwitchButtonModule } from '@schema-driven/web/ui/toggle-switch-button' \n\n 
-      <ui-toggle-switch-button [buttons]="storeToggleSwitchButton"></ui-toggle-switch-button> \n\n
-      storeToggleSwitchButton=[
+      <ui-toggle-switch-button [button]="storeToggleSwitchButton"></ui-toggle-switch-button> \n\n
+      storeToggleSwitchButton:
         {
           id:1,
-          height:'h-6',
-          width:'w-6',
-          left:'left-96',
-          bgColor:'bg-green-600',
-          divWidth:'w-12',
-          divHeight:'h-8',
-          onOff:false,
+          height:'h-5',
+          width:'w-5',
+          left:'left-full',
+          bgColor:'indigo',
+          divWidth:'w-14',
+          divHeight:'h-7',
+          onOff:true,
         },
-    ]
       `,
   ]
 }

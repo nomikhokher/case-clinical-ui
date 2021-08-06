@@ -11,6 +11,7 @@ import { DevSplitButtonStore } from './dev-split-button.store'
         [breadcrumbs]="vm.config.previewData.breadcrumbs"
         [code]="codePreview[0]"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-split-button [lists]="vm.config.items.lists"></ui-split-button>
       </ui-preview>

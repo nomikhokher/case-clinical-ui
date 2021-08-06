@@ -5,10 +5,7 @@ import { Component, Input } from '@angular/core'
   template: `
     <div class="flex">
       <ng-container *ngIf="horizontalDirection == 'left'">
-        <div
-          class="mr-4 flex-shrink-0 sm:mb-0 sm:mr-4"
-          [ngClass]="verticalDirection ? 'self-' + verticalDirection : ''"
-        >
+        <div class="mr-4 flex-shrink-0 sm:mb-0 sm:mr-4" [ngClass]="'self-' + verticalDirection">
           <!-- <ui-icon icon="imageAvatar"></ui-icon> -->
           <svg
             class="border border-gray-300 bg-white text-gray-300"
@@ -17,7 +14,11 @@ import { Component, Input } from '@angular/core'
             fill="none"
             viewBox="0 0 200 200"
             aria-hidden="true"
-            [ngClass]="[circle ? 'rounded-full' : '', height ? 'h-' + height : 'h-16', width ? 'w-' + width : 'w-16']"
+            [ngClass]="[
+              circle == 'true' || circle === true ? 'rounded-full' : 'rounded',
+              height ? 'h-' + height : 'h-16',
+              width ? 'w-' + width : 'w-16'
+            ]"
           >
             <path vector-effect="non-scaling-stroke" stroke-width="1" d="M0 0l200 200M0 200L200 0" />
           </svg>
@@ -27,25 +28,31 @@ import { Component, Input } from '@angular/core'
         </div>
       </ng-container>
       <ng-container *ngIf="horizontalDirection == 'right'">
-        <div class="w-6/12">
-          <ng-content select=".objectDataFullImage"></ng-content>
-        </div>
-        <div
-          class="mr-4 flex-shrink-0 sm:mb-0 sm:mr-4"
-          [ngClass]="verticalDirection ? 'self-' + verticalDirection : ''"
-        >
-          <!-- <ui-icon icon="imageAvatar"></ui-icon> -->
-          <svg
-            class="border border-gray-300 bg-white text-gray-300"
-            preserveAspectRatio="none"
-            stroke="currentColor"
-            fill="none"
-            viewBox="0 0 200 200"
-            aria-hidden="true"
-            [ngClass]="[circle ? 'rounded-full' : '', height ? 'h-' + height : 'h-16', width ? 'w-' + width : 'w-16']"
+        <div class="flex justify-end">
+          <div class="w-6/12 text-right mr-4">
+            <ng-content select=".objectDataFullImage"></ng-content>
+          </div>
+          <div
+            class="mr-4 flex-shrink-0 sm:mb-0 sm:mr-4"
+            [ngClass]="verticalDirection ? 'self-' + verticalDirection : ''"
           >
-            <path vector-effect="non-scaling-stroke" stroke-width="1" d="M0 0l200 200M0 200L200 0" />
-          </svg>
+            <!-- <ui-icon icon="imageAvatar"></ui-icon> -->
+            <svg
+              class="border border-gray-300 bg-white text-gray-300"
+              preserveAspectRatio="none"
+              stroke="currentColor"
+              fill="none"
+              viewBox="0 0 200 200"
+              aria-hidden="true"
+              [ngClass]="[
+                circle == 'true' || circle === true ? 'rounded-full' : 'rounded',
+                height ? 'h-' + height : 'h-16',
+                width ? 'w-' + width : 'w-16'
+              ]"
+            >
+              <path vector-effect="non-scaling-stroke" stroke-width="1" d="M0 0l200 200M0 200L200 0" />
+            </svg>
+          </div>
         </div>
       </ng-container>
 

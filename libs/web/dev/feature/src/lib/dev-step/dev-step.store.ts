@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
+import { UiIcon } from '@schema-driven/web/ui/icon'
 import { ComponentProp, StepItems } from './model'
 
 export interface Item {
@@ -76,24 +77,56 @@ export class DevStepStore extends ComponentStore<DevStepState> {
         },
         component_inputs: [
           {
-            label: 'Step Active',
-            prop: '[stepActive]',
-            description: 'Step active tell us where is active tab.',
-            dataType: 'Boolean',
+            label: 'Step',
+            prop: '[step]',
+            description: 'Display steps in the tab.',
+            dataType: 'Array',
+            typeArray: [
+              [
+                // { stepActive: ['true', 'false'] },
+                { stepTitle: 'Step 1' },
+                { stepDetails: 'Job details' },
+                { icon: Object.values(UiIcon) },
+              ],
+              [
+                // { stepActive: ['false', 'true'] },
+                { stepTitle: 'Step 2' },
+                { stepDetails: 'Personal details' },
+                { icon: Object.values(UiIcon) },
+              ],
+              [
+                // { stepActive: ['false', 'true'] },
+                { stepTitle: 'Step 3' },
+                { stepDetails: 'Educational details' },
+                { icon: Object.values(UiIcon) },
+              ],
+              [
+                // { stepActive: ['false', 'true'] },
+                { stepTitle: 'Step 4' },
+                { stepDetails: 'Privay & Policy' },
+                { icon: Object.values(UiIcon) },
+              ],
+            ],
           },
-          {
-            label: 'step Title',
-            prop: '[stepTitle]',
-            description: 'Step title tell us what is name of steps.',
-            dataType: 'String',
-          },
-          {
-            label: 'Step Details',
-            prop: '[stepDetails]',
-            description: 'Step detail us what is detail of steps.',
-            dataType: 'String',
-          },
-          { label: 'Icon', prop: '[icon]', description: 'Shows the icon what you want.', dataType: 'String' },
+          // {
+          //   label: 'Step Active',
+          //   prop: '[stepActive]',
+          //   description: 'Step active tell us where is active tab.',
+          //   dataType: 'Boolean',
+          // },
+          // {
+          //   label: 'step Title',
+          //   prop: '[stepTitle]',
+          //   description: 'Step title tell us what is name of steps.',
+          //   dataType: 'String',
+          // },
+          // {
+          //   label: 'Step Details',
+          //   prop: '[stepDetails]',
+          //   description: 'Step detail us what is detail of steps.',
+          //   dataType: 'String',
+          // },
+          // { label: 'Icon', prop: '[icon]', description: 'Shows the icon what you want.', dataType: 'String' },
         ],
       },
     })

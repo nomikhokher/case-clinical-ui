@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { ComponentStore, tapResponse } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
+import { UiIcon } from '@schema-driven/web/ui/icon'
 import { of } from 'rxjs'
 import { switchMap, tap } from 'rxjs/operators'
 import { Configs } from './model/index'
@@ -15,6 +16,8 @@ interface DevToolbarState {
   loading?: boolean
   config?: Configs
 }
+
+let icon = Object.values(UiIcon)
 
 const config: Configs = {
   headerTitle: 'Toolbar',
@@ -86,7 +89,27 @@ const config: Configs = {
     ],
   },
   component_inputs: [
-    { label: 'Buttons', prop: '[buttons]', description: 'Shows the icons of toolbar.', dataType: 'Object' },
+    {
+      label: 'Buttons',
+      prop: '[buttons]',
+      description: 'Shows the icons of toolbar.',
+      dataType: 'Object',
+      typeArray: [
+        [{ icon: icon }, { title: 'Cut' }],
+        [{ icon: icon }, { title: 'Copy' }],
+        [{ icon: icon }, { title: 'Paste' }],
+        [{ icon: icon }, { title: 'Color Picker' }],
+        [{ icon: icon }, { title: 'Align Left' }],
+        [{ icon: icon }, { title: 'Align Right' }],
+        [{ icon: icon }, { title: 'Align Center' }],
+        [{ icon: icon }, { title: 'Arrow Expand' }],
+        [{ icon: icon }, { title: 'Setting' }],
+        [{ icon: icon }, { title: 'Cursor' }],
+        [{ icon: icon }, { title: 'Upload' }],
+        [{ icon: icon }, { title: 'Mail Box' }],
+        [{ icon: icon }, { title: 'Edit' }],
+      ],
+    },
     {
       label: 'Background Color',
       prop: '[background]',

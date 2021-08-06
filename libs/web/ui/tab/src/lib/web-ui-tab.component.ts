@@ -19,7 +19,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
           <nav
             class="space-x-3 flex"
             [ngClass]="{
-              '-mb-px flex space-x-8': style == 'underline',
+              '-mb-px flex space-x-8': style == 'underline' || style == 'pills',
               'justify-start': alignment == 'right',
               'justify-center': alignment == 'center',
               'justify-end': alignment == 'left',
@@ -34,18 +34,17 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
               [routerLink]="['/dev/tabs']"
               class="cursor-pointer dark:hover:border-gray-500 dark:text-gray-300 dark:hover:text-gray-200"
               [ngClass]="{
-                'flex space-x-2 border-transparent text-gray-500 hover:text-gray-900 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm':
+                'flex space-x-2 border-transparent text-gray-500 hover:text-gray-900 hover:border-gray-300 focus:border-gray-500 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm':
                   style == 'underline',
-                'text-gray-500  hover:bg-gray-300 hover:rounded-md px-5 py-2 font-medium text-sm rounded-md':
-                  style == 'pills',
-                'bg-gray-300 dark:text-gray-700 dark:hover:text-gray-900 px-3 rounded-md': i.active == true
+                'text-gray-500  hover:bg-gray-300 hover:rounded-md focus:rounded-md focus:text-gray-100 focus:bg-gray-400 px-5 py-2 font-medium text-sm rounded-md':
+                  style == 'pills'
               }"
             >
               <ui-icon *ngIf="i.icon" size="lg" icon="{{ i.icon }}" class="h-5 w-5"></ui-icon>
               <span>{{ i.item }}</span>
               <span
                 *ngIf="i.badge"
-                class="bg-indigo-100 text-indigo-600 hidden ml-3 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block"
+                class="theme-bg-100 theme-color-600 hidden ml-3 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block"
                 >{{ i.badge }}</span
               >
             </a>
@@ -85,7 +84,7 @@ export class WebUiTabComponent {
       x.active = false
     })
     i.active = true
-    alert(i.item + ' tab selected!')
+    // alert(i.item + ' tab selected!')
   }
 }
 

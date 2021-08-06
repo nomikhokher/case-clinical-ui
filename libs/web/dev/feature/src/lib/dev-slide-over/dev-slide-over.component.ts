@@ -12,6 +12,7 @@ import { DevSlideOverStore } from './dev-slide-over.store'
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_outputs]="vm.config.component_outputs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-button [label]="'Open Layout With Overlay'" (click)="openWithOverlay()"></ui-button>
         <ui-button [label]="'Open Layout With Out Overlay'" (click)="openWithOutOverlay()" class="mx-2"></ui-button>
@@ -19,7 +20,8 @@ import { DevSlideOverStore } from './dev-slide-over.store'
       <ui-preview>
         <ui-slide-over
           [width]="vm.config.items.width"
-          [overlay]="vm.config.items.overlay"
+          [overlayOpacity]="vm.config.items.overlayOpacity"
+          [overlayColor]="vm.config.items.overlayColor"
           [closeButtonOutSide]="vm.config.items.closeButtonOutSide"
           *ngIf="openLayoutWithOverlay"
           (hideCurrentLayout)="hideLayout()"

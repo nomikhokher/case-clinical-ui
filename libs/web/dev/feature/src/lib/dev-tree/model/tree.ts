@@ -9,4 +9,5 @@ export interface ComponentProp {
   description?: string
   prop?: string
   dataType?: string
+  typeArray?
 }

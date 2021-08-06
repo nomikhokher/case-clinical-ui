@@ -15,8 +15,9 @@ import { DevTableStore } from './dev-table.store'
             [breadcrumbs]="vm.config.breadcrumbs"
             [component_outputs]="vm.config.component_outputs"
             [component_inputs]="vm.config.component_inputs"
+            [codeObj]="vm.config.items"
           >
-            <ui-table [cols]="demo.cols" [data]="demo.data"></ui-table>
+            <ui-table [cols]="vm.config.items.cols" [data]="vm.config.items.data"></ui-table>
           </ui-preview>
         </ng-container>
       </div>
