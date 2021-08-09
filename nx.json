@@ -207,6 +207,9 @@
     "web-ui-divider-toolbar": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-drawing-pad": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-dropdown": {
       "tags": ["scope:web", "type:ui"]
     },

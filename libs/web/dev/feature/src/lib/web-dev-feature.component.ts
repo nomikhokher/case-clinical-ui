@@ -419,6 +419,16 @@ export class WebDevFeatureComponent {
             },
           ],
         },
+        {
+          label: 'Drawing Pad',
+          children: [
+            {
+              label: 'Drawing Pad',
+              route: 'drawing-pad',
+              image: '/assets/images/stacked.png',
+            },
+          ],
+        },
       ],
     },
   ]

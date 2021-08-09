@@ -279,6 +279,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: 'footer',
         loadChildren: () => import('./dev-footer/dev-footer.module').then((m) => m.DevFooterModule),
       },
+      {
+        path: 'drawing-pad',
+        loadChildren: () => import('./dev-drawing-pad/dev-drawing-pad.module').then((m) => m.DevDrawingPadModule),
+      },
     ]),
     WebUiMainPageModule,
   ],
