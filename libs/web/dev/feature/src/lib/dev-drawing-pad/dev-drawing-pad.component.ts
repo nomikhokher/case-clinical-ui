@@ -31,7 +31,6 @@ export class DevDrawingPadComponent {
 
   changeWidth(value) {
     this.vm$.subscribe((data) => {
-      console.log(data.config.items.lineWidth)
       if (value == 'minus') {
         data.config.items.lineWidth <= 5 ? (data.config.items.lineWidth = 5) : (data.config.items.lineWidth -= 5)
       } else {
