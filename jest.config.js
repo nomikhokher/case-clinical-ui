@@ -120,5 +120,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/newsletter',
     '<rootDir>/libs/web/ui/carousel',
     '<rootDir>/libs/web/ui/footer',
+    '<rootDir>/libs/web/ui/tag-textarea',
   ],
 }
