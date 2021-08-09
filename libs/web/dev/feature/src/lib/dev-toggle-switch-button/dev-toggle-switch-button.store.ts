@@ -7,7 +7,7 @@ import { StoreToggleSwitchButton, ComponentProp } from './model'
 export interface Item {
   id?: string
   name?: string
-  storeToggleSwitchButton?: StoreToggleSwitchButton[]
+  storeToggleSwitchButton?: StoreToggleSwitchButton
 }
 interface PreviewData {
   headerTitle?: string
@@ -43,22 +43,20 @@ export class DevToggleSwitchButtonStore extends ComponentStore<DevToggleSwitchBu
           directory: '/libs/web/dev/feature/src/lib/dev-store-toggle-switch-button/toggle-switch-button.component.ts',
         },
         items: {
-          storeToggleSwitchButton: [
-            {
-              id: 1,
-              height: 'h-6',
-              width: 'w-6',
-              left: 'left-94',
-              bgColor: 'bg-green-600',
-              divWidth: 'w-12',
-              divHeight: 'h-8',
-              onOff: false,
-            },
-          ],
+          storeToggleSwitchButton: {
+            // id: 1,
+            height: 'h-5',
+            width: 'w-5',
+            left: 'left-full',
+            bgColor: 'indigo',
+            divWidth: 'w-14',
+            divHeight: 'h-7',
+            onOff: false,
+          },
         },
         component_inputs: [
           { label: 'Height', prop: '[height]', description: 'What you want set height.', dataType: 'String' },
-          { label: 'width', prop: '[width]', description: 'What you want set height width.', dataType: 'String' },
+          { label: 'width', prop: '[width]', description: 'What you want set width.', dataType: 'String' },
           { label: 'Left', prop: '[left]', description: 'What you want set left margin .', dataType: 'String' },
           {
             label: 'background Color',
@@ -83,6 +81,7 @@ export class DevToggleSwitchButtonStore extends ComponentStore<DevToggleSwitchBu
             prop: '[onOff]',
             description: 'What you want set toggle button on or off .',
             dataType: 'Boolean',
+            type: ['false', 'true'],
           },
         ],
       },

@@ -17,8 +17,9 @@ export interface DropDownMenu {
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_outputs]="vm.config.component_outputs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
-        <ui-group-button [buttons]="vm.config.items"></ui-group-button>
+        <ui-group-button [buttons]="vm.config.items.buttons"></ui-group-button>
       </ui-preview>
     </ng-container>
   `,
@@ -31,7 +32,7 @@ export class DevGroupButtonComponent {
 
   ngOnInit() {}
   public codePreview = [
-    `import { WebUiGroupButtonModule } from '@schema-driven/web/ui/group-button'\n\n<ui-group-button [buttons]="vm.buttons"></ui-group-button>
+    `import { WebUiGroupButtonModule } from '@schema-driven/web/ui/group-button'\n\n<ui-group-button [buttons]="vm.config.items.buttons"></ui-group-button>
     vm.buttons = [
       {
         id: '1',

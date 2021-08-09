@@ -21,7 +21,7 @@ import { Component, HostListener, Input, SimpleChange, SimpleChanges } from '@an
           aria-labelledby="modal-title"
           role="dialog"
           aria-modal="true"
-          *ngIf="modalHide"
+          *ngIf="modalHide == true"
         >
           <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity " aria-hidden="true"></div>
@@ -32,7 +32,7 @@ import { Component, HostListener, Input, SimpleChange, SimpleChanges } from '@an
               class="inline-block align-bottom bg-white border dark:bg-gray-800 rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full sm:p-6"
               [ngClass]="width ? 'sm:max-w-' + width : 'sm:max-w-sm'"
             >
-              <div class="hidden sm:block absolute top-0 right-0 pt-4 pr-4" *ngIf="closeButton">
+              <div class="hidden sm:block absolute top-0 right-0 pt-4 pr-4" *ngIf="closeButton == true">
                 <button
                   type="button"
                   class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -60,7 +60,7 @@ import { Component, HostListener, Input, SimpleChange, SimpleChanges } from '@an
   `,
 })
 export class WebUiModalComponent {
-  public modalHide: boolean = true
+  public modalHide = true
 
   @Input() closeButton?: boolean
   @Input() display?: boolean
@@ -72,11 +72,12 @@ export class WebUiModalComponent {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.closeModal(changes.isActive.firstChange)
+    this.closeModal(Boolean(changes.isActive.firstChange))
+    console.log(changes)
   }
 
-  closeModal(val: boolean) {
-    this.modalHide = val
+  closeModal(val: any) {
+    this.modalHide = Boolean(val)
   }
 
   openModal() {

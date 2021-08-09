@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
+import { KnownTypeNamesRule } from 'graphql'
 import { Buttons, Heading, TabLinks, Inputs } from './model'
 
 export interface Item {
@@ -78,15 +79,15 @@ export class DevSectionHeadingsStore extends ComponentStore<DevSectionHeadingsSt
             text: 'Share',
             color: 'white',
             icon: 'phone',
-            fontColor: 'gray-700',
-            hoverColor: 'gray-50',
+            fontColor: 'white',
+            hoverColor: 'gray',
           },
           {
             text: 'Create',
-            color: 'indigo-700',
+            color: 'indigo',
             icon: 'email',
-            fontColor: 'white',
-            hoverColor: 'indigo-600',
+            fontColor: 'gray',
+            hoverColor: 'indigo',
           },
         ],
       },
@@ -94,9 +95,42 @@ export class DevSectionHeadingsStore extends ComponentStore<DevSectionHeadingsSt
         { label: 'Title', prop: '[title]', description: 'Shows the title.', dataType: 'String' },
         { label: 'Desciption', prop: '[description]', description: 'Shows the  description.', dataType: 'String' },
         { label: 'Image', prop: '[image]', description: 'Shows the image.', dataType: 'String' },
-        { label: 'Tabs', prop: '[payload]', description: 'Show all tabs of section heading', dataType: 'Array' },
-        { label: 'Buttons', prop: '[buttons]', description: 'Show buttons in section heading', dataType: 'Array' },
-        { label: 'Badge', prop: '[badge]', description: 'Show the badges on tabs.', dataType: 'Boolean' },
+        {
+          label: 'Tabs',
+          prop: '[tabs]',
+          description: 'Show all tabs of section heading',
+          dataType: 'Array',
+          typeArray: [
+            [{ title: 'Applied' }, { badge: '20+' }],
+            [{ title: 'Phone Screening' }, { badge: '' }],
+            [{ title: 'Interview' }, { badge: '' }],
+            [{ title: 'Offer' }, { badge: '5' }],
+            [{ title: 'Hired' }, { badge: '' }],
+          ],
+        },
+        {
+          label: 'Buttons',
+          prop: '[buttons]',
+          description: 'Show buttons in section heading',
+          dataType: 'Array',
+          typeArray: [
+            [{ text: 'Share' }, { color: 'white' }, { icon: 'phone' }, { fontColor: 'gray' }, { hoverColor: 'gray' }],
+            [
+              { text: 'Create' },
+              { color: 'indigo' },
+              { icon: 'email' },
+              { fontColor: 'white' },
+              { hoverColor: 'indigo' },
+            ],
+          ],
+        },
+        {
+          label: 'Badge',
+          prop: '[badge]',
+          description: 'Show the badges on tabs.',
+          dataType: 'Boolean',
+          type: ['true', 'false'],
+        },
       ],
     })
     // this.loadItemsEffect()

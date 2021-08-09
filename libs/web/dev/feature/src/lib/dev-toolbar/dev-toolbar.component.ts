@@ -12,6 +12,7 @@ import { DevToolbarStore } from './dev-toolbar.store'
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_outputs]="vm.config.component_outputs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-toolbar [buttons]="vm.config.items.buttons" [background]="vm.config.items.background"></ui-toolbar>
       </ui-preview>

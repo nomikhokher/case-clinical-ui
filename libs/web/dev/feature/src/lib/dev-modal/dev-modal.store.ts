@@ -29,8 +29,28 @@ const config: Configs = {
     width: '2xl', // width can be [sm, md, lg, xl, 1xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl0, full]
   },
   component_inputs: [
-    { label: 'Class Names', prop: '[classNames]', description: 'Shows style of these classes', dataType: 'string' },
-    { label: 'Dividers', prop: '[roundedDividers]', description: 'Shows the divider', dataType: 'boolean' },
+    {
+      label: 'Active',
+      prop: '[isActive]',
+      description: 'Shows Modal or Hide Modal',
+      dataType: 'Boolean',
+      type: ['true', 'false'],
+    },
+    {
+      label: 'Button',
+      prop: '[closeButton]',
+      description: 'Close the modal',
+      dataType: 'Boolean',
+      type: ['true', 'false'],
+    },
+    { label: 'Display', prop: '[display]', description: 'Display', dataType: 'Boolean', type: ['true', 'false'] },
+    {
+      label: 'Width',
+      prop: '[width]',
+      description: 'Adjust the width of modal',
+      dataType: 'String',
+      type: ['sm', 'md', 'lg', 'xl', '1xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl0', 'full'],
+    },
   ],
 }
 

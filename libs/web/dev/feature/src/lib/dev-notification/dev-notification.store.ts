@@ -31,7 +31,7 @@ const config: Configs = {
       title: 'Anyone with a link can now view this file.',
       closeBtn: true,
       show: true,
-      timeInSec: 5,
+      timeInSec: 10,
       background: 'indigo',
       bottomSectionButton: [
         {
@@ -64,6 +64,20 @@ const config: Configs = {
     { label: 'Name', prop: '[name]', description: 'Shows the name of notification.', dataType: 'String' },
     { label: 'Title', prop: '[title]', description: 'Show the title of notification.', dataType: 'String' },
     {
+      label: 'CloseButton',
+      prop: '[closeBtn]',
+      description: 'Close the notification modal.',
+      dataType: 'Boolean',
+      type: ['true', 'false'],
+    },
+    {
+      label: 'Show',
+      prop: '[show]',
+      description: 'Show the modal of notification.',
+      dataType: 'Boolean',
+      type: ['true', 'false'],
+    },
+    {
       label: 'Time in Seconds',
       prop: '[timeInSec]',
       description: 'Holds the notification for x seconds.',
@@ -75,6 +89,7 @@ const config: Configs = {
       prop: '[bottomSectionButton]',
       description: 'Bottom buttons of notification',
       dataType: 'Object',
+      typeArray: [[{ name: 'accept' }]],
     },
   ],
   component_outputs: [

@@ -11,6 +11,7 @@ import { DevGridListStore } from './dev-grid-list.store'
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
         [code]="codePreview[0]"
+        [codeObj]="vm.config.items"
       >
         <ui-grid-list
           [cols]="vm.config.items.cols"

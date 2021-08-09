@@ -22,4 +22,6 @@ export interface Inputs {
   description?: string
   prop?: string
   dataType?: string
+  type?
+  typeArray?
 }
