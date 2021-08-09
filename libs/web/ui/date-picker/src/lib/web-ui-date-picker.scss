@@ -1,0 +1,55 @@
+[ng-cloak] {
+  display: none;
+}
+.rangeDate {
+  background: #1e40af;
+  color: #ffffff;
+}
+.md-drppicker {
+  padding: 15px !important;
+  width: auto !important;
+}
+.md-drppicker table {
+  margin: 15px !important;
+}
+.md-drppicker td {
+  padding: 8px !important;
+}
+
+.md-drppicker td.active {
+  transition: background 0.3s ease-out;
+  background: #1e40af !important;
+}
+.md-drppicker td {
+  border-radius: 50% !important;
+  width: 15% !important;
+}
+
+.md-drppicker .calendar tr th {
+  margin: 5px 0px !important;
+  font-weight: 500 !important;
+}
+
+.md-drppicker th.month > div {
+  margin: 15px !important;
+}
+.md-drppicker th {
+  color: #1f1e1e !important;
+}
+.md-drppicker.ltr .calendar,
+.md-drppicker.ltr .ranges {
+  margin-right: 15px !important;
+}
+select {
+  padding: 0 15px !important;
+  font-size: 1rem !important;
+  cursor: pointer !important;
+  text-align: center !important;
+}
+.md-drppicker td.available:hover,
+.md-drppicker th.available:hover {
+  background-color: rgba(199, 210, 254, var(--tw-bg-opacity)) !important;
+}
+.md-drppicker .calendar-time .select .select-item {
+  padding: 0px 30px !important;
+}
