@@ -16,6 +16,7 @@ import { DevDatePickerStore } from './dev-date-picker.store'
           [inputGivenOrNot]="vm.config.items.inputGivenOrNot"
           [rangePicker]="vm.config.items.rangePicker"
           [timePicker]="vm.config.items.timePicker"
+          [timePicker24Hour]="vm.config.items.timePicker24Hour"
           (getValueOfDate)="getValueOfDateEvent($event)"
         ></ui-date-picker>
       </ui-preview>
