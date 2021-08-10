@@ -929,6 +929,28 @@
       "prefix": "style",
       "targets": {}
     },
+    "web-ui-accordion": {
+      "projectType": "library",
+      "root": "libs/web/ui/accordion",
+      "sourceRoot": "libs/web/ui/accordion/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/accordion/src/**/*.ts", "libs/web/ui/accordion/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/accordion"],
+          "options": {
+            "jestConfig": "libs/web/ui/accordion/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-alert": {
       "projectType": "library",
       "root": "libs/web/ui/alert",

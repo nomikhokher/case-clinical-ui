@@ -434,6 +434,16 @@ export class WebDevFeatureComponent {
             },
           ],
         },
+        {
+          label: 'Accordion',
+          children: [
+            {
+              label: 'Accordion',
+              route: 'accordions',
+              image: '/assets/images/stacked.png',
+            },
+          ],
+        },
       ],
     },
   ]
