@@ -1,4 +1,12 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core'
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+  ViewEncapsulation,
+  SimpleChanges,
+} from '@angular/core'
 import * as moment from 'moment'
 
 export enum SetDateFormatEnum {
@@ -25,26 +33,30 @@ export enum SetDateFormatEnum {
             placeholder="Choose date"
             (change)="ngModelChange($event)"
             [autoApply]="true"
-            [singleDatePicker]="rangePicker"
+            [singleDatePicker]="rangePicker == 'true' || rangePicker === true"
             [showDropdowns]="true"
-            [timePicker]="timePicker"
+            [timePicker]="timePicker == 'true' || timePicker === true"
             [timePickerSeconds]="true"
             [timePickerIncrement]="15"
-            [timePicker24Hour]="timePicker24Hour"
+            [timePicker24Hour]="timePicker24Hour == 'true' || timePicker24Hour === true"
             [locale]="{ format: setDateFormat, firstDay: 1 }"
             class="py-3 w-64 placeholder-blueGray-300 text-blueGray-600 relativ bg-white rounded text-sm border-0 outline-none shadow focus:outline-none focus:ring-0 pl-2"
           />
         </div>
       </div>
       <!--EXAMPLE VARIANTS  -->
-      <div class="px-4 py-2 bg-gray-100 border-b order-2 mt-5">
+      <div class="px-4 py-2 bg-gray-100  order-2 mt-5 dark:bg-gray-600">
         <fieldset>
           <div class="my-3">
-            <label class="text-xs font-medium uppercase text-gray-500 leading-none">Example variants</label>
+            <label class="text-xs font-medium uppercase text-gray-500 dark:text-gray-100 leading-none"
+              >Example variants</label
+            >
           </div>
           <div class="flex flex-wrap -mx-3 align-bottom">
             <div class="mx-3">
-              <label class="text-xs font-medium uppercase text-gray-500 leading-none">User format</label>
+              <label class="text-xs font-medium uppercase text-gray-500 dark:text-gray-100 leading-none"
+                >User format</label
+              >
               <div class="">
                 <select
                   class="pl-3 pr-10 py-1 text-sm block text-black placeholder-gray-400 transition duration-100 ease-in-out bg-white border border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -61,33 +73,39 @@ export enum SetDateFormatEnum {
           <div class="flex flex-wrap -mx-3 align-bottom">
             <label class="flex items-center px-3 py-2 mt-4 "
               ><input
-                [checked]="rangePicker"
+                [checked]="rangePicker == 'true' || rangePicker === true"
                 type="checkbox"
                 name="range"
                 (change)="dateRangepicker()"
                 class="text-blue-500 transition duration-100 ease-in-out border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
               />
-              <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize"> Range </span></label
+              <span class="block ml-3 text-sm font-medium leading-5 dark:text-gray-100 text-gray-700 capitalize">
+                Range
+              </span></label
             >
             <label class="flex items-center px-3 py-2 mt-4 "
               ><input
                 (change)="showTime()"
-                [checked]="timePicker"
+                [checked]="timePicker == 'true' || timePicker === true"
                 type="checkbox"
                 name="timepicker"
-                class="text-blue-500 transition duration-100 ease-in-out border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                class="text-blue-500 transition duration-100 ease-in-out  border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
               />
-              <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize"> Timepicker </span></label
+              <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 dark:text-gray-100 capitalize">
+                Timepicker
+              </span></label
             >
             <label class="flex items-center px-3 py-2 mt-4 "
               ><input
                 (change)="timeFormat()"
-                [checked]="timePicker24Hour"
+                [checked]="timePicker24Hour == 'true' || timePicker24Hour === true"
                 type="checkbox"
                 name="amPm"
                 class="text-blue-500 transition duration-100 ease-in-out border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
               />
-              <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize"> AM/PM </span></label
+              <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 dark:text-gray-100 capitalize">
+                AM/PM
+              </span></label
             >
           </div>
         </fieldset>
@@ -96,19 +114,21 @@ export enum SetDateFormatEnum {
   `,
 })
 export class WebUiDatePickerComponent {
-  @Input() inputGivenOrNot?: any
   @Input() dateFormat?: any
-  @Input() rangePicker?: boolean
-  @Input() timePicker?: boolean
-  @Input() timePicker24Hour?: boolean
+  @Input() rangePicker?: boolean | string
+  @Input() timePicker?: boolean | string
+  @Input() timePicker24Hour?: boolean | string
   @Output() getValueOfDate = new EventEmitter<any>()
 
   public selected: { startDate; endDate }
   public setDateFormat: any
   formatValues: any
 
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges): void {
     this.setDateFormat = SetDateFormatEnum[this.dateFormat]
+  }
+
+  ngOnInit(): void {
     this.formatValues = Object.keys(SetDateFormatEnum)
   }
 
@@ -127,6 +147,8 @@ export class WebUiDatePickerComponent {
   }
 
   changeFormateDate(event): void {
+    console.log(event)
+
     this.setDateFormat = SetDateFormatEnum[event.target.value]
   }
   ngModelChange(event): void {
@@ -134,7 +156,7 @@ export class WebUiDatePickerComponent {
       start: null,
       end: null,
     }
-    if (!this.rangePicker) {
+    if (this.rangePicker != true) {
       // Format date
       let start = moment(event?.startDate?.$d).format()
       let end = moment(event?.endDate?.$d).format()
