@@ -387,6 +387,9 @@
     "web-ui-testimonials": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-timeline": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-toast": {
       "tags": ["scope:web", "type:ui"]
     },
