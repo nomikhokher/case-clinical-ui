@@ -1428,6 +1428,28 @@
         }
       }
     },
+    "web-ui-drawing-pad": {
+      "projectType": "library",
+      "root": "libs/web/ui/drawing-pad",
+      "sourceRoot": "libs/web/ui/drawing-pad/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/drawing-pad/src/**/*.ts", "libs/web/ui/drawing-pad/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/drawing-pad"],
+          "options": {
+            "jestConfig": "libs/web/ui/drawing-pad/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-dropdown": {
       "projectType": "library",
       "root": "libs/web/ui/dropdown",
@@ -2679,6 +2701,28 @@
           "outputs": ["coverage/libs/web/ui/table-lists"],
           "options": {
             "jestConfig": "libs/web/ui/table-lists/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-tag-textarea": {
+      "projectType": "library",
+      "root": "libs/web/ui/tag-textarea",
+      "sourceRoot": "libs/web/ui/tag-textarea/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/tag-textarea/src/**/*.ts", "libs/web/ui/tag-textarea/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/tag-textarea"],
+          "options": {
+            "jestConfig": "libs/web/ui/tag-textarea/jest.config.js",
             "passWithNoTests": true
           }
         }

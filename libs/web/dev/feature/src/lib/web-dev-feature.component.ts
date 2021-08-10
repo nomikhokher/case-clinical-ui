@@ -308,6 +308,11 @@ export class WebDevFeatureComponent {
               image: '/assets/images/chips.png',
             },
             {
+              label: 'Tag Textarea',
+              route: 'tag-textarea',
+              image: '/assets/images/chips.png',
+            },
+            {
               label: 'Progress Bar',
               route: 'progress-bars',
               image: '/assets/images/progress-bar.png',
@@ -410,6 +415,16 @@ export class WebDevFeatureComponent {
             {
               label: 'Dashboard',
               route: 'dashboard',
+              image: '/assets/images/stacked.png',
+            },
+          ],
+        },
+        {
+          label: 'Drawing Pad',
+          children: [
+            {
+              label: 'Drawing Pad',
+              route: 'drawing-pad',
               image: '/assets/images/stacked.png',
             },
           ],

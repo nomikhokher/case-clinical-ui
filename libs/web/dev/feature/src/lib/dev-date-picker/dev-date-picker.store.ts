@@ -11,6 +11,7 @@ export interface Item {
   inputGivenOrNot?: boolean
   timePicker?: boolean
   rangePicker?: boolean
+  timePicker24Hour?: boolean
 }
 
 interface PreviewData {
@@ -60,6 +61,7 @@ export class DevDatePickerStore extends ComponentStore<DevDatePickerState> {
           inputGivenOrNot: true,
           rangePicker: true,
           timePicker: true,
+          timePicker24Hour: true,
         },
         component_inputs: [
           { label: 'DateFormat', prop: '[dateFormat]', description: 'Change the format of date.', dataType: 'String' },
