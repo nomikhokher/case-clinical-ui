@@ -2910,6 +2910,28 @@
         }
       }
     },
+    "web-ui-upload": {
+      "projectType": "library",
+      "root": "libs/web/ui/upload",
+      "sourceRoot": "libs/web/ui/upload/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/upload/src/**/*.ts", "libs/web/ui/upload/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/upload"],
+          "options": {
+            "jestConfig": "libs/web/ui/upload/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-vertical-navigation": {
       "projectType": "library",
       "root": "libs/web/ui/vertical-navigation",
