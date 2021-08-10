@@ -291,6 +291,7 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: 'timelines',
         loadChildren: () => import('./dev-timeline/dev-timeline.module').then((m) => m.DevTimelineModule),
       },
+      { path: 'ratings', loadChildren: () => import('./dev-rating/dev-rating.module').then((m) => m.DevRatingModule) },
     ]),
     WebUiMainPageModule,
   ],

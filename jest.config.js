@@ -124,5 +124,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/tag-textarea',
     '<rootDir>/libs/web/ui/accordion',
     '<rootDir>/libs/web/ui/timeline',
+    '<rootDir>/libs/web/ui/rating',
   ],
 }
