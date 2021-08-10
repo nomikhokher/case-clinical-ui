@@ -123,5 +123,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/drawing-pad',
     '<rootDir>/libs/web/ui/tag-textarea',
     '<rootDir>/libs/web/ui/accordion',
+    '<rootDir>/libs/web/ui/upload',
   ],
 }

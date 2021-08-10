@@ -73,6 +73,11 @@ export class WebDevFeatureComponent {
               route: 'repeater',
               image: '/assets/images/stacked-lists.png',
             },
+            {
+              label: 'Upload',
+              route: 'upload',
+              image: '/assets/images/stacked-lists.png',
+            },
           ],
         },
         {
