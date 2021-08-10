@@ -2772,6 +2772,28 @@
         }
       }
     },
+    "web-ui-timeline": {
+      "projectType": "library",
+      "root": "libs/web/ui/timeline",
+      "sourceRoot": "libs/web/ui/timeline/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/timeline/src/**/*.ts", "libs/web/ui/timeline/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/timeline"],
+          "options": {
+            "jestConfig": "libs/web/ui/timeline/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-toast": {
       "projectType": "library",
       "root": "libs/web/ui/toast",

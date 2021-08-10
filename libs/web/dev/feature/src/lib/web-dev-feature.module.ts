@@ -287,6 +287,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: 'accordions',
         loadChildren: () => import('./dev-accordion/dev-accordion.module').then((m) => m.DevAccordionModule),
       },
+      {
+        path: 'timelines',
+        loadChildren: () => import('./dev-timeline/dev-timeline.module').then((m) => m.DevTimelineModule),
+      },
     ]),
     WebUiMainPageModule,
   ],

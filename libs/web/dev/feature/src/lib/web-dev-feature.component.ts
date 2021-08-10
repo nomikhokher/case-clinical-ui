@@ -439,6 +439,16 @@ export class WebDevFeatureComponent {
             },
           ],
         },
+        {
+          label: 'Timeline',
+          children: [
+            {
+              label: 'Timeline',
+              route: 'timelines',
+              image: '/assets/images/stacked.png',
+            },
+          ],
+        },
       ],
     },
   ]
