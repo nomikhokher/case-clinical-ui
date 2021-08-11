@@ -122,5 +122,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/footer',
     '<rootDir>/libs/web/ui/drawing-pad',
     '<rootDir>/libs/web/ui/tag-textarea',
+    '<rootDir>/libs/web/ui/multi-select',
   ],
 }

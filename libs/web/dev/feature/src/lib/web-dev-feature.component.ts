@@ -427,6 +427,11 @@ export class WebDevFeatureComponent {
               route: 'drawing-pad',
               image: '/assets/images/stacked.png',
             },
+            {
+              label: 'Multi Select',
+              route: 'multi-select',
+              image: '/assets/images/stacked.png',
+            },
           ],
         },
       ],
