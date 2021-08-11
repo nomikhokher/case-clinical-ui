@@ -454,6 +454,16 @@ export class WebDevFeatureComponent {
             },
           ],
         },
+        {
+          label: 'Rating',
+          children: [
+            {
+              label: 'Rating',
+              route: 'ratings',
+              image: '/assets/images/stacked.png',
+            },
+          ],
+        },
       ],
     },
   ]

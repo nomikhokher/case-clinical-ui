@@ -315,6 +315,9 @@
     "web-ui-range-slider": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-rating": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-section-headings": {
       "tags": ["scope:web", "type:ui"]
     },
