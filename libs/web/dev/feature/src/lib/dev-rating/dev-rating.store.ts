@@ -11,6 +11,9 @@ export interface Item {
   id?: string
   name?: string
   ratings: Rating[]
+  ratingColor?: string
+  iconSize?: string
+  icon?: string
 }
 
 interface DevRatingState {
@@ -47,6 +50,9 @@ export class DevRatingStore extends ComponentStore<DevRatingState> {
           directory: '/libs/web/dev/feature/src/lib/dev-rating/dev-rating.component.ts',
         },
         items: {
+          ratingColor: 'yellow',
+          icon: 'ratingStar',
+          iconSize: '12',
           ratings: [
             { amount: 1, label: 'Terrible' },
             { amount: 2, label: 'Bad' },
@@ -56,6 +62,25 @@ export class DevRatingStore extends ComponentStore<DevRatingState> {
           ],
         },
         component_inputs: [
+          {
+            label: 'Color',
+            prop: '[ratingColor]',
+            description: 'Adjust the color of rating',
+            dataType: 'Array',
+          },
+          {
+            label: 'Icon',
+            prop: '[icon]',
+            description: 'Adjust the icon of rating',
+            dataType: 'Array',
+            type: Object.values(UiIcon),
+          },
+          {
+            label: 'Icon Size',
+            prop: '[iconSize]',
+            description: 'Adjust the size of icon',
+            dataType: 'Array',
+          },
           {
             label: 'Ratings',
             prop: '[ratings]',
