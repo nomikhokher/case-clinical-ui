@@ -2819,6 +2819,28 @@
         }
       }
     },
+    "web-ui-tooltip": {
+      "projectType": "library",
+      "root": "libs/web/ui/tooltip",
+      "sourceRoot": "libs/web/ui/tooltip/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/tooltip/src/**/*.ts", "libs/web/ui/tooltip/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/tooltip"],
+          "options": {
+            "jestConfig": "libs/web/ui/tooltip/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-tree": {
       "projectType": "library",
       "root": "libs/web/ui/tree",
