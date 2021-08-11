@@ -10,6 +10,7 @@ import { DevDatePickerStore } from './dev-date-picker.store'
         [directory]="vm.config.previewData.directory"
         [breadcrumbs]="vm.config.previewData.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-date-picker
           [dateFormat]="vm.config.items.dateFormat"

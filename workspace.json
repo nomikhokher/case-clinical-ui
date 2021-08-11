@@ -2116,6 +2116,28 @@
         }
       }
     },
+    "web-ui-pop-confirm": {
+      "projectType": "library",
+      "root": "libs/web/ui/pop-confirm",
+      "sourceRoot": "libs/web/ui/pop-confirm/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/pop-confirm/src/**/*.ts", "libs/web/ui/pop-confirm/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/pop-confirm"],
+          "options": {
+            "jestConfig": "libs/web/ui/pop-confirm/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-preview": {
       "projectType": "library",
       "root": "libs/web/ui/preview",
@@ -2885,6 +2907,28 @@
         }
       }
     },
+    "web-ui-tooltip": {
+      "projectType": "library",
+      "root": "libs/web/ui/tooltip",
+      "sourceRoot": "libs/web/ui/tooltip/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/tooltip/src/**/*.ts", "libs/web/ui/tooltip/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/tooltip"],
+          "options": {
+            "jestConfig": "libs/web/ui/tooltip/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-tree": {
       "projectType": "library",
       "root": "libs/web/ui/tree",
@@ -2949,6 +2993,28 @@
           "outputs": ["coverage/libs/web/ui/two-column-stacked-list"],
           "options": {
             "jestConfig": "libs/web/ui/two-column-stacked-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-upload": {
+      "projectType": "library",
+      "root": "libs/web/ui/upload",
+      "sourceRoot": "libs/web/ui/upload/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/upload/src/**/*.ts", "libs/web/ui/upload/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/upload"],
+          "options": {
+            "jestConfig": "libs/web/ui/upload/jest.config.js",
             "passWithNoTests": true
           }
         }

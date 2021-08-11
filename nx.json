@@ -300,6 +300,9 @@
     "web-ui-pagination": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-pop-confirm": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-preview": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -402,6 +405,9 @@
     "web-ui-toolbar": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-tooltip": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-tree": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -409,6 +415,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-two-column-stacked-list": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-upload": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-vertical-navigation": {

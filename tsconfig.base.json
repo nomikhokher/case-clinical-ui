@@ -104,6 +104,7 @@
       "@schema-driven/web/ui/page-header": ["libs/web/ui/page-header/src/index.ts"],
       "@schema-driven/web/ui/page-headings": ["libs/web/ui/page-headings/src/index.ts"],
       "@schema-driven/web/ui/pagination": ["libs/web/ui/pagination/src/index.ts"],
+      "@schema-driven/web/ui/pop-confirm": ["libs/web/ui/pop-confirm/src/index.ts"],
       "@schema-driven/web/ui/preview": ["libs/web/ui/preview/src/index.ts"],
       "@schema-driven/web/ui/pricing-plan": ["libs/web/ui/pricing-plan/src/index.ts"],
       "@schema-driven/web/ui/progress-bar": ["libs/web/ui/progress-bar/src/index.ts"],
@@ -138,9 +139,11 @@
       "@schema-driven/web/ui/toast": ["libs/web/ui/toast/src/index.ts"],
       "@schema-driven/web/ui/toggle-switch-button": ["libs/web/ui/toggle-switch-button/src/index.ts"],
       "@schema-driven/web/ui/toolbar": ["libs/web/ui/toolbar/src/index.ts"],
+      "@schema-driven/web/ui/tooltip": ["libs/web/ui/tooltip/src/index.ts"],
       "@schema-driven/web/ui/tree": ["libs/web/ui/tree/src/index.ts"],
       "@schema-driven/web/ui/tree-select": ["libs/web/ui/tree-select/src/index.ts"],
       "@schema-driven/web/ui/two-column-stacked-list": ["libs/web/ui/two-column-stacked-list/src/index.ts"],
+      "@schema-driven/web/ui/upload": ["libs/web/ui/upload/src/index.ts"],
       "@schema-driven/web/ui/vertical-navigation": ["libs/web/ui/vertical-navigation/src/index.ts"]
     }
   },
