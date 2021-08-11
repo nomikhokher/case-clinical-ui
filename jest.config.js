@@ -126,5 +126,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/timeline',
     '<rootDir>/libs/web/ui/rating',
     '<rootDir>/libs/web/ui/upload',
+    '<rootDir>/libs/web/ui/tooltip',
   ],
 }

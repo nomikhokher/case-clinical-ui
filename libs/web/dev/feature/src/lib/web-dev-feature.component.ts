@@ -78,6 +78,11 @@ export class WebDevFeatureComponent {
               route: 'upload',
               image: '/assets/images/stacked-lists.png',
             },
+            {
+              label: 'Tooltip',
+              route: 'tooltip',
+              image: '/assets/images/stacked-lists.png',
+            },
           ],
         },
         {
