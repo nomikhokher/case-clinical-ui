@@ -10,12 +10,14 @@ import { DevDatePickerStore } from './dev-date-picker.store'
         [directory]="vm.config.previewData.directory"
         [breadcrumbs]="vm.config.previewData.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-date-picker
           [dateFormat]="vm.config.items.dateFormat"
           [inputGivenOrNot]="vm.config.items.inputGivenOrNot"
           [rangePicker]="vm.config.items.rangePicker"
           [timePicker]="vm.config.items.timePicker"
+          [timePicker24Hour]="vm.config.items.timePicker24Hour"
           (getValueOfDate)="getValueOfDateEvent($event)"
         ></ui-date-picker>
       </ui-preview>

@@ -120,5 +120,11 @@ module.exports = {
     '<rootDir>/libs/web/ui/newsletter',
     '<rootDir>/libs/web/ui/carousel',
     '<rootDir>/libs/web/ui/footer',
+    '<rootDir>/libs/web/ui/drawing-pad',
+    '<rootDir>/libs/web/ui/tag-textarea',
+    '<rootDir>/libs/web/ui/accordion',
+    '<rootDir>/libs/web/ui/timeline',
+    '<rootDir>/libs/web/ui/rating',
+    '<rootDir>/libs/web/ui/upload',
   ],
 }

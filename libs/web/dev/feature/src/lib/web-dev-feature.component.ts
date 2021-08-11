@@ -73,6 +73,11 @@ export class WebDevFeatureComponent {
               route: 'repeater',
               image: '/assets/images/stacked-lists.png',
             },
+            {
+              label: 'Upload',
+              route: 'upload',
+              image: '/assets/images/stacked-lists.png',
+            },
           ],
         },
         {
@@ -308,6 +313,11 @@ export class WebDevFeatureComponent {
               image: '/assets/images/chips.png',
             },
             {
+              label: 'Tag Textarea',
+              route: 'tag-textarea',
+              image: '/assets/images/chips.png',
+            },
+            {
               label: 'Progress Bar',
               route: 'progress-bars',
               image: '/assets/images/progress-bar.png',
@@ -410,6 +420,46 @@ export class WebDevFeatureComponent {
             {
               label: 'Dashboard',
               route: 'dashboard',
+              image: '/assets/images/stacked.png',
+            },
+          ],
+        },
+        {
+          label: 'Drawing Pad',
+          children: [
+            {
+              label: 'Drawing Pad',
+              route: 'drawing-pad',
+              image: '/assets/images/stacked.png',
+            },
+          ],
+        },
+        {
+          label: 'Accordion',
+          children: [
+            {
+              label: 'Accordion',
+              route: 'accordions',
+              image: '/assets/images/stacked.png',
+            },
+          ],
+        },
+        {
+          label: 'Timeline',
+          children: [
+            {
+              label: 'Timeline',
+              route: 'timelines',
+              image: '/assets/images/stacked.png',
+            },
+          ],
+        },
+        {
+          label: 'Rating',
+          children: [
+            {
+              label: 'Rating',
+              route: 'ratings',
               image: '/assets/images/stacked.png',
             },
           ],

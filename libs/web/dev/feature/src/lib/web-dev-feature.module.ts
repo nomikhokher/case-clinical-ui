@@ -19,6 +19,7 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
       },
       { path: 'code', loadChildren: () => import('./dev-code/dev-code.module').then((m) => m.DevCodeModule) },
       { path: 'forms', loadChildren: () => import('./dev-forms/dev-forms.module').then((m) => m.DevFormsModule) },
+      { path: 'upload', loadChildren: () => import('./dev-upload/dev-upload.module').then((m) => m.DevUploadModule) },
       { path: 'json', loadChildren: () => import('./dev-json/dev-json.module').then((m) => m.DevJsonModule) },
       {
         path: 'layout',
@@ -102,6 +103,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
       {
         path: 'chips',
         loadChildren: () => import('./dev-chips/dev-chips.module').then((m) => m.DevChipsModule),
+      },
+      {
+        path: 'tag-textarea',
+        loadChildren: () => import('./dev-tag-textarea/dev-tag-textarea.module').then((m) => m.DevTagTextareaModule),
       },
       {
         path: 'modals',
@@ -275,6 +280,19 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: 'footer',
         loadChildren: () => import('./dev-footer/dev-footer.module').then((m) => m.DevFooterModule),
       },
+      {
+        path: 'drawing-pad',
+        loadChildren: () => import('./dev-drawing-pad/dev-drawing-pad.module').then((m) => m.DevDrawingPadModule),
+      },
+      {
+        path: 'accordions',
+        loadChildren: () => import('./dev-accordion/dev-accordion.module').then((m) => m.DevAccordionModule),
+      },
+      {
+        path: 'timelines',
+        loadChildren: () => import('./dev-timeline/dev-timeline.module').then((m) => m.DevTimelineModule),
+      },
+      { path: 'ratings', loadChildren: () => import('./dev-rating/dev-rating.module').then((m) => m.DevRatingModule) },
     ]),
     WebUiMainPageModule,
   ],
