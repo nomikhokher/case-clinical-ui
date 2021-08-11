@@ -292,6 +292,7 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: 'pop-confirm',
         loadChildren: () => import('./dev-pop-confirm/dev-pop-confirm.module').then((m) => m.DevPopConfirmModule),
       },
+      {
         path: 'accordions',
         loadChildren: () => import('./dev-accordion/dev-accordion.module').then((m) => m.DevAccordionModule),
       },
