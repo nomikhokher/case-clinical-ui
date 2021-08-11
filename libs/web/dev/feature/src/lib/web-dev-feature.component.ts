@@ -73,6 +73,16 @@ export class WebDevFeatureComponent {
               route: 'repeater',
               image: '/assets/images/stacked-lists.png',
             },
+            {
+              label: 'Upload',
+              route: 'upload',
+              image: '/assets/images/stacked-lists.png',
+            },
+            {
+              label: 'Tooltip',
+              route: 'tooltip',
+              image: '/assets/images/stacked-lists.png',
+            },
           ],
         },
         {
@@ -430,6 +440,36 @@ export class WebDevFeatureComponent {
             {
               label: 'Pop Confirm',
               route: 'pop-confirm',
+              image: '/assets/images/stacked.png',
+            },
+          ],
+        },
+        {
+          label: 'Accordion',
+          children: [
+            {
+              label: 'Accordion',
+              route: 'accordions',
+              image: '/assets/images/stacked.png',
+            },
+          ],
+        },
+        {
+          label: 'Timeline',
+          children: [
+            {
+              label: 'Timeline',
+              route: 'timelines',
+              image: '/assets/images/stacked.png',
+            },
+          ],
+        },
+        {
+          label: 'Rating',
+          children: [
+            {
+              label: 'Rating',
+              route: 'ratings',
               image: '/assets/images/stacked.png',
             },
           ],

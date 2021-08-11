@@ -929,6 +929,28 @@
       "prefix": "style",
       "targets": {}
     },
+    "web-ui-accordion": {
+      "projectType": "library",
+      "root": "libs/web/ui/accordion",
+      "sourceRoot": "libs/web/ui/accordion/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/accordion/src/**/*.ts", "libs/web/ui/accordion/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/accordion"],
+          "options": {
+            "jestConfig": "libs/web/ui/accordion/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-alert": {
       "projectType": "library",
       "root": "libs/web/ui/alert",
@@ -2226,6 +2248,28 @@
         }
       }
     },
+    "web-ui-rating": {
+      "projectType": "library",
+      "root": "libs/web/ui/rating",
+      "sourceRoot": "libs/web/ui/rating/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/rating/src/**/*.ts", "libs/web/ui/rating/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/rating"],
+          "options": {
+            "jestConfig": "libs/web/ui/rating/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-section-headings": {
       "projectType": "library",
       "root": "libs/web/ui/section-headings",
@@ -2772,6 +2816,28 @@
         }
       }
     },
+    "web-ui-timeline": {
+      "projectType": "library",
+      "root": "libs/web/ui/timeline",
+      "sourceRoot": "libs/web/ui/timeline/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/timeline/src/**/*.ts", "libs/web/ui/timeline/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/timeline"],
+          "options": {
+            "jestConfig": "libs/web/ui/timeline/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-toast": {
       "projectType": "library",
       "root": "libs/web/ui/toast",
@@ -2841,6 +2907,28 @@
         }
       }
     },
+    "web-ui-tooltip": {
+      "projectType": "library",
+      "root": "libs/web/ui/tooltip",
+      "sourceRoot": "libs/web/ui/tooltip/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/tooltip/src/**/*.ts", "libs/web/ui/tooltip/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/tooltip"],
+          "options": {
+            "jestConfig": "libs/web/ui/tooltip/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-tree": {
       "projectType": "library",
       "root": "libs/web/ui/tree",
@@ -2883,6 +2971,28 @@
           "outputs": ["coverage/libs/web/ui/two-column-stacked-list"],
           "options": {
             "jestConfig": "libs/web/ui/two-column-stacked-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-upload": {
+      "projectType": "library",
+      "root": "libs/web/ui/upload",
+      "sourceRoot": "libs/web/ui/upload/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/upload/src/**/*.ts", "libs/web/ui/upload/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/upload"],
+          "options": {
+            "jestConfig": "libs/web/ui/upload/jest.config.js",
             "passWithNoTests": true
           }
         }

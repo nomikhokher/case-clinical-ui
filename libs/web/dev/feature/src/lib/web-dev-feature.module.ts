@@ -19,6 +19,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
       },
       { path: 'code', loadChildren: () => import('./dev-code/dev-code.module').then((m) => m.DevCodeModule) },
       { path: 'forms', loadChildren: () => import('./dev-forms/dev-forms.module').then((m) => m.DevFormsModule) },
+      { path: 'upload', loadChildren: () => import('./dev-upload/dev-upload.module').then((m) => m.DevUploadModule) },
+      {
+        path: 'tooltip',
+        loadChildren: () => import('./dev-tooltip/dev-tooltip.module').then((m) => m.DevTooltipModule),
+      },
       { path: 'json', loadChildren: () => import('./dev-json/dev-json.module').then((m) => m.DevJsonModule) },
       {
         path: 'layout',
@@ -287,6 +292,14 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: 'pop-confirm',
         loadChildren: () => import('./dev-pop-confirm/dev-pop-confirm.module').then((m) => m.DevPopConfirmModule),
       },
+        path: 'accordions',
+        loadChildren: () => import('./dev-accordion/dev-accordion.module').then((m) => m.DevAccordionModule),
+      },
+      {
+        path: 'timelines',
+        loadChildren: () => import('./dev-timeline/dev-timeline.module').then((m) => m.DevTimelineModule),
+      },
+      { path: 'ratings', loadChildren: () => import('./dev-rating/dev-rating.module').then((m) => m.DevRatingModule) },
     ]),
     WebUiMainPageModule,
   ],

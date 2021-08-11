@@ -78,4 +78,5 @@ export enum UiIcon {
   attachment = 'attachment',
   speakerphone = 'speakerphone',
   x = 'x',
+  filStart = 'filStart',
 }

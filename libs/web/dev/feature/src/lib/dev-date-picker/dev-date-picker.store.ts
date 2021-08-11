@@ -3,12 +3,11 @@ import { ComponentStore } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
 import { ComponentProp } from './model'
-
+import { SetDateFormatEnum } from './model'
 export interface Item {
   id?: string
   name?: string
   dateFormat?: string
-  inputGivenOrNot?: boolean
   timePicker?: boolean
   rangePicker?: boolean
   timePicker24Hour?: boolean
@@ -58,30 +57,38 @@ export class DevDatePickerStore extends ComponentStore<DevDatePickerState> {
         },
         items: {
           dateFormat: 'DDMMYYYY',
-          inputGivenOrNot: true,
           rangePicker: true,
           timePicker: true,
           timePicker24Hour: true,
         },
         component_inputs: [
-          { label: 'DateFormat', prop: '[dateFormat]', description: 'Change the format of date.', dataType: 'String' },
           {
-            label: 'InputGivenOrNot',
-            prop: '[inputGivenOrNot]',
-            description: 'You use the input then pass the value of True or False.',
+            label: 'DateFormat',
+            prop: '[dateFormat]',
+            description: 'Change the format of date.',
+            dataType: 'String',
+            type: ['YYYYMMDD', 'MMDDYYYY', 'DDMMYYYY'],
+          },
+          {
+            label: 'Range Picker',
+            prop: '[rangePicker]',
+            description: 'Allows you to apply range or select only one date.',
             dataType: 'Boolean',
+            type: ['true', 'false'],
           },
           {
             label: 'Time picker',
             prop: '[timePicker]',
             description: 'You use the time then pass the value of True or False.',
             dataType: 'Boolean',
+            type: ['true', 'false'],
           },
           {
-            label: 'Range',
-            prop: '[range]',
-            description: 'You use the range then pass the value of True or False.',
+            label: 'Time Formatter',
+            prop: '[timePicker24Hour]',
+            description: 'Adjust the format AM/PM or 24 hours.',
             dataType: 'Boolean',
+            type: ['true', 'false'],
           },
         ],
       },
