@@ -427,6 +427,11 @@ export class WebDevFeatureComponent {
               route: 'drawing-pad',
               image: '/assets/images/stacked.png',
             },
+            {
+              label: 'Pop Confirm',
+              route: 'pop-confirm',
+              image: '/assets/images/stacked.png',
+            },
           ],
         },
       ],

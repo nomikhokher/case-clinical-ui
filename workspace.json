@@ -2094,6 +2094,28 @@
         }
       }
     },
+    "web-ui-pop-confirm": {
+      "projectType": "library",
+      "root": "libs/web/ui/pop-confirm",
+      "sourceRoot": "libs/web/ui/pop-confirm/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/pop-confirm/src/**/*.ts", "libs/web/ui/pop-confirm/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/pop-confirm"],
+          "options": {
+            "jestConfig": "libs/web/ui/pop-confirm/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-preview": {
       "projectType": "library",
       "root": "libs/web/ui/preview",

@@ -283,6 +283,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: 'drawing-pad',
         loadChildren: () => import('./dev-drawing-pad/dev-drawing-pad.module').then((m) => m.DevDrawingPadModule),
       },
+      {
+        path: 'pop-confirm',
+        loadChildren: () => import('./dev-pop-confirm/dev-pop-confirm.module').then((m) => m.DevPopConfirmModule),
+      },
     ]),
     WebUiMainPageModule,
   ],

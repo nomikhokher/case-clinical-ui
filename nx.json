@@ -297,6 +297,9 @@
     "web-ui-pagination": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-pop-confirm": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-preview": {
       "tags": ["scope:web", "type:ui"]
     },
