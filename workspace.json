@@ -2907,6 +2907,28 @@
         }
       }
     },
+    "web-ui-tree-select": {
+      "projectType": "library",
+      "root": "libs/web/ui/tree-select",
+      "sourceRoot": "libs/web/ui/tree-select/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/tree-select/src/**/*.ts", "libs/web/ui/tree-select/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/tree-select"],
+          "options": {
+            "jestConfig": "libs/web/ui/tree-select/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-two-column-stacked-list": {
       "projectType": "library",
       "root": "libs/web/ui/two-column-stacked-list",

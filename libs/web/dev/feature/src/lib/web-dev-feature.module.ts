@@ -292,6 +292,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-timeline/dev-timeline.module').then((m) => m.DevTimelineModule),
       },
       { path: 'ratings', loadChildren: () => import('./dev-rating/dev-rating.module').then((m) => m.DevRatingModule) },
+      {
+        path: 'tree-selects',
+        loadChildren: () => import('./dev-tree-select/dev-tree-select.module').then((m) => m.DevTreeSelectModule),
+      },
     ]),
     WebUiMainPageModule,
   ],

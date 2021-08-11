@@ -459,6 +459,16 @@ export class WebDevFeatureComponent {
             },
           ],
         },
+        {
+          label: 'Tree Select',
+          children: [
+            {
+              label: 'Tree Select',
+              route: 'tree-selects',
+              image: '/assets/images/stacked.png',
+            },
+          ],
+        },
       ],
     },
   ]

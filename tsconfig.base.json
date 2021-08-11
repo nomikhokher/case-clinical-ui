@@ -139,6 +139,7 @@
       "@schema-driven/web/ui/toggle-switch-button": ["libs/web/ui/toggle-switch-button/src/index.ts"],
       "@schema-driven/web/ui/toolbar": ["libs/web/ui/toolbar/src/index.ts"],
       "@schema-driven/web/ui/tree": ["libs/web/ui/tree/src/index.ts"],
+      "@schema-driven/web/ui/tree-select": ["libs/web/ui/tree-select/src/index.ts"],
       "@schema-driven/web/ui/two-column-stacked-list": ["libs/web/ui/two-column-stacked-list/src/index.ts"],
       "@schema-driven/web/ui/vertical-navigation": ["libs/web/ui/vertical-navigation/src/index.ts"]
     }
