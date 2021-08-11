@@ -1,6 +1,6 @@
 import { ArrayDataSource } from '@angular/cdk/collections'
 import { Component } from '@angular/core'
-import { DevTreeStore } from './dev-tree.store'
+import { DevTreeSelectStore } from './dev-tree-select.store'
 import { FlatNode } from './model'
 
 @Component({
@@ -14,21 +14,18 @@ import { FlatNode } from './model'
         [component_inputs]="vm.config.component_inputs"
         [codeObj]="vm.config.items"
       >
-        <div class="mb-4 mt-4 dark:text-gray-300">
-          <ui-tree [treeData]="treeData" [dataSource]="dataSource"></ui-tree>
-        </div>
+        <ui-tree-select [treeData]="treeData" [dataSource]="dataSource"></ui-tree-select>
       </ui-preview>
     </ng-container>
   `,
-  providers: [DevTreeStore],
+  providers: [DevTreeSelectStore],
 })
-export class DevTreeComponent {
+export class DevTreeSelectComponent {
   readonly vm$ = this.store.vm$
+  constructor(private readonly store: DevTreeSelectStore) {}
 
   public treeData: FlatNode[]
   public dataSource: any
-
-  constructor(private readonly store: DevTreeStore) {}
 
   ngOnInit(): void {
     this.vm$.subscribe((treeData) => {
