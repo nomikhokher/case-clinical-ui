@@ -1912,6 +1912,28 @@
         }
       }
     },
+    "web-ui-multi-select": {
+      "projectType": "library",
+      "root": "libs/web/ui/multi-select",
+      "sourceRoot": "libs/web/ui/multi-select/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/multi-select/src/**/*.ts", "libs/web/ui/multi-select/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/multi-select"],
+          "options": {
+            "jestConfig": "libs/web/ui/multi-select/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-narrow-avatar-list": {
       "projectType": "library",
       "root": "libs/web/ui/narrow-avatar-list",

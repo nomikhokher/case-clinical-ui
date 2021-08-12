@@ -95,6 +95,7 @@
       "@schema-driven/web/ui/media-object": ["libs/web/ui/media-object/src/index.ts"],
       "@schema-driven/web/ui/mini-calendar": ["libs/web/ui/mini-calendar/src/index.ts"],
       "@schema-driven/web/ui/modal": ["libs/web/ui/modal/src/index.ts"],
+      "@schema-driven/web/ui/multi-select": ["libs/web/ui/multi-select/src/index.ts"],
       "@schema-driven/web/ui/narrow-avatar-list": ["libs/web/ui/narrow-avatar-list/src/index.ts"],
       "@schema-driven/web/ui/navbars": ["libs/web/ui/navbars/src/index.ts"],
       "@schema-driven/web/ui/newsletter": ["libs/web/ui/newsletter/src/index.ts"],

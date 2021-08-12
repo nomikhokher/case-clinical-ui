@@ -609,8 +609,6 @@ export class WebUiPreviewComponent implements OnInit {
         if (inputs.typeArray == undefined) {
           return
         }
-        console.log(this.objectKeys)
-        console.log(inputs.typeArray)
         return inputs.typeArray
       }
       return inputs.typeObj
@@ -690,7 +688,6 @@ export class WebUiPreviewComponent implements OnInit {
       this.firstBody = !this.firstBody
       this.thirdBody = !this.thirdBody
       this.thirdBodyData = item
-      console.log(this.thirdBodyData)
     } else if (typeof item[0] === 'object' || item == 'toggle') {
       this.firstBody = !this.firstBody
       this.secondBody = !this.secondBody
