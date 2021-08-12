@@ -29,7 +29,10 @@ export class DevPopConfirmComponent {
   codePreview = [
     `
   import {WebUiPopConfirmModule} from '@schema-driven/web/ui/pop-confirm' \n\n
-  <ui-pop-confirm [title]="'Do you want to log out?'" [buttons]="[{ text: 'Yes', background : 'yellow' }, { text: 'No', background : 'green' }]" [position]="top-right" ></ui-pop-confirm> </ui-preview>
+  <ui-pop-confirm [title]="title" [buttons]="buttons" [position]="position" ></ui-pop-confirm> </ui-preview>
+    title = 'Do you want to log out?'\n
+    buttons = [{ text: 'Yes', background : 'yellow' }, { text: 'No', background : 'green' }]\n
+    position = "top-right"
   `,
   ]
 }

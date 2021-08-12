@@ -22,7 +22,7 @@ const config = {
   githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/form/src/lib/types/select',
   breadcrumbs: [
     { label: 'Components', path: '/dev' },
-    { label: 'Select Menu', path: '/dev/select' },
+    { label: 'Select Menu', path: '/dev/select-menus' },
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-select.component.ts',
 }

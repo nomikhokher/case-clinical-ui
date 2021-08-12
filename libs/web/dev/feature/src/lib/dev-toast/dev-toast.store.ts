@@ -22,7 +22,7 @@ const config = {
   githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/toast/src/lib',
   breadcrumbs: [
     { label: 'Components', path: '/dev' },
-    { label: 'Toast', path: '/dev/toast' },
+    { label: 'Toast', path: '/dev/toasts' },
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-toast.component.ts',
 }
