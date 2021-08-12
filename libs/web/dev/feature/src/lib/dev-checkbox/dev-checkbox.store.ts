@@ -12,9 +12,20 @@ export interface Demo {
   fields?: WebUiFormField[]
 }
 
+const config = {
+  headerTitle: 'Checkbox',
+  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/form/src/lib/types/checkbox',
+  breadcrumbs: [
+    { label: 'Components', path: '/dev' },
+    { label: 'Checkbox', path: '/dev/checkboxs' },
+  ],
+  directory: '/libs/web/dev/feature/src/lib/dev-checkbox.component.ts',
+}
+
 interface DevCheckboxState {
   demos?: Demo[]
   loading?: boolean
+  config
 }
 
 const demos: Demo[] = [
@@ -62,9 +73,10 @@ const demos: Demo[] = [
 @Injectable()
 export class DevCheckboxStore extends ComponentStore<DevCheckboxState> {
   constructor() {
-    super({ demos })
+    super({ demos, config })
   }
 
   readonly demos$ = this.select(this.state$, (s) => s.demos)
-  readonly vm$ = this.select(this.demos$, (demos) => ({ demos }))
+  readonly config$ = this.select(this.state$, (s) => s.config)
+  readonly vm$ = this.select(this.demos$, this.config$, (demos, config) => ({ demos, config }))
 }

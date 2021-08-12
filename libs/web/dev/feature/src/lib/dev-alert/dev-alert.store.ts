@@ -47,7 +47,7 @@ const config = {
     githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/alert/src/lib',
     breadcrumbs: [
       { label: 'Components', path: '/dev' },
-      { label: 'Alert', path: '/dev/alert' },
+      { label: 'Alert', path: '/dev/alerts' },
     ],
     directory: `libs/web/dev/feature/src/lib/dev-alert/dev-alert.component.ts`,
   },

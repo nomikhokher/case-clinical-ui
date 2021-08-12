@@ -31,15 +31,15 @@ interface DevDatePickerState {
   loading?: boolean
 }
 
-const config = {
-  headerTitle: 'Date Picker',
-  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/date-picker/src/lib',
-  breadcrumbs: [
-    { label: 'Components', path: '/dev' },
-    { label: 'Date Picker', path: '/dev/date-picker' },
-  ],
-  directory: '/libs/web/dev/feature/src/lib/dev-section-headings/dev-date-picker.component.ts',
-}
+// const config = {
+//   headerTitle: 'Date Picker',
+//   githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/date-picker/src/lib',
+//   breadcrumbs: [
+//     { label: 'Components', path: '/dev' },
+//     { label: 'Date Picker', path: '/dev/date-picker' },
+//   ],
+//   directory: '/libs/web/dev/feature/src/lib/dev-section-headings/dev-date-picker.component.ts',
+// }
 
 @Injectable()
 export class DevDatePickerStore extends ComponentStore<DevDatePickerState> {
@@ -51,7 +51,7 @@ export class DevDatePickerStore extends ComponentStore<DevDatePickerState> {
           githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/date-picker/src/lib',
           breadcrumbs: [
             { label: 'Components', path: '/dev' },
-            { label: 'Date Picker', path: '/dev/date/picker' },
+            { label: 'Date Picker', path: '/dev/date-picker' },
           ],
           directory: '/libs/web/dev/feature/src/lib/dev-date-picker/dev-date-picker.component.ts',
         },

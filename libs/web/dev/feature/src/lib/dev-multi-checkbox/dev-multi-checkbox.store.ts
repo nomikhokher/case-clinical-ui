@@ -16,7 +16,7 @@ const config = {
   githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/form/src/lib/types/multicheckbox',
   breadcrumbs: [
     { label: 'Components', path: '/dev' },
-    { label: 'Multi Checkbox', path: '/dev/multi-checkbox' },
+    { label: 'Multi Checkbox', path: '/dev/multi-checkboxs' },
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-multi-checkbox.component.ts',
 }

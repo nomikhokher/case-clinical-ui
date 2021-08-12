@@ -19,7 +19,7 @@ const config: Configs = {
   githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/list-container/src/lib',
   breadcrumbs: [
     { label: 'Components', path: '/dev' },
-    { label: 'List Container', path: '/dev/list-container' },
+    { label: 'List Container', path: '/dev/list-containers' },
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-list-container.component.ts',
   items: {
