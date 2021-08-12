@@ -78,6 +78,11 @@ export class WebDevFeatureComponent {
               route: 'upload',
               image: '/assets/images/stacked-lists.png',
             },
+            {
+              label: 'Tooltip',
+              route: 'tooltip',
+              image: '/assets/images/stacked-lists.png',
+            },
           ],
         },
         {
@@ -432,7 +437,17 @@ export class WebDevFeatureComponent {
               route: 'drawing-pad',
               image: '/assets/images/stacked.png',
             },
-          ],
+           ],
+        },
+        {
+          label: 'Pop Confirm',
+          children: [
+            {
+              label: 'Pop Confirm',
+              route: 'pop-confirm',
+              image: '/assets/images/stacked.png',
+            },
+           ],
         },
         {
           label: 'Accordion',
@@ -460,6 +475,16 @@ export class WebDevFeatureComponent {
             {
               label: 'Rating',
               route: 'ratings',
+              image: '/assets/images/stacked.png',
+            },
+          ],
+        },
+        {
+          label: 'Tree Select',
+          children: [
+            {
+              label: 'Tree Select',
+              route: 'tree-selects',
               image: '/assets/images/stacked.png',
             },
           ],

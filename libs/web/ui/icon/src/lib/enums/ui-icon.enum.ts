@@ -79,4 +79,5 @@ export enum UiIcon {
   speakerphone = 'speakerphone',
   x = 'x',
   filStart = 'filStart',
+  ratingStar = 'ratingStar',
 }

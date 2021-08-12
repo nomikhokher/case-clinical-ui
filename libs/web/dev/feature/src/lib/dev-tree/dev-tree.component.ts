@@ -14,9 +14,6 @@ import { FlatNode } from './model'
         [component_inputs]="vm.config.component_inputs"
         [codeObj]="vm.config.items"
       >
-        <!-- <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800">
-          <pre class="text-xs dark:text-gray-500">{{ __usage() | json }}</pre>
-        </div> -->
         <div class="mb-4 mt-4 dark:text-gray-300">
           <ui-tree [treeData]="treeData" [dataSource]="dataSource"></ui-tree>
         </div>
@@ -38,23 +35,5 @@ export class DevTreeComponent {
       this.treeData = treeData.config.items.treeData
       this.dataSource = new ArrayDataSource(treeData.config.items.treeData)
     })
-  }
-
-  __usage() {
-    return {
-      component: 'ui-tree',
-      parameters: {
-        show: 'boolean',
-        class: 'string',
-        subject: 'string',
-        message: 'string',
-        list: 'string []',
-        actionLink: 'Object []',
-        type: 'string',
-        bg_color: 'string',
-        dismiss: 'boolean',
-        icon_show: 'boolean',
-      },
-    }
   }
 }
