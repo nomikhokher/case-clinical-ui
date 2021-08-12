@@ -342,6 +342,11 @@ export class WebDevFeatureComponent {
               route: 'split-button',
               image: 'assets/images/split-button.png',
             },
+            {
+              label: 'Multi Selects',
+              route: 'multi-selects',
+              image: 'assets/images/split-button.png',
+            },
           ],
         },
         {
@@ -437,7 +442,7 @@ export class WebDevFeatureComponent {
               route: 'drawing-pad',
               image: '/assets/images/stacked.png',
             },
-           ],
+          ],
         },
         {
           label: 'Pop Confirm',
@@ -447,7 +452,7 @@ export class WebDevFeatureComponent {
               route: 'pop-confirm',
               image: '/assets/images/stacked.png',
             },
-           ],
+          ],
         },
         {
           label: 'Accordion',
