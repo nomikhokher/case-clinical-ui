@@ -42,7 +42,7 @@ export class DevEditorStore extends ComponentStore<DevEditorState> {
           githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/editor/src/lib',
           breadcrumbs: [
             { label: 'Components', path: '/dev' },
-            { label: 'Editor', path: '/dev/editor' },
+            { label: 'Editor', path: '/dev/editors' },
           ],
           directory: '/libs/web/dev/feature/src/lib/dev-editor/dev-editor.component.ts',
         },
