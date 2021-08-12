@@ -5,6 +5,7 @@ import { Component, Input } from '@angular/core'
   template: `
     <div class="dark:bg-gray-800 border dark:border-indigo-700 px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
       <div class="w-full my-4">
+        <p class="text-2xl text-gray-800 py-3 font-bold dark:text-gray-100">Accordion</p>
         <div class="rounded-sm" *ngFor="let accordion of accordions">
           <div class="border border-b-0 bg-gray-100 px-10 py-6">
             <button
@@ -13,7 +14,13 @@ import { Component, Input } from '@angular/core'
               type="button"
             >
               <div class="flex">
-                <ui-icon *ngIf="accordion.icon" [icon]="accordion.icon" size="lg" class="h-5 w-5 mt-1"></ui-icon>
+                <ui-icon
+                  *ngIf="accordion.icon"
+                  [icon]="accordion.icon"
+                  size="lg"
+                  class="h-5 w-5 mt-1"
+                  [ngClass]="{ 'transform rotate-90 transition-all ease-in-out duration-150': accordion.show }"
+                ></ui-icon>
                 <span>{{ accordion.btnText }}</span>
               </div>
             </button>

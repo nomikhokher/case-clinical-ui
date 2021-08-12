@@ -41,7 +41,6 @@ export class DevAccordionStore extends ComponentStore<DevAccordionState> {
         },
         items: {
           accordions: [
-            `ishfduh`,
             {
               id: '1',
               btnText: 'Collapsible Group Item #1',
