@@ -437,7 +437,7 @@ export class WebDevFeatureComponent {
               route: 'drawing-pad',
               image: '/assets/images/stacked.png',
             },
-           ],
+          ],
         },
         {
           label: 'Pop Confirm',
@@ -447,7 +447,7 @@ export class WebDevFeatureComponent {
               route: 'pop-confirm',
               image: '/assets/images/stacked.png',
             },
-           ],
+          ],
         },
         {
           label: 'Accordion',
