@@ -20,7 +20,7 @@ const config = {
   githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/media-object/src/lib',
   breadcrumbs: [
     { label: 'Components', path: '/dev' },
-    { label: 'Media Object', path: '/dev/media-object' },
+    { label: 'Media Object', path: '/dev/media-objects' },
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-section-headings/dev-media-object.component.ts',
   items: {

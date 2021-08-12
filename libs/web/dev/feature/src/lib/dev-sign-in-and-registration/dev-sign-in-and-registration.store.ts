@@ -22,7 +22,7 @@ const config: Configs = {
   githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/sign-in-and-registration/src/lib',
   breadcrumbs: [
     { label: 'Components', path: '/dev' },
-    { label: 'Registration From', path: '/dev/sign-in-and-registration' },
+    { label: 'Registration From', path: '/dev/sign-in-and-registrations' },
   ],
   directory: '/libs/web/dev/feature/src/lib/devsign-in-and-registration/dev-sign-in-and-registration.component.ts',
   items: {

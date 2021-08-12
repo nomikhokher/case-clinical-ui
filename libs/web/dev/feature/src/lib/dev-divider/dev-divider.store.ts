@@ -22,7 +22,7 @@ const config: Configs = {
   githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/divider/src/lib',
   breadcrumbs: [
     { label: 'Components', path: '/dev' },
-    { label: 'Divider', path: '/dev/divider' },
+    { label: 'Divider', path: '/dev/dividers' },
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-divider.component.ts',
   items: [
