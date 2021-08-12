@@ -289,7 +289,7 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-drawing-pad/dev-drawing-pad.module').then((m) => m.DevDrawingPadModule),
       },
       {
-        path: 'multi-select-component',
+        path: 'multi-selects',
         loadChildren: () => import('./dev-multi-select/dev-multi-select.module').then((m) => m.DevMultiSelectModule),
       },
       {

@@ -28,7 +28,7 @@ const config = {
   githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/form/src/lib/types/textarea',
   breadcrumbs: [
     { label: 'Components', path: '/dev' },
-    { label: 'Text Area', path: '/dev/textarea' },
+    { label: 'Text Area', path: '/dev/text-areas' },
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-textarea.component.ts',
 }

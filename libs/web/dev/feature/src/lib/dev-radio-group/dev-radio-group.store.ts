@@ -42,7 +42,7 @@ const config = {
   githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/form/src/lib/types/radio',
   breadcrumbs: [
     { label: 'Components', path: '/dev' },
-    { label: 'Radio Groups', path: '/dev/radio-group' },
+    { label: 'Radio Groups', path: '/dev/radio-groups' },
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-radio-group.component.ts',
 }
