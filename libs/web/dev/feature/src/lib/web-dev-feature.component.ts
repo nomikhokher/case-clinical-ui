@@ -464,6 +464,17 @@ export class WebDevFeatureComponent {
             },
           ],
         },
+
+        {
+          label: 'Ecommerce',
+          children: [
+            {
+              label: 'Product Overviews',
+              route: 'product-overviews',
+              image: '/assets/images/product-overviews.png',
+            },
+          ],
+        },
       ],
     },
   ]
