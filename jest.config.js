@@ -130,5 +130,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/tree-select',
     '<rootDir>/libs/web/ui/upload',
     '<rootDir>/libs/web/ui/tooltip',
+    '<rootDir>/libs/web/ui/product-overviews',
   ],
 }
