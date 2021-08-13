@@ -2204,6 +2204,31 @@
         }
       }
     },
+    "web-ui-product-overviews": {
+      "projectType": "library",
+      "root": "libs/web/ui/product-overviews",
+      "sourceRoot": "libs/web/ui/product-overviews/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/product-overviews/src/**/*.ts",
+              "libs/web/ui/product-overviews/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/product-overviews"],
+          "options": {
+            "jestConfig": "libs/web/ui/product-overviews/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-progress-bar": {
       "projectType": "library",
       "root": "libs/web/ui/progress-bar",
