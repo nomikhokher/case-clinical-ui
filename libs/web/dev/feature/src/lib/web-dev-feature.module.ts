@@ -309,6 +309,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: 'tree-selects',
         loadChildren: () => import('./dev-tree-select/dev-tree-select.module').then((m) => m.DevTreeSelectModule),
       },
+      {
+        path: 'product-overviews',
+        loadChildren: () =>
+          import('./dev-product-overviews/dev-product-overviews.module').then((m) => m.DevProductOverviewsModule),
+      },
     ]),
     WebUiMainPageModule,
   ],
