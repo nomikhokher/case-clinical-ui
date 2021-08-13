@@ -141,6 +141,9 @@
     "web-style": {
       "tags": ["scope:web", "type:style"]
     },
+    "web-ui-accordion": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-alert": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -270,6 +273,9 @@
     "web-ui-modal": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-multi-select": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-narrow-avatar-list": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -297,6 +303,9 @@
     "web-ui-pagination": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-pop-confirm": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-preview": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -310,6 +319,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-range-slider": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-rating": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-section-headings": {
@@ -384,6 +396,9 @@
     "web-ui-testimonials": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-timeline": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-toast": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -393,10 +408,19 @@
     "web-ui-toolbar": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-tooltip": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-tree": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-tree-select": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-two-column-stacked-list": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-upload": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-vertical-navigation": {

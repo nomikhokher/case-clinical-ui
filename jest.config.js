@@ -122,5 +122,13 @@ module.exports = {
     '<rootDir>/libs/web/ui/footer',
     '<rootDir>/libs/web/ui/drawing-pad',
     '<rootDir>/libs/web/ui/tag-textarea',
+    '<rootDir>/libs/web/ui/multi-select',
+    '<rootDir>/libs/web/ui/pop-confirm',
+    '<rootDir>/libs/web/ui/accordion',
+    '<rootDir>/libs/web/ui/timeline',
+    '<rootDir>/libs/web/ui/rating',
+    '<rootDir>/libs/web/ui/tree-select',
+    '<rootDir>/libs/web/ui/upload',
+    '<rootDir>/libs/web/ui/tooltip',
   ],
 }

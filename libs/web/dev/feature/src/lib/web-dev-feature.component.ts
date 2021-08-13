@@ -73,6 +73,16 @@ export class WebDevFeatureComponent {
               route: 'repeater',
               image: '/assets/images/stacked-lists.png',
             },
+            {
+              label: 'Upload',
+              route: 'upload',
+              image: '/assets/images/stacked-lists.png',
+            },
+            {
+              label: 'Tooltip',
+              route: 'tooltip',
+              image: '/assets/images/stacked-lists.png',
+            },
           ],
         },
         {
@@ -332,6 +342,41 @@ export class WebDevFeatureComponent {
               route: 'split-button',
               image: 'assets/images/split-button.png',
             },
+            {
+              label: 'Drawing Pad',
+              route: 'drawing-pad',
+              image: '/assets/images/drawing.png',
+            },
+            {
+              label: 'Pop Confirm',
+              route: 'pop-confirm',
+              image: '/assets/images/pop-confirm.png',
+            },
+            {
+              label: 'Accordion',
+              route: 'accordions',
+              image: '/assets/images/accordion.png',
+            },
+            {
+              label: 'Timeline',
+              route: 'timelines',
+              image: '/assets/images/time-line.png',
+            },
+            {
+              label: 'Rating',
+              route: 'ratings',
+              image: '/assets/images/rating.png',
+            },
+            {
+              label: 'Tree Select',
+              route: 'tree-selects',
+              image: '/assets/images/tree-select.png',
+            },
+            {
+              label: 'Multi Select',
+              route: 'multi-selects',
+              image: '/assets/images/multiple-select.png',
+            },
           ],
         },
         {
@@ -415,16 +460,6 @@ export class WebDevFeatureComponent {
             {
               label: 'Dashboard',
               route: 'dashboard',
-              image: '/assets/images/stacked.png',
-            },
-          ],
-        },
-        {
-          label: 'Drawing Pad',
-          children: [
-            {
-              label: 'Drawing Pad',
-              route: 'drawing-pad',
               image: '/assets/images/stacked.png',
             },
           ],

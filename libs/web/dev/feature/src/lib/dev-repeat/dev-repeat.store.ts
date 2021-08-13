@@ -15,7 +15,7 @@ const config = {
   githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/form/src/lib/types/repeat',
   breadcrumbs: [
     { label: 'Components', path: '/dev' },
-    { label: 'Repeat', path: '/dev/repeat' },
+    { label: 'Repeat', path: '/dev/repeats' },
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-repeat.component.ts',
 }

@@ -5,11 +5,13 @@ import { DevDatePickerStore } from './dev-date-picker.store'
   template: `
     <ng-container *ngIf="vm$ | async as vm">
       <ui-preview
+        [code]="codePreview[0]"
         [title]="vm.config.previewData.headerTitle"
         [githubURL]="vm.config.previewData.githubURL"
         [directory]="vm.config.previewData.directory"
         [breadcrumbs]="vm.config.previewData.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-date-picker
           [dateFormat]="vm.config.items.dateFormat"
@@ -32,4 +34,23 @@ export class DevDatePickerComponent {
   public getValueOfDateEvent(value: any): void {
     this.getValueDate = value
   }
+
+  public codePreview = [
+    `import { WebUiDatePickerModule } from '@schema-driven/web/ui/date-picker' \n\n 
+    <ui-date-picker
+    [dateFormat]="vm.config.items.dateFormat"
+    [inputGivenOrNot]="vm.config.items.inputGivenOrNot"
+    [rangePicker]="vm.config.items.rangePicker"
+    [timePicker]="vm.config.items.timePicker"
+    [timePicker24Hour]="vm.config.items.timePicker24Hour"
+    (getValueOfDate)="getValueOfDateEvent($event)"
+  ></ui-date-picker> \n\n
+  {
+    dateFormat: 'DDMMYYYY',
+    rangePicker: true,
+    timePicker: true,
+    timePicker24Hour: true,
+  }
+  `,
+  ]
 }
