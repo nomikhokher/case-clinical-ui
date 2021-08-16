@@ -3,355 +3,298 @@ import { Component } from '@angular/core'
 @Component({
   selector: 'ui-product-overviews',
   template: `
-    <div class="dark:bg-gray-800 border dark:border-indigo-700 px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
-      <div>
-        <div class="bg-white">
-          <div class="pt-6 pb-16 sm:pb-24">
-            <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <ol role="list" class="flex items-center space-x-4">
-                <li>
-                  <div class="flex items-center">
-                    <a href="#" class="mr-4 text-sm font-medium text-gray-900"> Women </a>
-                    <svg
-                      viewBox="0 0 6 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                      class="h-5 w-auto text-gray-300"
-                    >
-                      <path d="M4.878 4.34H3.551L.27 16.532h1.327l3.281-12.19z" fill="currentColor" />
-                    </svg>
+    <div class="bg-white">
+      <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div class="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
+          <!-- Image gallery -->
+          <div class="flex flex-col-reverse">
+            <!-- Image selector -->
+            <div class="hidden mt-6 w-full max-w-2xl mx-auto sm:block lg:max-w-none">
+              <div class="grid grid-cols-4 gap-6" aria-orientation="horizontal" role="tablist">
+                <button
+                  id="tabs-1-tab-1"
+                  class="relative h-24 bg-white rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-opacity-50"
+                  aria-controls="tabs-1-panel-1"
+                  role="tab"
+                  type="button"
+                  *ngFor="let img of selectedImages || product.images"
+                  (click)="coverImage(img.image)"
+                >
+                  <p class="sr-only">Angled view</p>
+                  <div class="absolute inset-0 rounded-md overflow-hidden">
+                    <img
+                      src="{{ img.image }}"
+                      alt="Angled front view with bag zipped and handles upright."
+                      class="w-full h-full object-center object-cover"
+                    />
                   </div>
-                </li>
+                  <!-- Selected: "ring-indigo-500", Not Selected: "ring-transparent" -->
+                  <div
+                    class="ring-transparent absolute inset-0 rounded-md ring-2 ring-offset-2 pointer-events-none"
+                    aria-hidden="true"
+                  ></div>
+                </button>
 
-                <li>
-                  <div class="flex items-center">
-                    <a href="#" class="mr-4 text-sm font-medium text-gray-900"> Clothing </a>
-                    <svg
-                      viewBox="0 0 6 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                      class="h-5 w-auto text-gray-300"
-                    >
-                      <path d="M4.878 4.34H3.551L.27 16.532h1.327l3.281-12.19z" fill="currentColor" />
-                    </svg>
-                  </div>
-                </li>
+                <!-- More images... -->
+              </div>
+            </div>
 
-                <li class="text-sm">
-                  <a href="#" aria-current="page" class="font-medium text-gray-500 hover:text-gray-600"> Basic Tee </a>
-                </li>
-              </ol>
-            </nav>
-            <div class="mt-8 max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-              <div class="lg:grid lg:grid-cols-12 lg:auto-rows-min lg:gap-x-8">
-                <div class="lg:col-start-8 lg:col-span-5">
-                  <div class="flex justify-between">
-                    <h1 class="text-xl font-medium text-gray-900">{{ product.title }}</h1>
-                    <p class="text-xl font-medium text-gray-900">{{ '$' }}{{ product.price }}</p>
-                  </div>
-                  <!-- Reviews -->
-                  <div class="mt-4">
-                    <h2 class="sr-only">Reviews</h2>
-                    <div class="flex items-center">
-                      <p class="text-sm text-gray-700">
-                        {{ product.reviews.total_rating }}
-                        <span class="sr-only"> out of 5 stars</span>
-                      </p>
-                      <div class="ml-1 flex items-center">
-                        <!--
+            <div class="w-full aspect-w-1 aspect-h-1">
+              <!-- Tab panel, show/hide based on tab state. -->
+              <div id="tabs-1-panel-1" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
+                <img
+                  src="{{ coverImg }}"
+                  alt="Angled front view with bag zipped and handles upright."
+                  class="w-full h-full object-center object-cover sm:rounded-lg"
+                />
+              </div>
+
+              <!-- More images... -->
+            </div>
+          </div>
+
+          <!-- Product info -->
+          <div class="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-0">
+            <h1 class="text-3xl font-extrabold tracking-tight text-gray-900">{{ product.title }}</h1>
+
+            <div class="mt-3">
+              <h2 class="sr-only">Product information</h2>
+              <p class="text-3xl text-gray-900">{{ '$' }}{{ product.price }}</p>
+            </div>
+
+            <div class="mt-4">
+              <h2 class="sr-only">Reviews</h2>
+              <div class="flex items-center">
+                <p class="text-sm text-gray-700">
+                  {{ product.reviews.total_rating }}
+                  <span class="sr-only"> out of 5 stars</span>
+                </p>
+                <div class="ml-1 flex items-center">
+                  <!--
                   Heroicon name: solid/star
 
                   Active: "text-yellow-400", Inactive: "text-gray-200"
                 -->
-                        <svg
-                          class="text-yellow-400 h-5 w-5 flex-shrink-0"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                          />
-                        </svg>
-
-                        <!-- Heroicon name: solid/star -->
-                        <svg
-                          class="text-yellow-400 h-5 w-5 flex-shrink-0"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                          />
-                        </svg>
-
-                        <!-- Heroicon name: solid/star -->
-                        <svg
-                          class="text-yellow-400 h-5 w-5 flex-shrink-0"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                          />
-                        </svg>
-
-                        <!-- Heroicon name: solid/star -->
-                        <svg
-                          class="text-yellow-400 h-5 w-5 flex-shrink-0"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                          />
-                        </svg>
-
-                        <!-- Heroicon name: solid/star -->
-                        <svg
-                          class="text-gray-200 h-5 w-5 flex-shrink-0"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                          />
-                        </svg>
-                      </div>
-                      <div aria-hidden="true" class="ml-4 text-sm text-gray-300">·</div>
-                      <div class="ml-4 flex">
-                        <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                          >See all {{ product.reviews.reviews }} reviews</a
-                        >
-                      </div>
-                    </div>
-                  </div>
+                  <svg
+                    class="text-yellow-400 h-5 w-5 flex-shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
                 </div>
-
-                <!-- Image gallery -->
-                <ng-container *ngIf="!colorActive">
-                  <ng-container *ngIf="product.images">
-                    <div class="mt-8 lg:mt-0 lg:col-start-1 lg:col-span-7 lg:row-start-1 lg:row-span-3">
-                      <h2 class="sr-only">Images</h2>
-
-                      <div class="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-3 lg:gap-8">
-                        <ng-container *ngFor="let image of product.images">
-                          <ng-container *ngIf="image.is_active">
-                            <img
-                              src="{{ image.image }}"
-                              alt="Back of women&#039;s Basic Tee in black."
-                              class="lg:col-span-2 lg:row-span-2 rounded-lg"
-                            />
-                          </ng-container>
-                          <ng-container *ngIf="!image.is_active">
-                            <img
-                              src="{{ image.image }}"
-                              alt="Side profile of women&#039;s Basic Tee in black."
-                              class="hidden lg:block rounded-lg"
-                            />
-                          </ng-container>
-                        </ng-container>
-                      </div>
-                    </div>
-                  </ng-container>
-                </ng-container>
-
-                <ng-container *ngIf="colorActive">
-                  <ng-container *ngFor="let variant of product.variants">
-                    <ng-container *ngIf="variant">
-                      <div class="mt-8 lg:mt-0 lg:col-start-1 lg:col-span-7 lg:row-start-1 lg:row-span-3">
-                        <h2 class="sr-only">Images</h2>
-
-                        <ng-container *ngFor="let color of variant.color">
-                          <ng-container *ngIf="color.values === colorActive">
-                            <div class="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-3 lg:gap-8">
-                              <ng-container *ngFor="let image of color.images">
-                                <ng-container *ngIf="image.is_active">
-                                  <img
-                                    src="{{ image.image }}"
-                                    alt="Back of women&#039;s Basic Tee in black."
-                                    class="lg:col-span-2 lg:row-span-2 rounded-lg"
-                                  />
-                                </ng-container>
-                                <ng-container *ngIf="!image.is_active">
-                                  <img
-                                    src="{{ image.image }}"
-                                    alt="Side profile of women&#039;s Basic Tee in black."
-                                    class="hidden lg:block rounded-lg"
-                                  />
-                                </ng-container>
-                              </ng-container>
-                            </div>
-                          </ng-container>
-                        </ng-container>
-                      </div>
-                    </ng-container>
-                  </ng-container>
-                </ng-container>
-
-                <div class="mt-8 lg:col-span-5">
-                  <ng-container *ngFor="let variant of product.variants">
-                    <form>
-                      <ng-container *ngIf="variant.color">
-                        <div>
-                          <h2 class="text-sm font-medium text-gray-900">Color</h2>
-
-                          <fieldset class="mt-2">
-                            <legend class="sr-only">Choose a color</legend>
-                            <div class="flex items-center space-x-3">
-                              <!--
-                                Active and Checked: "ring ring-offset-1"
-                                Not Active and Checked: "ring-2"
-                              -->
-                              <ng-container *ngFor="let color of variant.color">
-                                <label
-                                  class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none"
-                                  [ngClass]="
-                                    color.values == colorActive &&
-                                    'ring ring-offset-1' + ' ' + 'ring-' + colorActive + '-800'
-                                  "
-                                >
-                                  <input
-                                    type="radio"
-                                    name="color-choice"
-                                    value="Black"
-                                    class="sr-only"
-                                    aria-labelledby="color-choice-0-label"
-                                    (click)="changeColor(color.values)"
-                                  />
-                                  <span
-                                    aria-hidden="true"
-                                    class="h-8 w-8 rounded-full"
-                                    [ngClass]="color.values && colorCheck(color.values)"
-                                  ></span>
-                                </label>
-                              </ng-container>
-                            </div>
-                          </fieldset>
-                        </div>
-                      </ng-container>
-                      <ng-container *ngIf="variant.size">
-                        <!-- Size picker -->
-                        <div class="mt-8">
-                          <div class="flex items-center justify-between">
-                            <h2 class="text-sm font-medium text-gray-900">Size</h2>
-                            <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                              >See sizing chart</a
-                            >
-                          </div>
-
-                          <fieldset class="mt-2">
-                            <legend class="sr-only">Choose a size</legend>
-                            <div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
-                              <!--
-                                In Stock: "cursor-pointer", Out of Stock: "opacity-25 cursor-not-allowed"
-                                Active: "ring-2 ring-offset-2 ring-indigo-500"
-                                Checked: "bg-indigo-600 border-transparent text-white hover:bg-indigo-700", Not Checked: "bg-white border-gray-200 text-gray-900 hover:bg-gray-50"
-                              -->
-                              <ng-container *ngFor="let size of variant.size">
-                                <label
-                                  class="border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer focus:outline-none"
-                                  [ngClass]="
-                                    size.values == checkSize &&
-                                    'text-white ring ring-offset-1 ring-indigo-600 bg-indigo-600'
-                                  "
-                                >
-                                  <input
-                                    type="radio"
-                                    name="size-choice"
-                                    value="XXS"
-                                    class="sr-only"
-                                    aria-labelledby="size-choice-0-label"
-                                    (click)="changeSize(size.values)"
-                                  />
-                                  <p id="size-choice-0-label">{{ size.values }}</p>
-                                </label>
-                              </ng-container>
-                            </div>
-                          </fieldset>
-                        </div>
-                      </ng-container>
-
-                      <button
-                        type="submit"
-                        class="mt-8 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                      >
-                        Add to cart
-                      </button>
-                    </form>
-                  </ng-container>
-                  <!-- Product details -->
-                  <div class="mt-10">
-                    <h2 class="text-sm font-medium text-gray-900">Description</h2>
-
-                    <div class="mt-4 prose prose-sm text-gray-500">
-                      <p>
-                        {{ product.description }}
-                      </p>
-                    </div>
-                  </div>
-
-                  <ng-container *ngFor="let item of product.specification">
-                    <ng-container *ngIf="item.title === 'Care'">
-                      <div class="mt-8 border-t border-gray-200 pt-8">
-                        <h2 class="text-sm font-medium text-gray-900">{{ item.title }}</h2>
-
-                        <div class="mt-4 prose prose-sm text-gray-500">
-                          <ul role="list">
-                            <ng-container *ngFor="let specificationDescription of item.specification_description">
-                              <li>{{ specificationDescription.description }}</li>
-                            </ng-container>
-                          </ul>
-                        </div>
-                      </div>
-                    </ng-container>
-                    <!-- Policies -->
-                    <ng-container *ngIf="item.title === 'Shipping'">
-                      <section aria-labelledby="policies-heading" class="mt-10">
-                        <h2 id="policies-heading" class="sr-only">Our Policies</h2>
-                        <dl class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                          <ng-container *ngFor="let specificationDescription of item.specification_description">
-                            <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center">
-                              <dt>
-                                <!-- Heroicon name: outline/globe -->
-                                <svg
-                                  class="mx-auto h-6 w-6 flex-shrink-0 text-gray-400"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                  aria-hidden="true"
-                                >
-                                  <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                                  />
-                                </svg>
-                                <span class="mt-4 text-sm font-medium text-gray-900">
-                                  {{ specificationDescription.description }}
-                                </span>
-                              </dt>
-                              <dd class="mt-1 text-sm text-gray-500">Get your order in 2 years</dd>
-                            </div>
-                          </ng-container>
-                        </dl>
-                      </section>
-                    </ng-container>
-                  </ng-container>
+                <div aria-hidden="true" class="ml-4 text-sm text-gray-300">·</div>
+                <div class="ml-4 flex">
+                  <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                    >See all {{ product.reviews.reviews }} reviews</a
+                  >
                 </div>
               </div>
             </div>
+
+            <div class="mt-6">
+              <h3 class="sr-only">Description</h3>
+
+              <div class="text-base text-gray-700 space-y-6">
+                <p>
+                  {{ product.description }}
+                </p>
+              </div>
+            </div>
+
+            <form class="mt-6" *ngFor="let item of product.variants">
+              <!-- Colors -->
+              <div>
+                <h3 class="text-sm text-gray-600">Color</h3>
+
+                <fieldset class="mt-2">
+                  <legend class="sr-only">Choose a color</legend>
+                  <div class="flex items-center space-x-3">
+                    <label
+                      class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none"
+                      [ngClass]="{ 'ring-2 ring-gray-600': selectRing == undefined }"
+                    >
+                      <input
+                        type="radio"
+                        name="color-choice"
+                        value="Washed Black"
+                        class="sr-only"
+                        aria-labelledby="color-choice-0-label"
+                      />
+                      <p id="color-choice-0-label" class="sr-only"></p>
+                      <span
+                        (click)="changeColor(product.images)"
+                        aria-hidden="true"
+                        class="h-8 w-8 bg-gray-600 border text-center font-bold text-gray-100 text-lg border-black border-opacity-10 rounded-full"
+                        >D</span
+                      >
+                    </label>
+                    <!--
+                          Active and Checked: "ring ring-offset-1"
+                          Not Active and Checked: "ring-2"
+                        -->
+                    <label
+                      *ngFor="let color of item.color"
+                      class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-700"
+                      [ngClass]="selectRing == color.values ? 'ring-2 ' + 'ring-' + selectRing + '-700' : ''"
+                    >
+                      <input
+                        type="radio"
+                        name="color-choice"
+                        value="Washed Black"
+                        class="sr-only"
+                        aria-labelledby="color-choice-0-label"
+                      />
+                      <p id="color-choice-0-label" class="sr-only">{{ color.values }}</p>
+                      <span
+                        (click)="changeColor(color)"
+                        aria-hidden="true"
+                        class="h-8 w-8 bg-{{ color.values }}-700 border border-black border-opacity-10 rounded-full"
+                      ></span>
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="mt-8">
+                <div class="flex items-center justify-between">
+                  <h2 class="text-sm font-medium text-gray-900">Size</h2>
+                  <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">See sizing chart</a>
+                </div>
+
+                <fieldset class="mt-2">
+                  <legend class="sr-only">Choose a size</legend>
+                  <div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
+                    <!--
+                    In Stock: "cursor-pointer", Out of Stock: "opacity-25 cursor-not-allowed"
+                    Active: "ring-2 ring-offset-2 ring-indigo-500"
+                    Checked: "bg-indigo-600 border-transparent text-white hover:bg-indigo-700", Not Checked: "bg-white border-gray-200 text-gray-900 hover:bg-gray-50"
+                  -->
+                    <label
+                      class="border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer focus:outline-none"
+                      *ngFor="let size of item.size"
+                      [ngClass]="
+                        size.values == checkSize && 'text-white ring ring-offset-1 ring-indigo-600 bg-indigo-600'
+                      "
+                    >
+                      <input
+                        type="radio"
+                        name="size-choice"
+                        [value]="size.values"
+                        class="sr-only"
+                        aria-labelledby="size-choice-0-label"
+                        (click)="changeSize(size.values)"
+                      />
+                      <p id="size-choice-0-label">{{ size.values }}</p>
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="mt-10 flex sm:flex-col1">
+                <button
+                  type="submit"
+                  class="max-w-xs flex-1 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:w-full"
+                >
+                  Add to bag
+                </button>
+
+                <button
+                  type="button"
+                  class="ml-4 py-3 px-3 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+                >
+                  <!-- Heroicon name: outline/heart -->
+                  <svg
+                    class="h-6 w-6 flex-shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                    />
+                  </svg>
+                  <span class="sr-only">Add to favorites</span>
+                </button>
+              </div>
+            </form>
+
+            <section aria-labelledby="details-heading" class="mt-12">
+              <h2 id="details-heading" class="sr-only">Additional details</h2>
+
+              <div class="border-t divide-y divide-gray-200" *ngFor="let item of product.specification; let i = index">
+                <div>
+                  <h3>
+                    <!-- Expand/collapse question button -->
+                    <button
+                      type="button"
+                      class="group relative w-full py-6 flex justify-between items-center text-left focus:outline-none"
+                      aria-controls="disclosure-1"
+                      aria-expanded="false"
+                      (click)="item.show = !item.show"
+                    >
+                      <!-- Open: "text-indigo-600", Closed: "text-gray-900" -->
+                      <span class="text-gray-900 text-sm font-medium"> {{ item.title }} </span>
+                      <span class="ml-6 flex items-center">
+                        <!--
+                      Heroicon name: outline/plus-sm
+
+                      Open: "hidden", Closed: "block"
+                    -->
+                        <svg
+                          *ngIf="!item.show"
+                          class="h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                          />
+                        </svg>
+                        <!--
+                      Heroicon name: outline/minus-sm
+
+                      Open: "block", Closed: "hidden"
+                    -->
+                        <svg
+                          *ngIf="item.show"
+                          class="h-6 w-6 text-indigo-400 group-hover:text-indigo-500"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                        >
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 12H6" />
+                        </svg>
+                      </span>
+                    </button>
+                  </h3>
+                  <div class="pb-6 prose prose-sm" *ngIf="item.show">
+                    <ul role="list">
+                      <li *ngFor="let des of item.specification_description">{{ des.description }}</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- More sections... -->
+              </div>
+            </section>
           </div>
         </div>
       </div>
@@ -361,6 +304,9 @@ import { Component } from '@angular/core'
 export class WebUiProductOverviewsComponent {
   public colorActive: string
   public checkSize: string
+  public coverImg: string = 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-01.jpg'
+  selectedImages: any
+  selectRing: string
 
   product: any = {
     title: 'Basic Tee',
@@ -425,6 +371,7 @@ export class WebUiProductOverviewsComponent {
     specification: [
       {
         title: 'Care',
+        show: false,
         specification_description: [
           { description: 'Spot clean as needed' },
           { description: 'Hand wash with mild soap' },
@@ -432,6 +379,7 @@ export class WebUiProductOverviewsComponent {
       },
       {
         title: 'Shipping',
+        show: false,
         specification_description: [
           { description: 'Free shipping on orders over $300' },
           { description: 'nternational shipping available' },
@@ -441,17 +389,17 @@ export class WebUiProductOverviewsComponent {
     images: [
       {
         name: '',
-        image: 'https://www.bellacanvas.com/bella/product/hires/7505003451alt1_3.jpg',
+        image: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-02.jpg',
         is_active: true,
       },
       {
         name: '',
-        image: 'https://www.bellacanvas.com/bella/product/hires/7505003452alt2_3.jpg',
+        image: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-03.jpg',
         is_active: false,
       },
       {
         name: '',
-        image: 'https://www.bellacanvas.com/bella/product/hires/7505003453alt3_4.jpg',
+        image: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-04.jpg',
         is_active: false,
       },
     ],
@@ -459,12 +407,12 @@ export class WebUiProductOverviewsComponent {
       {
         question: 'What format are these icons?',
         answer:
-          'The icons are in SVG (Scalable Vector Graphic) format. They can 					be imported into your design tool of choice and used directly in 					code.',
+          'The icons are in SVG (Scalable Vector Graphic) format. They can be imported into your design tool of choice and used directly in code.',
       },
       {
         question: 'What format are these icons?',
         answer:
-          'The icons are in SVG (Scalable Vector Graphic) format. They can 					be imported into your design tool of choice and used directly in 					code.',
+          'The icons are in SVG (Scalable Vector Graphic) format. They can be imported into your design tool of choice and used directly in	code.',
       },
     ],
     license: [
@@ -479,7 +427,7 @@ export class WebUiProductOverviewsComponent {
       {
         question: 'What format are these icons?',
         answer:
-          'The icons are in SVG (Scalable Vector Graphic) format. They can 					be imported into your design tool of choice and used directly in 					code.',
+          'The icons are in SVG (Scalable Vector Graphic) format. They can be imported into your design tool of choice and used directly in   code.',
       },
     ],
   }
@@ -490,10 +438,25 @@ export class WebUiProductOverviewsComponent {
     }
     return 'bg-' + color + '-600'
   }
+
   changeSize(size: string): void {
     this.checkSize = size
   }
+
   changeColor(color): void {
-    this.colorActive = color
+    if (color.images) {
+      this.selectedImages = color.images
+
+      this.selectRing = color.values
+      console.log(this.selectRing)
+      this.coverImage(this.selectedImages[0].image)
+    } else {
+      this.selectRing = undefined
+      this.selectedImages = undefined
+      this.coverImage(color[0].image)
+    }
+  }
+  coverImage(val) {
+    this.coverImg = val
   }
 }
