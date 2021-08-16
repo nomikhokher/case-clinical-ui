@@ -2204,6 +2204,31 @@
         }
       }
     },
+    "web-ui-product-image-gallery": {
+      "projectType": "library",
+      "root": "libs/web/ui/product-image-gallery",
+      "sourceRoot": "libs/web/ui/product-image-gallery/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/product-image-gallery/src/**/*.ts",
+              "libs/web/ui/product-image-gallery/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/product-image-gallery"],
+          "options": {
+            "jestConfig": "libs/web/ui/product-image-gallery/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-product-overviews": {
       "projectType": "library",
       "root": "libs/web/ui/product-overviews",

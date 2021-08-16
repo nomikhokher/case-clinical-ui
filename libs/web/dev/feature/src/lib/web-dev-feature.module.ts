@@ -314,6 +314,13 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () =>
           import('./dev-product-overviews/dev-product-overviews.module').then((m) => m.DevProductOverviewsModule),
       },
+      {
+        path: 'product-image-gallery',
+        loadChildren: () =>
+          import('./dev-product-image-gallery/dev-product-image-gallery.module').then(
+            (m) => m.DevProductImageGalleryModule,
+          ),
+      },
     ]),
     WebUiMainPageModule,
   ],
