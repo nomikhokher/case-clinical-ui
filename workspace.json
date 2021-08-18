@@ -2367,6 +2367,28 @@
         }
       }
     },
+    "web-ui-shopping-cart": {
+      "projectType": "library",
+      "root": "libs/web/ui/shopping-cart",
+      "sourceRoot": "libs/web/ui/shopping-cart/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/shopping-cart/src/**/*.ts", "libs/web/ui/shopping-cart/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/shopping-cart"],
+          "options": {
+            "jestConfig": "libs/web/ui/shopping-cart/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-sidebar": {
       "projectType": "library",
       "root": "libs/web/ui/sidebar",

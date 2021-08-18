@@ -321,6 +321,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             (m) => m.DevProductImageGalleryModule,
           ),
       },
+      {
+        path: 'shopping-carts',
+        loadChildren: () => import('./dev-shopping-cart/dev-shopping-cart.module').then((m) => m.DevShoppingCartModule),
+      },
     ]),
     WebUiMainPageModule,
   ],

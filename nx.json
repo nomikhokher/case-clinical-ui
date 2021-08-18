@@ -333,6 +333,9 @@
     "web-ui-section-headings": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-shopping-cart": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-sidebar": {
       "tags": ["scope:web", "type:ui"]
     },
