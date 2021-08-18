@@ -315,6 +315,9 @@
     "web-ui-product-image-gallery": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-product-list": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-product-overviews": {
       "tags": ["scope:web", "type:ui"]
     },

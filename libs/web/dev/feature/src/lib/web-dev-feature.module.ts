@@ -325,6 +325,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: 'reviews',
         loadChildren: () => import('./dev-reviews/dev-reviews.module').then((m) => m.DevReviewsModule),
       },
+      {
+        path: 'product-list',
+        loadChildren: () => import('./dev-product-list/dev-product-list.module').then((m) => m.DevProductListModule),
+      },
     ]),
     WebUiMainPageModule,
   ],

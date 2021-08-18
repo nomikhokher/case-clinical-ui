@@ -479,6 +479,11 @@ export class WebDevFeatureComponent {
               image: '/assets/images/product-overviews.png',
             },
             {
+              label: 'Product List',
+              route: 'product-list',
+              image: '/assets/images/product-overviews.png',
+            },
+            {
               label: 'Reviews',
               route: 'reviews',
               image: '/assets/images/product-overviews.png',
