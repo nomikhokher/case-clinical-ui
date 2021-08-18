@@ -478,6 +478,11 @@ export class WebDevFeatureComponent {
               route: 'product-image-gallery',
               image: '/assets/images/product-overviews.png',
             },
+            {
+              label: 'Reviews',
+              route: 'reviews',
+              image: '/assets/images/product-overviews.png',
+            },
           ],
         },
       ],
