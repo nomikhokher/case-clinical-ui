@@ -322,6 +322,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
           ),
       },
       {
+        path: 'shopping-carts',
+        loadChildren: () => import('./dev-shopping-cart/dev-shopping-cart.module').then((m) => m.DevShoppingCartModule),
+      },
+      {
         path: 'reviews',
         loadChildren: () => import('./dev-reviews/dev-reviews.module').then((m) => m.DevReviewsModule),
       },

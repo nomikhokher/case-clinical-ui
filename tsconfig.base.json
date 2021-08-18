@@ -117,6 +117,7 @@
       "@schema-driven/web/ui/rating": ["libs/web/ui/rating/src/index.ts"],
       "@schema-driven/web/ui/reviews": ["libs/web/ui/reviews/src/index.ts"],
       "@schema-driven/web/ui/section-headings": ["libs/web/ui/section-headings/src/index.ts"],
+      "@schema-driven/web/ui/shopping-cart": ["libs/web/ui/shopping-cart/src/index.ts"],
       "@schema-driven/web/ui/sidebar": ["libs/web/ui/sidebar/src/index.ts"],
       "@schema-driven/web/ui/sidebar-classic": ["libs/web/ui/sidebar-classic/src/index.ts"],
       "@schema-driven/web/ui/sidebar-classy": ["libs/web/ui/sidebar-classy/src/index.ts"],
