@@ -2229,6 +2229,28 @@
         }
       }
     },
+    "web-ui-product-list": {
+      "projectType": "library",
+      "root": "libs/web/ui/product-list",
+      "sourceRoot": "libs/web/ui/product-list/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/product-list/src/**/*.ts", "libs/web/ui/product-list/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/product-list"],
+          "options": {
+            "jestConfig": "libs/web/ui/product-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-product-overviews": {
       "projectType": "library",
       "root": "libs/web/ui/product-overviews",
@@ -2337,6 +2359,28 @@
           "outputs": ["coverage/libs/web/ui/rating"],
           "options": {
             "jestConfig": "libs/web/ui/rating/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-reviews": {
+      "projectType": "library",
+      "root": "libs/web/ui/reviews",
+      "sourceRoot": "libs/web/ui/reviews/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/reviews/src/**/*.ts", "libs/web/ui/reviews/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/reviews"],
+          "options": {
+            "jestConfig": "libs/web/ui/reviews/jest.config.js",
             "passWithNoTests": true
           }
         }

@@ -35,6 +35,24 @@ const config: Configs = {
       {
         url: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-02.jpg',
       },
+      {
+        url: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-02.jpg',
+      },
+      {
+        url: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-04.jpg',
+      },
+      {
+        url: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-04.jpg',
+      },
+      {
+        url: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-01.jpg',
+      },
+      {
+        url: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-02.jpg',
+      },
+      {
+        url: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-01.jpg',
+      },
     ],
   },
   component_inputs: [

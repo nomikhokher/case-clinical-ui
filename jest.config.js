@@ -133,5 +133,7 @@ module.exports = {
     '<rootDir>/libs/web/ui/product-overviews',
     '<rootDir>/libs/web/ui/product-image-gallery',
     '<rootDir>/libs/web/ui/shopping-cart',
+    '<rootDir>/libs/web/ui/reviews',
+    '<rootDir>/libs/web/ui/product-list',
   ],
 }
