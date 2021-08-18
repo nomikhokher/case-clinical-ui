@@ -1,11 +1,11 @@
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-
 generator client {
   provider      = "prisma-client-js"
   binaryTargets = ["native"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -26,12 +26,6 @@ model User {
   TenantUser TenantUser[]
 }
 
-enum Role {
-  SuperAdmin
-  Admin
-  User
-}
-
 model Email {
   id            String    @id @default(cuid())
   createdAt     DateTime  @default(now())
@@ -42,10 +36,8 @@ model Email {
   verified      Boolean   @default(false)
   verifyToken   String?
   verifyExpires DateTime?
-  owner         User      @relation(name: "Email_belongsTo_Owner", fields: [ownerId], references: [id])
   ownerId       String
-  // Enable when this is resolved https://github.com/prisma/prisma/issues/3387
-  // @@unique([ownerId, primary])
+  owner         User      @relation("Email_belongsTo_Owner", fields: [ownerId], references: [id])
 }
 
 model TenantUser {
@@ -53,10 +45,10 @@ model TenantUser {
   createdAt DateTime   @default(now())
   updatedAt DateTime   @default(now()) @updatedAt
   role      TenantRole
-  user      User?      @relation(fields: [userId], references: [id])
   userId    String?
-  tenant    Tenant?    @relation(fields: [tenantId], references: [id])
   tenantId  String?
+  tenant    Tenant?    @relation(fields: [tenantId], references: [id])
+  user      User?      @relation(fields: [userId], references: [id])
 }
 
 model Tenant {
@@ -64,19 +56,8 @@ model Tenant {
   createdAt DateTime     @default(now())
   updatedAt DateTime     @default(now()) @updatedAt
   name      String
-  users     TenantUser[]
   schemata  Schema[]
-}
-
-enum TenantRole {
-  Owner
-  User
-}
-
-enum Stage {
-  DEV
-  UAT
-  PRODUCTION
+  users     TenantUser[]
 }
 
 model Schema {
@@ -86,10 +67,10 @@ model Schema {
   publishedAt DateTime?
   stage       Stage     @default(DEV)
   name        String
-  tenant      Tenant    @relation(fields: [tenantId], references: [id])
   tenantId    String
-  entities    Entity[]
   keywords    String[]
+  tenant      Tenant    @relation(fields: [tenantId], references: [id])
+  entities    Entity[]
   enums       Enum[]    @relation("Enum_belongsTo_Schema")
 }
 
@@ -102,13 +83,13 @@ model Entity {
   name              String
   description       String?
   dynamicProperties Json?
-  schema            Schema       @relation(fields: [schemaId], references: [id])
   schemaId          String
-  keys              Key[]
+  keywords          String[]
+  schema            Schema       @relation(fields: [schemaId], references: [id])
   fields            Field[]
   foreignKeys       ForeignKey[]
+  keys              Key[]
   ontologies        Ontology[]
-  keywords          String[]
   relations         Relation[]   @relation("Relation_belongsTo_Entity")
   related           Relation[]   @relation("Relation_belongsTo_RelatedEntity")
 }
@@ -120,17 +101,10 @@ model Relation {
   type        RelationType
   name        String
   description String?
-  entity      Entity       @relation(name: "Relation_belongsTo_Entity", fields: [entityId], references: [id])
   entityId    String
-  related     Entity       @relation(name: "Relation_belongsTo_RelatedEntity", fields: [relatedId], references: [id])
   relatedId   String
-}
-
-enum RelationType {
-  ManyToMany
-  ManyToOne
-  OneToMany
-  OneToOne
+  entity      Entity       @relation("Relation_belongsTo_Entity", fields: [entityId], references: [id])
+  related     Entity       @relation("Relation_belongsTo_RelatedEntity", fields: [relatedId], references: [id])
 }
 
 model Enum {
@@ -140,8 +114,8 @@ model Enum {
   name        String
   description String?
   values      String[]
-  schema      Schema   @relation(name: "Enum_belongsTo_Schema", fields: [schemaId], references: [id])
   schemaId    String
+  schema      Schema   @relation("Enum_belongsTo_Schema", fields: [schemaId], references: [id])
 }
 
 model Key {
@@ -153,16 +127,10 @@ model Key {
   name         String
   description  String?
   isDrivingKey Boolean
-  entity       Entity     @relation(fields: [entityId], references: [id])
   entityId     String
-  ontologies   Ontology[]
   keywords     String[]
-}
-
-enum KeyType {
-  Int
-  Guid
-  Composite
+  entity       Entity     @relation(fields: [entityId], references: [id])
+  ontologies   Ontology[]
 }
 
 model Field {
@@ -177,42 +145,11 @@ model Field {
   description String?
   isName      Boolean      @default(false)
   isNullable  Boolean      @default(true)
-  entity      Entity       @relation(fields: [entityId], references: [id])
   entityId    String
-  ontologies  Ontology[]
-  foreignKeys ForeignKey[] @relation("EntityForeignKey_Fields_1toM_Fields")
   keywords    String[]
-}
-
-enum FieldType {
-  SingleLineOfText //String  ex. Headings, Titles, Inputs
-  MultiLineText //String Description
-  Markdown //String Markdown Editor
-  Slug //String URL Friendly Identifier
-  RichText //Text Text editor with formatting
-  Number //Integer ex. ID, Quantity, etc.
-  Float //Float ex. Ratings, Price, etc.
-  Boolean //Boolean ex. True, False
-  Date //Calendar Date Picker
-  DateTime //Calendar Date Picker with Time
-  Json //Json Editor
-  Asset //Supports all file types for upload
-  Color //Supports Hex and RGBA
-  Location //Map or Geocoordinates
-  Dropdown //Static List of Values
-  Typeahead //Autocomplete select
-  Reference //Foreign Key Display
-}
-
-enum DataType {
-  String
-  Text
-  Integer
-  Float
-  Boolean
-  DateTime
-  Enumeration
-  Json
+  entity      Entity       @relation(fields: [entityId], references: [id])
+  foreignKeys ForeignKey[] @relation("EntityForeignKey_Fields_1toM_Fields")
+  ontologies  Ontology[]
 }
 
 model ForeignKey {
@@ -222,12 +159,12 @@ model ForeignKey {
   stage           Stage      @default(DEV)
   name            String
   description     String?
-  relatedEntity   Entity     @relation(fields: [relatedEntityId], references: [id])
   relatedEntityId String
-  relatedField    Field      @relation("EntityForeignKey_Fields_1toM_Fields", fields: [relatedFieldId], references: [id])
   relatedFieldId  String
-  ontologies      Ontology[]
   keywords        String[]
+  relatedEntity   Entity     @relation(fields: [relatedEntityId], references: [id])
+  relatedField    Field      @relation("EntityForeignKey_Fields_1toM_Fields", fields: [relatedFieldId], references: [id])
+  ontologies      Ontology[]
 }
 
 model Ontology {
@@ -239,13 +176,74 @@ model Ontology {
   key          String
   value        String
   description  String?
-  entity       Entity      @relation(fields: [entityId], references: [id])
   entityId     String
-  Key          Key?        @relation(fields: [keyId], references: [id])
   keyId        String?
-  field        Field?      @relation(fields: [fieldId], references: [id])
   fieldId      String?
-  foreignKey   ForeignKey? @relation(fields: [foreignKeyId], references: [id])
   foreignKeyId String?
   keywords     String[]
+  entity       Entity      @relation(fields: [entityId], references: [id])
+  field        Field?      @relation(fields: [fieldId], references: [id])
+  foreignKey   ForeignKey? @relation(fields: [foreignKeyId], references: [id])
+  Key          Key?        @relation(fields: [keyId], references: [id])
+}
+
+enum Role {
+  SuperAdmin
+  Admin
+  User
+}
+
+enum TenantRole {
+  Owner
+  User
+}
+
+enum Stage {
+  DEV
+  UAT
+  PRODUCTION
+}
+
+enum RelationType {
+  ManyToMany
+  ManyToOne
+  OneToMany
+  OneToOne
+}
+
+enum KeyType {
+  Int
+  Guid
+  Composite
+}
+
+enum FieldType {
+  SingleLineOfText
+  MultiLineText
+  Markdown
+  Slug
+  RichText
+  Number
+  Float
+  Boolean
+  Date
+  DateTime
+  Json
+  Asset
+  Color
+  Location
+  Dropdown
+  Typeahead
+  Reference
+}
+
+enum DataType {
+  String
+  Text
+  Integer
+  Float
+  Boolean
+  DateTime
+  Enumeration
+  Json
 }

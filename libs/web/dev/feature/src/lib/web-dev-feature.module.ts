@@ -321,6 +321,18 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
             (m) => m.DevProductImageGalleryModule,
           ),
       },
+      {
+        path: 'shopping-carts',
+        loadChildren: () => import('./dev-shopping-cart/dev-shopping-cart.module').then((m) => m.DevShoppingCartModule),
+      },
+      {
+        path: 'reviews',
+        loadChildren: () => import('./dev-reviews/dev-reviews.module').then((m) => m.DevReviewsModule),
+      },
+      {
+        path: 'product-list',
+        loadChildren: () => import('./dev-product-list/dev-product-list.module').then((m) => m.DevProductListModule),
+      },
     ]),
     WebUiMainPageModule,
   ],
