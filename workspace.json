@@ -2050,6 +2050,28 @@
         }
       }
     },
+    "web-ui-order-history": {
+      "projectType": "library",
+      "root": "libs/web/ui/order-history",
+      "sourceRoot": "libs/web/ui/order-history/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/order-history/src/**/*.ts", "libs/web/ui/order-history/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/order-history"],
+          "options": {
+            "jestConfig": "libs/web/ui/order-history/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-page": {
       "projectType": "library",
       "root": "libs/web/ui/page",

@@ -333,6 +333,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: 'product-list',
         loadChildren: () => import('./dev-product-list/dev-product-list.module').then((m) => m.DevProductListModule),
       },
+      {
+        path: 'order-history',
+        loadChildren: () => import('./dev-order-history/dev-order-history.module').then((m) => m.DevOrderHistoryModule),
+      },
     ]),
     WebUiMainPageModule,
   ],
