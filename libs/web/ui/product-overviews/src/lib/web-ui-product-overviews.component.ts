@@ -37,6 +37,327 @@ import { Component } from '@angular/core'
 
                 <!-- More images... -->
               </div>
+
+              <div class="w-full max-w-2xl mx-auto mt-2 lg:max-w-none lg:mt-8 lg:col-span-4">
+                <div>
+                  <div class="border-b border-gray-200">
+                    <div class="-mb-px flex space-x-8" aria-orientation="horizontal" role="tablist">
+                      <!-- Selected: "border-indigo-600 text-indigo-600", Not Selected: "border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300" -->
+                      <button
+                        id="tab-reviews"
+                        class="border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300 whitespace-nowrap py-6 border-b-2 font-medium text-sm focus:outline-none"
+                        aria-controls="tab-panel-reviews"
+                        role="tab"
+                        type="button"
+                        [ngClass]="tabTile === 'Customer Reviews' && 'border-indigo-600 text-indigo-600'"
+                        (click)="tabTile = 'Customer Reviews'"
+                      >
+                        Customer Reviews
+                      </button>
+                      <button
+                        id="tab-faq"
+                        class="border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300 whitespace-nowrap py-6 border-b-2 font-medium text-sm focus:outline-none"
+                        aria-controls="tab-panel-faq"
+                        role="tab"
+                        type="button"
+                        [ngClass]="tabTile === 'FAQ' && 'border-indigo-600 text-indigo-600'"
+                        (click)="tabTile = 'FAQ'"
+                      >
+                        FAQ
+                      </button>
+                      <button
+                        id="tab-license"
+                        class="border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300 whitespace-nowrap py-6 border-b-2 font-medium text-sm focus:outline-none"
+                        aria-controls="tab-panel-license"
+                        role="tab"
+                        type="button"
+                        [ngClass]="tabTile === 'License' && 'border-indigo-600 text-indigo-600'"
+                        (click)="tabTile = 'License'"
+                      >
+                        License
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- 'Customer Reviews' panel, show/hide based on tab state -->
+                  <div
+                    id="tab-panel-reviews"
+                    class="-mb-10"
+                    aria-labelledby="tab-reviews"
+                    role="tabpanel"
+                    tabindex="0"
+                    *ngIf="tabTile === 'Customer Reviews'"
+                  >
+                    <h3 class="sr-only">Customer Reviews</h3>
+
+                    <div class="flex text-sm text-gray-500 space-x-4" *ngFor="let review of product.reviews_customer">
+                      <div class="flex-none py-10">
+                        <img src="{{ review.url }}" alt="" class="w-10 h-10 bg-gray-100 rounded-full" />
+                      </div>
+                      <div class="py-10 border-t border-gray-200">
+                        <h3 class="font-medium text-gray-900">{{ review.name }}</h3>
+                        <p>
+                          <time datetime="2021-07-12">{{ review.created_at }}</time>
+                        </p>
+
+                        <div class="flex items-center mt-4">
+                          <!--
+                            Heroicon name: solid/star
+
+                            Active: "text-yellow-400", Default: "text-gray-300"
+                          -->
+                          <ng-container *ngIf="review.rating === 1">
+                            <svg
+                              class="text-yellow-400 h-5 w-5 flex-shrink-0"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                          </ng-container>
+
+                          <ng-container *ngIf="review.rating === 2">
+                            <svg
+                              class="text-yellow-400 h-5 w-5 flex-shrink-0"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+
+                            <svg
+                              class="text-yellow-400 h-5 w-5 flex-shrink-0"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                          </ng-container>
+
+                          <ng-container *ngIf="review.rating === 3">
+                            <svg
+                              class="text-yellow-400 h-5 w-5 flex-shrink-0"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+
+                            <svg
+                              class="text-yellow-400 h-5 w-5 flex-shrink-0"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="text-yellow-400 h-5 w-5 flex-shrink-0"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                          </ng-container>
+
+                          <ng-container *ngIf="review.rating === 4">
+                            <svg
+                              class="text-yellow-400 h-5 w-5 flex-shrink-0"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+
+                            <svg
+                              class="text-yellow-400 h-5 w-5 flex-shrink-0"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="text-yellow-400 h-5 w-5 flex-shrink-0"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+
+                            <svg
+                              class="text-yellow-400 h-5 w-5 flex-shrink-0"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                          </ng-container>
+
+                          <ng-container *ngIf="review.rating === 5">
+                            <svg
+                              class="text-yellow-400 h-5 w-5 flex-shrink-0"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+
+                            <svg
+                              class="text-yellow-400 h-5 w-5 flex-shrink-0"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="text-yellow-400 h-5 w-5 flex-shrink-0"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+
+                            <svg
+                              class="text-yellow-400 h-5 w-5 flex-shrink-0"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+
+                            <svg
+                              class="text-yellow-400 h-5 w-5 flex-shrink-0"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                          </ng-container>
+                        </div>
+                        <p class="sr-only">5 out of 5 stars</p>
+
+                        <div class="mt-4 prose prose-sm max-w-none text-gray-500">
+                          <p>
+                            Blown away by how polished this icon pack is. Everything looks so consistent and each SVG is
+                            optimized out of the box so I can use it directly with confidence. It would take me several
+                            hours to create a single icon this good, so it's a steal at this price.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- More reviews... -->
+                  </div>
+
+                  <!-- 'FAQ' panel, show/hide based on tab state -->
+                  <ng-container *ngIf="tabTile === 'FAQ'">
+                    <dl
+                      id="tab-panel-faq"
+                      class="text-sm text-gray-500"
+                      aria-labelledby="tab-faq"
+                      role="tabpanel"
+                      tabindex="0"
+                      *ngFor="let faqs of product.faqs"
+                    >
+                      <h3 class="sr-only">Frequently Asked Questions</h3>
+
+                      <dt class="mt-10 font-medium text-gray-900">{{ faqs.question }}</dt>
+                      <dd class="mt-2 prose prose-sm max-w-none text-gray-500">
+                        <p>{{ faqs.answer }}.</p>
+                      </dd>
+
+                      <!-- More FAQs... -->
+                    </dl>
+                  </ng-container>
+
+                  <!-- 'License' panel, show/hide based on tab state -->
+                  <div
+                    id="tab-panel-license"
+                    class="pt-10"
+                    aria-labelledby="tab-license"
+                    role="tabpanel"
+                    tabindex="0"
+                    *ngIf="tabTile === 'License'"
+                  >
+                    <h3 class="sr-only">License</h3>
+
+                    <div class="prose prose-sm max-w-none text-gray-500">
+                      <ng-container *ngFor="let license of product.license">
+                        <h4 class="font-bold text-gray-900">{{ license.heading }}</h4>
+
+                        <p *ngIf="license.description" class="my-5">
+                          {{ license.description }}
+                        </p>
+
+                        <ul class="m-5 list-disc text-gray-400">
+                          <li *ngFor="let license_detail of license.license_detail" class="text-gray-500">
+                            {{ license_detail.detail }}
+                          </li>
+                        </ul>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="w-full aspect-w-1 aspect-h-1">
@@ -266,11 +587,6 @@ import { Component } from '@angular/core'
                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                           />
                         </svg>
-                        <!--
-                      Heroicon name: outline/minus-sm
-
-                      Open: "block", Closed: "hidden"
-                    -->
                         <svg
                           *ngIf="item.show"
                           class="h-6 w-6 text-indigo-400 group-hover:text-indigo-500"
@@ -302,6 +618,7 @@ import { Component } from '@angular/core'
   `,
 })
 export class WebUiProductOverviewsComponent {
+  public tabTile: string = 'Customer Reviews'
   public colorActive: string
   public checkSize: string
   public coverImg: string = 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-01.jpg'
@@ -403,13 +720,33 @@ export class WebUiProductOverviewsComponent {
         is_active: false,
       },
     ],
+    reviews_customer: [
+      {
+        id: 1,
+        name: 'Hammad Hassan',
+        url: 'https://www.pngarts.com/files/11/Avatar-Transparent-Background-PNG.png',
+        rating: 5,
+        comment: 'nice product in my life',
+        created_at: 'July 12, 2021',
+      },
+      {
+        id: 2,
+        name: 'Maria Afzal',
+        url: 'https://www.kindpng.com/picc/m/163-1636340_user-avatar-icon-avatar-transparent-user-icon-png.png',
+        rating: 3,
+        comment: 'nice product in my life',
+        created_at: 'July 27, 2021',
+      },
+    ],
     faqs: [
       {
+        id: 1,
         question: 'What format are these icons?',
         answer:
           'The icons are in SVG (Scalable Vector Graphic) format. They can be imported into your design tool of choice and used directly in code.',
       },
       {
+        id: 2,
         question: 'What format are these icons?',
         answer:
           'The icons are in SVG (Scalable Vector Graphic) format. They can be imported into your design tool of choice and used directly in	code.',
@@ -417,6 +754,7 @@ export class WebUiProductOverviewsComponent {
     ],
     license: [
       {
+        id: 1,
         heading: 'Overview',
         description: 'What format are these icons',
         license_detail: [
@@ -424,10 +762,14 @@ export class WebUiProductOverviewsComponent {
           { detail: `'You're allowed to use the icons in unlimited projects.'` },
         ],
       },
+
       {
-        question: 'What format are these icons?',
-        answer:
-          'The icons are in SVG (Scalable Vector Graphic) format. They can be imported into your design tool of choice and used directly in   code.',
+        id: 2,
+        heading: 'Overview all products',
+        license_detail: [
+          { detail: `'You're allowed to use the icons in unlimited projects.'` },
+          { detail: `'You're allowed to use the icons in unlimited projects.'` },
+        ],
       },
     ],
   }

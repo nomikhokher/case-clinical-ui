@@ -322,13 +322,24 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
           ),
       },
       {
+        path: 'shopping-carts',
+        loadChildren: () => import('./dev-shopping-cart/dev-shopping-cart.module').then((m) => m.DevShoppingCartModule),
+      },
+      {
+        path: 'reviews',
+        loadChildren: () => import('./dev-reviews/dev-reviews.module').then((m) => m.DevReviewsModule),
+      },
+      {
         path: 'product-list',
         loadChildren: () => import('./dev-product-list/dev-product-list.module').then((m) => m.DevProductListModule),
       },
       {
         path: 'category-filters',
-        loadChildren: () =>
-          import('./dev-category-filters/dev-category-filters.module').then((m) => m.DevCategoryFiltersModule),
+        loadChildren: () => import('./dev-category-filters/dev-category-filters.module').then((m) => m.DevCategoryFiltersModule),
+      },
+      {
+        path: 'order-history',
+        loadChildren: () => import('./dev-order-history/dev-order-history.module').then((m) => m.DevOrderHistoryModule),
       },
     ]),
     WebUiMainPageModule,
