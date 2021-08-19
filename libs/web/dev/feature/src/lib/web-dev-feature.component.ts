@@ -483,6 +483,11 @@ export class WebDevFeatureComponent {
               route: 'product-list',
               image: '/assets/images/product-overviews.png',
             },
+            {
+              label: 'Category Filters',
+              route: 'category-filters',
+              image: '/assets/images/product-overviews.png',
+            },
           ],
         },
       ],
