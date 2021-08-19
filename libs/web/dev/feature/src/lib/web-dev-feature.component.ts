@@ -492,7 +492,12 @@ export class WebDevFeatureComponent {
               label: 'Shopping Cart',
               route: 'shopping-carts',
               image: '/assets/images/shopping-carts.png',
-            }
+            },
+            {
+              label: 'Promo Section',
+              route: 'promo-section',
+              image: '/assets/images/shopping-carts.png',
+            },
           ],
         },
       ],
