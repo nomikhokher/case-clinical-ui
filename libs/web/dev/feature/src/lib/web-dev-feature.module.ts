@@ -334,6 +334,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-product-list/dev-product-list.module').then((m) => m.DevProductListModule),
       },
       {
+        path: 'promo-section',
+        loadChildren: () => import('./dev-promo-section/dev-promo-section.module').then((m) => m.DevPromoSectionModule),
+      },
+      {
         path: 'category-filters',
         loadChildren: () => import('./dev-category-filters/dev-category-filters.module').then((m) => m.DevCategoryFiltersModule),
       },

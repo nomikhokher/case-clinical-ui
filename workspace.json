@@ -2367,6 +2367,28 @@
         }
       }
     },
+    "web-ui-promo-section": {
+      "projectType": "library",
+      "root": "libs/web/ui/promo-section",
+      "sourceRoot": "libs/web/ui/promo-section/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/promo-section/src/**/*.ts", "libs/web/ui/promo-section/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/promo-section"],
+          "options": {
+            "jestConfig": "libs/web/ui/promo-section/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-range-slider": {
       "projectType": "library",
       "root": "libs/web/ui/range-slider",

@@ -135,6 +135,7 @@ module.exports = {
     '<rootDir>/libs/web/ui/shopping-cart',
     '<rootDir>/libs/web/ui/reviews',
     '<rootDir>/libs/web/ui/product-list',
+    '<rootDir>/libs/web/ui/promo-section',
     '<rootDir>/libs/web/ui/category-filters',
     '<rootDir>/libs/web/ui/order-history',
   ],
