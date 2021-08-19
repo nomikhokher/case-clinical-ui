@@ -1149,6 +1149,31 @@
         }
       }
     },
+    "web-ui-category-filters": {
+      "projectType": "library",
+      "root": "libs/web/ui/category-filters",
+      "sourceRoot": "libs/web/ui/category-filters/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/category-filters/src/**/*.ts",
+              "libs/web/ui/category-filters/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/category-filters"],
+          "options": {
+            "jestConfig": "libs/web/ui/category-filters/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-checkbox-dropdown-button": {
       "projectType": "library",
       "root": "libs/web/ui/checkbox-dropdown-button",
@@ -2045,6 +2070,28 @@
           "outputs": ["coverage/libs/web/ui/notification-image"],
           "options": {
             "jestConfig": "libs/web/ui/notification-image/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-order-history": {
+      "projectType": "library",
+      "root": "libs/web/ui/order-history",
+      "sourceRoot": "libs/web/ui/order-history/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/order-history/src/**/*.ts", "libs/web/ui/order-history/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/order-history"],
+          "options": {
+            "jestConfig": "libs/web/ui/order-history/jest.config.js",
             "passWithNoTests": true
           }
         }

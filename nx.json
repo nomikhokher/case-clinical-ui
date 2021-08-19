@@ -171,6 +171,9 @@
     "web-ui-carousel": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-category-filters": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-checkbox-dropdown-button": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -289,6 +292,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-notification-image": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-order-history": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-page": {

@@ -476,17 +476,17 @@ export class WebDevFeatureComponent {
             {
               label: 'Product Image Gallery',
               route: 'product-image-gallery',
-              image: '/assets/images/product-overviews.png',
+              image: '/assets/images/category-previews.png',
             },
             {
               label: 'Product List',
               route: 'product-list',
-              image: '/assets/images/product-overviews.png',
+              image: '/assets/images/product-lists.png',
             },
             {
               label: 'Reviews',
               route: 'reviews',
-              image: '/assets/images/product-overviews.png',
+              image: '/assets/images/reviews.png',
             },
             {
               label: 'Shopping Cart',
@@ -497,6 +497,16 @@ export class WebDevFeatureComponent {
               label: 'Promo Section',
               route: 'promo-section',
               image: '/assets/images/shopping-carts.png',
+            },
+            {
+              label: 'Order History',
+              route: 'order-history',
+              image: '/assets/images/order-history.png',
+            },
+            {
+              label: 'Category Filters',
+              route: 'category-filters',
+              image: '/assets/images/product-overviews.png',
             },
           ],
         },
