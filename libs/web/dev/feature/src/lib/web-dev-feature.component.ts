@@ -498,6 +498,11 @@ export class WebDevFeatureComponent {
               route: 'order-history',
               image: '/assets/images/order-history.png',
             },
+            {
+              label: 'Category Filters',
+              route: 'category-filters',
+              image: '/assets/images/product-overviews.png',
+            },
           ],
         },
       ],
