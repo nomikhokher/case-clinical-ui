@@ -1,1 +1,1 @@
-export { ShoppingCart, Inputs } from './shopping-cart.model'
+export { ShoppingCart, Inputs, OrderAttribute } from './shopping-cart.model'
