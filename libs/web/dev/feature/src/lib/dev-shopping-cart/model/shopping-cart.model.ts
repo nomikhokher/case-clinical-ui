@@ -9,6 +9,12 @@ export interface ShoppingCart {
   leadTime?: string
   imageSrc: string
   imageAlt: string
+  qty?: number
+}
+
+export interface OrderAttribute {
+  label: string
+  value: number
 }
 
 export interface Inputs {
@@ -16,5 +22,4 @@ export interface Inputs {
   prop?: string
   description?: string
   dataType?: string
-  type?
 }

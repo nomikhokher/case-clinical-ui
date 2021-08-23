@@ -339,7 +339,8 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
       },
       {
         path: 'category-filters',
-        loadChildren: () => import('./dev-category-filters/dev-category-filters.module').then((m) => m.DevCategoryFiltersModule),
+        loadChildren: () =>
+          import('./dev-category-filters/dev-category-filters.module').then((m) => m.DevCategoryFiltersModule),
       },
       {
         path: 'order-history',

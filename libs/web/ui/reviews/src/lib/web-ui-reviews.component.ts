@@ -3,12 +3,12 @@ import { Component, Input } from '@angular/core'
 @Component({
   selector: 'ui-reviews',
   template: `
-    <div class="bg-white">
+    <div class="bg-white dark:bg-gray-800">
       <div
         class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:py-32 lg:px-8 lg:grid lg:grid-cols-12 lg:gap-x-8"
       >
         <div class="lg:col-span-4">
-          <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Customer Reviews</h2>
+          <h2 class="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-gray-200">Customer Reviews</h2>
 
           <div class="mt-3 flex items-center">
             <div>
@@ -30,7 +30,6 @@ import { Component, Input } from '@angular/core'
                   />
                 </svg>
 
-                <!-- Heroicon name: solid/star -->
                 <svg
                   class="flex-shrink-0 h-5 w-5 text-yellow-400"
                   xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +42,6 @@ import { Component, Input } from '@angular/core'
                   />
                 </svg>
 
-                <!-- Heroicon name: solid/star -->
                 <svg
                   class="flex-shrink-0 h-5 w-5 text-yellow-400"
                   xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +54,6 @@ import { Component, Input } from '@angular/core'
                   />
                 </svg>
 
-                <!-- Heroicon name: solid/star -->
                 <svg
                   class="flex-shrink-0 h-5 w-5 text-yellow-400"
                   xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +66,6 @@ import { Component, Input } from '@angular/core'
                   />
                 </svg>
 
-                <!-- Heroicon name: solid/star -->
                 <svg
                   class="flex-shrink-0 h-5 w-5 text-gray-300"
                   xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +80,7 @@ import { Component, Input } from '@angular/core'
               </div>
               <p class="sr-only">4 out of 5 stars</p>
             </div>
-            <p class="ml-2 text-sm text-gray-900">Based on {{ data.totalReviews }} reviews</p>
+            <p class="ml-2 text-sm text-gray-900 dark:text-gray-200">Based on {{ totalReviews() }} reviews</p>
           </div>
 
           <div class="mt-6">
@@ -93,9 +89,10 @@ import { Component, Input } from '@angular/core'
             <dl class="space-y-3">
               <div class="flex items-center text-sm">
                 <dt class="flex-1 flex items-center">
-                  <p class="w-3 font-medium text-gray-900">5<span class="sr-only"> star reviews</span></p>
+                  <p class="w-3 font-medium text-gray-900 dark:text-gray-200">
+                    5<span class="sr-only"> star reviews</span>
+                  </p>
                   <div aria-hidden="true" class="ml-1 flex-1 flex items-center">
-                    <!-- Heroicon name: solid/star -->
                     <svg
                       class="flex-shrink-0 h-5 w-5 text-yellow-400"
                       xmlns="http://www.w3.org/2000/svg"
@@ -112,20 +109,23 @@ import { Component, Input } from '@angular/core'
                       <div class="h-3 bg-gray-100 border border-gray-200 rounded-full"></div>
 
                       <div
-                        style="width: calc(1019 / 1624 * 100%);"
+                        style="width: calc({{ reviews.fiveStar }} / {{ totalReviews() }} * 100%);"
                         class="absolute inset-y-0 bg-yellow-400 border border-yellow-400 rounded-full"
                       ></div>
                     </div>
                   </div>
                 </dt>
-                <dd class="ml-3 w-10 text-right tabular-nums text-sm text-gray-900">63%</dd>
+                <dd class="ml-3 w-10 text-right tabular-nums text-sm text-gray-900 dark:text-gray-200">
+                  {{ reviewPercentage(reviews.fiveStar) }}{{ '%' }}
+                </dd>
               </div>
 
               <div class="flex items-center text-sm">
                 <dt class="flex-1 flex items-center">
-                  <p class="w-3 font-medium text-gray-900">4<span class="sr-only"> star reviews</span></p>
+                  <p class="w-3 font-medium text-gray-900 dark:text-gray-200">
+                    4<span class="sr-only"> star reviews</span>
+                  </p>
                   <div aria-hidden="true" class="ml-1 flex-1 flex items-center">
-                    <!-- Heroicon name: solid/star -->
                     <svg
                       class="flex-shrink-0 h-5 w-5 text-yellow-400"
                       xmlns="http://www.w3.org/2000/svg"
@@ -142,20 +142,23 @@ import { Component, Input } from '@angular/core'
                       <div class="h-3 bg-gray-100 border border-gray-200 rounded-full"></div>
 
                       <div
-                        style="width: calc(162 / 1624 * 100%);"
+                        style="width: calc({{ reviews.fourStar }} / {{ totalReviews() }} * 100%);"
                         class="absolute inset-y-0 bg-yellow-400 border border-yellow-400 rounded-full"
                       ></div>
                     </div>
                   </div>
                 </dt>
-                <dd class="ml-3 w-10 text-right tabular-nums text-sm text-gray-900">10%</dd>
+                <dd class="ml-3 w-10 text-right tabular-nums text-sm text-gray-900 dark:text-gray-200">
+                  {{ reviewPercentage(reviews.fourStar) }}{{ '%' }}
+                </dd>
               </div>
 
               <div class="flex items-center text-sm">
                 <dt class="flex-1 flex items-center">
-                  <p class="w-3 font-medium text-gray-900">3<span class="sr-only"> star reviews</span></p>
+                  <p class="w-3 font-medium text-gray-900 dark:text-gray-200">
+                    3<span class="sr-only"> star reviews</span>
+                  </p>
                   <div aria-hidden="true" class="ml-1 flex-1 flex items-center">
-                    <!-- Heroicon name: solid/star -->
                     <svg
                       class="flex-shrink-0 h-5 w-5 text-yellow-400"
                       xmlns="http://www.w3.org/2000/svg"
@@ -172,20 +175,23 @@ import { Component, Input } from '@angular/core'
                       <div class="h-3 bg-gray-100 border border-gray-200 rounded-full"></div>
 
                       <div
-                        style="width: calc(97 / 1624 * 100%);"
+                        style="width: calc({{ reviews.threeStar }} / {{ totalReviews() }} * 100%);"
                         class="absolute inset-y-0 bg-yellow-400 border border-yellow-400 rounded-full"
                       ></div>
                     </div>
                   </div>
                 </dt>
-                <dd class="ml-3 w-10 text-right tabular-nums text-sm text-gray-900">6%</dd>
+                <dd class="ml-3 w-10 text-right tabular-nums text-sm text-gray-900 dark:text-gray-200">
+                  {{ reviewPercentage(reviews.threeStar) }}{{ '%' }}
+                </dd>
               </div>
 
               <div class="flex items-center text-sm">
                 <dt class="flex-1 flex items-center">
-                  <p class="w-3 font-medium text-gray-900">2<span class="sr-only"> star reviews</span></p>
+                  <p class="w-3 font-medium text-gray-900 dark:text-gray-200">
+                    2<span class="sr-only"> star reviews</span>
+                  </p>
                   <div aria-hidden="true" class="ml-1 flex-1 flex items-center">
-                    <!-- Heroicon name: solid/star -->
                     <svg
                       class="flex-shrink-0 h-5 w-5 text-yellow-400"
                       xmlns="http://www.w3.org/2000/svg"
@@ -202,20 +208,23 @@ import { Component, Input } from '@angular/core'
                       <div class="h-3 bg-gray-100 border border-gray-200 rounded-full"></div>
 
                       <div
-                        style="width: calc(199 / 1624 * 100%);"
+                        style="width: calc({{ reviews.twoStar }} / {{ totalReviews() }} * 100%);"
                         class="absolute inset-y-0 bg-yellow-400 border border-yellow-400 rounded-full"
                       ></div>
                     </div>
                   </div>
                 </dt>
-                <dd class="ml-3 w-10 text-right tabular-nums text-sm text-gray-900">12%</dd>
+                <dd class="ml-3 w-10 text-right tabular-nums text-sm text-gray-900 dark:text-gray-200">
+                  {{ reviewPercentage(reviews.twoStar) }}{{ '%' }}
+                </dd>
               </div>
 
               <div class="flex items-center text-sm">
                 <dt class="flex-1 flex items-center">
-                  <p class="w-3 font-medium text-gray-900">1<span class="sr-only"> star reviews</span></p>
+                  <p class="w-3 font-medium text-gray-900 dark:text-gray-200">
+                    1<span class="sr-only"> star reviews</span>
+                  </p>
                   <div aria-hidden="true" class="ml-1 flex-1 flex items-center">
-                    <!-- Heroicon name: solid/star -->
                     <svg
                       class="flex-shrink-0 h-5 w-5 text-yellow-400"
                       xmlns="http://www.w3.org/2000/svg"
@@ -232,26 +241,28 @@ import { Component, Input } from '@angular/core'
                       <div class="h-3 bg-gray-100 border border-gray-200 rounded-full"></div>
 
                       <div
-                        style="width: calc(147 / 1624 * 100%);"
+                        style="width: calc({{ reviews.oneStar }} / {{ totalReviews() }} * 100%);"
                         class="absolute inset-y-0 bg-yellow-400 border border-yellow-400 rounded-full"
                       ></div>
                     </div>
                   </div>
                 </dt>
-                <dd class="ml-3 w-10 text-right tabular-nums text-sm text-gray-900">9%</dd>
+                <dd class="ml-3 w-10 text-right tabular-nums text-sm text-gray-900 dark:text-gray-200">
+                  {{ reviewPercentage(reviews.oneStar) }}{{ '%' }}
+                </dd>
               </div>
             </dl>
           </div>
 
           <div class="mt-10">
-            <h3 class="text-lg font-medium text-gray-900">Share your thoughts</h3>
-            <p class="mt-1 text-sm text-gray-600">
+            <h3 class="text-lg font-medium text-gray-900 dark:text-gray-200">Share your thoughts</h3>
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-200">
               If you’ve used this product, share your thoughts with other customers
             </p>
 
             <a
               href="#"
-              class="mt-6 inline-flex w-full bg-white border border-gray-300 rounded-md py-2 px-8 items-center justify-center text-sm font-medium text-gray-900 hover:bg-gray-50 sm:w-auto lg:w-full"
+              class="mt-6 inline-flex w-full bg-white border border-gray-300 rounded-md py-2 px-8 items-center justify-center text-sm font-medium text-gray-900 dark:text-gray-200 dark:bg-gray-700 dark:border-transparent hover:opacity-75 sm:w-auto lg:w-full"
               >Write a review</a
             >
           </div>
@@ -262,20 +273,16 @@ import { Component, Input } from '@angular/core'
 
           <div class="flow-root">
             <div class="-my-12 divide-y divide-gray-200">
-              <div class="py-12" *ngFor="let customer of data.customers">
+              <div class="py-12" *ngFor="let customer of customers">
                 <div class="flex items-center">
                   <img src="{{ customer.img }}" alt="Emily Selman." class="h-12 w-12 rounded-full" />
                   <div class="ml-4">
-                    <h4 class="text-sm font-bold text-gray-900">{{ customer.name }}</h4>
+                    <h4 class="text-sm font-bold text-gray-900 dark:text-gray-200">{{ customer.name }}</h4>
                     <div class="mt-1 flex items-center">
-                      <!--
-                    Heroicon name: solid/star
-
-                    Active: "text-yellow-400", Default: "text-gray-300"
-                  -->
                       <svg
-                        *ngFor="let item of [9, 9, 9, 9]"
-                        class="text-yellow-400 h-5 w-5 flex-shrink-0"
+                        *ngFor="let item of [1, 2, 3, 4, 5]; let i = index"
+                        [ngClass]="customer.review > i ? 'text-yellow-400' : 'text-gray-300'"
+                        class="h-5 w-5 flex-shrink-0"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                         fill="currentColor"
@@ -290,7 +297,7 @@ import { Component, Input } from '@angular/core'
                   </div>
                 </div>
 
-                <div class="mt-4 space-y-6 text-base italic text-gray-600">
+                <div class="mt-4 space-y-6 text-base italic text-gray-600 dark:text-gray-100">
                   <p>{{ customer.comment }}</p>
                 </div>
               </div>
@@ -304,5 +311,18 @@ import { Component, Input } from '@angular/core'
   `,
 })
 export class WebUiReviewsComponent {
-  @Input() data
+  @Input() customers
+  @Input() reviews
+  totalReviews() {
+    return (
+      Number(this.reviews.fiveStar) +
+      Number(this.reviews.fourStar) +
+      Number(this.reviews.threeStar) +
+      Number(this.reviews.twoStar) +
+      Number(this.reviews.oneStar)
+    )
+  }
+  reviewPercentage(count) {
+    return ((Number(count) / this.totalReviews()) * 100).toFixed(2)
+  }
 }

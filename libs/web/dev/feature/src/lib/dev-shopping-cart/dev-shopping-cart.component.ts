@@ -11,7 +11,10 @@ import { DevShoppingCartStore } from './dev-shopping-cart.store'
         [component_inputs]="vm.config.component_inputs"
         [codeObj]="vm.config.items"
       >
-        <ui-shopping-cart [products]="vm.config.items.products"></ui-shopping-cart>
+        <ui-shopping-cart
+          [orderAttribute]="vm.config.items.orderAttribute"
+          [products]="vm.config.items.products"
+        ></ui-shopping-cart>
       </ui-preview>
     </ng-container>
   `,
