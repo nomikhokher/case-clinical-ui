@@ -41,26 +41,39 @@ import { Component, Input } from '@angular/core'
                               {{ product.size }}
                             </p>
                           </div>
-                          <p class="mt-1 text-sm font-medium text-gray-900">{{ formatCurrency(product.price) }}</p>
+                          <p class="mt-1 text-sm font-medium text-gray-900">
+                            {{ formatCurrency(product.price) }}
+                          </p>
                         </div>
 
                         <div class="mt-4 sm:mt-0 sm:pr-9">
                           <label for="quantity-0" class="sr-only">Quantity, Basic Tee</label>
-                          <select
-                            id="quantity-0"
-                            name="quantity-0"
-                            class="max-w-full rounded-md border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                          >
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                          </select>
-
+                          <div class="flex flex-wrap">
+                            <div class="flex w-8/12">
+                              <input
+                                type="text"
+                                value="{{ product.qty }}"
+                                class="bg-white text-sm text-gray-900 text-center focus:outline-none border border-gray-800 focus:border-gray-600 rounded-l-md w-full"
+                              />
+                            </div>
+                            <div class="flex flex-col w-4/12">
+                              <button
+                                type="button"
+                                (click)="product.qty = product.qty + 1; subTotalPrice(); orderTotalPrice()"
+                                class="text-white text-center text-md font-semibold rounded-tr-md px-1 bg-gray-800 focus:bg-gray-600 focus:outline-none border border-gray-800 focus:border-gray-600"
+                              >
+                                +
+                              </button>
+                              <button
+                                type="button"
+                                (click)="product.qty = product.qty - 1; subTotalPrice(); orderTotalPrice()"
+                                [disabled]="product.qty == 0 && true"
+                                class="text-white text-center text-md font-semibold rounded-br-md px-1 bg-gray-800 focus:bg-gray-600 focus:outline-none border border-gray-800 focus:border-gray-600"
+                              >
+                                -
+                              </button>
+                            </div>
+                          </div>
                           <div class="absolute top-0 right-0">
                             <button
                               type="button"
@@ -122,55 +135,34 @@ import { Component, Input } from '@angular/core'
                     <dt class="text-sm text-gray-600">Subtotal</dt>
                     <dd class="text-sm font-medium text-gray-900">{{ formatCurrency(totalPrice) }}</dd>
                   </div>
-                  <div class="border-t border-gray-200 pt-4 flex items-center justify-between">
-                    <dt class="flex items-center text-sm text-gray-600">
-                      <span>Shipping estimate</span>
-                      <a href="#" class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
-                        <span class="sr-only">Learn more about how shipping is calculated</span>
-                        <!-- Heroicon name: solid/question-mark-circle -->
-                        <svg
-                          class="h-5 w-5"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </a>
-                    </dt>
-                    <dd class="text-sm font-medium text-gray-900">$5.00</dd>
-                  </div>
-                  <div class="border-t border-gray-200 pt-4 flex items-center justify-between">
-                    <dt class="flex text-sm text-gray-600">
-                      <span>Tax estimate</span>
-                      <a href="#" class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
-                        <span class="sr-only">Learn more about how tax is calculated</span>
-                        <!-- Heroicon name: solid/question-mark-circle -->
-                        <svg
-                          class="h-5 w-5"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </a>
-                    </dt>
-                    <dd class="text-sm font-medium text-gray-900">$8.32</dd>
-                  </div>
+                  <ng-container *ngFor="let item of orderAttribute">
+                    <div class="border-t border-gray-200 pt-4 flex items-center justify-between">
+                      <dt class="flex text-sm text-gray-600">
+                        <span>{{ item.label }}</span>
+                        <a href="#" class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
+                          <span class="sr-only">Learn more about how tax is calculated</span>
+                          <!-- Heroicon name: solid/question-mark-circle -->
+                          <svg
+                            class="h-5 w-5"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            aria-hidden="true"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </a>
+                      </dt>
+                      <dd class="text-sm font-medium text-gray-900">{{ '$' }}{{ item.value }}</dd>
+                    </div>
+                  </ng-container>
                   <div class="border-t border-gray-200 pt-4 flex items-center justify-between">
                     <dt class="text-base font-medium text-gray-900">Order total</dt>
-                    <dd class="text-base font-medium text-gray-900">$112.32</dd>
+                    <dd class="text-base font-medium text-gray-900">{{ '$' }}{{ orderTotalAttribute }}</dd>
                   </div>
                 </dl>
 
@@ -191,11 +183,14 @@ import { Component, Input } from '@angular/core'
   `,
 })
 export class WebUiShoppingCartComponent {
-  totalPrice: number
   @Input() products?: ShoppingCart[]
+  @Input() orderAttribute?: OrderAttribute[]
+  totalPrice: number
+  orderTotalAttribute: any
 
   ngOnInit(): void {
     this.subTotalPrice()
+    this.orderTotalPrice()
   }
 
   formatCurrency = (num) => {
@@ -205,13 +200,21 @@ export class WebUiShoppingCartComponent {
   remeCartItem(productId: number): void {
     this.products = this.products.filter((product: ShoppingCart) => product.id !== productId)
     this.subTotalPrice()
+    this.orderTotalPrice()
   }
 
   subTotalPrice() {
-    this.totalPrice = this.products.reduce(function (price, total: ShoppingCart) {
-      return (price += total.price)
-    }, 0)
+    this.totalPrice = this.products.reduce((a, c: ShoppingCart) => a + c.price * c.qty, 0)
   }
+
+  orderTotalPrice() {
+    this.orderTotalAttribute = this.orderAttribute.reduce((a, c: OrderAttribute) => a + c.value, this.totalPrice)
+  }
+}
+
+interface OrderAttribute {
+  label: string
+  value: number
 }
 
 type ShoppingCart = {
@@ -225,4 +228,5 @@ type ShoppingCart = {
   leadTime?: string
   imageSrc: string
   imageAlt: string
+  qty: number
 }
