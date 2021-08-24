@@ -5,9 +5,11 @@ import { Component, Input } from '@angular/core'
   template: `
     <div class="dark:bg-gray-800 border dark:border-indigo-700 px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
       <div>
-        <div class="bg-white">
+        <div class="bg-white dark:bg-gray-700">
           <div class="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-            <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Shopping Cart</h1>
+            <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+              Shopping Cart
+            </h1>
             <form class="mt-12 lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start xl:gap-x-16">
               <section aria-labelledby="cart-heading" class="lg:col-span-7">
                 <h2 id="cart-heading" class="sr-only">Items in your shopping cart</h2>
@@ -31,17 +33,22 @@ import { Component, Input } from '@angular/core'
                         <div>
                           <div class="flex justify-between">
                             <h3 class="text-sm">
-                              <a href="#" class="font-medium text-gray-700 hover:text-gray-800"> {{ product.name }} </a>
+                              <a href="#" class="font-medium text-gray-700 dark:text-white hover:text-gray-800">
+                                {{ product.name }}
+                              </a>
                             </h3>
                           </div>
                           <div class="mt-1 flex text-sm">
-                            <p class="text-gray-500">{{ product.color }}</p>
+                            <p class="text-gray-500 dark:text-white">{{ product.color }}</p>
 
-                            <p class="ml-4 pl-4 border-l border-gray-200 text-gray-500" *ngIf="product.size">
+                            <p
+                              class="ml-4 pl-4 border-l border-gray-200 text-gray-500 dark:text-white"
+                              *ngIf="product.size"
+                            >
                               {{ product.size }}
                             </p>
                           </div>
-                          <p class="mt-1 text-sm font-medium text-gray-900">
+                          <p class="mt-1 text-sm font-medium text-gray-900 dark:text-white">
                             {{ formatCurrency(product.price) }}
                           </p>
                         </div>
@@ -126,20 +133,20 @@ import { Component, Input } from '@angular/core'
               <!-- Order summary -->
               <section
                 aria-labelledby="summary-heading"
-                class="mt-16 bg-gray-50 rounded-lg px-4 py-6 sm:p-6 lg:p-8 lg:mt-0 lg:col-span-5"
+                class="mt-16 bg-gray-50 dark:bg-gray-700 rounded-lg px-4 py-6 sm:p-6 lg:p-8 lg:mt-0 lg:col-span-5"
               >
-                <h2 id="summary-heading" class="text-lg font-medium text-gray-900">Order summary</h2>
+                <h2 id="summary-heading" class="text-lg font-medium text-gray-900 dark:text-white">Order summary</h2>
 
                 <dl class="mt-6 space-y-4">
                   <div class="flex items-center justify-between">
-                    <dt class="text-sm text-gray-600">Subtotal</dt>
-                    <dd class="text-sm font-medium text-gray-900">{{ formatCurrency(totalPrice) }}</dd>
+                    <dt class="text-sm text-gray-600 dark:text-white">Subtotal</dt>
+                    <dd class="text-sm font-medium text-gray-900 dark:text-white">{{ formatCurrency(totalPrice) }}</dd>
                   </div>
                   <ng-container *ngFor="let item of orderAttribute">
                     <div class="border-t border-gray-200 pt-4 flex items-center justify-between">
-                      <dt class="flex text-sm text-gray-600">
+                      <dt class="flex text-sm text-gray-600 dark:text-white">
                         <span>{{ item.label }}</span>
-                        <a href="#" class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
+                        <a href="#" class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500 dark:text-white">
                           <span class="sr-only">Learn more about how tax is calculated</span>
                           <!-- Heroicon name: solid/question-mark-circle -->
                           <svg
@@ -157,12 +164,14 @@ import { Component, Input } from '@angular/core'
                           </svg>
                         </a>
                       </dt>
-                      <dd class="text-sm font-medium text-gray-900">{{ '$' }}{{ item.value }}</dd>
+                      <dd class="text-sm font-medium text-gray-900 dark:text-white">{{ '$' }}{{ item.value }}</dd>
                     </div>
                   </ng-container>
                   <div class="border-t border-gray-200 pt-4 flex items-center justify-between">
-                    <dt class="text-base font-medium text-gray-900">Order total</dt>
-                    <dd class="text-base font-medium text-gray-900">{{ '$' }}{{ orderTotalAttribute }}</dd>
+                    <dt class="text-base font-medium text-gray-900 dark:text-white">Order total</dt>
+                    <dd class="text-base font-medium text-gray-900 dark:text-white">
+                      {{ '$' }}{{ orderTotalAttribute }}
+                    </dd>
                   </div>
                 </dl>
 
