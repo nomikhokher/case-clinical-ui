@@ -6,11 +6,13 @@ import { Component, Input } from '@angular/core'
     <div class="dark:bg-gray-800 border dark:border-indigo-700 px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
       <div>
         <!-- This example requires Tailwind CSS v2.0+ -->
-        <div class="bg-white">
+        <div class="bg-white dark:bg-gray-700">
           <div class="max-w-4xl mx-auto py-16 sm:px-6 sm:py-24">
             <div class="px-4 sm:px-0">
-              <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">Order history</h1>
-              <p class="mt-2 text-sm text-gray-500">
+              <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
+                Order history
+              </h1>
+              <p class="mt-2 text-sm text-gray-500 dark:text-white">
                 Check the status of recent orders, manage returns, and download invoices.
               </p>
             </div>
@@ -23,22 +25,22 @@ import { Component, Input } from '@angular/core'
                   <h3 class="sr-only">Order placed on <time datetime="2021-01-22">January 22, 2021</time></h3>
 
                   <div
-                    class="bg-gray-50 px-4 py-6 sm:rounded-lg sm:p-6 md:flex md:items-center md:justify-between md:space-x-6 lg:space-x-8"
+                    class="bg-gray-50 dark:bg-gray-500 px-4 py-6 sm:rounded-lg sm:p-6 md:flex md:items-center md:justify-between md:space-x-6 lg:space-x-8"
                   >
                     <dl
-                      class="divide-y divide-gray-200 space-y-4 text-sm text-gray-600 flex-auto md:divide-y-0 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-6 lg:w-1/2 lg:flex-none lg:gap-x-8"
+                      class="divide-y divide-gray-200 space-y-4 text-sm text-gray-600 dark:text-white flex-auto md:divide-y-0 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-6 lg:w-1/2 lg:flex-none lg:gap-x-8"
                     >
                       <div class="flex justify-between md:block">
-                        <dt class="font-medium text-gray-900">Order number</dt>
+                        <dt class="font-medium text-gray-900 dark:text-white">Order number</dt>
                         <dd class="md:mt-1">{{ order.number }}</dd>
                       </div>
                       <div class="flex justify-between pt-4 md:block md:pt-0">
-                        <dt class="font-medium text-gray-900">Date placed</dt>
+                        <dt class="font-medium text-gray-900 dark:text-white">Date placed</dt>
                         <dd class="md:mt-1">
                           <time datetime="2021-01-22">{{ order.date }}</time>
                         </dd>
                       </div>
-                      <div class="flex justify-between pt-4 font-medium text-gray-900 md:block md:pt-0">
+                      <div class="flex justify-between pt-4 font-medium text-gray-900 dark:text-white md:block md:pt-0">
                         <dt>Total amount</dt>
                         <dd class="md:mt-1">{{ order.total }}</dd>
                       </div>
@@ -68,12 +70,14 @@ import { Component, Input } from '@angular/core'
                           <div class="lg:flex-1">
                             <div class="sm:flex">
                               <div>
-                                <h4 class="font-medium text-gray-900">{{ product.name }}</h4>
-                                <p class="hidden mt-2 text-sm text-gray-500 sm:block">
+                                <h4 class="font-medium text-gray-900 dark:text-white">{{ product.name }}</h4>
+                                <p class="hidden mt-2 text-sm text-gray-500 dark:text-white sm:block">
                                   {{ product.description }}
                                 </p>
                               </div>
-                              <p class="mt-1 font-medium text-gray-900 sm:mt-0 sm:ml-6">{{ product.price }}</p>
+                              <p class="mt-1 font-medium text-gray-900 dark:text-white sm:mt-0 sm:ml-6">
+                                {{ product.price }}
+                              </p>
                             </div>
                             <div class="mt-2 flex text-sm font-medium sm:mt-4">
                               <a href="#" class="text-indigo-600 hover:text-indigo-500">View Product</a>
@@ -83,7 +87,7 @@ import { Component, Input } from '@angular/core'
                             </div>
                           </div>
                           <div class="mt-6 font-medium">
-                            <p>Out for delivery</p>
+                            <p class="dark:text-white">Out for delivery</p>
                           </div>
                         </div>
                         <div class="ml-4 flex-shrink-0 sm:m-0 sm:mr-6 sm:order-first">
