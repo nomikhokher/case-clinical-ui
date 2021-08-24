@@ -1,9 +1,9 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 
 @Component({
   selector: 'ui-product-overviews',
   template: `
-    <div class="bg-white">
+    <div class="bg-white dark:bg-gray-700">
       <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <div class="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
           <!-- Image gallery -->
@@ -40,38 +40,40 @@ import { Component } from '@angular/core'
 
               <div class="w-full max-w-2xl mx-auto mt-2 lg:max-w-none lg:mt-8 lg:col-span-4">
                 <div>
-                  <div class="border-b border-gray-200">
+                  <div class="border-b dark:border-indigo-600 border-gray-200">
                     <div class="-mb-px flex space-x-8" aria-orientation="horizontal" role="tablist">
                       <!-- Selected: "border-indigo-600 text-indigo-600", Not Selected: "border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300" -->
                       <button
                         id="tab-reviews"
-                        class="border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300 whitespace-nowrap py-6 border-b-2 font-medium text-sm focus:outline-none"
+                        class="border-transparent text-gray-700 dark:text-white hover:text-gray-800 hover:border-gray-300 whitespace-nowrap py-6 border-b-2 dark:border-b-0 font-medium text-sm focus:outline-none"
                         aria-controls="tab-panel-reviews"
                         role="tab"
                         type="button"
-                        [ngClass]="tabTile === 'Customer Reviews' && 'border-indigo-600 text-indigo-600'"
+                        [ngClass]="
+                          tabTile === 'Customer Reviews' && 'border-indigo-600 text-indigo-600 dark:text-white z-10'
+                        "
                         (click)="tabTile = 'Customer Reviews'"
                       >
                         Customer Reviews
                       </button>
                       <button
                         id="tab-faq"
-                        class="border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300 whitespace-nowrap py-6 border-b-2 font-medium text-sm focus:outline-none"
+                        class="border-transparent text-gray-700 dark:text-white hover:text-gray-800 hover:border-gray-300 whitespace-nowrap py-6 border-b-2 font-medium text-sm focus:outline-none"
                         aria-controls="tab-panel-faq"
                         role="tab"
                         type="button"
-                        [ngClass]="tabTile === 'FAQ' && 'border-indigo-600 text-indigo-600'"
+                        [ngClass]="tabTile === 'FAQ' && 'border-indigo-600 text-indigo-600 dark:text-white'"
                         (click)="tabTile = 'FAQ'"
                       >
                         FAQ
                       </button>
                       <button
                         id="tab-license"
-                        class="border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300 whitespace-nowrap py-6 border-b-2 font-medium text-sm focus:outline-none"
+                        class="border-transparent text-gray-700 dark:text-white hover:text-gray-800 hover:border-gray-300 whitespace-nowrap py-6 border-b-2 font-medium text-sm focus:outline-none"
                         aria-controls="tab-panel-license"
                         role="tab"
                         type="button"
-                        [ngClass]="tabTile === 'License' && 'border-indigo-600 text-indigo-600'"
+                        [ngClass]="tabTile === 'License' && 'border-indigo-600 text-indigo-600 dark:text-white'"
                         (click)="tabTile = 'License'"
                       >
                         License
@@ -90,14 +92,14 @@ import { Component } from '@angular/core'
                   >
                     <h3 class="sr-only">Customer Reviews</h3>
 
-                    <div class="flex text-sm text-gray-500 space-x-4" *ngFor="let review of product.reviews_customer">
+                    <div class="flex text-sm text-gray-500 space-x-4 " *ngFor="let review of product.reviews_customer">
                       <div class="flex-none py-10">
                         <img src="{{ review.url }}" alt="" class="w-10 h-10 bg-gray-100 rounded-full" />
                       </div>
-                      <div class="py-10 border-t border-gray-200">
-                        <h3 class="font-medium text-gray-900">{{ review.name }}</h3>
+                      <div class="py-10 border-b border-gray-200">
+                        <h3 class="font-medium text-gray-900 dark:text-white">{{ review.name }}</h3>
                         <p>
-                          <time datetime="2021-07-12">{{ review.created_at }}</time>
+                          <time datetime="2021-07-12" class="dark:text-white">{{ review.created_at }}</time>
                         </p>
 
                         <div class="flex items-center mt-4">
@@ -296,7 +298,7 @@ import { Component } from '@angular/core'
                         <p class="sr-only">5 out of 5 stars</p>
 
                         <div class="mt-4 prose prose-sm max-w-none text-gray-500">
-                          <p>
+                          <p class="dark:text-white">
                             Blown away by how polished this icon pack is. Everything looks so consistent and each SVG is
                             optimized out of the box so I can use it directly with confidence. It would take me several
                             hours to create a single icon this good, so it's a steal at this price.
@@ -320,8 +322,8 @@ import { Component } from '@angular/core'
                     >
                       <h3 class="sr-only">Frequently Asked Questions</h3>
 
-                      <dt class="mt-10 font-medium text-gray-900">{{ faqs.question }}</dt>
-                      <dd class="mt-2 prose prose-sm max-w-none text-gray-500">
+                      <dt class="mt-10 font-medium text-gray-900 dark:text-white">{{ faqs.question }}</dt>
+                      <dd class="mt-2 prose prose-sm max-w-none text-gray-500 dark:text-white">
                         <p>{{ faqs.answer }}.</p>
                       </dd>
 
@@ -342,14 +344,17 @@ import { Component } from '@angular/core'
 
                     <div class="prose prose-sm max-w-none text-gray-500">
                       <ng-container *ngFor="let license of product.license">
-                        <h4 class="font-bold text-gray-900">{{ license.heading }}</h4>
+                        <h4 class="font-bold text-gray-900 dark:text-white">{{ license.heading }}</h4>
 
-                        <p *ngIf="license.description" class="my-5">
+                        <p *ngIf="license.description" class="my-5 dark:text-white">
                           {{ license.description }}
                         </p>
 
-                        <ul class="m-5 list-disc text-gray-400">
-                          <li *ngFor="let license_detail of license.license_detail" class="text-gray-500">
+                        <ul class="m-5 list-disc text-gray-400 dark:text-white">
+                          <li
+                            *ngFor="let license_detail of license.license_detail"
+                            class="text-gray-500 dark:text-white"
+                          >
                             {{ license_detail.detail }}
                           </li>
                         </ul>
@@ -376,19 +381,18 @@ import { Component } from '@angular/core'
 
           <!-- Product info -->
           <div class="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-0">
-            <h1 class="text-3xl font-extrabold tracking-tight text-gray-900">{{ product.title }}</h1>
+            <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">{{ product.title }}</h1>
 
             <div class="mt-3">
               <h2 class="sr-only">Product information</h2>
-              <p class="text-3xl text-gray-900">{{ '$' }}{{ product.price }}</p>
+              <p class="text-3xl text-gray-900 dark:text-white">{{ '$' }}{{ product.price }}</p>
             </div>
 
             <div class="mt-4">
               <h2 class="sr-only">Reviews</h2>
               <div class="flex items-center">
-                <p class="text-sm text-gray-700">
-                  {{ product.reviews.total_rating }}
-                  <span class="sr-only"> out of 5 stars</span>
+                <p class="text-sm text-gray-700 dark:text-white">
+                  {{ product.review.total_rating }}
                 </p>
                 <div class="ml-1 flex items-center">
                   <!--
@@ -411,7 +415,7 @@ import { Component } from '@angular/core'
                 <div aria-hidden="true" class="ml-4 text-sm text-gray-300">·</div>
                 <div class="ml-4 flex">
                   <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                    >See all {{ product.reviews.reviews }} reviews</a
+                    >See all {{ product.review.reviews }} reviews</a
                   >
                 </div>
               </div>
@@ -420,7 +424,7 @@ import { Component } from '@angular/core'
             <div class="mt-6">
               <h3 class="sr-only">Description</h3>
 
-              <div class="text-base text-gray-700 space-y-6">
+              <div class="text-base text-gray-700 dark:text-white space-y-6">
                 <p>
                   {{ product.description }}
                 </p>
@@ -430,14 +434,14 @@ import { Component } from '@angular/core'
             <form class="mt-6" *ngFor="let item of product.variants">
               <!-- Colors -->
               <div>
-                <h3 class="text-sm text-gray-600">Color</h3>
+                <h3 class="text-sm text-gray-600 dark:text-white">Color</h3>
 
                 <fieldset class="mt-2">
                   <legend class="sr-only">Choose a color</legend>
                   <div class="flex items-center space-x-3">
                     <label
                       class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none"
-                      [ngClass]="{ 'ring-2 ring-gray-600': selectRing == undefined }"
+                      [ngClass]="{ 'ring-2 ring-gray-600 dark:ring-gray-100': selectRing == undefined }"
                     >
                       <input
                         type="radio"
@@ -454,13 +458,10 @@ import { Component } from '@angular/core'
                         >D</span
                       >
                     </label>
-                    <!--
-                          Active and Checked: "ring ring-offset-1"
-                          Not Active and Checked: "ring-2"
-                        -->
+
                     <label
                       *ngFor="let color of item.color"
-                      class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-700"
+                      class="-m-0.5 relative p-0.5 rounded-full flex items-center text-gray-100 justify-center cursor-pointer focus:outline-none ring-gray-700 dark:ring-gray-100"
                       [ngClass]="selectRing == color.values ? 'ring-2 ' + 'ring-' + selectRing + '-700' : ''"
                     >
                       <input
@@ -474,7 +475,9 @@ import { Component } from '@angular/core'
                       <span
                         (click)="changeColor(color)"
                         aria-hidden="true"
-                        class="h-8 w-8 bg-{{ color.values }}-700 border border-black border-opacity-10 rounded-full"
+                        class="h-8 w-8 bg-{{
+                          color.values
+                        }}-700 border border-black dark:ring-gray-100 border-opacity-10 rounded-full"
                       ></span>
                     </label>
                   </div>
@@ -483,8 +486,7 @@ import { Component } from '@angular/core'
 
               <div class="mt-8">
                 <div class="flex items-center justify-between">
-                  <h2 class="text-sm font-medium text-gray-900">Size</h2>
-                  <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">See sizing chart</a>
+                  <h2 class="text-sm font-medium text-gray-900 dark:text-white">Size</h2>
                 </div>
 
                 <fieldset class="mt-2">
@@ -496,7 +498,7 @@ import { Component } from '@angular/core'
                     Checked: "bg-indigo-600 border-transparent text-white hover:bg-indigo-700", Not Checked: "bg-white border-gray-200 text-gray-900 hover:bg-gray-50"
                   -->
                     <label
-                      class="border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer focus:outline-none"
+                      class="border rounded-md py-3 dark:text-white px-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer focus:outline-none"
                       *ngFor="let size of item.size"
                       [ngClass]="
                         size.values == checkSize && 'text-white ring ring-offset-1 ring-indigo-600 bg-indigo-600'
@@ -526,7 +528,7 @@ import { Component } from '@angular/core'
 
                 <button
                   type="button"
-                  class="ml-4 py-3 px-3 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+                  class="ml-4 py-3 px-3 rounded-md flex items-center justify-center text-gray-400 dark:text-white hover:bg-gray-100 hover:text-gray-500"
                 >
                   <!-- Heroicon name: outline/heart -->
                   <svg
@@ -564,7 +566,7 @@ import { Component } from '@angular/core'
                       (click)="item.show = !item.show"
                     >
                       <!-- Open: "text-indigo-600", Closed: "text-gray-900" -->
-                      <span class="text-gray-900 text-sm font-medium"> {{ item.title }} </span>
+                      <span class="text-gray-900 dark:text-white text-sm font-medium"> {{ item.title }} </span>
                       <span class="ml-6 flex items-center">
                         <!--
                       Heroicon name: outline/plus-sm
@@ -573,7 +575,7 @@ import { Component } from '@angular/core'
                     -->
                         <svg
                           *ngIf="!item.show"
-                          class="h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                          class="h-6 w-6 text-gray-400 group-hover:text-gray-500 dark:text-white"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -603,7 +605,9 @@ import { Component } from '@angular/core'
                   </h3>
                   <div class="pb-6 prose prose-sm" *ngIf="item.show">
                     <ul role="list">
-                      <li *ngFor="let des of item.specification_description">{{ des.description }}</li>
+                      <li *ngFor="let des of item.specification_description" class="dark:text-white">
+                        {{ des.description }}
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -618,161 +622,13 @@ import { Component } from '@angular/core'
   `,
 })
 export class WebUiProductOverviewsComponent {
+  @Input() product: any
   public tabTile: string = 'Customer Reviews'
   public colorActive: string
   public checkSize: string
   public coverImg: string = 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-01.jpg'
   selectedImages: any
   selectRing: string
-
-  product: any = {
-    title: 'Basic Tee',
-    description: `'The Basic tee is an honest new take on a classic. The tee uses super soft, pre-			shrunk cotton for true comfort and a dependable fit. They are hand cut and sewn 			locally, with a special dye technique that gives each tee it's own look.'`,
-    category: {
-      title: 'Shirt',
-    },
-    price: 35,
-    is_active: true,
-    reviews: {
-      total_rating: 3.5,
-      reviews: 515,
-    },
-    variants: [
-      {
-        color: [
-          {
-            values: 'gray',
-            images: [
-              {
-                name: '',
-                image: 'https://www.bellacanvas.com/bella/product/hires/7505001381alt1_3.jpg',
-                is_active: true,
-              },
-              {
-                name: '',
-                image: 'https://www.bellacanvas.com/bella/product/hires/7505001382alt2_3.jpg',
-                is_active: false,
-              },
-              {
-                name: '',
-                image: 'https://www.bellacanvas.com/bella/product/hires/7505001383alt3_4.jpg',
-                is_active: false,
-              },
-            ],
-          },
-          {
-            values: 'yellow',
-            images: [
-              {
-                name: '',
-                image: 'https://www.bellacanvas.com/bella/product/hires/7505003311alt1_3.jpg',
-                is_active: true,
-              },
-              {
-                name: '',
-                image: 'https://www.bellacanvas.com/bella/product/hires/7505003312alt2_3.jpg',
-                is_active: false,
-              },
-              {
-                name: '',
-                image: 'https://www.bellacanvas.com/bella/product/hires/7505003313alt3_4.jpg',
-                is_active: false,
-              },
-            ],
-          },
-        ],
-
-        size: [{ values: 'xxs' }, { values: 'xs' }, { values: 'm' }],
-      },
-    ],
-    specification: [
-      {
-        title: 'Care',
-        show: false,
-        specification_description: [
-          { description: 'Spot clean as needed' },
-          { description: 'Hand wash with mild soap' },
-        ],
-      },
-      {
-        title: 'Shipping',
-        show: false,
-        specification_description: [
-          { description: 'Free shipping on orders over $300' },
-          { description: 'nternational shipping available' },
-        ],
-      },
-    ],
-    images: [
-      {
-        name: '',
-        image: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-02.jpg',
-        is_active: true,
-      },
-      {
-        name: '',
-        image: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-03.jpg',
-        is_active: false,
-      },
-      {
-        name: '',
-        image: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-04.jpg',
-        is_active: false,
-      },
-    ],
-    reviews_customer: [
-      {
-        id: 1,
-        name: 'Hammad Hassan',
-        url: 'https://www.pngarts.com/files/11/Avatar-Transparent-Background-PNG.png',
-        rating: 5,
-        comment: 'nice product in my life',
-        created_at: 'July 12, 2021',
-      },
-      {
-        id: 2,
-        name: 'Maria Afzal',
-        url: 'https://www.kindpng.com/picc/m/163-1636340_user-avatar-icon-avatar-transparent-user-icon-png.png',
-        rating: 3,
-        comment: 'nice product in my life',
-        created_at: 'July 27, 2021',
-      },
-    ],
-    faqs: [
-      {
-        id: 1,
-        question: 'What format are these icons?',
-        answer:
-          'The icons are in SVG (Scalable Vector Graphic) format. They can be imported into your design tool of choice and used directly in code.',
-      },
-      {
-        id: 2,
-        question: 'What format are these icons?',
-        answer:
-          'The icons are in SVG (Scalable Vector Graphic) format. They can be imported into your design tool of choice and used directly in	code.',
-      },
-    ],
-    license: [
-      {
-        id: 1,
-        heading: 'Overview',
-        description: 'What format are these icons',
-        license_detail: [
-          { detail: `'You're allowed to use the icons in unlimited projects.'` },
-          { detail: `'You're allowed to use the icons in unlimited projects.'` },
-        ],
-      },
-
-      {
-        id: 2,
-        heading: 'Overview all products',
-        license_detail: [
-          { detail: `'You're allowed to use the icons in unlimited projects.'` },
-          { detail: `'You're allowed to use the icons in unlimited projects.'` },
-        ],
-      },
-    ],
-  }
 
   colorCheck(color: string): string {
     if (this.colorActive) {
@@ -788,9 +644,7 @@ export class WebUiProductOverviewsComponent {
   changeColor(color): void {
     if (color.images) {
       this.selectedImages = color.images
-
       this.selectRing = color.values
-      console.log(this.selectRing)
       this.coverImage(this.selectedImages[0].image)
     } else {
       this.selectRing = undefined
