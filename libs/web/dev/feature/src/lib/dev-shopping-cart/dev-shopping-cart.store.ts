@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
-import { Inputs, ShoppingCart } from './model'
+import { Inputs, ShoppingCart, OrderAttribute } from './model'
 
 export interface Item {
   products?: ShoppingCart[]
+  orderAttribute?: OrderAttribute[]
 }
 
 interface DevShoppingCartState {
@@ -42,6 +43,16 @@ export class DevShoppingCartStore extends ComponentStore<DevShoppingCartState> {
           directory: '/libs/web/dev/feature/src/lib/dev-accordion/dev-shopping-cart.component.ts',
         },
         items: {
+          orderAttribute: [
+            {
+              label: 'Shipping estimate',
+              value: 5.0,
+            },
+            {
+              label: 'Tax estimate',
+              value: 8.0,
+            },
+          ],
           products: [
             {
               id: 1,
@@ -53,6 +64,7 @@ export class DevShoppingCartStore extends ComponentStore<DevShoppingCartState> {
               size: 'Large',
               imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-01.jpg',
               imageAlt: "Front of men's Basic Tee in sienna.",
+              qty: 1,
             },
             {
               id: 2,
@@ -65,6 +77,7 @@ export class DevShoppingCartStore extends ComponentStore<DevShoppingCartState> {
               size: 'Large',
               imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-02.jpg',
               imageAlt: "Front of men's Basic Tee in black.",
+              qty: 1,
             },
             {
               id: 3,
@@ -75,6 +88,7 @@ export class DevShoppingCartStore extends ComponentStore<DevShoppingCartState> {
               inStock: true,
               imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-03.jpg',
               imageAlt: 'Insulated bottle with white base and black snap lid.',
+              qty: 1,
             },
           ],
         },
@@ -82,6 +96,13 @@ export class DevShoppingCartStore extends ComponentStore<DevShoppingCartState> {
           {
             label: 'Products',
             prop: '[products]',
+            description:
+              'Shopping cart software is a piece of e-commerce software on a web server that allows visitors to have an Internet site to select items for eventual purchase. The software allows online shopping customers to accumulate a list of items for purchase.',
+            dataType: 'Array',
+          },
+          {
+            label: 'OrderAttribute',
+            prop: '[orderAttribute]',
             description:
               'Shopping cart software is a piece of e-commerce software on a web server that allows visitors to have an Internet site to select items for eventual purchase. The software allows online shopping customers to accumulate a list of items for purchase.',
             dataType: 'Array',
