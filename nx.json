@@ -327,6 +327,9 @@
     "web-ui-product-overviews": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-product-quickviews": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-progress-bar": {
       "tags": ["scope:web", "type:ui"]
     },

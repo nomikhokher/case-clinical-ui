@@ -508,6 +508,11 @@ export class WebDevFeatureComponent {
               route: 'category-filters',
               image: '/assets/images/product-overviews.png',
             },
+            {
+              label: 'Product Quickviews',
+              route: 'product-quickviews',
+              image: '/assets/images/product-overviews.png',
+            },
           ],
         },
       ],

@@ -2323,6 +2323,31 @@
         }
       }
     },
+    "web-ui-product-quickviews": {
+      "projectType": "library",
+      "root": "libs/web/ui/product-quickviews",
+      "sourceRoot": "libs/web/ui/product-quickviews/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/product-quickviews/src/**/*.ts",
+              "libs/web/ui/product-quickviews/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/product-quickviews"],
+          "options": {
+            "jestConfig": "libs/web/ui/product-quickviews/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-progress-bar": {
       "projectType": "library",
       "root": "libs/web/ui/progress-bar",
