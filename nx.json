@@ -252,6 +252,9 @@
     "web-ui-icon-button": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-incentives": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-json": {
       "tags": ["scope:web", "type:ui"]
     },

@@ -5,7 +5,7 @@ export interface Configs {
   breadcrumbs?: Crumbs[]
   items?: Item
   component_inputs?: Inputs[]
-  component_outputs?: Outputs[]
+  component_outputs?: Inputs[]
 }
 
 export interface Crumbs {
@@ -18,13 +18,6 @@ export interface Item {
 }
 
 export interface Inputs {
-  label?: string
-  prop?: string
-  description?: string
-  dataType?: string
-}
-
-export interface Outputs {
   label?: string
   prop?: string
   description?: string

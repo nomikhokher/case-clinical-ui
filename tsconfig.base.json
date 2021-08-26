@@ -88,6 +88,7 @@
       "@schema-driven/web/ui/group-button": ["libs/web/ui/group-button/src/index.ts"],
       "@schema-driven/web/ui/icon": ["libs/web/ui/icon/src/index.ts"],
       "@schema-driven/web/ui/icon-button": ["libs/web/ui/icon-button/src/index.ts"],
+      "@schema-driven/web/ui/incentives": ["libs/web/ui/incentives/src/index.ts"],
       "@schema-driven/web/ui/json": ["libs/web/ui/json/src/index.ts"],
       "@schema-driven/web/ui/layout": ["libs/web/ui/layout/src/index.ts"],
       "@schema-driven/web/ui/list-container": ["libs/web/ui/list-container/src/index.ts"],

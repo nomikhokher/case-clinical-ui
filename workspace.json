@@ -1761,6 +1761,28 @@
         }
       }
     },
+    "web-ui-incentives": {
+      "projectType": "library",
+      "root": "libs/web/ui/incentives",
+      "sourceRoot": "libs/web/ui/incentives/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/incentives/src/**/*.ts", "libs/web/ui/incentives/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/incentives"],
+          "options": {
+            "jestConfig": "libs/web/ui/incentives/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-json": {
       "projectType": "library",
       "root": "libs/web/ui/json",

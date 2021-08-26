@@ -508,6 +508,11 @@ export class WebDevFeatureComponent {
               route: 'category-filters',
               image: '/assets/images/product-overviews.png',
             },
+            {
+              label: 'incentives',
+              route: 'incentives',
+              image: '/assets/images/incentives.png',
+            },
           ],
         },
       ],
