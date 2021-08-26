@@ -513,6 +513,11 @@ export class WebDevFeatureComponent {
               route: 'incentives',
               image: '/assets/images/incentives.png',
             },
+            {
+              label: 'Checkout Form',
+              route: 'checkout-forms',
+              image: '/assets/images/checkout-forms.png',
+            },
           ],
         },
       ],

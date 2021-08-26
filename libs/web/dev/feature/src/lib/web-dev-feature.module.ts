@@ -350,6 +350,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: 'incentives',
         loadChildren: () => import('./dev-incentives/dev-incentives.module').then((m) => m.DevIncentivesModule),
       },
+      {
+        path: 'checkout-forms',
+        loadChildren: () => import('./dev-checkout-form/dev-checkout-form.module').then((m) => m.DevCheckoutFormModule),
+      },
     ]),
     WebUiMainPageModule,
   ],

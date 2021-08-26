@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { DevIncentivesStore } from './dev-incentives.store'
+import { DevCheckoutFormStore } from './dev-checkout-form.store'
 
 @Component({
   template: `
@@ -11,16 +11,16 @@ import { DevIncentivesStore } from './dev-incentives.store'
         [component_inputs]="vm.config.component_inputs"
         [codeObj]="vm.config.items"
       >
-        <ui-incentives
-          [incentives]="vm.config.items.incentives"
+        <ui-checkout-form
+          [products]="vm.config.items.products"
           [orderAttributes]="vm.config.items.orderAttributes"
-        ></ui-incentives>
+        ></ui-checkout-form>
       </ui-preview>
     </ng-container>
   `,
-  providers: [DevIncentivesStore],
+  providers: [DevCheckoutFormStore],
 })
-export class DevIncentivesComponent {
+export class DevCheckoutFormComponent {
   readonly vm$ = this.store.vm$
-  constructor(private readonly store: DevIncentivesStore) {}
+  constructor(private readonly store: DevCheckoutFormStore) {}
 }
