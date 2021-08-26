@@ -508,6 +508,11 @@ export class WebDevFeatureComponent {
               route: 'category-filters',
               image: '/assets/images/product-overviews.png',
             },
+            {
+              label: 'Order Summaries',
+              route: 'order-summaries',
+              image: '/assets/images/order-summaries.png',
+            },
           ],
         },
       ],

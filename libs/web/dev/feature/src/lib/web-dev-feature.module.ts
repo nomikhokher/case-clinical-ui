@@ -346,6 +346,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         path: 'order-history',
         loadChildren: () => import('./dev-order-history/dev-order-history.module').then((m) => m.DevOrderHistoryModule),
       },
+      {
+        path: 'order-summaries',
+        loadChildren: () =>
+          import('./dev-order-summaries/dev-order-summaries.module').then((m) => m.DevOrderSummariesModule),
+      },
     ]),
     WebUiMainPageModule,
   ],

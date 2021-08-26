@@ -2097,6 +2097,28 @@
         }
       }
     },
+    "web-ui-order-summaries": {
+      "projectType": "library",
+      "root": "libs/web/ui/order-summaries",
+      "sourceRoot": "libs/web/ui/order-summaries/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/order-summaries/src/**/*.ts", "libs/web/ui/order-summaries/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/order-summaries"],
+          "options": {
+            "jestConfig": "libs/web/ui/order-summaries/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-page": {
       "projectType": "library",
       "root": "libs/web/ui/page",
