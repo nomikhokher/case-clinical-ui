@@ -408,6 +408,9 @@
     "web-ui-step": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-store-navigation": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-tab": {
       "tags": ["scope:web", "type:ui"]
     },

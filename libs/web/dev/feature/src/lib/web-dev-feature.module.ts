@@ -347,9 +347,9 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-order-history/dev-order-history.module').then((m) => m.DevOrderHistoryModule),
       },
       {
-        path: 'product-quickviews',
+        path: 'store-navigation',
         loadChildren: () =>
-          import('./dev-product-quickviews/dev-product-quickviews.module').then((m) => m.DevProductQuickviewsModule),
+          import('./dev-store-navigation/dev-store-navigation.module').then((m) => m.DevStoreNavigationModule),
       },
     ]),
     WebUiMainPageModule,
