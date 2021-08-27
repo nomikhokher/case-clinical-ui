@@ -351,6 +351,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () =>
           import('./dev-product-quickviews/dev-product-quickviews.module').then((m) => m.DevProductQuickviewsModule),
       },
+      {
+        path: 'product-features',
+        loadChildren: () =>
+          import('./dev-product-features/dev-product-features.module').then((m) => m.DevProductFeaturesModule),
+      },
     ]),
     WebUiMainPageModule,
   ],

@@ -139,5 +139,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/category-filters',
     '<rootDir>/libs/web/ui/order-history',
     '<rootDir>/libs/web/ui/product-quickviews',
+    '<rootDir>/libs/web/ui/product-features',
   ],
 }

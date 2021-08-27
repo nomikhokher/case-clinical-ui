@@ -513,6 +513,11 @@ export class WebDevFeatureComponent {
               route: 'product-quickviews',
               image: '/assets/images/product-overviews.png',
             },
+            {
+              label: 'Product Features',
+              route: 'product-features',
+              image: '/assets/images/product-features.png',
+            },
           ],
         },
       ],

@@ -110,6 +110,7 @@
       "@schema-driven/web/ui/pop-confirm": ["libs/web/ui/pop-confirm/src/index.ts"],
       "@schema-driven/web/ui/preview": ["libs/web/ui/preview/src/index.ts"],
       "@schema-driven/web/ui/pricing-plan": ["libs/web/ui/pricing-plan/src/index.ts"],
+      "@schema-driven/web/ui/product-features": ["libs/web/ui/product-features/src/index.ts"],
       "@schema-driven/web/ui/product-image-gallery": ["libs/web/ui/product-image-gallery/src/index.ts"],
       "@schema-driven/web/ui/product-list": ["libs/web/ui/product-list/src/index.ts"],
       "@schema-driven/web/ui/product-overviews": ["libs/web/ui/product-overviews/src/index.ts"],
