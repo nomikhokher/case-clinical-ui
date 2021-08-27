@@ -140,5 +140,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/order-history',
     '<rootDir>/libs/web/ui/incentives',
     '<rootDir>/libs/web/ui/checkout-form',
+    '<rootDir>/libs/web/ui/product-quickviews',
   ],
 }
