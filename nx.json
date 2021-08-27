@@ -177,6 +177,9 @@
     "web-ui-checkbox-dropdown-button": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-checkout-form": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-chips": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -250,6 +253,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-icon-button": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-incentives": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-json": {
