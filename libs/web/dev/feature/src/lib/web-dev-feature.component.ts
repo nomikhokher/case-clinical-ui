@@ -509,7 +509,6 @@ export class WebDevFeatureComponent {
               image: '/assets/images/product-overviews.png',
             },
             {
-
               label: 'incentives',
               route: 'incentives',
               image: '/assets/images/incentives.png',
