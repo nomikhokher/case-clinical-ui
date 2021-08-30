@@ -5,7 +5,6 @@ export interface Configs {
   breadcrumbs?: Crumbs[]
   items?: Item
   component_inputs?: Inputs[]
-  component_outputs?: Inputs[]
 }
 
 export interface Crumbs {
@@ -13,13 +12,27 @@ export interface Crumbs {
   path?: string
 }
 export interface Item {
-  classNames?: string
-  roundedDividers?: boolean
+  image?: string
+  user_rating?: number
+  title?: string
+  price?: number
+  variants?: Variant[]
+  btnText?: String
 }
-
 export interface Inputs {
   label?: string
   prop?: string
   description?: string
   dataType?: string
+  type?
+  typeObj?
+  typeArray?
+}
+interface Variant {
+  color?: Values[]
+  size?: Values[]
+}
+
+interface Values {
+  values?: string
 }

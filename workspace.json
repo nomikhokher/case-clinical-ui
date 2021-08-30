@@ -1199,6 +1199,28 @@
         }
       }
     },
+    "web-ui-checkout-form": {
+      "projectType": "library",
+      "root": "libs/web/ui/checkout-form",
+      "sourceRoot": "libs/web/ui/checkout-form/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/checkout-form/src/**/*.ts", "libs/web/ui/checkout-form/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/checkout-form"],
+          "options": {
+            "jestConfig": "libs/web/ui/checkout-form/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-chips": {
       "projectType": "library",
       "root": "libs/web/ui/chips",
@@ -1761,6 +1783,28 @@
         }
       }
     },
+    "web-ui-incentives": {
+      "projectType": "library",
+      "root": "libs/web/ui/incentives",
+      "sourceRoot": "libs/web/ui/incentives/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/incentives/src/**/*.ts", "libs/web/ui/incentives/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/incentives"],
+          "options": {
+            "jestConfig": "libs/web/ui/incentives/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-json": {
       "projectType": "library",
       "root": "libs/web/ui/json",
@@ -2318,6 +2362,31 @@
           "outputs": ["coverage/libs/web/ui/product-overviews"],
           "options": {
             "jestConfig": "libs/web/ui/product-overviews/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-product-quickviews": {
+      "projectType": "library",
+      "root": "libs/web/ui/product-quickviews",
+      "sourceRoot": "libs/web/ui/product-quickviews/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/product-quickviews/src/**/*.ts",
+              "libs/web/ui/product-quickviews/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/product-quickviews"],
+          "options": {
+            "jestConfig": "libs/web/ui/product-quickviews/jest.config.js",
             "passWithNoTests": true
           }
         }

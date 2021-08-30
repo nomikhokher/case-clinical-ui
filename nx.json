@@ -177,6 +177,9 @@
     "web-ui-checkbox-dropdown-button": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-checkout-form": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-chips": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -252,6 +255,9 @@
     "web-ui-icon-button": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-incentives": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-json": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -325,6 +331,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-product-overviews": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-product-quickviews": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-progress-bar": {
