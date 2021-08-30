@@ -496,7 +496,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Promo Section',
               route: 'promo-section',
-              image: '/assets/images/shopping-carts.png',
+              image: '/assets/images/promo-sections.png',
             },
             {
               label: 'Order History',
@@ -506,11 +506,10 @@ export class WebDevFeatureComponent {
             {
               label: 'Category Filters',
               route: 'category-filters',
-              image: '/assets/images/product-overviews.png',
+              image: '/assets/images/category-filters.png',
             },
             {
-
-              label: 'incentives',
+              label: 'Incentives',
               route: 'incentives',
               image: '/assets/images/incentives.png',
             },
@@ -522,7 +521,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Product Quickviews',
               route: 'product-quickviews',
-              image: '/assets/images/product-overviews.png',
+              image: '/assets/images/product-quickviews.png',
             },
           ],
         },
