@@ -142,6 +142,7 @@
       "@schema-driven/web/ui/stacked-simple": ["libs/web/ui/stacked-simple/src/index.ts"],
       "@schema-driven/web/ui/stats": ["libs/web/ui/stats/src/index.ts"],
       "@schema-driven/web/ui/step": ["libs/web/ui/step/src/index.ts"],
+      "@schema-driven/web/ui/store-navigation": ["libs/web/ui/store-navigation/src/index.ts"],
       "@schema-driven/web/ui/tab": ["libs/web/ui/tab/src/index.ts"],
       "@schema-driven/web/ui/table": ["libs/web/ui/table/src/index.ts"],
       "@schema-driven/web/ui/table-lists": ["libs/web/ui/table-lists/src/index.ts"],
