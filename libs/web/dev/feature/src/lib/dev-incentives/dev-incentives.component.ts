@@ -13,7 +13,7 @@ import { DevIncentivesStore } from './dev-incentives.store'
       >
         <ui-incentives
           [incentives]="vm.config.items.incentives"
-          [direction]="vm.config.items.direction"
+          [orderAttributes]="vm.config.items.orderAttributes"
         ></ui-incentives>
       </ui-preview>
     </ng-container>

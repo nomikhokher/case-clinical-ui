@@ -98,7 +98,6 @@ export class DevIncentivesStore extends ComponentStore<DevIncentivesState> {
             prop: '[direction]',
             description: 'Incentives layout change direction horizontal or vertical',
             dataType: 'String',
-            type: ['vertical', 'horizontal'],
           },
         ],
       },

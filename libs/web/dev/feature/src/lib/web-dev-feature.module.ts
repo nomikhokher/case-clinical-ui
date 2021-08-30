@@ -347,6 +347,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-order-history/dev-order-history.module').then((m) => m.DevOrderHistoryModule),
       },
       {
+
+        path: 'store-navigation',
+      },
+      {
         path: 'incentives',
         loadChildren: () => import('./dev-incentives/dev-incentives.module').then((m) => m.DevIncentivesModule),
       },
@@ -356,8 +360,9 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
       },
       {
         path: 'product-quickviews',
+
         loadChildren: () =>
-          import('./dev-product-quickviews/dev-product-quickviews.module').then((m) => m.DevProductQuickviewsModule),
+          import('./dev-store-navigation/dev-store-navigation.module').then((m) => m.DevStoreNavigationModule),
       },
     ]),
     WebUiMainPageModule,
