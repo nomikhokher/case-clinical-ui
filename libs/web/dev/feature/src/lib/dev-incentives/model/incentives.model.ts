@@ -10,4 +10,5 @@ export interface Input {
   description?: string
   dataType?: string
   typeArray?: any
+  type?: any
 }
