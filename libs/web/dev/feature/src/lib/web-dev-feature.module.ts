@@ -347,6 +347,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-order-history/dev-order-history.module').then((m) => m.DevOrderHistoryModule),
       },
       {
+        path: 'store-navigation',
+        loadChildren: () =>
+          import('./dev-store-navigation/dev-store-navigation.module').then((m) => m.DevStoreNavigationModule),
+      },
+      {
         path: 'incentives',
         loadChildren: () => import('./dev-incentives/dev-incentives.module').then((m) => m.DevIncentivesModule),
       },
