@@ -347,7 +347,20 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-order-history/dev-order-history.module').then((m) => m.DevOrderHistoryModule),
       },
       {
+
         path: 'store-navigation',
+      },
+      {
+        path: 'incentives',
+        loadChildren: () => import('./dev-incentives/dev-incentives.module').then((m) => m.DevIncentivesModule),
+      },
+      {
+        path: 'checkout-forms',
+        loadChildren: () => import('./dev-checkout-form/dev-checkout-form.module').then((m) => m.DevCheckoutFormModule),
+      },
+      {
+        path: 'product-quickviews',
+
         loadChildren: () =>
           import('./dev-store-navigation/dev-store-navigation.module').then((m) => m.DevStoreNavigationModule),
       },
