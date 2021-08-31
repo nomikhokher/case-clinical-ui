@@ -364,6 +364,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () =>
           import('./dev-product-quickviews/dev-product-quickviews.module').then((m) => m.DevProductQuickviewsModule),
       },
+      {
+        path: 'wildcard-pages',
+        loadChildren: () =>
+          import('./dev-wildcard-pages/dev-wildcard-pages.module').then((m) => m.DevWildcardPagesModule),
+      },
     ]),
     WebUiMainPageModule,
   ],

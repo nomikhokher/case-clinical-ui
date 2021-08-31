@@ -251,6 +251,11 @@ export class WebDevFeatureComponent {
               route: 'alerts',
               image: '/assets/images/alerts.png',
             },
+            {
+              label: 'Wildcard Pages',
+              route: 'wildcard-pages',
+              image: '/assets/images/product-overviews.png',
+            },
           ],
         },
         {
