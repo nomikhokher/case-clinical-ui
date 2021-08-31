@@ -414,6 +414,9 @@
     "web-ui-step": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-store-navigation": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-tab": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -457,6 +460,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-vertical-navigation": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-wildcard-pages": {
       "tags": ["scope:web", "type:ui"]
     }
   },

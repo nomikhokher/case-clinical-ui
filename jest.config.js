@@ -141,5 +141,7 @@ module.exports = {
     '<rootDir>/libs/web/ui/incentives',
     '<rootDir>/libs/web/ui/checkout-form',
     '<rootDir>/libs/web/ui/product-quickviews',
+    '<rootDir>/libs/web/ui/store-navigation',
+    '<rootDir>/libs/web/ui/wildcard-pages',
   ],
 }
