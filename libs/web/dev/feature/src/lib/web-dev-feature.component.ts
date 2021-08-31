@@ -530,6 +530,17 @@ export class WebDevFeatureComponent {
             },
           ],
         },
+
+        {
+          label: 'Feedback',
+          children: [
+            {
+              label: 'Wildcard Pages',
+              route: 'wildcard-pages',
+              image: '/assets/images/product-overviews.png',
+            },
+          ],
+        },
       ],
     },
   ]
