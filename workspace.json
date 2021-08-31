@@ -3345,6 +3345,28 @@
           }
         }
       }
+    },
+    "web-ui-wildcard-pages": {
+      "projectType": "library",
+      "root": "libs/web/ui/wildcard-pages",
+      "sourceRoot": "libs/web/ui/wildcard-pages/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/wildcard-pages/src/**/*.ts", "libs/web/ui/wildcard-pages/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/wildcard-pages"],
+          "options": {
+            "jestConfig": "libs/web/ui/wildcard-pages/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
