@@ -11,6 +11,7 @@ import { DevStoreNavigationStore } from './dev-store-navigation.store'
         [directory]="vm.config.directory"
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
         <ui-store-navigation
           [products]="vm.config.items.products"

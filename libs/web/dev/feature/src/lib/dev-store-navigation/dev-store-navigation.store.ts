@@ -78,7 +78,7 @@ const config: Configs = {
       },
       {
         id: 3,
-        title: 'Company',
+        title: 'PKR',
       },
       {
         id: 4,
@@ -94,40 +94,44 @@ const config: Configs = {
   },
   component_inputs: [
     {
-      label: 'Product Title',
-      prop: '[title]',
-      description: 'Display the title of product',
-      dataType: 'String',
-    },
-    {
-      label: 'Product Image',
-      prop: '[image]',
-      description: 'Adjust the product image',
-      dataType: 'String',
-    },
-    {
-      label: 'User Rating',
-      prop: '[user_rating]',
-      description: 'Display the rating of user',
-      dataType: 'Number',
-    },
-    {
-      label: 'Product Price',
-      prop: '[price]',
-      description: 'Display the price of product',
-      dataType: 'Number',
-    },
-    {
-      label: 'Button',
-      prop: '[btnText]',
-      description: 'Display buttons text in the model',
-      dataType: 'String',
-    },
-    {
-      label: 'Variants',
-      prop: '[variants]',
-      description: 'Manage variants of the model',
+      label: 'Products',
+      prop: '[products]',
+      description: 'Display products',
       dataType: 'Array',
+      typeArray: [
+        [
+          { title: 'New Arrivals' },
+          { image: 'https://tailwindui.com/img/ecommerce-images/mega-menu-01-men-category-01.jpg' },
+        ],
+        [
+          { title: 'Basic Tee' },
+          { image: 'https://tailwindui.com/img/ecommerce-images/mega-menu-01-men-category-02.jpg' },
+        ],
+        [
+          { title: 'Accessories' },
+          { image: 'https://tailwindui.com/img/ecommerce-images/mega-menu-01-men-category-03.jpg' },
+        ],
+        [{ title: 'Carry' }, { image: 'https://tailwindui.com/img/ecommerce-images/mega-menu-01-men-category-04.jpg' }],
+      ],
+    },
+    {
+      label: 'Tabs',
+      prop: '[tabs]',
+      description: 'Display menu tabs',
+      dataType: 'Array',
+      typeArray: [[{ title: 'Women' }], [{ title: 'Men' }], [{ title: 'Company' }], [{ title: 'Stores' }]],
+    },
+    {
+      label: 'Currency',
+      prop: '[currencies]',
+      description: 'Display currency items in the menu',
+      dataType: 'Array',
+      typeArray: [[{ title: 'CAD' }], [{ title: 'USD' }], [{ title: 'PKR' }], [{ title: 'EUR' }], [{ title: 'GBP' }]],
+    },
+    {
+      label: 'Button Text',
+      prop: '[btnText]',
+      description: 'Display text of button',
     },
   ],
 }
