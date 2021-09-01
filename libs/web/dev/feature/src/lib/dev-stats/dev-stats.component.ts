@@ -26,12 +26,28 @@ import { DevStatsStore } from './dev-stats.store'
 })
 export class DevStatsComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevStatsStore) {
     this.vm$.subscribe((x) => console.log(x.config.component_inputs))
   }
 
-  public codePreview = [
-    `import { WebUiStatsModule } from '@schema-driven/web/ui/stats'\n\n<ui-stats [stats]="vm.items.stats"></ui-stats>
-}`,
-  ]
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiStatsModule } from '@schema-driven/web/ui/stats'\n\n
+        <ui-stats 
+          [title]="vm.config.items.title"
+          [values]="vm.config.items.values"
+          [icon]="vm.config.items.icon"
+          [link]="vm.config.items.link"
+        ></ui-stats>\n\n
+        {
+          title: ${JSON.stringify(result.config.items.title, null, '\t')}
+          values: ${JSON.stringify(result.config.items.values, null, '\t')}
+          icon: ${JSON.stringify(result.config.items.icon, null, '\t')}
+          link: ${JSON.stringify(result.config.items.link, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }

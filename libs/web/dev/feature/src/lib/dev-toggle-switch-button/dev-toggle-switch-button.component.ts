@@ -21,22 +21,20 @@ import { DevToggleSwitchButtonStore } from './dev-toggle-switch-button.store'
 })
 export class DevToggleSwitchButtonComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevToggleSwitchButtonStore) {}
 
-  public codePreview = [
-    `import { WebUiToggleSwitchButtonModule } from '@schema-driven/web/ui/toggle-switch-button' \n\n 
-      <ui-toggle-switch-button [button]="storeToggleSwitchButton"></ui-toggle-switch-button> \n\n
-      storeToggleSwitchButton:
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiToggleSwitchButtonModule } from '@schema-driven/web/ui/toggle-switch-button' \n\n 
+        <ui-toggle-switch-button 
+          [button]="storeToggleSwitchButton"
+        ></ui-toggle-switch-button> \n\n
         {
-          id:1,
-          height:'h-5',
-          width:'w-5',
-          left:'left-full',
-          bgColor:'indigo',
-          divWidth:'w-14',
-          divHeight:'h-7',
-          onOff:true,
-        },
-      `,
-  ]
+          button: ${JSON.stringify(result.config.items.storeToggleSwitchButton, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }

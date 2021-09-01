@@ -32,37 +32,20 @@ import { DevStackedListsStore } from './dev-stacked-lists.store'
 })
 export class DevStackedListsComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevStackedListsStore) {}
 
-  public codePreview = [
-    `import { WebUiTwoColumnStackedListModule } from '@schema-driven/web/ui/two-column-stacked-list'\n\n<ui-two-column-stacked-list [twoColumnStackedList]="twoColumnStackedList"></ui-two-column-stacked-list>\n\n twoColumnStackedList = [
-      {
-        twoColumnStackedList: true,
-        id: 1,
-        name: 'Hammad Hassan',
-        email: 'hh@yahoo.com',
-        img: 'user',
-        date: 'January 7, 2020',
-        status: 'Completed phone screening',
-      },
-      {
-        twoColumnStackedList: true,
-        id: 2,
-        name: 'Hammad Hassan',
-        email: 'hh@yahoo.com',
-        img: 'user',
-        date: 'January 7, 2020',
-        status: 'Completed phone screening',
-      },
-      {
-        twoColumnStackedList: false,
-        id: 3,
-        name: 'Hammad Hassan',
-        email: 'hh@yahoo.com',
-        img: 'user',
-        date: 'January 7, 2020',
-        status: 'Completed phone screening',
-      },
-    ]`,
-  ]
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiTwoColumnStackedListModule } from '@schema-driven/web/ui/two-column-stacked-list'\n\n
+        <ui-two-column-stacked-list 
+          [twoColumnStackedList]="vm.config.items"
+        ></ui-two-column-stacked-list>\n\n
+        {
+          twoColumnStackedList: ${JSON.stringify(result.config.items, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }

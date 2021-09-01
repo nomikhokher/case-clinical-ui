@@ -21,18 +21,18 @@ import { DevVerticalNavigationStore } from './dev-vertical-navigation.store'
 })
 export class DevVerticalNavigationComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevVerticalNavigationStore) {}
-  public codePreview = [
-    `import { DevVerticalNavigationStore } from './dev-vertical-navigation.store'\n\n
-    <ui-vertical-navigation [links]="links"></ui-vertical-navigation\n
-    links = [
-      { icon: 'home', label: 'Dashboard', route: '.', badge: 5 },
-      { icon: 'users', label: 'Team', route: 'team', badge: 12 },
-      { icon: 'briefcase', route: 'team', label: 'Projects' },
-      { icon: 'calendar', route: 'calendar', label: 'Calendar' },
-      { icon: 'document', route: 'document', label: 'Document' },
-      { icon: 'report', route: 'report', label: 'Report', badge: 20 },
-    ],
-    `,
-  ]
+
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { DevVerticalNavigationStore } from './dev-vertical-navigation.store'\n\n
+        <ui-vertical-navigation [links]="links"></ui-vertical-navigation\n
+        {
+          links: ${JSON.stringify(result.items.links, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }
