@@ -26,17 +26,24 @@ import { NavbarsStore } from './navbars.store'
 })
 export class NavbarsComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: NavbarsStore) {}
-  public codePreview = [
-    `import { WebUiNavbarsModule } from '@schema-driven/web/ui/navbars'\n\n <ui-navbars [menuItems]='menuItems' [optionList]='optionList' [quickAction]='quickAction' ></ui-navbars>\n\n menuItems = [
-      {menu : "Dashboard"},
-      {menu : "Team"},
-      {menu : "Project"},
-      {menu : "Calendar"}
-    ]\n\noptionList = [
-      {item : 'Your Profile'},
-      {item : 'Setting'},
-      {item : 'Sign out'}
-    ]\n\n quickAction = "search"\n background = "indigo"`,
-  ]
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiNavbarsModule } from '@schema-driven/web/ui/navbars'\n\n 
+        <ui-navbars 
+          [menuItems]='menuItems' 
+          [optionList]='optionList' 
+          [quickAction]='quickAction' 
+        >
+        </ui-navbars>\n\n
+        {
+          menuItems: ${JSON.stringify(result.config.items.menuItems, null, '\t')}
+          optionList: ${JSON.stringify(result.config.items.optionList, null, '\t')}
+          quickAction:${JSON.stringify(result.config.items.quickAction, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }

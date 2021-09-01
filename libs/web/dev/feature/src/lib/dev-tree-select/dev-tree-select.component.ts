@@ -23,6 +23,7 @@ import { FlatNode } from './model'
 })
 export class DevTreeSelectComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevTreeSelectStore) {}
 
   public treeData: FlatNode[]
@@ -33,79 +34,16 @@ export class DevTreeSelectComponent {
       this.treeData = treeData.config.items.treeData
       this.dataSource = new ArrayDataSource(treeData.config.items.treeData)
     })
+
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiTreeSelectModule } from '@schema-driven/web/ui/tree-select'\n\n
+        <ui-tree-select [treeData]="treeData" [dataSource]="dataSource"></ui-tree-select>\n
+        dataSource = new ArrayDataSource(treeData.config.items.treeData)
+        {
+          treeData: ${JSON.stringify(result.config.items.treeData, null, '\t')}
+        }`,
+      ]
+    })
   }
-  public codePreview = [
-    `import { WebUiTreeSelectModule } from '@schema-driven/web/ui/tree-select'\n\n
-    <ui-tree-select [treeData]="treeData" [dataSource]="dataSource"></ui-tree-select>\n
-    dataSource = new ArrayDataSource(treeData.config.items.treeData)
-    treeData =  [
-      {
-        id: 0,
-        name: 'Fruit',
-        expandable: true,
-        level: 0,
-      },
-      {
-        id: 1,
-        name: 'Apple',
-        expandable: false,
-        level: 1,
-      },
-      {
-        id: 2,
-        name: 'Banana',
-        expandable: false,
-        level: 1,
-      },
-      {
-        id: 3,
-        name: 'Fruit loops',
-        expandable: false,
-        level: 1,
-      },
-      {
-        id: 4,
-        name: 'Vegetables',
-        expandable: true,
-        level: 0,
-      },
-      {
-        id: 5,
-        name: 'Green',
-        expandable: true,
-        level: 1,
-      },
-      {
-        id: 6,
-        name: 'Broccoli',
-        expandable: false,
-        level: 2,
-      },
-      {
-        id: 7,
-        name: 'Brussels sprouts',
-        expandable: false,
-        level: 2,
-      },
-      {
-        id: 8,
-        name: 'Orange',
-        expandable: true,
-        level: 1,
-      },
-      {
-        id: 9,
-        name: 'Pumpkins',
-        expandable: false,
-        level: 2,
-      },
-      {
-        id: 10,
-        name: 'Carrots',
-        expandable: false,
-        level: 2,
-      },
-    ],
-    `,
-  ]
 }

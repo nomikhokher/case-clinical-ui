@@ -21,34 +21,18 @@ import { DevStepStore } from './dev-step.store'
 })
 export class DevStepComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevStepStore) {}
 
-  public codePreview = [
-    `import { WebUiStepModule } from '@schema-driven/web/ui/step'\n\n<ui-step [stepIems]="stepIems"></ui-step>\n\n stepItems = [
-    {
-      id: 1,
-      stepActive: true,
-      stepTitle: 'Step 1',
-      stepDetails: 'Job details',
-    },
-    {
-      id: 2,
-      stepActive: false,
-      stepTitle: 'Step 2',
-      stepDetails: 'Job details',
-    },
-    {
-      id: 3,
-      stepActive: false,
-      stepTitle: 'Step 3',
-      stepDetails: 'Job details',
-    },
-    {
-      id: 4,
-      stepActive: false,
-      stepTitle: 'Step 4',
-      stepDetails: 'Job details',
-    },
-  ]`,
-  ]
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiStepModule } from '@schema-driven/web/ui/step'\n\n
+        <ui-step [stepIems]="vm.config.items.step"></ui-step>\n\n
+        {
+          stepIems: ${JSON.stringify(result.config.items.step, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }

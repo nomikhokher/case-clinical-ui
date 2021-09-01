@@ -21,10 +21,21 @@ import { DevTagTextareaStore } from './dev-tag-textarea.store'
 })
 export class DevTagTextareaComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevTagTextareaStore) {}
-  public codePreview = [
-    `import { WebUiTagTextareaModule } from '@schema-driven/web/ui/tag-textarea'\n\n<ui-tag-textarea [color]="vm.config.items.color"></ui-tag-textarea> \n\n {
-      color:'green'
-    }`,
-  ]
+
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiTagTextareaModule } from '@schema-driven/web/ui/tag-textarea'\n\n
+        <ui-tag-textarea 
+          [color]="vm.config.items.color"
+        >
+        </ui-tag-textarea> \n\n
+        {
+          color: ${JSON.stringify(result.config.items.color, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }

@@ -26,15 +26,24 @@ import { DevTooltipStore } from './dev-tooltip.store'
 })
 export class DevTooltipComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevTooltipStore) {}
-  public codePreview = [
-    `import { WebUiTooltipModule } from '@schema-driven/web/ui/tooltip'\n\n<ui-tooltip 
-    [color]="vm.config.items.color" [text]="vm.config.items.text" [position]="vm.config.items.position"></ui-tooltip> \n\n
-    {
-      text:'Top Left',
-      color:'gray',
-      position:'top-left',
-    }
-    `,
-  ]
+
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiTooltipModule } from '@schema-driven/web/ui/tooltip'\n\n
+        <ui-tooltip 
+          [color]="vm.config.items.color" 
+          [text]="vm.config.items.text" 
+          [position]="vm.config.items.position"
+        ></ui-tooltip> \n\n
+        {
+          text: ${JSON.stringify(result.config.items.text, null, '\t')}
+          color: ${JSON.stringify(result.config.items.color, null, '\t')}
+          position:${JSON.stringify(result.config.items.position, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }
