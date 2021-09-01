@@ -21,10 +21,23 @@ import { DevRepeaterStore } from './dev-repeater.store'
 })
 export class DevRepeaterComponent {
   readonly vm$ = this.store.state$
+  public codePreview
 
   constructor(private readonly store: DevRepeaterStore) {}
 
-  public codePreview = [
-    `import { WebUiFormModule } from '@schema-driven/web/ui/form'\n\n <ui-form [model]="demo.model" [fields]="demo.fields"></ui-form>`,
-  ]
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiFormModule } from '@schema-driven/web/ui/form'\n\n 
+        <ui-form 
+          [model]="demo.model" 
+          [fields]="demo.fields"
+        ></ui-form>\n\n
+        {
+          model: ${JSON.stringify(result.demo.model, null, '\t')}
+          fields: ${JSON.stringify(result.demo.fields, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }

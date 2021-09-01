@@ -23,63 +23,22 @@ import { DevShoppingCartStore } from './dev-shopping-cart.store'
 })
 export class DevShoppingCartComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevShoppingCartStore) {}
 
-  public codePreview = [
-    `import { WebUiShoppingCartModule } from '@schema-driven/web/ui/shopping-cart' \n\n 
-    <ui-shopping-cart 
-      [orderAttribute]="vm.config.items.orderAttribute"
-      [products]="vm.config.items.products"
-    ></ui-shopping-cart> \n\n
-    
-    orderAttribute: [
-      {
-        label: 'Shipping estimate',
-        value: 5.0,
-      },
-      {
-        label: 'Tax estimate',
-        value: 8.0,
-      },
-    ],
-    products: [
-      {
-        id: 1,
-        name: 'Basic Tee',
-        route: '#',
-        price: 32.0,
-        color: 'Sienna',
-        inStock: true,
-        size: 'Large',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-01.jpg',
-        imageAlt: "Front of men's Basic Tee in sienna.",
-        qty: 1,
-      },
-      {
-        id: 2,
-        name: 'Basic Tee',
-        route: '#',
-        price: 32.0,
-        color: 'Black',
-        inStock: false,
-        leadTime: '3–4 weeks',
-        size: 'Large',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-02.jpg',
-        imageAlt: "Front of men's Basic Tee in black.",
-        qty: 1,
-      },
-      {
-        id: 3,
-        name: 'Nomad Tumbler',
-        route: '#',
-        price: 35.0,
-        color: 'White',
-        inStock: true,
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-03.jpg',
-        imageAlt: 'Insulated bottle with white base and black snap lid.',
-        qty: 1,
-      },
-    ],
-  }`,
-  ]
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiShoppingCartModule } from '@schema-driven/web/ui/shopping-cart' \n\n 
+        <ui-shopping-cart 
+          [orderAttribute]="vm.config.items.orderAttribute"
+          [products]="vm.config.items.products"
+        ></ui-shopping-cart> \n\n
+        {
+          orderAttribute: ${JSON.stringify(result.config.items.orderAttribute, null, '\t')}
+          products: ${JSON.stringify(result.config.items.products, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }

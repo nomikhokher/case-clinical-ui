@@ -26,20 +26,26 @@ import { DevRatingStore } from './dev-rating.store'
 })
 export class DevRatingComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevRatingStore) {}
-  public codePreview = [
-    `import { WebUiRatingModule } from '@schema-driven/web/ui/rating'n\n
-    <ui-rating [ratingColor]="ratingColor" [icon]="icon"  [iconSize]="iconSize" [ratings]="ratings"></ui-rating>\n
-        ratingColor= 'yellow'\n
-        icon= 'ratingStar'\n
-        iconSize= 12\n
-        ratings=[
-          { amount: 1, label: 'Terrible' },
-          { amount: 2, label: 'Bad' },
-          { amount: 3, label: 'Okay' },
-          { amount: 4, label: 'Good' },
-          { amount: 5, label: 'Great' },
-        ],
-    `,
-  ]
+
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiRatingModule } from '@schema-driven/web/ui/rating'n\n
+        <ui-rating 
+          [ratingColor]="vm.config.items.ratingColor"
+          [icon]="vm.config.items.icon"
+          [iconSize]="vm.config.items.iconSize"
+          [ratings]="vm.config.items.ratings"
+        ></ui-rating>\n\n
+        {
+          ratingColor: ${JSON.stringify(result.config.items.ratingColor, null, '\t')}
+          icon: ${JSON.stringify(result.config.items.icon, null, '\t')}
+          iconSize:${JSON.stringify(result.config.items.iconSize, null, '\t')}
+          ratings:${JSON.stringify(result.config.items.ratings, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }

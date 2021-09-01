@@ -22,68 +22,20 @@ import { DevToolbarStore } from './dev-toolbar.store'
 })
 export class DevToolbarComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevToolbarStore) {}
 
-  public codePreview = [
-    `import { WebUiToolbarModule } from '@schema-driven/web/ui/toolbar' \n\n 
-      <ui-toolbar [buttons]="buttons"></ui-toolbar> \n\nbuttons=[
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiToolbarModule } from '@schema-driven/web/ui/toolbar' \n\n 
+        <ui-toolbar 
+          [buttons]="buttons"
+        ></ui-toolbar> \n\n
         {
-          icon:'scissors',
-          title:'Cut',
-        },
-        {
-          icon:'copy',
-          title:'Copy',
-        },
-        {
-          icon:'clipboard',
-          title:'Paste',
-        },
-        {
-          icon:'colorPicker',
-          title:'Color Picker',
-        },
-        {
-          icon:'alignLeft',
-          title:'Align Left',
-        },
-        {
-          icon:'alignRight',
-          title:'Align Right',
-        },
-        {
-          icon:'alignCenter',
-          title:'Align Center',
-        },
-        {
-          icon:'arrowExpand',
-          title:'Arrow Expand',
-        },
-        {
-          icon:'setting',
-          title:'Setting',
-        },
-        {
-          icon:'cursor',
-          title:'Cursor',
-        },
-        {
-          icon:'download',
-          title:'Download',
-        },
-        {
-          icon:'upload',
-          title:'Upload',
-        },
-        {
-          icon:'mail',
-          title:'Mail Box',
-        },
-        {
-          icon:'edit',
-          title:'Edit',
-        },
-      ]\n background = "gray"
-    },`,
-  ]
+          buttons: ${JSON.stringify(result.config.items.buttons, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }

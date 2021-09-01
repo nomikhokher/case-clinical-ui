@@ -27,59 +27,26 @@ import { DevTableListsStore } from './dev-table-lists.store'
 })
 export class DevTableListsComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevTableListsStore) {}
 
-  public codePreview = [
-    `import { WebUiTableListsModule } from '@schema-driven/web/ui/table-lists' \n\n 
-      <ui-table-lists [columns]="columns" [dataList]="dataList" ></ui-table-lists> \n\ncolumns=[
-        {title: 'Name'},
-        {title: 'Title'},
-        {title: 'Role'},
-        {title: ''},
-      ]\n\ndataList=[
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiTableListsModule } from '@schema-driven/web/ui/table-lists' \n\n 
+        <ui-table-lists 
+          [columns]="vm.config.items.columns"
+          [dataList]="vm.config.items.dataList"
+          [width]="vm.config.items.width"
+          [background]="vm.config.items.background"
+        ></ui-table-lists> \n\n
         {
-          title:{
-              title: 'Jane Cooper',
-              tagLine: 'jane.cooper@example.com',
-            },
-          
-          jobTitle:{
-              title: 'Regional Paradigm Technician',
-              tagLine: 'Optimization',
-            },
-        
-          role:'Admin',
-          button: 'Delete',
-        },
-        {
-          title:{
-              title: 'Cody Fisher',
-              tagLine: 'cody.fisher@example.com',
-            },
-          
-          jobTitle:{
-              title: 'Product Directives Officer',
-              tagLine: 'Intranet',
-            },
-        
-          role:'Owner',
-          button: 'Edit',
-        },
-        {
-          title:{
-              title: 'Esther Howard',
-              tagLine: 'esther.howard@example.com',
-            },
-          
-          jobTitle:{
-              title: 'Forward Response Developer',
-              tagLine: 'Directives',
-            },
-        
-          role:'Member',
-          button: 'Edit',
-        },
-      ]\n\n width = "7xl"\n background = "indigo"
-    `,
-  ]
+          columns: ${JSON.stringify(result.config.items.columns, null, '\t')}
+          dataList: ${JSON.stringify(result.config.items.dataList, null, '\t')}
+          width:${JSON.stringify(result.config.items.width, null, '\t')}
+          background:${JSON.stringify(result.config.items.background, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }
