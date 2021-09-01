@@ -27,8 +27,23 @@ import { DevTableStore } from './dev-table.store'
 })
 export class DevTableComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevTableStore) {}
-  public codePreview = [
-    `import { WebUiTableModule } from '@schema-driven/web/ui/table'\n\n<ui-table [cols]="demo.cols" [data]="demo.data"></ui-table>`,
-  ]
+
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiTableModule } from '@schema-driven/web/ui/table'\n\n
+        <ui-table 
+          [cols]="vm.config.items.cols" 
+          [data]="vm.config.items.data"
+        ></ui-table>\n\n
+        {
+          cols: ${JSON.stringify(result.config.items.cols, null, '\t')}
+          data: ${JSON.stringify(result.config.items.data, null, '\t')}
+          quickAction:${JSON.stringify(result.config.items.quickAction, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }

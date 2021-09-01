@@ -21,7 +21,14 @@ import { DevUploadStore } from './dev-upload.store'
 })
 export class DevUploadComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevUploadStore) {}
 
-  public codePreview = [`import { WebUiUploadModule } from '@schema-driven/web/ui/upload' \n\n<ui-upload ></ui-upload>`]
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiUploadModule } from '@schema-driven/web/ui/upload' \n\n<ui-upload ></ui-upload>`,
+      ]
+    })
+  }
 }
