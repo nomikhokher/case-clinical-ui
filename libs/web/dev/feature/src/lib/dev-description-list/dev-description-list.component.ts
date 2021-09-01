@@ -34,36 +34,28 @@ export class DevDescriptionListComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevDescriptionListStore) {}
 
-  public codePreview = [
-    `import { WebUiDescriptionListModule } from '@schema-driven/web/ui/description-list' \n\n <ui-feed [dataListing]="dataListing"></ui-feed> \n\ndataListing=[
-      {
-        title : "Fullname",
-        value : "Margot Foster"
-      },
-      {
-        title : "Application For",
-        value : "Backend Developer"
-      },
-      {
-        title : "Email address",
-        value : "margotfoster@example.com"
-      },
-      {
-        title : "Salary expectation",
-        value : "$120,000"
-      },
-      {
-        title : "About",
-        value : "ugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu."
-      },
-      {
-        title : "Attachments",
-        value : [
-          'resume_back_end_developer.pdf',
-          'coverletter_back_end_developer.pdf'
-        ],
-        type : 'attachment'
-      },
-  ]`,
-  ]
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiDescriptionListModule } from '@schema-driven/web/ui/description-list'
+        \n\n
+        <ui-description-list
+        [data]="vm.config.items.data"
+        [tagLine]="vm.config.items.tagLine"
+        [formTitle]="vm.config.items.formTitle"
+        [background]="vm.config.items.background"
+        [showIcon]="vm.config.items.showIcon"
+      >
+      </ui-description-list>
+      \n\n
+        data = ${JSON.stringify(result.config.items.data, null, '\t')}\n
+      tagLine = ${JSON.stringify(result.config.items.tagLine, null, '\t')}\n
+      formTitle = ${JSON.stringify(result.config.items.formTitle, null, '\t')}\n
+      background = ${JSON.stringify(result.config.items.background, null, '\t')}\n
+      showIcon = ${JSON.stringify(result.config.items.showIcon, null, '\t')}\n
+      `,
+      ]
+    })
+  }
 }

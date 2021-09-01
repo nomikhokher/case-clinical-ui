@@ -30,7 +30,25 @@ import { DevAvatarStore } from './dev-avatar.store'
 export class DevAvatarComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevAvatarStore) {}
-  public codePreview = [
-    `import { WebUiAvatarModule } from '@schema-driven/web/ui/avatar'\n\n<ui-avatar mode="img" [payload]="payload" radius="circle" [size]="14"></ui-avatar> \n\n payload ='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'`,
-  ]
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiAvatarModule } from '@schema-driven/web/ui/avatar' \n\n 
+       <ui-avatar
+       [mode]="item.mode"
+       [payload]="item.payload"
+       [radius]="item.radius"
+       [size]="item.size"
+       [badge]="item.badge"
+     ></ui-avatar> \n\n
+       
+         mode = ${JSON.stringify(result.config.items[4].mode, null, '\t')}\n
+         payload = ${JSON.stringify(result.config.items[4].payload, null, '\t')}\n
+         radius = ${JSON.stringify(result.config.items[4].radius, null, '\t')}\n
+         size = ${JSON.stringify(result.config.items[4].size, null, '\t')}\n
+         badge = ${JSON.stringify(result.config.items[4].badge, null, '\t')}\n`,
+      ]
+    })
+  }
 }

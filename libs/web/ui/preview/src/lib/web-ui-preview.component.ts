@@ -88,7 +88,7 @@ export interface ComponentProp {
               <div class="hidden sm:block">
                 <nav class="flex space-x-2  " aria-label="Tabs">
                   <button
-                    (click)="handleTabClick(DISPLAY_MODE.Preview)"
+                    (click)="handleTabClick(DISPLAY_MODE.Preview); codePreviewToggler = true"
                     class=" flex items-center px-3 py-2 font-medium text-sm rounded-md"
                     [class.theme-bg-50]="DISPLAY_MODE.Preview === activeTab"
                     [class.theme-color-700]="DISPLAY_MODE.Preview === activeTab"
@@ -104,7 +104,7 @@ export interface ComponentProp {
                     Preview
                   </button>
                   <button
-                    (click)="handleTabClick(DISPLAY_MODE.Code)"
+                    (click)="handleTabClick(DISPLAY_MODE.Code); codePreviewToggler = false"
                     class="flex items-center px-3 py-2 font-medium text-sm rounded-md"
                     [class.theme-bg-50]="DISPLAY_MODE.Code === activeTab"
                     [class.theme-color-700]="DISPLAY_MODE.Code === activeTab"
@@ -500,6 +500,7 @@ export class WebUiPreviewComponent implements OnInit {
   firstBody = true
   secondBody = false
   thirdBody = false
+  codePreviewToggler = true
 
   public isResizing = false
   public lastDownX = 0
@@ -523,18 +524,20 @@ export class WebUiPreviewComponent implements OnInit {
   }
   ngAfterViewInit() {
     document.addEventListener('mousemove', (e) => {
-      this.current_container_width = this.container.nativeElement.offsetWidth - this.dragger.nativeElement.offsetWidth
-      this.current_container_height = this.container.nativeElement.offsetHeight
-      if (!this.isResizing) {
-        return
-      }
-      if (this.containerWidth === null) {
-        this.containerWidth = this.container.nativeElement.offsetWidth - this.dragger.nativeElement.offsetWidth
-      }
-      let change = this.draggerDownX - e.clientX
-      if (change > 0 && change < this.containerWidth - 300) {
-        this.dragger.nativeElement.style.right = change.toString() + 'px'
-        this.container.nativeElement.style.width = (this.containerWidth - change).toString() + 'px'
+      if (this.codePreviewToggler == true) {
+        this.current_container_width = this.container.nativeElement.offsetWidth - this.dragger.nativeElement.offsetWidth
+        this.current_container_height = this.container.nativeElement.offsetHeight
+        if (!this.isResizing) {
+          return
+        }
+        if (this.containerWidth === null) {
+          this.containerWidth = this.container.nativeElement.offsetWidth - this.dragger.nativeElement.offsetWidth
+        }
+        let change = this.draggerDownX - e.clientX
+        if (change > 0 && change < this.containerWidth - 300) {
+          this.dragger.nativeElement.style.right = change.toString() + 'px'
+          this.container.nativeElement.style.width = (this.containerWidth - change).toString() + 'px'
+        }
       }
     })
     document.addEventListener('mouseup', () => {
