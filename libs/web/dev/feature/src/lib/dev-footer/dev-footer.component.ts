@@ -28,77 +28,27 @@ import { DevFooterStore } from './dev-footer.store'
 export class DevFooterComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevFooterStore) {}
-
-  public codePreview = [
-    `import { WebUiFeedModule } from '@schema-driven/web/ui/feed' \n\n 
-    <ui-feed 
-      [bgColor]="vm.config.items.bgColor"
-      [textColor]="vm.config.items.textColor"
-      [lists]="vm.config.items.lists"
-      [rights]="vm.config.items.rights"
-      [icons]="vm.config.items.icons"
-    >
-    </ui-feed> \n\n
-    bgColor: 'yellow',
-    textColor: 'gray',
-    {
-      lists:[
-        {
-          heading:'SOLUTIONS',
-          items:[
-            {title:'Marketing'},
-            {title:'Analytics'},
-            {title:'Commerce'},
-            {title:'Insights'},
-          ]
-        },
-        {
-          heading:'SUPPORT',
-          items:[
-            {title:'Pricing'},
-            {title:'Documentation'},
-            {title:'Guides'},
-            {title:'API Status'},
-          ]
-        },
-        {
-          heading:'COMPANY',
-          items:[
-            {title:'About'},
-            {title:'Blog'},
-            {title:'Jobs'},
-            {title:'Press'},
-            {title:'Partners'},
-          ]
-        },
-        {
-          heading:'LEGAL',
-          items:[
-            {title:'Claim'},
-            {title:'Privacy'},
-            {title:'Terms'},
-          ]
-        },
-      ],
-      rights:'© 2020 Workflow, Inc. All rights reserved.',
-      icons:[
-        {
-          svg:'github'
-        },
-        {
-          svg:'facebook'
-        },
-        {
-          svg:'twitter'
-        },
-        {
-          svg:'instagram'
-        },
-        {
-          svg:'dribble'
-        },
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiFooterModule } from '@schema-driven/web/ui/footer'
+        \n\n
+        <ui-footer
+        [bgColor]="vm.config.items.bgColor"
+        [textColor]="vm.config.items.textColor"
+        [lists]="vm.config.items.lists"
+        [rights]="vm.config.items.rights"
+        [icons]="vm.config.items.icons"
+      ></ui-footer>
+     \n\n
+        bgColor = ${JSON.stringify(result.config.items.bgColor, null, '\t')}\n
+      textColor = ${JSON.stringify(result.config.items.textColor, null, '\t')}\n
+      lists = ${JSON.stringify(result.config.items.lists, null, '\t')}\n
+      rights = ${JSON.stringify(result.config.items.rights, null, '\t')}\n
+      icons = ${JSON.stringify(result.config.items.icons, null, '\t')}\n
+      `,
       ]
-    }
-  `,
-  ]
+    })
+  }
 }

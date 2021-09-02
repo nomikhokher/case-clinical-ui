@@ -27,12 +27,17 @@ export class DevDropdownComponent {
   readonly vm$ = this.store.vm$
   public heading: boolean = true
   constructor(private readonly store: DevDropdownStore) {}
-  public codePreview = [
-    `import { WebUiDropdownModule } from '@schema-driven/web/ui/dropdown'\n\n
-    <ui-dropdown direction="right" [items]="vm.config.items.data"></ui-dropdown>\n\nreadonly vm$ = this.store.vm$`,
-    `import { WebUiDropdownModule } from '@schema-driven/web/ui/dropdown'\n\n
-    <ui-dropdown direction="left" icon="heroicon" [items]="vm.config.items.data"></ui-dropdown>\n\nreadonly vm$ = this.store.vm$`,
-    `import { WebUiDropdownModule } from '@schema-driven/web/ui/dropdown'\n\n
-    <ui-dropdown direction="left" [heading]="heading" [items]="vm.config.items.data"></ui-dropdown>\n\npublic heading: boolean = true\n\nreadonly vm$ = this.store.vm$`,
-  ]
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiDropdownModule } from '@schema-driven/web/ui/dropdown'
+        \n\n
+        <ui-dropdown [heading]="vm.config.items.heading" [items]="vm.config.items.data"></ui-dropdown> \n\n
+        heading = ${JSON.stringify(result.config.items.heading, null, '\t')}\n
+      data = ${JSON.stringify(result.config.items.data, null, '\t')}\n
+      `,
+      ]
+    })
+  }
 }
