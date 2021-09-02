@@ -28,33 +28,27 @@ import { DevBannersStore } from './dev-banners.store'
 export class DevBannersComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevBannersStore) {}
-
-  public codePreview = [
-    `import { WebUiBannersModule } from '@schema-driven/web/ui/banners'
-    \n\n
-    <ui-banners
-    [text]="vm.config.items.text"
-    [bgColor]="vm.config.items.bgColor"
-    [icon]="vm.config.items.icon"
-    [position]="vm.config.items.position"
-    [buttons]="vm.config.items.buttons"
-  ></ui-banners> \n\n
-    text:"Big news! We're excited to announce a brand new product.",
-    bgColor: 'indigo',
-    icon: 'speakerphone',
-    position: '', // position = top/bottom
-    buttons: [
-      {
-        text:'Learn More',
-        bgColor:'red',
-        textColor:'white',
-      },
-      {
-        text:'Get Started',
-        bgColor:'yellow',
-        textColor:'white',
-      },
-    ],
-  `,
-  ]
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiBannersModule } from '@schema-driven/web/ui/banners'
+        \n\n
+        <ui-banners
+        [text]="vm.config.items.text"
+        [bgColor]="vm.config.items.bgColor"
+        [icon]="vm.config.items.icon"
+        [position]="vm.config.items.position"
+        [buttons]="vm.config.items.buttons"
+      ></ui-banners> \n\n
+      text = ${JSON.stringify(result.config.items.text, null, '\t')}\n
+      icon = ${JSON.stringify(result.config.items.icon, null, '\t')}\n
+      bgColor = ${JSON.stringify(result.config.items.bgColor, null, '\t')}\n
+      position = ${JSON.stringify(result.config.items.position, null, '\t')}\n
+      buttons = ${JSON.stringify(result.config.items.buttons, null, '\t')}\n
+       
+      `,
+      ]
+    })
+  }
 }

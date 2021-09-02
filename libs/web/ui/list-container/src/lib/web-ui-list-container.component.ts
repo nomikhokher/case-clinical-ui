@@ -3,16 +3,11 @@ import { Component, Input } from '@angular/core'
 @Component({
   selector: 'ui-list-container',
   template: `
-    <ng-container *ngIf="roundedDividers">
-      <div class="bg-white shadow overflow-hidden sm:rounded-md">
+    <ng-container>
+      <div class="bg-white shadow-md overflow-hidden" [ngClass]="{ 'rounded-lg': roundedDividers }">
         <div class="divide-y divide-gray-200" [ngClass]="classNames && classNames">
-          <ng-content select=".roundedDividersNot"></ng-content>
+          <ng-content select=".content"></ng-content>
         </div>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="!roundedDividers">
-      <div class="divide-y divide-gray-200" [ngClass]="classNames && classNames">
-        <ng-content select=".roundedDividers"></ng-content>
       </div>
     </ng-container>
   `,

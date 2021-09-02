@@ -43,13 +43,28 @@ export class DevPageHeadingsComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevPageHeadingsStore) {}
 
-  public codePreview = [
-    `import { WebUiPageHeadingsModule } from '@schema-driven/web/ui/page-headings' \n\n
-    <ui-page-header
-    [title]="vm.items.config.title"
-    [meta]="vm.items.config.meta"
-    [controlsTemplate]="vm.items.headerControls"
-  ></ui-page-header>
-  `,
-  ]
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiPageHeadingsModule } from '@schema-driven/web/ui/page-headings' \n\n 
+      
+        <ng-template #headerControls>
+          <ng-container>
+            <ui-button label="Gray" type="button" color="gray"></ui-button>
+          </ng-container>
+        </ng-template>
+        <div class="bg-white rounded-xl px-8 dark:bg-gray-700 shadow">
+          <ui-page-header
+            [title]="vm.items.config.title"
+            [meta]="vm.items.config.meta"
+          ></ui-page-header>
+        </div> \n\n
+      
+        title = ${JSON.stringify(result.items.config.title, null, '\t')}\n
+        meta = ${JSON.stringify(result.items.config.meta, null, '\t')}\n
+        `,
+      ]
+    })
+  }
 }
