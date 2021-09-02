@@ -32,15 +32,20 @@ import { DevProgressButtonStore } from './dev-progress-button.store'
 })
 export class DevProgressButtonComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevProgressButtonStore) {}
 
-  public codePreview = [
-    `import { WebUiProgressButtonModule } from '@schema-driven/web/ui/progress-button' \n\n 
-    <ui-progress-button 
-    [text]="Spin Right"
-    [color]="green"
-    [position]="right"
-    [icon]="spinners"></ui-progress-button>
-  `,
-  ]
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiProgressButtonModule } from '@schema-driven/web/ui/progress-button' \n\n 
+        <ui-progress-button 
+          [buttons]="vm.config.items.buttons">
+        </ui-progress-button>\n\n
+        {
+          buttons: ${JSON.stringify(result.config.items.buttons, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }
