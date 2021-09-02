@@ -28,7 +28,6 @@ import { DevNotificationStore } from './dev-notification.store'
             [timeInSec]="vm.config.items[0].timeInSec"
             [avatarImg]="vm.config.items[0].avatarImg"
             [background]="vm.config.items[0].background"
-            [leftSectionButton]="vm.config.items[0].leftSectionButton"
             [bottomSectionButton]="vm.config.items[0].bottomSectionButton"
             (closeValue)="closeAction($event)"
           ></ui-notification>
@@ -47,23 +46,40 @@ export class DevNotificationComponent {
 
   constructor(private readonly store: DevNotificationStore) {}
 
-  public codePreview = [
-    `import { WebUiNotificationModule } from '@schema-driven/web/ui/notification'\n\n
-import { WebUiNotificationImageModule } from '@schema-driven/web/ui/notification-image'\n\n
-import { WebUiButtonModule } from '@schema-driven/web/ui/button\n\n'<ui-button color="indigo" [label]="'click'" (click)="showFn()"></ui-button>
-  <ui-notification
-    [name]="'Successfully saved!'"
-    [title]="'Anyone with a link can now view this file.'"
-    [closeBtn]="true"
-    [show]="show"
-    (closeValue)="closeAction($event)"
-  ></ui-notification>`,
-    ,
-  ]
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiNotificationImageModule } from '@schema-driven/web/ui/notification-image'' \n\n 
+        <ui-notification
+        [icon]="vm.config.items[0].icon"
+        [name]="vm.config.items[0].name"
+        [title]="vm.config.items[0].title"
+        [closeBtn]="vm.config.items[0].closeBtn"
+        [show]="show"
+        [timeInSec]="vm.config.items[0].timeInSec"
+        [avatarImg]="vm.config.items[0].avatarImg"
+        [background]="vm.config.items[0].background"
+        [bottomSectionButton]="vm.config.items[0].bottomSectionButton"
+        (closeValue)="closeAction($event)"
+      ></ui-notification> \n\n
+      
+        icon = ${JSON.stringify(result.config.items[0].icon, null, '\t')}\n
+        name = ${JSON.stringify(result.config.items[0].name, null, '\t')}\n
+        title = ${JSON.stringify(result.config.items[0].title, null, '\t')}\n
+        closeBtn = ${JSON.stringify(result.config.items[0].closeBtn, null, '\t')}\n
+        show = ${JSON.stringify(result.config.items[0].show, null, '\t')}\n
+        timeInSec = ${JSON.stringify(result.config.items[0].timeInSec, null, '\t')}\n
+        avatarImg = ${JSON.stringify(result.config.items[0].avatarImg, null, '\t')}\n
+        background = ${JSON.stringify(result.config.items[0].background, null, '\t')}\n
+        bottomSectionButton = ${JSON.stringify(result.config.items[0].bottomSectionButton, null, '\t')}\n
+        `,
+      ]
+    })
+  }
   showFn() {
     this.show = true
     this.vm$.subscribe((x: any) => {
-      console.log(x)
       this.setTime = x.config.items[0].timeInSec
     })
     if (!this.subTimeout) {

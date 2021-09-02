@@ -31,13 +31,26 @@ export class DevColorPickerComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevColorPickerStore) {}
 
-  public codePreview = [
-    `import { WebUiColorPickerModule } from '@schema-driven/web/ui/color-picker' \n\n 
-    <ui-color-picker [userColors]="userColors" [userVariants]="userVariants" [hideInput]="true" ['position']="right"></ui-color-picker> \n\n
-    
-    userColors= ['gray', 'red', 'yellow', 'green', 'blue', 'indigo', 'pink']\n\n
-    
-    userVariants=[50, 100, 200]
-  `,
-  ]
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiColorPickerModule } from '@schema-driven/web/ui/color-picker'
+        \n\n
+        <ui-color-picker
+          [position]="vm.config.items.position"
+          [hideInput]="vm.config.items.hideInput"
+          [userColors]="vm.config.items.userColors"
+          [userVariants]="vm.config.items.userVariants"
+        >
+        </ui-color-picker>
+   \n\n
+        position = ${JSON.stringify(result.config.items.position, null, '\t')}\n
+      hideInput = ${JSON.stringify(result.config.items.hideInput, null, '\t')}\n
+      userColors = ${JSON.stringify(result.config.items.userColors, null, '\t')}\n
+      userVariants = ${JSON.stringify(result.config.items.userVariants, null, '\t')}\n
+      `,
+      ]
+    })
+  }
 }

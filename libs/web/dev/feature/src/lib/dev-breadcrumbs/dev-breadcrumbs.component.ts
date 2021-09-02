@@ -24,7 +24,17 @@ import { DevBreadcrumbsStore } from './dev-breadcrumbs.store'
 export class DevBreadcrumbsComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevBreadcrumbsStore) {}
-  public codePreview = [
-    `import { WebUiBreadcrumbsModule } from '@schema-driven/web/ui/breadcrumbs'\n\n<ui-breadcrumbs [crumbs]="vm.crumbs"></ui-breadcrumbs>\n\n readonly vm$ = this.store.vm$`,
-  ]
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiBreadcrumbsModule } from '@schema-driven/web/ui/breadcrumbs'
+        \n\n
+        <ui-breadcrumbs [crumbs]="vm.config.items.crumbs" [alignment]="vm.config.items.alignment"></ui-breadcrumbs> \n\n
+      crumbs = ${JSON.stringify(result.config.items.crumbs, null, '\t')}\n
+      alignment = ${JSON.stringify(result.config.items.alignment, null, '\t')}\n
+      `,
+      ]
+    })
+  }
 }
