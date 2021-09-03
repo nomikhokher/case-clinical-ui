@@ -26,15 +26,25 @@ import { DevRangeSliderStore } from './dev-range-slider.store'
 })
 export class DevRangeSliderComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
+
   constructor(private readonly store: DevRangeSliderStore) {}
 
-  public codePreview = [
-    `import { WebUiRangeSliderModule } from '@schema-driven/web/ui/range-slider' \n\n 
-    <ui-range-slider 
-    [minprice]="100"
-    [maxprice]="1000"
-    [difference]="50" >
-    </ui-range-slider>
-  `,
-  ]
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiRangeSliderModule } from '@schema-driven/web/ui/range-slider' \n\n 
+        <ui-range-slider 
+          [minprice]="100"
+          [maxprice]="1000"
+          [difference]="50" >
+        </ui-range-slider>\n\n
+        {
+          minprice: ${JSON.stringify(result.config.items.minprice, null, '\t')}
+          maxprice:${JSON.stringify(result.config.items.maxprice, null, '\t')}
+          difference:${JSON.stringify(result.config.items.difference, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }
