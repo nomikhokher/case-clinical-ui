@@ -44,13 +44,13 @@ import { Component, Input } from '@angular/core'
         -->
         <div
           [ngClass]="openMenu == true ? 'translate-x-0' : '-translate-x-full'"
-          class="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto transition ease-in-out duration-300 transform"
+          class="relative max-w-xs w-full bg-white dark:bg-gray-800 shadow-xl pb-12 flex flex-col overflow-y-auto transition ease-in-out duration-300 transform"
         >
           <div class="px-4 pt-5 pb-2 flex">
             <button
               (click)="openMenu = false"
               type="button"
-              class="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+              class="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400 dark:text-gray-200"
             >
               <span class="sr-only">Close menu</span>
               <!-- Heroicon name: outline/x -->
@@ -71,13 +71,13 @@ import { Component, Input } from '@angular/core'
           <div class="mt-2">
             <div class="border-b border-gray-200">
               <div class="-mb-px flex px-4 space-x-8" aria-orientation="horizontal" role="tablist">
-                <!-- Selected: "text-indigo-600 border-indigo-600", Not Selected: "text-gray-900 border-transparent" -->
+                <!-- Selected: "text-indigo-600 border-indigo-600", Not Selected: "text-gray-900 dark:text-gray-100 border-transparent" -->
                 <ng-container *ngFor="let tab of tabs; let i = index">
                   <button
                     (click)="getProducts(tab.id)"
                     *ngIf="i < 2"
                     [ngClass]="tab.id == selectedTab ? 'border-indigo-600 text-indigo-600' : 'border-transparent '"
-                    class="flex-1 whitespace-nowrap py-4 px-1 border-b-2 focus:outline-none text-base font-medium"
+                    class="flex-1 text-gray-200 whitespace-nowrap py-4 px-1 border-b-2 focus:outline-none text-base font-medium"
                     aria-controls="tabs-1-panel-1"
                     role="tab"
                     type="button"
@@ -106,11 +106,14 @@ import { Component, Input } from '@angular/core'
                         class="object-center object-cover"
                       />
                     </div>
-                    <a href="javascript:void(0)" class="mt-6 block text-sm font-medium text-gray-900">
+                    <a
+                      href="javascript:void(0)"
+                      class="mt-6 block text-sm font-medium text-gray-900 dark:text-gray-100"
+                    >
                       <span class="absolute z-10 inset-0" aria-hidden="true"></span>
                       {{ product.title }}
                     </a>
-                    <p aria-hidden="true" class="mt-1 text-sm text-gray-500">{{ btnText }}</p>
+                    <p aria-hidden="true" class="mt-1 text-sm text-gray-500 dark:text-gray-300">{{ btnText }}</p>
                   </div>
                 </ng-container>
               </div>
@@ -118,20 +121,20 @@ import { Component, Input } from '@angular/core'
           </div>
           <div class="border-t border-gray-200 py-6 px-4 space-y-6">
             <div class="flow-root">
-              <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Company</a>
+              <a href="#" class="-m-2 p-2 block font-medium text-gray-900 dark:text-gray-100">Company</a>
             </div>
 
             <div class="flow-root">
-              <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Stores</a>
+              <a href="#" class="-m-2 p-2 block font-medium text-gray-900 dark:text-gray-100">Stores</a>
             </div>
           </div>
 
           <div class="border-t border-gray-200 py-6 px-4 space-y-6">
             <div class="flow-root">
-              <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Create an account</a>
+              <a href="#" class="-m-2 p-2 block font-medium text-gray-900 dark:text-gray-100">Create an account</a>
             </div>
             <div class="flow-root">
-              <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Sign in</a>
+              <a href="#" class="-m-2 p-2 block font-medium text-gray-900 dark:text-gray-100">Sign in</a>
             </div>
           </div>
 
@@ -156,7 +159,7 @@ import { Component, Input } from '@angular/core'
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 20 20"
-                      class="w-5 h-5 text-gray-500"
+                      class="w-5 h-5 text-gray-500 dark:text-gray-300"
                     >
                       <path
                         stroke="currentColor"
@@ -178,7 +181,9 @@ import { Component, Input } from '@angular/core'
         <nav aria-label="Top">
           <!-- Top navigation -->
           <div class="bg-gray-900">
-            <div class="max-w-7xl mx-auto h-10 px-4 flex items-center justify-between sm:px-6 lg:px-8">
+            <div
+              class="max-w-7xl dark:text-gray-300 mx-auto h-10 px-4 flex items-center justify-between sm:px-6 lg:px-8"
+            >
               <!-- Currency selector -->
               <form>
                 <div>
@@ -222,7 +227,7 @@ import { Component, Input } from '@angular/core'
           </div>
 
           <!-- Secondary navigation -->
-          <div class="bg-white">
+          <div class="bg-white dark:bg-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div class="border-b border-gray-200">
                 <div class="h-16 flex items-center justify-between">
@@ -247,7 +252,7 @@ import { Component, Input } from '@angular/core'
                               <button
                                 (click)="getProducts(tab.id)"
                                 type="button"
-                                class="hover:text-gray-800 relative z-10 flex items-center focus:outline-none transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px"
+                                class="hover:text-gray-800 dark:text-gray-100 relative z-10 flex items-center focus:outline-none transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px"
                                 [ngClass]="
                                   tab.id == selectedTab ? 'border-indigo-600 text-indigo-600' : 'border-transparent '
                                 "
@@ -256,15 +261,19 @@ import { Component, Input } from '@angular/core'
                                 {{ tab.title }}
                               </button>
                             </div>
-                            <div class="absolute top-full inset-x-0 text-sm text-gray-500">
+                            <div class="absolute top-full inset-x-0 text-sm text-gray-500 dark:text-gray-300">
                               <div class="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true"></div>
-                              <div class="relative bg-white">
+                              <div class="relative bg-white dark:bg-gray-800 z-10">
                                 <div class="max-w-7xl mx-auto px-8">
-                                  <div class="grid grid-cols-4 gap-y-10 gap-x-8 py-16">
+                                  <div class="grid grid-cols-4 gap-y-10 gap-x-8">
                                     <ng-container *ngFor="let product of products">
-                                      <div class="group relative" *ngIf="selectedTab == product.tab_id">
+                                      <div
+                                        class="group relative"
+                                        *ngIf="selectedTab == product.tab_id"
+                                        [ngClass]="selectedTab == product.tab_id ? 'py-16' : ''"
+                                      >
                                         <div
-                                          class="aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden group-hover:opacity-75"
+                                          class="aspect-w-1 aspect-h-1 rounded-md bg-gray-100 dark:bg-gray-800 overflow-hidden group-hover:opacity-75"
                                         >
                                           <img
                                             src="{{ product.image }}"
@@ -272,7 +281,7 @@ import { Component, Input } from '@angular/core'
                                             class="object-center object-cover"
                                           />
                                         </div>
-                                        <a href="#" class="mt-4 block font-medium text-gray-900">
+                                        <a href="#" class="mt-4 block font-medium text-gray-900 dark:text-gray-100">
                                           <span class="absolute z-10 inset-0" aria-hidden="true"></span>
                                           {{ product.title }}
                                         </a>
@@ -291,7 +300,11 @@ import { Component, Input } from '@angular/core'
                   <!-- Mobile menu and search (lg-) -->
                   <div class="flex-1 flex items-center lg:hidden">
                     <!-- Mobile menu toggle, controls the 'mobileMenuOpen' state. -->
-                    <button (click)="openMenu = true" type="button" class="-ml-2 bg-white p-2 rounded-md text-gray-400">
+                    <button
+                      (click)="openMenu = true"
+                      type="button"
+                      class="-ml-2 bg-white dark:bg-gray-800 p-2 rounded-md text-gray-400 dark:text-gray-200"
+                    >
                       <span class="sr-only">Open menuhdfjdfj</span>
                       <!-- Heroicon name: outline/menu -->
                       <svg
@@ -312,7 +325,7 @@ import { Component, Input } from '@angular/core'
                     </button>
 
                     <!-- Search -->
-                    <a href="#" class="ml-2 p-2 text-gray-400 hover:text-gray-500">
+                    <a href="#" class="ml-2 p-2 text-gray-400 dark:text-gray-200 hover:text-gray-500 ">
                       <span class="sr-only">Search</span>
                       <!-- Heroicon name: outline/search -->
                       <svg
@@ -344,13 +357,16 @@ import { Component, Input } from '@angular/core'
                   </a>
 
                   <div class="flex-1 flex items-center justify-end">
-                    <a href="#" class="hidden text-sm font-medium text-gray-700 hover:text-gray-800 lg:block">
+                    <a
+                      href="#"
+                      class="hidden text-sm font-medium text-gray-700 dark:text-gray-400 hover:text-gray-800 lg:block"
+                    >
                       Search
                     </a>
 
                     <div class="flex items-center lg:ml-8">
                       <!-- Help -->
-                      <a href="#" class="p-2 text-gray-400 hover:text-gray-500 lg:hidden">
+                      <a href="#" class="p-2 text-gray-400 dark:text-gray-200 hover:text-gray-500 lg:hidden">
                         <span class="sr-only">Help</span>
                         <!-- Heroicon name: outline/question-mark-circle -->
                         <svg
@@ -369,14 +385,18 @@ import { Component, Input } from '@angular/core'
                           />
                         </svg>
                       </a>
-                      <a href="#" class="hidden text-sm font-medium text-gray-700 hover:text-gray-800 lg:block">Help</a>
+                      <a
+                        href="#"
+                        class="hidden text-sm font-medium text-gray-700 dark:text-gray-400 hover:text-gray-800 lg:block"
+                        >Help</a
+                      >
 
                       <!-- Cart -->
                       <div class="ml-4 flow-root lg:ml-8">
                         <a href="#" class="group -m-2 p-2 flex items-center">
                           <!-- Heroicon name: outline/shopping-bag -->
                           <svg
-                            class="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                            class="flex-shrink-0 h-6 w-6 text-gray-400 dark:text-gray-200 group-hover:text-gray-500"
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"

@@ -11,7 +11,7 @@ import { DevProgressBarStore } from './dev-progress-bar.store'
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_outputs]="vm.config.component_outputs"
         [component_inputs]="vm.config.component_inputs"
-        [code]="codePreviwe[0]"
+        [code]="codePreview[0]"
       >
         <ui-progress-bar> </ui-progress-bar>
       </ui-preview>
@@ -21,10 +21,15 @@ import { DevProgressBarStore } from './dev-progress-bar.store'
 })
 export class DevProgressBarComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevProgressBarStore) {}
-  public codePreviwe = [
-    `import { WebUiProgressBarModule } from '@schema-driven/web/ui/progress-bar'\n\n
-    <ui-progress-bar> </ui-progress-bar>\n  
-    `,
-  ]
+
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiProgressBarModule } from '@schema-driven/web/ui/progress-bar'\n\n
+        <ui-progress-bar> </ui-progress-bar>`,
+      ]
+    })
+  }
 }

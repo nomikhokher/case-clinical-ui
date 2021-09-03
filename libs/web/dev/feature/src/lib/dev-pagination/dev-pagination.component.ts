@@ -23,10 +23,17 @@ import { DevPaginationStore } from './dev-pagination.store'
 export class DevPaginationComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevPaginationStore) {}
-  public codePreview = [
-    `import { WebUiPaginationModule } from '@schema-driven/web/ui/pagination'\n\n<ui-pagination [pages]="pages" [isPages]="isPages" [isPageSpan]="isPageSpan" [direction]="direction">
-    </ui-pagination>\n\n direction = 'right' \n\n pages = 50 \n\n difference = 7`,
-  ]
-  public pages = 50
-  public difference = 7
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiPaginationModule } from '@schema-driven/web/ui/pagination'\n\n 
+        <ui-pagination [pages]="vm.config.items.pages" [difference]="vm.config.items.difference"> </ui-pagination> \n\n
+      
+        pages = ${JSON.stringify(result.config.items.pages, null, '\t')}\n
+        differnce = ${JSON.stringify(result.config.items.difference, null, '\t')}\n
+        `,
+      ]
+    })
+  }
 }

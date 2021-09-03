@@ -29,20 +29,24 @@ import { DevSignInAndRegistrationStore } from './dev-sign-in-and-registration.st
 })
 export class DevSignInAndRegistrationComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevSignInAndRegistrationStore) {}
-  public codePreview = [
-    `import { WebUiSignInAndRegistrationModule } from '@schema-driven/web/ui/sign-in-and-registration' \n\n 
-    <ui-sign-in-and-registration
-      [title]="vm.config.items.title"
-      [image]="vm.config.items.image"
-      [icons]="vm.config.items.icons"
-  ></ui-sign-in-and-registration> \n\n
-  {
-    title: 'Registration Form',
-    image:
-      'https://images.unsplash.com/photo-1501031170107-cfd33f0cbdcc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&h=256&q=80',
-    icons: [{ icon: 'github' }, { icon: 'email' }],
+
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiSignInAndRegistrationModule } from '@schema-driven/web/ui/sign-in-and-registration' \n\n 
+        <ui-sign-in-and-registration
+          [title]="vm.config.items.title"
+          [image]="vm.config.items.image"
+          [icons]="vm.config.items.icons"
+      ></ui-sign-in-and-registration> \n\n
+        {
+          title: ${JSON.stringify(result.config.items.title, null, '\t')}
+          image: ${JSON.stringify(result.config.items.image, null, '\t')}
+          icons:${JSON.stringify(result.config.items.icons, null, '\t')}
+        }`,
+      ]
+    })
   }
-  `,
-  ]
 }

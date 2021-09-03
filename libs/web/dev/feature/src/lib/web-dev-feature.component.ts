@@ -251,6 +251,11 @@ export class WebDevFeatureComponent {
               route: 'alerts',
               image: '/assets/images/alerts.png',
             },
+            {
+              label: 'Wildcard Pages',
+              route: 'wildcard-pages',
+              image: '/assets/images/product-overviews.png',
+            },
           ],
         },
         {
@@ -509,7 +514,6 @@ export class WebDevFeatureComponent {
               image: '/assets/images/product-overviews.png',
             },
             {
-
               label: 'incentives',
               route: 'incentives',
               image: '/assets/images/incentives.png',
@@ -527,17 +531,6 @@ export class WebDevFeatureComponent {
             {
               label: 'Store Navigation',
               route: 'store-navigation',
-              image: '/assets/images/product-overviews.png',
-            },
-          ],
-        },
-
-        {
-          label: 'Feedback',
-          children: [
-            {
-              label: 'Wildcard Pages',
-              route: 'wildcard-pages',
               image: '/assets/images/product-overviews.png',
             },
           ],

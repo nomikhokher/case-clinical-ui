@@ -24,16 +24,16 @@ export class DevChipsComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevChipsStore) {}
 
-  public codePreview = [
-    `import { WebUiChipsModule } from '@schema-driven/web/ui/chips' \n\n 
-      <ui-chips [chips]="chips"></ui-chips> \n\nchips=[
-        {
-          text:'hello!',
-          bgColor:'bg-gray-100',
-          textColor:'text-gray-700',
-          hoverColor:'bg-gray-200',
-        },
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiChipsModule } from '@schema-driven/web/ui/chips'
+        \n\n
+        <ui-chips [chips]="vm.config.items"></ui-chips> \n\n
+        chips = ${JSON.stringify(result.config.items[6], null, '\t')}\n
+      `,
       ]
-    },`,
-  ]
+    })
+  }
 }

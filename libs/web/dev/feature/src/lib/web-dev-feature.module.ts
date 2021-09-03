@@ -347,8 +347,9 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-order-history/dev-order-history.module').then((m) => m.DevOrderHistoryModule),
       },
       {
-
         path: 'store-navigation',
+        loadChildren: () =>
+          import('./dev-store-navigation/dev-store-navigation.module').then((m) => m.DevStoreNavigationModule),
       },
       {
         path: 'incentives',
@@ -360,9 +361,8 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
       },
       {
         path: 'product-quickviews',
-
         loadChildren: () =>
-          import('./dev-store-navigation/dev-store-navigation.module').then((m) => m.DevStoreNavigationModule),
+          import('./dev-product-quickviews/dev-product-quickviews.module').then((m) => m.DevProductQuickviewsModule),
       },
       {
         path: 'wildcard-pages',

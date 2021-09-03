@@ -31,29 +31,34 @@ import { DevWildcardPagesStore } from './dev-wildcard-pages.store'
 })
 export class DevWildcardPagesComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevWildcardPagesStore) {}
-  public codePreview = [
-    `import { WebUiWildcardPagesModule } from '@schema-driven/web/ui/WildcardPages' \n\n 
-      <ui-wildcard-pages
-        [pageStyle]="vm.config.items.pageStyle"
-        [logo]="vm.config.items.logo"
-        [statusCode]="vm.config.items.statusCode"
-        [pageTitle]="vm.config.items.pageTitle"
-        [message]="vm.config.items.message"
-        [btnText]="vm.config.items.btnText"
-        [linkToRedirect]="vm.config.items.linkToRedirect"
-        [backImage]="vm.config.items.backImage"
-       ></ui-wildcard-pages> \n\n 
-       {
-        pageStyle: "simpleWithLogo", // splitWithImage, simpleWithLogo, withBackgroundImage
-        logo: "https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600",
-        statusCode: 404,
-        pageTitle: "Page not found",
-        message: "Sorry, we couldn’t find the page you’re looking for.",
-        btnText: "Go back home",
-        linkToRedirect: "http://localhost:4200/dev",
-        backImage: "https://images.unsplash.com/photo-1470847355775-e0e3c35a9a2c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1825&q=80",
-      }
-    `,
-  ]
+
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiWildcardPagesModule } from '@schema-driven/web/ui/WildcardPages' \n\n 
+        <ui-wildcard-pages
+          [pageStyle]="vm.config.items.pageStyle"
+          [logo]="vm.config.items.logo"
+          [statusCode]="vm.config.items.statusCode"
+          [pageTitle]="vm.config.items.pageTitle"
+          [message]="vm.config.items.message"
+          [btnText]="vm.config.items.btnText"
+          [linkToRedirect]="vm.config.items.linkToRedirect"
+          [backImage]="vm.config.items.backImage"
+         ></ui-wildcard-pages> \n\n
+        {
+          pageStyle: ${JSON.stringify(result.config.items.pageStyle, null, '\t')}
+          logo: ${JSON.stringify(result.config.items.logo, null, '\t')}
+          statusCode:${JSON.stringify(result.config.items.statusCode, null, '\t')}
+          pageTitle:${JSON.stringify(result.config.items.pageTitle, null, '\t')}
+          message:${JSON.stringify(result.config.items.message, null, '\t')}
+          btnText:${JSON.stringify(result.config.items.btnText, null, '\t')}
+          linkToRedirect:${JSON.stringify(result.config.items.linkToRedirect, null, '\t')}
+          backImage:${JSON.stringify(result.config.items.backImage, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }

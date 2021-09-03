@@ -26,6 +26,7 @@ import { DevTabsStore } from './dev-tab.store'
 })
 export class DevTabComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevTabsStore) {}
 
   tabSelecteds(tab: Tabs, tabs: Tabs[]) {
@@ -36,12 +37,23 @@ export class DevTabComponent {
     })
     tab.active = true
   }
-  public codePreview = [
-    `import { WebUiTabModule } from '@schema-driven/web/ui/tab' \n\n <ui-tab [tabs]='tabs' [style]='style'></ui-tab> \n\n style= "underline" \n\n tabs = [
-      {item : "My Account"},
-      {item : "Company"},
-      {item : "Team Member"},
-      {item : "Billing"},
-    ]`,
-  ]
+
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiTabModule } from '@schema-driven/web/ui/tab' \n\n
+        <ui-tab 
+        [tabs]="vm.config.items.tabs"
+        [style]="vm.config.items.style"
+        [alignment]="vm.config.items.alignment"
+        >
+        </ui-tab>\n\n
+        {
+          tabs: ${JSON.stringify(result.config.items.tabs, null, '\t')}
+          style: ${JSON.stringify(result.config.items.style, null, '\t')}
+          alignment:${JSON.stringify(result.config.items.alignment, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }
