@@ -29,40 +29,31 @@ import { DevProductQuickviewsStore } from './dev-product-quickviews.store'
 })
 export class DevProductQuickviewsComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevProductQuickviewsStore) {}
 
-  public codePreview = [
-    `import { WebUiProductQuickviewsModule } from '@schema-driven/web/ui/product-quickviews'\n\n
-    <ui-product-quickviews 
-      [image]="vm.config.items.image"
-      [title]="vm.config.items.title"
-      [user_rating]="vm.config.items.user_rating"
-      [price]="vm.config.items.price"
-      [variants]="vm.config.items.variants"
-      [btnText]="vm.config.items.btnText"
-    >
-    </ui-product-quickviews>\n\n 
-    {
-      title: 'Basic Tee',
-      image: 'https://tailwindui.com/img/ecommerce-images/product-page-01-featured-product-shot.jpg',
-      user_rating: 3.5,
-      price: 35,
-      btnText: 'Add to bag',
-      variants: [
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiProductQuickviewsModule } from '@schema-driven/web/ui/product-quickviews'\n\n
+        <ui-product-quickviews 
+          [image]="vm.config.items.image"
+          [title]="vm.config.items.title"
+          [user_rating]="vm.config.items.user_rating"
+          [price]="vm.config.items.price"
+          [variants]="vm.config.items.variants"
+          [btnText]="vm.config.items.btnText"
+        >
+        </ui-product-quickviews>\n\n 
         {
-          color: [
-            {
-              values: 'gray',
-            },
-            {
-              values: 'yellow',
-            },
-          ],
-        },
-        {
-          size: [{ values: 'xxs' }, { values: 'xs' }, { values: 'm' }],
-        },
-      ],
-    }`,
-  ]
+          image: ${JSON.stringify(result.config.items.image, null, '\t')}
+          title: ${JSON.stringify(result.config.items.title, null, '\t')}
+          user_rating:${JSON.stringify(result.config.items.user_rating, null, '\t')}
+          price:${JSON.stringify(result.config.items.price, null, '\t')}
+          variants:${JSON.stringify(result.config.items.variants, null, '\t')}
+          btnText:${JSON.stringify(result.config.items.btnText, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }
