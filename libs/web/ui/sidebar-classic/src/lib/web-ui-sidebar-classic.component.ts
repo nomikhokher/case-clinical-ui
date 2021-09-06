@@ -344,12 +344,12 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
             </svg>
           </button>
-          <div class="flex-1 px-4 flex justify-between">
+          <div class="flex-1 px-4 py-2 flex justify-between">
             <div class="flex-1 flex">
               <form class="w-full flex md:ml-0" action="#" method="GET">
                 <label for="search_field" class="sr-only">Search</label>
-                <div class="relative w-full text-gray-400 focus-within:text-gray-600">
-                  <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none">
+                <div class="relative w-full text-gray-400 focus-within:theme-color-500">
+                  <div class="absolute inset-y-0 left-2 flex items-center cursor-pointer" (click)="hideShowSearchBar()">
                     <!-- Heroicon name: solid/search -->
                     <svg
                       class="h-5 w-5"
@@ -366,8 +366,9 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
                     </svg>
                   </div>
                   <input
+                    *ngIf="showSearchBar == true"
                     id="search_field"
-                    class="block bg-transparent w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 dark:text-gray-100 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
+                    class="block w-full dark:bg-gray-800 focus:outline-none border-1 border-gray-300 rounded-full bg-white dark:text-gray-100 h-full pl-8 pr-3 py-2 text-gray-900 placeholder-gray-500  focus:placeholder-gray-400 sm:text-sm"
                     placeholder="Search"
                     type="search"
                     name="search"
@@ -472,8 +473,13 @@ export class WebUiSidebarClassicComponent implements OnInit {
   public asideMobileWidth: number = 0
   public drownDownMenu: boolean = false
   public mobileSideBar: boolean = false
+  public showSearchBar: boolean = false
 
   ngOnInit() {
     console.log('LINKS ', this.links)
+  }
+
+  hideShowSearchBar() {
+    this.showSearchBar = !this.showSearchBar
   }
 }
