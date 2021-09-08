@@ -65,9 +65,7 @@ export class WebUiTabComponent {
 
   show: false
 
-  constructor() {
-    console.log(this.options)
-  }
+  constructor() {}
   ngOnInit(): void {
     this.tabs.forEach((x) => {
       x.active = false

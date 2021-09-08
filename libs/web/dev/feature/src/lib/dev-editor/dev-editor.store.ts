@@ -121,10 +121,7 @@ export class DevEditorStore extends ComponentStore<DevEditorState> {
                   return false
                 },
               },
-              contentChanged: () => {
-                // Nothing
-                //console.log('contentChanged', this.model.details)
-              },
+              contentChanged: () => {},
             },
           },
         },

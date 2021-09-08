@@ -73,7 +73,6 @@ export class WebUiModalComponent {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.closeModal(Boolean(changes.isActive.firstChange))
-    console.log(changes)
   }
 
   closeModal(val: any) {

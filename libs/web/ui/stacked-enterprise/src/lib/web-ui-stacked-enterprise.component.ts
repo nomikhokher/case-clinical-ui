@@ -599,8 +599,6 @@ export class WebUiStackedEnterpriseComponent {
     this.isActive = false
   }
   onSearch(e: any) {
-    console.log('runs')
-
     this.searchService.searchBar$.next(e.target.value)
   }
   outsideClick() {
