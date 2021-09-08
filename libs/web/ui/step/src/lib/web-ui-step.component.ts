@@ -60,7 +60,6 @@ export class WebUiStepComponent {
     stepNumber.push(number)
     this.stepValue = stepNumber
     this.stepIems = this.stepIems.map((value) => {
-      console.log(value)
       if (value.id === number) {
         return { ...value, stepActive: true }
       }

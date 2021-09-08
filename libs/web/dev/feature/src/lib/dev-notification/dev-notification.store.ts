@@ -37,23 +37,17 @@ const config: Configs = {
         {
           id: 1,
           name: 'reply',
-          fn: function acceptFn(value: any) {
-            console.log(value)
-          },
+          fn: function acceptFn(value: any) {},
         },
         {
           id: 2,
           name: 'accept',
-          fn: function acceptFn(value: any) {
-            console.log(value)
-          },
+          fn: function acceptFn(value: any) {},
         },
         {
           id: 3,
           name: `Don't allow`,
-          fn: function acceptFn(value: any) {
-            console.log(value)
-          },
+          fn: function acceptFn(value: any) {},
         },
       ],
     },
