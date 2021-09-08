@@ -15,8 +15,4 @@ import { Component, Input } from '@angular/core'
 export class WebUiListContainerComponent {
   @Input() classNames: string
   @Input() roundedDividers?: string
-
-  ngOnInit() {
-    console.log(this.classNames)
-  }
 }

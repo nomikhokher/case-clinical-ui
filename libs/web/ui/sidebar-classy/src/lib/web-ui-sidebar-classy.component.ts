@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core'
 import { User } from '@schema-driven/web/core/data-access'
 import { WebLayoutLink } from '@schema-driven/web/layout'
+import { ServiceCodepreview } from '../../../codepreview.service'
 
 @Component({
   selector: 'ui-sidebar-classy',
@@ -584,6 +585,7 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
                     </svg>
                   </div>
                   <input
+                    (input)="onSearch($event)"
                     *ngIf="showSearchBar == true"
                     id="search_field"
                     class="block w-full dark:bg-gray-800 focus:outline-none border-1 border-gray-300 rounded-full bg-white dark:text-gray-100 h-full pl-8 pr-3 py-2 text-gray-900 placeholder-gray-500  focus:placeholder-gray-400 sm:text-sm"
@@ -616,8 +618,12 @@ export class WebUiSidebarClassyComponent {
   @Input() links: WebLayoutLink[] = []
   @Input() profileLinks: WebLayoutLink[] = []
   @Input() logo: string
+  constructor(public searchService: ServiceCodepreview) {}
 
   hideShowSearchBar() {
     this.showSearchBar = !this.showSearchBar
+  }
+  onSearch(e: any) {
+    this.searchService.searchBar$.next(e.target.value)
   }
 }

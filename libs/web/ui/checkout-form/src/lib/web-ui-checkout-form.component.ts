@@ -282,9 +282,7 @@ export class WebUiCheckoutFormComponent {
     this.total = this.orderAttributes.reduce((a, c: any) => a + Number(c.value), this.subtotal)
   }
 
-  submitForm(): void {
-    console.log(this.model)
-  }
+  submitForm(): void {}
 }
 
 interface Products {
