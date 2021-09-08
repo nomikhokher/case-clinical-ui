@@ -80,6 +80,7 @@
     "@ngx-formly/core": "^5.10.8",
     "@prisma/client": "2.15.0",
     "angular-froala-wysiwyg": "^4.0.3",
+    "angular-resizable-element": "^4.0.0",
     "apollo-angular": "^2.1.0",
     "apollo-server-express": "^2.18.0",
     "bcryptjs": "^2.4.3",
