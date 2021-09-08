@@ -9,6 +9,7 @@ import { WebUiButtonModule } from '@schema-driven/web/ui/button'
 import { FormsModule } from '@angular/forms'
 import { ServiceCodepreview } from '../../../codepreview.service'
 import { WebUiToggleSwitchButtonModule } from '@schema-driven/web/ui/toggle-switch-button'
+import { ResizableModule } from 'angular-resizable-element'
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { WebUiToggleSwitchButtonModule } from '@schema-driven/web/ui/toggle-swit
     WebUiIconModule,
     WebUiButtonModule,
     FormsModule,
+    ResizableModule,
     WebUiToggleSwitchButtonModule,
   ],
   declarations: [WebUiPreviewComponent],
