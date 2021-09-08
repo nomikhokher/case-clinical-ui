@@ -81,10 +81,8 @@ export class WebUiSectionHeadingsComponent {
   @Input() image?: string
 
   activateClass(tab: TabLinks) {
-    console.log(true)
     return this.tabs.map((x) => {
       if (x.id === tab.id) {
-        console.log(true)
         return (x.active = true)
       }
       return (x.active = false)

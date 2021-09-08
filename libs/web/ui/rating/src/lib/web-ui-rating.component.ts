@@ -65,8 +65,6 @@ export class WebUiRatingComponent {
   }
 
   changeColor() {
-    console.log(this.iconSize)
-
     return 'text-' + this.ratingColor + '-400'
   }
 }
