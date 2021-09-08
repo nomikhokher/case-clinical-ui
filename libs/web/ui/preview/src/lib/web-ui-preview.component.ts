@@ -216,6 +216,8 @@ export interface ComponentProp {
 
             <ng-container *ngIf="activeTab === DISPLAY_MODE.Responsive">
               <div class="bg-gray-300 p-8 relative">
+                <p class="flex justify-end text-xl font-bold">({{ width }}) x ({{ height }})</p>
+                <br />
                 <div
                   class="inherit max-w-7xl"
                   [ngStyle]="style"
@@ -224,6 +226,8 @@ export interface ComponentProp {
                   [resizeSnapGrid]="{ left: 1, right: 1 }"
                   (resizeEnd)="onResizeEnd($event)"
                   [validateResize]="validate"
+                  (resizeStart)="onResizeStart($event)"
+                  (resizing)="onResize($event)"
                 >
                   <div class="bg-white dark:bg-gray-800 max-w-7xl rounded">
                     <div class="max-w-7xl mx-auto relative">
@@ -568,6 +572,8 @@ export class WebUiPreviewComponent implements OnInit {
   public lastDownX = 0
   public draggerDownX = null
   public containerWidth = null
+  width = 1152
+  height = 214
 
   get directoryMeta() {
     return [{ icon: 'folder', label: this.directory }]
@@ -580,12 +586,30 @@ export class WebUiPreviewComponent implements OnInit {
     this.changeDom = this.child_dom.nativeElement?.children[0].innerHTML
   }
 
+  onResize(event: ResizeEvent): void {
+    this.width = event.rectangle.width
+    this.height = event.rectangle.height
+  }
+
+  onResizeStart(event: ResizeEvent): void {
+    this.width = event.rectangle.width
+    this.height = event.rectangle.height
+  }
+
   validate(event: ResizeEvent): boolean {
     const MIN_DIMENSIONS_PX: number = 200
+    const MAX_DIMENSIONS_PX: number = 1152
     if (
       event.rectangle.width &&
       event.rectangle.height &&
       (event.rectangle.width < MIN_DIMENSIONS_PX || event.rectangle.height < MIN_DIMENSIONS_PX)
+    ) {
+      return false
+    }
+    if (
+      event.rectangle.width &&
+      event.rectangle.height &&
+      (event.rectangle.width > MAX_DIMENSIONS_PX || event.rectangle.height > MAX_DIMENSIONS_PX)
     ) {
       return false
     }
