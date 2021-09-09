@@ -357,7 +357,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
               </svg>
             </button>
             <div class="flex-1 px-4 py-2 flex justify-between">
-              <div class="flex-1 flex">
+              <div class="flex-1 flex" (clickOutside)="showAllComponents()">
                 <form class="w-full flex md:ml-0" action="#" method="GET">
                   <label for="search_field" class="sr-only">Search</label>
                   <div class="relative w-full text-gray-400 focus-within:theme-color-500">
@@ -546,5 +546,12 @@ export class WebUiSidebarCompactComponent {
   }
   onSearch(e: any) {
     this.searchService.searchBar$.next(e.target.value)
+  }
+  ngOnDestroy(): void {
+    this.searchService.searchBar$.next([])
+  }
+  showAllComponents() {
+    this.showSearchBar = false
+    this.searchService.searchBar$.next([])
   }
 }
