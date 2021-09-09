@@ -590,6 +590,8 @@ export class WebUiStackedEnterpriseComponent {
   public componentList
   isActive: boolean = false
   ngOnInit(): void {
+    this.searchService.searchIcon$.next([])
+    this.searchService.searchedArray$.next([])
     this.searchService.searchedArray$.subscribe((res) => {
       this.componentList = res
     })
@@ -599,11 +601,11 @@ export class WebUiStackedEnterpriseComponent {
     this.isActive = false
   }
   onSearch(e: any) {
-    this.searchService.searchBar$.next(e.target.value)
+    this.searchService.searchIcon$.next(e.target.value)
   }
   outsideClick() {
     this.isActive = false
-    this.searchService.searchBar$.next('')
+    this.searchService.searchIcon$.next([])
     this.componentList = []
   }
   redirectTo(i) {

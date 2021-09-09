@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, HostListener, Input } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { WebLayoutLink } from '@schema-driven/web/layout'
 import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
@@ -108,14 +108,19 @@ export class WebUiMainPageComponent {
   @Input() links
   constructor(private router: Router, private route: ActivatedRoute, public searchService: ServiceCodepreview) {}
   public searchComponent = []
+  showMenu: boolean = false
+
   ngOnInit(): void {
+    this.searchService.searchBar$.next([])
     this.searchService.searchBar$.subscribe((data) => {
       data.length > 0 ? this.includingStr(data) : (this.searchComponent = null)
+    })
+    this.searchService.searchIcon$.subscribe((data) => {
+      data.length > 0 ? this.componentList(data) : (this.searchComponent = null)
     })
   }
   includingStr(data) {
     this.searchComponent = []
-    var rgxp = new RegExp(data, 'i')
     this.links[0].children.forEach((child) => {
       if (child.children) {
         for (const element of child.children) {
@@ -127,8 +132,20 @@ export class WebUiMainPageComponent {
     })
     this.searchService.searchedArray$.next(this.searchComponent)
   }
+  componentList(data) {
+    const listArray = []
+    this.links[0].children.forEach((child) => {
+      if (child.children) {
+        for (const element of child.children) {
+          if (element.label.toLowerCase().includes(data.toLowerCase())) {
+            listArray.push(element)
+          }
+        }
+      }
+    })
+    this.searchService.searchedArray$.next(listArray)
+  }
 
-  showMenu: boolean = false
   breadcrumbs: Crumb[] = [{ label: 'UI Components', path: '.' }]
 
   handleCardClick(path: string) {

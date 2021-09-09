@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
 import { User } from '@schema-driven/web/core/data-access'
 import { WebLayoutLink } from '@schema-driven/web/layout'
 import { ServiceCodepreview } from '../../../codepreview.service'
@@ -346,7 +347,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
             </svg>
           </button>
           <div class="flex-1 px-4 py-2 flex justify-between">
-            <div class="flex-1 flex">
+            <div class="flex-1 flex" (clickOutside)="showAllComponents()">
               <form class="w-full flex md:ml-0" action="#" method="GET">
                 <label for="search_field" class="sr-only">Search</label>
                 <div class="relative w-full text-gray-400 focus-within:theme-color-500">
@@ -470,8 +471,8 @@ export class WebUiSidebarClassicComponent {
   @Input() links: WebLayoutLink[] = []
   @Input() profileLinks: WebLayoutLink[] = []
   @Input() logo: string
-  constructor(public searchService: ServiceCodepreview) {}
-
+  public searchBarActive: boolean
+  constructor(private router: Router, public searchService: ServiceCodepreview) {}
   public showMenu = false
   public asideMobileWidth: number = 0
   public drownDownMenu: boolean = false
@@ -481,7 +482,14 @@ export class WebUiSidebarClassicComponent {
   hideShowSearchBar() {
     this.showSearchBar = !this.showSearchBar
   }
-  onSearch(e: any) {
+  onSearch(e: any): void {
     this.searchService.searchBar$.next(e.target.value)
+  }
+  showAllComponents() {
+    this.showSearchBar = false
+    this.searchService.searchBar$.next([])
+  }
+  ngOnDestroy(): void {
+    this.searchService.searchBar$.next([])
   }
 }
