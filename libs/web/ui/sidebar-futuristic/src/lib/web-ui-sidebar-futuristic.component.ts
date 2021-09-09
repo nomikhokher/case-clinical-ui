@@ -510,6 +510,9 @@ export class WebUiSidebarFuturisticComponent {
   @Input() logo: string
   isActive: boolean = false
   ngOnInit(): void {
+    this.searchService.searchIcon$.next([])
+    this.searchService.searchedArray$.next([])
+
     this.searchService.searchedArray$.subscribe((res) => {
       this.componentList = res
     })
@@ -519,11 +522,11 @@ export class WebUiSidebarFuturisticComponent {
     this.isActive = false
   }
   onSearch(e: any) {
-    this.searchService.searchBar$.next(e.target.value)
+    this.searchService.searchIcon$.next(e.target.value)
   }
   outsideClick() {
     this.isActive = false
-    this.searchService.searchBar$.next('')
+    this.searchService.searchIcon$.next([])
     this.componentList = []
   }
   redirectTo(i) {
