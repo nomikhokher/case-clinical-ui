@@ -2141,6 +2141,28 @@
         }
       }
     },
+    "web-ui-order-summaries": {
+      "projectType": "library",
+      "root": "libs/web/ui/order-summaries",
+      "sourceRoot": "libs/web/ui/order-summaries/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/order-summaries/src/**/*.ts", "libs/web/ui/order-summaries/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/order-summaries"],
+          "options": {
+            "jestConfig": "libs/web/ui/order-summaries/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-page": {
       "projectType": "library",
       "root": "libs/web/ui/page",
@@ -2290,6 +2312,31 @@
           "outputs": ["coverage/libs/web/ui/pricing-plan"],
           "options": {
             "jestConfig": "libs/web/ui/pricing-plan/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-product-features": {
+      "projectType": "library",
+      "root": "libs/web/ui/product-features",
+      "sourceRoot": "libs/web/ui/product-features/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/product-features/src/**/*.ts",
+              "libs/web/ui/product-features/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/product-features"],
+          "options": {
+            "jestConfig": "libs/web/ui/product-features/jest.config.js",
             "passWithNoTests": true
           }
         }
