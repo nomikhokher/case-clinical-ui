@@ -26,13 +26,22 @@ import { DevPopConfirmStore } from './dev-pop-confirm.store'
 export class DevPopConfirmComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevPopConfirmStore) {}
-  codePreview = [
-    `
-  import {WebUiPopConfirmModule} from '@schema-driven/web/ui/pop-confirm' \n\n
-  <ui-pop-confirm [title]="title" [buttons]="buttons" [position]="position" ></ui-pop-confirm> </ui-preview>
-    title = 'Do you want to log out?'\n
-    buttons = [{ text: 'Yes', background : 'yellow' }, { text: 'No', background : 'green' }]\n
-    position = "top-right"
-  `,
-  ]
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiPopConfirmModule } from '@schema-driven/web/ui/pop-confirm'\n\n 
+        <ui-pop-confirm
+        [title]="vm.config.items.title"
+        [buttons]="vm.config.items.buttons"
+        [position]="vm.config.items.position"
+      ></ui-pop-confirm> \n\n
+      
+        title = ${JSON.stringify(result.config.items.title, null, '\t')}\n
+        position = ${JSON.stringify(result.config.items.position, null, '\t')}\n
+        buttons = ${JSON.stringify(result.config.items.buttons, null, '\t')}\n
+        `,
+      ]
+    })
+  }
 }

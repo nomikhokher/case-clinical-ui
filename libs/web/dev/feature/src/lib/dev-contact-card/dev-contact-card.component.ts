@@ -28,27 +28,23 @@ export class DevContactCardComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevContactCardStore) {}
 
-  public codePreview = [
-    `import { WebUiContactCardModule } from '@schema-driven/web/ui/contact-card' \n\n 
-    <ui-contact-card [contactCard]="contactCard" [buttons]="buttons"></ui-contact-card> \n\ncontactCard={
-      id: 1,
-      title:"Jane Cooper",
-      tagLine:"Paradigm Representative",
-      email:"janecooper@example.com",
-      image:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
-      role:"Admin",
-      icon:"user",
-    }\n\n
-  buttons=[
-    {
-      text:"Email",
-      icon:"email"
-    },
-    {
-      text:"Call",
-      icon:"phone"
-    }
-]
-  `,
-  ]
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiContactCardModule } from '@schema-driven/web/ui/contact-card'
+        \n\n
+        <ui-contact-card
+        [contactCard]="vm.config.items.contactCard"
+        [buttons]="vm.config.items.buttons"
+        [toggleCard]="vm.config.items.toggleCard"
+      ></ui-contact-card>
+    \n\n
+        contactCard = ${JSON.stringify(result.config.items.contactCard, null, '\t')}\n
+      buttons = ${JSON.stringify(result.config.items.buttons, null, '\t')}\n
+      toggleCard = ${JSON.stringify(result.config.items.toggleCard, null, '\t')}\n
+      `,
+      ]
+    })
+  }
 }

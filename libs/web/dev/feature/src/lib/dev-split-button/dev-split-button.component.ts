@@ -21,29 +21,18 @@ import { DevSplitButtonStore } from './dev-split-button.store'
 })
 export class DevSplitButtonComponent {
   readonly vm$ = this.store.vm$
+  public codePreview
   constructor(private readonly store: DevSplitButtonStore) {}
 
-  public codePreview = [
-    `import { WebUiSplitButtonModule } from '@schema-driven/web/ui/split-button' \n\n 
-      <ui-split-button [lists]="lists"></ui-split-button> \n\n
-      lists=[
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiSplitButtonModule } from '@schema-driven/web/ui/split-button' \n\n 
+        <ui-split-button [lists]="lists"></ui-split-button> \n\n
         {
-          icon:'clipboard',
-          text:'Paste',
-        },
-        {
-          icon:'clipboardCopy',
-          text:'Paste Special',
-        },
-        {
-          icon:'clipboardCheck',
-          text:'Paste as Formula',
-        },
-        {
-          icon:'clipboardList',
-          text:'Paste as Hyperlink',
-        },
-    ]
-      `,
-  ]
+          lists: ${JSON.stringify(result.config.items.lists, null, '\t')}
+        }`,
+      ]
+    })
+  }
 }

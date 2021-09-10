@@ -27,13 +27,24 @@ export class DevTreeComponent {
 
   public treeData: FlatNode[]
   public dataSource: any
-
+  public codePreview
   constructor(private readonly store: DevTreeStore) {}
 
   ngOnInit(): void {
     this.vm$.subscribe((treeData) => {
       this.treeData = treeData.config.items.treeData
       this.dataSource = new ArrayDataSource(treeData.config.items.treeData)
+    })
+
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiTreeModule } from '@schema-driven/web/ui/tree'\n\n
+        <ui-tree [treeData]="treeData" [dataSource]="dataSource"></ui-tree>\n
+        dataSource = new ArrayDataSource(treeData.config.items.treeData)
+        {
+          treeData: ${JSON.stringify(result.config.items.treeData, null, '\t')}
+        }`,
+      ]
     })
   }
 }

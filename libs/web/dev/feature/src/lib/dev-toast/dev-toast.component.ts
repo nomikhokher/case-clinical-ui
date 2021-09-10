@@ -39,13 +39,20 @@ import { DevToastStore } from './dev-toast.store'
   providers: [DevToastStore],
 })
 export class DevToastComponent {
+  public codePreview
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevToastStore) {}
-  public codePreview = [
-    ` import { WebUiButtonModule } from '@schema-driven/web/ui/button' \n\n<ui-button color="indigo" [label]="show" (handler)="demo.demo()"></ui-button>`,
-    ` import { WebUiButtonModule } from '@schema-driven/web/ui/button' \n\n<ui-button color="indigo" [label]="error" (handler)="demo.demo()"></ui-button>`,
-    ` import { WebUiButtonModule } from '@schema-driven/web/ui/button' \n\n<ui-button color="indigo" [label]="warning" (handler)="demo.demo()"></ui-button>`,
-    ` import { WebUiButtonModule } from '@schema-driven/web/ui/button' \n\n<ui-button color="indigo" [label]="loading" (handler)="demo.demo()"></ui-button>`,
-    ` import { WebUiButtonModule } from '@schema-driven/web/ui/button' \n\n<ui-button color="indigo" [label]="Success" (handler)="demo.demo()"></ui-button>`,
-  ]
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiButtonModule } from '@schema-driven/web/ui/button' \n\n 
+        <ui-button color="indigo" [label]="show" (handler)="demo.demo()"></ui-button>\n\n
+        {
+          color: indigo
+          label: show
+          handler: demo.demo()
+        }`,
+      ]
+    })
+  }
 }

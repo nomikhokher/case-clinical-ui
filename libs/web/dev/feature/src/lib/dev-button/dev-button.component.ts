@@ -29,7 +29,17 @@ export class DevButtonComponent {
   readonly vm$ = this.store.vm$
 
   constructor(private readonly store: DevButtonStore) {}
-  public codePreview = [
-    ` import { WebUiButtonModule } from '@schema-driven/web/ui/button'\n\n<ui-button [label]="Customizable Button" [variant]="danger"></ui-button>`,
-  ]
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiButtonModule } from '@schema-driven/web/ui/button'
+        \n\n
+        <ui-button [label]="button.label" [variant]="button.variant"></ui-button> \n\n
+      label = ${JSON.stringify(result.config.buttons[4].label, null, '\t')}\n
+      variant = ${JSON.stringify(result.config.buttons[4].variant, null, '\t')}\n
+      `,
+      ]
+    })
+  }
 }

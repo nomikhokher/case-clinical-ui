@@ -23,7 +23,7 @@ const config: Configs = {
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-list-container.component.ts',
   items: {
-    classNames: '',
+    classNames: 'text-red-600',
     roundedDividers: true,
   },
   component_inputs: [

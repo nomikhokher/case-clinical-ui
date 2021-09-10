@@ -177,6 +177,9 @@
     "web-ui-checkbox-dropdown-button": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-checkout-form": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-chips": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -250,6 +253,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-icon-button": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-incentives": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-json": {
@@ -330,6 +336,9 @@
     "web-ui-product-overviews": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-product-quickviews": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-progress-bar": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -408,6 +417,9 @@
     "web-ui-step": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-store-navigation": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-tab": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -451,6 +463,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-vertical-navigation": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-wildcard-pages": {
       "tags": ["scope:web", "type:ui"]
     }
   },
