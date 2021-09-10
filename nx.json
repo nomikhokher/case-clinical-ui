@@ -303,6 +303,9 @@
     "web-ui-order-history": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-order-summaries": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-page": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -322,6 +325,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-pricing-plan": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-product-features": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-product-image-gallery": {

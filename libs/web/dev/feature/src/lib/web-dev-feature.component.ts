@@ -484,7 +484,7 @@ export class WebDevFeatureComponent {
               image: '/assets/images/category-previews.png',
             },
             {
-              label: 'Product List',
+              label: 'Product Lists',
               route: 'product-list',
               image: '/assets/images/product-lists.png',
             },
@@ -494,14 +494,14 @@ export class WebDevFeatureComponent {
               image: '/assets/images/reviews.png',
             },
             {
-              label: 'Shopping Cart',
+              label: 'Shopping Carts',
               route: 'shopping-carts',
               image: '/assets/images/shopping-carts.png',
             },
             {
-              label: 'Promo Section',
+              label: 'Promo Sections',
               route: 'promo-section',
-              image: '/assets/images/shopping-carts.png',
+              image: '/assets/images/promo-sections.png',
             },
             {
               label: 'Order History',
@@ -511,27 +511,37 @@ export class WebDevFeatureComponent {
             {
               label: 'Category Filters',
               route: 'category-filters',
-              image: '/assets/images/product-overviews.png',
+              image: '/assets/images/category-filters.png',
             },
             {
-              label: 'incentives',
+              label: 'Order Summaries',
+              route: 'order-summaries',
+              image: '/assets/images/order-summaries.png',
+            },
+            {
+              label: 'Incentives',
               route: 'incentives',
               image: '/assets/images/incentives.png',
             },
             {
-              label: 'Checkout Form',
+              label: 'Checkout Forms',
               route: 'checkout-forms',
               image: '/assets/images/checkout-forms.png',
             },
             {
               label: 'Product Quickviews',
               route: 'product-quickviews',
-              image: '/assets/images/product-overviews.png',
+              image: '/assets/images/product-quickviews.png',
+            },
+            {
+              label: 'Product Features',
+              route: 'product-features',
+              image: '/assets/images/product-features.png',
             },
             {
               label: 'Store Navigation',
               route: 'store-navigation',
-              image: '/assets/images/product-overviews.png',
+              image: '/assets/images/store-navigation.png',
             },
           ],
         },
