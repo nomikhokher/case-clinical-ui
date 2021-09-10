@@ -303,6 +303,9 @@
     "web-ui-order-history": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-order-summaries": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-page": {
       "tags": ["scope:web", "type:ui"]
     },

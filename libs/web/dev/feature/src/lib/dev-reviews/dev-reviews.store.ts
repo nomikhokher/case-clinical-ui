@@ -3,7 +3,7 @@ import { ComponentStore, tapResponse } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { of } from 'rxjs'
 import { switchMap, tap } from 'rxjs/operators'
-import { Configs } from './model/index'
+import { Configs } from './model'
 
 export interface Item {
   id?: string
