@@ -80,4 +80,5 @@ export enum UiIcon {
   x = 'x',
   filStart = 'filStart',
   ratingStar = 'ratingStar',
+  template = 'template',
 }

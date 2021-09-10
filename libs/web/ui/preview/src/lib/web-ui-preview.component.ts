@@ -101,7 +101,7 @@ export interface ComponentProp {
                 <nav class="flex space-x-2  " aria-label="Tabs">
                   <button
                     (click)="handleTabClick(DISPLAY_MODE.Preview); codePreviewToggler = true"
-                    class=" flex items-center px-3 py-2 font-medium text-sm rounded-md"
+                    class=" flex items-center px-3 py-2 font-medium text-sm rounded-md focus:outline-none"
                     [class.theme-bg-50]="DISPLAY_MODE.Preview === activeTab"
                     [class.theme-color-700]="DISPLAY_MODE.Preview === activeTab"
                     [class.dark:text-gray-400]="DISPLAY_MODE.Preview !== activeTab"
@@ -117,7 +117,7 @@ export interface ComponentProp {
                   </button>
                   <button
                     (click)="handleTabClick(DISPLAY_MODE.Responsive); codePreviewToggler = true"
-                    class="flex items-center px-3 py-2 font-medium text-sm rounded-md"
+                    class="flex items-center px-3 py-2 font-medium text-sm rounded-md focus:outline-none"
                     [class.theme-bg-50]="DISPLAY_MODE.Responsive === activeTab"
                     [class.theme-color-700]="DISPLAY_MODE.Responsive === activeTab"
                     [class.dark:text-gray-400]="DISPLAY_MODE.Responsive !== activeTab"
@@ -127,12 +127,12 @@ export interface ComponentProp {
                     [class.text-gray-500]="DISPLAY_MODE.Responsive !== activeTab"
                     [class.hover:text-gray-700]="DISPLAY_MODE.Responsive !== activeTab"
                   >
-                    <ui-icon icon="office" class="h-5 w-5 mr-1"></ui-icon>
+                    <ui-icon icon="template" class="h-5 w-5 mr-1"></ui-icon>
                     Responsive
                   </button>
                   <button
                     (click)="handleTabClick(DISPLAY_MODE.Code); codePreviewToggler = false"
-                    class="flex items-center px-3 py-2 font-medium text-sm rounded-md"
+                    class="flex items-center px-3 py-2 font-medium text-sm rounded-md focus:outline-none"
                     [class.theme-bg-50]="DISPLAY_MODE.Code === activeTab"
                     [class.theme-color-700]="DISPLAY_MODE.Code === activeTab"
                     [class.text-gray-500]="DISPLAY_MODE.Code !== activeTab"
@@ -203,7 +203,7 @@ export interface ComponentProp {
             *ngIf="activeTab === DISPLAY_MODE.Preview"
             class="float-right font-mono h-3 mr-8 dark:text-white text-gray-500"
           ></p>
-          <div class="relative dark:bg-gray-600 bg-gray-200 bg-opacity-70 sm:rounded-lg">
+          <div class="relative dark:bg-gray-600 bg-gray-200 bg-opacity-70 sm:rounded-lg mb-20">
             <ng-container *ngIf="activeTab === DISPLAY_MODE.Preview">
               <div class="relative">
                 <div class="p-8 bg-white dark:bg-gray-800">
@@ -215,8 +215,8 @@ export interface ComponentProp {
             </ng-container>
 
             <ng-container *ngIf="activeTab === DISPLAY_MODE.Responsive">
-              <div class="bg-gray-300 p-8 relative">
-                <p class="flex justify-end text-xl font-bold">({{ width }}) x ({{ height }})</p>
+              <div class="bg-gray-300 p-8 relative rounded-md">
+                <p class="flex justify-end text-xl font-bold">{{ width.toFixed(0) }} x {{ height.toFixed(0) }}</p>
                 <br />
                 <div
                   class="inherit max-w-7xl"
@@ -262,7 +262,7 @@ export interface ComponentProp {
             </ng-container>
 
             <ng-container *ngIf="activeTab === DISPLAY_MODE.Code">
-              <ui-code [copyButton]="false" [code]="code" [language]="'json'"></ui-code>
+              <ui-code class="mb-10" [copyButton]="false" [code]="code" [language]="'json'"></ui-code>
             </ng-container>
           </div>
         </div>
