@@ -514,6 +514,11 @@ export class WebDevFeatureComponent {
               image: '/assets/images/product-overviews.png',
             },
             {
+
+              label: 'Order Summaries',
+              route: 'order-summaries',
+              image: '/assets/images/order-summaries.png',
+}{
               label: 'incentives',
               route: 'incentives',
               image: '/assets/images/incentives.png',
