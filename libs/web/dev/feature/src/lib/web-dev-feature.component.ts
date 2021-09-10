@@ -534,9 +534,15 @@ export class WebDevFeatureComponent {
               image: '/assets/images/product-overviews.png',
             },
             {
+
+              label: 'Product Features',
+              route: 'product-features',
+              image: '/assets/images/product-features.png',
+}{
               label: 'Store Navigation',
               route: 'store-navigation',
               image: '/assets/images/product-overviews.png',
+
             },
           ],
         },

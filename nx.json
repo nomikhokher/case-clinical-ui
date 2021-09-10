@@ -327,6 +327,9 @@
     "web-ui-pricing-plan": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-product-features": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-product-image-gallery": {
       "tags": ["scope:web", "type:ui"]
     },

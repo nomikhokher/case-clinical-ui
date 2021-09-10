@@ -370,6 +370,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
           import('./dev-product-quickviews/dev-product-quickviews.module').then((m) => m.DevProductQuickviewsModule),
       },
       {
+ product-feature
+        path: 'product-features',
+        loadChildren: () =>
+          import('./dev-product-features/dev-product-features.module').then((m) => m.DevProductFeaturesModule),
+}{
         path: 'wildcard-pages',
         loadChildren: () =>
           import('./dev-wildcard-pages/dev-wildcard-pages.module').then((m) => m.DevWildcardPagesModule),
