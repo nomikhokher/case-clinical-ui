@@ -347,11 +347,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-order-history/dev-order-history.module').then((m) => m.DevOrderHistoryModule),
       },
       {
-
         path: 'order-summaries',
-        loadChildren: () =>
-          import('./dev-order-summaries/dev-order-summaries.module').then((m) => m.DevOrderSummariesModule),
-}{
+        loadChildren: () => import('./dev-order-summaries/dev-order-summaries.module').then((m) => m.DevOrderSummariesModule),
+       },
+      {
         path: 'store-navigation',
         loadChildren: () =>
           import('./dev-store-navigation/dev-store-navigation.module').then((m) => m.DevStoreNavigationModule),
