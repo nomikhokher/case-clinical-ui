@@ -347,11 +347,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () => import('./dev-order-history/dev-order-history.module').then((m) => m.DevOrderHistoryModule),
       },
       {
-
         path: 'order-summaries',
         loadChildren: () =>
           import('./dev-order-summaries/dev-order-summaries.module').then((m) => m.DevOrderSummariesModule),
-}{
+      },
+      {
         path: 'store-navigation',
         loadChildren: () =>
           import('./dev-store-navigation/dev-store-navigation.module').then((m) => m.DevStoreNavigationModule),
@@ -370,11 +370,11 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
           import('./dev-product-quickviews/dev-product-quickviews.module').then((m) => m.DevProductQuickviewsModule),
       },
       {
- product-feature
         path: 'product-features',
         loadChildren: () =>
           import('./dev-product-features/dev-product-features.module').then((m) => m.DevProductFeaturesModule),
-}{
+      },
+      {
         path: 'wildcard-pages',
         loadChildren: () =>
           import('./dev-wildcard-pages/dev-wildcard-pages.module').then((m) => m.DevWildcardPagesModule),
