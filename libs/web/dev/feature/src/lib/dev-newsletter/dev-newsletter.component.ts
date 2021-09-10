@@ -30,21 +30,27 @@ export class DevNewsletterComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevNewsletterStore) {}
 
-  public codePreview = [
-    `import { WebUiNewsletterModule } from '@schema-driven/web/ui/newsletter' \n\n 
-    <ui-newsletter 
-      [heading]="vm.config.items.heading" 
-      [description]="vm.config.items.description" 
-      [bgColor]="vm.config.items.bgColor"
-      [buttonText]="vm.config.items.buttonText"
-      [tagLine]="vm.config.items.tagLine">
-    </ui-newsletter> \n\n
-    {
-      heading:'Sign up for our newsletter',
-      description:'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui Lorem cupidatat commodo. Elit sunt amet fugiat.',
-      bgColor:'indigo',
-      buttonText:'Notify me',
-      tagLine:'We care about the protection of your data. Read our',
-    }`,
-  ]
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiNewsletterModule } from '@schema-driven/web/ui/newsletter'' \n\n 
+        <ui-newsletter
+        [heading]="vm.config.items.heading"
+        [description]="vm.config.items.description"
+        [bgColor]="vm.config.items.bgColor"
+        [buttonText]="vm.config.items.buttonText"
+        [tagLine]="vm.config.items.tagLine"
+      >
+      </ui-newsletter>\n\n
+      
+        heading = ${JSON.stringify(result.config.items.heading, null, '\t')}\n
+        description = ${JSON.stringify(result.config.items.description, null, '\t')}\n
+        bgColor = ${JSON.stringify(result.config.items.bgColor, null, '\t')}\n
+        buttonText = ${JSON.stringify(result.config.items.buttonText, null, '\t')}\n
+        tagLine = ${JSON.stringify(result.config.items.tagLine, null, '\t')}\n
+        `,
+      ]
+    })
+  }
 }

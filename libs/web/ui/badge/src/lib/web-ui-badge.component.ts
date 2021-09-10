@@ -116,6 +116,5 @@ export class WebUiBadgeComponent {
         this.icon_size = 'w-2 h-2'
         break
     }
-    console.log(this.icon_size)
   }
 }

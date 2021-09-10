@@ -147,8 +147,6 @@ export class WebUiDatePickerComponent {
   }
 
   changeFormateDate(event): void {
-    console.log(event)
-
     this.setDateFormat = SetDateFormatEnum[event.target.value]
   }
   ngModelChange(event): void {

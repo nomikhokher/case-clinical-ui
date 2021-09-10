@@ -6,4 +6,8 @@ import { BehaviorSubject } from 'rxjs'
 })
 export class ServiceCodepreview {
   codePreview$ = new BehaviorSubject<any>('No Data')
+
+  searchBar$ = new BehaviorSubject<any>('')
+  searchIcon$ = new BehaviorSubject<any>('')
+  searchedArray$ = new BehaviorSubject<any>('')
 }

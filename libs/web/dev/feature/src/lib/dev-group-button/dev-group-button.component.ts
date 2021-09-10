@@ -30,26 +30,17 @@ export class DevGroupButtonComponent {
 
   constructor(private readonly store: DevGroupButtonStore) {}
 
-  ngOnInit() {}
-  public codePreview = [
-    `import { WebUiGroupButtonModule } from '@schema-driven/web/ui/group-button'\n\n<ui-group-button [buttons]="vm.config.items.buttons"></ui-group-button>
-    vm.buttons = [
-      {
-        id: '1',
-        name: 'Years',
-        icon: 'chevronLeft',
-        dircetion: 'right',
-      },
-      {
-        id: '2',
-        name: 'Months',
-        icon: 'chevronRight',
-        dircetion: 'right',
-      },
-      {
-        id: '3',
-        name: 'Days',
-      },
-    ]`,
-  ]
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiGroupButtonModule } from '@schema-driven/web/ui/group-button'
+        \n\n
+        <ui-group-button [buttons]="vm.config.items.buttons"></ui-group-button>
+     \n\n
+        buttons = ${JSON.stringify(result.config.items.buttons, null, '\t')}\n
+      `,
+      ]
+    })
+  }
 }

@@ -251,6 +251,11 @@ export class WebDevFeatureComponent {
               route: 'alerts',
               image: '/assets/images/alerts.png',
             },
+            {
+              label: 'Wildcard Pages',
+              route: 'wildcard-pages',
+              image: '/assets/images/product-overviews.png',
+            },
           ],
         },
         {
@@ -509,14 +514,35 @@ export class WebDevFeatureComponent {
               image: '/assets/images/product-overviews.png',
             },
             {
+
+              label: 'Order Summaries',
+              route: 'order-summaries',
+              image: '/assets/images/order-summaries.png',
+}{
+              label: 'incentives',
+              route: 'incentives',
+              image: '/assets/images/incentives.png',
+            },
+            {
+              label: 'Checkout Form',
+              route: 'checkout-forms',
+              image: '/assets/images/checkout-forms.png',
+            },
+            {
               label: 'Product Quickviews',
               route: 'product-quickviews',
               image: '/assets/images/product-overviews.png',
             },
             {
+
               label: 'Product Features',
               route: 'product-features',
               image: '/assets/images/product-features.png',
+}{
+              label: 'Store Navigation',
+              route: 'store-navigation',
+              image: '/assets/images/product-overviews.png',
+
             },
           ],
         },

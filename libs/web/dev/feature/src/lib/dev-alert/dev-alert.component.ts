@@ -35,18 +35,31 @@ export class DevAlertComponent {
 
   @ViewChild(WebUiPreviewComponent) component_preview: WebUiPreviewComponent
   @ViewChildren(WebUiAlertComponent) items: QueryList<WebUiAlertComponent>
-  public codePreview = [
-    `import { WebUiAlertModule } from '@schema-driven/web/ui/alert'
-    \n\n
-    <ui-alert
-    class="mb-4 mt-4"
-    subject="Attention needed"
-    message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam quo totam eius aperiam dolorum."
-    bg_color="warning"
-    icon="exclamation"
-    [icon_show]="true"
-  ></ui-alert>`,
-  ]
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiAlertModule } from '@schema-driven/web/ui/alert' \n\n 
+      <ui-alert
+          [class]="vm.config.items.data.class"
+          [subject]="vm.config.items.data.subject"
+          [message]="vm.config.items.data.message"
+          [bg_color]="vm.config.items.data.bg_color"
+          [icon]="vm.config.items.data.icon"
+          [icon_show]="vm.config.items.data.icon_show"
+          [content_align]="vm.config.items.data.alignment"
+        ></ui-alert> \n\n
+      
+        class = ${JSON.stringify(result.config.items.data.class, null, '\t')}\n
+        subject = ${JSON.stringify(result.config.items.data.subject, null, '\t')}\n
+        message = ${JSON.stringify(result.config.items.data.message, null, '\t')}\n
+        bg_color = ${JSON.stringify(result.config.items.data.bg_color, null, '\t')}\n
+        icon = ${JSON.stringify(result.config.items.data.icon, null, '\t')}\n
+        icon_show = ${JSON.stringify(result.config.items.data.icon_show, null, '\t')}\n
+        content_align = ${JSON.stringify(result.config.items.data.alignment, null, '\t')}\n`,
+      ]
+    })
+  }
 
   htmlstring = 'You have no credits left. <a href="#"><u>Upgrade your account to add more credits</u></a>'
   constructor(private readonly store: DevAlertStore) {}

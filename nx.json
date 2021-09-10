@@ -177,6 +177,9 @@
     "web-ui-checkbox-dropdown-button": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-checkout-form": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-chips": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -252,6 +255,9 @@
     "web-ui-icon-button": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-incentives": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-json": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -295,6 +301,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-order-history": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-order-summaries": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-page": {
@@ -411,6 +420,9 @@
     "web-ui-step": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-store-navigation": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-tab": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -454,6 +466,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-vertical-navigation": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-wildcard-pages": {
       "tags": ["scope:web", "type:ui"]
     }
   },

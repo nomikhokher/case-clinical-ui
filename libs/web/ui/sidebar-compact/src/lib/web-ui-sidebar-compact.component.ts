@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core'
 import { User } from '@schema-driven/web/core/data-access'
 import { WebLayoutLink } from '@schema-driven/web/layout'
+import { ServiceCodepreview } from '../../../codepreview.service'
 
 @Component({
   selector: 'ui-sidebar-compact',
@@ -355,15 +356,18 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
               </svg>
             </button>
-            <div class="flex-1 flex justify-between px-4 sm:px-6">
-              <div class="flex-1 flex">
+            <div class="flex-1 px-4 py-2 flex justify-between">
+              <div class="flex-1 flex" (clickOutside)="showAllComponents()">
                 <form class="w-full flex md:ml-0" action="#" method="GET">
-                  <label for="search_field" class="sr-only">Search all files</label>
-                  <div class="relative w-full text-gray-400 focus-within:text-gray-600">
-                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center">
+                  <label for="search_field" class="sr-only">Search</label>
+                  <div class="relative w-full text-gray-400 focus-within:theme-color-500">
+                    <div
+                      class="absolute inset-y-0 left-2 flex items-center cursor-pointer"
+                      (click)="hideShowSearchBar()"
+                    >
                       <!-- Heroicon name: solid/search -->
                       <svg
-                        class="flex-shrink-0 h-5 w-5"
+                        class="h-5 w-5"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                         fill="currentColor"
@@ -377,11 +381,13 @@ import { WebLayoutLink } from '@schema-driven/web/layout'
                       </svg>
                     </div>
                     <input
-                      name="search_field"
+                      (input)="onSearch($event)"
+                      *ngIf="showSearchBar == true"
                       id="search_field"
-                      class="h-full w-full bg-transparent border-transparent py-2 pl-8 pr-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0 focus:border-transparent focus:placeholder-gray-400"
+                      class="block w-full dark:bg-gray-800 focus:outline-none border-1 border-gray-300 rounded-full bg-white dark:text-gray-100 h-full pl-8 pr-3 py-2 text-gray-900 placeholder-gray-500  focus:placeholder-gray-400 sm:text-sm"
                       placeholder="Search"
                       type="search"
+                      name="search"
                     />
                   </div>
                 </form>
@@ -505,12 +511,14 @@ export class WebUiSidebarCompactComponent {
   public asideWidth: string = 'left-0'
   public subChildren: any
   public mobileSideBar: boolean = false
+  public showSearchBar: boolean = false
 
   @Input() notificationsLink?: string
   @Input() user?: User
   @Input() links: WebLayoutLink[] = []
   @Input() profileLinks: WebLayoutLink[] = []
   @Input() logo: string
+  constructor(public searchService: ServiceCodepreview) {}
 
   compactChildren(subChilds, index) {
     if (this.compact.index === index) {
@@ -531,5 +539,19 @@ export class WebUiSidebarCompactComponent {
     } else {
       this.asideWidth = 'left-28'
     }
+  }
+
+  hideShowSearchBar() {
+    this.showSearchBar = !this.showSearchBar
+  }
+  onSearch(e: any) {
+    this.searchService.searchBar$.next(e.target.value)
+  }
+  ngOnDestroy(): void {
+    this.searchService.searchBar$.next([])
+  }
+  showAllComponents() {
+    this.showSearchBar = false
+    this.searchService.searchBar$.next([])
   }
 }

@@ -95,7 +95,6 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   readonly showToastEffect = this.effect(($) =>
     $.pipe(
       tap(() => {
-        console.log('This is the show toast')
         this.toast.show('This is the show toast')
       }),
     ),
@@ -104,7 +103,6 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   readonly errorToastEffect = this.effect(($) =>
     $.pipe(
       tap(() => {
-        console.log('This is the error toast')
         this.toast.error('This is the error toast')
       }),
     ),
@@ -113,7 +111,6 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   readonly warningToastEffect = this.effect(($) =>
     $.pipe(
       tap(() => {
-        console.log('This is the warning toast')
         this.toast.warning('This is the warning toast')
       }),
     ),
@@ -122,7 +119,6 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   readonly loadingToastEffect = this.effect(($) =>
     $.pipe(
       tap(() => {
-        console.log('This is the loading toast')
         this.toast.loading('This is the loading toast')
       }),
     ),
@@ -131,7 +127,6 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   readonly successToastEffect = this.effect(($) =>
     $.pipe(
       tap(() => {
-        console.log('This is the success toast')
         this.toast.success('This is the success toast')
       }),
     ),
@@ -140,7 +135,6 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   readonly DismisToastEffect = this.effect(($) =>
     $.pipe(
       tap(() => {
-        console.log('This is the success toast')
         this.toast.success('This toast is dismissible', { dismissible: true })
       }),
     ),
@@ -148,7 +142,6 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   readonly bottomCenter = this.effect(($) =>
     $.pipe(
       tap(() => {
-        console.log('Position in bottom center')
         this.toast.success('Position in bottom center', { position: 'bottom-center' })
       }),
     ),
@@ -157,7 +150,6 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   readonly bottomLeft = this.effect(($) =>
     $.pipe(
       tap(() => {
-        console.log('Posiiton is bottom left')
         this.toast.success('Posiiton is bottom left', { position: 'bottom-left' })
       }),
     ),
@@ -166,7 +158,6 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   readonly bottomRight = this.effect(($) =>
     $.pipe(
       tap(() => {
-        console.log('Position is bottom right')
         this.toast.success('Position is bottom right', { position: 'bottom-right' })
       }),
     ),
@@ -175,7 +166,6 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   readonly topLeft = this.effect(($) =>
     $.pipe(
       tap(() => {
-        console.log('Position is top left')
         this.toast.success('Position is top left', { position: 'top-left' })
       }),
     ),
@@ -184,7 +174,6 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   readonly topRight = this.effect(($) =>
     $.pipe(
       tap(() => {
-        console.log('Position is top right')
         this.toast.success('Position is top right', { position: 'top-right' })
       }),
     ),
@@ -193,7 +182,6 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   readonly topCenter = this.effect(($) =>
     $.pipe(
       tap(() => {
-        console.log('Position is top center')
         this.toast.success('Position is top center', { position: 'top-center' })
       }),
     ),
@@ -202,7 +190,6 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   readonly oneSeconds = this.effect(($) =>
     $.pipe(
       tap(() => {
-        console.log('This toast runs for 1 second.')
         this.toast.success('This toast runs for 1 second.', { duration: 1000 })
       }),
     ),
@@ -211,7 +198,6 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   readonly twoSeconds = this.effect(($) =>
     $.pipe(
       tap(() => {
-        console.log('This toast runs for 2 second.')
         this.toast.success('This toast runs for 2 second.', { duration: 2000 })
       }),
     ),
@@ -220,7 +206,6 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   readonly threeSeconds = this.effect(($) =>
     $.pipe(
       tap(() => {
-        console.log('This toast runs for 3 second.')
         this.toast.success('This toast runs for 3 second.', { duration: 3000 })
       }),
     ),
@@ -229,7 +214,6 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   readonly fourSeconds = this.effect(($) =>
     $.pipe(
       tap(() => {
-        console.log('This toast runs for 4 second.')
         this.toast.success('This toast runs for 4 second.', { duration: 4000 })
       }),
     ),
@@ -238,7 +222,6 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   readonly fiveSeconds = this.effect(($) =>
     $.pipe(
       tap(() => {
-        console.log('This toast runs for 5 second.')
         this.toast.success('This toast runs for 5 second.', { duration: 5000 })
       }),
     ),
@@ -247,7 +230,6 @@ export class DevToastStore extends ComponentStore<DevToastState> {
   readonly default = this.effect(($) =>
     $.pipe(
       tap(() => {
-        console.log('This toast runs for 6 second.')
         this.toast.success('This toast has default duration')
       }),
     ),

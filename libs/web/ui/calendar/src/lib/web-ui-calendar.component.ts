@@ -481,8 +481,6 @@ export class WebUiCalendarComponent {
       onlyDate: this.onlyDate,
     })
 
-    console.log(this.events)
-
     // clear the form data
     this.event_title = ''
     this.event_date = ''

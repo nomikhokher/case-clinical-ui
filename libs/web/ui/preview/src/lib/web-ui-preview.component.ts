@@ -1,9 +1,20 @@
-import { Component, ElementRef, Input, OnInit, SimpleChange, SimpleChanges, ViewChild } from '@angular/core'
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  Renderer2,
+  ChangeDetectionStrategy,
+  ViewChild,
+  ChangeDetectorRef,
+} from '@angular/core'
 import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
+import { ResizeEvent } from 'angular-resizable-element'
 import { ServiceCodepreview } from '../../../codepreview.service'
 
 enum DisplayMode {
   Preview,
+  Responsive,
   Code,
 }
 
@@ -18,6 +29,7 @@ export interface ComponentProp {
 }
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'ui-preview',
   template: `
     <ng-template #headerControls>
@@ -88,7 +100,7 @@ export interface ComponentProp {
               <div class="hidden sm:block">
                 <nav class="flex space-x-2  " aria-label="Tabs">
                   <button
-                    (click)="handleTabClick(DISPLAY_MODE.Preview)"
+                    (click)="handleTabClick(DISPLAY_MODE.Preview); codePreviewToggler = true"
                     class=" flex items-center px-3 py-2 font-medium text-sm rounded-md"
                     [class.theme-bg-50]="DISPLAY_MODE.Preview === activeTab"
                     [class.theme-color-700]="DISPLAY_MODE.Preview === activeTab"
@@ -104,7 +116,22 @@ export interface ComponentProp {
                     Preview
                   </button>
                   <button
-                    (click)="handleTabClick(DISPLAY_MODE.Code)"
+                    (click)="handleTabClick(DISPLAY_MODE.Responsive); codePreviewToggler = true"
+                    class="flex items-center px-3 py-2 font-medium text-sm rounded-md"
+                    [class.theme-bg-50]="DISPLAY_MODE.Responsive === activeTab"
+                    [class.theme-color-700]="DISPLAY_MODE.Responsive === activeTab"
+                    [class.dark:text-gray-400]="DISPLAY_MODE.Responsive !== activeTab"
+                    [class.dark:hover:text-gray-300]="DISPLAY_MODE.Responsive !== activeTab"
+                    [class.dark:theme-bg-800]="DISPLAY_MODE.Responsive === activeTab"
+                    [class.dark:theme-color-100]="DISPLAY_MODE.Responsive === activeTab"
+                    [class.text-gray-500]="DISPLAY_MODE.Responsive !== activeTab"
+                    [class.hover:text-gray-700]="DISPLAY_MODE.Responsive !== activeTab"
+                  >
+                    <ui-icon icon="office" class="h-5 w-5 mr-1"></ui-icon>
+                    Responsive
+                  </button>
+                  <button
+                    (click)="handleTabClick(DISPLAY_MODE.Code); codePreviewToggler = false"
                     class="flex items-center px-3 py-2 font-medium text-sm rounded-md"
                     [class.theme-bg-50]="DISPLAY_MODE.Code === activeTab"
                     [class.theme-color-700]="DISPLAY_MODE.Code === activeTab"
@@ -175,34 +202,65 @@ export interface ComponentProp {
           <p
             *ngIf="activeTab === DISPLAY_MODE.Preview"
             class="float-right font-mono h-3 mr-8 dark:text-white text-gray-500"
-          >
-            {{ current_container_width }} x {{ current_container_height }}
-          </p>
-          <div class="p-8 dark:bg-gray-600 bg-gray-200 bg-opacity-70 sm:rounded-lg">
+          ></p>
+          <div class="relative dark:bg-gray-600 bg-gray-200 bg-opacity-70 sm:rounded-lg">
             <ng-container *ngIf="activeTab === DISPLAY_MODE.Preview">
               <div class="relative">
-                <div
-                  #dragger
-                  (mousedown)="dragger_init($event)"
-                  class="relative sr-only sm:not-sr-only sm:border-l border-gray-200 dark:border-gray-500 bg-gray-200 dark:bg-gray-500 sm:absolute sm:inset-y-0 sm:flex sm:items-center sm:w-4"
-                  [style]="'cursor: ew-resize; right : 0px'"
-                >
-                  <div class="absolute right-0"></div>
-                  <svg
-                    class="h-4 w-4 text-gray-600 dark:text-gray-200 pointer-events-none"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8 5h2v14H8zM14 5h2v14h-2z"></path>
-                  </svg>
-                </div>
-                <div class="p-8 bg-white dark:bg-gray-800" #container>
+                <div class="p-8 bg-white dark:bg-gray-800">
                   <div class="max-w-7xl mx-auto" #child_dom>
                     <ng-content></ng-content>
                   </div>
                 </div>
               </div>
             </ng-container>
+
+            <ng-container *ngIf="activeTab === DISPLAY_MODE.Responsive">
+              <div class="bg-gray-300 p-8 relative">
+                <p class="flex justify-end text-xl font-bold">({{ width }}) x ({{ height }})</p>
+                <br />
+                <div
+                  class="inherit max-w-7xl"
+                  [ngStyle]="style"
+                  mwlResizable
+                  [enableGhostResize]="true"
+                  [resizeSnapGrid]="{ left: 1, right: 1 }"
+                  (resizeEnd)="onResizeEnd($event)"
+                  [validateResize]="validate"
+                  (resizeStart)="onResizeStart($event)"
+                  (resizing)="onResize($event)"
+                >
+                  <div class="bg-white dark:bg-gray-800 max-w-7xl rounded">
+                    <div class="max-w-7xl mx-auto relative">
+                      <div
+                        [resizeEdges]="{ right: true }"
+                        mwlResizeHandle
+                        class="sr-only sm:not-sr-only sm:border-l sm:bg-gray-100 sm:absolute sm:right-0 sm:inset-y-0 sm:flex sm:items-center sm:w-4"
+                        style="touch-action: none; cursor: row-resize;"
+                      >
+                        <div class="absolute inset-y-0 -inset-x-2"></div>
+                        <svg
+                          aria-hidden="true"
+                          class="h-4 w-4 text-gray-600 pointer-events-none"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M8 5h2v14H8zM14 5h2v14h-2z"></path>
+                        </svg>
+                      </div>
+                      <iframe
+                        title="Simple centered preview"
+                        aria-label="Simple centered preview"
+                        name="frame"
+                        class="w-full p-8 sm:rounded-r-none"
+                        #iframe
+                        *ngIf="childDiv"
+                      ></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+
             <ng-container *ngIf="activeTab === DISPLAY_MODE.Code">
               <ui-code [copyButton]="false" [code]="code" [language]="'json'"></ui-code>
             </ng-container>
@@ -210,7 +268,7 @@ export interface ComponentProp {
         </div>
       </div>
 
-      <div *ngIf="component_inputs?.length > 0" class="flex flex-col my-10">
+      <div *ngIf="component_inputs?.length > 0 && activeTab === DISPLAY_MODE.Preview" class="flex flex-col my-10">
         <div class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg overflow-x-auto">
           <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 overflow-x-auto">
             <thead class="bg-white dark:bg-gray-800">
@@ -471,7 +529,13 @@ export interface ComponentProp {
   `,
 })
 export class WebUiPreviewComponent implements OnInit {
-  constructor(private readonly codePreview: ServiceCodepreview) {}
+  changeDom: any
+  style: { position?: string; left: string; top: string; width: string; height: string }
+  constructor(
+    private readonly codePreview: ServiceCodepreview,
+    private changeDetector: ChangeDetectorRef,
+    private readonly renderer: Renderer2,
+  ) {}
   DISPLAY_MODE: typeof DisplayMode = DisplayMode
 
   @Input() title?: string
@@ -488,11 +552,13 @@ export class WebUiPreviewComponent implements OnInit {
   public keys: Array<any>
   public values: Array<any>
 
-  @ViewChild('child_dom') child_dom: ElementRef
+  @ViewChild('child_dom', { read: ElementRef }) child_dom: ElementRef
+  @ViewChild('iframe', { read: ElementRef }) iframe: ElementRef
   @ViewChild('dragger') dragger: ElementRef
   @ViewChild('container') container: ElementRef
 
   public myVal = ''
+  public childDiv: ElementRef | any = '<div>Loding...</div>'
   public objectKeys: string
   public darkMode: boolean = false
   activeTab: DisplayMode = DisplayMode.Preview
@@ -500,92 +566,63 @@ export class WebUiPreviewComponent implements OnInit {
   firstBody = true
   secondBody = false
   thirdBody = false
+  codePreviewToggler = true
 
   public isResizing = false
   public lastDownX = 0
   public draggerDownX = null
   public containerWidth = null
-
-  public current_container_width = 0
-  public current_container_height = 0
+  width = 1152
+  height = 214
 
   get directoryMeta() {
     return [{ icon: 'folder', label: this.directory }]
   }
-
-  dragger_init(e) {
-    this.isResizing = true
-    this.startDrag(e)
-    this.lastDownX = e.clientX
-    if (this.draggerDownX === null) {
-      this.draggerDownX = e.clientX
-    }
-  }
-  ngAfterViewInit() {
-    document.addEventListener('mousemove', (e) => {
-      this.current_container_width = this.container.nativeElement.offsetWidth - this.dragger.nativeElement.offsetWidth
-      this.current_container_height = this.container.nativeElement.offsetHeight
-      if (!this.isResizing) {
-        return
-      }
-      if (this.containerWidth === null) {
-        this.containerWidth = this.container.nativeElement.offsetWidth - this.dragger.nativeElement.offsetWidth
-      }
-      let change = this.draggerDownX - e.clientX
-      if (change > 0 && change < this.containerWidth - 300) {
-        this.dragger.nativeElement.style.right = change.toString() + 'px'
-        this.container.nativeElement.style.width = (this.containerWidth - change).toString() + 'px'
-      }
-    })
-    document.addEventListener('mouseup', () => {
-      this.isResizing = false
-    })
-  }
-
-  disableSelect(event) {
-    if (window['is_drag']) {
-      event.preventDefault()
-    }
-  }
-
-  startDrag(event) {
-    window['is_drag'] = true
-    window.addEventListener('mouseup', this.onDragEnd)
-    window.addEventListener('selectstart', this.disableSelect)
-    // ... my other code
-  }
-
-  onDragEnd() {
-    window['is_drag'] = false
-    window.removeEventListener('mouseup', this.onDragEnd)
-    window.removeEventListener('selectstart', this.disableSelect)
-    // ... my other code
-  }
-
-  ngAfterViewChecked() {
-    /* 
-     document.addEventListener('mousemove', (e) => {
-        if (!this.isResizing) {
-          return
-        }
-        if (this.containerWidth === null) {
-          this.containerWidth = this.container.nativeElement.offsetWidth - this.dragger.nativeElement.offsetWidth
-        }
-        let change = this.draggerDownX - e.clientX
-        if (change > 0 && change < this.containerWidth - 300) {
-          this.dragger.nativeElement.style.right = change.toString() + 'px'
-          this.container.nativeElement.style.width = (this.containerWidth - change).toString() + 'px'
-        }
-      })
-  
-      document.addEventListener('mouseup', () => {
-        this.isResizing = false
-      })
-      */
-  }
-
   ngOnInit() {
     this.lang = this.lang !== undefined ? this.lang : 'html'
+  }
+
+  ngAfterViewInit() {
+    this.changeDom = this.child_dom.nativeElement?.children[0].innerHTML
+  }
+
+  onResize(event: ResizeEvent): void {
+    this.width = event.rectangle.width
+    this.height = event.rectangle.height
+  }
+
+  onResizeStart(event: ResizeEvent): void {
+    this.width = event.rectangle.width
+    this.height = event.rectangle.height
+  }
+
+  validate(event: ResizeEvent): boolean {
+    const MIN_DIMENSIONS_PX: number = 200
+    const MAX_DIMENSIONS_PX: number = 1152
+    if (
+      event.rectangle.width &&
+      event.rectangle.height &&
+      (event.rectangle.width < MIN_DIMENSIONS_PX || event.rectangle.height < MIN_DIMENSIONS_PX)
+    ) {
+      return false
+    }
+    if (
+      event.rectangle.width &&
+      event.rectangle.height &&
+      (event.rectangle.width > MAX_DIMENSIONS_PX || event.rectangle.height > MAX_DIMENSIONS_PX)
+    ) {
+      return false
+    }
+    return true
+  }
+
+  onResizeEnd(event: ResizeEvent): void {
+    this.style = {
+      left: `${event.rectangle.left}px`,
+      top: `${event.rectangle.top}px`,
+      width: `${event.rectangle.width}px`,
+      height: `${event.rectangle.height}px`,
+    }
   }
 
   input_enabled(item) {
@@ -623,6 +660,13 @@ export class WebUiPreviewComponent implements OnInit {
 
   handleTabClick(mode: DisplayMode) {
     this.activeTab = mode
+    if (mode === 1) {
+      this.changeDetector.detectChanges()
+      this.childDiv = `<html><head><meta charset='utf-8' /><base href='/' /><meta name='viewport' content='width=device-width, initial-scale=1' /><link href='https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css' rel='stylesheet'></head><body>
+            ${this.changeDom}
+          </body></html>`
+      this.renderer.setAttribute(this.iframe?.nativeElement, 'srcdoc', this.childDiv)
+    }
   }
 
   handleGithubClick() {

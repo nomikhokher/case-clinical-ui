@@ -10,7 +10,7 @@ import { DevFaqSectionStore } from './dev-faq-section.store'
         [directory]="vm.config.directory"
         [breadcrumbs]="vm.config.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
-        [code]="previewCode[0]"
+        [code]="codePreview[0]"
         [codeObj]="vm.config.items"
       >
         <ui-faq-section
@@ -28,18 +28,27 @@ import { DevFaqSectionStore } from './dev-faq-section.store'
 export class DevFaqSectionComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevFaqSectionStore) {}
-  public previewCode = [
-    `import {WebUiFaqSectionModule} from '@schema-driven/web/ui/faq-section' \n\n
-   title = 'Frequently asked questions',\n
-    description = 'Ac euismod vel sit maecenas id pellentesque eu sed consectetur.',\n
-    faqStyle = 'hidden', // faqStyle should must be one of them [sideByside, show, hidden]\n
-    background = 'gray',\n
-    content : [
-      {question: 'How do you make holy water?', answer: 'You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat'},
-      {question: "What's the best thing about Switzerland?", answer :"I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat"},
-      {question: "What do you call someone with no body and no nose?", answer :"Nobody knows. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat."},
-      {question: "Why do you never see elephants hiding in trees?", answer :"Because they're so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat."},
-    ]
-   `,
-  ]
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `import { WebUiFaqSectionModule } from '@schema-driven/web/ui/faq-section'
+        \n\n
+        <ui-faq-section
+        [title]="vm.config.items.title"
+        [description]="vm.config.items.description"
+        [content]="vm.config.items.content"
+        [faqStyle]="vm.config.items.faqStyle"
+        [background]="vm.config.items.background"
+      ></ui-faq-section>
+     \n\n
+        title = ${JSON.stringify(result.config.items.title, null, '\t')}\n
+      description = ${JSON.stringify(result.config.items.description, null, '\t')}\n
+      content = ${JSON.stringify(result.config.items.content, null, '\t')}\n
+      faqStyle = ${JSON.stringify(result.config.items.faqStyle, null, '\t')}\n
+      background = ${JSON.stringify(result.config.items.background, null, '\t')}\n
+      `,
+      ]
+    })
+  }
 }
