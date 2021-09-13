@@ -207,7 +207,7 @@ export interface ComponentProp {
             <ng-container *ngIf="activeTab === DISPLAY_MODE.Preview">
               <div class="relative">
                 <div class="p-8 bg-white dark:bg-gray-800">
-                  <div class="max-w-7xl mx-auto" #child_dom>
+                  <div class="max-w-7xl mx-auto" #child_dom id="child_dom">
                     <ng-content></ng-content>
                   </div>
                 </div>
@@ -252,8 +252,10 @@ export interface ComponentProp {
                         aria-label="Simple centered preview"
                         name="frame"
                         class="w-full p-8 sm:rounded-r-none"
+                        id="iframe"
                         #iframe
                         *ngIf="childDiv"
+                        height="{{ iframeHeight }}"
                       ></iframe>
                     </div>
                   </div>
@@ -530,11 +532,14 @@ export interface ComponentProp {
 })
 export class WebUiPreviewComponent implements OnInit {
   changeDom: any
+  iframeHeight
+
   style: { position?: string; left: string; top: string; width: string; height: string }
   constructor(
     private readonly codePreview: ServiceCodepreview,
     private changeDetector: ChangeDetectorRef,
     private readonly renderer: Renderer2,
+    private element: ElementRef,
   ) {}
   DISPLAY_MODE: typeof DisplayMode = DisplayMode
 
@@ -660,6 +665,7 @@ export class WebUiPreviewComponent implements OnInit {
 
   handleTabClick(mode: DisplayMode) {
     this.activeTab = mode
+    this.getFrameHeight()
     if (mode === 1) {
       this.changeDetector.detectChanges()
       this.childDiv = `<html><head><meta charset='utf-8' /><base href='/' /><meta name='viewport' content='width=device-width, initial-scale=1' /><link href='https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css' rel='stylesheet'></head><body>
@@ -763,5 +769,8 @@ export class WebUiPreviewComponent implements OnInit {
       return true
     }
     return false
+  }
+  getFrameHeight() {
+    this.iframeHeight = this.element.nativeElement.querySelector('#child_dom').clientHeight + 100 + 'px'
   }
 }
