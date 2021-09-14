@@ -229,7 +229,7 @@ export interface ComponentProp {
                   (resizeStart)="onResizeStart($event)"
                   (resizing)="onResize($event)"
                 >
-                  <div class="bg-white dark:bg-gray-800 max-w-7xl rounded">
+                  <div class="bg-white max-w-7xl rounded">
                     <div class="max-w-7xl mx-auto relative">
                       <div
                         [resizeEdges]="{ right: true }"
@@ -665,8 +665,8 @@ export class WebUiPreviewComponent implements OnInit {
 
   handleTabClick(mode: DisplayMode) {
     this.activeTab = mode
-    this.getFrameHeight()
     if (mode === 1) {
+      this.getFrameHeight()
       this.changeDetector.detectChanges()
       this.childDiv = `<html><head><meta charset='utf-8' /><base href='/' /><meta name='viewport' content='width=device-width, initial-scale=1' /><link href='https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css' rel='stylesheet'></head><body>
             ${this.changeDom}
@@ -771,6 +771,10 @@ export class WebUiPreviewComponent implements OnInit {
     return false
   }
   getFrameHeight() {
-    this.iframeHeight = this.element.nativeElement.querySelector('#child_dom').clientHeight + 100 + 'px'
+    if (this.element.nativeElement.querySelector('#child_dom')?.clientHeight) {
+      this.iframeHeight = this.element.nativeElement.querySelector('#child_dom').clientHeight + 100 + 'px'
+    } else {
+      return this.iframeHeight
+    }
   }
 }
