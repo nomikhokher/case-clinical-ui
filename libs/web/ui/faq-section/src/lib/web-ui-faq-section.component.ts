@@ -13,10 +13,10 @@ import { Component, ElementRef, Input } from '@angular/core'
         "
       >
         <div class="" [ngClass]="faqStyle == 'sideByside' ? '' : 'max-w-3xl mx-auto divide-y-2 divide-gray-200'">
-          <div class="" [ngClass]="faqStyle == 'sideByside' ? '' : 'max-w-2xl lg:mx-auto lg:text-center'">
+          <div class="" [ngClass]="faqStyle == 'sideByside' ? '' : 'max-w-2xl lg:mx-auto text-center'">
             <h2
               *ngIf="title"
-              class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl"
+              class="text-xl font-bold sm:font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl"
             >
               {{ title }}
             </h2>
