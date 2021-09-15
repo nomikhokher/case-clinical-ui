@@ -5,16 +5,16 @@ import { Component, Input } from '@angular/core'
   template: `
     <div class="relative pb-5 border-b border-gray-200 sm:pb-0 dark:bg-gray-800">
       <div class="md:flex md:items-center md:justify-right space-x-3">
-        <div *ngIf="image">
+        <div *ngIf="image" class="flex justify-center sm:justify-start">
           <img class="h-16 w-16 rounded-full" src="{{ image }}" alt="Invalid URL" />
         </div>
-        <div>
+        <div class="text-center sm:text-left">
           <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">
             {{ title }}
           </h3>
           <p class="mt-2 max-w-4xl text-sm text-gray-500 dark:text-gray-300" *ngIf="description">{{ description }}</p>
         </div>
-        <div class="mt-3 flex md:mt-0 md:absolute md:top-3 md:right-0" *ngIf="buttons">
+        <div class="mt-3 flex justify-center md:mt-0 md:absolute md:top-3 md:right-0" *ngIf="buttons">
           <button
             *ngFor="let button of buttons; i as index"
             type="button"

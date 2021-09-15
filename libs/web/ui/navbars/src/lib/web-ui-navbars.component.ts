@@ -12,6 +12,7 @@ import { Component, Input } from '@angular/core'
               class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               aria-controls="mobile-menu"
               aria-expanded="false"
+              (click)="smMenuItem = !smMenuItem"
             >
               <span class="sr-only">Open main menu</span>
 
@@ -188,7 +189,7 @@ import { Component, Input } from '@angular/core'
         </div>
       </div>
 
-      <div class="sm:hidden" id="mobile-menu">
+      <div class="sm:hidden" id="mobile-menu" *ngIf="smMenuItem">
         <div class="px-2 pt-2 pb-3 space-y-1">
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
           <a
@@ -206,6 +207,7 @@ import { Component, Input } from '@angular/core'
 })
 export class WebUiNavbarsComponent {
   public isMenu = false
+  public smMenuItem = false
   public onClick() {
     this.isMenu = !this.isMenu
   }
