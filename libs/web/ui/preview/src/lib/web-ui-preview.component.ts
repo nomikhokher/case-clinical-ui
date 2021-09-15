@@ -251,7 +251,7 @@ export interface ComponentProp {
                         title="Simple centered preview"
                         aria-label="Simple centered preview"
                         name="frame"
-                        class="w-full p-8 sm:rounded-r-none"
+                        class="w-full pl-2 pr-6 py-8 sm:rounded-r-none"
                         id="iframe"
                         #iframe
                         *ngIf="childDiv"
@@ -601,20 +601,23 @@ export class WebUiPreviewComponent implements OnInit {
     this.height = event.rectangle.height
   }
 
+  MIN_DIMENSIONS_PX: number = 200
+  MAX_DIMENSIONS_PX: number = 1152
   validate(event: ResizeEvent): boolean {
-    const MIN_DIMENSIONS_PX: number = 200
-    const MAX_DIMENSIONS_PX: number = 1152
+    if (event.rectangle.width && (event.rectangle.width > 1152 || event.rectangle.width < 400)) {
+      return false
+    }
     if (
       event.rectangle.width &&
       event.rectangle.height &&
-      (event.rectangle.width < MIN_DIMENSIONS_PX || event.rectangle.height < MIN_DIMENSIONS_PX)
+      (event.rectangle.width < this.MIN_DIMENSIONS_PX || event.rectangle.height < this.MIN_DIMENSIONS_PX)
     ) {
       return false
     }
     if (
       event.rectangle.width &&
       event.rectangle.height &&
-      (event.rectangle.width > MAX_DIMENSIONS_PX || event.rectangle.height > MAX_DIMENSIONS_PX)
+      (event.rectangle.width > this.MAX_DIMENSIONS_PX || event.rectangle.height > this.MAX_DIMENSIONS_PX)
     ) {
       return false
     }

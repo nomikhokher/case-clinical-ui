@@ -39,7 +39,7 @@ import { Component, Input } from '@angular/core'
             />
             <blockquote class="mt-10">
               <div
-                class="max-w-3xl mx-auto text-center text-2xl leading-9 font-medium text-gray-900 dark:text-gray-100"
+                class="max-w-7xl sm:max-w-3xl mx-auto text-center text-lg sm:text-2xl leading-9 font-medium text-gray-900 dark:text-gray-100"
               >
                 <p>
                   {{ info.message }}
