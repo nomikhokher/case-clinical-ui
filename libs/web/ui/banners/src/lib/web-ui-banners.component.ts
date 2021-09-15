@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, ElementRef, Input } from '@angular/core'
 
 @Component({
   selector: 'ui-banners',
@@ -18,13 +18,13 @@ import { Component, Input } from '@angular/core'
                 </span>
               </p>
             </div>
-            <div class="order-3 mt-2 flex w-full sm:order-2 sm:mt-0 sm:w-auto" *ngIf="buttons">
+            <div class="order-3 mt-2 flex  justify-center w-full sm:order-2 sm:mt-0 sm:w-auto" *ngIf="buttons">
               <a
                 *ngFor="let button of buttons; let i = index"
                 href="javascript:void(0)"
                 class="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm mr-2 font-medium text-{{
                   button.textColor
-                }}-400 bg-{{ button.bgColor }}-600 hover:bg-{{ button.bgColor }}-500"
+                }}-200 bg-{{ button.bgColor }}-600 hover:bg-{{ button.bgColor }}-500"
               >
                 {{ button.text }}
               </a>

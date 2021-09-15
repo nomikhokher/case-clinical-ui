@@ -5,13 +5,13 @@ import { Component, Input } from '@angular/core'
   template: `
     <div class="dark:bg-gray-800 border dark:border-indigo-700 px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
       <div>
-        <div class="p-4 mt-4">
+        <div class="sm:p-4 mt-4">
           <h1 class="text-4xl text-center font-semibold mb-6 dark:text-white">Timeline status</h1>
           <div class="container">
             <div class="flex flex-col md:grid grid-cols-12 text-gray-50">
               <div class="flex md:contents">
                 <ng-container *ngFor="let timeline of timelines">
-                  <div class="col-start-2 col-end-4 mr-10 md:mx-auto relative">
+                  <div class="col-start-2 col-end-4 mx-2 md:mr-10 md:mx-auto relative">
                     <div class="h-full w-6 flex items-center justify-center">
                       <div class="h-full w-1 {{ timeline.timelineColor }} pointer-events-none"></div>
                     </div>
@@ -26,7 +26,7 @@ import { Component, Input } from '@angular/core'
                   <div
                     class="{{
                       timeline.timelineColor
-                    }} col-start-4 col-end-12 p-4 rounded-xl my-4 mr-auto shadow-md w-full"
+                    }} col-start-4 col-end-12 p-1 sm:p-4 rounded-xl my-4 mr-auto shadow-md w-full"
                   >
                     <h3 class="font-semibold text-lg mb-1">{{ timeline.status }}</h3>
                     <p class="leading-tight text-justify w-full" *ngIf="timeline.statusTitle">

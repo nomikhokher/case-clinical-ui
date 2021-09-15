@@ -3,9 +3,9 @@ import { Component, Input } from '@angular/core'
 @Component({
   selector: 'ui-accordion',
   template: `
-    <div class="dark:bg-gray-800 border dark:border-indigo-700 px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
+    <div class="dark:bg-gray-800 border dark:border-indigo-700 px-2 sm:px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
       <div class="w-full my-4">
-        <p class="text-2xl text-gray-800 py-3 font-bold dark:text-gray-100">Accordion</p>
+        <p class="text-2xl text-gray-800 py-3 font-bold dark:text-gray-100 text-center sm:text-left">Accordion</p>
         <div class="rounded-sm" *ngFor="let accordion of accordions">
           <div class="border border-b-0 bg-gray-100 px-10 py-6">
             <button
