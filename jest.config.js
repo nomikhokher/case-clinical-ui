@@ -145,5 +145,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/product-features',
     '<rootDir>/libs/web/ui/store-navigation',
     '<rootDir>/libs/web/ui/wildcard-pages',
+    '<rootDir>/libs/web/ui/carousel-pro',
   ],
 }

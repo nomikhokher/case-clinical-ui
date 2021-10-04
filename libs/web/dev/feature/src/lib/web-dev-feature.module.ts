@@ -379,6 +379,10 @@ import { WebDevFeatureComponent } from './web-dev-feature.component'
         loadChildren: () =>
           import('./dev-wildcard-pages/dev-wildcard-pages.module').then((m) => m.DevWildcardPagesModule),
       },
+      {
+        path: 'carousel-pro',
+        loadChildren: () => import('./dev-carousel-pro/dev-carousel-pro.module').then((m) => m.DevCarouselProModule),
+      },
     ]),
     WebUiMainPageModule,
   ],
