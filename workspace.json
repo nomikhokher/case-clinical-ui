@@ -1149,6 +1149,28 @@
         }
       }
     },
+    "web-ui-carousel-pro": {
+      "projectType": "library",
+      "root": "libs/web/ui/carousel-pro",
+      "sourceRoot": "libs/web/ui/carousel-pro/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/carousel-pro/src/**/*.ts", "libs/web/ui/carousel-pro/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/carousel-pro"],
+          "options": {
+            "jestConfig": "libs/web/ui/carousel-pro/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-category-filters": {
       "projectType": "library",
       "root": "libs/web/ui/category-filters",

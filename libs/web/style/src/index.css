@@ -2,6 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import '~prismjs/themes/prism-okaidia.css';
+@import '~swiper/swiper-bundle';
 
 :root {
   --theme-color-50: #eef2ff;
