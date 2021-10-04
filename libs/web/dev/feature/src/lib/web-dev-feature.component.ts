@@ -58,6 +58,11 @@ export class WebDevFeatureComponent {
               route: 'carousel',
               image: '/assets/images/newsletter-sections.png',
             },
+            {
+              label: 'Carousel Pro',
+              route: 'carousel-pro',
+              image: '/assets/images/newsletter-sections.png',
+            },
           ],
         },
         {
