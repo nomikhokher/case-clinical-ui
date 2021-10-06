@@ -4,8 +4,79 @@ import { DevCarouselProStore } from './dev-carousel-pro.store'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <ui-preview>
-        <ui-carousel-pro [images]="images" [imagesForSlider]="imagesForSlider"></ui-carousel-pro>
+      <ui-preview class="space-y-10">
+        <div>
+          <h1 class="text-3xl font-bold">With Dots</h1>
+          <ui-carousel-pro
+            [carouselType]="'default'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div>
+          <h1 class="text-3xl font-bold">Delay of Half Second</h1>
+          <ui-carousel-pro
+            [carouselType]="'delay'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div>
+          <h1 class="text-3xl font-bold">Methods</h1>
+          <ui-carousel-pro
+            [carouselType]="'pro'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div class="mt-10">
+          <h1 class="text-3xl font-bold">With Counter</h1>
+          <ui-carousel-pro
+            [carouselType]="'counter'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div class="mt-10">
+          <h1 class="text-3xl font-bold">Without Arrows</h1>
+          <ui-carousel-pro
+            [carouselType]="'withoutArrow'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div class="mt-10">
+          <h1 class="text-3xl font-bold">With Bottom Scrollbar</h1>
+          <ui-carousel-pro
+            [carouselType]="'scrollbar'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div class="mt-10">
+          <h1 class="text-3xl font-bold">With Three Slides</h1>
+          <ui-carousel-pro
+            [carouselType]="'threeSlides'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div class="mt-10">
+          <h1 class="text-3xl font-bold">With Five Slides</h1>
+          <ui-carousel-pro
+            [carouselType]="'fiveSlides'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div class="mt-10">
+          <h1 class="text-3xl font-bold">Use Case</h1>
+          <ui-carousel-pro
+            [carouselType]="'useCase'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
       </ui-preview>
     </ng-container>
   `,
