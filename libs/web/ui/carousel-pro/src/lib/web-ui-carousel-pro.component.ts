@@ -28,65 +28,7 @@ import Swiper from 'swiper/types/swiper-class'
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Virtual, Zoom, Autoplay, Thumbs, Controller])
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
-  styles: [
-    `
-      .bg-yellow {
-        background-color: yellow;
-      }
-      .transition {
-        transition: background 0.25s ease, color 0.25s ease;
-      }
-      .active-slide {
-        background-color: green;
-        color: #fff;
-      }
-      .bg-blue {
-        background-color: blue;
-        color: #fff;
-      }
-      .swiper-container {
-        width: 100%;
-        height: 100%;
-        margin: 50px auto;
-      }
-
-      .swiper-slide {
-        background: #f1f1f1;
-        color: #000;
-        text-align: center;
-        line-height: 300px;
-      }
-      .swiper-container > .swiper-button-next:after {
-        content: 'next' !important;
-        width: 30px !important;
-        font-size: 20px !important;
-        background-color: white !important;
-        padding: 21px !important;
-        border-radius: 50% !important;
-        opacity: 1 !important;
-        line-height: 0.1 !important;
-        margin-right: 26px !important;
-        color: black !important;
-        font-weight: 800 !important;
-      }
-
-      .swiper-container > .swiper-button-prev:after {
-        content: 'prev' !important;
-        width: 30px !important;
-        font-size: 20px !important;
-        background-color: white !important;
-        padding: 21px !important;
-        border-radius: 50% !important;
-        opacity: 1 !important;
-        line-height: 0.1 !important;
-        margin-left: 26px !important;
-        color: black !important;
-        font-weight: 800 !important;
-      }
-    `,
-  ],
+  styleUrls: ['web-ui-carousel-pro.scss'],
   selector: 'ui-carousel-pro',
   template: `<div class="carousel-pro">
     <div>
@@ -181,6 +123,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Virtual, Zoom, Autoplay
         >
         <a class="cursor-pointer" (click)="navigation = !navigation">Navigation</a>
         <a class="cursor-pointer" (click)="togglePagination()">Pagination</a>
+
       </div> -->
         </div>
       </ng-container>
@@ -364,18 +307,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Virtual, Zoom, Autoplay
         <ng-template swiperSlide>Slide</ng-template>
       </swiper>
 
-      <swiper
-        #swiperVirtualRef
-        [slidesPerView]="3"
-        [spaceBetween]="50"
-        [pagination]="{ type: 'fraction' }"
-        [virtual]="true"
-        [centeredSlides]="true"
-        [navigation]="true"
-      >
-        <ng-template swiperSlide *ngFor="let slide of slides$ | async; index as i">Slide {{ slide }}</ng-template>
-      </swiper>
-      <button (click)="getSlides()">Get slides</button>
+     
 
       <swiper [zoom]="true" [autoplay]="true">
         <ng-template swiperSlide class="custom-class" [zoom]="true">
@@ -519,10 +451,12 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Virtual, Zoom, Autoplay
       <!-- </div> -->
     </div>
   </div>`,
+
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class WebUiCarouselProComponent {
   @ViewChild('swiperRef', { static: false }) swiperRef?: SwiperComponent
-
   @Input() images?: any
   @Input() imagesForSlider?: any
   @Input() bulletNumbers?: boolean = true
@@ -539,12 +473,14 @@ export class WebUiCarouselProComponent {
   show: boolean
   thumbs: any
   slides$ = new BehaviorSubject<string[]>([''])
+
   constructor(private cd: ChangeDetectorRef, private ngZone: NgZone) {}
+
   ngOnInit() {}
 
-  getSlides() {
-    this.slides$.next(Array.from({ length: 600 }).map((el, index) => `Slide ${index + 1}`))
-  }
+  // getSlides() {
+  //   this.slides$.next(Array.from({ length: 600 }).map((el, index) => `Slide ${index + 1}`))
+  // }
 
   isAuto: any = true
 
@@ -578,6 +514,7 @@ export class WebUiCarouselProComponent {
   }
 
   slides2 = ['slide 1', 'slide 2', 'slide 3']
+
   replaceSlides() {
     this.slides2 = ['foo', 'bar']
   }
@@ -591,6 +528,7 @@ export class WebUiCarouselProComponent {
   }
 
   navigation = false
+
   toggleNavigation() {
     this.navigation = !this.navigation
   }
@@ -601,9 +539,10 @@ export class WebUiCarouselProComponent {
     if (!this.scrollbar) {
       this.scrollbar = { draggable: true }
     } else {
-      this.scrollbar = false
+      this.scrollbar = { draggable: true }
     }
   }
+
   breakpoints = {
     640: { slidesPerView: 2, spaceBetween: 20 },
     768: { slidesPerView: 4, spaceBetween: 40 },
@@ -637,5 +576,11 @@ export class WebUiCarouselProComponent {
       })
       console.log(this.slidesEx)
     }
+  }
+  paginationBtn = {
+    clickable: true,
+    renderBullet: function (index, className) {
+      return '<span class="' + className + '">' + (index + 1) + '</span>'
+    },
   }
 }
