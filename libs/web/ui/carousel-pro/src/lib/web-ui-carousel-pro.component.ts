@@ -109,8 +109,6 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Virtual, Zoom, Autoplay
       }
     `,
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
   selector: 'ui-carousel-pro',
   template: `<div class="carousel-pro">
     <div>
