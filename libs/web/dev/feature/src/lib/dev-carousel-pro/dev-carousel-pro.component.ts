@@ -6,7 +6,7 @@ import { DevCarouselProStore } from './dev-carousel-pro.store'
     <ng-container *ngIf="vm$ | async as vm">
       <ui-preview class="space-y-10">
         <div>
-          <h1 class="text-3xl font-bold">With Dots</h1>
+          <h1 class="text-4xl font-bold">Examples</h1>
           <ui-carousel-pro
             [carouselType]="'default'"
             [images]="images"
@@ -14,15 +14,112 @@ import { DevCarouselProStore } from './dev-carousel-pro.store'
           ></ui-carousel-pro>
         </div>
         <div>
-          <h1 class="text-3xl font-bold">Delay of Half Second</h1>
+          <h1 class="text-xl font-bold">Image slider</h1>
           <ui-carousel-pro
             [carouselType]="'delay'"
             [images]="images"
             [imagesForSlider]="imagesForSlider"
           ></ui-carousel-pro>
         </div>
+        <div class="mb-10">
+          <h1 class="text-xl font-bold ">width = 410 height = 100</h1>
+          <ui-carousel-pro
+            [carouselType]="'customSize'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div class="mb-10">
+          <h1 class="text-xl font-bold ">CellWidth = 100</h1>
+          <ui-carousel-pro
+            [carouselType]="'cellWidth'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div class="mb-10">
+          <h1 class="text-xl font-bold ">cellsToShow = 5</h1>
+          <ui-carousel-pro
+            [carouselType]="'cellsToShow'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div class="mb-10">
+          <h1 class="text-xl font-bold ">cellsToScroll = 3</h1>
+          <ui-carousel-pro
+            [carouselType]="'cellsToScroll'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div class="mb-10">
+          <h1 class="text-xl font-bold ">loop</h1>
+          <ui-carousel-pro
+            [carouselType]="'loop'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div class="mb-10">
+          <h1 class="text-xl font-bold ">freeScroll</h1>
+          <ui-carousel-pro
+            [carouselType]="'freeScroll'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div class="mb-10">
+          <h1 class="text-xl font-bold ">autoplay</h1>
+          <ui-carousel-pro
+            [carouselType]="'autoplay'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div class="mb-10">
+          <h1 class="text-xl font-bold ">autoplayInterval = 2000</h1>
+          <ui-carousel-pro
+            [carouselType]="'autoplayInteval'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div class="mb-10">
+          <h1 class="text-xl font-bold ">dots = true</h1>
+          <ui-carousel-pro
+            [carouselType]="'dotsTrue'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div class="mb-10">
+          <h1 class="text-xl font-bold ">objectFit = contain</h1>
+          <ui-carousel-pro
+            [carouselType]="'objContain'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div class="mb-10">
+          <h1 class="text-xl font-bold ">margin = 20</h1>
+          <ui-carousel-pro
+            [carouselType]="'margin'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+        <div class="mb-10">
+          <h1 class="text-xl font-bold ">minSwipeDistance = 50</h1>
+          <ui-carousel-pro
+            [carouselType]="'minSwipeDistance'"
+            [images]="images"
+            [imagesForSlider]="imagesForSlider"
+          ></ui-carousel-pro>
+        </div>
+
         <div>
-          <h1 class="text-3xl font-bold">Methods</h1>
+          <h1 class="text-xl font-bold">Methods</h1>
           <ui-carousel-pro
             [carouselType]="'pro'"
             [images]="images"
@@ -30,7 +127,7 @@ import { DevCarouselProStore } from './dev-carousel-pro.store'
           ></ui-carousel-pro>
         </div>
         <div class="mt-10">
-          <h1 class="text-3xl font-bold">With Counter</h1>
+          <h1 class="text-xl font-bold">With Counter</h1>
           <ui-carousel-pro
             [carouselType]="'counter'"
             [images]="images"
@@ -38,7 +135,7 @@ import { DevCarouselProStore } from './dev-carousel-pro.store'
           ></ui-carousel-pro>
         </div>
         <div class="mt-10">
-          <h1 class="text-3xl font-bold">Without Arrows</h1>
+          <h1 class="text-xl font-bold">Without Arrows</h1>
           <ui-carousel-pro
             [carouselType]="'withoutArrow'"
             [images]="images"
@@ -46,7 +143,7 @@ import { DevCarouselProStore } from './dev-carousel-pro.store'
           ></ui-carousel-pro>
         </div>
         <div class="mt-10">
-          <h1 class="text-3xl font-bold">With Bottom Scrollbar</h1>
+          <h1 class="text-xl font-bold">With Bottom Scrollbar</h1>
           <ui-carousel-pro
             [carouselType]="'scrollbar'"
             [images]="images"
