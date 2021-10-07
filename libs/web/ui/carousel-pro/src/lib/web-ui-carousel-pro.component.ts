@@ -28,8 +28,6 @@ import Swiper from 'swiper/types/swiper-class'
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Virtual, Zoom, Autoplay, Thumbs, Controller])
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
   styles: [
     `
       .bg-yellow {
@@ -61,13 +59,13 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Virtual, Zoom, Autoplay
       .swiper-container > .swiper-button-next:after {
         content: 'next' !important;
         width: 30px !important;
-        font-size: 20px !important;
+        font-size: 18px !important;
         background-color: white !important;
-        padding: 21px !important;
+        padding: 20px !important;
         border-radius: 50% !important;
         opacity: 1 !important;
         line-height: 0.1 !important;
-        margin-right: 26px !important;
+        margin-right: 25px !important;
         color: black !important;
         font-weight: 800 !important;
       }
@@ -75,18 +73,44 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Virtual, Zoom, Autoplay
       .swiper-container > .swiper-button-prev:after {
         content: 'prev' !important;
         width: 30px !important;
-        font-size: 20px !important;
+        font-size: 18px !important;
         background-color: white !important;
-        padding: 21px !important;
+        padding: 20px !important;
         border-radius: 50% !important;
         opacity: 1 !important;
         line-height: 0.1 !important;
-        margin-left: 26px !important;
+        margin-left: 25px !important;
         color: black !important;
         font-weight: 800 !important;
       }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .swiper-pagination-bullet {
+        width: 14px;
+        height: 14px;
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        color: #fff;
+        opacity: 1;
+        background: transparent;
+        border: 2px solid white;
+      }
+
+      .swiper-pagination-bullet-active {
+        color: transparent;
+        background: white;
+      }
     `,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
   selector: 'ui-carousel-pro',
   template: `<div class="carousel-pro">
     <div>
@@ -109,14 +133,13 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Virtual, Zoom, Autoplay
         <swiper
           #swiperVirtualRefs
           [loop]="false"
-          [slidesPerView]="1"
-          [spaceBetween]="50"
+          [slidesPerView]="3"
+          [spaceBetween]="10"
           [virtual]="false"
-          [centeredSlides]="true"
+          [centeredSlides]="false"
           [navigation]="true"
           [autoplay]="false"
-          [(index)]="indexNumber"
-          [pagination]="true"
+          [pagination]="false"
           [grabCursor]="true"
           [slidesPerGroup]="1"
         >
@@ -132,9 +155,10 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Virtual, Zoom, Autoplay
           [slidesPerView]="1"
           [spaceBetween]="50"
           [virtual]="false"
-          [centeredSlides]="true"
+          [centeredSlides]="false"
           [navigation]="true"
-          [autoplay]="{ delay: 500 }"
+          [pagination]="true"
+          [autoplay]="{ delay: 2000 }"
           [(index)]="indexNumber"
           [grabCursor]="true"
           [slidesPerGroup]="1"
@@ -144,6 +168,268 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Virtual, Zoom, Autoplay
           </ng-template>
         </swiper>
       </ng-container>
+      <div *ngIf="carouselType == 'cellWidth'" style="width: 620px !important; height : 243px">
+        <ng-container>
+          <swiper
+            #swiperVirtualRefs
+            [loop]="false"
+            [slidesPerView]="6"
+            [spaceBetween]="10"
+            [virtual]="false"
+            [centeredSlides]="false"
+            [navigation]="true"
+            [pagination]="false"
+            [autoplay]="false"
+            [grabCursor]="true"
+            [slidesPerGroup]="1"
+          >
+            <ng-template swiperSlide *ngFor="let carousel of images; index as i">
+              <img class="w-32 object-cover rounded-2xl block " src="{{ carousel.path }}" />
+            </ng-template>
+          </swiper>
+        </ng-container>
+      </div>
+      <div *ngIf="carouselType == 'customSize'" style="width: 410px !important; height : 100px">
+        <ng-container>
+          <swiper
+            #swiperVirtualRefs
+            [loop]="false"
+            [slidesPerView]="2"
+            [spaceBetween]="10"
+            [virtual]="false"
+            [centeredSlides]="false"
+            [navigation]="true"
+            [pagination]="false"
+            [autoplay]="false"
+            [grabCursor]="true"
+            [slidesPerGroup]="1"
+          >
+            <ng-template swiperSlide *ngFor="let carousel of images; index as i">
+              <img class="w-full object-cover rounded-2xl block" src="{{ carousel.path }}" />
+            </ng-template>
+          </swiper>
+        </ng-container>
+      </div>
+
+      <div *ngIf="carouselType == 'cellsToShow'" style="width: 620px !important; height : 193px">
+        <ng-container>
+          <swiper
+            #swiperVirtualRefs
+            [loop]="false"
+            [slidesPerView]="5"
+            [spaceBetween]="10"
+            [virtual]="false"
+            [centeredSlides]="false"
+            [navigation]="true"
+            [pagination]="false"
+            [autoplay]="false"
+            [grabCursor]="true"
+            [slidesPerGroup]="1"
+          >
+            <ng-template swiperSlide *ngFor="let carousel of images; index as i">
+              <img class="w-full object-cover rounded-2xl block" src="{{ carousel.path }}" />
+            </ng-template>
+          </swiper>
+        </ng-container>
+      </div>
+
+      <div *ngIf="carouselType == 'cellsToScroll'" style="width: 620px !important; height : 200px">
+        <ng-container>
+          <swiper
+            #swiperVirtualRefs
+            [loop]="false"
+            [slidesPerView]="3"
+            [spaceBetween]="10"
+            [virtual]="false"
+            [centeredSlides]="false"
+            [navigation]="true"
+            [pagination]="false"
+            [autoplay]="false"
+            [grabCursor]="true"
+            [slidesPerGroup]="3"
+          >
+            <ng-template swiperSlide *ngFor="let carousel of images; index as i">
+              <img class="w-full object-cover rounded-2xl block" src="{{ carousel.path }}" />
+            </ng-template>
+          </swiper>
+        </ng-container>
+      </div>
+
+      <div *ngIf="carouselType == 'loop'" style="width: 620px !important; height : 200px">
+        <ng-container>
+          <swiper
+            #swiperVirtualRefs
+            [loop]="true"
+            [slidesPerView]="3"
+            [spaceBetween]="10"
+            [virtual]="false"
+            [centeredSlides]="false"
+            [navigation]="true"
+            [pagination]="false"
+            [autoplay]="false"
+            [grabCursor]="true"
+            [slidesPerGroup]="1"
+          >
+            <ng-template swiperSlide *ngFor="let carousel of images; index as i">
+              <img class="w-full object-cover rounded-2xl block" src="{{ carousel.path }}" />
+            </ng-template>
+          </swiper>
+        </ng-container>
+      </div>
+
+      <div *ngIf="carouselType == 'freeScroll'" style="width: 620px !important; height : 200px">
+        <ng-container>
+          <swiper
+            #swiperVirtualRefs
+            [loop]="false"
+            [slidesPerView]="3"
+            [spaceBetween]="10"
+            [virtual]="false"
+            [centeredSlides]="false"
+            [navigation]="false"
+            [pagination]="false"
+            [autoplay]="false"
+            [grabCursor]="true"
+            [slidesPerGroup]="1"
+          >
+            <ng-template swiperSlide *ngFor="let carousel of images; index as i">
+              <img class="w-full object-cover rounded-2xl block" src="{{ carousel.path }}" />
+            </ng-template>
+          </swiper>
+        </ng-container>
+      </div>
+
+      <div *ngIf="carouselType == 'autoplay'" style="width: 620px !important; height : 200px">
+        <ng-container>
+          <swiper
+            #swiperVirtualRefs
+            [loop]="false"
+            [slidesPerView]="3"
+            [spaceBetween]="10"
+            [virtual]="false"
+            [centeredSlides]="false"
+            [navigation]="true"
+            [pagination]="false"
+            [autoplay]="{ delay: 4000 }"
+            [grabCursor]="true"
+            [slidesPerGroup]="1"
+          >
+            <ng-template swiperSlide *ngFor="let carousel of images; index as i">
+              <img class="w-full object-cover rounded-2xl block" src="{{ carousel.path }}" />
+            </ng-template>
+          </swiper>
+        </ng-container>
+      </div>
+
+      <div *ngIf="carouselType == 'autoplayInteval'" style="width: 620px !important; height : 200px">
+        <ng-container>
+          <swiper
+            #swiperVirtualRefs
+            [loop]="false"
+            [slidesPerView]="3"
+            [spaceBetween]="10"
+            [virtual]="false"
+            [centeredSlides]="false"
+            [navigation]="true"
+            [pagination]="false"
+            [autoplay]="{ delay: 2000 }"
+            [grabCursor]="true"
+            [slidesPerGroup]="1"
+          >
+            <ng-template swiperSlide *ngFor="let carousel of images; index as i">
+              <img class="w-full object-cover rounded-2xl block" src="{{ carousel.path }}" />
+            </ng-template>
+          </swiper>
+        </ng-container>
+      </div>
+
+      <div *ngIf="carouselType == 'dotsTrue'" style="width: 620px !important; height : 200px">
+        <ng-container>
+          <swiper
+            #swiperVirtualRefs
+            [loop]="false"
+            [slidesPerView]="1"
+            [spaceBetween]="10"
+            [virtual]="false"
+            [centeredSlides]="false"
+            [navigation]="true"
+            [pagination]="true"
+            [autoplay]="false"
+            [grabCursor]="true"
+            [slidesPerGroup]="1"
+          >
+            <ng-template swiperSlide *ngFor="let carousel of images; index as i">
+              <img class="w-full object-cover rounded-2xl block" src="{{ carousel.path }}" />
+            </ng-template>
+          </swiper>
+        </ng-container>
+      </div>
+
+      <div *ngIf="carouselType == 'objContain'" style="width: 620px !important; height : 200px">
+        <ng-container>
+          <swiper
+            #swiperVirtualRefs
+            [loop]="false"
+            [slidesPerView]="3"
+            [spaceBetween]="10"
+            [virtual]="false"
+            [centeredSlides]="false"
+            [navigation]="true"
+            [pagination]="false"
+            [autoplay]="false"
+            [grabCursor]="true"
+            [slidesPerGroup]="1"
+          >
+            <ng-template swiperSlide *ngFor="let carousel of images.slice(1); index as i">
+              <img class="w-full object-contain block" src="{{ carousel.path }}" />
+            </ng-template>
+          </swiper>
+        </ng-container>
+      </div>
+
+      <div *ngIf="carouselType == 'margin'" style="width: 620px !important; height : 200px">
+        <ng-container>
+          <swiper
+            #swiperVirtualRefs
+            [loop]="false"
+            [slidesPerView]="3"
+            [spaceBetween]="20"
+            [virtual]="false"
+            [centeredSlides]="false"
+            [navigation]="true"
+            [pagination]="false"
+            [autoplay]="false"
+            [grabCursor]="true"
+            [slidesPerGroup]="1"
+          >
+            <ng-template swiperSlide *ngFor="let carousel of images; index as i">
+              <img class="w-full object-cover rounded-2xl block" src="{{ carousel.path }}" />
+            </ng-template>
+          </swiper>
+        </ng-container>
+      </div>
+
+      <div *ngIf="carouselType == 'minSwipeDistance'" style="width: 620px !important; height : 200px">
+        <ng-container>
+          <swiper
+            #swiperVirtualRefs
+            [loop]="false"
+            [slidesPerView]="3"
+            [spaceBetween]="10"
+            [virtual]="false"
+            [centeredSlides]="false"
+            [navigation]="true"
+            [pagination]="false"
+            [autoplay]="false"
+            [grabCursor]="true"
+            [slidesPerGroup]="1"
+          >
+            <ng-template swiperSlide *ngFor="let carousel of images; index as i">
+              <img class="w-full object-cover rounded-2xl block" src="{{ carousel.path }}" />
+            </ng-template>
+          </swiper>
+        </ng-container>
+      </div>
 
       <ng-container *ngIf="carouselType == 'pro'">
         <swiper
@@ -604,6 +890,7 @@ export class WebUiCarouselProComponent {
       this.scrollbar = false
     }
   }
+
   breakpoints = {
     640: { slidesPerView: 2, spaceBetween: 20 },
     768: { slidesPerView: 4, spaceBetween: 40 },
