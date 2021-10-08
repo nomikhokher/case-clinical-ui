@@ -191,11 +191,10 @@ import { ServiceCodepreview } from '../../../codepreview.service'
             </div>
             <nav aria-label="Sidebar" class="mt-5">
               <div class="mt-4">
-                <ng-container *ngFor="let link of profileLinks">
+                <ng-container *ngFor="let link of links">
                   <div class="relative group">
                     <div class="p-3 my-3 font-bold theme-bg-500 rounded-md">
-                      <p class="uppercase text-gray-100 text-sm">{{ link.title }}</p>
-                      <p class="capitalize text-gray-200 text-xs">{{ link.subTitle }}</p>
+                      <a [routerLink]="link.route" class="uppercase text-gray-100 text-sm">{{ link.label }}</a>
                     </div>
                     <ng-container *ngFor="let child of link.childs">
                       <a
@@ -344,14 +343,14 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                       </svg>
                     </a>
                   </ng-container>
-                  <ng-container *ngFor="let link of profileLinks; index as i">
+                  <ng-container *ngFor="let link of links; index as i">
                     <a
-                      (click)="compactChildren(link.childs, i)"
+                      (click)="compactChildren(link.childs, i, link.route)"
                       class="flex items-center p-4 rounded-lg text-indigo-100 hover:theme-bg-300 hover:text-white cursor-pointer"
                       [ngClass]="i == compact.index && 'theme-bg-700'"
                     >
                       <ui-icon [icon]="link.icon" size="lg" class="dark:text-white h-6 w-6"></ui-icon>
-                      <span class="sr-only"> {{ link.title }}</span>
+                      <span class="sr-only"> {{ link.label }}</span>
                     </a>
                   </ng-container>
                 </nav>
@@ -542,7 +541,12 @@ export class WebUiSidebarThinComponent {
     }
   }
 
-  compactChildren(subChilds, index) {
+  compactChildren(subChilds, index, route) {
+    if (!subChilds) {
+      this.router.navigate([`/${route}`])
+      return
+    }
+
     if (this.compact.index === index) {
       this.compact.show = false
       this.compact.index = null

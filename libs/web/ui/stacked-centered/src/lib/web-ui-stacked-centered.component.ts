@@ -169,11 +169,10 @@ import { ServiceCodepreview } from '../../../codepreview.service'
               <nav class="px-2 space-y-1">
                 <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-indigo-600" -->
                 <div>
-                  <ng-container *ngFor="let link of profileLinks">
+                  <ng-container *ngFor="let link of Links">
                     <div class="relative group">
                       <div class="p-3 my-3 font-bold theme-bg-500 rounded-md">
-                        <p class="uppercase text-gray-100 text-sm">{{ link.title }}</p>
-                        <p class="capitalize text-gray-200 text-xs">{{ link.subTitle }}</p>
+                        <a [routerLink]="link.route" class="uppercase text-gray-100 text-sm">{{ link.label }}</a>
                       </div>
                       <ng-container *ngFor="let child of link.childs">
                         <a
@@ -279,7 +278,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
             </div>
             <div class="mr-auto flex items-center">
               <div class="hidden md:flex">
-                <ng-container *ngFor="let link of profileLinks">
+                <ng-container *ngFor="let link of links">
                   <div class="relative -mr-1.5 sm:ml-2 sm:mr-0 sm:pl-6">
                     <button
                       type="button"
@@ -290,20 +289,11 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                     >
                       <span class="hidden sm:flex items-center">
                         <a
-                          class="hidden sm:block text-gray-600 dark:text-gray-200 hover:text-black dark:hover:text-white mx-4"
+                          class="hidden sm:block text-gray-600 dark:text-gray-200 hover:text-black dark:hover:text-white mx-4 focus:outline-none"
                           [routerLink]="link.route"
                         >
-                          {{ link.title }}
+                          {{ link.label }}
                         </a>
-                        <svg width="8" height="6" fill="none" class="ml-2.5 text-gray-400">
-                          <path
-                            d="M7 1.5l-3 3-3-3"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ></path>
-                        </svg>
                       </span>
                       <span class="flex sm:hidden -my-1 w-8 h-8 rounded-lg items-center justify-center">
                         <svg width="20" height="20" fill="none" class="text-gray-900">

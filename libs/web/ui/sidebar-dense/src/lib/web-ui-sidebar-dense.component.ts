@@ -33,7 +33,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
         }} transition-all ease-in-out duration-900 hover:w-64 z-50 text-gray-900 leading-6 theme-bg-600 dark:theme-bg-900 fixed inset-y-0 overflow-x-hidden overflow-y-auto sm:block ring-2 ring-black ring-opacity-5"
       >
         <div class="p-3 flex items-center">
-          <div class="flex-shrink-0 flex items-center px-6 pt-2">
+          <div class="flex-shrink-0 flex items-center px-3 pt-2">
             <img
               class="h-10 w-auto"
               src="https://tailwindui.com/img/logos/workflow-logo-indigo-300-mark-white-text.svg"
@@ -44,98 +44,96 @@ import { ServiceCodepreview } from '../../../codepreview.service'
         <hr />
         <div class="p-3 h-auto">
           <!-- Extract: menu_items -->
-          <ng-container *ngFor="let link of profileLinks">
-            <ng-container *ngFor="let child of link.childs">
-              <span (mouseleave)="child.dropDown = false">
-                <a
-                  [routerLink]="child.route"
-                  class="text-indigo-100 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
-                  (click)="child.dropDown = !child.dropDown"
+          <ng-container *ngFor="let link of links">
+            <span (mouseleave)="link.dropDown = false">
+              <a
+                [routerLink]="link.route"
+                class="text-indigo-100 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                (click)="link.dropDown = !link.dropDown"
+              >
+                <div
+                  class="mr-7 p-2"
+                  routerLinkActive="theme-color-100 bg-opacity-50"
+                  [routerLinkActiveOptions]="{ exact: true }"
                 >
-                  <div
-                    class="mr-7 p-2"
-                    routerLinkActive="theme-color-100 bg-opacity-50"
-                    [routerLinkActiveOptions]="{ exact: true }"
+                  <ui-icon
+                    [icon]="link.icon"
+                    size="lg"
+                    class="text-indigo-300 group-hover:text-gray-300 h-8 w-8 pt-1 pl-1"
+                  ></ui-icon>
+                </div>
+                {{ link.label }}
+                <div class="flex justify-end w-full" *ngIf="link?.child?.children">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
                   >
-                    <ui-icon
-                      [icon]="link.icon"
-                      size="lg"
-                      class="text-indigo-300 group-hover:text-gray-300 h-8 w-8 pt-1 pl-1"
-                    ></ui-icon>
-                  </div>
-                  {{ child.label }}
-                  <div class="flex justify-end w-full" *ngIf="child.children">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 5l7 7-7 7"
-                        *ngIf="!child.dropDown"
-                      />
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 9l-7 7-7-7"
-                        *ngIf="child.dropDown"
-                      />
-                    </svg>
-                  </div>
-                </a>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                      *ngIf="!child.dropDown"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                      *ngIf="link?.child?.dropDown"
+                    />
+                  </svg>
+                </div>
+              </a>
 
-                <div *ngIf="child.dropDown" class="theme-bg-500 rounded-md my-1">
-                  <ng-container *ngFor="let children of child.children">
+              <div *ngIf="link?.child?.dropDown" class="theme-bg-500 rounded-md my-1">
+                <ng-container *ngFor="let children of child.children">
+                  <a
+                    (click)="children.dropDown = !children.dropDown"
+                    [routerLink]="children.route"
+                    class="text-indigo-100 hover:theme-bg-400 pl-20 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
+                  >
+                    &nbsp;{{ children.label }}
+                    <div class="flex justify-end w-full" *ngIf="children.children">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 5l7 7-7 7"
+                          *ngIf="!children.dropDown"
+                        />
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                          *ngIf="children.dropDown"
+                        />
+                      </svg>
+                    </div>
+                  </a>
+                  <div *ngIf="children.dropDown" class="theme-bg-300 rounded-md">
                     <a
-                      (click)="children.dropDown = !children.dropDown"
-                      [routerLink]="children.route"
+                      *ngFor="let subChildren of children.children"
+                      [routerLink]="subChildren.route"
                       class="text-indigo-100 hover:theme-bg-400 pl-20 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
                     >
-                      &nbsp;{{ children.label }}
-                      <div class="flex justify-end w-full" *ngIf="children.children">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-4 w-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 5l7 7-7 7"
-                            *ngIf="!children.dropDown"
-                          />
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M19 9l-7 7-7-7"
-                            *ngIf="children.dropDown"
-                          />
-                        </svg>
-                      </div>
+                      &nbsp;{{ subChildren.label }}
                     </a>
-                    <div *ngIf="children.dropDown" class="theme-bg-300 rounded-md">
-                      <a
-                        *ngFor="let subChildren of children.children"
-                        [routerLink]="subChildren.route"
-                        class="text-indigo-100 hover:theme-bg-400 pl-20 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
-                      >
-                        &nbsp;{{ subChildren.label }}
-                      </a>
-                    </div>
-                  </ng-container>
-                </div>
-              </span>
-            </ng-container>
+                  </div>
+                </ng-container>
+              </div>
+            </span>
           </ng-container>
         </div>
       </aside>
@@ -206,11 +204,10 @@ import { ServiceCodepreview } from '../../../codepreview.service'
             <nav class="px-2 space-y-1">
               <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-indigo-600" -->
               <div>
-                <ng-container *ngFor="let link of profileLinks">
+                <ng-container *ngFor="let link of links">
                   <div class="relative group">
                     <div class="p-3 my-3 font-bold theme-bg-500 rounded-md">
-                      <p class="uppercase text-gray-100 text-sm">{{ link.title }}</p>
-                      <p class="capitalize text-gray-200 text-xs">{{ link.subTitle }}</p>
+                      <a [routerLink]="link.route" class="uppercase text-gray-100 text-sm">{{ link.label }}</a>
                     </div>
                     <ng-container *ngFor="let child of link.childs">
                       <a
@@ -514,8 +511,8 @@ import { ServiceCodepreview } from '../../../codepreview.service'
 })
 export class WebUiSidebarDenseComponent {
   public showMenu = false
-  public asideWidth: string = 'w-24'
-  public asideWidthPl: string = 'sm:pl-24'
+  public asideWidth: string = 'w-20'
+  public asideWidthPl: string = 'sm:pl-20'
 
   public mobileSideBar: boolean = false
   public showSearchBar: boolean = false
@@ -528,21 +525,21 @@ export class WebUiSidebarDenseComponent {
   constructor(public searchService: ServiceCodepreview) {}
 
   asideBarWith() {
-    if (this.asideWidth == 'w-24') {
+    if (this.asideWidth == 'w-20') {
       this.asideWidth = 'w-64'
       this.asideWidthPl = 'sm:pl-64'
     } else {
-      this.asideWidth = 'w-24'
-      this.asideWidthPl = 'sm:pl-24'
+      this.asideWidth = 'w-20'
+      this.asideWidthPl = 'sm:pl-20'
     }
   }
 
   sideBarWith() {
-    if (this.asideWidth == 'w-24') {
+    if (this.asideWidth == 'w-20') {
       this.asideWidth = 'w-0'
       this.asideWidthPl = 'sm:pl-0'
     } else {
-      this.asideWidth = 'w-24'
+      this.asideWidth = 'w-20'
       this.asideWidthPl = 'sm:pl-0'
     }
   }

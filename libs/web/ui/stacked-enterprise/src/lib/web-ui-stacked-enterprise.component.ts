@@ -116,7 +116,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
               <div class="hidden md:block">
                 <div class="ml-10 flex items-baseline space-x-4">
                   <!-- Current: "bg-indigo-700 text-white", Default: "text-white hover:bg-indigo-500 hover:bg-opacity-75" -->
-                  <ng-container *ngFor="let link of profileLinks">
+                  <ng-container *ngFor="let link of links">
                     <div class="relative -mr-1.5 sm:ml-2 sm:mr-0 sm:pl-6" (clickOutside)="link.dropDown = false">
                       <button
                         type="button"
@@ -129,17 +129,8 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                             class="hidden sm:block text-white hover:text-black dark:hover:text-white mx-4"
                             [routerLink]="link.route"
                           >
-                            {{ link.title }}
+                            {{ link.label }}
                           </a>
-                          <svg width="8" height="6" fill="none" class="ml-2.5 text-white">
-                            <path
-                              d="M7 1.5l-3 3-3-3"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            ></path>
-                          </svg>
                         </span>
                         <span class="flex sm:hidden -my-1 w-8 h-8 rounded-lg items-center justify-center">
                           <svg width="20" height="20" fill="none" class="text-gray-900">
@@ -412,11 +403,10 @@ import { ServiceCodepreview } from '../../../codepreview.service'
           <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <!-- Current: "bg-indigo-700 text-white", Default: "text-white hover:bg-indigo-500 hover:bg-opacity-75" -->
             <div class="mt-4">
-              <ng-container *ngFor="let link of profileLinks">
+              <ng-container *ngFor="let link of links">
                 <div class="relative group">
                   <div class="p-3 my-3 font-bold theme-bg-500 rounded-md">
-                    <p class="uppercase text-gray-100 text-sm">{{ link.title }}</p>
-                    <p class="capitalize text-gray-200 text-xs">{{ link.subTitle }}</p>
+                    <a [routerLink]="link.route" class="uppercase text-gray-100 text-sm">{{ link.label }}</a>
                   </div>
                   <ng-container *ngFor="let child of link.childs">
                     <a

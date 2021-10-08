@@ -215,9 +215,10 @@ export interface ComponentProp {
             </ng-container>
 
             <ng-container *ngIf="activeTab === DISPLAY_MODE.Responsive">
-              <div class="bg-gray-300 p-8 relative rounded-md">
-                <p class="flex justify-end text-xl font-bold">{{ width.toFixed(0) }} x {{ height.toFixed(0) }}</p>
-                <br />
+              <div class="bg-gray-50 relative rounded-md">
+                <p class="flex justify-end text-md font-semibold font-mono py-1">
+                  [ {{ width.toFixed(0) }} ] x [ {{ height.toFixed(0) }} ]
+                </p>
                 <div
                   class="inherit max-w-7xl"
                   [ngStyle]="style"
