@@ -769,17 +769,6 @@ export class WebUiPreviewComponent implements OnInit {
   }
   onDarkMode() {
     this.darkMode = !this.darkMode
-    console.log(this.darkMode)
-
-    // if(this.darkMode){
-    //   this.codePreview.codeTheme$.next(false)
-    // }else{
-    //   this.codePreview.codeTheme$.next(true)
-    // }
-    // this.codePreview.codePreview$.subscribe(x=>{
-    //   console.log(' value is ' + x);
-
-    // })
   }
   stringify_value(item) {
     let val = Object.values(item)

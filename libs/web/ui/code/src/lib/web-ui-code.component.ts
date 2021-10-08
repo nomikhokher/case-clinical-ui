@@ -41,17 +41,12 @@ export class WebUiCodeComponent {
   @Input() language: UiCodeLanguage = 'json'
   @Input() theme: boolean = false
   color = 'teal'
-  color2 = 'red'
   constructor(private readonly toast: WebUiToastService) {}
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes.theme.currentValue)
-
     if (changes.theme.currentValue) {
       this.color = 'yellow'
-      this.color2 = 'red'
     } else {
       this.color = 'teal'
-      this.color2 = 'red'
     }
   }
   copyDone(done: boolean) {
