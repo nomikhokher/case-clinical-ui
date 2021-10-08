@@ -265,7 +265,13 @@ export interface ComponentProp {
             </ng-container>
 
             <ng-container *ngIf="activeTab === DISPLAY_MODE.Code">
-              <ui-code class="mb-10" [copyButton]="false" [code]="code" [language]="'json'"></ui-code>
+              <ui-code
+                class="mb-10"
+                [theme]="darkMode"
+                [copyButton]="false"
+                [code]="code"
+                [language]="'json'"
+              ></ui-code>
             </ng-container>
           </div>
         </div>
@@ -763,6 +769,17 @@ export class WebUiPreviewComponent implements OnInit {
   }
   onDarkMode() {
     this.darkMode = !this.darkMode
+    console.log(this.darkMode)
+
+    // if(this.darkMode){
+    //   this.codePreview.codeTheme$.next(false)
+    // }else{
+    //   this.codePreview.codeTheme$.next(true)
+    // }
+    // this.codePreview.codePreview$.subscribe(x=>{
+    //   console.log(' value is ' + x);
+
+    // })
   }
   stringify_value(item) {
     let val = Object.values(item)
