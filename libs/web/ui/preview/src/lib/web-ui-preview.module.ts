@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms'
 import { ServiceCodepreview } from '../../../codepreview.service'
 import { WebUiToggleSwitchButtonModule } from '@schema-driven/web/ui/toggle-switch-button'
 import { ResizableModule } from 'angular-resizable-element'
+import { ClipboardModule } from '@angular/cdk/clipboard'
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { ResizableModule } from 'angular-resizable-element'
     FormsModule,
     ResizableModule,
     WebUiToggleSwitchButtonModule,
+    ClipboardModule,
   ],
   declarations: [WebUiPreviewComponent],
   exports: [WebUiPreviewComponent],

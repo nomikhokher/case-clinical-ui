@@ -9,6 +9,7 @@ import {
   ChangeDetectorRef,
 } from '@angular/core'
 import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
+import { WebUiToastService } from '@schema-driven/web/ui/toast'
 import { ResizeEvent } from 'angular-resizable-element'
 import { ServiceCodepreview } from '../../../codepreview.service'
 
@@ -51,7 +52,7 @@ export interface ComponentProp {
       [controlsTemplate]="headerControls"
     >
       <div>
-        <div class="flex items-center justify-between py-2">
+        <div class="flex md:items-center md:flex-row flex-col justify-between py-2">
           <h3 class="text-lg font-medium text-gray-700 dark:text-gray-200">UI Element</h3>
           <div class="flex items-center">
             <div>
@@ -179,22 +180,18 @@ export interface ComponentProp {
               </div>
             </div>
             <div class="border-l border-gray-200 ml-4 pl-4">
-              <button class="text-gray-400 h-6 w-6 flex items-center justify-center hover:theme-color-500">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                  />
-                </svg>
+              <button
+                class="text-gray-400 h-6 w-6 flex items-center justify-center hover:theme-color-500"
+                [cdkCopyToClipboard]="code"
+                (cdkCopyToClipboardCopied)="copyDone($event)"
+              >
+                <ui-icon icon="clipboard" class="h-5 w-5"></ui-icon>
               </button>
+            </div>
+            <div class="border-l border-gray-200 ml-4 pl-4" *ngIf="activeTab === DISPLAY_MODE.Responsive">
+              <p class="flex justify-end text-md font-semibold font-mono py-1">
+                [ {{ width.toFixed(0) }} ] x [ {{ height.toFixed(0) }} ]
+              </p>
             </div>
           </div>
         </div>
@@ -215,27 +212,24 @@ export interface ComponentProp {
             </ng-container>
 
             <ng-container *ngIf="activeTab === DISPLAY_MODE.Responsive">
-              <div class="bg-gray-300 p-8 relative rounded-md">
-                <p class="flex justify-end text-xl font-bold">{{ width.toFixed(0) }} x {{ height.toFixed(0) }}</p>
-                <br />
+              <div class="relative rounded-md" style="background-color: #6b7280;">
                 <div
                   class="inherit max-w-7xl"
                   [ngStyle]="style"
                   mwlResizable
                   [enableGhostResize]="true"
-                  [resizeSnapGrid]="{ left: 1, right: 1 }"
                   (resizeEnd)="onResizeEnd($event)"
                   [validateResize]="validate"
                   (resizeStart)="onResizeStart($event)"
                   (resizing)="onResize($event)"
                 >
-                  <div class="bg-white max-w-7xl rounded">
-                    <div class="max-w-7xl mx-auto relative">
+                  <div class="bg-gray-100 max-w-7xl rounded">
+                    <div class="max-w-7xl mx-auto relative p-10">
                       <div
                         [resizeEdges]="{ right: true }"
                         mwlResizeHandle
                         class="sr-only sm:not-sr-only sm:border-l sm:bg-gray-100 sm:absolute sm:right-0 sm:inset-y-0 sm:flex sm:items-center sm:w-4"
-                        style="touch-action: none; cursor: row-resize;"
+                        style="touch-action: none; cursor: ew-resize;"
                       >
                         <div class="absolute inset-y-0 -inset-x-2"></div>
                         <svg
@@ -264,7 +258,13 @@ export interface ComponentProp {
             </ng-container>
 
             <ng-container *ngIf="activeTab === DISPLAY_MODE.Code">
-              <ui-code class="mb-10" [copyButton]="false" [code]="code" [language]="'json'"></ui-code>
+              <ui-code
+                class="mb-10"
+                [theme]="darkMode"
+                [copyButton]="false"
+                [code]="code"
+                [language]="'json'"
+              ></ui-code>
             </ng-container>
           </div>
         </div>
@@ -540,6 +540,7 @@ export class WebUiPreviewComponent implements OnInit {
     private changeDetector: ChangeDetectorRef,
     private readonly renderer: Renderer2,
     private element: ElementRef,
+    private readonly toast: WebUiToastService,
   ) {}
   DISPLAY_MODE: typeof DisplayMode = DisplayMode
 
@@ -577,8 +578,16 @@ export class WebUiPreviewComponent implements OnInit {
   public lastDownX = 0
   public draggerDownX = null
   public containerWidth = null
-  width = 1152
+  width = 1216
   height = 214
+
+  copyDone(done: boolean) {
+    if (done) {
+      this.toast.success(`Copied to clipboard`, { duration: 3000 })
+    } else {
+      this.toast.error(`Error copying code to clipboard`)
+    }
+  }
 
   get directoryMeta() {
     return [{ icon: 'folder', label: this.directory }]
@@ -602,9 +611,9 @@ export class WebUiPreviewComponent implements OnInit {
   }
 
   MIN_DIMENSIONS_PX: number = 200
-  MAX_DIMENSIONS_PX: number = 1152
+  MAX_DIMENSIONS_PX: number = 1216
   validate(event: ResizeEvent): boolean {
-    if (event.rectangle.width && (event.rectangle.width > 1152 || event.rectangle.width < 400)) {
+    if (event.rectangle.width && (event.rectangle.width > 1225 || event.rectangle.width < 400)) {
       return false
     }
     if (
