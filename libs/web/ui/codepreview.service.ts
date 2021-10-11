@@ -10,4 +10,5 @@ export class ServiceCodepreview {
   searchBar$ = new BehaviorSubject<any>('')
   searchIcon$ = new BehaviorSubject<any>('')
   searchedArray$ = new BehaviorSubject<any>('')
+  codeTheme$ = new BehaviorSubject<boolean>(false)
 }
