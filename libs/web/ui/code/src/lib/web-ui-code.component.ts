@@ -21,14 +21,14 @@ export type UiCodeLanguage = 'html' | 'graphql' | 'javascript' | 'json' | 'markd
         [languague]="language"
         [lineNumbers]="true"
       ></ngx-numbered-codeblock>
-      <div
+      <!-- <div
         *ngIf="copyButton"
         class="absolute top-4 right-4 w-5 h-5 opacity-50 hover:opacity-100 flex justify-center items-center"
       >
         <button [cdkCopyToClipboard]="code" (cdkCopyToClipboardCopied)="copyDone($event)">
           <ui-icon icon="clipboard"></ui-icon>
         </button>
-      </div>
+      </div> -->
     </div>
     <link rel="stylesheet" href="light-theme-component.scss" />
   `,
