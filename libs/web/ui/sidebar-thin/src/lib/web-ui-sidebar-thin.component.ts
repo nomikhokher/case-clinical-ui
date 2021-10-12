@@ -349,7 +349,11 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                       class="flex items-center p-4 rounded-lg text-indigo-100 hover:theme-bg-300 hover:text-white cursor-pointer"
                       [ngClass]="i == compact.index && 'theme-bg-700'"
                     >
-                      <ui-icon [icon]="link.icon" size="lg" class="dark:text-white h-6 w-6"></ui-icon>
+                      <ui-icon
+                        [icon]="link.icon"
+                        size="lg"
+                        class="dark:text-white h-6 w-6 flex justify-center items-center"
+                      ></ui-icon>
                       <span class="sr-only"> {{ link.label }}</span>
                     </a>
                   </ng-container>
