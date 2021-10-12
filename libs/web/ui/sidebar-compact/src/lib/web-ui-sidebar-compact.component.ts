@@ -39,7 +39,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                 alt="Workflow"
               />
             </div>
-            <div class="flex-1 mt-6 w-full px-2 space-y-1">
+            <div class="flex-1 mt-6 w-full px-4 space-y-1">
               <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-indigo-800 hover:text-white" -->
               <ng-container *ngFor="let link of links">
                 <a
@@ -49,7 +49,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                   <ui-icon
                     [icon]="link.icon"
                     size="lg"
-                    class="text-indigo-300 group-hover:text-gray-300 mx-auto h-6 w-6"
+                    class="text-indigo-300 group-hover:text-gray-300 flex justify-center items-center h-8 w-8 "
                   ></ui-icon>
                   <span class="mt-2"> {{ link.name }}</span>
                 </a>
