@@ -549,15 +549,10 @@ import { ServiceCodepreview } from '../../../codepreview.service'
           </div>
         </div>
       </nav>
-      <header class="bg-white shadow-sm">
-        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-          <h1 class="text-lg leading-6 font-semibold text-gray-900">Dashboard</h1>
-        </div>
-      </header>
       <main class="bg-white dark:bg-gray-900">
-        <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-8">
           <!-- Replace with your content -->
-          <div class="px-4 py-4 sm:px-0">
+          <div class="px-4 sm:px-0">
             <div class="h-auto">
               <router-outlet></router-outlet>
             </div>
@@ -590,15 +585,15 @@ export class WebUiStackedEnterpriseComponent {
   @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(evt: KeyboardEvent) {
     this.isActive = false
   }
-  onSearch(e: any) {
+  onSearch(e: any): void {
     this.searchService.searchIcon$.next(e.target.value)
   }
-  outsideClick() {
+  outsideClick(): void {
     this.isActive = false
     this.searchService.searchIcon$.next([])
     this.componentList = []
   }
-  redirectTo(i) {
+  redirectTo(i: any): void {
     this.router.navigate([`dev/${i.route}`])
     this.outsideClick()
   }

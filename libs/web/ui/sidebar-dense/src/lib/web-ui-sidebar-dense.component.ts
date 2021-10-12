@@ -59,7 +59,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                   <ui-icon
                     [icon]="link.icon"
                     size="lg"
-                    class="text-indigo-300 group-hover:text-gray-300 h-8 w-8 pt-1 pl-1"
+                    class="text-indigo-300 group-hover:text-gray-300 h-8 w-8"
                   ></ui-icon>
                 </div>
                 {{ link.label }}
