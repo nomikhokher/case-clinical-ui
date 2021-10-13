@@ -17,7 +17,7 @@ export interface WebUiSidebarPageHeader {
 
 @Component({
   selector: 'ui-sidebar-page',
-  template: ` <router-outlet></router-outlet> `,
+  template: ``,
 })
 export class WebUiSidebarPageComponent {
   @Input() headerTitle: string

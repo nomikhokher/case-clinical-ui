@@ -503,7 +503,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
         </header>
         <hr />
         <main class="flex-1 h-full w-full mx-auto overflow-auto dark:bg-gray-900">
-          <router-outlet></router-outlet>
+          <router-outlet *ngIf="true"></router-outlet>
         </main>
       </section>
     </div>
