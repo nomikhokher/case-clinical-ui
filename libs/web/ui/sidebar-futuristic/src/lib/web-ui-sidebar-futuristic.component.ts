@@ -5,27 +5,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
 
 @Component({
   selector: 'ui-sidebar-futuristic',
-  styles: [
-    `
-      .aside-scrollbar::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      .aside-scrollbar::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 5px grey;
-        border-radius: 10px;
-      }
-
-      .aside-scrollbar::-webkit-scrollbar-thumb {
-        background: var(--theme-color-400) !important;
-        border-radius: 12px;
-      }
-
-      .aside-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: var(--theme-color-300) !important;
-      }
-    `,
-  ],
+  styleUrls: ['./web-ui-sidebar-futuristic.scss'],
   template: `
     <!-- This example requires Tailwind CSS v2.0+ -->
     <div>
@@ -450,7 +430,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
               </nav>
             </div>
             <div class="flex-shrink-0 flex border-t theme-border-500 p-4">
-              <a href="#" class="flex-shrink-0 w-full group block">
+              <a href="javascript:void(0)" class="flex-shrink-0 w-full group block">
                 <div class="flex items-center">
                   <div>
                     <img
