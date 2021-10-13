@@ -4,27 +4,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
 
 @Component({
   selector: 'ui-sidebar-dense',
-  styles: [
-    `
-      .aside-scrollbar::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      .aside-scrollbar::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 5px grey;
-        border-radius: 10px;
-      }
-
-      .aside-scrollbar::-webkit-scrollbar-thumb {
-        background: var(--theme-color-400) !important;
-        border-radius: 12px;
-      }
-
-      .aside-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: var(--theme-color-300) !important;
-      }
-    `,
-  ],
+  styleUrls: ['./web-ui-sidebar-dense.scss'],
   template: `
     <div>
       <aside
@@ -307,7 +287,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
       <section
         class="{{ asideWidthPl }} transition-all ease-in-out duration-500 bg-white dark:bg-gray-600 dark:text-gray-300"
       >
-        <header class="flex-none relative text-sm leading-6 font-medium py-5">
+        <header class="flex-none relative text-sm leading-6 font-medium" [ngClass]="{ 'py-5': !showSearchBar }">
           <div class="px-4">
             <div class="flex justify-between">
               <div class="flex">
@@ -342,7 +322,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                   </svg>
                 </div>
 
-                <div class="dark:hover:bg-gray-900 hover:bg-gray-300 hover:bg-opacity-50 rounded-full p-2">
+                <div class="dark:hover:bg-gray-900 hover:bg-gray-300 hover:bg-opacity-50 rounded-full p-2 md:hidden">
                   <button
                     type="button"
                     class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
@@ -368,7 +348,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                   </button>
                 </div>
               </div>
-              <div class="flex-1 flex justify-between">
+              <div class="flex-1 flex justify-between" [ngClass]="{ 'my-4': showSearchBar }">
                 <div class="flex-1 flex" (clickOutside)="showAllComponents()">
                   <form class="w-full flex md:ml-0" action="#" method="GET">
                     <label for="search_field" class="sr-only">Search</label>
@@ -396,7 +376,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                         (input)="onSearch($event)"
                         *ngIf="showSearchBar == true"
                         id="search_field"
-                        class="block w-full dark:bg-gray-800 focus:outline-none border-1 border-gray-300 rounded-full bg-white dark:text-gray-100 h-full pl-8 pr-3 py-2 text-gray-900 placeholder-gray-500  focus:placeholder-gray-400 sm:text-sm"
+                        class="block w-full dark:bg-gray-800 focus:outline-none border border-gray-300 rounded-full bg-white dark:text-gray-100 h-full pl-8 pr-3 text-gray-900 placeholder-gray-500  focus:placeholder-gray-400 sm:text-sm"
                         placeholder="Search"
                         type="search"
                         name="search"
@@ -406,7 +386,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                 </div>
               </div>
               <div class="relative -mr-1.5 sm:mr-0">
-                <div class="ml-4 flex items-center md:ml-6">
+                <div class="ml-4 flex items-center md:ml-6" [ngClass]="{ 'mt-4': showSearchBar }">
                   <button
                     class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
