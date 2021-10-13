@@ -10,7 +10,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
       <ng-container *ngFor="let link of links">
         <div class="pb-5 border-b border-gray-200 dark:border-gray-700">
           <h3 class="text-xl leading-6 font-medium theme-color-700 dark:theme-color-300">
-            {{ link.title }}
+            {{ link.label || link.title }}
           </h3>
           <p class="mt-2 max-w-4xl text-sm text-gray-500 dark:text-gray-400">{{ link.subTitle }}</p>
         </div>
