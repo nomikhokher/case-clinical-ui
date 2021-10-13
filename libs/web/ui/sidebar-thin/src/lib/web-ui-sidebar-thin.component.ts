@@ -5,27 +5,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
 
 @Component({
   selector: 'ui-sidebar-thin',
-  styles: [
-    `
-      .aside-scrollbar::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      .aside-scrollbar::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 5px grey;
-        border-radius: 10px;
-      }
-
-      .aside-scrollbar::-webkit-scrollbar-thumb {
-        background: var(--theme-color-400) !important;
-        border-radius: 12px;
-      }
-
-      .aside-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: var(--theme-color-300) !important;
-      }
-    `,
-  ],
+  styleUrls: ['./web-ui-sidebar-thin.scss'],
   template: `
     <div>
       <ng-container *ngIf="isActive">
@@ -360,7 +340,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                 </nav>
               </div>
               <div class="flex-shrink-0 flex pb-5">
-                <a href="#" class="flex-shrink-0 w-full">
+                <a href="javascript:void(0)" class="flex-shrink-0 w-full">
                   <img
                     class="block mx-auto h-10 w-10 rounded-full"
                     src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixqx=CSFCItvz2d&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"

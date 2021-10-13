@@ -6,27 +6,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
 
 @Component({
   selector: 'ui-sidebar-classic',
-  styles: [
-    `
-      .aside-scrollbar::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      .aside-scrollbar::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 5px grey;
-        border-radius: 10px;
-      }
-
-      .aside-scrollbar::-webkit-scrollbar-thumb {
-        background: var(--theme-color-400) !important;
-        border-radius: 12px;
-      }
-
-      .aside-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: var(--theme-color-300) !important;
-      }
-    `,
-  ],
+  styleUrls: ['./web-ui-sidebar-classic.scss'],
   template: `
     <div class="h-screen flex overflow-hidden bg-gray-100">
       <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
