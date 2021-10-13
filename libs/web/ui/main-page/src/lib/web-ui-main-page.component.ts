@@ -1,6 +1,5 @@
-import { Component, HostListener, Input } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
-import { WebLayoutLink } from '@schema-driven/web/layout'
 import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
 import { ServiceCodepreview } from '../../../codepreview.service'
 
@@ -118,6 +117,9 @@ export class WebUiMainPageComponent {
     this.searchService.searchIcon$.subscribe((data) => {
       data.length > 0 ? this.componentList(data) : (this.searchComponent = null)
     })
+
+    window.history.pushState(null, null, 'http://localhost:4200' + this.router.url)
+    // window.location.replace('http://localhost:4200' + this.router.url)
   }
   includingStr(data) {
     this.searchComponent = []

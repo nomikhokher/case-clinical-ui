@@ -491,7 +491,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
           </button>
         </div>
         <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none dark:bg-gray-900">
-          <router-outlet></router-outlet>
+          <router-outlet *ngIf="true"></router-outlet>
         </main>
       </div>
     </div>
