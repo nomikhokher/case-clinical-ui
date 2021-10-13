@@ -559,7 +559,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
           <!-- Replace with your content -->
           <div class="px-4 py-4 sm:px-0">
             <div class="h-auto">
-              <router-outlet></router-outlet>
+              <router-outlet *ngIf="true"></router-outlet>
             </div>
           </div>
           <!-- /End replace -->

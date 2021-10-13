@@ -600,7 +600,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
         </div>
 
         <main class="flex-1 relative overflow-y-auto focus:outline-none bg-white dark:bg-gray-900 dark:text-gray-300">
-          <router-outlet></router-outlet>
+          <router-outlet *ngIf="true"></router-outlet>
         </main>
       </div>
     </div>

@@ -480,7 +480,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
               aria-labelledby="primary-heading"
               class="min-w-0 flex-1 h-auto flex flex-col overflow-hidden lg:order-last"
             >
-              <router-outlet></router-outlet>
+              <router-outlet *ngIf="true"></router-outlet>
             </section>
           </main>
 
