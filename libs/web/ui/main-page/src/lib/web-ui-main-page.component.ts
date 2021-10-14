@@ -105,6 +105,8 @@ import { ServiceCodepreview } from '../../../codepreview.service'
 export class WebUiMainPageComponent {
   @Input() headingTitle: string
   @Input() links
+  @Input() breadcrumbs: Crumb[] | false = [{ label: 'UI Components', path: '.' }]
+
   constructor(private router: Router, private route: ActivatedRoute, public searchService: ServiceCodepreview) {}
   public searchComponent = []
   showMenu: boolean = false
@@ -147,8 +149,6 @@ export class WebUiMainPageComponent {
     })
     this.searchService.searchedArray$.next(listArray)
   }
-
-  breadcrumbs: Crumb[] = [{ label: 'UI Components', path: '.' }]
 
   handleCardClick(path: string) {
     this.router.navigate([path], { relativeTo: this.route })

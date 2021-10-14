@@ -10,7 +10,7 @@ import { Component, Input } from '@angular/core'
           <main class="flex-grow flex flex-col bg-white dark:bg-gray-800">
             <div class="flex-grow mx-auto max-w-7xl w-full flex flex-col px-4 sm:px-6 lg:px-8">
               <div class="flex-shrink-0 pt-10 sm:pt-16">
-                <a href="/" class="inline-flex">
+                <a routerLink="/" class="inline-flex">
                   <span class="sr-only">Workflow</span>
                   <img class="h-12 w-auto" src="{{ logo }}" alt="Workflow logo" />
                 </a>
@@ -22,7 +22,9 @@ import { Component, Input } from '@angular/core'
                 </h1>
                 <p class="mt-2 text-base text-gray-500 dark:text-gray-300">{{ message }}</p>
                 <div class="mt-6">
-                  <a href="{{ linkToRedirect }}" class="text-base font-medium text-indigo-600 hover:text-indigo-500"
+                  <a
+                    routerLink="{{ linkToRedirect }}"
+                    class="text-base font-medium text-indigo-600 hover:text-indigo-500"
                     >{{ btnText }}<span aria-hidden="true"> &rarr;</span></a
                   >
                 </div>
@@ -38,10 +40,10 @@ import { Component, Input } from '@angular/core'
 
     <!-- This is style Simple with logo -->
     <ng-container *ngIf="pageStyle == 'simpleWithLogo'">
-      <div class="min-h-screen pt-16 pb-12 flex flex-col bg-white dark:bg-gray-800">
+      <div class="flex items-center h-full flex-col bg-white dark:bg-gray-800">
         <main class="flex-grow flex flex-col justify-center max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex-shrink-0 flex justify-center">
-            <a href="/" class="inline-flex">
+            <a routerLink="/" class="inline-flex">
               <span class="sr-only">Workflow</span>
               <img class="h-12 w-auto" src="{{ logo }}" alt="" />
             </a>
@@ -54,7 +56,7 @@ import { Component, Input } from '@angular/core'
               </h1>
               <p class="mt-2 text-base text-gray-500 dark:text-gray-300">{{ message }}</p>
               <div class="mt-6">
-                <a href="{{ linkToRedirect }}" class="text-base font-medium text-indigo-600 hover:text-indigo-500"
+                <a routerLink="{{ linkToRedirect }}" class="text-base font-medium text-indigo-600 hover:text-indigo-500"
                   >{{ btnText }}<span aria-hidden="true"> &rarr;</span></a
                 >
               </div>
@@ -74,7 +76,7 @@ import { Component, Input } from '@angular/core'
           <p class="mt-2 text-lg font-medium text-black text-opacity-50">{{ message }}</p>
           <div class="mt-6">
             <a
-              href="{{ linkToRedirect }}"
+              routerLink="{{ linkToRedirect }}"
               class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-black text-opacity-75 bg-white bg-opacity-75 sm:bg-opacity-25 sm:hover:bg-opacity-50"
             >
               {{ btnText }}
