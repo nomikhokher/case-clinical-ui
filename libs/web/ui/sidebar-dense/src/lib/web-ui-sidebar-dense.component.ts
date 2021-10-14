@@ -28,14 +28,11 @@ import { ServiceCodepreview } from '../../../codepreview.service'
             <span (mouseleave)="link.dropDown = false">
               <a
                 [routerLink]="link.route"
-                class="text-indigo-100 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                routerLinkActive="theme-bg-500"
+                class="text-indigo-100 my-5 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                 (click)="link.dropDown = !link.dropDown"
               >
-                <div
-                  class="mr-7 p-2"
-                  routerLinkActive="theme-color-100 bg-opacity-50"
-                  [routerLinkActiveOptions]="{ exact: true }"
-                >
+                <div class="mr-7 p-2" [routerLinkActiveOptions]="{ exact: true }">
                   <ui-icon
                     [icon]="link.icon"
                     size="lg"
@@ -183,98 +180,18 @@ import { ServiceCodepreview } from '../../../codepreview.service'
           <div class="mt-5 flex-1 h-0 overflow-y-auto aside-scrollbar">
             <nav class="px-2 space-y-1">
               <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-indigo-600" -->
-              <div>
-                <ng-container *ngFor="let link of links">
-                  <div class="relative group">
-                    <div class="p-3 my-3 font-bold theme-bg-500 rounded-md">
-                      <a [routerLink]="link.route" class="uppercase text-gray-100 text-sm">{{ link.label }}</a>
-                    </div>
-                    <ng-container *ngFor="let child of link.childs">
-                      <a
-                        [routerLink]="child.route"
-                        class="text-indigo-100 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
-                        (click)="child.dropDown = !child.dropDown"
-                      >
-                        <ui-icon
-                          [icon]="child.icon"
-                          size="lg"
-                          class="text-indigo-300 group-hover:text-gray-300 h-8 w-8 mr-3 pt-1"
-                        ></ui-icon>
-                        {{ child.label }}
-                        <span class="absolute right-2" *ngIf="child.children">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-4 w-4"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M9 5l7 7-7 7"
-                              *ngIf="!child.dropDown"
-                            />
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M19 9l-7 7-7-7"
-                              *ngIf="child.dropDown"
-                            />
-                          </svg>
-                        </span>
-                      </a>
-
-                      <div *ngIf="child.dropDown" class="theme-bg-500 rounded-md my-1">
-                        <ng-container *ngFor="let children of child.children">
-                          <a
-                            (click)="children.dropDown = !children.dropDown"
-                            [routerLink]="children.route"
-                            class="text-indigo-100 hover:theme-bg-400 pl-12 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
-                          >
-                            &nbsp;{{ children.label }}
-                            <span class="absolute right-2" *ngIf="children.children">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="h-4 w-4"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                              >
-                                <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  stroke-width="2"
-                                  d="M9 5l7 7-7 7"
-                                  *ngIf="!children.dropDown"
-                                />
-                                <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  stroke-width="2"
-                                  d="M19 9l-7 7-7-7"
-                                  *ngIf="children.dropDown"
-                                />
-                              </svg>
-                            </span>
-                          </a>
-                          <div *ngIf="children.dropDown" class="theme-bg-300 rounded-md">
-                            <a
-                              *ngFor="let subChildren of children.children"
-                              [routerLink]="subChildren.route"
-                              class="text-indigo-100 hover:theme-bg-400 pl-14 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
-                            >
-                              &nbsp;{{ subChildren.label }}
-                            </a>
-                          </div>
-                        </ng-container>
-                      </div>
-                    </ng-container>
+              <ng-container *ngFor="let link of links">
+                <div class="relative group">
+                  <div class="m-3 font-bold rounded-md">
+                    <a
+                      [routerLink]="link.route"
+                      routerLinkActive="theme-bg-400 w-full block rounded-md"
+                      class="uppercase text-gray-100 text-sm p-3"
+                      >{{ link.label }}</a
+                    >
                   </div>
-                </ng-container>
-              </div>
+                </div>
+              </ng-container>
             </nav>
           </div>
         </div>
@@ -284,9 +201,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
         </div>
       </div>
 
-      <section
-        class="{{ asideWidthPl }} transition-all ease-in-out duration-500 bg-white dark:bg-gray-600 dark:text-gray-300"
-      >
+      <section class="transition-all ease-in-out duration-500 bg-white dark:bg-gray-600 dark:text-gray-300">
         <header class="flex-none relative text-sm leading-6 font-medium" [ngClass]="{ 'py-5': !showSearchBar }">
           <div class="px-4">
             <div class="flex justify-between">
@@ -298,7 +213,6 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    (click)="sideBarWith()"
                   >
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                   </svg>
@@ -311,7 +225,6 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    (click)="asideBarWith()"
                   >
                     <path
                       stroke-linecap="round"
@@ -503,26 +416,6 @@ export class WebUiSidebarDenseComponent {
   @Input() profileLinks: { label: string; route: string }[] = []
   @Input() logo: string
   constructor(public searchService: ServiceCodepreview) {}
-
-  asideBarWith() {
-    if (this.asideWidth == 'w-20') {
-      this.asideWidth = 'w-64'
-      this.asideWidthPl = 'sm:pl-64'
-    } else {
-      this.asideWidth = 'w-20'
-      this.asideWidthPl = 'sm:pl-20'
-    }
-  }
-
-  sideBarWith() {
-    if (this.asideWidth == 'w-20') {
-      this.asideWidth = 'w-0'
-      this.asideWidthPl = 'sm:pl-0'
-    } else {
-      this.asideWidth = 'w-20'
-      this.asideWidthPl = 'sm:pl-0'
-    }
-  }
 
   hideShowSearchBar() {
     this.showSearchBar = !this.showSearchBar
