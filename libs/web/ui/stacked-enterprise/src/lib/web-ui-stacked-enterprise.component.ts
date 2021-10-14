@@ -69,7 +69,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                   ></path>
                 </svg>
               </form>
-              <ng-container hidden="">
+              <ng-container>
                 <ul
                   class="text-sm font-medium overflow-y-auto border-t border-gray-200 divide-y divide-gray-200 rounded-b-lg max-h-80 "
                 >
@@ -405,91 +405,14 @@ import { ServiceCodepreview } from '../../../codepreview.service'
             <div class="mt-4">
               <ng-container *ngFor="let link of links">
                 <div class="relative group">
-                  <div class="p-3 my-3 font-bold theme-bg-500 rounded-md">
-                    <a [routerLink]="link.route" class="uppercase text-gray-100 text-sm">{{ link.label }}</a>
-                  </div>
-                  <ng-container *ngFor="let child of link.childs">
+                  <div class="m-3 font-bold rounded-md">
                     <a
-                      [routerLink]="child.route"
-                      class="text-indigo-100 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
-                      (click)="child.dropDown = !child.dropDown"
+                      [routerLink]="link.route"
+                      routerLinkActive="theme-bg-400 w-full block rounded-md"
+                      class="uppercase text-gray-100 text-sm p-3"
+                      >{{ link.label }}</a
                     >
-                      <ui-icon
-                        [icon]="child.icon"
-                        size="lg"
-                        class="text-indigo-300 group-hover:text-gray-300 h-8 w-8 mr-3 pt-1"
-                      ></ui-icon>
-                      {{ child.label }}
-                      <span class="absolute right-2" *ngIf="child.children">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-4 w-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 5l7 7-7 7"
-                            *ngIf="!child.dropDown"
-                          />
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M19 9l-7 7-7-7"
-                            *ngIf="child.dropDown"
-                          />
-                        </svg>
-                      </span>
-                    </a>
-                    <div *ngIf="child.dropDown" class="theme-bg-500 rounded-md my-1">
-                      <ng-container *ngFor="let children of child.children">
-                        <a
-                          (click)="children.dropDown = !children.dropDown"
-                          [routerLink]="children.route"
-                          class="text-indigo-100 hover:theme-bg-400 pl-12 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
-                        >
-                          &nbsp;{{ children.label }}
-                          <span class="absolute right-2" *ngIf="children.children">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-4 w-4"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M9 5l7 7-7 7"
-                                *ngIf="!children.dropDown"
-                              />
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M19 9l-7 7-7-7"
-                                *ngIf="children.dropDown"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                        <div *ngIf="children.dropDown" class="theme-bg-300 rounded-md">
-                          <a
-                            *ngFor="let subChildren of children.children"
-                            [routerLink]="subChildren.route"
-                            class="text-indigo-100 hover:theme-bg-400 pl-14 hover:text-white group flex items-center w-full py-2 text-sm font-medium rounded-md"
-                          >
-                            &nbsp;{{ subChildren.label }}
-                          </a>
-                        </div>
-                      </ng-container>
-                    </div>
-                  </ng-container>
+                  </div>
                 </div>
               </ng-container>
             </div>

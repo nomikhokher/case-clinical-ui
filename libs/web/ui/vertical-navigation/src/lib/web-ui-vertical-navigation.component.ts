@@ -4,13 +4,13 @@ import { NavLink } from './models'
 @Component({
   selector: 'ui-vertical-navigation',
   template: `
-    <nav class="space-y-1" aria-label="Sidebar">
+    <section class="space-y-1" aria-label="Sidebar">
       <ng-container *ngFor="let link of links">
         <a
           [routerLink]="link.route"
           [ngClass]="
             linkClasses +
-            ' flex items-center px-3 py-2 text-sm font-medium rounded-md transition duration-200 ease-in-out'
+            ' flex items-center px-3 h-14 text-sm font-medium rounded-md transition duration-200 ease-in-out'
           "
           aria-current="page"
           [routerLinkActive]="
@@ -20,7 +20,7 @@ import { NavLink } from './models'
           "
         >
           <ui-icon
-            [ngClass]="iconClasses + ' flex-shrink-0 -ml-1 mr-3 h-6 w-6'"
+            [ngClass]="iconClasses + ' flex-shrink-0 -ml-1 mr-3 h-8 w-7'"
             [routerLinkActive]="
               onBrand ? 'theme-color-100 dark:theme-color-50 group-hover:text-gray-300' : 'text-gray-500'
             "
@@ -40,7 +40,7 @@ import { NavLink } from './models'
           </span>
         </a>
       </ng-container>
-    </nav>
+    </section>
   `,
 })
 export class WebUiVerticalNavigationComponent {
