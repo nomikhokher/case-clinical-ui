@@ -39,16 +39,16 @@ const config = {
       dataType: 'STRING',
     },
     {
-      label: 'Name',
+      label: 'Model',
       prop: '[model]',
-      description: 'Shows the title of form input.',
-      dataType: 'STRING',
+      description: 'Shows the model of form input.',
+      dataType: 'Object',
     },
     {
-      label: 'Name',
+      label: 'Fields',
       prop: '[fields]',
-      description: 'Shows the title of form input.',
-      dataType: 'STRING',
+      description: 'Handle the input fields.',
+      dataType: 'Object',
     },
   ],
 }
