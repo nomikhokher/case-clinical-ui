@@ -4,36 +4,34 @@ import { DevToastStore } from './dev-toast.store'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800 flex space-x-6">
-        <ui-preview
-          [code]="codePreview[0]"
-          [title]="vm.config.headerTitle"
-          [githubURL]="vm.config.githubURL"
-          [directory]="vm.config.directory"
-          [breadcrumbs]="vm.config.breadcrumbs"
-          [component_outputs]="vm.config.component_outputs"
-          [component_inputs]="vm.config.component_inputs"
-        >
-          <div class="my-5">
-            <h1 class="dark:text-gray-100">Toasts</h1>
-            <ng-container *ngFor="let demo of vm.demos">
-              <ui-button class="mx-2" color="indigo" [label]="demo.id" (handler)="demo.demo()"></ui-button>
-            </ng-container>
-          </div>
-          <div class="my-5">
-            <h1 class="dark:text-gray-100">Positions</h1>
-            <ng-container *ngFor="let demo of vm.demos">
-              <ui-button class="mx-1" color="indigo" [label]="demo.idp" (handler)="demo.demop()"></ui-button>
-            </ng-container>
-          </div>
-          <div class="my-5">
-            <h1 class="dark:text-gray-100">Durations</h1>
-            <ng-container *ngFor="let demo of vm.demos">
-              <ui-button class="mx-1" color="indigo" [label]="demo.idu" (handler)="demo.demodu()"></ui-button>
-            </ng-container>
-          </div>
-        </ui-preview>
-      </div>
+      <ui-preview
+        [code]="codePreview[0]"
+        [title]="vm.config.headerTitle"
+        [githubURL]="vm.config.githubURL"
+        [directory]="vm.config.directory"
+        [breadcrumbs]="vm.config.breadcrumbs"
+        [component_outputs]="vm.config.component_outputs"
+        [component_inputs]="vm.config.component_inputs"
+      >
+        <div class="my-5">
+          <h1 class="dark:text-gray-100">Toasts</h1>
+          <ng-container *ngFor="let demo of vm.demos">
+            <ui-button class="mx-2" color="indigo" [label]="demo.id" (handler)="demo.demo()"></ui-button>
+          </ng-container>
+        </div>
+        <div class="my-5">
+          <h1 class="dark:text-gray-100">Positions</h1>
+          <ng-container *ngFor="let demo of vm.demos">
+            <ui-button class="mx-1" color="indigo" [label]="demo.idp" (handler)="demo.demop()"></ui-button>
+          </ng-container>
+        </div>
+        <div class="my-5">
+          <h1 class="dark:text-gray-100">Durations</h1>
+          <ng-container *ngFor="let demo of vm.demos">
+            <ui-button class="mx-1" color="indigo" [label]="demo.idu" (handler)="demo.demodu()"></ui-button>
+          </ng-container>
+        </div>
+      </ui-preview>
     </ng-container>
   `,
   providers: [DevToastStore],

@@ -29,6 +29,8 @@
 }
 
 .swiper-container > .swiper-button-prev:after {
+  display: flex;
+  justify-content: center;
   content: 'prev' !important;
   width: 30px !important;
   font-size: 18px !important;

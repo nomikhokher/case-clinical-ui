@@ -56,7 +56,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Carousel',
               route: 'carousel',
-              image: '/assets/images/newsletter-sections.png',
+              image: '/assets/images/carousel.png',
             },
             {
               label: 'Carousel Pro',
@@ -76,17 +76,17 @@ export class WebDevFeatureComponent {
             {
               label: 'Repeater',
               route: 'repeater',
-              image: '/assets/images/stacked-lists.png',
+              image: '/assets/images/repeater.png',
             },
             {
               label: 'Upload',
               route: 'upload',
-              image: '/assets/images/stacked-lists.png',
+              image: '/assets/images/upload.png',
             },
             {
               label: 'Tooltip',
               route: 'tooltip',
-              image: '/assets/images/stacked-lists.png',
+              image: '/assets/images/tooltip.png',
             },
           ],
         },
@@ -166,12 +166,12 @@ export class WebDevFeatureComponent {
             {
               label: 'Repeat',
               route: 'repeats',
-              image: '/assets/images/form-layouts.png',
+              image: '/assets/images/repeat.png',
             },
             {
               label: 'Multi Checkbox',
               route: 'multi-checkboxs',
-              image: '/assets/images/form-layouts.png',
+              image: '/assets/images/multi-checkbox.png',
             },
             {
               label: 'Editor',

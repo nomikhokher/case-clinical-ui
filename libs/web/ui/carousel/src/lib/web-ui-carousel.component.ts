@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core'
-
 @Component({
   selector: 'ui-carousel',
   template: `
@@ -12,7 +11,7 @@ import { Component, Input } from '@angular/core'
               bgColor
             }}-700 text-white flex items-center justify-center rounded-{{ corners }}"
           >
-            <img src="{{ item.img }}" class="w-{{ width }} h-{{ height }} rounded-{{ corners }}" />
+            <img [src]="item.path" class="w-{{ width }} h-{{ height }} rounded-{{ corners }}" />
           </div>
         </ng-container>
       </div>
@@ -45,6 +44,8 @@ export class WebUiCarouselComponent {
   interval: any
 
   ngOnInit(): void {
+    console.log(this.items)
+
     this.setTimeInterval()
   }
 
