@@ -7,6 +7,7 @@ import { DevRepeatStore } from './dev-repeat.store'
       <div class="flex flex-col space-y-6">
         <ui-preview
           [code]="codePreview[0]"
+          [codeObj]="vm.demos[0]"
           [title]="vm.config.headerTitle"
           [githubURL]="vm.config.githubURL"
           [directory]="vm.config.directory"

@@ -45,13 +45,33 @@ const config = {
     { label: 'Radio Groups', path: '/dev/radio-groups' },
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-radio-group.component.ts',
+  component_inputs: [
+    {
+      label: 'Name',
+      prop: '[name]',
+      description: 'Shows the title of form input.',
+      dataType: 'STRING',
+    },
+    {
+      label: 'Name',
+      prop: '[model]',
+      description: 'Shows the title of form input.',
+      dataType: 'STRING',
+    },
+    {
+      label: 'Name',
+      prop: '[fields]',
+      description: 'Shows the title of form input.',
+      dataType: 'STRING',
+    },
+  ],
 }
 
 const demos: Demo[] = [
   {
     name: 'Radio Inputs with label',
     model: {},
-    fields: [WebUiFormField.radio('value', { label: 'Gender', options: opts })],
+    fields: [WebUiFormField.radio('value', { label: 'Gender', options: opts, disabled: false })],
   },
   {
     name: 'Disabled Radio Inputs',

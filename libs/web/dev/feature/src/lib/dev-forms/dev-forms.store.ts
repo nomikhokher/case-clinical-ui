@@ -15,6 +15,7 @@ interface Items {
   githubURL?: string
   breadcrumbs?: Crumb[]
   directory?: string
+  component_inputs?: Array<any>
 }
 
 interface DevFormsState {
@@ -113,6 +114,26 @@ export class DevFormsStore extends ComponentStore<DevFormsState> {
           { label: 'Forms', path: '/dev/forms' },
         ],
         directory: '/libs/web/dev/feature/src/lib/dev-forms/dev-forms.component.ts',
+        component_inputs: [
+          {
+            label: 'Name',
+            prop: '[name]',
+            description: 'Shows the title of form input.',
+            dataType: 'STRING',
+          },
+          {
+            label: 'Name',
+            prop: '[model]',
+            description: 'Shows the title of form input.',
+            dataType: 'STRING',
+          },
+          {
+            label: 'Name',
+            prop: '[fields]',
+            description: 'Shows the title of form input.',
+            dataType: 'STRING',
+          },
+        ],
       },
       demos,
     })
