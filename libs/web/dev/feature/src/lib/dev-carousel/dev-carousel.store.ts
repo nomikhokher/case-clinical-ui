@@ -30,18 +30,16 @@ const config: Configs = {
     width: 'full', // position = top/bottom
     corners: 't-xl', // corners = sm/md/lg/xl/2xl/3xl/full/t-none/t-sm/t
     images: [
-      {
-        img:
-          'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      },
-      {
-        img:
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      },
-      {
-        img:
-          'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      },
+      { path: '/assets/carousels/photo-1548625149-9129dad5eef7.jpg' },
+      { path: '/assets/carousels/photo-1548625149-d37da68f9a7f.jpg' },
+      { path: '/assets/carousels/photo-1489365091240-6a18fc761ec2.jpg' },
+      { path: '/assets/carousels/photo-1547691889-841a6f1c5ca6.jpg' },
+      { path: '/assets/carousels/photo-1595433562696-a8b1cb8bdad1.jpg' },
+      { path: '/assets/carousels/photo-1495563381401-ecfbcaaa60f2.jpg' },
+      { path: '/assets/carousels/photo-1534801022022-6e319a11f249.jpg' },
+      { path: '/assets/carousels/photo-1524324463413-57e3d8392df1.jpg' },
+      { path: '/assets/carousels/photo-1506086679524-493c64fdfaa6.jpg' },
+      { path: '/assets/carousels/photo-1569749450723-1836b067fb64.jpg' },
     ],
   },
   component_inputs: [

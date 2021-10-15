@@ -50,6 +50,7 @@ export class DevRepeaterStore extends ComponentStore<DevRepeaterState> {
         ],
       },
       component_inputs: [
+        { label: 'Name', prop: '[name]', description: 'Name', dataType: 'String' },
         { label: 'Model', prop: '[model]', description: 'Model', dataType: 'Object' },
         {
           label: 'Fields',
