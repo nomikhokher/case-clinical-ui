@@ -18,6 +18,26 @@ const config = {
     { label: 'Repeat', path: '/dev/repeats' },
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-repeat.component.ts',
+  component_inputs: [
+    {
+      label: 'Name',
+      prop: '[name]',
+      description: 'Shows the title of form input.',
+      dataType: 'STRING',
+    },
+    {
+      label: 'Name',
+      prop: '[model]',
+      description: 'Shows the title of form input.',
+      dataType: 'STRING',
+    },
+    {
+      label: 'Name',
+      prop: '[fields]',
+      description: 'Shows the title of form input.',
+      dataType: 'STRING',
+    },
+  ],
 }
 
 interface DevRepeatState {

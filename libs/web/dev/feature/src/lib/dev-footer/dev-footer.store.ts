@@ -27,7 +27,7 @@ const config: Configs = {
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-footer.component.ts',
   items: {
-    bgColor: 'gray',
+    bgColor: 'white',
     textColor: 'gray',
     lists: [
       {

@@ -28,5 +28,5 @@ export interface Inputs {
   typeObj?
 }
 interface Image {
-  img?: string
+  path?: string
 }

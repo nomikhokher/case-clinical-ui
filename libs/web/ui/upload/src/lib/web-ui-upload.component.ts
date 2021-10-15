@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, ViewChild } from '@angular/core'
 
 @Component({
   selector: 'ui-upload',
@@ -37,6 +37,7 @@ import { Component } from '@angular/core'
                       >
                         <span>Upload a file</span>
                         <input
+                          #myFileInput
                           id="file-upload"
                           name="file-upload"
                           type="file"
@@ -76,6 +77,7 @@ import { Component } from '@angular/core'
   `,
 })
 export class WebUiUploadComponent {
+  @ViewChild('myFileInput') myFileInput
   url = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBdMMNr-jGsD7ay5zinTzDUs5RTL7wHTetAA&usqp=CAU'
 
   onSelectFile(e): void {
@@ -84,6 +86,7 @@ export class WebUiUploadComponent {
       reader.readAsDataURL(e.target.files[0])
       reader.onload = (event: any) => {
         this.url = event.target.result
+        this.myFileInput.nativeElement.value = ''
       }
     }
   }
@@ -91,5 +94,6 @@ export class WebUiUploadComponent {
   removeImage(event): void {
     event.preventDefault()
     this.url = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBdMMNr-jGsD7ay5zinTzDUs5RTL7wHTetAA&usqp=CAU'
+    this.myFileInput.nativeElement.value = ''
   }
 }
