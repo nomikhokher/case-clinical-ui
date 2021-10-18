@@ -4,9 +4,7 @@ import { DevButtonStore } from './dev-button.store'
 
 @Component({
   template: `
-    <
     <ng-container *ngIf="vm$ | async as vm">
-      *ngIf="vm$ | async as vm">
       <ui-preview
         [title]="vm.config.header"
         [directory]="vm.config.directory"

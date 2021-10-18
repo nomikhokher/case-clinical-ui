@@ -20,28 +20,26 @@ import { Component, Input } from '@angular/core'
     `,
   ],
   template: `
-    <div class="p-5">
-      <div class="flex flex-col md:flex-row">
-        <div class="flex-auto flex flex-col items-center mr-8">
-          <ng-container>
-            <div class="{{ button.divWidth }} relative my-1 cursor-pointer">
+    <div class="flex flex-col md:flex-row">
+      <div class="flex-auto flex flex-col mr-8">
+        <ng-container>
+          <div class="{{ button.divWidth }} relative my-1 cursor-pointer">
+            <div
+              class="{{ button.divHeight }} {{ button.divWidth }} rounded-full"
+              (click)="toggle(button.id)"
+              [ngClass]="[
+                button.onOff == true || button.onOff == 'true' ? 'bg-' + button.bgColor + '-600' : 'bg-gray-300'
+              ]"
+            >
               <div
-                class="{{ button.divHeight }} {{ button.divWidth }} rounded-full"
-                (click)="toggle(button.id)"
-                [ngClass]="[
-                  button.onOff == true || button.onOff == 'true' ? 'bg-' + button.bgColor + '-600' : 'bg-gray-300'
-                ]"
-              >
-                <div
-                  class="mt-1 -ml-6 {{ button.width }} {{
-                    button.height
-                  }} absolute transition-all transform ease-linear duration-100 flex items-center justify-center rounded-full bg-white shadow-toggle border-gray-300 top-0 "
-                  [ngClass]="button.onOff == true || button.onOff == 'true' ? button.left : 'left-6'"
-                ></div>
-              </div>
+                class="mt-1 -ml-6 {{ button.width }} {{
+                  button.height
+                }} absolute transition-all transform ease-linear duration-100 flex items-center justify-center rounded-full bg-white shadow-toggle border-gray-300 top-0 "
+                [ngClass]="button.onOff == true || button.onOff == 'true' ? button.left : 'left-6'"
+              ></div>
             </div>
-          </ng-container>
-        </div>
+          </div>
+        </ng-container>
       </div>
     </div>
   `,

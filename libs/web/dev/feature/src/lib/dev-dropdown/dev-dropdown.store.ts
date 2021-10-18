@@ -42,7 +42,6 @@ const config: Configs = {
         name: 'Delete',
       },
     ],
-    heading: 'Choose one of them options:',
   },
 
   component_inputs: [

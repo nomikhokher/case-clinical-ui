@@ -39,7 +39,6 @@ export class DevPageHeadingsStore extends ComponentStore<DevPageHeadingsState> {
       ],
       items: {
         config: {
-          title: 'Example Title',
           meta: [
             { label: 'Jobs', icon: 'briefcase' },
             { label: 'Remote', icon: 'locationMarker' },

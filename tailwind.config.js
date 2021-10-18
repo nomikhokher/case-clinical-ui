@@ -35,6 +35,8 @@ module.exports = {
       zIndex: ['hover', 'active'],
       display: ['responsive', 'group-hover', 'group-focus'],
       borderRadius: ['dark'],
+      borderColor: ['dark'],
+      borderStyle: ['dark'],
     },
   },
   plugins: [

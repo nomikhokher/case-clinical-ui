@@ -14,7 +14,6 @@ export interface Crumbs {
 
 export interface Item {
   data?: Data[]
-  heading?: string
 }
 
 export interface Inputs {

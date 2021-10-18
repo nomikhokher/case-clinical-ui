@@ -14,7 +14,7 @@ import { Component, Input } from '@angular/core'
     `,
   ],
   template: `
-    <div class="h-screen flex justify-center items-center">
+    <div class="flex">
       <div class="relative max-w-xl w-full">
         <div>
           <input

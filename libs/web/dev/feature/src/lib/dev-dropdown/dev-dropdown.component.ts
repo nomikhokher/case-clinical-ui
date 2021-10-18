@@ -16,7 +16,7 @@ import { DevDropdownStore } from './dev-dropdown.store'
         [codeObj]="vm.config.items"
       >
         <ng-container>
-          <ui-dropdown [heading]="vm.config.items.heading" [items]="vm.config.items.data"></ui-dropdown>
+          <ui-dropdown [items]="vm.config.items.data"></ui-dropdown>
         </ng-container>
       </ui-preview>
     </ng-container>
@@ -34,7 +34,6 @@ export class DevDropdownComponent {
         `import { WebUiDropdownModule } from '@schema-driven/web/ui/dropdown'
         \n\n
         <ui-dropdown [heading]="vm.config.items.heading" [items]="vm.config.items.data"></ui-dropdown> \n\n
-        heading = ${JSON.stringify(result.config.items.heading, null, '\t')}\n
       data = ${JSON.stringify(result.config.items.data, null, '\t')}\n
       `,
       ]

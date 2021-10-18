@@ -16,8 +16,6 @@ import { DevSlideOverStore } from './dev-slide-over.store'
       >
         <ui-button [label]="'Open Layout With Overlay'" (click)="openWithOverlay()"></ui-button>
         <ui-button [label]="'Open Layout With Out Overlay'" (click)="openWithOutOverlay()" class="mx-2"></ui-button>
-      </ui-preview>
-      <ui-preview>
         <ui-slide-over
           [width]="vm.config.items.width"
           [overlayOpacity]="vm.config.items.overlayOpacity"
@@ -55,8 +53,6 @@ import { DevSlideOverStore } from './dev-slide-over.store'
             </div>
           </section>
         </ui-slide-over>
-      </ui-preview>
-      <ui-preview>
         <ui-slide-over-layout
           [width]="vm.config.items.width"
           [slideOverHeader]="vm.config.items.slideOverHeader"

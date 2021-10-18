@@ -3,8 +3,8 @@ import { Component, ElementRef, Input } from '@angular/core'
 @Component({
   selector: 'ui-pop-confirm',
   template: `
-    <div class="h-50 bg-gray-100 dark:bg-gray-800 py-6 flex flex-col justify-center sm:py-12">
-      <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+    <div class="dark:bg-gray-800 flex flex-col">
+      <div class="relative py-3 sm:max-w-xl">
         <div
           class="group cursor-pointer text-gray-100 dark:text-gray-600 rounded  relative bg-gray-500 dark:bg-gray-200 inline-block border-b border-gray-400 text-center"
         >

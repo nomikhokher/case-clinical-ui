@@ -4,7 +4,7 @@ import { Component, ElementRef, Input } from '@angular/core'
   selector: 'ui-banners',
   template: `
     <div [ngClass]="position ? 'fixed inset-x-0 ' + position + '-0 z-10' : ''">
-      <div class="bg-{{ bgColor }}-600">
+      <div class="bg-{{ bgColor }}-600 dark:bg-gray-600">
         <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
           <div class="flex items-center justify-between flex-wrap">
             <div class="w-0 flex-1 flex items-center">

@@ -3,69 +3,58 @@ import { Component, ElementRef, Input } from '@angular/core'
 @Component({
   selector: 'ui-badge',
   template: `
-    <div class="dark:bg-gray-800 border dark:border-indigo-700 px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
-      <div>
-        <ng-container *ngIf="!removeIcon">
-          <h1 class="my-4 dark:text-gray-100">Badges</h1>
-          <div class="relative">
-            <span
-              (click)="badgeClick('onClick')"
-              class="inline-flex justify-items-center px-2.5 py-0.5 hover:opacity-80 cursor-pointer text-{{
-                size
-              }} font-medium bg-{{ color }}-100 text-{{ color }}-800"
-              [ngClass]="[
-                rounded == 'true' ? 'rounded-full' : 'rounded',
-                position == 'right' ? 'right-1 absolute bottom-0' : ''
-              ]"
-            >
-              <div class="m-1" *ngIf="icon" [ngClass]="icon_size">
-                <ui-icon [icon]="icon" size="lg" [class]="icon_size"></ui-icon>
-              </div>
-              <span>
-                {{ text }}
-              </span>
-            </span>
+    <ng-container *ngIf="!removeIcon">
+      <div class="relative">
+        <span
+          (click)="badgeClick('onClick')"
+          class="inline-flex justify-items-center px-2.5 py-0.5 hover:opacity-80 cursor-pointer text-{{
+            size
+          }} font-medium bg-{{ color }}-100 text-{{ color }}-800"
+          [ngClass]="[
+            rounded == 'true' ? 'rounded-full' : 'rounded',
+            position == 'right' ? 'right-1 absolute bottom-0' : ''
+          ]"
+        >
+          <div class="m-1" *ngIf="icon" [ngClass]="icon_size">
+            <ui-icon [icon]="icon" size="lg" [class]="icon_size"></ui-icon>
           </div>
-        </ng-container>
-
-        <ng-container *ngIf="removeIcon">
-          <h1 class="my-4">Badges with remove button</h1>
-          <div class="relative">
-            <span
-              (click)="badgeClick('onClick')"
-              class="rounded-full hover:opacity-80 removeIcon cursor-pointer text-{{ size }} font-medium bg-{{
-                color
-              }}-100 text-{{ color }}-700"
-              [ngClass]="[
-                size == 'sm' ? 'py-0.5 pl-2.5 pr-1' : 'py-0.5 pl-2 pr-0.5',
-                position == 'right' ? 'right-1 absolute bottom-0' : ''
-              ]"
-            >
-              badge
-              <button
-                type="button"
-                class="flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center text-{{
-                  color
-                }}-400 hover:bg-{{ color }}-200 hover:text-{{ color }}-500 focus:outline-none focus:bg-{{
-                  color
-                }}-500 focus:text-white"
-              >
-                <span class="sr-only">Remove large option</span>
-                <svg
-                  (click)="badgeClick('onClose')"
-                  class="h-2 w-2"
-                  stroke="currentColor"
-                  fill="none"
-                  viewBox="0 0 8 8"
-                >
-                  <path stroke-linecap="round" stroke-width="1.5" d="M1 1l6 6m0-6L1 7" />
-                </svg>
-              </button>
-            </span>
-          </div>
-        </ng-container>
+          <span>
+            {{ text }}
+          </span>
+        </span>
       </div>
-    </div>
+    </ng-container>
+
+    <ng-container *ngIf="removeIcon">
+      <h1 class="my-4">Badges with remove button</h1>
+      <div class="relative">
+        <span
+          (click)="badgeClick('onClick')"
+          class="rounded-full hover:opacity-80 removeIcon cursor-pointer text-{{ size }} font-medium bg-{{
+            color
+          }}-100 text-{{ color }}-700"
+          [ngClass]="[
+            size == 'sm' ? 'py-0.5 pl-2.5 pr-1' : 'py-0.5 pl-2 pr-0.5',
+            position == 'right' ? 'right-1 absolute bottom-0' : ''
+          ]"
+        >
+          badge
+          <button
+            type="button"
+            class="flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center text-{{
+              color
+            }}-400 hover:bg-{{ color }}-200 hover:text-{{ color }}-500 focus:outline-none focus:bg-{{
+              color
+            }}-500 focus:text-white"
+          >
+            <span class="sr-only">Remove large option</span>
+            <svg (click)="badgeClick('onClose')" class="h-2 w-2" stroke="currentColor" fill="none" viewBox="0 0 8 8">
+              <path stroke-linecap="round" stroke-width="1.5" d="M1 1l6 6m0-6L1 7" />
+            </svg>
+          </button>
+        </span>
+      </div>
+    </ng-container>
   `,
 })
 export class WebUiBadgeComponent {

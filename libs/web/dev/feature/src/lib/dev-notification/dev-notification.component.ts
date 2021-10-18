@@ -4,9 +4,6 @@ import { DevNotificationStore } from './dev-notification.store'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <div class="p-4 shadow rounded-lg bg-gray-100 dark:bg-gray-800">
-        <pre class="text-xs dark:text-gray-500">{{ vm.items | json }}</pre>
-      </div>
       <ui-preview
         [code]="codePreview[0]"
         [title]="vm.config.headerTitle"

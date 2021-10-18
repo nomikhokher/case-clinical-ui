@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core'
   template: `
     <div class="flex">
       <ng-container *ngIf="horizontalDirection == 'left'">
-        <div class="mr-4 flex-shrink-0 sm:mb-0 sm:mr-4" [ngClass]="'self-' + verticalDirection">
+        <div class=" flex-shrink-0 sm:mb-0 sm:mr-4" [ngClass]="'self-' + verticalDirection">
           <!-- <ui-icon icon="imageAvatar"></ui-icon> -->
           <svg
             class="border border-gray-300 bg-white text-gray-300"
@@ -23,7 +23,7 @@ import { Component, Input } from '@angular/core'
             <path vector-effect="non-scaling-stroke" stroke-width="1" d="M0 0l200 200M0 200L200 0" />
           </svg>
         </div>
-        <div class="w-6/12">
+        <div class="">
           <ng-content select=".objectData"></ng-content>
         </div>
       </ng-container>
