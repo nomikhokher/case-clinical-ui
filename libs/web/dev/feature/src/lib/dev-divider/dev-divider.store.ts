@@ -24,7 +24,7 @@ const config: Configs = {
     { label: 'Components', path: '/dev' },
     { label: 'Divider', path: '/dev/dividers' },
   ],
-  directory: '/libs/web/dev/feature/src/lib/dev-divider.component.ts',
+  directory: '/libs/web/dev/feature/src/lib/dev-divider/dev-divider.component.ts',
   items: [
     {
       directionToolbar: 'end', // direction can be [start, end, center]

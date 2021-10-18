@@ -36,11 +36,9 @@ import { DevMediaObjectStore } from './dev-media-object.store'
             </p>
           </ng-container>
         </ui-media-object>
-      </ui-preview>
-      <ui-preview [code]="codePreview[0]">
         <!-- you add only height '1,2,3,4,5,6,7,8,9,10,11,12,14,16' if use full height image then you not use vertical direction or 'full', by default set value is '16' -->
         <!-- you add only width '1,2,3,4,5,6,7,8,9,10,11,12,14,16' and not use 'full'value, by default set value is '16' -->
-        <ui-media-object icon="imageAvatar" [circle]="circle" height="full" width="" horizontalDirection="right">
+        <!-- <ui-media-object icon="imageAvatar" [circle]="circle" height="full" width="" horizontalDirection="right">
           <ng-container class="objectDataFullImage">
             <h4 class="text-lg font-bold">Lorem ipsum</h4>
             <p class="mt-1">
@@ -49,9 +47,7 @@ import { DevMediaObjectStore } from './dev-media-object.store'
             </p>
           </ng-container>
         </ui-media-object>
-      </ui-preview>
 
-      <ui-preview [code]="codePreview[0]">
         <ui-media-object [data]="data" [circle]="circle" height="" width="" horizontalDirection="rights">
           <ui-media-object
             class="objectData2"
@@ -64,9 +60,7 @@ import { DevMediaObjectStore } from './dev-media-object.store'
           >
           </ui-media-object>
         </ui-media-object>
-      </ui-preview>
 
-      <ui-preview>
         <ui-media-object [data]="data" [circle]="circle" height="" width="" horizontalDirection="lefts">
           <ui-media-object
             class="objectData3"
@@ -78,7 +72,7 @@ import { DevMediaObjectStore } from './dev-media-object.store'
             horizontalDirection="left"
           >
           </ui-media-object>
-        </ui-media-object>
+        </ui-media-object> -->
       </ui-preview>
     </ng-container>
   `,

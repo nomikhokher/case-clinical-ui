@@ -224,7 +224,7 @@ export interface ComponentProp {
                   (resizing)="onResize($event)"
                 >
                   <div class="bg-gray-100 max-w-7xl rounded">
-                    <div class="max-w-7xl mx-auto relative p-10">
+                    <div class="max-w-7xl mx-auto relative p-5">
                       <div
                         [resizeEdges]="{ right: true }"
                         mwlResizeHandle
@@ -245,7 +245,7 @@ export interface ComponentProp {
                         title="Simple centered preview"
                         aria-label="Simple centered preview"
                         name="frame"
-                        class="w-full pl-2 pr-6 py-8 sm:rounded-r-none"
+                        class="w-full pl-2 pr-6 pt-14 sm:rounded-r-none"
                         id="iframe"
                         #iframe
                         *ngIf="childDiv"

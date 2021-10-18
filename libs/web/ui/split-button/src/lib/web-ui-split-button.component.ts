@@ -3,8 +3,8 @@ import { Component, Input } from '@angular/core'
 @Component({
   selector: 'ui-split-button',
   template: `
-    <div class="flex justify-center">
-      <div class="flex items-center my-20 border">
+    <div class="flex">
+      <div class="flex items-center border">
         <button
           class="py-2 px-4 capitalize tracking-wide border-r bg-gray-800 text-white font-medium hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
         >

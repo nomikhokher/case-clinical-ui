@@ -6,9 +6,10 @@ import { DevListContainerStore } from './dev-list-container.store'
     <ng-container *ngIf="vm$ | async as vm">
       <ui-preview
         [code]="codePreview[0]"
-        [githubURL]="vm.config.items.githubURL"
-        [title]="vm.config.items.headerTitle"
-        [directory]="vm.config.items.directory"
+        [githubURL]="vm.config.githubURL"
+        [title]="vm.config.headerTitle"
+        [breadcrumbs]="vm.config.breadcrumbs"
+        [directory]="vm.config.directory"
         [component_inputs]="vm.config.component_inputs"
         [codeObj]="vm.config.items"
       >
@@ -17,8 +18,8 @@ import { DevListContainerStore } from './dev-list-container.store'
           [roundedDividers]="vm.config.items.roundedDividers"
         >
           <ng-container class="content">
-            <p class="py-4">Simple with dividers</p>
-            <p class="py-4">Simple with dividers</p>
+            <p class="p-4">Simple with dividers</p>
+            <p class="p-4">Simple with dividers</p>
           </ng-container>
         </ui-list-container>
       </ui-preview>
