@@ -19,13 +19,26 @@ const config = {
     { label: 'Components', path: '/dev' },
     { label: 'Table', path: '/dev/table' },
   ],
-  directory: '/libs/web/dev/feature/src/lib/dev-table.component.ts',
+  directory: '/libs/web/dev/feature/src/lib/dev-table/dev-table.component.ts',
   items: {
     cols: [
-      UiTable.column('name'),
-      UiTable.column('weight'),
-      UiTable.column('symbol'),
-      UiTable.column('position', { className: 'text-right', headerClassName: 'text-right' }),
+      UiTable.column('name', {
+        className: 'bg-white text-black border dark:bg-transparent dark:text-current dark:border-none',
+        headerClassName: 'bg-white text-black border dark:bg-gray-700 dark:text-current dark:border-none',
+      }),
+      UiTable.column('weight', {
+        className: 'bg-white text-black border dark:bg-transparent dark:text-current dark:border-none',
+        headerClassName: 'bg-white text-black border dark:bg-gray-700 dark:text-current dark:border-none',
+      }),
+      UiTable.column('symbol', {
+        className: 'bg-white text-black border dark:bg-transparent dark:text-current dark:border-none',
+        headerClassName: 'bg-white text-black border dark:bg-gray-700 dark:text-current dark:border-none',
+      }),
+      UiTable.column('position', {
+        className: 'text-right bg-white text-black border dark:bg-transparent dark:text-current dark:border-none',
+        headerClassName:
+          'text-right bg-white text-black border dark:bg-gray-700 dark:text-current dark:border-none dark:border-gray-50',
+      }),
     ],
     data: [
       { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
@@ -63,13 +76,26 @@ const config = {
   ],
 }
 
-var demos: Demo[] = [
+let demos: Demo[] = [
   {
     cols: [
-      UiTable.column('name'),
-      UiTable.column('weight'),
-      UiTable.column('symbol'),
-      UiTable.column('position', { className: 'text-right', headerClassName: 'text-right' }),
+      UiTable.column('name', {
+        className: 'bg-white text-black border dark:bg-transparent dark:text-current dark:border-none',
+        headerClassName: 'bg-white text-black border dark:bg-gray-700 dark:text-current dark:border-none',
+      }),
+      UiTable.column('weight', {
+        className: 'bg-white text-black border dark:bg-transparent dark:text-current dark:border-none',
+        headerClassName: 'bg-white text-black border dark:bg-gray-700 dark:text-current dark:border-none',
+      }),
+      UiTable.column('symbol', {
+        className: 'bg-white text-black border dark:bg-transparent dark:text-current dark:border-none',
+        headerClassName: 'bg-white text-black border dark:bg-gray-700 dark:text-current dark:border-none',
+      }),
+      UiTable.column('position', {
+        className: 'text-right bg-white text-black border dark:bg-transparent dark:text-current dark:border-none',
+        headerClassName:
+          'text-right bg-white text-black border dark:bg-gray-700 dark:text-current dark:border-none dark:border-gray-50',
+      }),
     ],
     data: [
       { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },

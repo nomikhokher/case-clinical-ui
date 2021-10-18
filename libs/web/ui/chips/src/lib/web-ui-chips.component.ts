@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core'
   selector: 'ui-chips',
   template: `
     <div class="p-5">
-      <div class="flex flex-wrap justify-center">
+      <div class="flex flex-wrap">
         <div
           *ngFor="let chip of chips; let i = index"
           class="flex justify-center items-center m-1 font-medium py-1.5  rounded-full text-{{
