@@ -1,5 +1,4 @@
 export interface Config {
-  title?: string
   meta?: Meta[]
   controls?: Controls[]
 }

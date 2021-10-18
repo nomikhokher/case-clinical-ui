@@ -13,8 +13,6 @@ export interface Segment {
   selector: 'ui-json',
   template: `
     <div class="relative">
-      <!--      <ui-json [json]="json" [expanded]="expanded" [depth]="depth"></ui-json>-->
-
       <section class="ui-json">
         <section *ngFor="let segment of segments" [ngClass]="['segment', 'segment-type-' + segment.type]">
           <section

@@ -21,7 +21,7 @@ const config: Configs = {
     { label: 'Components', path: '/dev' },
     { label: 'List Container', path: '/dev/list-containers' },
   ],
-  directory: '/libs/web/dev/feature/src/lib/dev-list-container.component.ts',
+  directory: '/libs/web/dev/feature/src/lib/dev-list-container/dev-list-container.component.ts',
   items: {
     classNames: 'text-red-600',
     roundedDividers: true,

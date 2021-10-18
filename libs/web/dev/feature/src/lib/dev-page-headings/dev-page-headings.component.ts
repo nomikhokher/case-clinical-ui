@@ -19,21 +19,7 @@ import { DevPageHeadingsStore } from './dev-page-headings.store'
             <ui-button label="Gray" type="button" color="gray"></ui-button>
           </ng-container>
         </ng-template>
-        <div class="bg-white rounded-xl px-8 dark:bg-gray-700 shadow">
-          <ui-page-header
-            [title]="vm.items.config.title"
-            [meta]="vm.items.config.meta"
-            [controlsTemplate]="vm.items.headerControls"
-          ></ui-page-header>
-        </div>
-
-        <!-- <ui-page-headings
-          [headingTitle]="'Back End Developer'"
-          [buttons]="buttons"
-          [lowerSubHeadings]="lowerSubHeadings"
-          [upperSubHeadings]="upperSubHeadings"
-        >
-        </ui-page-headings> -->
+        <ui-page-header [meta]="vm.items.config.meta" [controlsTemplate]="vm.items.headerControls"></ui-page-header>
       </ui-preview>
     </ng-container>
   `,
@@ -56,12 +42,10 @@ export class DevPageHeadingsComponent {
         </ng-template>
         <div class="bg-white rounded-xl px-8 dark:bg-gray-700 shadow">
           <ui-page-header
-            [title]="vm.items.config.title"
             [meta]="vm.items.config.meta"
           ></ui-page-header>
         </div> \n\n
       
-        title = ${JSON.stringify(result.items.config.title, null, '\t')}\n
         meta = ${JSON.stringify(result.items.config.meta, null, '\t')}\n
         `,
       ]

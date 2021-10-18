@@ -10,6 +10,7 @@ import { DevIncentivesStore } from './dev-incentives.store'
         [githubURL]="vm.config.previewData.githubURL"
         [title]="vm.config.previewData.headerTitle"
         [directory]="vm.config.previewData.directory"
+        [breadcrumbs]="vm.config.previewData.breadcrumbs"
         [component_inputs]="vm.config.component_inputs"
         [codeObj]="vm.config.items"
       >
