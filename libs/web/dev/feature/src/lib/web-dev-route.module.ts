@@ -371,4 +371,8 @@ export const routes: Routes = [
     path: 'carousel-pro',
     loadChildren: () => import('./dev-carousel-pro/dev-carousel-pro.module').then((m) => m.DevCarouselProModule),
   },
+  {
+    path: 'draggable',
+    loadChildren: () => import('./dev-draggable/dev-draggable.module').then((m) => m.DevDraggableModule),
+  },
 ]

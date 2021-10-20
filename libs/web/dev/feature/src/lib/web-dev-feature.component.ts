@@ -63,6 +63,11 @@ export class WebDevFeatureComponent {
               route: 'carousel-pro',
               image: '/assets/images/carousel-pro.png',
             },
+            {
+              label: 'Draggable',
+              route: 'draggable',
+              image: '/assets/images/carousel-pro.png',
+            },
           ],
         },
         {

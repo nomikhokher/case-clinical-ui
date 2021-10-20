@@ -219,6 +219,9 @@
     "web-ui-divider-toolbar": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-draggable": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-drawing-pad": {
       "tags": ["scope:web", "type:ui"]
     },
