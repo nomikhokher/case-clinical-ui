@@ -1519,6 +1519,28 @@
         }
       }
     },
+    "web-ui-draggable": {
+      "projectType": "library",
+      "root": "libs/web/ui/draggable",
+      "sourceRoot": "libs/web/ui/draggable/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/draggable/src/**/*.ts", "libs/web/ui/draggable/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/draggable"],
+          "options": {
+            "jestConfig": "libs/web/ui/draggable/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-drawing-pad": {
       "projectType": "library",
       "root": "libs/web/ui/drawing-pad",
