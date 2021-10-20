@@ -379,7 +379,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Virtual, Zoom, Autoplay
             <img class="w-full object-cover h-96 rounded-xl block" src="{{ carousel.path }}" />
           </ng-template>
         </swiper>
-        <div class="flex justify-center space-x-7" *ngIf="bulletNumbers">
+        <div class="flex justify-center space-x-7 dark:text-white" *ngIf="bulletNumbers">
           <a class="cursor-pointer">previous</a>
           <a class="cursor-pointer" *ngFor="let item of images; let i = index" (click)="indexNumber = i">{{ i }}</a>
           <a class="cursor-pointer">next</a>
@@ -522,8 +522,8 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Virtual, Zoom, Autoplay
             [slidesPerGroup]="1"
             [scrollbar]="scrollbar"
           >
-            <ng-template class="" swiperSlide *ngFor="let carousel of images; let i = index">
-              <img class="object-cover w-20 h-28  rounded-lg" src="{{ carousel.path }}" (click)="changeIndex(i)" />
+            <ng-template class="py-8 px-5" swiperSlide *ngFor="let carousel of images; let i = index">
+              <img class="object-cover w-24 h-32 rounded-lg" src="{{ carousel.path }}" (click)="changeIndex(i)" />
             </ng-template>
           </swiper>
         </div>
@@ -547,7 +547,7 @@ export class WebUiCarouselProComponent {
   @Input() grabCursor?: boolean = true
   @Input() slidesPerGroup?: number = 1
   @Input() carouselType?: string = 'default'
-  delay?: any = 2000
+  public delay?: any = 2000
 
   show: boolean
   thumbs: any
