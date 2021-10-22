@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
-import { Router } from '@angular/router'
+import { ChangeDetectorRef, Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core'
 import { User } from '@schema-driven/web/core/data-access'
 import { WebLayoutLink } from '@schema-driven/web/layout'
 import { ServiceCodepreview } from '../../../codepreview.service'
@@ -152,10 +151,12 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                   </div>
                   <input
                     (input)="onSearch($event)"
-                    *ngIf="showSearchBar == true"
+                    *ngIf="showSearchBar"
                     id="search_field"
                     class="block w-full dark:bg-gray-800 focus:outline-none border-1 border-gray-300 rounded-full bg-white dark:text-gray-100 h-full pl-8 pr-3 py-2 text-gray-900 placeholder-gray-500  focus:placeholder-gray-400 sm:text-sm"
                     placeholder="Search"
+                    #searchBarInput
+                    autocomplete="off"
                     type="search"
                     name="search"
                   />
@@ -249,18 +250,27 @@ import { ServiceCodepreview } from '../../../codepreview.service'
   `,
 })
 export class WebUiSidebarClassicComponent {
+  @ViewChild('searchBarInput', { static: false }) searchBarInput: ElementRef | undefined
   @Input() notificationsLink?: string
   @Input() user?: User
   @Input() links: WebLayoutLink[] = []
   @Input() profileLinks: WebLayoutLink[] = []
   @Input() logo: string
   public searchBarActive: boolean
-  constructor(private router: Router, public searchService: ServiceCodepreview) {}
   public showMenu = false
   public asideMobileWidth: number = 0
   public drownDownMenu: boolean = false
   public mobileSideBar: boolean = false
   public showSearchBar: boolean = false
+
+  constructor(public searchService: ServiceCodepreview, private readonly cdRef: ChangeDetectorRef) {}
+
+  @HostListener('document:keydown.control.k', ['$event']) onKeydownHandler(event: KeyboardEvent) {
+    event.preventDefault()
+    this.showSearchBar = !this.showSearchBar
+    this.cdRef.detectChanges()
+    this.searchBarInput?.nativeElement.focus()
+  }
 
   hideShowSearchBar() {
     this.showSearchBar = !this.showSearchBar
