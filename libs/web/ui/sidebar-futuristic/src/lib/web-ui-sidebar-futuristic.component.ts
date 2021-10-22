@@ -1,4 +1,4 @@
-import { Component, HostListener, Input } from '@angular/core'
+import { ChangeDetectorRef, Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core'
 import { Router } from '@angular/router'
 import { User } from '@schema-driven/web/core/data-access'
 import { ServiceCodepreview } from '../../../codepreview.service'
@@ -47,6 +47,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                   style="caret-color: #6b7280"
                   class="flex-auto -mr-9 appearance-none bg-transparent pl-4 pr-12 py-4 text-gray-600 text-base sm:text-sm placeholder-gray-500 focus:outline-none w-full"
                   placeholder="Find components..."
+                  #searchBarInput
                 />
                 <svg
                   width="20"
@@ -282,17 +283,24 @@ import { ServiceCodepreview } from '../../../codepreview.service'
   `,
 })
 export class WebUiSidebarFuturisticComponent {
-  constructor(public searchService: ServiceCodepreview, public router: Router) {}
   public showMenu = false
   public mobileSideBar: boolean = false
   public componentList
+  public isActive: boolean = false
 
+  @ViewChild('searchBarInput', { static: false }) searchBarInput: ElementRef | undefined
   @Input() notificationsLink?: string
   @Input() user?: User
   @Input() links: { label: string; route: string }[] = []
   @Input() profileLinks: { label: string; route: string }[] = []
   @Input() logo: string
-  isActive: boolean = false
+
+  constructor(
+    public searchService: ServiceCodepreview,
+    public router: Router,
+    private readonly cdRef: ChangeDetectorRef,
+  ) {}
+
   ngOnInit(): void {
     this.searchService.searchIcon$.next([])
     this.searchService.searchedArray$.next([])
@@ -302,9 +310,17 @@ export class WebUiSidebarFuturisticComponent {
     })
   }
 
-  @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(evt: KeyboardEvent) {
+  @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(event: KeyboardEvent) {
     this.isActive = false
   }
+
+  @HostListener('document:keydown.control.k', ['$event']) onKeydownHandlerSearch(event: KeyboardEvent) {
+    event.preventDefault()
+    this.isActive = !this.isActive
+    this.cdRef.detectChanges()
+    this.searchBarInput?.nativeElement.focus()
+  }
+
   onSearch(e: any) {
     this.searchService.searchIcon$.next(e.target.value)
   }
