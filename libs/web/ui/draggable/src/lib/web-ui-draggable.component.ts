@@ -52,10 +52,10 @@ interface Tasks {
             [id]="items.id"
             [cdkDropListConnectedTo]="connectedTo"
             (cdkDropListDropped)="drop($event)"
-            class="draggable-list dark:bg-gray-900"
+            class="draggable-list dark:bg-gray-600"
           >
             <div
-              class="bg-white dark:bg-gray-900 shadow rounded px-3 pt-3 pb-5 border border-white mt-3 cursor-move draggable-box w-72"
+              class="bg-white dark:bg-gray-600 shadow rounded px-3 pt-3 pb-5 border border-white mt-3 cursor-move draggable-box w-72"
               *ngFor="let item of items.tasks"
               cdkDrag
               [cdkDragData]="item"

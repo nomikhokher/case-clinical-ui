@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { ChangeDetectorRef, Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core'
 import { User } from '@schema-driven/web/core/data-access'
 import { WebLayoutLink } from '@schema-driven/web/layout'
 import { ServiceCodepreview } from '../../../codepreview.service'
@@ -575,6 +575,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                     placeholder="Search"
                     type="search"
                     name="search"
+                    #searchBarInput
                   />
                 </div>
               </form>
@@ -596,12 +597,20 @@ export class WebUiSidebarClassyComponent {
   public showSearchBar: boolean = false
   public asideMobileWidth: number = 0
 
+  @ViewChild('searchBarInput', { static: false }) searchBarInput: ElementRef | undefined
   @Input() notificationsLink?: string
   @Input() user?: User
   @Input() links: WebLayoutLink[] = []
   @Input() profileLinks: WebLayoutLink[] = []
   @Input() logo: string
-  constructor(public searchService: ServiceCodepreview) {}
+  constructor(public searchService: ServiceCodepreview, private readonly cdRef: ChangeDetectorRef) {}
+
+  @HostListener('document:keydown.control.k', ['$event']) onKeydownHandler(event: KeyboardEvent) {
+    event.preventDefault()
+    this.showSearchBar = !this.showSearchBar
+    this.cdRef.detectChanges()
+    this.searchBarInput?.nativeElement.focus()
+  }
 
   hideShowSearchBar() {
     this.showSearchBar = !this.showSearchBar
