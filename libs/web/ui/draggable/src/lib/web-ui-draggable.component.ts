@@ -55,11 +55,28 @@ interface Tasks {
             class="draggable-list dark:bg-gray-600"
           >
             <div
-              class="bg-white dark:bg-gray-600 shadow rounded px-3 pt-3 pb-5 border border-white mt-3 cursor-move draggable-box w-72"
+              class="bg-white dark:bg-gray-600 shadow rounded px-3 pt-3 pb-5 border showhim border-white mt-3 cursor-move draggable-box w-72"
               *ngFor="let item of items.tasks"
               cdkDrag
               [cdkDragData]="item"
             >
+              <div class="bg-green-500 h-8 my-2 flex justify-end items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 showme text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  (click)="editEvent(item)"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                  />
+                </svg>
+              </div>
               <div class="flex justify-between">
                 <p class="text-gray-700 dark:text-white font-semibold font-sans tracking-wide text-sm">
                   {{ item.title }}
@@ -80,12 +97,54 @@ interface Tasks {
         </div>
       </ng-container>
     </div>
+
+    <div class="quick-card-editor is-covered flex justify-center items-center" *ngIf="editMode">
+      <span class="icon-lg icon-close quick-card-editor-close-icon js-close-editor"></span>
+      <div class="quick-card-editor-card" style="width: 256px;">
+        <div class="list-card list-card-quick-edit js-stop is-covered" style="width: 256px;">
+          <div
+            class="list-card-cover js-card-cover color-card-cover color-card-cover-green"
+            style="height: 32px;"
+          ></div>
+          <div class="list-card-stickers-area js-stickers-area hide">
+            <div class="stickers js-card-stickers" style="height: 32px;"></div>
+          </div>
+          <div class="list-card-details js-card-details">
+            <textarea
+              class="list-card-edit-title js-edit-card-title pt-1"
+              style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 90px;"
+              [(ngModel)]="editTitle"
+            >
+hello</textarea
+            >
+          </div>
+          <p class="list-card-dropzone" *ngIf="false">Drop files to upload.</p>
+          <p class="list-card-dropzone-limited" *ngIf="false">Too many attachments.</p>
+          <p class="list-card-dropzone-restricted" *ngIf="false">Not allowed by your enterprise.</p>
+        </div>
+        <button class="bg-indigo-600 text-gray-100 py-2 px-6 rounded-md cursor-pointer" (click)="edit()">Save</button>
+        <button class="bg-gray-500 text-gray-100 py-2 px-6 rounded-md cursor-pointer ml-2" (click)="editMode = false">
+          cancel
+        </button>
+        <div class="quick-card-editor-buttons fade-in">
+          <a class="quick-card-editor-buttons-item" href="/c/uEyASsV5/151-component-tag-textarea"
+            ><span class="icon-sm icon-card light"></span
+            ><span class="quick-card-editor-buttons-item-text">Open card</span>
+          </a>
+          <div id="convert-card-role-button-react-root" class=""><div class="js-react-root"></div></div>
+        </div>
+      </div>
+    </div>
   `,
 })
 export class WebUiDraggableComponent {
-  @Input() draggableData: Draggable[]
+  @Input() draggableData: Draggable[] | any
 
   public connectedTo = []
+
+  public editMode: boolean = false
+  editTitle: string
+  editId: any
 
   ngOnInit(): void {
     for (let items of this.draggableData) {
@@ -100,5 +159,34 @@ export class WebUiDraggableComponent {
     } else {
       transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex)
     }
+  }
+
+  editEvent(data: any) {
+    for (const items of this.draggableData) {
+      for (const task of items.tasks) {
+        if (task.id == data.id) {
+          this.editTitle = task.title
+          this.editId = task.id
+        }
+      }
+    }
+    this.editMode = true
+  }
+
+  edit(): void {
+    this.draggableData = this.draggableData.map((items) => {
+      items.tasks.map((task) => {
+        if (task.id == this.editId) {
+          task.title = this.editTitle
+
+          return task
+        }
+
+        return task
+      })
+      return items
+    })
+
+    this.editMode = false
   }
 }
