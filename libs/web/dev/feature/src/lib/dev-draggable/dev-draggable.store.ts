@@ -28,6 +28,7 @@ const config: Configs = {
     draggableData: [
       {
         id: TaskStatus.BACKLOG,
+        isActive: true,
         title: 'Backlog',
         tasks: [
           {
@@ -48,6 +49,7 @@ const config: Configs = {
       },
       {
         id: TaskStatus.SELECTED,
+        isActive: true,
         title: 'Selected',
         tasks: [
           {
@@ -61,6 +63,7 @@ const config: Configs = {
       },
       {
         id: TaskStatus.IN_PROGRESS,
+        isActive: true,
         title: 'In Progress',
         tasks: [
           {
@@ -74,6 +77,8 @@ const config: Configs = {
       },
       {
         id: TaskStatus.DONE,
+        isActive: true,
+
         title: 'Done',
         tasks: [
           {
