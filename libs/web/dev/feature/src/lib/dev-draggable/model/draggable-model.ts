@@ -52,6 +52,7 @@ export enum TaskPriority {
 
 export class Draggable {
   id: TaskStatus
+  isActive: boolean
   title: string
   tasks: Tasks[]
 }
