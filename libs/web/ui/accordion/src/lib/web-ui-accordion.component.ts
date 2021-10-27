@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core'
   template: `
     <div class="w-full my-4">
       <div class="rounded-sm" *ngFor="let accordion of accordions">
-        <div class="border bg-gray-100 px-10 py-6 dark:bg-gray-800">
+        <div class="border bg-gray-100 px-10 py-6 dark:bg-gray-700">
           <button
             (click)="accordion.show = !accordion.show"
             class="text-gray-900 dark:text-white hover:text-gray-700 focus:outline-none"
