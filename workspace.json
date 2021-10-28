@@ -402,7 +402,13 @@
               "./node_modules/froala-editor/css/froala_style.min.css"
             ],
             "scripts": ["./node_modules/froala-editor/js/froala_editor.pkgd.min.js"],
-            "allowedCommonJsDependencies": ["graphql-tag", "subscriptions-transport-ws", "zen-observable"],
+            "allowedCommonJsDependencies": [
+              "graphql-tag",
+              "subscriptions-transport-ws",
+              "zen-observable",
+              "froala-editor",
+              "@ctrl/ngx-numbered-codeblock"
+            ],
             "customWebpackConfig": {
               "path": "webpack.config.js"
             }
