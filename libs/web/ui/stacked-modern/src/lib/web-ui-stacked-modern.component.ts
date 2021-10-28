@@ -3,6 +3,22 @@ import { Router } from '@angular/router'
 import { User } from '@schema-driven/web/core/data-access'
 import { ServiceCodepreview } from '../../../codepreview.service'
 @Component({
+  styles: [
+    `
+      .DocSearch-Button-Key {
+        align-items: center;
+        background: linear-gradient(-225deg, #d5dbe4, #f8f8f8);
+        border-radius: 3px !important;
+        box-shadow: inset 0 -2px 0 0 #cdcde6, inset 0 0 1px 1px #fff, 0 1px 2px 1px rgba(30, 35, 90, 0.4);
+        color: #90a4b7;
+        display: flex !important;
+        height: 30px !important;
+        justify-content: center !important;
+        padding-bottom: 2px !important;
+        width: 33px !important;
+      }
+    `,
+  ],
   selector: 'ui-stacked-modern',
   template: `
     <div>
@@ -354,9 +370,22 @@ import { ServiceCodepreview } from '../../../codepreview.service'
               </div>
             </div>
             <div class="ml-4 flex items-center md:ml-6">
+              <div class=" flex space-x-2 mx-2">
+                <span class="DocSearch-Button-Key"
+                  ><svg width="15" height="15" class="DocSearch-Control-Key-Icon">
+                    <path
+                      d="M4.505 4.496h2M5.505 5.496v5M8.216 4.496l.055 5.993M10 7.5c.333.333.5.667.5 1v2M12.326 4.5v5.996M8.384 4.496c1.674 0 2.116 0 2.116 1.5s-.442 1.5-2.116 1.5M3.205 9.303c-.09.448-.277 1.21-1.241 1.203C1 10.5.5 9.513.5 8V7c0-1.57.5-2.5 1.464-2.494.964.006 1.134.598 1.24 1.342M12.553 10.5h1.953"
+                      stroke-width="1.2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="square"
+                    ></path></svg
+                ></span>
+                <span class="DocSearch-Button-Key">K</span>
+              </div>
               <button
                 (click)="isActive = true"
-                class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none"
               >
                 <span class="sr-only">Search</span>
                 <svg

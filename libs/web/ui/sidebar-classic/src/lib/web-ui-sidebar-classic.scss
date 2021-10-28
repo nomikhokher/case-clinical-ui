@@ -15,3 +15,17 @@
 .aside-scrollbar::-webkit-scrollbar-thumb:hover {
   background: var(--theme-color-300) !important;
 }
+.DocSearch-Button-Key {
+  align-items: center;
+  background: linear-gradient(-225deg, #d5dbe4, #f8f8f8);
+  border-radius: 3px !important;
+  box-shadow: inset 0 -2px 0 0 #cdcde6, inset 0 0 1px 1px #fff, 0 1px 2px 1px rgba(30, 35, 90, 0.4);
+  color: #90a4b7;
+  display: flex !important;
+  height: 30px !important;
+  justify-content: center !important;
+  padding-bottom: 2px !important;
+  // position: relative !important;
+  // top: 20px !important;
+  width: 33px !important;
+}
