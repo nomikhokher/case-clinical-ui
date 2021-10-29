@@ -9,6 +9,7 @@ import { DevCarouselProStore } from './dev-carousel-pro.store'
         [title]="vm.config.headerTitle"
         [directory]="vm.config.directory"
         [breadcrumbs]="vm.config.breadcrumbs"
+        [code]="codePreivew[0]"
       >
         <div>
           <h1 class="text-4xl font-bold dark:text-white">Examples</h1>
@@ -189,4 +190,13 @@ export class DevCarouselProComponent {
   constructor(private readonly store: DevCarouselProStore) {}
 
   ngOnInit(): void {}
+  codePreivew = [
+    `import { WebUiCarouselProModule } from '@schema-driven/web/ui/carousel-pro'\n
+    <ui-carousel-pro
+            [carouselType]="'default'" //carouselType can be [default,delay,customSize,cellWidth,cellsToShow,cellsToScroll,loop,freeScroll,autoplay,autoplayInteval,dotsTrue,objContain,margin,minSwipeDistance,pro,counter,withoutArrow,scrollbar,threeSlides,fiveSlides,useCase]
+            [images]="vm.config.items.images"
+            [imagesForSlider]="vm.config.items.imagesForSlider"
+          ></ui-carousel-pro>
+    `,
+  ]
 }
