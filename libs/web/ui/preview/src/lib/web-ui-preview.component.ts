@@ -8,6 +8,7 @@ import {
   ViewChild,
   ChangeDetectorRef,
 } from '@angular/core'
+import { Router, NavigationEnd } from '@angular/router'
 import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
 import { WebUiToastService } from '@schema-driven/web/ui/toast'
 import { ResizeEvent } from 'angular-resizable-element'
@@ -117,6 +118,7 @@ export interface ComponentProp {
                     Preview
                   </button>
                   <button
+                    *ngIf="resposiveSection"
                     (click)="handleTabClick(DISPLAY_MODE.Responsive); codePreviewToggler = true"
                     class="flex items-center px-3 py-2 font-medium text-sm rounded-md focus:outline-none"
                     [class.theme-bg-50]="DISPLAY_MODE.Responsive === activeTab"
@@ -223,7 +225,7 @@ export interface ComponentProp {
                   (resizeStart)="onResizeStart($event)"
                   (resizing)="onResize($event)"
                 >
-                  <div class="bg-gray-100 max-w-7xl rounded">
+                  <div *ngIf="resposiveSection" class="bg-gray-100 max-w-7xl rounded">
                     <div class="max-w-7xl mx-auto relative p-5">
                       <div
                         [resizeEdges]="{ right: true }"
@@ -541,6 +543,7 @@ export class WebUiPreviewComponent implements OnInit {
     private readonly renderer: Renderer2,
     private element: ElementRef,
     private readonly toast: WebUiToastService,
+    private router: Router,
   ) {}
   DISPLAY_MODE: typeof DisplayMode = DisplayMode
 
@@ -580,6 +583,7 @@ export class WebUiPreviewComponent implements OnInit {
   public containerWidth = null
   width = 1216
   height = 214
+  resposiveSection: boolean = true
 
   copyDone(done: boolean) {
     if (done) {
@@ -594,6 +598,9 @@ export class WebUiPreviewComponent implements OnInit {
   }
   ngOnInit() {
     this.lang = this.lang !== undefined ? this.lang : 'html'
+    this.router.url === '/dev/carousel-pro' || this.router.url === '/dev/editors'
+      ? (this.resposiveSection = false)
+      : (this.resposiveSection = true)
   }
 
   ngAfterViewInit() {
@@ -674,10 +681,9 @@ export class WebUiPreviewComponent implements OnInit {
   code_toggler(value) {
     this.code_toggle = value
   }
-
   handleTabClick(mode: DisplayMode) {
     this.activeTab = mode
-    if (mode === 1) {
+    if (mode === 1 && this.resposiveSection) {
       this.getFrameHeight()
       this.changeDetector.detectChanges()
       this.childDiv = `<html><head><meta charset='utf-8' /><base href='/' /><meta name='viewport' content='width=device-width, initial-scale=1' /><link href='https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css' rel='stylesheet'></head><body>

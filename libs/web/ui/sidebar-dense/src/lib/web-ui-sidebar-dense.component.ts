@@ -130,7 +130,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                 class="text-indigo-100 my-5 relative hover:theme-bg-400 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                 (click)="link.dropDown = !link.dropDown"
               >
-                <div class="mr-7 p-2" [routerLinkActiveOptions]="{ exact: true }">
+                <div class="mr-7 p-1" [routerLinkActiveOptions]="{ exact: true }">
                   <ui-icon
                     [icon]="link.icon"
                     size="lg"
@@ -383,7 +383,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                           />
                         </svg>
                       </div>
-                      <div class="absolute inset-y-0 right-2 flex space-x-2 top-1">
+                      <div class="absolute inset-y-0 right-2 flex space-x-2 top-0">
                         <span class="DocSearch-Button-Key"
                           ><svg width="15" height="15" class="DocSearch-Control-Key-Icon">
                             <path
