@@ -15,7 +15,7 @@ import { Component, Input, SimpleChanges } from '@angular/core'
           </div>
         </ng-container>
       </div>
-      <div class="p-4 flex items-center justify-center flex-1 bg-{{ bgColor }}-700 bg-opacity-75">
+      <div class="p-4 flex items-center justify-center flex-1 bg-opacity-75" [ngClass]="colorPicker()">
         <svg
           (click)="goToLeftCarousel()"
           xmlns="http://www.w3.org/2000/svg"
@@ -52,6 +52,10 @@ export class WebUiCarouselComponent {
   @Input() width?: string
   @Input() corners?: string
   @Input() items: Images[]
+
+  public colorPicker() {
+    return 'bg-' + this.bgColor + '-700'
+  }
 
   active: number = 0
 
