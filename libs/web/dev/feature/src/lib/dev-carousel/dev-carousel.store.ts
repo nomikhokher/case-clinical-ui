@@ -39,7 +39,6 @@ const config: Configs = {
       { path: '/assets/carousels/photo-1534801022022-6e319a11f249.jpg' },
       { path: '/assets/carousels/photo-1524324463413-57e3d8392df1.jpg' },
       { path: '/assets/carousels/photo-1506086679524-493c64fdfaa6.jpg' },
-      { path: '/assets/carousels/photo-1569749450723-1836b067fb64.jpg' },
     ],
   },
   component_inputs: [
@@ -48,18 +47,21 @@ const config: Configs = {
       prop: '[bgColor]',
       description: 'Adjust the footer background color',
       dataType: 'String',
+      type: ['red', 'blue', 'green', 'indigo', 'yellow', 'gray', 'purple', 'pink'],
     },
     {
       label: 'Carousel Height',
       prop: '[height]',
       description: 'Adjust the height of carousel',
       dataType: 'String',
+      type: ['40', '44', '48', '52', '56', '60', '64', '72', '80', '96', 'screen'],
     },
     {
       label: 'Carousel Width',
       prop: '[width]',
       description: 'Adjust the width of carousel',
       dataType: 'String',
+      type: ['1/4', '1/3', '1/2', '2/3', '3/4', '4/5', '5/6', '11/12', 'full'],
     },
     {
       label: 'Carousel Corners',
