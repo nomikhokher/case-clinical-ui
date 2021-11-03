@@ -15,7 +15,7 @@ import { Component, Input, SimpleChanges } from '@angular/core'
           </div>
         </ng-container>
       </div>
-      <div class="p-4 flex items-center justify-center flex-1 bg-opacity-75" [ngClass]="colorPicker()">
+      <div class="p-4 flex items-center justify-center flex-1 bg-opacity-75 {{ getBackground() }}">
         <svg
           (click)="goToLeftCarousel()"
           xmlns="http://www.w3.org/2000/svg"
@@ -53,8 +53,27 @@ export class WebUiCarouselComponent {
   @Input() corners?: string
   @Input() items: Images[]
 
-  public colorPicker() {
-    return 'bg-' + this.bgColor + '-700'
+  getBackground() {
+    switch (this.bgColor) {
+      case 'red':
+        return 'bg-red-700'
+      case 'indigo':
+        return 'bg-indigo-700'
+      case 'green':
+        return 'bg-green-700'
+      case 'blue':
+        return 'bg-blue-700'
+      case 'gray':
+        return 'bg-gray-700'
+      case 'yellow':
+        return 'bg-yellow-700'
+      case 'pink':
+        return 'bg-pink-700'
+      case 'purple':
+        return 'bg-purple-700'
+      default:
+        break
+    }
   }
 
   active: number = 0
