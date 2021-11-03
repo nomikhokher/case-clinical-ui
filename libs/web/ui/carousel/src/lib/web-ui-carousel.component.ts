@@ -4,6 +4,7 @@ import { Component, Input, SimpleChanges } from '@angular/core'
   template: `
     <div class="w-{{ width }}">
       <div class="overflow-auto relative flex-no-wrap flex">
+        <span class="sr-only">carousel</span>
         <ng-container *ngFor="let item of items; let i = index">
           <div
             *ngIf="active == i"

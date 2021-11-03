@@ -6,7 +6,7 @@ module.exports = {
   prefix: '',
   purge: {
     content: ['./apps/**/*.{html,ts}', './libs/**/*.{html,ts}'],
-    safeList: [
+    safelist: [
       'bg-red-700',
       'bg-blue-700',
       'bg-yellow-700',
