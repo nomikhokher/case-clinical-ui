@@ -407,7 +407,8 @@
               "subscriptions-transport-ws",
               "zen-observable",
               "froala-editor",
-              "@ctrl/ngx-numbered-codeblock"
+              "@ctrl/ngx-numbered-codeblock",
+              "ngx-daterangepicker-material"
             ],
             "customWebpackConfig": {
               "path": "webpack.config.js"
