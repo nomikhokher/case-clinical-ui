@@ -16,7 +16,7 @@ import { Component, Input, SimpleChanges } from '@angular/core'
           </div>
         </ng-container>
       </div>
-      <div class="p-4 flex items-center justify-center flex-1 bg-opacity-75 bg-{{ bgColor }}-700">
+      <div class="p-4 flex items-center justify-center flex-1 bg-opacity-75 theme-bg-700">
         <svg
           (click)="goToLeftCarousel()"
           xmlns="http://www.w3.org/2000/svg"
