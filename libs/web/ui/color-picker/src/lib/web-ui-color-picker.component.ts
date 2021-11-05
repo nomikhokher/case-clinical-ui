@@ -36,7 +36,7 @@ import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/
       </div>
       <div
         *ngIf="isOpen"
-        class="border border-gray-300 origin-top-right absolute left-0 top-full mt-2 rounded-md shadow-lg"
+        class="border border-gray-300 origin-top-right absolute left-0 top-full mt-2 rounded-md shadow-lg z-10"
       >
         <div class="rounded-md bg-white shadow-xs p-2">
           <div class="flex">
