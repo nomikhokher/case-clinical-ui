@@ -27,7 +27,7 @@ const config: Configs = {
   items: {
     position: 'rigth',
     userColors: ['gray', 'red', 'yellow', 'green', 'blue', 'indigo', 'pink', 'purple'],
-    userVariants: [50, 100, 200, 300, 400],
+    userVariants: [50, 100, 200, 300, 400, 500, 600, 700, 800, 900],
     hideInput: false,
   },
   component_inputs: [
