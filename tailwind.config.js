@@ -69,6 +69,7 @@ module.exports = {
         'bg-yellow-900',
         'bg-red-800',
         'bg-red-900',
+        'bg-blue-400',
       ],
     },
   },
