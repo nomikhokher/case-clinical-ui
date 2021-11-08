@@ -10,10 +10,14 @@ import { DevUploadStore } from './dev-upload.store'
         [githubURL]="vm.config.githubURL"
         [directory]="vm.config.directory"
         [breadcrumbs]="vm.config.breadcrumbs"
-        [component_outputs]="vm.config.component_outputs"
         [component_inputs]="vm.config.component_inputs"
+        [codeObj]="vm.config.items"
       >
-        <ui-upload></ui-upload>
+        <ui-upload
+          [buttonPostion]="vm.config.items.buttonPostion"
+          [imgSize]="vm.config.items.imgSize"
+          [imgAlign]="vm.config.items.imgAlign"
+        ></ui-upload>
       </ui-preview>
     </ng-container>
   `,

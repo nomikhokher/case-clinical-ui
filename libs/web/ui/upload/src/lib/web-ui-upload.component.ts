@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core'
+import { Component, Input, ViewChild } from '@angular/core'
 
 @Component({
   selector: 'ui-upload',
@@ -8,8 +8,8 @@ import { Component, ViewChild } from '@angular/core'
         <div>
           <div class="mt-6 sm:mt-5 space-y-6 sm:space-y-5">
             <div class="sm:grid sm:grid-cols-3 sm:gap-8 sm:items-start sm:border-gray-200 sm:pt-5">
-              <div>
-                <img [src]="url" />
+              <div class="flex" [ngClass]="imgAlign == 'right' ? 'order-last justify-center' : ''">
+                <img class="w-{{ imgSize }} h-{{ imgSize }}" [src]="url" />
               </div>
               <div class="mt-1 sm:mt-0 sm:col-span-2">
                 <div
@@ -57,7 +57,7 @@ import { Component, ViewChild } from '@angular/core'
       </div>
 
       <div class="pt-5">
-        <div class="flex justify-end">
+        <div class="flex mx-4" [ngClass]="[buttonPostion == 'left' ? 'justify-start' : 'justify-end']">
           <button
             type="button"
             (click)="removeImage($event)"
@@ -77,6 +77,9 @@ import { Component, ViewChild } from '@angular/core'
   `,
 })
 export class WebUiUploadComponent {
+  @Input() buttonPostion?: string
+  @Input() imgSize?: string
+  @Input() imgAlign?: string
   @ViewChild('myFileInput') myFileInput
   url = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBdMMNr-jGsD7ay5zinTzDUs5RTL7wHTetAA&usqp=CAU'
 
