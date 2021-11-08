@@ -9,11 +9,16 @@ import { DevProgressBarStore } from './dev-progress-bar.store'
         [githubURL]="vm.config.githubURL"
         [directory]="vm.config.directory"
         [breadcrumbs]="vm.config.breadcrumbs"
-        [component_outputs]="vm.config.component_outputs"
         [component_inputs]="vm.config.component_inputs"
         [code]="codePreview[0]"
+        [codeObj]="vm.config.items"
       >
-        <ui-progress-bar> </ui-progress-bar>
+        <ui-progress-bar
+          [onCompleteColor]="vm.config.items.onCompleteColor"
+          [inProgressColor]="vm.config.items.inProgressColor"
+          [startingColor]="vm.config.items.startingColor"
+        >
+        </ui-progress-bar>
       </ui-preview>
     </ng-container>
   `,

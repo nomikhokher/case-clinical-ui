@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 
 @Component({
   selector: 'ui-progress-bar',
@@ -45,6 +45,9 @@ import { Component, OnInit } from '@angular/core'
   `,
 })
 export class WebUiProgressBarComponent {
+  @Input() startingColor?: string
+  @Input() inProgressColor?: string
+  @Input() onCompleteColor?: string
   // declare the variables
   width = 0
   interval: any
@@ -73,10 +76,10 @@ export class WebUiProgressBarComponent {
   // change the color of progress bar
   changeColor() {
     if (this.width < 40) {
-      return 'bg-red-400 text-red-700'
+      return `bg-${this.startingColor}-400 text-${this.startingColor}-700`
     } else if (this.width < 80) {
-      return 'bg-yellow-400 text-yellow-700'
+      return `bg-${this.inProgressColor}-400 text-${this.inProgressColor}-700`
     }
-    return 'bg-green-400 text-green-700'
+    return `bg-${this.onCompleteColor}-400 text-${this.onCompleteColor}-700`
   }
 }

@@ -17,6 +17,34 @@ const config = {
     { label: 'Upload', path: '/dev/upload' },
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-upload.component.ts',
+  items: {
+    imgSize: '36',
+    buttonPostion: 'right',
+    imgAlign: 'left',
+  },
+  component_inputs: [
+    {
+      label: 'Button Position',
+      prop: '[imgSize]',
+      description: 'Adjust the position of the buttons.',
+      dataType: 'String',
+      type: ['28', '32', '36', '40', '44', '48', '52', '56', '60'],
+    },
+    {
+      label: 'Image Size',
+      prop: '[buttonPostion]',
+      description: 'Adjust the size of image.',
+      dataType: 'String',
+      type: ['left', 'right'],
+    },
+    {
+      label: 'Image Alignment',
+      prop: '[imgAlign]',
+      description: 'Adjust the alignment of image.',
+      dataType: 'String',
+      type: ['left', 'right'],
+    },
+  ],
 }
 
 interface DevUploadState {
