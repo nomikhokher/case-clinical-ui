@@ -23,6 +23,34 @@ const config = {
     { label: 'Progress Bar', path: '/dev/progress-bar' },
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-progress-bar.component.ts',
+  items: {
+    onCompleteColor: 'yellow',
+    inProgressColor: 'blue',
+    startingColor: 'red',
+  },
+  component_inputs: [
+    {
+      label: 'Stating Color',
+      prop: '[startingColor]',
+      description: 'Starting color of progress bar.',
+      dataType: 'String',
+      type: ['red', 'blue', 'green', 'indigo', 'yellow', 'gray', 'purple', 'pink'],
+    },
+    {
+      label: 'In Progress Color',
+      prop: '[inProgressColor]',
+      description: 'Uncompleted color of progress bar.',
+      dataType: 'String',
+      type: ['red', 'blue', 'green', 'indigo', 'yellow', 'gray', 'purple', 'pink'],
+    },
+    {
+      label: 'Task Completed Color',
+      prop: '[onCompleteColor]',
+      description: 'Completed color of progress bar.',
+      dataType: 'String',
+      type: ['red', 'blue', 'green', 'indigo', 'yellow', 'gray', 'purple', 'pink'],
+    },
+  ],
 }
 
 @Injectable()

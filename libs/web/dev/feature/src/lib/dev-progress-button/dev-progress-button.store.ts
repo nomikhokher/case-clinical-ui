@@ -53,9 +53,6 @@ const config: Configs = {
         [{ text: 'Spin Right' }, { color: 'green' }, { position: ['left', 'right'] }, { icon: icon }],
       ],
     },
-    // { label: 'Color', prop: '[color]', description: 'Change background color', dataType: 'string' },
-    // { label: 'Icon', prop: '[icon]', description: 'Change button icon', dataType: 'string' },
-    // { label: 'Position', prop: '[position]', description: 'Adjust button position left or right', dataType: 'string' },
   ],
 }
 
