@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input } from '@angular/core'
+import { Subscription, timer } from 'rxjs'
 
 @Component({
   selector: 'ui-badge',
@@ -68,14 +69,15 @@ export class WebUiBadgeComponent {
 
   public icon_size: string
   public remove_icon_size: string
+  subs!: Subscription
 
   constructor(public elm: ElementRef) {}
   badgeClick(value) {
     if (value == 'onClose') {
       this.elm.nativeElement.querySelector('.removeIcon').classList.add('opacity-0')
-      setTimeout(() => {
+      this.subs = timer(5000).subscribe(() => {
         this.elm.nativeElement.querySelector('.removeIcon').classList.remove('opacity-0')
-      }, 5000)
+      })
     } else {
       alert('You clicked on a Badge!')
     }
@@ -105,5 +107,8 @@ export class WebUiBadgeComponent {
         this.icon_size = 'w-2 h-2'
         break
     }
+  }
+  ngOnDestroy(): void {
+    this.subs!?.unsubscribe()
   }
 }
