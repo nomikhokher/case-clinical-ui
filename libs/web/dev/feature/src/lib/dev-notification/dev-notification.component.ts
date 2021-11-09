@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { Subscription, timer } from 'rxjs'
 import { DevNotificationStore } from './dev-notification.store'
 
 @Component({
@@ -39,7 +40,7 @@ export class DevNotificationComponent {
 
   show: boolean = false
   setTime?: number
-  public subTimeout: ReturnType<typeof setTimeout> | any
+  subtTime?: Subscription
 
   constructor(private readonly store: DevNotificationStore) {}
 
@@ -79,22 +80,19 @@ export class DevNotificationComponent {
     this.vm$.subscribe((x: any) => {
       this.setTime = x.config.items[0].timeInSec
     })
-    if (!this.subTimeout) {
-      this.subTimeout = window.setTimeout(() => {
-        this.show = false
-        this.closeAction(false)
-      }, this.setTime * 1000)
-    }
+
+    this.subtTime = timer(this.setTime * 1000).subscribe(() => {
+      this.show = false
+      this.closeAction(false)
+    })
   }
 
   closeAction(value: boolean) {
     this.show = value
-    window.clearTimeout(this.subTimeout)
-    this.subTimeout = undefined
+    this.subtTime.unsubscribe()
   }
 
   ngOnDestroy() {
-    clearTimeout(this.subTimeout)
-    this.subTimeout = undefined
+    this.subtTime.unsubscribe()
   }
 }

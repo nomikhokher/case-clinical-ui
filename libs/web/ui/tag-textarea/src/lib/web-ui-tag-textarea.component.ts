@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, OnDestroy } from '@angular/core'
+import { Subscription, timer } from 'rxjs'
 
 @Component({
   selector: 'ui-tag-textarea',
@@ -21,17 +22,16 @@ import { Component, Input } from '@angular/core'
     </div>
   `,
 })
-export class WebUiTagTextareaComponent {
+export class WebUiTagTextareaComponent implements OnDestroy {
   @Input() color?: string
   tags?: []
+  subs!: Subscription
 
   onKeyUp(e) {
     this.createTags(e.target.value)
 
     if (e.key === 'Enter') {
-      setTimeout(() => {
-        e.target.value = ''
-      }, 10)
+      this.subs = timer(10).subscribe(() => (e.target.value = ''))
     }
   }
 
@@ -40,5 +40,8 @@ export class WebUiTagTextareaComponent {
       .split(',')
       .filter((tag) => tag.trim() !== '')
       .map((tag) => tag.trim())
+  }
+  ngOnDestroy(): void {
+    this.subs!?.unsubscribe()
   }
 }
