@@ -12,14 +12,14 @@ import { DevPageHeadingsStore } from './dev-page-headings.store'
         [component_props]="[vm.componentProps]"
         [component_inputs]="vm.component_inputs"
         [code]="codePreview[0]"
-        [codeObj]="vm.items.config"
+        [codeObj]="vm.items"
       >
         <ng-template #headerControls>
           <ng-container>
             <ui-button label="Gray" type="button" color="gray"></ui-button>
           </ng-container>
         </ng-template>
-        <ui-page-header [meta]="vm.items.config.meta" [controlsTemplate]="vm.items.headerControls"></ui-page-header>
+        <ui-page-header [meta]="vm.items.meta" [controlsTemplate]="vm.items.headerControls"></ui-page-header>
       </ui-preview>
     </ng-container>
   `,
@@ -46,7 +46,7 @@ export class DevPageHeadingsComponent {
           ></ui-page-header>
         </div> \n\n
       
-        meta = ${JSON.stringify(result.items.config.meta, null, '\t')}\n
+        meta = ${JSON.stringify(result.items.meta, null, '\t')}\n
         `,
       ]
     })
