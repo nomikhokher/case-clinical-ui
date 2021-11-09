@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, ElementRef, Input, TemplateRef, ViewChild } from '@angular/core'
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, TemplateRef, ViewChild } from '@angular/core'
 import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
 import { Meta } from '@schema-driven/web/ui/page-header'
+import { Subscription, timer } from 'rxjs'
 
 @Component({
   selector: 'ui-page',
@@ -30,7 +31,7 @@ import { Meta } from '@schema-driven/web/ui/page-header'
     </div>
   `,
 })
-export class WebUiPageComponent implements AfterViewInit {
+export class WebUiPageComponent implements AfterViewInit, OnDestroy {
   @Input() breadcrumbs?: Crumb[]
   @Input() headerTitle?: string
   @Input() headerMeta?: Meta[]
@@ -40,14 +41,18 @@ export class WebUiPageComponent implements AfterViewInit {
   @Input() containerClass: string
 
   computedMaxHeight: string
+  subs?: Subscription
 
   @ViewChild('container') container: ElementRef<HTMLDivElement>
   ngAfterViewInit() {
     if (this.container?.nativeElement) {
       const offsetTop = this.container.nativeElement.getBoundingClientRect().top
-      setTimeout(() => {
+      this.subs = timer(100).subscribe(() => {
         this.computedMaxHeight = `calc(100vh - ${offsetTop || 0}px)`
       })
     }
+  }
+  ngOnDestroy(): void {
+    this.subs!?.unsubscribe()
   }
 }
