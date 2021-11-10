@@ -392,6 +392,11 @@ export class WebDevFeatureComponent {
               route: 'multi-selects',
               image: '/assets/images/multiple-select.png',
             },
+            {
+              label: 'Text Areas',
+              route: 'text-area',
+              image: '/assets/images/multiple-select.png',
+            },
           ],
         },
         {

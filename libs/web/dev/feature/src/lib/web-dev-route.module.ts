@@ -375,4 +375,8 @@ export const routes: Routes = [
     path: 'draggable',
     loadChildren: () => import('./dev-draggable/dev-draggable.module').then((m) => m.DevDraggableModule),
   },
+  {
+    path: 'text-area',
+    loadChildren: () => import('./dev-text-areas/dev-text-areas.module').then((m) => m.DevTextAreasModule),
+  },
 ]
