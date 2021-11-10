@@ -3215,6 +3215,28 @@
         }
       }
     },
+    "web-ui-text-areas": {
+      "projectType": "library",
+      "root": "libs/web/ui/text-areas",
+      "sourceRoot": "libs/web/ui/text-areas/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/text-areas/src/**/*.ts", "libs/web/ui/text-areas/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/text-areas"],
+          "options": {
+            "jestConfig": "libs/web/ui/text-areas/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-timeline": {
       "projectType": "library",
       "root": "libs/web/ui/timeline",
