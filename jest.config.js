@@ -148,5 +148,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/carousel-pro',
     '<rootDir>/libs/web/ui/draggable',
     '<rootDir>/libs/web/ui/text-areas',
+    '<rootDir>/libs/web/ui/radio-group',
   ],
 }

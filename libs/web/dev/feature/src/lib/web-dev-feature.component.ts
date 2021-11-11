@@ -154,6 +154,11 @@ export class WebDevFeatureComponent {
               image: '/assets/images/form-layouts.png',
             },
             {
+              label: 'Radio Group(new)',
+              route: 'radio-groups',
+              image: '/assets/images/form-layouts.png',
+            },
+            {
               label: 'Select Menus',
               route: 'select-menus',
               image: '/assets/images/select-menus.png',
