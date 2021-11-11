@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { DevRadioGroupComponent } from './dev-radio-group.component'
 import { WebUiPreviewModule } from '@schema-driven/web/ui/preview'
-import { WebUiFormModule } from '@schema-driven/web/ui/form'
+import { WebUiRadioGroupModule } from '@schema-driven/web/ui/radio-group'
 
 @NgModule({
   declarations: [DevRadioGroupComponent],
   imports: [
     CommonModule,
+    WebUiRadioGroupModule,
     RouterModule.forChild([{ path: '', component: DevRadioGroupComponent }]),
     WebUiPreviewModule,
-    WebUiFormModule,
   ],
 })
 export class DevRadioGroupModule {}

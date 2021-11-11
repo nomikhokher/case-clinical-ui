@@ -2556,6 +2556,28 @@
         }
       }
     },
+    "web-ui-radio-group": {
+      "projectType": "library",
+      "root": "libs/web/ui/radio-group",
+      "sourceRoot": "libs/web/ui/radio-group/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/radio-group/src/**/*.ts", "libs/web/ui/radio-group/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/radio-group"],
+          "options": {
+            "jestConfig": "libs/web/ui/radio-group/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-range-slider": {
       "projectType": "library",
       "root": "libs/web/ui/range-slider",
