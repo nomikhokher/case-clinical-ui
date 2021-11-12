@@ -3,87 +3,125 @@ import { ComponentStore, tapResponse } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { of } from 'rxjs'
 import { switchMap, tap } from 'rxjs/operators'
+import { WebUiFormField } from '@schema-driven/web/ui/form'
 
 export interface Item {
   id?: string
   name?: string
+  fields?: WebUiFormField[]
+}
+export interface Demo {
+  id?: Number
+  label?: String
+  name?: string
+  model?: Record<string, unknown>
+  fields?: WebUiFormField[]
+}
+export interface opts {
+  id?: Number
+  label?: String
+  disabled?: boolean
+  value?: string
 }
 
 interface DevRadioGroupState {
+  opts?: opts[]
+  demos?: Demo[]
   items?: Item[]
   loading?: boolean
   config
 }
+const opts: opts[] = [
+  { id: 1, label: 'Male', value: 'Male' },
+  { id: 2, label: 'Female', value: 'Female' },
+  { id: 3, label: 'Others', value: 'Others' },
+]
 
-const config: any = {
-  headerTitle: 'Radio Group',
-  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/radio-group/src/lib',
+const config = {
+  headerTitle: 'Radio Groups',
+  githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/form/src/lib/types/radio',
   breadcrumbs: [
     { label: 'Components', path: '/dev' },
-    { label: 'Radio Group', path: '/dev/radio-group' },
+    { label: 'Radio Groups', path: '/dev/radio-groups' },
   ],
-  directory: '/libs/web/dev/feature/src/lib/dev-radio-group/dev-radio-group.component.ts',
-  items: {
-    heading: {
-      title: 'Notifications',
-      description: 'How do you prefer to receive notifications?',
-    },
-    inlineRadio: false,
-    inlineDetail: true,
-    radioButtons: [
-      { name: 'Small', detail: '4 GB RAM / 2 CPUS / 80 GB SSD Storage' },
-      { name: 'Medium', detail: '8 GB RAM / 4 CPUS / 256 GB SSD Storage' },
-      { name: 'Large', detail: '12 GB RAM / 8 CPUS / 512 GB SSD Storage' },
-      { name: 'Extra Large', detail: '16 GB RAM / 8 CPUS / 1 TB SSD Storage' },
-    ],
-  },
-
+  directory: '/libs/web/dev/feature/src/lib/dev-radio-group.component.ts',
   component_inputs: [
     {
-      label: 'Heading',
-      prop: '[heading]',
-      description: 'Display the title and description of radio group.',
+      label: 'Name',
+      prop: '[name]',
+      description: 'Shows the title of form input.',
+      dataType: 'STRING',
+    },
+    {
+      label: 'Model',
+      prop: '[model]',
+      description: 'Shows the model of form input.',
       dataType: 'Object',
     },
     {
-      label: 'Inline Radios',
-      prop: '[inlineRadio]',
-      description: 'Adjust the Alignment.',
-      dataType: 'Boolean',
-      type: ['true', 'false'],
+      label: 'Fields',
+      prop: '[fields]',
+      description: 'Handle the input fields.',
+      dataType: 'Object',
     },
-    {
-      label: 'Inline details',
-      prop: '[inlineDetail]',
-      description: 'Adjust the position of detail.',
-      dataType: 'Boolean',
-      type: ['true', 'false'],
-    },
-    { label: 'Radio button data', prop: '[radioButtons]', description: 'Data of radio buttons.', dataType: 'Array' },
   ],
 }
 
+const demos: Demo[] = [
+  {
+    name: 'Radio Inputs with label',
+    model: {},
+    fields: [WebUiFormField.radio('value', { label: 'Gender', options: opts, disabled: false })],
+  },
+  {
+    name: 'Disabled Radio Inputs',
+    model: {},
+    fields: [
+      WebUiFormField.radio('value', {
+        label: 'Gender',
+        options: [
+          { id: 12, label: 'Radio 1', value: 'Radio 1' },
+          { id: 13, label: 'Radio 2', value: 'Radio 2' },
+        ],
+        disabled: true,
+      }),
+    ],
+  },
+  {
+    name: 'Radio Inputs with label and help text',
+    model: {},
+    fields: [
+      WebUiFormField.radio('value', {
+        label: 'Gender',
+        options: opts,
+        description: 'Please choose your gender',
+      }),
+    ],
+  },
+  {
+    name: 'Input with validation error',
+    model: { email: 'invalid-email' },
+    fields: [WebUiFormField.radio('value', { label: 'Gender', options: opts, required: true })],
+  },
+  {
+    name: 'Input with hidden label',
+    model: {},
+    fields: [WebUiFormField.radio('value', { label: 'City', options: [{ id: 10, label: null, value: 'London' }] })],
+  },
+  {
+    name: 'Input with corner hint',
+    model: {},
+    fields: [WebUiFormField.radio('value', { label: 'Gender', hint: 'Optional', options: opts })],
+  },
+]
+
 @Injectable()
 export class DevRadioGroupStore extends ComponentStore<DevRadioGroupState> {
-  constructor(private readonly sdk: ApolloAngularSDK) {
-    super({ config })
-    // this.loadItemsEffect()
+  constructor() {
+    super({ demos, config })
   }
 
+  readonly demos$ = this.select(this.state$, (s) => s.demos)
   readonly config$ = this.select(this.state$, (s) => s.config)
-  readonly vm$ = this.select(this.config$, (config) => ({ config }))
-
-  // readonly loadItemsEffect = this.effect(($) =>
-  //   $.pipe(
-  //     tap(() => this.patchState({ loading: true })),
-  //     switchMap(() =>
-  //       of([{ id: Date.now().toString(), name: 'Item 1' }]).pipe(
-  //         tapResponse(
-  //           (res) => this.patchState({ items: res }),
-  //           (e: any) => console.error('An error occurred', e),
-  //         ),
-  //       ),
-  //     ),
-  //   ),
-  // )
+  readonly vm$ = this.select(this.demos$, this.config$, (demos, config) => ({ demos, config }))
 }
