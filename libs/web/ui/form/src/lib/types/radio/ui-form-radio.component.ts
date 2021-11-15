@@ -4,9 +4,9 @@ import { FieldType } from '@ngx-formly/core'
 
 @Component({
   template: `
-    <div class="mt-4" [ngClass]="to.align == 'inline' ? 'flex space-x-4' : 'space-y-8'">
+    <div class="mt-4 space-y-4">
       <ng-container *ngFor="let option of to.options | formlySelectOptions: field | async; let i = index">
-        <div class="flex items-center h-5">
+        <div class="flex items-center">
           <input
             type="radio"
             class="focus:ring-pink-500 h-4 w-4 text-pink-600 border-gray-300  dark:bg-gray-800 dark:border-gray-600"
@@ -19,21 +19,13 @@ import { FieldType } from '@ngx-formly/core'
             [formlyAttributes]="field"
             [attr.disabled]="option.disabled || formControl.disabled ? true : null"
           />
-          <div class="ml-3 text-sm">
-            <label
-              [ngClass]="{ 'text-indigo-200': formControl.disabled == true }"
-              [for]="id + '_' + i"
-              class="font-medium text-gray-700"
-              >{{ option.label?.name || option.label }}</label
-            >
-            <h1
-              [ngClass]="{ 'text-indigo-200': formControl.disabled == true }"
-              [for]="id + '_' + i"
-              class="text-gray-500"
-            >
-              {{ option.label?.detail }}
-            </h1>
-          </div>
+          <label
+            class="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300"
+            [for]="id + '_' + i"
+            [ngClass]="{ 'text-indigo-200': formControl.disabled == true }"
+          >
+            {{ option.label }}
+          </label>
         </div>
       </ng-container>
     </div>

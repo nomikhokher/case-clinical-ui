@@ -19,10 +19,9 @@ export interface Demo {
 }
 export interface opts {
   id?: Number
-  label?: any
+  label?: String
   disabled?: boolean
   value?: string
-  detail?: string
 }
 
 interface DevRadioGroupState {
@@ -33,9 +32,9 @@ interface DevRadioGroupState {
   config
 }
 const opts: opts[] = [
-  { id: 1, label: { name: 'Small', detail: '4GB RAM /80GB SSD' }, value: 'Small' },
-  { id: 2, label: { name: 'Medium', detail: '8GB RAM /256GB SSD' }, value: 'Medium' },
-  { id: 3, label: { name: 'Large', detail: '12GB RAM /512GB SSD' }, value: 'Large' },
+  { id: 1, label: 'Male', value: 'Male' },
+  { id: 2, label: 'Female', value: 'Female' },
+  { id: 3, label: 'Others', value: 'Others' },
 ]
 
 const config = {
@@ -72,7 +71,7 @@ const demos: Demo[] = [
   {
     name: 'Radio Inputs with label',
     model: {},
-    fields: [WebUiFormField.radio('value', { label: 'Gender', options: opts, disabled: false, align: 'inline' })],
+    fields: [WebUiFormField.radio('value', { label: 'Gender', options: opts, disabled: false })],
   },
   {
     name: 'Disabled Radio Inputs',
@@ -95,7 +94,7 @@ const demos: Demo[] = [
       WebUiFormField.radio('value', {
         label: 'Gender',
         options: opts,
-        description: 'Please choose one of them.',
+        description: 'Please choose your gender',
       }),
     ],
   },
