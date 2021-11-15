@@ -2054,6 +2054,28 @@
         }
       }
     },
+    "web-ui-music-player": {
+      "projectType": "library",
+      "root": "libs/web/ui/music-player",
+      "sourceRoot": "libs/web/ui/music-player/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/music-player/src/**/*.ts", "libs/web/ui/music-player/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/music-player"],
+          "options": {
+            "jestConfig": "libs/web/ui/music-player/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-narrow-avatar-list": {
       "projectType": "library",
       "root": "libs/web/ui/narrow-avatar-list",
