@@ -68,6 +68,11 @@ export class WebDevFeatureComponent {
               route: 'draggable',
               image: '/assets/images/draggable.png',
             },
+            {
+              label: 'Music Player',
+              route: 'music-player',
+              image: '/assets/images/draggable.png',
+            },
           ],
         },
         {

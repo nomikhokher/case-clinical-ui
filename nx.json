@@ -291,6 +291,9 @@
     "web-ui-multi-select": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-music-player": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-narrow-avatar-list": {
       "tags": ["scope:web", "type:ui"]
     },

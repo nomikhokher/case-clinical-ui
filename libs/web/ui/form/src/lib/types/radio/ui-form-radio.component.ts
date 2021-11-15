@@ -6,7 +6,7 @@ import { FieldType } from '@ngx-formly/core'
   template: `
     <div class="mt-4" [ngClass]="to.align == 'inline' ? 'flex space-x-4' : 'space-y-8'">
       <ng-container *ngFor="let option of to.options | formlySelectOptions: field | async; let i = index">
-        <div class="flex items-center h-5">
+        <div class="flex h-5">
           <input
             type="radio"
             class="focus:ring-pink-500 h-4 w-4 text-pink-600 border-gray-300  dark:bg-gray-800 dark:border-gray-600"
