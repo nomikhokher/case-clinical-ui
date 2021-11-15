@@ -4,42 +4,76 @@ import { DevRadioGroupStore } from './dev-radio-group.store'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <ui-preview
-        [code]="codePreview[0]"
-        [title]="vm.config.headerTitle"
-        [githubURL]="vm.config.githubURL"
-        [directory]="vm.config.directory"
-        [breadcrumbs]="vm.config.breadcrumbs"
-        [component_inputs]="vm.config.component_inputs"
-        [codeObj]="vm.config.items"
-      >
-        <ui-radio-group
-          [inlineDetail]="vm.config.items.inlineDetail"
-          [inlineRadio]="vm.config.items.inlineRadio"
-          [heading]="vm.config.items.heading"
-          [radioButtons]="vm.config.items.radioButtons"
-        ></ui-radio-group>
-      </ui-preview>
+      <div class="flex flex-col space-y-6">
+        <ui-preview
+          [code]="codePreview[0]"
+          [codeObj]="vm.demos[0]"
+          [title]="vm.config.headerTitle"
+          [githubURL]="vm.config.githubURL"
+          [directory]="vm.config.directory"
+          [breadcrumbs]="vm.config.breadcrumbs"
+          [component_outputs]="vm.config.component_outputs"
+          [component_inputs]="vm.config.component_inputs"
+        >
+          <ng-container *ngFor="let demo of vm.demos">
+            <div class="my-8">
+              <div class="shadow rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
+                <h1 class="p-4 bg-indigo-700 text-white text-xl md:text-1xl font-bold leading-tight ">
+                  {{ demo.name }}
+                </h1>
+                <div class="p-4">
+                  <div class="grid md:grid-cols-2 md:gap-6">
+                    <div>
+                      <ui-form [model]="demo.model" [fields]="demo.fields"></ui-form>
+                    </div>
+                    <div>
+                      <pre class="dark:bg-gray-900 dark:text-gray-100 rounded-md p-2 text-xs">{{
+                        demo.model | json
+                      }}</pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ui-preview>
+      </div>
     </ng-container>
   `,
   providers: [DevRadioGroupStore],
 })
 export class DevRadioGroupComponent {
   readonly vm$ = this.store.vm$
-  codePreview
+  public codePreview
   constructor(private readonly store: DevRadioGroupStore) {}
+
   ngOnInit(): void {
     this.vm$.subscribe((result) => {
       this.codePreview = [
         `import { WebUiRadioGroupModule } from '@schema-driven/web/ui/radio-group' \n\n 
-        <ui-radio-group [inlineDetail]="vm.config.items.inlineDetail" [inlineRadio]="vm.config.items.inlineRadio" [heading]="vm.config.items.heading" [radioButtons]="vm.config.items.radioButtons"></ui-radio-group>
-        \n\n
-        
-          heading: ${JSON.stringify(result.config.items.heading, null, '\t')}
-          inlineRadio: ${JSON.stringify(result.config.items.inlineRadio, null, '\t')}
-          inlineDetail:${JSON.stringify(result.config.items.inlineDetail, null, '\t')}
-          radioButtons:${JSON.stringify(result.config.items.radioButtons, null, '\t')}
-        `,
+          <ui-radio-group
+            <ng-container *ngFor="let demo of vm.demos">
+              <div>
+                <div class="shadow rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
+                  <h1 class="p-4 bg-indigo-700 text-white text-xl md:text-1xl font-bold leading-tight ">
+                    {{ demo.name }}
+                  </h1>
+                  <div class="p-4">
+                    <div class="grid md:grid-cols-2 md:gap-6">
+                      <div>
+                        <ui-form [model]="demo.model" [fields]="demo.fields"></ui-form>
+                      </div>
+                      <div>
+                        <pre class="dark:bg-gray-900 dark:text-gray-100 rounded-md p-2 text-xs">{{
+                          demo.model | json
+                        }}</pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          ></ui-radio-group>`,
       ]
     })
   }

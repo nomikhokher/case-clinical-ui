@@ -379,8 +379,4 @@ export const routes: Routes = [
     path: 'text-area',
     loadChildren: () => import('./dev-text-areas/dev-text-areas.module').then((m) => m.DevTextAreasModule),
   },
-  {
-    path: 'radio-groups',
-    loadChildren: () => import('./dev-radio-group/dev-radio-group.module').then((m) => m.DevRadioGroupModule),
-  },
 ]
