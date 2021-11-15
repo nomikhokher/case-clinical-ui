@@ -379,4 +379,8 @@ export const routes: Routes = [
     path: 'text-area',
     loadChildren: () => import('./dev-text-areas/dev-text-areas.module').then((m) => m.DevTextAreasModule),
   },
+  {
+    path: 'music-player',
+    loadChildren: () => import('./dev-music-player/dev-music-player.module').then((m) => m.DevMusicPlayerModule),
+  },
 ]
