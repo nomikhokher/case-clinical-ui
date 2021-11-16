@@ -598,7 +598,9 @@ export class WebUiPreviewComponent implements OnInit {
   }
   ngOnInit() {
     this.lang = this.lang !== undefined ? this.lang : 'html'
-    this.router.url === '/dev/carousel-pro' || this.router.url === '/dev/editors'
+    this.router.url === '/dev/carousel-pro' ||
+    this.router.url === '/dev/editors' ||
+    this.router.url === '/dev/music-player'
       ? (this.resposiveSection = false)
       : (this.resposiveSection = true)
   }
