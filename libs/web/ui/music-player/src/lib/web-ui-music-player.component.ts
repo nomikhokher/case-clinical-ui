@@ -7,10 +7,10 @@ import { AudioPlyerOptions } from '../audioPlayer'
   template: `
     <audio controls #audioPlayer [src]="selectedAudio?.url"></audio>
 
-    <div class="w-full bg-gray-100 py-10">
+    <div class="w-full bg-gray-100 py-10 dark:bg-gray-800">
       <div class="h-2"></div>
       <div class="flex items-center justify-center">
-        <div class="bg-white shadow-lg rounded-lg w-11/12 lg:w-2/3">
+        <div class="bg-white dark:bg-gray-700 shadow-lg rounded-lg w-11/12 lg:w-2/3">
           <div class="block sm:flex">
             <div>
               <img
@@ -26,20 +26,20 @@ import { AudioPlyerOptions } from '../audioPlayer'
                     <marquee *ngIf="scrollTitle" [ngStyle]="{ color: audioTitleColor }">
                       <p class="">{{ selectedAudio?.title }}</p>
                     </marquee>
-                    <p class="" [ngStyle]="{ color: audioTitleColor }" *ngIf="!scrollTitle">
+                    <p class="dark:text-gray-100" [ngStyle]="{ color: audioTitleColor }" *ngIf="!scrollTitle">
                       {{ selectedAudio?.title }}
                     </p>
                   </h3>
-                  <p class="text-sm text-grey mt-1">Album</p>
+                  <p class="text-sm text-grey mt-1 dark:text-gray-100">Album</p>
                 </div>
               </div>
               <div class="flex justify-between items-center mt-8">
-                <div class="text-grey-darker">
+                <div>
                   <svg
                     *ngIf="repeat && !isRepeat"
                     (click)="repeatAudio()"
                     xmlns="http://www.w3.org/2000/svg"
-                    class="svg-icon w-8 h-8 cursor-pointer"
+                    class="w-8 h-8 cursor-pointer fill-current dark:text-gray-100"
                     viewBox="0 0 1024 1024"
                     version="1.1"
                   >
@@ -51,7 +51,7 @@ import { AudioPlyerOptions } from '../audioPlayer'
                     *ngIf="repeat && isRepeat"
                     (click)="repeatAudio()"
                     xmlns="http://www.w3.org/2000/svg"
-                    class="svg-icon w-8 h-8 cursor-pointer"
+                    class="w-8 h-8 cursor-pointer fill-current dark:text-gray-100"
                     viewBox="0 0 1024 1024"
                     version="1.1"
                   >
@@ -63,7 +63,7 @@ import { AudioPlyerOptions } from '../audioPlayer'
                 <div class="text-grey-darker">
                   <svg
                     (click)="previousAudio()"
-                    class="w-8 h-8 cursor-pointer"
+                    class="w-8 h-8 cursor-pointer dark:text-gray-100"
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
@@ -90,7 +90,7 @@ import { AudioPlyerOptions } from '../audioPlayer'
                     *ngIf="!isAudioPlaying"
                     (click)="play()"
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8 cursor-pointer"
+                    class="h-8 w-8 cursor-pointer dark:text-gray-100"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -104,7 +104,7 @@ import { AudioPlyerOptions } from '../audioPlayer'
                 <div class="text-grey-darker volume-container">
                   <svg
                     (click)="nextAudio()"
-                    class=" h-8 w-8 cursor-pointer "
+                    class=" h-8 w-8 cursor-pointer dark:text-gray-100"
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
@@ -117,7 +117,7 @@ import { AudioPlyerOptions } from '../audioPlayer'
                     *ngIf="!isMute"
                     (click)="muteAudio()"
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8 cursor-pointer Volumebar"
+                    class="h-8 w-8 cursor-pointer Volumebar dark:text-gray-100"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -131,7 +131,7 @@ import { AudioPlyerOptions } from '../audioPlayer'
                     *ngIf="isMute"
                     (click)="muteAudio()"
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8 cursor-pointer"
+                    class="h-8 w-8 cursor-pointer dark:text-gray-100"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
