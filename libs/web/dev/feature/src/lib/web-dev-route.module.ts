@@ -383,4 +383,9 @@ export const routes: Routes = [
     path: 'music-player',
     loadChildren: () => import('./dev-music-player/dev-music-player.module').then((m) => m.DevMusicPlayerModule),
   },
+  {
+    path: 'progress-bar-pro',
+    loadChildren: () =>
+      import('./dev-progress-bar-pro/dev-progress-bar-pro.module').then((m) => m.DevProgressBarProModule),
+  },
 ]
