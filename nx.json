@@ -354,6 +354,9 @@
     "web-ui-progress-bar": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-progress-bar-pro": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-progress-button": {
       "tags": ["scope:web", "type:ui"]
     },

@@ -2534,6 +2534,31 @@
         }
       }
     },
+    "web-ui-progress-bar-pro": {
+      "projectType": "library",
+      "root": "libs/web/ui/progress-bar-pro",
+      "sourceRoot": "libs/web/ui/progress-bar-pro/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/progress-bar-pro/src/**/*.ts",
+              "libs/web/ui/progress-bar-pro/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/progress-bar-pro"],
+          "options": {
+            "jestConfig": "libs/web/ui/progress-bar-pro/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-progress-button": {
       "projectType": "library",
       "root": "libs/web/ui/progress-button",

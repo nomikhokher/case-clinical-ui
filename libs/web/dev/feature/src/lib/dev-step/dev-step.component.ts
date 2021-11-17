@@ -13,7 +13,11 @@ import { DevStepStore } from './dev-step.store'
         [component_inputs]="vm.config.component_inputs"
         [codeObj]="vm.config.items"
       >
-        <ui-step [stepIems]="vm.config.items.step" [icon]="true"></ui-step>
+        <ui-step
+          [stepIems]="vm.config.items.step"
+          [isIcon]="vm.config.items.isIcon"
+          [isStepTitle]="vm.config.items.isStepTitle"
+        ></ui-step>
       </ui-preview>
     </ng-container>
   `,
