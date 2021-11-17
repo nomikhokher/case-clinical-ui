@@ -9,6 +9,8 @@ export interface Item {
   id?: string
   name?: string
   step?: StepItems[]
+  isIcon?: boolean
+  isStepTitle?: boolean
 }
 interface PreviewData {
   headerTitle?: string
@@ -74,6 +76,8 @@ export class DevStepStore extends ComponentStore<DevStepState> {
               icon: 'clipboardList',
             },
           ],
+          isIcon: true,
+          isStepTitle: true,
         },
         component_inputs: [
           {
@@ -107,6 +111,20 @@ export class DevStepStore extends ComponentStore<DevStepState> {
                 { icon: Object.values(UiIcon) },
               ],
             ],
+          },
+          {
+            label: 'Step',
+            prop: '[isIcon]',
+            description: 'Display steps in the tab.',
+            dataType: 'Array',
+            type: ['true', 'false'],
+          },
+          {
+            label: 'Step Title',
+            prop: '[isStepTitle]',
+            description: 'Display steps in the tab.',
+            dataType: 'Array',
+            type: ['true', 'false'],
           },
           // {
           //   label: 'Step Active',
