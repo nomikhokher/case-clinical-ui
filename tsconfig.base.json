@@ -122,6 +122,7 @@
       "@schema-driven/web/ui/product-overviews": ["libs/web/ui/product-overviews/src/index.ts"],
       "@schema-driven/web/ui/product-quickviews": ["libs/web/ui/product-quickviews/src/index.ts"],
       "@schema-driven/web/ui/progress-bar": ["libs/web/ui/progress-bar/src/index.ts"],
+      "@schema-driven/web/ui/progress-bar-pro": ["libs/web/ui/progress-bar-pro/src/index.ts"],
       "@schema-driven/web/ui/progress-button": ["libs/web/ui/progress-button/src/index.ts"],
       "@schema-driven/web/ui/promo-section": ["libs/web/ui/promo-section/src/index.ts"],
       "@schema-driven/web/ui/range-slider": ["libs/web/ui/range-slider/src/index.ts"],

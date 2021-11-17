@@ -348,6 +348,11 @@ export class WebDevFeatureComponent {
               image: '/assets/images/progress-bar.png',
             },
             {
+              label: 'Progress Bar Pro',
+              route: 'progress-bar-pro',
+              image: '/assets/images/progress-bar.png',
+            },
+            {
               label: 'Toggle Switch Button',
               route: 'toggle-switch-button',
               image: '/assets/images/toggles.png',

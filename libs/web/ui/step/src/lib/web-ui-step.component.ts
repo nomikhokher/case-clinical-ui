@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, SimpleChanges } from '@angular/core'
 import { WebUiToastService } from '@schema-driven/web/ui/toast'
 
 @Component({
@@ -20,12 +20,14 @@ import { WebUiToastService } from '@schema-driven/web/ui/toast'
               >
               <div class="group pl-4 py-2 flex flex-row space-x-2 dark:text-gray-300">
                 <ui-icon
-                  *ngIf="item.icon && icon == true"
+                  *ngIf="isIcon == 'true' || isIcon === true"
                   size="lg"
                   [icon]="item.icon"
                   class="h-5 w-5 text-center"
                 ></ui-icon>
-                <span class="text-sm font-medium ">{{ item.stepDetails }} </span>
+                <span *ngIf="isStepTitle == 'true' || isStepTitle === true" class="text-sm font-medium "
+                  >{{ item.stepDetails }}
+                </span>
               </div>
             </a>
           </li>
@@ -50,7 +52,8 @@ import { WebUiToastService } from '@schema-driven/web/ui/toast'
 export class WebUiStepComponent {
   @Input() mode?: any
   @Input() stepIems: StepItems[]
-  @Input() icon?: boolean
+  @Input() isIcon?: boolean | string
+  @Input() isStepTitle?: boolean | string
 
   public stepValue: number[] = [1]
   constructor(public toast: WebUiToastService) {}
