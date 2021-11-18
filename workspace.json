@@ -3513,6 +3513,28 @@
         }
       }
     },
+    "web-ui-weather-updates": {
+      "projectType": "library",
+      "root": "libs/web/ui/weather-updates",
+      "sourceRoot": "libs/web/ui/weather-updates/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/weather-updates/src/**/*.ts", "libs/web/ui/weather-updates/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/weather-updates"],
+          "options": {
+            "jestConfig": "libs/web/ui/weather-updates/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-wildcard-pages": {
       "projectType": "library",
       "root": "libs/web/ui/wildcard-pages",

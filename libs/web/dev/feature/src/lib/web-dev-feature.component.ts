@@ -73,6 +73,11 @@ export class WebDevFeatureComponent {
               route: 'music-player',
               image: '/assets/images/draggable.png',
             },
+            {
+              label: 'Weather Updates',
+              route: 'weather-updates',
+              image: '/assets/images/draggable.png',
+            },
           ],
         },
         {
