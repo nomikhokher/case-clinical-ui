@@ -388,4 +388,9 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./dev-progress-bar-pro/dev-progress-bar-pro.module').then((m) => m.DevProgressBarProModule),
   },
+  {
+    path: 'weather-updates',
+    loadChildren: () =>
+      import('./dev-weather-updates/dev-weather-updates.module').then((m) => m.DevWeatherUpdatesModule),
+  },
 ]
