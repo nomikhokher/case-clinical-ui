@@ -1,18 +1,32 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Component, Input } from '@angular/core'
-import { Observable } from 'rxjs'
+import { Observable, Subscription, timer } from 'rxjs'
 
 @Component({
   selector: 'ui-weather-updates',
   template: `
-    <div class="flex flex-col py-10 items-center justify-center bg-gray-50" *ngIf="wData | async as res">
-      <div class="w-full max-w-screen-sm bg-white p-10 rounded-xl  shadow-xl">
+    <div
+      *ngIf="loader"
+      class="py-10 text-gray-500 dark:text-gray-100 w-full flex justify-center items-center space-x-4"
+    >
+      <div class="flex justify-center items-center">
+        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
+      </div>
+      <p>Loading Please wait...</p>
+    </div>
+    <div
+      class="flex flex-col py-10 items-center justify-center bg-gray-50 dark:bg-gray-800"
+      *ngIf="weatherData | async as res"
+    >
+      <div class="w-full max-w-screen-sm bg-{{ cardColor }}-100 dark:bg-gray-700 p-10 rounded-xl  shadow-xl">
         <div class="flex justify-between">
           <div class="flex flex-col">
-            <span class="text-6xl font-bold"
+            <span class="text-6xl font-bold dark:text-gray-100"
               >{{ ((res.locations[this.city].values[0].temp - 32) * 5) / 9 | number: '0.0-0' }}°C</span
             >
-            <span class="font-semibold mt-1 text-gray-500">{{ res.locations[this.city].address }}</span>
+            <span class="font-semibold mt-1 text-gray-500 dark:text-gray-100">{{
+              res.locations[this.city].address
+            }}</span>
           </div>
           <svg
             *ngIf="res.locations[this.city].currentConditions.icon === 'clear-day'"
@@ -43,106 +57,13 @@ import { Observable } from 'rxjs'
             />
           </svg>
         </div>
-        <div class="flex justify-between mt-12">
-          <div class="flex flex-col items-center">
-            <span class="font-semibold text-lg">29°C</span>
-            <svg
-              class="h-10 w-10 fill-current text-gray-400 mt-3"
-              xmlns="http://www.w3.org/2000/svg"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path
-                d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79zM1 10.5h3v2H1zM11 .55h2V3.5h-2zm8.04 2.495l1.408 1.407-1.79 1.79-1.407-1.408zm-1.8 15.115l1.79 1.8 1.41-1.41-1.8-1.79zM20 10.5h3v2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm-1 4h2v2.95h-2zm-7.45-.96l1.41 1.41 1.79-1.8-1.41-1.41z"
-              />
-            </svg>
-            <span class="font-semibold mt-1 text-sm">11:00</span>
-            <span class="text-xs font-semibold text-gray-400">AM</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <span class="font-semibold text-lg">31°C</span>
-            <svg
-              class="h-10 w-10 fill-current text-gray-400 mt-3"
-              xmlns="http://www.w3.org/2000/svg"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path
-                d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79zM1 10.5h3v2H1zM11 .55h2V3.5h-2zm8.04 2.495l1.408 1.407-1.79 1.79-1.407-1.408zm-1.8 15.115l1.79 1.8 1.41-1.41-1.8-1.79zM20 10.5h3v2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm-1 4h2v2.95h-2zm-7.45-.96l1.41 1.41 1.79-1.8-1.41-1.41z"
-              />
-            </svg>
-            <span class="font-semibold mt-1 text-sm">1:00</span>
-            <span class="text-xs font-semibold text-gray-400">PM</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <span class="font-semibold text-lg">32°C</span>
-            <svg
-              class="h-10 w-10 fill-current text-gray-400 mt-3"
-              xmlns="http://www.w3.org/2000/svg"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path
-                d="M12.01 6c2.61 0 4.89 1.86 5.4 4.43l.3 1.5 1.52.11c1.56.11 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3h-13c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.95 6 12.01 6m0-2C9.12 4 6.6 5.64 5.35 8.04 2.35 8.36.01 10.91.01 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.64-4.96C18.68 6.59 15.65 4 12.01 4z"
-              />
-            </svg>
-            <span class="font-semibold mt-1 text-sm">3:00</span>
-            <span class="text-xs font-semibold text-gray-400">PM</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <span class="font-semibold text-lg">31°C</span>
-            <svg
-              class="h-10 w-10 fill-current text-gray-400 mt-3"
-              xmlns="http://www.w3.org/2000/svg"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path
-                d="M12.01 6c2.61 0 4.89 1.86 5.4 4.43l.3 1.5 1.52.11c1.56.11 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3h-13c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.95 6 12.01 6m0-2C9.12 4 6.6 5.64 5.35 8.04 2.35 8.36.01 10.91.01 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.64-4.96C18.68 6.59 15.65 4 12.01 4z"
-              />
-            </svg>
-            <span class="font-semibold mt-1 text-sm">5:00</span>
-            <span class="text-xs font-semibold text-gray-400">PM</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <span class="font-semibold text-lg">27°C</span>
-            <svg
-              class="h-10 w-10 fill-current text-gray-400 mt-3"
-              xmlns="http://www.w3.org/2000/svg"
-              enable-background="new 0 0 24 24"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <g><rect fill="none" height="24" width="24" /></g>
-              <g>
-                <g>
-                  <path
-                    d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"
-                  />
-                  <path
-                    d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"
-                  />
-                </g>
-              </g>
-            </svg>
-            <span class="font-semibold mt-1 text-sm">7:00</span>
-            <span class="text-xs font-semibold text-gray-400">PM</span>
-          </div>
-        </div>
         <div
-          class="flex flex-col space-y-6 w-full max-w-screen-sm bg-white py-10 mt-10 rounded-xl ring-8 ring-white ring-opacity-40"
+          class="flex flex-col space-y-6 w-full max-w-screen-sm bg-{{
+            cardColor
+          }}-100 dark:bg-gray-700 py-10 mt-10 rounded-xl"
         >
           <div
-            class="flex justify-between items-center"
+            class="flex justify-between items-center dark:text-gray-100"
             *ngFor="let item of res.locations[this.city].values.slice(1, 6)"
           >
             <span class="font-semibold text-sm w-1/4">{{ (item.datetimeStr | date: 'fullDate').slice(0, -6) }}</span>
@@ -164,7 +85,7 @@ import { Observable } from 'rxjs'
             </div>
             <svg
               *ngIf="item.conditions === 'Clear'"
-              class="h-8 w-8 fill-current "
+              class="h-8 w-8 fill-current"
               xmlns="http://www.w3.org/2000/svg"
               height="24"
               viewBox="0 0 24 24"
@@ -189,8 +110,8 @@ import { Observable } from 'rxjs'
               ></path>
             </svg>
             <span class="font-semibold text-lg w-1/4 text-right"
-              >{{ ((item.mint - 32) * 5) / 9 | number: '0.1-1' }}° /
-              {{ ((item.maxt - 32) * 5) / 9 | number: '0.1-1' }}°</span
+              >{{ ((item.mint - 32) * 5) / 9 | number: '0.1-1' }}° / {{ ((item.maxt - 32) * 5) / 9 | number: '0.1-1' }}°
+              {{ loaderoff() }}</span
             >
           </div>
         </div>
@@ -199,28 +120,55 @@ import { Observable } from 'rxjs'
   `,
 })
 export class WebUiWeatherUpdatesComponent {
+  @Input() city?: string
+  @Input() cardColor?: string
+  loader: boolean = true
+  params!: Params
+  weatherData!: Subscription
+  readonly Url: string = `https://visual-crossing-weather.p.rapidapi.com/forecast`
+  public setTimeValue: Subscription
+
   constructor(private http: HttpClient) {}
-  @Input() city = 'lahore'
+
   ngOnInit(): void {
-    this.getWeatherUpdate()
+    this.params = {
+      aggregateHours: '24',
+      location: this.city,
+      contentType: 'json',
+      unitGroup: 'us',
+      shortColumnNames: '0',
+    }
+    const options = { params: this.params, headers: this.setHttpHeaders() }
+    this.getWeatherUpdate(options)
   }
 
-  params = {
-    aggregateHours: '24',
-    location: this.city,
-    contentType: 'json',
-    unitGroup: 'us',
-    shortColumnNames: '0',
+  public setHttpHeaders(): HttpHeaders {
+    return new HttpHeaders({
+      'x-rapidapi-host': 'visual-crossing-weather.p.rapidapi.com',
+      'x-rapidapi-key': '22233aab81msh78d787fc18ce1c6p14d6e8jsna33409f7e12a',
+    })
   }
-  headers: HttpHeaders = new HttpHeaders({
-    'x-rapidapi-host': 'visual-crossing-weather.p.rapidapi.com',
-    'x-rapidapi-key': '22233aab81msh78d787fc18ce1c6p14d6e8jsna33409f7e12a',
-  })
 
-  options = { params: this.params, headers: this.headers }
-  wData?: any
-  Url = `https://visual-crossing-weather.p.rapidapi.com/forecast`
-  getWeatherUpdate() {
-    this.wData = this.http.get(this.Url, this.options)
+  getWeatherUpdate(opts): void {
+    this.weatherData = this.http.get(this.Url, opts) as any
   }
+
+  loaderoff(): void {
+    this.setTimeValue = timer(50).subscribe(() => {
+      this.loader = false
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.setTimeValue.unsubscribe()
+    this.weatherData.unsubscribe()
+  }
+}
+
+interface Params {
+  aggregateHours: string
+  location: string
+  contentType: string
+  unitGroup: string
+  shortColumnNames: string
 }
