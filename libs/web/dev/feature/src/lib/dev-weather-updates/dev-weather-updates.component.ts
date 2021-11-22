@@ -30,7 +30,6 @@ export class DevWeatherUpdatesComponent {
         <ui-weather-updates [cardColor]="vm.config.items.cardColor" [city]="vm.config.items.city"></ui-weather-updates> \n\n
         
           cardColor = ${JSON.stringify(result.config.items.cardColor, null, '\t')}
-          city = ${JSON.stringify(result.config.items.city, null, '\t')}
           
         `,
       ]
