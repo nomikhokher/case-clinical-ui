@@ -368,6 +368,11 @@ export class WebDevFeatureComponent {
               image: '/assets/images/progress-button.png',
             },
             {
+              label: 'Loader',
+              route: 'loader',
+              image: '/assets/images/progress-button.png',
+            },
+            {
               label: 'Split Button',
               route: 'split-button',
               image: 'assets/images/split-button.png',
