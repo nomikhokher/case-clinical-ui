@@ -42,7 +42,7 @@ const config: Configs = {
       prop: '[city]',
       description: 'Name of city of which you want to see the weather updates.',
       dataType: 'String',
-      type: ['lahore', 'karachi', 'sialkot', 'delhi', 'chicago', 'washingtondc', 'berlin', 'tokyo'],
+      type: ['lahore', 'karachi', 'sialkot', 'delhi', 'chicago', 'washingtondc', 'berlin', 'tokyo', 'moscow', 'alaska'],
     },
   ],
 }
