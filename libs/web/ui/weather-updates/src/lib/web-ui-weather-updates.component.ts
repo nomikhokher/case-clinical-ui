@@ -6,10 +6,10 @@ import { Observable, Subscription, timer } from 'rxjs'
   selector: 'ui-weather-updates',
   template: `
     <ng-template #loading>
-      <div class="py-10 text-gray-500 dark:text-gray-100 w-full flex justify-center items-center space-x-4">
-        <div class="flex justify-center items-center">
-          <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
-        </div>
+      <div
+        class="py-10 text-gray-500 dark:text-gray-100 w-full flex justify-center items-center space-x-4 font-semibold text-xl"
+      >
+        <ui-loader [size]="20" [isLoading]="true" [loadingType]="'double'" [loaderColor]="'indigo'"></ui-loader>
         <p>Loading Please wait...</p>
       </div>
     </ng-template>
@@ -158,7 +158,9 @@ export class WebUiWeatherUpdatesComponent {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.ngOnInit()
+    if (changes.city?.currentValue !== changes.city?.previousValue) {
+      this.ngOnInit()
+    }
   }
   public setHttpHeaders(): HttpHeaders {
     return new HttpHeaders({
