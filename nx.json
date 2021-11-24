@@ -240,6 +240,9 @@
     "web-ui-feed": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-folder-options": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-footer": {
       "tags": ["scope:web", "type:ui"]
     },
