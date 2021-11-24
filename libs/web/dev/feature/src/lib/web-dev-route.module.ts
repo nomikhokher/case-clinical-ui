@@ -394,4 +394,8 @@ export const routes: Routes = [
       import('./dev-weather-updates/dev-weather-updates.module').then((m) => m.DevWeatherUpdatesModule),
   },
   { path: 'loader', loadChildren: () => import('./dev-loader/dev-loader.module').then((m) => m.DevLoaderModule) },
+  {
+    path: 'folder-options',
+    loadChildren: () => import('./dev-folder-options/dev-folder-options.module').then((m) => m.DevFolderOptionsModule),
+  },
 ]

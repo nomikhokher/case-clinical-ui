@@ -151,5 +151,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/music-player',
     '<rootDir>/libs/web/ui/progress-bar-pro',
     '<rootDir>/libs/web/ui/weather-updates',
+    '<rootDir>/libs/web/ui/folder-options',
   ],
 }

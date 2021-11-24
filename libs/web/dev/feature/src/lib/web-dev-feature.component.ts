@@ -373,6 +373,11 @@ export class WebDevFeatureComponent {
               image: '/assets/images/progress-button.png',
             },
             {
+              label: 'Folder Options',
+              route: 'folder-options',
+              image: '/assets/images/progress-button.png',
+            },
+            {
               label: 'Split Button',
               route: 'split-button',
               image: 'assets/images/split-button.png',
