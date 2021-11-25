@@ -131,7 +131,7 @@ export class WebUiFolderOptionsComponent {
   downloadMyFile() {
     const link = document.createElement('a')
     link.setAttribute('target', '_blank')
-    link.setAttribute('href', this.download.path)
+    link.setAttribute('href', this.download.path + this.download.fileName)
     link.setAttribute('download', this.download.fileName)
     document.body.appendChild(link)
     link.click()
