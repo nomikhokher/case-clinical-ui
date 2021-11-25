@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core'
-import { ComponentStore, tapResponse } from '@ngrx/component-store'
+import { ComponentStore } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
-import { of } from 'rxjs'
-import { switchMap, tap } from 'rxjs/operators'
 import { Configs } from './model'
 
 export interface Item {
@@ -26,22 +24,19 @@ const config: Configs = {
   items: {
     audioList: [
       {
-        url:
-          'https://media.hungama.com/c/4/301/c60/44757442/44757442_128.mp3?tXerey56VBPEnAYCLzBEbpl6Nhm93Akmkb0E4YmMZhietzPQ2tR0GWxTyY5LC2gHrbtwDwi2q14WaXwp7vDksPfboYlX13EYDIIfUS5NA9hKMw70RS9Lky48Be4LjTod97rfPg.mp3',
-        title: 'Dhadkan',
-        cover: 'https://images.hungama.com/c/1/301/c60/44757442/44757442_300x300.jpg',
+        url: '/assets/audio/Ariana Grande-7 rings.mp3',
+        title: 'Ariana Grande-7 rings',
+        cover: '',
       },
       {
-        url:
-          'https://media.hungama.com/c/4/0b0/9b6/54083955/54083955_128.mp3?zWtI17-9GMpeC8GABO0HYf__BbOmUtoPxE7MltjzU2-KD7mbrutySpemOQJljcnb7hVBcA0zAJQTfi7OsfdPS3yYtncjuL0inr9iroRpJMg3lgPNdplnQSysaSdpJcV0F69xog.mp3',
-        title: 'Skechers feat. Badshah',
-        cover: 'https://images.hungama.com/c/1/acb/c4c/16347020/16347020_300x300.jpg',
+        url: '/assets/audio/Ed Sheera -Shape of You.mp3',
+        title: 'Ed Sheera -Shape of You',
+        cover: '',
       },
       {
-        url:
-          'https://media.hungama.com/c/4/db7/839/48264397/48264397_128.mp3?sOBx1VkIudls5EbFosrd6SXb6DLxVF9QRjcGrzLcxwbiDuUZoIOsVVYA3gSp3uOGpv9Sx1bDYvvEwdin_TOEm9HFwN9x8E_dDLKjwc22UUYUdfNtwBqNwhtb4_sGeKHyNpkBvw.mp3',
-        title: 'Kaise Hua',
-        cover: 'https://images.hungama.com/c/1/3b9/3a9/48137830/48137830_300x300.jpg',
+        url: '/assets/audio/Katy Perry-Dark Horse.mp3',
+        title: 'Katy Perry-Dark Horse',
+        cover: '',
       },
     ],
   },
@@ -54,38 +49,35 @@ const config: Configs = {
       typeArray: [
         [
           {
-            url:
-              'https://media.hungama.com/c/4/301/c60/44757442/44757442_128.mp3?tXerey56VBPEnAYCLzBEbpl6Nhm93Akmkb0E4YmMZhietzPQ2tR0GWxTyY5LC2gHrbtwDwi2q14WaXwp7vDksPfboYlX13EYDIIfUS5NA9hKMw70RS9Lky48Be4LjTod97rfPg.mp3',
+            url: '/assets/audio/Ariana Grande-7 rings.mp3',
           },
           {
-            title: 'Dhadkan',
+            title: 'Ariana Grande-7 rings',
           },
           {
-            cover: 'https://images.hungama.com/c/1/301/c60/44757442/44757442_300x300.jpg',
-          },
-        ],
-        [
-          {
-            url:
-              'https://media.hungama.com/c/4/0b0/9b6/54083955/54083955_128.mp3?zWtI17-9GMpeC8GABO0HYf__BbOmUtoPxE7MltjzU2-KD7mbrutySpemOQJljcnb7hVBcA0zAJQTfi7OsfdPS3yYtncjuL0inr9iroRpJMg3lgPNdplnQSysaSdpJcV0F69xog.mp3',
-          },
-          {
-            title: 'Skechers feat. Badshah',
-          },
-          {
-            cover: 'https://images.hungama.com/c/1/acb/c4c/16347020/16347020_300x300.jpg',
+            cover: '',
           },
         ],
         [
           {
-            url:
-              'https://media.hungama.com/c/4/db7/839/48264397/48264397_128.mp3?sOBx1VkIudls5EbFosrd6SXb6DLxVF9QRjcGrzLcxwbiDuUZoIOsVVYA3gSp3uOGpv9Sx1bDYvvEwdin_TOEm9HFwN9x8E_dDLKjwc22UUYUdfNtwBqNwhtb4_sGeKHyNpkBvw.mp3',
+            url: '/assets/audio/Ed Sheera -Shape of You.mp3',
           },
           {
-            title: 'Kaise Hua',
+            title: 'Ed Sheera -Shape of You',
           },
           {
-            cover: 'https://images.hungama.com/c/1/3b9/3a9/48137830/48137830_300x300.jpg',
+            cover: '',
+          },
+        ],
+        [
+          {
+            url: '/assets/audio/Katy Perry-Dark Horse.mp3',
+          },
+          {
+            title: 'Katy Perry-Dark Horse',
+          },
+          {
+            cover: '',
           },
         ],
       ],
