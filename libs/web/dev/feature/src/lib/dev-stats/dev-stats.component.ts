@@ -27,9 +27,7 @@ import { DevStatsStore } from './dev-stats.store'
 export class DevStatsComponent {
   readonly vm$ = this.store.vm$
   public codePreview
-  constructor(private readonly store: DevStatsStore) {
-    this.vm$.subscribe((x) => console.log(x.config.component_inputs))
-  }
+  constructor(private readonly store: DevStatsStore) {}
 
   ngOnInit(): void {
     this.vm$.subscribe((result) => {
