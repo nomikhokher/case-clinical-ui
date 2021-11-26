@@ -565,7 +565,6 @@ export class WebUiCarouselProComponent {
 
   toggleAuto(val) {
     val == 'start' ? (this.isAuto = { delay: this.delay }) : (this.isAuto = false)
-    console.log(this.isAuto)
   }
 
   extenalBulltes() {
@@ -631,10 +630,6 @@ export class WebUiCarouselProComponent {
   slides = Array.from({ length: 5 }).map((el, index) => `Slide ${index + 1}`)
   virtualSlides = Array.from({ length: 600 }).map((el, index) => `Slide ${index + 1}`)
 
-  log(log: string) {
-    // console.log(string);
-  }
-
   breakPointsToggle: boolean
   breakpointChange() {
     this.breakPointsToggle = !this.breakPointsToggle
@@ -653,7 +648,6 @@ export class WebUiCarouselProComponent {
       this.ngZone.run(() => {
         this.slidesEx = [...this.slidesEx, `added ${this.slidesEx.length - 1}`]
       })
-      console.log(this.slidesEx)
     }
   }
   paginationBtn = {

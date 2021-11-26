@@ -71,12 +71,12 @@ export class WebDevFeatureComponent {
             {
               label: 'Music Player',
               route: 'music-player',
-              image: '/assets/images/draggable.png',
+              image: '/assets/images/music-player.png',
             },
             {
               label: 'Weather Updates',
               route: 'weather-updates',
-              image: '/assets/images/draggable.png',
+              image: '/assets/images/weather-updates.png',
             },
           ],
         },
@@ -375,7 +375,7 @@ export class WebDevFeatureComponent {
             {
               label: 'Folder Options',
               route: 'folder-options',
-              image: '/assets/images/progress-button.png',
+              image: '/assets/images/folder-options.png',
             },
             {
               label: 'Split Button',

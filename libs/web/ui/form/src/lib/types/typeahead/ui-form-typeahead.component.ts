@@ -44,7 +44,6 @@ export class UiFormTypeaheadComponent extends FieldType {
 
   onSearch({ term }) {
     console.log('searching', this.formState, this.options$, term)
-    //this.search$.next(term);
   }
 
   inputMapFn(e: any) {
