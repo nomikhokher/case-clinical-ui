@@ -274,8 +274,6 @@ export class WebUiMusicPlayerComponent extends AudioPlyerOptions implements OnIn
     this.isShuffle = !this.isShuffle;
     if (this.isShuffle) {
     let randomItem = Math.floor(Math.random() * this.audioList.length);
-    console.log(randomItem);
-    
     }
     this.shuffleEvent.emit();
   } */
