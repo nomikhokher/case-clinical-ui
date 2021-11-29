@@ -399,6 +399,10 @@ export const routes: Routes = [
     loadChildren: () => import('./dev-folder-options/dev-folder-options.module').then((m) => m.DevFolderOptionsModule),
   },
   {
+    path: 'user-badge',
+    loadChildren: () => import('./dev-user-badge/dev-user-badge.module').then((m) => m.DevUserBadgeModule),
+  },
+  {
     path: 'input-select',
     loadChildren: () => import('./dev-input-select/dev-input-select.module').then((m) => m.DevInputSelectModule),
   },
