@@ -1,14 +1,9 @@
 {
   "npmScope": "schema-driven",
-  "affected": {
-    "defaultBase": "main"
-  },
+  "affected": { "defaultBase": "main" },
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
@@ -17,493 +12,168 @@
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
+      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
     }
   },
   "projects": {
-    "api": {
-      "tags": []
-    },
-    "api-account-data-access": {
-      "tags": ["scope:api", "type:data-access"]
-    },
-    "api-account-feature": {
-      "tags": ["scope:api", "type:feature"]
-    },
-    "api-auth-data-access": {
-      "tags": ["scope:api", "type:data-access"]
-    },
-    "api-auth-feature": {
-      "tags": ["scope:api", "type:feature"]
-    },
-    "api-auth-util": {
-      "tags": ["scope:api", "type:util"]
-    },
-    "api-core-data-access": {
-      "tags": ["scope:api", "type:data-access"]
-    },
-    "api-core-feature": {
-      "tags": ["scope:api", "type:feature"]
-    },
-    "api-core-util": {
-      "tags": ["scope:api", "type:util"]
-    },
-    "api-e2e": {
-      "tags": []
-    },
-    "api-schema-data-access": {
-      "tags": ["scope:api", "type:data-access"]
-    },
-    "api-schema-feature": {
-      "tags": ["scope:api", "type:feature"]
-    },
-    "api-tenant-data-access": {
-      "tags": ["scope:api", "type:data-access"]
-    },
-    "api-tenant-feature": {
-      "tags": ["scope:api", "type:feature"]
-    },
-    "api-user-data-access": {
-      "tags": ["scope:api", "type:data-access"]
-    },
-    "api-user-feature": {
-      "tags": ["scope:api", "type:feature"]
-    },
-    "web": {
-      "tags": []
-    },
-    "web-about-feature": {
-      "tags": ["scope:web", "type:feature"]
-    },
-    "web-account-feature": {
-      "tags": ["scope:web", "type:feature"]
-    },
-    "web-account-ui": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-admin-feature": {
-      "tags": ["scope:web", "type:feature"]
-    },
-    "web-admin-ui": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-assets": {
-      "tags": ["scope:web", "type:assets"]
-    },
-    "web-auth-data-access": {
-      "tags": ["scope:web", "type:data-access"]
-    },
-    "web-auth-feature": {
-      "tags": ["scope:web", "type:feature"]
-    },
-    "web-auth-ui": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-core-data-access": {
-      "tags": ["scope:web", "type:data-access"]
-    },
-    "web-core-feature": {
-      "tags": ["scope:web", "type:feature"]
-    },
-    "web-dashboard-feature": {
-      "tags": ["scope:web", "type:feature"]
-    },
-    "web-dev-data-access": {
-      "tags": ["scope:web", "type:data-access"]
-    },
-    "web-dev-feature": {
-      "tags": ["scope:web", "type:feature"]
-    },
-    "web-dev-ui": {
-      "tags": ["scope:web", "type:feature"]
-    },
-    "web-e2e": {
-      "tags": [],
-      "implicitDependencies": ["web"]
-    },
-    "web-layout": {
-      "tags": ["scope:web", "type:layout"]
-    },
-    "web-schema-data-access": {
-      "tags": ["scope:web", "type:data-access"]
-    },
-    "web-schema-feature": {
-      "tags": ["scope:web", "type:feature"]
-    },
-    "web-schema-ui": {
-      "tags": ["scope:web", "type:feature"]
-    },
-    "web-shell-feature": {
-      "tags": ["scope:web", "type:feature"]
-    },
-    "web-style": {
-      "tags": ["scope:web", "type:style"]
-    },
-    "web-ui-accordion": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-alert": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-avatar": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-badge": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-banners": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-breadcrumbs": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-button": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-calendar": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-card-heading": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-carousel": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-carousel-pro": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-category-filters": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-checkbox-dropdown-button": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-checkout-form": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-chips": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-code": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-color-picker": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-contact-card": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-container": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-date-picker": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-date-range-picker": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-date-time-picker": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-date-time-range-picker": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-description-list": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-divider": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-divider-toolbar": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-draggable": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-drawing-pad": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-dropdown": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-dropdown-button": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-editor": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-faq-section": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-feed": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-folder-options": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-footer": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-form": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-full-calendar": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-grid-list": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-group-button": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-icon": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-icon-button": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-incentives": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-json": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-layout": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-list-container": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-loader": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-main-page": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-media-object": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-mini-calendar": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-modal": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-multi-select": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-music-player": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-narrow-avatar-list": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-navbars": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-newsletter": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-notification": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-notification-image": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-order-history": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-order-summaries": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-page": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-page-header": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-page-headings": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-pagination": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-pop-confirm": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-preview": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-pricing-plan": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-product-features": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-product-image-gallery": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-product-list": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-product-overviews": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-product-quickviews": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-progress-bar": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-progress-bar-pro": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-progress-button": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-promo-section": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-range-slider": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-rating": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-reviews": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-section-headings": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-shopping-cart": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-sidebar": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-sidebar-classic": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-sidebar-classy": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-sidebar-compact": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-sidebar-dense": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-sidebar-futuristic": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-sidebar-page": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-sidebar-thin": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-sign-in-and-registration": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-slide-over": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-slide-over-layout": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-split-button": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-stacked-centered": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-stacked-enterprise": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-stacked-modern": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-stacked-simple": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-stats": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-step": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-store-navigation": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-tab": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-table": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-table-lists": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-tag-textarea": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-testimonials": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-text-areas": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-timeline": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-toast": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-toggle-switch-button": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-toolbar": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-tooltip": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-tree": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-tree-select": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-two-column-stacked-list": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-upload": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-user-badge": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-vertical-navigation": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-weather-updates": {
-      "tags": ["scope:web", "type:ui"]
-    },
-    "web-ui-wildcard-pages": {
-      "tags": ["scope:web", "type:ui"]
-    }
+    "api": { "tags": [] },
+    "api-account-data-access": { "tags": ["scope:api", "type:data-access"] },
+    "api-account-feature": { "tags": ["scope:api", "type:feature"] },
+    "api-auth-data-access": { "tags": ["scope:api", "type:data-access"] },
+    "api-auth-feature": { "tags": ["scope:api", "type:feature"] },
+    "api-auth-util": { "tags": ["scope:api", "type:util"] },
+    "api-core-data-access": { "tags": ["scope:api", "type:data-access"] },
+    "api-core-feature": { "tags": ["scope:api", "type:feature"] },
+    "api-core-util": { "tags": ["scope:api", "type:util"] },
+    "api-e2e": { "tags": [] },
+    "api-schema-data-access": { "tags": ["scope:api", "type:data-access"] },
+    "api-schema-feature": { "tags": ["scope:api", "type:feature"] },
+    "api-tenant-data-access": { "tags": ["scope:api", "type:data-access"] },
+    "api-tenant-feature": { "tags": ["scope:api", "type:feature"] },
+    "api-user-data-access": { "tags": ["scope:api", "type:data-access"] },
+    "api-user-feature": { "tags": ["scope:api", "type:feature"] },
+    "web": { "tags": [] },
+    "web-about-feature": { "tags": ["scope:web", "type:feature"] },
+    "web-account-feature": { "tags": ["scope:web", "type:feature"] },
+    "web-account-ui": { "tags": ["scope:web", "type:ui"] },
+    "web-admin-feature": { "tags": ["scope:web", "type:feature"] },
+    "web-admin-ui": { "tags": ["scope:web", "type:ui"] },
+    "web-assets": { "tags": ["scope:web", "type:assets"] },
+    "web-auth-data-access": { "tags": ["scope:web", "type:data-access"] },
+    "web-auth-feature": { "tags": ["scope:web", "type:feature"] },
+    "web-auth-ui": { "tags": ["scope:web", "type:ui"] },
+    "web-core-data-access": { "tags": ["scope:web", "type:data-access"] },
+    "web-core-feature": { "tags": ["scope:web", "type:feature"] },
+    "web-dashboard-feature": { "tags": ["scope:web", "type:feature"] },
+    "web-dev-data-access": { "tags": ["scope:web", "type:data-access"] },
+    "web-dev-feature": { "tags": ["scope:web", "type:feature"] },
+    "web-dev-ui": { "tags": ["scope:web", "type:feature"] },
+    "web-e2e": { "tags": [], "implicitDependencies": ["web"] },
+    "web-layout": { "tags": ["scope:web", "type:layout"] },
+    "web-schema-data-access": { "tags": ["scope:web", "type:data-access"] },
+    "web-schema-feature": { "tags": ["scope:web", "type:feature"] },
+    "web-schema-ui": { "tags": ["scope:web", "type:feature"] },
+    "web-shell-feature": { "tags": ["scope:web", "type:feature"] },
+    "web-style": { "tags": ["scope:web", "type:style"] },
+    "web-ui-accordion": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-alert": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-avatar": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-badge": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-banners": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-breadcrumbs": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-button": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-calendar": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-card-heading": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-carousel": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-carousel-pro": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-category-filters": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-checkbox-dropdown-button": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-checkout-form": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-chips": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-code": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-color-picker": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-contact-card": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-container": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-date-picker": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-date-range-picker": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-date-time-picker": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-date-time-range-picker": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-description-list": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-divider": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-divider-toolbar": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-draggable": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-drawing-pad": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-dropdown": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-dropdown-button": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-editor": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-faq-section": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-feed": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-folder-options": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-footer": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-form": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-full-calendar": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-grid-list": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-group-button": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-icon": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-icon-button": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-incentives": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-json": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-layout": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-list-container": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-loader": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-main-page": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-media-object": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-mini-calendar": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-modal": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-multi-select": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-music-player": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-narrow-avatar-list": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-navbars": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-newsletter": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-notification": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-notification-image": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-order-history": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-order-summaries": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-page": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-page-header": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-page-headings": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-pagination": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-pop-confirm": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-preview": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-pricing-plan": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-product-features": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-product-image-gallery": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-product-list": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-product-overviews": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-product-quickviews": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-progress-bar": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-progress-bar-pro": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-progress-button": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-promo-section": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-range-slider": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-rating": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-reviews": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-section-headings": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-shopping-cart": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-sidebar": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-sidebar-classic": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-sidebar-classy": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-sidebar-compact": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-sidebar-dense": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-sidebar-futuristic": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-sidebar-page": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-sidebar-thin": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-sign-in-and-registration": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-slide-over": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-slide-over-layout": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-split-button": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-stacked-centered": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-stacked-enterprise": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-stacked-modern": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-stacked-simple": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-stats": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-step": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-store-navigation": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-tab": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-table": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-table-lists": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-tag-textarea": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-testimonials": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-text-areas": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-timeline": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-toast": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-toggle-switch-button": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-toolbar": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-tooltip": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-tree": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-tree-select": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-two-column-stacked-list": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-upload": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-vertical-navigation": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-weather-updates": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-wildcard-pages": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-input-select": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-user-badge": { "tags": ["scope:web", "type:ui"] }
   },
-  "plugins": {
-    "@nxpm/stack": {
-      "api": {
-        "project": "api"
-      },
-      "web": {
-        "project": "web"
-      }
-    }
-  }
+  "plugins": { "@nxpm/stack": { "api": { "project": "api" }, "web": { "project": "web" } } }
 }

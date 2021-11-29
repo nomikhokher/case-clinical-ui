@@ -153,5 +153,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/weather-updates',
     '<rootDir>/libs/web/ui/folder-options',
     '<rootDir>/libs/web/ui/user-badge',
+    '<rootDir>/libs/web/ui/input-select',
   ],
 }

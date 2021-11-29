@@ -402,4 +402,8 @@ export const routes: Routes = [
     path: 'user-badge',
     loadChildren: () => import('./dev-user-badge/dev-user-badge.module').then((m) => m.DevUserBadgeModule),
   },
+  {
+    path: 'input-select',
+    loadChildren: () => import('./dev-input-select/dev-input-select.module').then((m) => m.DevInputSelectModule),
+ },
 ]
