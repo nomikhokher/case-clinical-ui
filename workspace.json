@@ -3578,6 +3578,28 @@
           }
         }
       }
+    },
+    "web-ui-input-select": {
+      "projectType": "library",
+      "root": "libs/web/ui/input-select",
+      "sourceRoot": "libs/web/ui/input-select/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/input-select/src/**/*.ts", "libs/web/ui/input-select/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/input-select"],
+          "options": {
+            "jestConfig": "libs/web/ui/input-select/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
