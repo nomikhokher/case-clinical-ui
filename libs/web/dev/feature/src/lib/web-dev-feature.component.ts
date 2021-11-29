@@ -78,6 +78,11 @@ export class WebDevFeatureComponent {
               route: 'weather-updates',
               image: '/assets/images/weather-updates.png',
             },
+            {
+              label: 'User Badge',
+              route: 'user-badge',
+              image: '/assets/images/weather-updates.png',
+            },
           ],
         },
         {
