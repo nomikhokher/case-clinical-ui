@@ -398,4 +398,8 @@ export const routes: Routes = [
     path: 'folder-options',
     loadChildren: () => import('./dev-folder-options/dev-folder-options.module').then((m) => m.DevFolderOptionsModule),
   },
+  {
+    path: 'input-select',
+    loadChildren: () => import('./dev-input-select/dev-input-select.module').then((m) => m.DevInputSelectModule),
+  },
 ]
