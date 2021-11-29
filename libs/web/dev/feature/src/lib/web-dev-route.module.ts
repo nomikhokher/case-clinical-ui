@@ -398,4 +398,8 @@ export const routes: Routes = [
     path: 'folder-options',
     loadChildren: () => import('./dev-folder-options/dev-folder-options.module').then((m) => m.DevFolderOptionsModule),
   },
+  {
+    path: 'user-badge',
+    loadChildren: () => import('./dev-user-badge/dev-user-badge.module').then((m) => m.DevUserBadgeModule),
+  },
 ]

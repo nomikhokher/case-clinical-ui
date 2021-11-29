@@ -483,6 +483,9 @@
     "web-ui-upload": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-user-badge": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-vertical-navigation": {
       "tags": ["scope:web", "type:ui"]
     },

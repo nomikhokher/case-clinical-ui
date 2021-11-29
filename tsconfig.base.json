@@ -165,6 +165,7 @@
       "@schema-driven/web/ui/tree-select": ["libs/web/ui/tree-select/src/index.ts"],
       "@schema-driven/web/ui/two-column-stacked-list": ["libs/web/ui/two-column-stacked-list/src/index.ts"],
       "@schema-driven/web/ui/upload": ["libs/web/ui/upload/src/index.ts"],
+      "@schema-driven/web/ui/user-badge": ["libs/web/ui/user-badge/src/index.ts"],
       "@schema-driven/web/ui/vertical-navigation": ["libs/web/ui/vertical-navigation/src/index.ts"],
       "@schema-driven/web/ui/weather-updates": ["libs/web/ui/weather-updates/src/index.ts"],
       "@schema-driven/web/ui/wildcard-pages": ["libs/web/ui/wildcard-pages/src/index.ts"]
