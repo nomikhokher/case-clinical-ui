@@ -172,7 +172,8 @@
     "web-ui-vertical-navigation": { "tags": ["scope:web", "type:ui"] },
     "web-ui-weather-updates": { "tags": ["scope:web", "type:ui"] },
     "web-ui-wildcard-pages": { "tags": ["scope:web", "type:ui"] },
-    "web-ui-input-select": { "tags": ["scope:web", "type:ui"] }
+    "web-ui-input-select": { "tags": ["scope:web", "type:ui"] },
+    "web-ui-user-badge": { "tags": ["scope:web", "type:ui"] }
   },
   "plugins": { "@nxpm/stack": { "api": { "project": "api" }, "web": { "project": "web" } } }
 }

@@ -3510,6 +3510,28 @@
         }
       }
     },
+    "web-ui-user-badge": {
+      "projectType": "library",
+      "root": "libs/web/ui/user-badge",
+      "sourceRoot": "libs/web/ui/user-badge/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/user-badge/src/**/*.ts", "libs/web/ui/user-badge/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/user-badge"],
+          "options": {
+            "jestConfig": "libs/web/ui/user-badge/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-vertical-navigation": {
       "projectType": "library",
       "root": "libs/web/ui/vertical-navigation",
