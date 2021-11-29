@@ -169,6 +169,11 @@ export class WebDevFeatureComponent {
               image: '/assets/images/select-menus.png',
             },
             {
+              label: 'Input Select',
+              route: 'input-select',
+              image: '/assets/images/select-menus.png',
+            },
+            {
               label: 'Radio Groups',
               route: 'radio-groups',
               image: '/assets/images/radio-groups.png',
