@@ -405,5 +405,5 @@ export const routes: Routes = [
   {
     path: 'input-select',
     loadChildren: () => import('./dev-input-select/dev-input-select.module').then((m) => m.DevInputSelectModule),
- },
+  },
 ]
