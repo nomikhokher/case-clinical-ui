@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
+import { takeLast } from 'rxjs/operators'
 
 @Component({
   selector: 'ui-input-select',
@@ -50,12 +51,10 @@ export class WebUiInputSelectComponent {
       user: [null],
     })
 
-    this.formData.patchValue({ user: this.options[1].opt })
+    this.formData.patchValue({ user: this.options[0].opt })
   }
 
   changeValue(): void {
-    this.formData.valueChanges.subscribe((val) => {
-      this.sendData.emit(val)
-    })
+    this.sendData.emit(this.formData.value)
   }
 }
