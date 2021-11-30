@@ -405,5 +405,12 @@ export const routes: Routes = [
   {
     path: 'input-select',
     loadChildren: () => import('./dev-input-select/dev-input-select.module').then((m) => m.DevInputSelectModule),
- },
+  },
+  {
+    path: 'empty-states-recommendations',
+    loadChildren: () =>
+      import('./dev-empty-states-with-recommendations/dev-empty-states-with-recommendations.module').then(
+        (m) => m.DevEmptyStatesWithRecommendationsModule,
+      ),
+  },
 ]

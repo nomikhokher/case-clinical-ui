@@ -82,6 +82,9 @@
       "@schema-driven/web/ui/dropdown": ["libs/web/ui/dropdown/src/index.ts"],
       "@schema-driven/web/ui/dropdown-button": ["libs/web/ui/dropdown-button/src/index.ts"],
       "@schema-driven/web/ui/editor": ["libs/web/ui/editor/src/index.ts"],
+      "@schema-driven/web/ui/empty-states-with-recommendations": [
+        "libs/web/ui/empty-states-with-recommendations/src/index.ts"
+      ],
       "@schema-driven/web/ui/faq-section": ["libs/web/ui/faq-section/src/index.ts"],
       "@schema-driven/web/ui/feed": ["libs/web/ui/feed/src/index.ts"],
       "@schema-driven/web/ui/folder-options": ["libs/web/ui/folder-options/src/index.ts"],
@@ -93,6 +96,7 @@
       "@schema-driven/web/ui/icon": ["libs/web/ui/icon/src/index.ts"],
       "@schema-driven/web/ui/icon-button": ["libs/web/ui/icon-button/src/index.ts"],
       "@schema-driven/web/ui/incentives": ["libs/web/ui/incentives/src/index.ts"],
+      "@schema-driven/web/ui/input-select": ["libs/web/ui/input-select/src/index.ts"],
       "@schema-driven/web/ui/json": ["libs/web/ui/json/src/index.ts"],
       "@schema-driven/web/ui/layout": ["libs/web/ui/layout/src/index.ts"],
       "@schema-driven/web/ui/list-container": ["libs/web/ui/list-container/src/index.ts"],
@@ -168,8 +172,7 @@
       "@schema-driven/web/ui/user-badge": ["libs/web/ui/user-badge/src/index.ts"],
       "@schema-driven/web/ui/vertical-navigation": ["libs/web/ui/vertical-navigation/src/index.ts"],
       "@schema-driven/web/ui/weather-updates": ["libs/web/ui/weather-updates/src/index.ts"],
-      "@schema-driven/web/ui/wildcard-pages": ["libs/web/ui/wildcard-pages/src/index.ts"],
-      "@schema-driven/web/ui/input-select": ["libs/web/ui/input-select/src/index.ts"]
+      "@schema-driven/web/ui/wildcard-pages": ["libs/web/ui/wildcard-pages/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

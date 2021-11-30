@@ -83,6 +83,11 @@ export class WebDevFeatureComponent {
               route: 'user-badge',
               image: '/assets/images/weather-updates.png',
             },
+            {
+              label: 'Empty States With Recommendations',
+              route: 'empty-states-recommendations',
+              image: '/assets/images/weather-updates.png',
+            },
           ],
         },
         {
