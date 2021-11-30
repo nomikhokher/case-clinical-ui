@@ -1636,6 +1636,31 @@
         }
       }
     },
+    "web-ui-empty-states-with-recommendations": {
+      "projectType": "library",
+      "root": "libs/web/ui/empty-states-with-recommendations",
+      "sourceRoot": "libs/web/ui/empty-states-with-recommendations/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/empty-states-with-recommendations/src/**/*.ts",
+              "libs/web/ui/empty-states-with-recommendations/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/empty-states-with-recommendations"],
+          "options": {
+            "jestConfig": "libs/web/ui/empty-states-with-recommendations/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-faq-section": {
       "projectType": "library",
       "root": "libs/web/ui/faq-section",
@@ -1873,6 +1898,28 @@
           "outputs": ["coverage/libs/web/ui/incentives"],
           "options": {
             "jestConfig": "libs/web/ui/incentives/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-input-select": {
+      "projectType": "library",
+      "root": "libs/web/ui/input-select",
+      "sourceRoot": "libs/web/ui/input-select/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/input-select/src/**/*.ts", "libs/web/ui/input-select/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/input-select"],
+          "options": {
+            "jestConfig": "libs/web/ui/input-select/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -3596,28 +3643,6 @@
           "outputs": ["coverage/libs/web/ui/wildcard-pages"],
           "options": {
             "jestConfig": "libs/web/ui/wildcard-pages/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "web-ui-input-select": {
-      "projectType": "library",
-      "root": "libs/web/ui/input-select",
-      "sourceRoot": "libs/web/ui/input-select/src",
-      "prefix": "ui",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/web/ui/input-select/src/**/*.ts", "libs/web/ui/input-select/src/**/*.html"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/ui/input-select"],
-          "options": {
-            "jestConfig": "libs/web/ui/input-select/jest.config.js",
             "passWithNoTests": true
           }
         }
