@@ -413,4 +413,5 @@ export const routes: Routes = [
         (m) => m.DevEmptyStatesWithRecommendationsModule,
       ),
   },
+  { path: 'tour', loadChildren: () => import('./dev-tour/dev-tour.module').then((m) => m.DevTourModule) },
 ]

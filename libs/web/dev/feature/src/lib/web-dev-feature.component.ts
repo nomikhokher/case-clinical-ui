@@ -312,6 +312,11 @@ export class WebDevFeatureComponent {
               route: 'slideovers',
               image: '/assets/images/slide-overs.png',
             },
+            {
+              label: 'Tour',
+              route: 'tour',
+              image: '/assets/images/slide-overs.png',
+            },
           ],
         },
         {
