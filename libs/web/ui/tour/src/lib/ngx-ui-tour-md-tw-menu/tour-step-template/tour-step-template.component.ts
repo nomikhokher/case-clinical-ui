@@ -9,7 +9,7 @@ import { NgxmTourService } from '../ngx-md-menu-tour.service'
   selector: 'tour-step-template',
   encapsulation: ViewEncapsulation.None,
   templateUrl: './tour-step-template.component.html',
-  styleUrls: ['./tour-step-template.component.scss'],
+  styleUrls: ['./tour-step-template.component.css'],
 })
 export class TourStepTemplateComponent extends TourHotkeyListenerComponent implements AfterViewInit {
   @ViewChild(MatMenu)
