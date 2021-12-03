@@ -3647,6 +3647,28 @@
           }
         }
       }
+    },
+    "web-ui-tour": {
+      "projectType": "library",
+      "root": "libs/web/ui/tour",
+      "sourceRoot": "libs/web/ui/tour/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/tour/src/**/*.ts", "libs/web/ui/tour/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/tour"],
+          "options": {
+            "jestConfig": "libs/web/ui/tour/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
