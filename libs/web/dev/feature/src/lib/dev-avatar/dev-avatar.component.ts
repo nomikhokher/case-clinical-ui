@@ -34,7 +34,7 @@ export class DevAvatarComponent {
   ngOnInit(): void {
     this.vm$.subscribe((result) => {
       this.codePreview = [
-        `import { WebUiAvatarModule } from '@schema-driven/web/ui/avatar' \n\n 
+        `import { WebUiAvatarModule } from '@schema-driven/web/ui/avatar' \n\n
        <ui-avatar
        [mode]="item.mode"
        [payload]="item.payload"
@@ -42,7 +42,7 @@ export class DevAvatarComponent {
        [size]="item.size"
        [badge]="item.badge"
      ></ui-avatar> \n\n
-       
+
          mode = ${JSON.stringify(result.config.items[4].mode, null, '\t')}\n
          payload = ${JSON.stringify(result.config.items[4].payload, null, '\t')}\n
          radius = ${JSON.stringify(result.config.items[4].radius, null, '\t')}\n

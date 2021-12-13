@@ -156,5 +156,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/input-select',
     '<rootDir>/libs/web/ui/empty-states-with-recommendations',
     '<rootDir>/libs/web/ui/tour',
+    '<rootDir>/libs/web/ui/mutator',
   ],
 }
