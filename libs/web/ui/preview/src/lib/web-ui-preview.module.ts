@@ -11,6 +11,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
 import { WebUiToggleSwitchButtonModule } from '@schema-driven/web/ui/toggle-switch-button'
 import { ResizableModule } from 'angular-resizable-element'
 import { ClipboardModule } from '@angular/cdk/clipboard'
+import { WebUiMutatorModule } from '@schema-driven/web/ui/mutator'
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard'
     ResizableModule,
     WebUiToggleSwitchButtonModule,
     ClipboardModule,
+    WebUiMutatorModule,
   ],
   declarations: [WebUiPreviewComponent],
   exports: [WebUiPreviewComponent],
