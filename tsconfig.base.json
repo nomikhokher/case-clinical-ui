@@ -107,6 +107,7 @@
       "@schema-driven/web/ui/modal": ["libs/web/ui/modal/src/index.ts"],
       "@schema-driven/web/ui/multi-select": ["libs/web/ui/multi-select/src/index.ts"],
       "@schema-driven/web/ui/music-player": ["libs/web/ui/music-player/src/index.ts"],
+      "@schema-driven/web/ui/mutator": ["libs/web/ui/mutator/src/index.ts"],
       "@schema-driven/web/ui/narrow-avatar-list": ["libs/web/ui/narrow-avatar-list/src/index.ts"],
       "@schema-driven/web/ui/navbars": ["libs/web/ui/navbars/src/index.ts"],
       "@schema-driven/web/ui/newsletter": ["libs/web/ui/newsletter/src/index.ts"],
@@ -165,6 +166,7 @@
       "@schema-driven/web/ui/toggle-switch-button": ["libs/web/ui/toggle-switch-button/src/index.ts"],
       "@schema-driven/web/ui/toolbar": ["libs/web/ui/toolbar/src/index.ts"],
       "@schema-driven/web/ui/tooltip": ["libs/web/ui/tooltip/src/index.ts"],
+      "@schema-driven/web/ui/tour": ["libs/web/ui/tour/src/index.ts"],
       "@schema-driven/web/ui/tree": ["libs/web/ui/tree/src/index.ts"],
       "@schema-driven/web/ui/tree-select": ["libs/web/ui/tree-select/src/index.ts"],
       "@schema-driven/web/ui/two-column-stacked-list": ["libs/web/ui/two-column-stacked-list/src/index.ts"],
@@ -172,8 +174,7 @@
       "@schema-driven/web/ui/user-badge": ["libs/web/ui/user-badge/src/index.ts"],
       "@schema-driven/web/ui/vertical-navigation": ["libs/web/ui/vertical-navigation/src/index.ts"],
       "@schema-driven/web/ui/weather-updates": ["libs/web/ui/weather-updates/src/index.ts"],
-      "@schema-driven/web/ui/wildcard-pages": ["libs/web/ui/wildcard-pages/src/index.ts"],
-      "@schema-driven/web/ui/tour": ["libs/web/ui/tour/src/index.ts"]
+      "@schema-driven/web/ui/wildcard-pages": ["libs/web/ui/wildcard-pages/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

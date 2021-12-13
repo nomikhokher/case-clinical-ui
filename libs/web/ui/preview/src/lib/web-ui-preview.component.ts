@@ -52,9 +52,10 @@ export interface ComponentProp {
       [headerMeta]="directoryMeta"
       [controlsTemplate]="headerControls"
     >
+      <ui-mutator [payload]="codeObj"></ui-mutator>
       <div>
         <div class="flex md:items-center md:flex-row flex-col justify-between py-2">
-          <h3 class="text-lg font-medium text-gray-700 dark:text-gray-200">UI Element</h3>
+          <h3 class="text-lg font-medium text-gray-700 dark:text-gray-200">{{ title }}</h3>
           <div class="flex items-center">
             <div>
               <div class="sm:hidden inline-block xs:inline-flex">
@@ -247,7 +248,7 @@ export interface ComponentProp {
                         title="Simple centered preview"
                         aria-label="Simple centered preview"
                         name="frame"
-                        class="w-full pl-2 pr-6 pt-14 sm:rounded-r-none"
+                        class="w-full sm:rounded-r-none"
                         id="iframe"
                         #iframe
                         *ngIf="childDiv"
@@ -408,11 +409,12 @@ export interface ComponentProp {
             </tbody>
           </table>
         </div>
+        <!--PROPS-START-->
         <div class="my-2 overflow-x-auto">
           <div class="pb-2">
-            <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100 mt-3 ml-3">Inputs</h3>
+            <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100 mt-3 ml-3">API</h3>
           </div>
-          <div class="py-2 align-middle">
+          <div class="p-4 bg-white rounded-xl align-middle">
             <div class="shadow border-b border-gray-200 dark:border-gray-700 sm:rounded-lg overflow-x-auto">
               <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 ">
                 <thead class="bg-white dark:bg-gray-800">
@@ -421,13 +423,7 @@ export interface ComponentProp {
                       scope="col"
                       class="px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
                     >
-                      Name
-                    </th>
-                    <th
-                      scope="col"
-                      class="px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
-                    >
-                      Description
+                      Prop
                     </th>
                     <th
                       scope="col"
@@ -439,27 +435,36 @@ export interface ComponentProp {
                       scope="col"
                       class="px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
                     >
-                      Attribute
+                      Default
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                    >
+                      Description
                     </th>
                   </tr>
                 </thead>
                 <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                  <tr *ngFor="let input of component_inputs">
+                  <tr
+                    *ngFor="let input of component_inputs; let i = index"
+                    [class]="i % 2 === 0 ? 'bg-gray-50' : 'bg-gray-100'"
+                  >
                     <td class="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-200">
-                      {{ input.label }}
-                    </td>
-                    <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                      {{ input.description }}
+                      {{ input.prop }}
                     </td>
                     <td class="px-3 py-4 whitespace-nowrap text-sm text-pink-500">
                       <code>
                         {{ input.dataType }}
                       </code>
                     </td>
-                    <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-200">
+                    <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-200 ">
                       <code>
                         {{ input.prop }}
                       </code>
+                    </td>
+                    <td class="px-3 py-4 text-sm text-gray-500 dark:text-gray-400 break-all	whitespace-normal">
+                      {{ input.description }}
                     </td>
                   </tr>
                 </tbody>
@@ -467,6 +472,7 @@ export interface ComponentProp {
             </div>
           </div>
         </div>
+        <!--PROPS END-->
       </div>
       <div *ngIf="component_outputs?.length > 0" class="flex flex-col my-10">
         <div class="-my-2 overflow-x-auto">
