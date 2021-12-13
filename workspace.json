@@ -2145,6 +2145,28 @@
         }
       }
     },
+    "web-ui-mutator": {
+      "projectType": "library",
+      "root": "libs/web/ui/mutator",
+      "sourceRoot": "libs/web/ui/mutator/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/mutator/src/**/*.ts", "libs/web/ui/mutator/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mutator"],
+          "options": {
+            "jestConfig": "libs/web/ui/mutator/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-narrow-avatar-list": {
       "projectType": "library",
       "root": "libs/web/ui/narrow-avatar-list",
@@ -3466,6 +3488,28 @@
         }
       }
     },
+    "web-ui-tour": {
+      "projectType": "library",
+      "root": "libs/web/ui/tour",
+      "sourceRoot": "libs/web/ui/tour/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/tour/src/**/*.ts", "libs/web/ui/tour/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/tour"],
+          "options": {
+            "jestConfig": "libs/web/ui/tour/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-tree": {
       "projectType": "library",
       "root": "libs/web/ui/tree",
@@ -3643,28 +3687,6 @@
           "outputs": ["coverage/libs/web/ui/wildcard-pages"],
           "options": {
             "jestConfig": "libs/web/ui/wildcard-pages/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "web-ui-tour": {
-      "projectType": "library",
-      "root": "libs/web/ui/tour",
-      "sourceRoot": "libs/web/ui/tour/src",
-      "prefix": "ui",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/web/ui/tour/src/**/*.ts", "libs/web/ui/tour/src/**/*.html"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/ui/tour"],
-          "options": {
-            "jestConfig": "libs/web/ui/tour/jest.config.js",
             "passWithNoTests": true
           }
         }
