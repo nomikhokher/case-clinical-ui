@@ -157,5 +157,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/empty-states-with-recommendations',
     '<rootDir>/libs/web/ui/tour',
     '<rootDir>/libs/web/ui/mutator',
+    '<rootDir>/libs/web/ui/countdown',
   ],
 }

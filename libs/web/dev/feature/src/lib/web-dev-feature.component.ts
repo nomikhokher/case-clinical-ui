@@ -603,6 +603,11 @@ export class WebDevFeatureComponent {
               route: 'store-navigation',
               image: '/assets/images/store-navigation.png',
             },
+            {
+              label: 'CountDown',
+              route: 'countdown',
+              image: '/assets/images/store-navigation.png',
+            },
           ],
         },
       ],
