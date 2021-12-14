@@ -414,4 +414,8 @@ export const routes: Routes = [
       ),
   },
   { path: 'tour', loadChildren: () => import('./dev-tour/dev-tour.module').then((m) => m.DevTourModule) },
+  {
+    path: 'countdown',
+    loadChildren: () => import('./dev-countdown/dev-countdown.module').then((m) => m.DevCountdownModule),
+  },
 ]
