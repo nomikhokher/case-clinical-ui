@@ -243,7 +243,7 @@ export class DevSlideOverComponent {
                 </div>
               </div>
             </section>
-  
+
             <section id="mainSlideOverLayout">
               <div>
                 <label for="project_name" class="block text-sm font-medium text-gray-900 dark:text-gray-100"> Project name </label>
@@ -268,7 +268,7 @@ export class DevSlideOverComponent {
                 </div>
               </div>
             </section>
-  
+
             <section id="footerSlideOverLayout">
               <button
                 (click)="hideLayout()"
