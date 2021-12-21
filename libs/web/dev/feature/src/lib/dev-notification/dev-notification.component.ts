@@ -48,7 +48,7 @@ export class DevNotificationComponent {
   ngOnInit(): void {
     this.vm$.subscribe((result) => {
       this.codePreview = [
-        `import { WebUiNotificationImageModule } from '@schema-driven/web/ui/notification-image'' \n\n 
+        `import { WebUiNotificationImageModule } from '@schema-driven/web/ui/notification-image'' \n\n
         <ui-notification
         [icon]="vm.config.items[0].icon"
         [name]="vm.config.items[0].name"
@@ -61,7 +61,7 @@ export class DevNotificationComponent {
         [bottomSectionButton]="vm.config.items[0].bottomSectionButton"
         (closeValue)="closeAction($event)"
       ></ui-notification> \n\n
-      
+
         icon = ${JSON.stringify(result.config.items[0].icon, null, '\t')}\n
         name = ${JSON.stringify(result.config.items[0].name, null, '\t')}\n
         title = ${JSON.stringify(result.config.items[0].title, null, '\t')}\n
