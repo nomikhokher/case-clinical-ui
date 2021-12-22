@@ -28,13 +28,19 @@ const config: Configs = {
     year: 0,
     month: 0,
     days: 0,
-    hours: 2,
+    hours: 0,
     minutes: 0,
-    seconds: 0,
+    seconds: 5,
     mode: false,
     timestamp: Date.now() + 1000 * 60 * 60 * 24 * 3,
   },
   component_inputs: [
+    {
+      label: 'Delay',
+      prop: '[delay]',
+      description: 'Delay',
+      dataType: 'Number',
+    },
     {
       label: 'Year',
       prop: '[year]',

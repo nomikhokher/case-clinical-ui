@@ -16,6 +16,7 @@ import { DevCountdownStore } from './dev-countdown.store'
       >
         <span class="font-mono text-6xl countdown">
           <ui-countdown
+            (expired)="onExpire($event)"
             [year]="vm.config.items.year"
             [month]="vm.config.items.month"
             [days]="vm.config.items.days"
@@ -38,6 +39,10 @@ export class DevCountdownComponent {
   constructor(private readonly store: DevCountdownStore) {}
 
   time: any
+  onExpire() {
+    return '00:00:00'
+  }
+
   ngOnInit(): void {
     this.vm$.subscribe((result) => {
       this.codePreview = [

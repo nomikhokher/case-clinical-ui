@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, OnChanges } from '@angular/core'
+import { Component, Input, OnInit, Output, OnChanges, EventEmitter } from '@angular/core'
 @Component({
   selector: 'ui-countdown',
   template: `
@@ -17,7 +17,7 @@ export class WebUiCountdownComponent implements OnInit {
   @Input() countDown?: any
   @Input() mode?: boolean
   @Input() timestamp?: any
-
+  @Output() expired: EventEmitter<any> = new EventEmitter()
   interval: any
 
   constructor() {
@@ -53,7 +53,9 @@ export class WebUiCountdownComponent implements OnInit {
       currentDate.setMonth(currentDate.getMonth() + this.month)
       currentDate.setDate(currentDate.getDate() + this.days)
 
-      var countDownDate = new Date(currentDate.getTime() + this.hours * 60 * 60 * 1000 + this.minutes * 60000).getTime()
+      var countDownDate = new Date(
+        currentDate.getTime() + this.hours * 60 * 60 * 1000 + this.minutes * 60000 + this.seconds * 1000,
+      ).getTime()
 
       // Update the count down every 1 second
       this.interval = setInterval(() => {
@@ -70,7 +72,6 @@ export class WebUiCountdownComponent implements OnInit {
         var hours = Math.floor(distance / 3.6e6) % 24
         var mins = Math.floor(distance / 60000) % 60
         var secs = Math.floor(distance / 1000) % 60
-
         // Output the result in an element with id="demo"
         this.countDown =
           this.getYear(years) +
@@ -83,7 +84,8 @@ export class WebUiCountdownComponent implements OnInit {
         // If the count down is over, write some text
         if (distance < 0) {
           clearInterval(this.interval)
-          this.countDown = '00:00:00'
+          //this.countDown = '00:00:00'
+          this.expired.emit()
         }
       }, 1000)
     } else {
@@ -101,7 +103,8 @@ export class WebUiCountdownComponent implements OnInit {
         this.countDown = this.getDay(days) + this.getHour(hours) + this.getMinute(mins) + this.getSecond(secs)
         if (distance < 0) {
           clearInterval(this.interval)
-          this.countDown = '00:00:00'
+          //this.countDown = "00:00:00";
+          this.expired.emit()
         }
       }, 1000)
     }
