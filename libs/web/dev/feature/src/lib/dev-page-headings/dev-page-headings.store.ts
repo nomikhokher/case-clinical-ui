@@ -8,7 +8,6 @@ import { UiIcon } from '@schema-driven/web/ui/icon'
 export interface Item {
   meta?: any[]
 }
-
 interface DevPageHeadingsState {
   componentProps?: ComponentProps[]
   headerTitle?: string
@@ -20,7 +19,6 @@ interface DevPageHeadingsState {
   component_inputs?: Input[]
 }
 let icon = Object.values(UiIcon)
-
 @Injectable()
 export class DevPageHeadingsStore extends ComponentStore<DevPageHeadingsState> {
   constructor(private readonly sdk: ApolloAngularSDK) {
