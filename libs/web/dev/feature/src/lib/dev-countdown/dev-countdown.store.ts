@@ -25,13 +25,72 @@ const config: Configs = {
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-countdown.component.ts',
   items: {
-    width: 'max-w-2xl',
-    overlayColor: 'bg-gray-500 ',
-    overlayOpacity: 'bg-opacity-75 ',
-    slideOverHeader: true,
-    slideOverFooter: true,
-    closeButtonOutSide: true,
+    year: 0,
+    month: 0,
+    days: 0,
+    hours: 2,
+    minutes: 0,
+    seconds: 0,
+    mode: false,
+    timestamp: Date.now() + 1000 * 60 * 60 * 24 * 3,
   },
+  component_inputs: [
+    {
+      label: 'Year',
+      prop: '[year]',
+      description: 'Year',
+      dataType: 'Number',
+    },
+    {
+      label: 'month',
+      prop: '[month]',
+      description: 'month',
+      dataType: 'Number',
+    },
+    {
+      label: 'Year',
+      prop: '[year]',
+      description: 'Year',
+      dataType: 'Number',
+    },
+    {
+      label: 'days',
+      prop: '[days]',
+      description: 'days',
+      dataType: 'Number',
+    },
+    {
+      label: 'hours',
+      prop: '[hours]',
+      description: 'hours',
+      dataType: 'Number',
+    },
+    {
+      label: 'minutes',
+      prop: '[minutes]',
+      description: 'minutes',
+      dataType: 'Number',
+    },
+    {
+      label: 'seconds',
+      prop: '[seconds]',
+      description: 'seconds',
+      dataType: 'Number',
+    },
+    {
+      label: 'Mode',
+      prop: '[mode]',
+      description: `mode`,
+      dataType: 'Boolean',
+      type: ['true', 'false'],
+    },
+    {
+      label: 'timestamp',
+      prop: '[timestamp]',
+      description: 'timestamp',
+      dataType: 'String',
+    },
+  ],
 }
 
 @Injectable()
@@ -45,7 +104,7 @@ export class DevCountdownStore extends ComponentStore<DevCountdownState> {
   //readonly config$ = this.select(this.state$, (s) => s.config)
   readonly config$ = this.select(this.state$, (s) => s.config)
   readonly vm$ = this.select(this.config$, (config) => ({ config }))
-
+  getValueOfDate() {}
   /* readonly loadItemsEffect = this.effect(($) =>
     $.pipe(
       tap(() => this.patchState({ loading: true })),
