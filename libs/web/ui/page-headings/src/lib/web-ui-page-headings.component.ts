@@ -52,7 +52,7 @@ import { Component, Input } from '@angular/core'
             <span class="sm:ml-3" [ngClass]="classes(button.icon, i, buttons.length - 1)">
               <button
                 type="button"
-                class=" ml-3 inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm 
+                class=" ml-3 inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm
               text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 id="mobile-menu-button"
                 aria-expanded="false"
