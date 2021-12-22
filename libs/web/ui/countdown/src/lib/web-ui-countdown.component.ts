@@ -41,7 +41,6 @@ export class WebUiCountdownComponent implements OnInit {
     }
   }
   ngOnChanges() {
-    console.log('chhaneged')
     this.ngOnInit()
   }
   ngOnInit() {
