@@ -11,12 +11,14 @@ export interface Crumbs {
   path?: string
 }
 export interface Item {
-  width?: string
-  overlayColor?: string
-  slideOverHeader?: boolean
-  slideOverFooter?: boolean
-  closeButtonOutSide?: boolean
-  overlayOpacity?: string
+  year: number
+  month: number
+  days: number
+  hours: number
+  minutes: number
+  seconds: number
+  mode: boolean
+  timestamp: any
 }
 
 export interface Inputs {
