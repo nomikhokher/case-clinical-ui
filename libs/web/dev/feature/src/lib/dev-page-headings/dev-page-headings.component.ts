@@ -33,8 +33,8 @@ export class DevPageHeadingsComponent {
   ngOnInit(): void {
     this.vm$.subscribe((result) => {
       this.codePreview = [
-        `import { WebUiPageHeadingsModule } from '@schema-driven/web/ui/page-headings' \n\n 
-      
+        `import { WebUiPageHeadingsModule } from '@schema-driven/web/ui/page-headings' \n\n
+
         <ng-template #headerControls>
           <ng-container>
             <ui-button label="Gray" type="button" color="gray"></ui-button>
@@ -45,7 +45,7 @@ export class DevPageHeadingsComponent {
             [meta]="vm.items.config.meta"
           ></ui-page-header>
         </div> \n\n
-      
+
         meta = ${JSON.stringify(result.items.meta, null, '\t')}\n
         `,
       ]
