@@ -25,14 +25,16 @@ const config: Configs = {
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-countdown.component.ts',
   items: {
+    delay: 15,
     year: 0,
     month: 0,
     days: 0,
     hours: 0,
-    minutes: 0,
-    seconds: 5,
-    mode: false,
-    timestamp: Date.now() + 1000 * 60 * 60 * 24 * 3,
+    minutes: 1,
+    seconds: 0,
+    mode: true,
+    //timestamp: Date.now() + 1000 * 60 * 60 * 24 * 3,
+    timestamp: new Date('Jan 1, 2022 00:00:00').getTime(),
   },
   component_inputs: [
     {
