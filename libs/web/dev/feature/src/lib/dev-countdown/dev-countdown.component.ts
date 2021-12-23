@@ -17,6 +17,7 @@ import { DevCountdownStore } from './dev-countdown.store'
         <span class="font-mono text-6xl countdown">
           <ui-countdown
             (expired)="onExpire($event)"
+            [delay]="vm.config.items.delay"
             [year]="vm.config.items.year"
             [month]="vm.config.items.month"
             [days]="vm.config.items.days"
@@ -39,8 +40,8 @@ export class DevCountdownComponent {
   constructor(private readonly store: DevCountdownStore) {}
 
   time: any
-  onExpire() {
-    return '00:00:00'
+  onExpire(data) {
+    return data
   }
 
   ngOnInit(): void {
@@ -49,14 +50,16 @@ export class DevCountdownComponent {
         `
         import { WebUicountdownModule } from '@schema-driven/web/ui/countdown'\n
           <ui-countdown
-          [year]="vm.config.items.year"
-          [month]="vm.config.items.month"
-          [days]="vm.config.items.days"
-          [hours]="vm.config.items.hours"
-          [minutes]="vm.config.items.minutes"
-          [seconds]="vm.config.items.seconds"
-          [mode]="vm.config.items.mode"
-          [timestamp]="vm.config.items.timestamp"
+            (expired)="onExpire($event)"
+            [delay]="vm.config.items.delay"
+            [year]="vm.config.items.year"
+            [month]="vm.config.items.month"
+            [days]="vm.config.items.days"
+            [hours]="vm.config.items.hours"
+            [minutes]="vm.config.items.minutes"
+            [seconds]="vm.config.items.seconds"
+            [mode]="vm.config.items.mode"
+            [timestamp]="vm.config.items.timestamp"
         >
         </ui-countdown>\n\n
       `,
