@@ -9,7 +9,7 @@ import colors from 'tailwindcss/colors'
         <div>
           <ui-stacked-simple
             *ngIf="layout === 'empty'"
-            [logo]="vm?.layout?.logo"
+            [logo]="getLogo(vm?.layout?.logos, 'blue', 'logo_detail')"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm?.links?.profile"
@@ -17,7 +17,7 @@ import colors from 'tailwindcss/colors'
 
           <ui-sidebar-classy
             *ngIf="layout === 'classy'"
-            [logo]="vm?.layout?.logo"
+            [logo]="getLogo(vm?.layout?.logos, 'white', 'logo_detail')"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm?.links?.profile"
@@ -25,7 +25,7 @@ import colors from 'tailwindcss/colors'
 
           <ui-sidebar-classic
             *ngIf="layout === 'classic'"
-            [logo]="vm?.layout?.logo"
+            [logo]="getLogo(vm?.layout?.logos, 'white', 'logo_detail')"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm?.links?.profile"
@@ -33,7 +33,7 @@ import colors from 'tailwindcss/colors'
 
           <ui-sidebar-compact
             *ngIf="layout === 'compact'"
-            [logo]="vm?.layout?.logo"
+            [logo]="getLogo(vm?.layout?.logos, 'white', 'logo')"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm?.links?.profile"
@@ -41,7 +41,7 @@ import colors from 'tailwindcss/colors'
 
           <ui-stacked-modern
             *ngIf="layout === 'modern'"
-            [logo]="vm?.layout?.logo"
+            [logo]="getLogo(vm?.layout?.logos, 'blue', 'logo_detail')"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm?.links?.profile"
@@ -49,7 +49,7 @@ import colors from 'tailwindcss/colors'
 
           <ui-stacked-enterprise
             *ngIf="layout === 'enterprise'"
-            [logo]="vm?.layout?.logo"
+            [logo]="getLogo(vm?.layout?.logos, 'white', 'logo_detail')"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm?.links?.profile"
@@ -57,7 +57,7 @@ import colors from 'tailwindcss/colors'
 
           <ui-stacked-centered
             *ngIf="layout === 'centered'"
-            [logo]="vm?.layout?.logo"
+            [logo]="getLogo(vm?.layout?.logos, 'blue', 'logo_detail')"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm?.links?.profile"
@@ -65,7 +65,7 @@ import colors from 'tailwindcss/colors'
 
           <ui-sidebar-dense
             *ngIf="layout === 'dense'"
-            [logo]="vm?.layout?.logo"
+            [logo]="getLogo(vm?.layout?.logos, 'white', 'logo')"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm?.links?.profile"
@@ -73,7 +73,7 @@ import colors from 'tailwindcss/colors'
 
           <ui-sidebar-futuristic
             *ngIf="layout === 'futuristic'"
-            [logo]="vm?.layout?.logo"
+            [logo]="getLogo(vm?.layout?.logos, 'white', 'logo_detail')"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm?.links?.profile"
@@ -81,7 +81,7 @@ import colors from 'tailwindcss/colors'
 
           <ui-sidebar-thin
             *ngIf="layout === 'thin'"
-            [logo]="vm?.layout?.logo"
+            [logo]="getLogo(vm?.layout?.logos, 'white', 'logo')"
             [links]="vm?.links?.main"
             [user]="vm?.user"
             [profileLinks]="vm?.links?.profile"
@@ -540,6 +540,10 @@ export class WebLayoutComponent {
   @ViewChild('sideOverlay') modalOverlay: ElementRef
 
   constructor(private readonly layoutStore: WebLayoutStore) {}
+
+  getLogo(logos, name, mode) {
+    return logos.find((l) => l.name === name && l.mode === mode).src
+  }
 
   setScheme(themeValue) {
     this.isActive = themeValue
