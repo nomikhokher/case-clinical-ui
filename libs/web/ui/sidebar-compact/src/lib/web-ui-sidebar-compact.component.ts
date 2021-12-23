@@ -13,11 +13,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
         <div class="hidden w-28 theme-bg-600 dark:theme-bg-900 overflow-y-auto aside-scrollbar md:block">
           <div class="w-full h-screen py-6 flex flex-col items-center">
             <div class="flex-shrink-0 flex items-center">
-              <img
-                class="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white"
-                alt="Workflow"
-              />
+              <img *ngIf="logo" [attr.src]="logo" [attr.loading]="'lazy'" class="h-8 w-auto" alt="Workflow" />
             </div>
             <div class="flex-1 mt-6 w-full px-4 space-y-1">
               <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-indigo-800 hover:text-white" -->
@@ -102,11 +98,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
             </div>
 
             <div class="flex-shrink-0 px-4 flex items-center">
-              <img
-                class="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white"
-                alt="Workflow"
-              />
+              <img *ngIf="logo" [attr.src]="logo" [attr.loading]="'lazy'" class="h-8 w-auto" alt="Workflow" />
             </div>
             <div class="mt-5 flex-1 h-0 px-2 overflow-y-auto">
               <nav class="h-full flex flex-col">

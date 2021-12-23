@@ -176,11 +176,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
             </div>
 
             <div class="flex-shrink-0 flex items-center px-4">
-              <img
-                class="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-logo-indigo-300-mark-white-text.svg"
-                alt="Workflow"
-              />
+              <img *ngIf="logo" [attr.src]="logo" [attr.loading]="'lazy'" class="w-28 w-auto" alt="Workflow" />
             </div>
             <div class="mt-5 flex-1 h-0 overflow-y-auto aside-scrollbar">
               <nav class="px-2 space-y-1">
@@ -211,7 +207,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
         >
           <div class="max-w-container mx-auto px-4 flex items-center">
             <div class="flex-shrink-0 hidden md:flex">
-              <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-300.svg" alt="Workflow" />
+              <img *ngIf="logo" [attr.src]="logo" [attr.loading]="'lazy'" class="w-28" alt="Workflow" />
             </div>
             <div class="mr-auto flex items-center">
               <div class="hidden md:flex">

@@ -18,6 +18,7 @@ export interface WebLayoutLink {
 export interface WebLayoutState {
   theme: 'dark' | 'light' | 'auto'
   logo: string
+  logos: any
   footerHtml: string
   links: WebLayoutLink[]
   profileLinks: WebLayoutLink[]
@@ -28,7 +29,34 @@ export class WebLayoutStore extends ComponentStore<WebLayoutState> {
   constructor(private readonly authStore: WebAuthStore) {
     super({
       theme: 'light',
-      logo: '/assets/images/logo.png',
+      logo: '/assets/logos/only-logo-blue.png',
+      logos: [
+        {
+          mode: 'logo',
+          name: 'blue',
+          src: '/assets/logos/only-logo-blue.png',
+        },
+        {
+          mode: 'logo_detail',
+          name: 'blue',
+          src: '/assets/logos/logo-detail-blue.png',
+        },
+        {
+          mode: 'logo',
+          name: 'white',
+          src: '/assets/logos/only-logo-white.png',
+        },
+        {
+          mode: 'logo_detail',
+          name: 'white',
+          src: '/assets/logos/logo-detail-white.png',
+        },
+        {
+          mode: 'logo',
+          name: 'black',
+          src: '/assets/logos/only-logo-black.png',
+        },
+      ],
       footerHtml: `Schema-Driven &copy; ${new Date().getFullYear()}`,
       links: [
         { label: 'Dashboard', route: '/dashboard', icon: 'dashboard' },
@@ -50,7 +78,8 @@ export class WebLayoutStore extends ComponentStore<WebLayoutState> {
     profile: state.profileLinks.filter((l) => (l.role ? l.role === user.role : l)),
   }))
 
-  readonly layout$ = this.select(({ logo, footerHtml, theme }) => ({
+  readonly layout$ = this.select(({ logo, footerHtml, theme, logos }) => ({
+    logos,
     logo,
     footerHtml,
     theme,
