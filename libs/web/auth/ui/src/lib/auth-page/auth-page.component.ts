@@ -7,19 +7,9 @@ import { FormGroup } from '@angular/forms'
     <div
       class="min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-gray-300 flex flex-col justify-center py-12 sm:px-6 lg:px-8"
     >
-      <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <img class="mx-auto h-12 w-auto" src="assets/images/logo.png" alt="App Logo" />
-        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-gray-300">
-          {{ pageTitle }}
-        </h2>
-      </div>
-
-      <div class="error text-center mt-6 bg-red-300 text-red-800 rounded-md p-4 mx-auto" *ngIf="errors">
-        {{ errors }}
-      </div>
-
-      <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md" *ngIf="buttonTitle || (linkTitle && linkPath)">
+      <div class="sm:mx-auto sm:w-full sm:max-w-md" *ngIf="buttonTitle || (linkTitle && linkPath)">
         <div class="bg-white dark:bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <img class="mx-auto h-40 p-5 w-auto" src="assets/logos/only-logo-blue.png" alt="App Logo" />
           <ui-form [form]="form" [fields]="fields" [model]="model" (submitForm)="submitForm.emit(model)">
             <div class="flex flex-col space-y-6 mt-6">
               <button
@@ -39,6 +29,9 @@ import { FormGroup } from '@angular/forms'
               </a>
             </div>
           </ui-form>
+          <div class="error text-center mt-6 bg-red-300 text-red-800 rounded-md p-4 mx-auto" *ngIf="errors">
+            {{ errors }}
+          </div>
         </div>
       </div>
     </div>
