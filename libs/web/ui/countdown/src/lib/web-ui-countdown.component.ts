@@ -8,6 +8,7 @@ import { Component, Input, OnInit, Output, OnChanges, EventEmitter } from '@angu
   `,
 })
 export class WebUiCountdownComponent implements OnInit {
+  @Input() delay?: number
   @Input() year?: number
   @Input() month?: number
   @Input() days?: number
@@ -19,7 +20,7 @@ export class WebUiCountdownComponent implements OnInit {
   @Input() timestamp?: any
   @Output() expired: EventEmitter<any> = new EventEmitter()
   interval: any
-
+  countSec: any = 1
   constructor() {
     if (!this.year) {
       this.year = 0
@@ -45,69 +46,68 @@ export class WebUiCountdownComponent implements OnInit {
   }
   ngOnInit() {
     clearInterval(this.interval)
-    console.log(this.timestamp)
-    if (this.mode == false) {
-      //Without timestamp Start
-      var currentDate = new Date()
-      currentDate.setFullYear(currentDate.getFullYear() + this.year)
-      currentDate.setMonth(currentDate.getMonth() + this.month)
-      currentDate.setDate(currentDate.getDate() + this.days)
-
-      var countDownDate = new Date(
-        currentDate.getTime() + this.hours * 60 * 60 * 1000 + this.minutes * 60000 + this.seconds * 1000,
-      ).getTime()
-
-      // Update the count down every 1 second
-      this.interval = setInterval(() => {
-        var now = new Date().getTime()
-
-        // Find the distance between now and the count down date
-        var distance = countDownDate - now
-
-        var years = Math.floor(distance / 3.154e10)
-        var distanceMinusYears = distance - years * 3.154e10
-        var months = Math.floor(distance / 2.628e9) % 12
-        var distanceMinusMonths = distanceMinusYears - months * 2.628e9
-        var days = Math.floor(distanceMinusMonths / 8.64e7)
-        var hours = Math.floor(distance / 3.6e6) % 24
-        var mins = Math.floor(distance / 60000) % 60
-        var secs = Math.floor(distance / 1000) % 60
-        // Output the result in an element with id="demo"
-        this.countDown =
-          this.getYear(years) +
-          this.getMonth(months) +
-          this.getDay(days) +
-          this.getHour(hours) +
-          this.getMinute(mins) +
-          this.getSecond(secs)
-
-        // If the count down is over, write some text
-        if (distance < 0) {
-          clearInterval(this.interval)
-          //this.countDown = '00:00:00'
-          this.expired.emit()
+    this.interval = setInterval(() => {
+      if (this.countSec == this.delay) {
+        if (this.mode == false) {
+          this.withoutTimeSpans()
+        } else {
+          this.withTimeSpan()
         }
-      }, 1000)
-    } else {
-      this.interval = setInterval(() => {
-        var now = new Date().getTime()
-        var distance = this.timestamp - now
-        var years = Math.floor(distance / 3.154e10)
-        var distanceMinusYears = distance - years * 3.154e10
-        var months = Math.floor(distance / 2.628e9) % 12
-        var distanceMinusMonths = distanceMinusYears - months * 2.628e9
-        var days = Math.floor(distanceMinusMonths / 8.64e7)
-        var hours = Math.floor(distance / 3.6e6) % 24
-        var mins = Math.floor(distance / 60000) % 60
-        var secs = Math.floor(distance / 1000) % 60
-        this.countDown = this.getDay(days) + this.getHour(hours) + this.getMinute(mins) + this.getSecond(secs)
-        if (distance < 0) {
-          clearInterval(this.interval)
-          //this.countDown = "00:00:00";
-          this.expired.emit()
-        }
-      }, 1000)
-    }
+      }
+      this.countSec++
+    }, 1000)
+  }
+  withoutTimeSpans() {
+    var currentDate = new Date()
+    currentDate.setFullYear(currentDate.getFullYear() + this.year)
+    currentDate.setMonth(currentDate.getMonth() + this.month)
+    currentDate.setDate(currentDate.getDate() + this.days)
+    var countDownDate = new Date(
+      currentDate.getTime() + this.hours * 60 * 60 * 1000 + this.minutes * 60000 + this.seconds * 1000,
+    ).getTime()
+    this.interval = setInterval(() => {
+      var now = new Date().getTime()
+      var distance = countDownDate - now
+      this.countDown = this.calculation(distance)
+      if (distance < 0) {
+        clearInterval(this.interval)
+        this.countDown = '00:00:00'
+        //this.countDown = this.expired.emit('00:00:00')
+      }
+    }, 1000)
+  }
+  withTimeSpan() {
+    this.interval = setInterval(() => {
+      var now = new Date().getTime()
+      var val = this.delay * 1000
+      var distance = this.timestamp + val - now
+      this.countDown = this.calculation(distance)
+      if (distance < 0) {
+        clearInterval(this.interval)
+        this.countDown = '00:00:00'
+        console.log(this.expired.emit())
+        //this.expired.emit()
+      }
+    }, 1000)
+  }
+  calculation(distance) {
+    var years = Math.floor(distance / 3.154e10)
+    var distanceMinusYears = distance - years * 3.154e10
+    var months = Math.floor(distance / 2.628e9) % 12
+    var distanceMinusMonths = distanceMinusYears - months * 2.628e9
+    var days = Math.floor(distanceMinusMonths / 8.64e7)
+    var hours = Math.floor(distance / 3.6e6) % 24
+    var mins = Math.floor(distance / 60000) % 60
+    var secs = Math.floor(distance / 1000) % 60
+    // return this.getDay(days) + this.getHour(hours) + this.getMinute(mins) + this.getSecond(secs)
+    return (
+      this.getYear(years) +
+      this.getMonth(months) +
+      this.getDay(days) +
+      this.getHour(hours) +
+      this.getMinute(mins) +
+      this.getSecond(secs)
+    )
   }
   getYear(year) {
     return year > 0 ? year + 'Y: ' : ''
