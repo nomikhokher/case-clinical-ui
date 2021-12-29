@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
-
+import { FormControl, FormGroup, Validators, NgForm } from '@angular/forms'
 @Component({
   selector: 'ui-contact-sections',
   template: `
@@ -101,14 +101,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
           </div>
 
           <div class="max-w-lg mx-auto lg:max-w-none">
-            <form class="grid grid-cols-1 gap-y-6">
+            <form #employeeForm="ngForm" class="grid grid-cols-1 gap-y-6" name="form">
               <div>
                 <label for="full-name" class="sr-only">Full name</label>
                 <input
                   type="text"
-                  name="full-name"
+                  name="full - name"
                   id="full-name"
-                  autocomplete="name"
+                  [(ngModel)]="first_name"
                   class="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
                   placeholder="Full name"
                 />
@@ -119,39 +119,48 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
                   id="email"
                   name="email"
                   type="email"
-                  autocomplete="email"
+                  [(ngModel)]="email"
+                  autocomplete="off"
                   class="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
                   placeholder="Email"
-                  required
                 />
+                <span [ngClass]="email_class">Email Required</span>
               </div>
-              <div>
-                <label for="phone" class="sr-only">Phone</label>
+              <div class="form-group" [class.has-error]="phonecontrol.invalid && phonecontrol.touched">
+                <label for="phone" class="sr-only control-label">Phone</label>
                 <input
                   type="tel"
                   name="phone"
                   id="phone"
-                  autocomplete="tel"
+                  #phonecontrol="ngModel"
+                  [(ngModel)]="phone"
+                  aria-invalid="true"
+                  autocomplete="off"
                   class="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
                   placeholder="0300-1234567"
-                  pattern="[0-9]{4}-[0-9]{7}"
-                  required
                 />
-                <small>Format: 0300-1234567</small>
+                <span [ngClass]="phone_class">Phone Required</span>
+                <!-- //<small>Format: 0300-1234567</small> -->
               </div>
               <div>
-                <label for="message" class="sr-only">Message</label>
+                <label ngfor="message" class="sr-only">Message</label>
                 <textarea
                   id="message"
                   name="message"
+                  [(ngModel)]="message"
                   rows="4"
-                  z
                   class="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md"
                   placeholder="Message"
                 ></textarea>
               </div>
               <div>
                 <button
+                  (click)="onAlert()"
+                  onclick="
+                  document.getElementById('full-name').value='',
+                  document.getElementById('email').value='',
+                  document.getElementById('phone').value='',
+                  document.getElementById('message').value=''"
                   class="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Submit
@@ -166,7 +175,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
   `,
 })
 export class WebUiContactSectionsComponent implements OnInit {
+  first_name: string
+  message: string
   alert: boolean
+  email: string = ''
+  email_class: string = 'hidden'
+  phone: any = ''
+  phone_class: string = 'hidden'
   @Input() Text?: any
   @Output() save: EventEmitter<boolean> = new EventEmitter()
 
@@ -179,11 +194,24 @@ export class WebUiContactSectionsComponent implements OnInit {
     console.log(this.alert)
   }
   onAlert() {
-    this.alert = true
-    //console.log(this.save.emit())
+    if (this.phone.length > 0 && this.email.length > 0) {
+      this.alert = true
+    }
+    if (this.phone.length == 0) {
+      this.phone_class = 'text-red-500'
+    } else {
+      this.phone_class = 'hidden'
+    }
+    if (this.email.length == 0) {
+      this.email_class = 'text-red-500'
+    } else {
+      this.email_class = 'hidden'
+    }
   }
+  saveEmployee(empForm: NgForm): void {}
+
+  //document.getElementById('full-name').value=''
   clearFields() {
-    //document.getElementById('full-name').value=''
     //click = 'this.onAlert()'
   }
 }

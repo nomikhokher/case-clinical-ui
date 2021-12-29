@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import { DevContactSectionsStore } from './dev-contact-sections.store'
 
 @Component({
@@ -20,14 +20,16 @@ import { DevContactSectionsStore } from './dev-contact-sections.store'
   providers: [DevContactSectionsStore],
 })
 export class DevContactSectionsComponent {
-  s: boolean
+  s: boolean = true
   readonly vm$ = this.store.vm$
   public codePreview
   constructor(private readonly store: DevContactSectionsStore) {}
-  savedData() {
-    this.s = true
+
+  savedData(count: boolean) {
+    console.log('lajfljaslf')
     return this.s
   }
+
   ngOnInit(): void {
     this.vm$.subscribe((result) => {
       this.codePreview = [
