@@ -418,4 +418,9 @@ export const routes: Routes = [
     path: 'countdown',
     loadChildren: () => import('./dev-countdown/dev-countdown.module').then((m) => m.DevCountdownModule),
   },
+  {
+    path: 'contact-sections',
+    loadChildren: () =>
+      import('./dev-contact-sections/dev-contact-sections.module').then((m) => m.DevContactSectionsModule),
+  },
 ]

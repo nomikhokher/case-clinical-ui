@@ -608,6 +608,11 @@ export class WebDevFeatureComponent {
               route: 'countdown',
               image: '/assets/images/store-navigation.png',
             },
+            {
+              label: 'Contact Section',
+              route: 'contact-sections',
+              image: '/assets/images/contact-sections.png',
+            },
           ],
         },
       ],

@@ -1338,6 +1338,31 @@
         }
       }
     },
+    "web-ui-contact-sections": {
+      "projectType": "library",
+      "root": "libs/web/ui/contact-sections",
+      "sourceRoot": "libs/web/ui/contact-sections/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/contact-sections/src/**/*.ts",
+              "libs/web/ui/contact-sections/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/contact-sections"],
+          "options": {
+            "jestConfig": "libs/web/ui/contact-sections/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-container": {
       "projectType": "library",
       "root": "libs/web/ui/container",

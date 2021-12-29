@@ -195,6 +195,9 @@
     "web-ui-contact-card": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-contact-sections": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-container": {
       "tags": ["scope:web", "type:ui"]
     },
