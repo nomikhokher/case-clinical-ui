@@ -208,10 +208,4 @@ export class WebUiContactSectionsComponent implements OnInit {
       this.email_class = 'hidden'
     }
   }
-  saveEmployee(empForm: NgForm): void {}
-
-  //document.getElementById('full-name').value=''
-  clearFields() {
-    //click = 'this.onAlert()'
-  }
 }

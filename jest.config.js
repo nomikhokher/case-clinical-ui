@@ -159,5 +159,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/mutator',
     '<rootDir>/libs/web/ui/countdown',
     '<rootDir>/libs/web/ui/contact-sections',
+    '<rootDir>/libs/web/ui/contact-section-slide-brand-panel',
   ],
 }

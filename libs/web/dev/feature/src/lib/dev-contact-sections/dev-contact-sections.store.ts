@@ -34,7 +34,7 @@ export class DevContactSectionsStore extends ComponentStore<DevContactSectionsSt
   }
   readonly config$ = this.select(this.state$, (s) => s.config)
   readonly vm$ = this.select(this.config$, (config) => ({ config }))
-  getValueOfDate() {}
+  //getValueOfDate() {}
   /* readonly loadItemsEffect = this.effect(($) =>
     $.pipe(
       tap(() => this.patchState( { loading: true })),

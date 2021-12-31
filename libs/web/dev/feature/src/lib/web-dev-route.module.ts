@@ -423,4 +423,11 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./dev-contact-sections/dev-contact-sections.module').then((m) => m.DevContactSectionsModule),
   },
+  {
+    path: 'contact-section-slide-brand-panel',
+    loadChildren: () =>
+      import('./dev-contact-section-slide-brand-panel/dev-contact-section-slide-brand-panel.module').then(
+        (m) => m.DevContactSectionSlideBrandPanelModule,
+      ),
+  },
 ]

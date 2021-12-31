@@ -1338,6 +1338,31 @@
         }
       }
     },
+    "web-ui-contact-section-slide-brand-panel": {
+      "projectType": "library",
+      "root": "libs/web/ui/contact-section-slide-brand-panel",
+      "sourceRoot": "libs/web/ui/contact-section-slide-brand-panel/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/contact-section-slide-brand-panel/src/**/*.ts",
+              "libs/web/ui/contact-section-slide-brand-panel/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/contact-section-slide-brand-panel"],
+          "options": {
+            "jestConfig": "libs/web/ui/contact-section-slide-brand-panel/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-contact-sections": {
       "projectType": "library",
       "root": "libs/web/ui/contact-sections",

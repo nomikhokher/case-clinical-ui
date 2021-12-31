@@ -195,6 +195,9 @@
     "web-ui-contact-card": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-contact-section-slide-brand-panel": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-contact-sections": {
       "tags": ["scope:web", "type:ui"]
     },

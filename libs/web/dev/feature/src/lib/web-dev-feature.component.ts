@@ -613,6 +613,11 @@ export class WebDevFeatureComponent {
               route: 'contact-sections',
               image: '/assets/images/contact-sections.png',
             },
+            {
+              label: 'Contact Section By Slide Brand Panel',
+              route: 'contact-section-slide-brand-panel',
+              image: '/assets/images/contact-sections.png',
+            },
           ],
         },
       ],

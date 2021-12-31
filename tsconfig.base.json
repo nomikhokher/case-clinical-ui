@@ -69,6 +69,9 @@
       "@schema-driven/web/ui/code": ["libs/web/ui/code/src/index.ts"],
       "@schema-driven/web/ui/color-picker": ["libs/web/ui/color-picker/src/index.ts"],
       "@schema-driven/web/ui/contact-card": ["libs/web/ui/contact-card/src/index.ts"],
+      "@schema-driven/web/ui/contact-section-slide-brand-panel": [
+        "libs/web/ui/contact-section-slide-brand-panel/src/index.ts"
+      ],
       "@schema-driven/web/ui/contact-sections": ["libs/web/ui/contact-sections/src/index.ts"],
       "@schema-driven/web/ui/container": ["libs/web/ui/container/src/index.ts"],
       "@schema-driven/web/ui/countdown": ["libs/web/ui/countdown/src/index.ts"],
