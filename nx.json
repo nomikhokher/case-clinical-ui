@@ -249,6 +249,9 @@
     "web-ui-faq-section": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-feature-sections-by-grid-with-offset-icons": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-feed": {
       "tags": ["scope:web", "type:ui"]
     },

@@ -34,8 +34,8 @@ export class DevContactSectionSlideBrandPanelStore extends ComponentStore<DevCon
     })
     //this.loadItemsEffect()
   }
-  readonly config$ = this.select(this.state$, (s) => s.config)
   //readonly items$ = this.select(this.state$, (s) => s.items)
+  readonly config$ = this.select(this.state$, (s) => s.config)
   readonly vm$ = this.select(this.config$, (config) => ({ config }))
 
   // readonly loadItemsEffect = this.effect(($) =>

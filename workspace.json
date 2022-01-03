@@ -1755,6 +1755,31 @@
         }
       }
     },
+    "web-ui-feature-sections-by-grid-with-offset-icons": {
+      "projectType": "library",
+      "root": "libs/web/ui/feature-sections-by-grid-with-offset-icons",
+      "sourceRoot": "libs/web/ui/feature-sections-by-grid-with-offset-icons/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/feature-sections-by-grid-with-offset-icons/src/**/*.ts",
+              "libs/web/ui/feature-sections-by-grid-with-offset-icons/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/feature-sections-by-grid-with-offset-icons"],
+          "options": {
+            "jestConfig": "libs/web/ui/feature-sections-by-grid-with-offset-icons/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-feed": {
       "projectType": "library",
       "root": "libs/web/ui/feed",

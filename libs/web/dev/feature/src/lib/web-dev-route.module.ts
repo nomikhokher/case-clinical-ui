@@ -430,4 +430,11 @@ export const routes: Routes = [
         (m) => m.DevContactSectionSlideBrandPanelModule,
       ),
   },
+  {
+    path: 'feature-sections-by-grid-with-offset-icons',
+    loadChildren: () =>
+      import(
+        './dev-feature-sections-by-grid-with-offset-icons/dev-feature-sections-by-grid-with-offset-icons.module'
+      ).then((m) => m.DevFeatureSectionsByGridWithOffsetIconsModule),
+  },
 ]

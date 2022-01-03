@@ -263,6 +263,7 @@ import { Component, OnInit, Input } from '@angular/core'
                       type="text"
                       name="last-name"
                       id="last-name"
+                      [(ngModel)]="lastname"
                       autocomplete="family-name"
                       class="py-1 px-1 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
                     />
@@ -292,6 +293,7 @@ import { Component, OnInit, Input } from '@angular/core'
                       type="text"
                       name="phone"
                       id="phone"
+                      [(ngModel)]="phone"
                       autocomplete="tel"
                       class="py-1 px-1 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
                       aria-describedby="phone-optional"
@@ -314,14 +316,14 @@ import { Component, OnInit, Input } from '@angular/core'
                 <div class="sm:col-span-2">
                   <div class="flex justify-between">
                     <label for="message" class="block text-sm font-medium text-gray-900">Message</label>
-                    <span id="message-max" class="text-sm text-gray-500">{{ count_string }} / 500 Max. Characters</span>
+                    <span id="message-max" class="text-sm text-gray-500">{{ count_string }} / 30 Max. Characters</span>
                   </div>
                   <div class="mt-1">
                     <textarea
                       id="message"
                       name="message"
                       rows="2"
-                      maxlength="500"
+                      maxlength="30"
                       (input)="countValue(this)"
                       [(ngModel)]="message"
                       class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md"
@@ -333,8 +335,6 @@ import { Component, OnInit, Input } from '@angular/core'
                 <div class="sm:col-span-2 sm:flex sm:justify-end">
                   <button
                     (click)="popupShow()"
-                    onclick="
-                  document.getElementById('email').value=''"
                     class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto"
                   >
                     Submit
@@ -351,10 +351,14 @@ import { Component, OnInit, Input } from '@angular/core'
 export class WebUiContactSectionSlideBrandPanelComponent implements OnInit {
   @Input() Text?: any
   firstname: string = ''
+  lastname: string = ''
+
   alert: boolean
+
   firstname_class: string = 'hidden'
   count_string: number = 0
 
+  phone: string = ''
   email: string = ''
   email_class: string = 'hidden'
 
@@ -368,11 +372,8 @@ export class WebUiContactSectionSlideBrandPanelComponent implements OnInit {
     this.Text = 'Testing Data'
     console.log(this.Text)
   }
-  popupShow() {
-    if (this.firstname.length > 0 && this.email.length > 0 && this.subject.length > 0 && this.message.length > 0) {
-      this.alert = true
-    }
 
+  popupShow() {
     if (this.firstname.length == 0) {
       this.firstname_class = 'text-red-500'
     } else {
@@ -395,6 +396,17 @@ export class WebUiContactSectionSlideBrandPanelComponent implements OnInit {
       this.message_class = 'text-red-500'
     } else {
       this.message_class = 'hidden'
+    }
+
+    if (this.firstname.length > 0 && this.email.length > 0 && this.subject.length > 0 && this.message.length > 0) {
+      this.alert = true
+      this.firstname = ''
+      this.lastname = ''
+      this.email = ''
+      this.phone = ''
+      this.subject = ''
+      this.message = ''
+      this.count_string = 0
     }
   }
   countValue(textValue) {

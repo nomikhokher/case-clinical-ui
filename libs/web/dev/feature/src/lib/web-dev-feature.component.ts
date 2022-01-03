@@ -618,6 +618,11 @@ export class WebDevFeatureComponent {
               route: 'contact-section-slide-brand-panel',
               image: '/assets/images/contact-sections.png',
             },
+            {
+              label: 'Feature Sections By Grid With Offset Icons',
+              route: 'feature-sections-by-grid-with-offset-icons',
+              image: '/assets/images/feature-sections.png',
+            },
           ],
         },
       ],
