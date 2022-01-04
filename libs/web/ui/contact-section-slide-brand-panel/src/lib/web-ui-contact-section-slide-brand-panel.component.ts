@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core'
 @Component({
   selector: 'ui-contact-section-slide-brand-panel',
   template: `
-    <div class="bg-gray-100">
+    <div class="dark:bg-gray-800">
       <div class="max-w-7xl mx-auto py-4 px-2 sm:py-10 sm:px-6 lg:px-2">
         <div class="relative bg-white shadow-xl">
           <h2 class="sr-only">Contact us</h2>
@@ -213,18 +213,19 @@ import { Component, OnInit, Input } from '@angular/core'
             </div>
 
             <!-- Contact form -->
-            <div class="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
+            <div class="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12  dark:bg-gray-800">
               <!--Saved PopUp Message Code Start-->
               <div
                 *ngIf="alert"
-                class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 mb-6 rounded relative"
+                class=" px-4 py-3 mb-6 rounded relative dark:bg-gray-800 ? bg-green-100"
+                [ngClass]="dark ? 'border border-green-400' : 'border border-white'"
                 role="alert"
               >
-                <strong class="font-bold">Saved Successfully.</strong>
-                <span class="block sm:inline">Thank you for Submitting.</span>
+                <strong class="font-bold dark:text-white ? text-green-700">Saved Successfully. </strong>
+                <span class="block sm:inline dark:text-white ? text-green-700">Thank for Submitting.</span>
                 <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
                   <svg
-                    (click)="closePopUp()"
+                    (click)="this.closePopUp()"
                     class="fill-current h-6 w-6 text-red-500"
                     role="button"
                     xmlns="http://www.w3.org/2000/svg"
@@ -239,11 +240,11 @@ import { Component, OnInit, Input } from '@angular/core'
               </div>
               <!--Saved PopUp Message Code End-->
 
-              <h3 class="text-lg font-medium text-gray-900">Send us a message</h3>
+              <h3 class="text-lg font-medium dark:text-white">Send us a message</h3>
               <!-- action="#" method="POST" -->
               <form class="mt-6 grid grid-cols-1 gap-y-3 sm:grid-cols-2 sm:gap-x-8">
                 <div>
-                  <label for="first-name" class="block text-sm font-medium text-gray-900">First name</label>
+                  <label for="first-name" class="block text-sm font-medium dark:text-white">First name</label>
                   <div class="mt-1">
                     <input
                       type="text"
@@ -251,13 +252,13 @@ import { Component, OnInit, Input } from '@angular/core'
                       id="first-name"
                       autocomplete="given-name"
                       [(ngModel)]="firstname"
-                      class="py-1 px-1 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      class="py-1 px-1 block w-full shadow-sm dark:text-white ? text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md dark:bg-gray-800 ? bg-white"
                     />
                     <span [ngClass]="firstname_class">First Name Required.</span>
                   </div>
                 </div>
                 <div>
-                  <label for="last-name" class="block text-sm font-medium text-gray-900">Last name</label>
+                  <label for="last-name" class="block text-sm font-medium dark:text-white">Last name</label>
                   <div class="mt-1">
                     <input
                       type="text"
@@ -265,12 +266,12 @@ import { Component, OnInit, Input } from '@angular/core'
                       id="last-name"
                       [(ngModel)]="lastname"
                       autocomplete="family-name"
-                      class="py-1 px-1 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      class="py-1 px-1 block w-full shadow-sm dark:text-white ? text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md dark:bg-gray-800 ? bg-white"
                     />
                   </div>
                 </div>
                 <div>
-                  <label for="email" class="block text-sm font-medium text-gray-900">Email</label>
+                  <label for="email" class="block text-sm font-medium dark:text-white">Email</label>
                   <div class="mt-1">
                     <input
                       id="email"
@@ -278,14 +279,14 @@ import { Component, OnInit, Input } from '@angular/core'
                       type="email"
                       autocomplete="email"
                       [(ngModel)]="email"
-                      class="py-1 px-1 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      class="py-1 px-1 block w-full shadow-sm dark:text-white ? text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md dark:bg-gray-800 ? bg-white"
                     />
                     <span [ngClass]="email_class">Email Required.</span>
                   </div>
                 </div>
                 <div>
                   <div class="flex justify-between">
-                    <label for="phone" class="block text-sm font-medium text-gray-900">Phone</label>
+                    <label for="phone" class="block text-sm font-medium dark:text-white">Phone</label>
                     <span id="phone-optional" class="text-sm text-gray-500">Optional</span>
                   </div>
                   <div class="mt-1">
@@ -295,27 +296,27 @@ import { Component, OnInit, Input } from '@angular/core'
                       id="phone"
                       [(ngModel)]="phone"
                       autocomplete="tel"
-                      class="py-1 px-1 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      class="py-1 px-1 block w-full shadow-sm dark:text-white ? text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md dark:bg-gray-800 ? bg-white"
                       aria-describedby="phone-optional"
                     />
                   </div>
                 </div>
                 <div class="sm:col-span-2">
-                  <label for="subject" class="block text-sm font-medium text-gray-900">Subject</label>
+                  <label for="subject" class="block text-sm font-medium dark:text-white">Subject</label>
                   <div class="mt-1">
                     <input
                       type="text"
                       name="subject"
                       id="subject"
                       [(ngModel)]="subject"
-                      class="py-1 px-1 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      class="py-1 px-1 block w-full shadow-sm dark:text-white ? text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md dark:bg-gray-800 ? bg-white"
                     />
                     <span [ngClass]="subject_class">Subject must Required.</span>
                   </div>
                 </div>
                 <div class="sm:col-span-2">
                   <div class="flex justify-between">
-                    <label for="message" class="block text-sm font-medium text-gray-900">Message</label>
+                    <label for="message" class="block text-sm font-medium dark:text-white">Message</label>
                     <span id="message-max" class="text-sm text-gray-500">{{ count_string }} / 30 Max. Characters</span>
                   </div>
                   <div class="mt-1">
@@ -326,7 +327,7 @@ import { Component, OnInit, Input } from '@angular/core'
                       maxlength="30"
                       (input)="countValue(this)"
                       [(ngModel)]="message"
-                      class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md"
+                      class="py-3 px-4 block w-full shadow-sm dark:text-white ? text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md dark:bg-gray-800 ? bg-white"
                       aria-describedby="message-max"
                     ></textarea>
                     <span [ngClass]="message_class">Message must Required.</span>

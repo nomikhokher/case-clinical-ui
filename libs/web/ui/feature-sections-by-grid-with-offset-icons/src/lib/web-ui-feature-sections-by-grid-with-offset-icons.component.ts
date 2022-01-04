@@ -14,8 +14,10 @@ import { Component, Input } from '@angular/core'
       </p>
       <div class="mt-12">
         <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <div *ngFor="let item of tabsData" class="pt-6">
-            <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8">
+          <div class="pt-6" *ngFor="let item of tabsData">
+            <div
+              class="flow-root rounded-lg px-6 pb-8 dark:bg-gray-800 border-2 border-white-600 rounded-xl ? bg-gray-50 border-2 border-white-0"
+            >
               <div class="-mt-6">
                 <div>
                   <span class="inline-flex items-center justify-center p-3 bg-indigo-500 rounded-md shadow-lg">
@@ -23,8 +25,8 @@ import { Component, Input } from '@angular/core'
                     <ui-icon size="lg" class="h-6 w-6" icon="{{ item.icon }}"></ui-icon>
                   </span>
                 </div>
-                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">{{ item.title }}</h3>
-                <p class="mt-5 text-base text-gray-500">
+                <h3 class="mt-8 text-lg font-medium text-gray-900 dark:text-white tracking-tight">{{ item.title }}</h3>
+                <p class="mt-5 text-base text-gray-500 dark:text-gray-400">
                   {{ item.description }}
                 </p>
               </div>
