@@ -69,6 +69,10 @@
       "@schema-driven/web/ui/code": ["libs/web/ui/code/src/index.ts"],
       "@schema-driven/web/ui/color-picker": ["libs/web/ui/color-picker/src/index.ts"],
       "@schema-driven/web/ui/contact-card": ["libs/web/ui/contact-card/src/index.ts"],
+      "@schema-driven/web/ui/contact-section-slide-brand-panel": [
+        "libs/web/ui/contact-section-slide-brand-panel/src/index.ts"
+      ],
+      "@schema-driven/web/ui/contact-sections": ["libs/web/ui/contact-sections/src/index.ts"],
       "@schema-driven/web/ui/container": ["libs/web/ui/container/src/index.ts"],
       "@schema-driven/web/ui/countdown": ["libs/web/ui/countdown/src/index.ts"],
       "@schema-driven/web/ui/date-picker": ["libs/web/ui/date-picker/src/index.ts"],
@@ -87,6 +91,9 @@
         "libs/web/ui/empty-states-with-recommendations/src/index.ts"
       ],
       "@schema-driven/web/ui/faq-section": ["libs/web/ui/faq-section/src/index.ts"],
+      "@schema-driven/web/ui/feature-sections-by-grid-with-offset-icons": [
+        "libs/web/ui/feature-sections-by-grid-with-offset-icons/src/index.ts"
+      ],
       "@schema-driven/web/ui/feed": ["libs/web/ui/feed/src/index.ts"],
       "@schema-driven/web/ui/folder-options": ["libs/web/ui/folder-options/src/index.ts"],
       "@schema-driven/web/ui/footer": ["libs/web/ui/footer/src/index.ts"],
