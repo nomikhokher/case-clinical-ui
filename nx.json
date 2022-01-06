@@ -195,6 +195,12 @@
     "web-ui-contact-card": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-contact-section-slide-brand-panel": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-contact-sections": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-container": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -241,6 +247,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-faq-section": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-feature-sections-by-grid-with-offset-icons": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-feed": {
