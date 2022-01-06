@@ -608,6 +608,21 @@ export class WebDevFeatureComponent {
               route: 'countdown',
               image: '/assets/images/store-navigation.png',
             },
+            {
+              label: 'Contact Section',
+              route: 'contact-sections',
+              image: '/assets/images/contact-sections.png',
+            },
+            {
+              label: 'Contact Section By Slide Brand Panel',
+              route: 'contact-section-slide-brand-panel',
+              image: '/assets/images/contact-sections.png',
+            },
+            {
+              label: 'Feature Sections By Grid With Offset Icons',
+              route: 'feature-sections-by-grid-with-offset-icons',
+              image: '/assets/images/feature-sections.png',
+            },
           ],
         },
       ],

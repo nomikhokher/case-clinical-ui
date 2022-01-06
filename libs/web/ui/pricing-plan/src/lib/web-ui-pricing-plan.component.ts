@@ -15,7 +15,7 @@ import { Component, Input } from '@angular/core'
             <ng-container *ngFor="let btn of planSections.buttons">
               <button
                 type="button"
-                class="relative w-1/2  border-gray-200 rounded-md shadow-sm py-2 text-sm font-medium text-gray-900 whitespace-nowrap 
+                class="relative w-1/2  border-gray-200 rounded-md shadow-sm py-2 text-sm font-medium text-gray-900 whitespace-nowrap
             focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:z-10 sm:w-auto sm:px-8 bg-{{
                   btn.bgColor ? btn.bgColor : 'bg-white'
                 }}-200"
@@ -42,7 +42,7 @@ import { Component, Input } from '@angular/core'
               </p>
               <a
                 href="javascript:void(0)"
-                class="mt-8 block w-full border border-gray-800 rounded-md py-2 text-sm font-semibold 
+                class="mt-8 block w-full border border-gray-800 rounded-md py-2 text-sm font-semibold
               text-white dark:text-gray-800 dark:bg-gray-200 text-center dark:hover:bg-gray-50 hover:bg-{{
                   card.cardHeader.btnColor ? card.cardHeader.btnColor : 'gray'
                 }}-900 bg-{{ card.cardHeader.btnColor ? card.cardHeader.btnColor : 'gray' }}-800"

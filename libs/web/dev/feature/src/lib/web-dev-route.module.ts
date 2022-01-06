@@ -418,4 +418,23 @@ export const routes: Routes = [
     path: 'countdown',
     loadChildren: () => import('./dev-countdown/dev-countdown.module').then((m) => m.DevCountdownModule),
   },
+  {
+    path: 'contact-sections',
+    loadChildren: () =>
+      import('./dev-contact-sections/dev-contact-sections.module').then((m) => m.DevContactSectionsModule),
+  },
+  {
+    path: 'contact-section-slide-brand-panel',
+    loadChildren: () =>
+      import('./dev-contact-section-slide-brand-panel/dev-contact-section-slide-brand-panel.module').then(
+        (m) => m.DevContactSectionSlideBrandPanelModule,
+      ),
+  },
+  {
+    path: 'feature-sections-by-grid-with-offset-icons',
+    loadChildren: () =>
+      import(
+        './dev-feature-sections-by-grid-with-offset-icons/dev-feature-sections-by-grid-with-offset-icons.module'
+      ).then((m) => m.DevFeatureSectionsByGridWithOffsetIconsModule),
+  },
 ]

@@ -81,4 +81,10 @@ export enum UiIcon {
   filStart = 'filStart',
   ratingStar = 'ratingStar',
   template = 'template',
+  cloud_upload = 'cloud_upload',
+  lock_closed = 'lock_closed',
+  refresh = 'refresh',
+  sheild_check = 'sheild_check',
+  cog = 'cog',
+  server = 'server',
 }
