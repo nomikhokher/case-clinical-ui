@@ -29,11 +29,11 @@ export class DevPricingPlanComponent {
     this.vm$.subscribe((result) => {
       this.codePreview = [
         `import { WebUiPricingPlanModule } from '@schema-driven/web/ui/pricing-plan'\n\n
-        <ui-pricing-plan 
-          [planSections]="vm.config.items.planSections" 
+        <ui-pricing-plan
+          [planSections]="vm.config.items.planSections"
           [cards]="vm.config.items.cards"
         >
-        </ui-pricing-plan>\n\n 
+        </ui-pricing-plan>\n\n
         {
           planSections: ${JSON.stringify(result.config.items.planSections, null, '\t')}
           cards: ${JSON.stringify(result.config.items.cards, null, '\t')}
