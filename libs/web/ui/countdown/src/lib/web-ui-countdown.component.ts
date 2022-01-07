@@ -45,6 +45,7 @@ export class WebUiCountdownComponent implements OnInit {
     this.ngOnInit()
   }
   ngOnInit() {
+    console.log(this.mode)
     clearInterval(this.interval)
     this.interval = setInterval(() => {
       if (this.countSec == this.delay) {

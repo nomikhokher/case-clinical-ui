@@ -23,6 +23,7 @@ export interface Item {
 }
 
 export interface Inputs {
+  title?: string
   label?: string
   prop?: string
   description?: string
