@@ -362,8 +362,13 @@ export interface ComponentProp {
                       <option *ngFor="let val of object_first_value(item)">{{ val }}</option>
                     </select>
                   </div>
-                  <div *ngIf="input_second_enabled(item)">
-                    <label>{{ item.key }}label1 :</label>
+                  <div class="flex" *ngIf="input_second_enabled(item)">
+                    <label class="pt-2 pr-0.5"
+                      >{{
+                        item.name || item.role || item.type || item.total || item.current || item.previous || item.title
+                      }}
+                      :
+                    </label>
                     <input
                       [id]="'secondBody_' + i"
                       [value]="stringify_value(item)"
@@ -399,7 +404,7 @@ export interface ComponentProp {
                     </div>
                     <!-- == null ? {{ item.text }} : {{ item.label }} -->
                     <div class="flex" *ngIf="input_second_enabled(item)">
-                      <label class="mt-2 mr-2"> {{ item.text || item.label || item.color || item.fontColor }} : </label>
+                      <label class="mt-2 mr-2"> {{ getTitle(item) }} : </label>
                       <input
                         [id]="'thirdBody' + i + j"
                         [value]="stringify_value(item)"
@@ -784,6 +789,7 @@ export class WebUiPreviewComponent implements OnInit {
       this.secondBody = !this.secondBody
       this.isTableToggle = true
       this.tableData = item
+      console.log(this.tableData)
     }
   }
   selectObjChange(myKey, newValue): void {
@@ -817,5 +823,9 @@ export class WebUiPreviewComponent implements OnInit {
     } else {
       return this.iframeHeight
     }
+  }
+
+  getTitle(item) {
+    return Object.keys(item)
   }
 }
