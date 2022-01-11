@@ -302,7 +302,7 @@ export interface ComponentProp {
                 <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-700 dark:text-gray-200 ">
                   <div class="flex rounded-md shadow-sm">
                     <div class="w-full relative flex" *ngIf="input_enabled(item)">
-                      <label class="pt-2 pr-2">{{ item.key }} :</label>
+                      <label class="pt-2 pr-2">{{ item.key }} : </label>
                       <input
                         [id]="account_number + '_' + i"
                         [value]="stringify(item.value)"
@@ -331,8 +331,8 @@ export interface ComponentProp {
                       </span>
                     </div>
 
-                    <div class="w-full" *ngIf="!input_enabled(item)">
-                      <!-- <label class="pr-1">{{ item.key }} :..</label> -->
+                    <div class="w-full relative flex" *ngIf="!input_enabled(item)">
+                      <label class="pr-1 pt-2">{{ item.key }} : </label>
                       <select
                         (change)="selectChange(item.key, $event.target.value)"
                         class="rounded-lg border-gray-400 w-full"
@@ -352,23 +352,18 @@ export interface ComponentProp {
             >
               <tr class="my-2 text-left w-full space-y-2" *ngFor="let item of tableData; let i = index">
                 <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-700 dark:text-gray-200">
-                  <div *ngIf="!input_second_enabled(item)">
+                  <div class="w-full relative flex" *ngIf="!input_second_enabled(item)">
                     <!-- <label class="pr-1">{{ item.key }}</label> -->
+                    <label class="mt-2 mr-1"> {{ getTitle(item) }} : </label>
                     <select
                       class="rounded-lg border-gray-400 w-full"
                       (change)="selectObjChange(item, $event.target.value)"
                     >
-                      <label>{{ item.key }} .testIII</label>
                       <option *ngFor="let val of object_first_value(item)">{{ val }}</option>
                     </select>
                   </div>
                   <div class="flex" *ngIf="input_second_enabled(item)">
-                    <label class="pt-2 pr-0.5"
-                      >{{
-                        item.name || item.role || item.type || item.total || item.current || item.previous || item.title
-                      }}
-                      :
-                    </label>
+                    <label class="pt-2 pr-0.5"> {{ getTitle(item) }} : </label>
                     <input
                       [id]="'secondBody_' + i"
                       [value]="stringify_value(item)"
@@ -392,9 +387,10 @@ export interface ComponentProp {
                 <label for="" class="text-theme-500 ml-3 text-">{{ objectKeys | uppercase }} {{ i + 1 }}</label>
                 <tr class="my-2 text-left grid grid-cols-1" *ngFor="let item of values; let j = index">
                   <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-700 dark:text-gray-200">
-                    <div *ngIf="!input_second_enabled(item)">
+                    <div class="w-full relative flex" *ngIf="!input_second_enabled(item)">
                       <!-- page heading combobox -->
                       <!-- <label class="pr-1">{{ item.text }}</label> -->
+                      <label class="mt-3 mr-1"> {{ getTitle(item) }} : </label>
                       <select
                         class="rounded-lg border-gray-400 w-full"
                         (change)="selectArrayChange(item, $event.target.value, i)"
