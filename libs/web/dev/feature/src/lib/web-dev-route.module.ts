@@ -442,4 +442,8 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./dev-card-with-detail/dev-card-with-detail.module').then((m) => m.DevCardWithDetailModule),
   },
+  {
+    path: 'dialog-box',
+    loadChildren: () => import('./dev-dialog-box/dev-dialog-box.module').then((m) => m.DevDialogBoxModule),
+  },
 ]

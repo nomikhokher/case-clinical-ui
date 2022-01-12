@@ -2688,6 +2688,18 @@
     strip-json-comments "2.0.1"
     tslib "^2.0.0"
 
+"@nrwl/devkit@11.6.3":
+  version "11.6.3"
+  resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-11.6.3.tgz#86b2560311ad1c8832be4110f4c1d2fe990aae36"
+  integrity sha512-KNL84AJS3IcsMyPbZD4qKdwgq7kYwrZhvTxAP5XYIpuwGSDfoEFFKgh0RKcKo+FIUtP0b5+CaJWtGEsobRnVjQ==
+  dependencies:
+    "@nrwl/tao" "11.6.3"
+    ejs "^3.1.5"
+    ignore "^5.0.4"
+    semver "7.3.4"
+    strip-json-comments "2.0.1"
+    tslib "^2.0.0"
+
 "@nrwl/eslint-plugin-nx@11.2.0":
   version "11.2.0"
   resolved "https://registry.yarnpkg.com/@nrwl/eslint-plugin-nx/-/eslint-plugin-nx-11.2.0.tgz#c6e8efa713171ddf0c431b6ddd96b83b8bd479e0"
@@ -2716,6 +2728,17 @@
     "@nrwl/devkit" "11.2.0"
     glob "7.1.4"
     minimatch "3.0.4"
+    tslib "^2.0.0"
+
+"@nrwl/linter@11.6.3":
+  version "11.6.3"
+  resolved "https://registry.yarnpkg.com/@nrwl/linter/-/linter-11.6.3.tgz#c9f2b5a7e7a72931305e6c5ec9dba5b85ae4205c"
+  integrity sha512-9qRrfy7ek+42f0nLxi3WHFAJKdSOuftxqOewOFHIrSdUonFWGG0nqVitYoBknyZZvUmQTGQrEVeqN7QSbjI9Tg==
+  dependencies:
+    "@nrwl/devkit" "11.6.3"
+    glob "7.1.4"
+    minimatch "3.0.4"
+    tmp "0.0.33"
     tslib "^2.0.0"
 
 "@nrwl/nest@^11.0.0", "@nrwl/nest@^11.2.0":
@@ -2771,6 +2794,23 @@
     rxjs "^6.5.4"
     rxjs-for-await "0.0.2"
     semver "6.3.0"
+    strip-json-comments "2.0.1"
+    tmp "0.0.33"
+    tslib "^2.0.0"
+    yargs-parser "20.0.0"
+
+"@nrwl/tao@11.6.3":
+  version "11.6.3"
+  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-11.6.3.tgz#9dcb1f159d879d2746d6678b2f657fc6a23b8dc0"
+  integrity sha512-AknApJ0L8QbMztC1nXZPDi7ea6cx/bCdfEKHNTe+uB9vwj10I2utMVVUYxOcotjR44pOzDw8zttpI98PKX6AUw==
+  dependencies:
+    chalk "4.1.0"
+    fs-extra "7.0.1"
+    inquirer "^6.3.1"
+    minimist "^1.2.5"
+    rxjs "^6.5.4"
+    rxjs-for-await "0.0.2"
+    semver "7.3.4"
     strip-json-comments "2.0.1"
     tmp "0.0.33"
     tslib "^2.0.0"

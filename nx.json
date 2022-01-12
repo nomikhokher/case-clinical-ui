@@ -225,6 +225,9 @@
     "web-ui-description-list": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-dialog-box": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-divider": {
       "tags": ["scope:web", "type:ui"]
     },
