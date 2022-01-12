@@ -48,7 +48,7 @@ export class DevCountdownComponent {
     this.vm$.subscribe((result) => {
       this.codePreview = [
         `
-        import { WebUicountdownModule } from '@schema-driven/web/ui/countdown'\n
+        import { WebUiCountdownModule } from '@schema-driven/web/ui/countdown'\n
           <ui-countdown
             (expired)="onExpire($event)"
             [delay]="vm.config.items.delay"

@@ -60,6 +60,7 @@
       "@schema-driven/web/ui/button": ["libs/web/ui/button/src/index.ts"],
       "@schema-driven/web/ui/calendar": ["libs/web/ui/calendar/src/index.ts"],
       "@schema-driven/web/ui/card-heading": ["libs/web/ui/card-heading/src/index.ts"],
+      "@schema-driven/web/ui/card-with-detail": ["libs/web/ui/card-with-detail/src/index.ts"],
       "@schema-driven/web/ui/carousel": ["libs/web/ui/carousel/src/index.ts"],
       "@schema-driven/web/ui/carousel-pro": ["libs/web/ui/carousel-pro/src/index.ts"],
       "@schema-driven/web/ui/category-filters": ["libs/web/ui/category-filters/src/index.ts"],
