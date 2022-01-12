@@ -168,6 +168,9 @@
     "web-ui-card-heading": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-card-with-detail": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-carousel": {
       "tags": ["scope:web", "type:ui"]
     },

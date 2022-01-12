@@ -28,7 +28,7 @@ export class WebUiMutatorComponent {
   ngOnChanges(changes: SimpleChanges): void {
     this.renderedPayload = this.innerify(changes.payload.currentValue)
     this.renderedLines = this.lines(this.renderedPayload, '<br>')
-    console.log(this.renderedLines)
+    //console.log(this.renderedLines)
   }
 
   innerify(payload) {

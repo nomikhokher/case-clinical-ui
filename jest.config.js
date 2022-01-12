@@ -161,5 +161,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/contact-sections',
     '<rootDir>/libs/web/ui/contact-section-slide-brand-panel',
     '<rootDir>/libs/web/ui/feature-sections-by-grid-with-offset-icons',
+    '<rootDir>/libs/web/ui/card-with-detail',
   ],
 }
