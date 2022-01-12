@@ -11,15 +11,10 @@ export interface Crumbs {
   path?: string
 }
 export interface Item {
-  delay: number
-  year: number
-  month: number
-  days: number
-  hours: number
-  minutes: number
-  seconds: number
-  mode: boolean
-  timestamp: any
+  title: string
+  subTitle: string
+  description: string
+  buttons?: Buttons[]
 }
 
 export interface Inputs {
@@ -38,4 +33,10 @@ export interface Outputs {
   prop?: string
   description?: string
   dataType?: string
+}
+export interface Buttons {
+  text: string
+  color: string
+  fontColor?: string
+  hoverColor?: string
 }

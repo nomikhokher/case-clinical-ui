@@ -35,7 +35,7 @@ export class DevSectionHeadingsComponent {
   ngOnInit(): void {
     this.vm$.subscribe((result) => {
       this.codePreview = [
-        `import { WebUiSectionHeadingsModule } from '@schema-driven/web/ui/section-headings' \n\n 
+        `import { WebUiSectionHeadingsModule } from '@schema-driven/web/ui/section-headings' \n\n
         <ui-section-headings
           [heading]="vm.items.heading"
           [tabs]="vm.items.tabs"

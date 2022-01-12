@@ -55,11 +55,13 @@ export class DevSectionHeadingsStore extends ComponentStore<DevSectionHeadingsSt
             id: '2',
             title: 'Phone Screening',
             active: false,
+            badge: 'Badge',
           },
           {
             id: '3',
             title: 'Interview',
             active: false,
+            badge: 'Badge',
           },
           {
             id: '4',
@@ -71,6 +73,7 @@ export class DevSectionHeadingsStore extends ComponentStore<DevSectionHeadingsSt
             id: '5',
             title: 'Hired',
             active: false,
+            badge: 'Badge',
           },
         ],
 
@@ -102,10 +105,10 @@ export class DevSectionHeadingsStore extends ComponentStore<DevSectionHeadingsSt
           dataType: 'Array',
           typeArray: [
             [{ title: 'Applied' }, { badge: '20+' }],
-            [{ title: 'Phone Screening' }, { badge: '' }],
-            [{ title: 'Interview' }, { badge: '' }],
+            [{ title: 'Phone Screening' }, { badge: 'badge' }],
+            [{ title: 'Interview' }, { badge: 'badge' }],
             [{ title: 'Offer' }, { badge: '5' }],
-            [{ title: 'Hired' }, { badge: '' }],
+            [{ title: 'Hired' }, { badge: 'badge' }],
           ],
         },
         {

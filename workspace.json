@@ -1134,6 +1134,31 @@
         }
       }
     },
+    "web-ui-card-with-detail": {
+      "projectType": "library",
+      "root": "libs/web/ui/card-with-detail",
+      "sourceRoot": "libs/web/ui/card-with-detail/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/card-with-detail/src/**/*.ts",
+              "libs/web/ui/card-with-detail/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/card-with-detail"],
+          "options": {
+            "jestConfig": "libs/web/ui/card-with-detail/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-carousel": {
       "projectType": "library",
       "root": "libs/web/ui/carousel",
