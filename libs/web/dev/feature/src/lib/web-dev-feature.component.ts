@@ -623,6 +623,11 @@ export class WebDevFeatureComponent {
               route: 'feature-sections-by-grid-with-offset-icons',
               image: '/assets/images/feature-sections.png',
             },
+            {
+              label: 'Card With Detail',
+              route: 'card-with-detail',
+              image: '/assets/images/card-with-detail.png',
+            },
           ],
         },
       ],

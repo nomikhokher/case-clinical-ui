@@ -437,4 +437,9 @@ export const routes: Routes = [
         './dev-feature-sections-by-grid-with-offset-icons/dev-feature-sections-by-grid-with-offset-icons.module'
       ).then((m) => m.DevFeatureSectionsByGridWithOffsetIconsModule),
   },
+  {
+    path: 'card-with-detail',
+    loadChildren: () =>
+      import('./dev-card-with-detail/dev-card-with-detail.module').then((m) => m.DevCardWithDetailModule),
+  },
 ]
