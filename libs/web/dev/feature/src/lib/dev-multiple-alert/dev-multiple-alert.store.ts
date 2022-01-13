@@ -3,14 +3,14 @@ import { ComponentStore, tapResponse } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { of } from 'rxjs'
 import { switchMap, tap } from 'rxjs/operators'
-import { Configs } from '../dev-feature-sections-by-grid-with-offset-icons/model'
+import { Configs } from '../dev-multiple-alert/model'
 
 export interface Item {
   id?: string
   name?: string
 }
 
-interface DevFeatureSectionsByGridWithOffsetIconsState {
+interface DevMultipleAlertState {
   items?: Item[]
   loading?: boolean
   config?: Configs
@@ -25,54 +25,53 @@ const config: Configs = {
   ],
   directory: 'libs/web/dev/feature/src/lib/dev-product-features/dev-product-features.component.ts',
   items: {
-    featureOverview: {
-      heading: 'Everything you need to deploy your app',
-      description: `Phasellus lorem quam molestie id quisque diam aenean nulla in. Accumsan in quis quis nunc, ullamcorper malesuada. Eleifend condimentum id viverra nulla.`,
-    },
-
     tabsData: [
       {
         id: 1,
-        icon: 'cloud_upload',
-        title: 'Push to Deploy',
-        description: `Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.`,
+        icon: 'info_circle',
+        title: 'A simple primary alert - check it out!',
       },
       {
         id: 2,
-        icon: 'lock_closed',
-        title: 'SSL Certificates',
-        description: `Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.`,
+        icon: 'circle',
+        title: 'A simple secondary alert - check it out!',
       },
       {
         id: 3,
-        icon: 'refresh',
-        title: 'Simple Queues',
-        description: `Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.`,
+        icon: 'check_circle',
+        title: 'A simple success alert - check it out!',
       },
       {
         id: 4,
-        icon: 'sheild_check',
-        title: `Advance Security`,
-        description: `Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.`,
+        icon: 'times_circle',
+        title: 'A simple danger alert - check it out!',
       },
       {
         id: 5,
-        icon: 'cog',
-        title: `Powerful API`,
-        description: `Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.`,
+        icon: 'exclamation_triangle',
+        title: `A simple warning alert - check it out!`,
       },
       {
         id: 6,
-        icon: 'server',
-        title: `Database Backups`,
-        description: `Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.`,
+        icon: 'chevron_circle_right',
+        title: `A simple indigo alert - check it out!`,
+      },
+      {
+        id: 7,
+        icon: 'grin_hearts',
+        title: `A simple light alert - check it out!`,
+      },
+      {
+        id: 8,
+        icon: 'gem',
+        title: `A simple dark alert - check it out!`,
       },
     ],
   },
 }
 
 @Injectable()
-export class DevFeatureSectionsByGridWithOffsetIconsStore extends ComponentStore<DevFeatureSectionsByGridWithOffsetIconsState> {
+export class DevMultipleAlertStore extends ComponentStore<DevMultipleAlertState> {
   constructor(private readonly sdk: ApolloAngularSDK) {
     super({
       config,
@@ -80,10 +79,12 @@ export class DevFeatureSectionsByGridWithOffsetIconsStore extends ComponentStore
     //this.loadItemsEffect()
   }
 
-  //readonly items$ = this.select(this.state$, (s) => s.items)
+  // readonly items$ = this.select(this.state$, (s) => s.items)
+  // readonly vm$ = this.select(this.items$, (items) => ({ items }))
+
   readonly config$ = this.select(this.state$, (s) => s.config)
   readonly vm$ = this.select(this.config$, (config) => ({ config }))
-  getValueOfDate() {}
+
   // readonly loadItemsEffect = this.effect(($) =>
   //   $.pipe(
   //     tap(() => this.patchState({ loading: true })),

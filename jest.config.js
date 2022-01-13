@@ -163,5 +163,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/feature-sections-by-grid-with-offset-icons',
     '<rootDir>/libs/web/ui/card-with-detail',
     '<rootDir>/libs/web/ui/dialog-box',
+    '<rootDir>/libs/web/ui/multiple-alert',
   ],
 }
