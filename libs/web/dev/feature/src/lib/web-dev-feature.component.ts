@@ -628,6 +628,11 @@ export class WebDevFeatureComponent {
               route: 'card-with-detail',
               image: '/assets/images/card-with-detail.png',
             },
+            {
+              label: 'Dialog Box',
+              route: 'dialog-box',
+              image: '/assets/images/feature-sections.png',
+            },
           ],
         },
       ],
