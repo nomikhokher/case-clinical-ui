@@ -1579,6 +1579,28 @@
         }
       }
     },
+    "web-ui-dialog-box": {
+      "projectType": "library",
+      "root": "libs/web/ui/dialog-box",
+      "sourceRoot": "libs/web/ui/dialog-box/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/dialog-box/src/**/*.ts", "libs/web/ui/dialog-box/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/dialog-box"],
+          "options": {
+            "jestConfig": "libs/web/ui/dialog-box/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-divider": {
       "projectType": "library",
       "root": "libs/web/ui/divider",
