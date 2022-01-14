@@ -37,4 +37,6 @@ interface TabsData {
   id?: number
   icon?: string
   title?: string
+  bgColor?: string
+  textColor?: string
 }
