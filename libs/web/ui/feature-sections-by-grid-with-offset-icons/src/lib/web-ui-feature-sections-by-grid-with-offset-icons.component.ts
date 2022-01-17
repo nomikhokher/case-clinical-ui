@@ -26,9 +26,6 @@ import { Component, Input } from '@angular/core'
                   </span>
                 </div>
                 <h3 class="mt-8 text-lg font-medium text-gray-900 dark:text-white tracking-tight">{{ item.title }}</h3>
-                <p class="mt-5 text-base text-gray-500 dark:text-gray-400">
-                  {{ item.description }}
-                </p>
               </div>
             </div>
           </div>

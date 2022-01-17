@@ -2267,6 +2267,28 @@
         }
       }
     },
+    "web-ui-multiple-alert": {
+      "projectType": "library",
+      "root": "libs/web/ui/multiple-alert",
+      "sourceRoot": "libs/web/ui/multiple-alert/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/multiple-alert/src/**/*.ts", "libs/web/ui/multiple-alert/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/multiple-alert"],
+          "options": {
+            "jestConfig": "libs/web/ui/multiple-alert/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-music-player": {
       "projectType": "library",
       "root": "libs/web/ui/music-player",
