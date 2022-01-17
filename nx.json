@@ -318,6 +318,9 @@
     "web-ui-multi-select": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-multiple-alert": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-music-player": {
       "tags": ["scope:web", "type:ui"]
     },

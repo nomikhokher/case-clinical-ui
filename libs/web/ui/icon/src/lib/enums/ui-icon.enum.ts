@@ -87,4 +87,6 @@ export enum UiIcon {
   sheild_check = 'sheild_check',
   cog = 'cog',
   server = 'server',
+  emoji_happy = 'emoji_happy',
+  circle = 'circle',
 }

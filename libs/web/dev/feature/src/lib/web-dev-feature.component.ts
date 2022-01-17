@@ -633,6 +633,11 @@ export class WebDevFeatureComponent {
               route: 'dialog-box',
               image: '/assets/images/feature-sections.png',
             },
+            {
+              label: 'Multiple Alert',
+              route: 'multiple-alert',
+              image: '/assets/images/feature-sections.png',
+            },
           ],
         },
       ],

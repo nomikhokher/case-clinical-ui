@@ -25,8 +25,8 @@ import { Component, HostListener, Input, SimpleChanges } from '@angular/core'
         >
           Open Dialog Box
         </button> -->
-        <div *ngIf="name">
-          Your Text:<span class="font-bold"> {{ name }}</span>
+        <div class="pt-2 pl-2" *ngIf="name">
+          Your Name :<span class="font-bold"> {{ name }}</span>
         </div>
       </div>
     </ng-container>
