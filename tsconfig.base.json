@@ -116,6 +116,7 @@
       "@schema-driven/web/ui/mini-calendar": ["libs/web/ui/mini-calendar/src/index.ts"],
       "@schema-driven/web/ui/modal": ["libs/web/ui/modal/src/index.ts"],
       "@schema-driven/web/ui/multi-select": ["libs/web/ui/multi-select/src/index.ts"],
+      "@schema-driven/web/ui/multiple-alert": ["libs/web/ui/multiple-alert/src/index.ts"],
       "@schema-driven/web/ui/music-player": ["libs/web/ui/music-player/src/index.ts"],
       "@schema-driven/web/ui/mutator": ["libs/web/ui/mutator/src/index.ts"],
       "@schema-driven/web/ui/narrow-avatar-list": ["libs/web/ui/narrow-avatar-list/src/index.ts"],
