@@ -446,4 +446,8 @@ export const routes: Routes = [
     path: 'dialog-box',
     loadChildren: () => import('./dev-dialog-box/dev-dialog-box.module').then((m) => m.DevDialogBoxModule),
   },
+  {
+    path: 'multiple-alert',
+    loadChildren: () => import('./dev-multiple-alert/dev-multiple-alert.module').then((m) => m.DevMultipleAlertModule),
+  },
 ]

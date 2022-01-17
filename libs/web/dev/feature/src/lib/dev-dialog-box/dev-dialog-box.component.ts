@@ -35,7 +35,7 @@ import { DevDialogBoxStore } from './dev-dialog-box.store'
               </svg>
             </div>
             <div class="mt-3 text-center sm:mt-5">
-              <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">Enter String</h3>
+              <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">Enter Name</h3>
               <input
                 type="text"
                 [(ngModel)]="name"
@@ -105,7 +105,7 @@ export class DevDialogBoxComponent {
             </div>
             <div class="mt-3 text-center sm:mt-5">
               <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">
-                Enter String
+                Enter Name
               </h3>
               <input
                 type="text" [(ngModel)]="name"
@@ -124,7 +124,7 @@ export class DevDialogBoxComponent {
             </button>
           </div>
         </ui-dialog-box>\n\n
-      
+
         isActive = ${JSON.stringify(result.config.items.isActive, null, '\t')}\n
         display = ${JSON.stringify(result.config.items.display, null, '\t')}\n
         width = ${JSON.stringify(result.config.items.width, null, '\t')}\n
