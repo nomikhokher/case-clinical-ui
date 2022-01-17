@@ -450,4 +450,8 @@ export const routes: Routes = [
     path: 'multiple-alert',
     loadChildren: () => import('./dev-multiple-alert/dev-multiple-alert.module').then((m) => m.DevMultipleAlertModule),
   },
+  {
+    path: 'collapse',
+    loadChildren: () => import('./dev-collapse/dev-collapse.module').then((m) => m.DevCollapseModule),
+  },
 ]

@@ -68,6 +68,7 @@
       "@schema-driven/web/ui/checkout-form": ["libs/web/ui/checkout-form/src/index.ts"],
       "@schema-driven/web/ui/chips": ["libs/web/ui/chips/src/index.ts"],
       "@schema-driven/web/ui/code": ["libs/web/ui/code/src/index.ts"],
+      "@schema-driven/web/ui/collapse": ["libs/web/ui/collapse/src/index.ts"],
       "@schema-driven/web/ui/color-picker": ["libs/web/ui/color-picker/src/index.ts"],
       "@schema-driven/web/ui/contact-card": ["libs/web/ui/contact-card/src/index.ts"],
       "@schema-driven/web/ui/contact-section-slide-brand-panel": [

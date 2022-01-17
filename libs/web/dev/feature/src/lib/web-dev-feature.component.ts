@@ -638,6 +638,11 @@ export class WebDevFeatureComponent {
               route: 'multiple-alert',
               image: '/assets/images/feature-sections.png',
             },
+            {
+              label: 'Collapse',
+              route: 'collapse',
+              image: '/assets/images/feature-sections.png',
+            },
           ],
         },
       ],

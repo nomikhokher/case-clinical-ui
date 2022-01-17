@@ -192,6 +192,9 @@
     "web-ui-code": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-collapse": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-color-picker": {
       "tags": ["scope:web", "type:ui"]
     },
