@@ -164,5 +164,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/card-with-detail',
     '<rootDir>/libs/web/ui/dialog-box',
     '<rootDir>/libs/web/ui/multiple-alert',
+    '<rootDir>/libs/web/ui/collapse',
   ],
 }
