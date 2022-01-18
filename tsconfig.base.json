@@ -113,6 +113,7 @@
       "@schema-driven/web/ui/list-container": ["libs/web/ui/list-container/src/index.ts"],
       "@schema-driven/web/ui/loader": ["libs/web/ui/loader/src/index.ts"],
       "@schema-driven/web/ui/main-page": ["libs/web/ui/main-page/src/index.ts"],
+      "@schema-driven/web/ui/mask": ["libs/web/ui/mask/src/index.ts"],
       "@schema-driven/web/ui/media-object": ["libs/web/ui/media-object/src/index.ts"],
       "@schema-driven/web/ui/mini-calendar": ["libs/web/ui/mini-calendar/src/index.ts"],
       "@schema-driven/web/ui/modal": ["libs/web/ui/modal/src/index.ts"],

@@ -2201,6 +2201,28 @@
         }
       }
     },
+    "web-ui-mask": {
+      "projectType": "library",
+      "root": "libs/web/ui/mask",
+      "sourceRoot": "libs/web/ui/mask/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/mask/src/**/*.ts", "libs/web/ui/mask/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mask"],
+          "options": {
+            "jestConfig": "libs/web/ui/mask/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-media-object": {
       "projectType": "library",
       "root": "libs/web/ui/media-object",

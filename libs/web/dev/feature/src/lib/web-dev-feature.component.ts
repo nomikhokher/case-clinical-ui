@@ -643,6 +643,11 @@ export class WebDevFeatureComponent {
               route: 'collapse',
               image: '/assets/images/feature-sections.png',
             },
+            {
+              label: 'Mask',
+              route: 'mask',
+              image: '/assets/images/feature-sections.png',
+            },
           ],
         },
       ],

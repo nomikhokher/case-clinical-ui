@@ -454,4 +454,8 @@ export const routes: Routes = [
     path: 'collapse',
     loadChildren: () => import('./dev-collapse/dev-collapse.module').then((m) => m.DevCollapseModule),
   },
+  {
+    path: 'mask',
+    loadChildren: () => import('./dev-mask/dev-mask.module').then((m) => m.DevMaskModule),
+  },
 ]
