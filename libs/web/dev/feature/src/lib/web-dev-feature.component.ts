@@ -643,6 +643,11 @@ export class WebDevFeatureComponent {
               route: 'collapse',
               image: '/assets/images/feature-sections.png',
             },
+            {
+              label: 'List Group',
+              route: 'list-group',
+              image: '/assets/images/feature-sections.png',
+            },
           ],
         },
       ],

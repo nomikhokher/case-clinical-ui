@@ -26,17 +26,10 @@ export class DevCollapseComponent {
   ngOnInit(): void {
     this.vm$.subscribe((result) => {
       this.codePreview = [
-        `import { WebUiCollapseModule } from '@schema-driven/web/ui/collapse' \n\n 
-        <ui-preview
-        [githubURL]="vm.config.githubURL"
-          [title]="vm.config.headerTitle"
-          [directory]="vm.config.directory"
-          [component_inputs]="vm.config.component_inputs"
-          [codeObj]="vm.config.items"
-          [code]="codePreview[1]">
+        `import { WebUiCollapseModule } from '@schema-driven/web/ui/collapse' \n\n
           <ui-collapse [collapse]="vm.config.items.collapse"></ui-collapse>
-        </ui-preview> \n\n
-      
+        \n\n
+
       `,
       ]
     })
