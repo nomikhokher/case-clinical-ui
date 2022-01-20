@@ -648,6 +648,11 @@ export class WebDevFeatureComponent {
               route: 'mask',
               image: '/assets/images/feature-sections.png',
             },
+            {
+              label: 'Pills',
+              route: 'pills',
+              image: '/assets/images/feature-sections.png',
+            },
           ],
         },
       ],

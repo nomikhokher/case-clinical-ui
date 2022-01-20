@@ -366,6 +366,9 @@
     "web-ui-pagination": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-pills": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-pop-confirm": {
       "tags": ["scope:web", "type:ui"]
     },

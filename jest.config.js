@@ -166,5 +166,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/multiple-alert',
     '<rootDir>/libs/web/ui/collapse',
     '<rootDir>/libs/web/ui/mask',
+    '<rootDir>/libs/web/ui/pills',
   ],
 }

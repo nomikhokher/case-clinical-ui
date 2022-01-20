@@ -458,4 +458,8 @@ export const routes: Routes = [
     path: 'mask',
     loadChildren: () => import('./dev-mask/dev-mask.module').then((m) => m.DevMaskModule),
   },
+  {
+    path: 'pills',
+    loadChildren: () => import('./dev-pills/dev-pills.module').then((m) => m.DevPillsModule),
+  },
 ]
