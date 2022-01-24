@@ -192,6 +192,9 @@
     "web-ui-code": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-collapse": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-color-picker": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -300,10 +303,16 @@
     "web-ui-list-container": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-list-group": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-loader": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-main-page": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-mask": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-media-object": {
@@ -358,6 +367,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-pagination": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-pills": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-pop-confirm": {
