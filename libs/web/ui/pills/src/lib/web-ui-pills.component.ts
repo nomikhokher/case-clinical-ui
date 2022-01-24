@@ -24,6 +24,7 @@ import { Component, Input } from '@angular/core'
       focus:outline-none focus:ring-0 
       
     "
+            [disabled]="item.pillsTitle === 'Disable'"
             [ngClass]="{ 'cursor-not-allowed': item.pillsTitle === 'Disable' }"
           >
             {{ item.pillsTitle }}

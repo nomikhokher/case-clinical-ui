@@ -51,50 +51,7 @@ const config: Configs = {
       pillsDetails: '',
     },
   ],
-  // component_inputs: [
-  //   {
-  //     label: 'Pills',
-  //     prop: '[item]',
-  //     description: 'Display Pills ',
-  //     dataType: 'Array',
-  //     typeArray: [
-  //       [
-  //         // { stepActive: ['true', 'false'] },
-  //         { pillsTitle: 'Pills 1' },
-  //         { pillsDetails: 'Job details' },
-  //       ],
-  //       [
-  //         // { pillsActive: ['false', 'true'] },
-  //         { pillsTitle: 'Pills 2' },
-  //         { pillsDetails: 'Personal details' },
-  //       ],
-  //       [
-  //         // { pillsActive: ['false', 'true'] },
-  //         { pillsTitle: 'Pills 3' },
-  //         { pillsDetails: 'Educational details' },
-  //       ],
-  //       [
-  //         // { pillsActive: ['false', 'true'] },
-  //         { pillsTitle: 'Pills 4' },
-  //         { pillsDetails: 'Privay & Policy' },
-  //       ],
-  //     ],
-  //   },
-  //   {
-  //     label: 'Pills',
-  //     prop: '[item]',
-  //     description: 'Display Pills.',
-  //     dataType: 'Array',
-  //     type: true
-  //   },
-  //   {
-  //     label: 'Pills Title',
-  //     prop: '[isPillsTitle]',
-  //     description: 'Display Pills.',
-  //     dataType: 'Array',
-  //     type: true,
-  //   },
-  // ],
+  component_inputs: [],
 }
 
 @Injectable()
