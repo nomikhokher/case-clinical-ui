@@ -450,4 +450,20 @@ export const routes: Routes = [
     path: 'multiple-alert',
     loadChildren: () => import('./dev-multiple-alert/dev-multiple-alert.module').then((m) => m.DevMultipleAlertModule),
   },
+  {
+    path: 'collapse',
+    loadChildren: () => import('./dev-collapse/dev-collapse.module').then((m) => m.DevCollapseModule),
+  },
+  {
+    path: 'list-group',
+    loadChildren: () => import('./dev-list-group/dev-list-group.module').then((m) => m.DevListGroupModule),
+  },
+  {
+    path: 'mask',
+    loadChildren: () => import('./dev-mask/dev-mask.module').then((m) => m.DevMaskModule),
+  },
+  {
+    path: 'pills',
+    loadChildren: () => import('./dev-pills/dev-pills.module').then((m) => m.DevPillsModule),
+  },
 ]
