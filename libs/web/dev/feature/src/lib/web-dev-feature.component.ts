@@ -638,6 +638,26 @@ export class WebDevFeatureComponent {
               route: 'multiple-alert',
               image: '/assets/images/feature-sections.png',
             },
+            {
+              label: 'Collapse',
+              route: 'collapse',
+              image: '/assets/images/feature-sections.png',
+            },
+            {
+              label: 'List Group',
+              route: 'list-group',
+              image: '/assets/images/feature-sections.png',
+            },
+            {
+              label: 'Mask',
+              route: 'mask',
+              image: '/assets/images/feature-sections.png',
+            },
+            {
+              label: 'Pills',
+              route: 'pills',
+              image: '/assets/images/feature-sections.png',
+            },
           ],
         },
       ],

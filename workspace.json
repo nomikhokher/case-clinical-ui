@@ -1319,6 +1319,28 @@
         }
       }
     },
+    "web-ui-collapse": {
+      "projectType": "library",
+      "root": "libs/web/ui/collapse",
+      "sourceRoot": "libs/web/ui/collapse/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/collapse/src/**/*.ts", "libs/web/ui/collapse/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/collapse"],
+          "options": {
+            "jestConfig": "libs/web/ui/collapse/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-color-picker": {
       "projectType": "library",
       "root": "libs/web/ui/color-picker",
@@ -2135,6 +2157,28 @@
         }
       }
     },
+    "web-ui-list-group": {
+      "projectType": "library",
+      "root": "libs/web/ui/list-group",
+      "sourceRoot": "libs/web/ui/list-group/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/list-group/src/**/*.ts", "libs/web/ui/list-group/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/list-group"],
+          "options": {
+            "jestConfig": "libs/web/ui/list-group/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-loader": {
       "projectType": "library",
       "root": "libs/web/ui/loader",
@@ -2174,6 +2218,28 @@
           "outputs": ["coverage/libs/web/ui/main-page"],
           "options": {
             "jestConfig": "libs/web/ui/main-page/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-mask": {
+      "projectType": "library",
+      "root": "libs/web/ui/mask",
+      "sourceRoot": "libs/web/ui/mask/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/mask/src/**/*.ts", "libs/web/ui/mask/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mask"],
+          "options": {
+            "jestConfig": "libs/web/ui/mask/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -2576,6 +2642,28 @@
           "outputs": ["coverage/libs/web/ui/pagination"],
           "options": {
             "jestConfig": "libs/web/ui/pagination/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-pills": {
+      "projectType": "library",
+      "root": "libs/web/ui/pills",
+      "sourceRoot": "libs/web/ui/pills/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/pills/src/**/*.ts", "libs/web/ui/pills/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/pills"],
+          "options": {
+            "jestConfig": "libs/web/ui/pills/jest.config.js",
             "passWithNoTests": true
           }
         }
