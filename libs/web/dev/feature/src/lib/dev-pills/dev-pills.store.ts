@@ -48,7 +48,7 @@ const config: Configs = {
       id: 4,
       pillsActive: false,
       pillsTitle: 'Disable',
-      pillsDetails: 'Disable detail',
+      pillsDetails: '',
     },
   ],
   // component_inputs: [

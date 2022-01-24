@@ -3,11 +3,12 @@ import { Component, Input } from '@angular/core'
 @Component({
   selector: 'ui-pills',
   template: `
-    <div class=" flex  md:flex-row flex-wrap list-none pl-0 mb-4">
-      <div *ngFor="let item of pillsItems">
-        <button
-          (click)="active(item.pillsTitle, pillsItems)"
-          class="
+    <div>
+      <div class=" flex  md:flex-row flex-wrap list-none pl-0 mb-4">
+        <div *ngFor="let item of pillsItems">
+          <button
+            (click)="active(item.pillsTitle, pillsItems)"
+            class="
     bg-indigo-300
       nav-link
       block
@@ -20,14 +21,16 @@ import { Component, Input } from '@angular/core'
       py-3
       my-2
       md:mr-2
-      focus:outline-none focus:ring-0
+      focus:outline-none focus:ring-0 
+      
     "
-        >
-          {{ item.pillsTitle }}
-        </button>
+            [ngClass]="{ 'cursor-not-allowed': item.pillsTitle === 'Disable' }"
+          >
+            {{ item.pillsTitle }}
+          </button>
+        </div>
       </div>
-      <br />
-      <div>
+      <div *ngIf="activePillDetail">
         {{ activePillDetail }}
       </div>
     </div>
