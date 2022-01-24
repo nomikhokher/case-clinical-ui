@@ -458,4 +458,12 @@ export const routes: Routes = [
     path: 'list-group',
     loadChildren: () => import('./dev-list-group/dev-list-group.module').then((m) => m.DevListGroupModule),
   },
+  {
+    path: 'mask',
+    loadChildren: () => import('./dev-mask/dev-mask.module').then((m) => m.DevMaskModule),
+  },
+  {
+    path: 'pills',
+    loadChildren: () => import('./dev-pills/dev-pills.module').then((m) => m.DevPillsModule),
+  },
 ]
