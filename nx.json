@@ -303,6 +303,9 @@
     "web-ui-list-container": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-list-group": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-loader": {
       "tags": ["scope:web", "type:ui"]
     },

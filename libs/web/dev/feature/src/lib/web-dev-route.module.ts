@@ -455,6 +455,10 @@ export const routes: Routes = [
     loadChildren: () => import('./dev-collapse/dev-collapse.module').then((m) => m.DevCollapseModule),
   },
   {
+    path: 'list-group',
+    loadChildren: () => import('./dev-list-group/dev-list-group.module').then((m) => m.DevListGroupModule),
+  },
+  {
     path: 'mask',
     loadChildren: () => import('./dev-mask/dev-mask.module').then((m) => m.DevMaskModule),
   },
