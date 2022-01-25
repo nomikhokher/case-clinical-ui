@@ -12,7 +12,11 @@ import { DevCollapseStore } from './dev-collapse.store'
         [codeObj]="vm.config.items"
         [code]="codePreview[0]"
       >
-        <ui-collapse [collapse]="vm.config.items.collapse"></ui-collapse>
+        <ui-collapse
+          [collapse]="vm.config.items.collapse"
+          [btnColor]="vm.config.items.btnColor"
+          [btnText]="vm.config.items.btnText"
+        ></ui-collapse>
       </ui-preview>
     </ng-container>
   `,
