@@ -51,7 +51,15 @@ const config: Configs = {
       pillsDetails: '',
     },
   ],
-  component_inputs: [],
+  component_inputs: [
+    //     {
+    //       label: 'Home',
+    //   description: 'Home Detail',
+    //   prop: '[home]',
+    //   dataType: 'string',
+    //   type: true
+    // }
+  ],
 }
 
 @Injectable()
