@@ -15,8 +15,7 @@ import { DevSideNavBarStore } from './dev-side-nav-bar.store'
       >
         <ui-side-nav-bar
           [menuItems]="vm.config.items.menuItems"
-          [optionList]="vm.config.items.optionList"
-          [quickAction]="vm.config.items.quickAction"
+          [heading]="vm.config.items.heading"
           [background]="vm.config.items.background"
         ></ui-side-nav-bar>
       </ui-preview>
@@ -34,14 +33,12 @@ export class DevSideNavBarComponent {
         `import { WebUiSideNavBarModule } from '@schema-driven/web/ui/side-nav-bar'\n\n
         <ui-side-nav-bar
           [menuItems]='menuItems'
-          [optionList]='optionList'
-          [quickAction]='quickAction'
+          [heading]='heading'
         >
         </ui-side-nav-bar>\n\n
         {
           menuItems: ${JSON.stringify(result.config.items.menuItems, null, '\t')}
-          optionList: ${JSON.stringify(result.config.items.optionList, null, '\t')}
-          quickAction:${JSON.stringify(result.config.items.quickAction, null, '\t')}
+          quickAction:${JSON.stringify(result.config.items.heading, null, '\t')}
         }`,
       ]
     })

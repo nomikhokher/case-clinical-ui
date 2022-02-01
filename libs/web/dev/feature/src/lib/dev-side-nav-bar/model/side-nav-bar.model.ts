@@ -12,9 +12,8 @@ export interface Crumbs {
   path?: string
 }
 export interface Item {
-  quickAction?: string
+  heading?: string
   background?: string
-  optionList?: Options[]
   menuItems?: Menu[]
 }
 
@@ -22,7 +21,9 @@ interface Options {
   item?: string
 }
 interface Menu {
-  menu?: string
+  id?: number
+  icon?: string
+  title?: string
 }
 
 export interface Inputs {

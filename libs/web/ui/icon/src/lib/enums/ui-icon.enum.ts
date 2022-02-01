@@ -89,4 +89,8 @@ export enum UiIcon {
   server = 'server',
   emoji_happy = 'emoji_happy',
   circle = 'circle',
+  cube = 'cube',
+  search = 'search',
+  chat = 'chat',
+  scale = 'scale',
 }

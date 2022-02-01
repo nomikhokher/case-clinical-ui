@@ -658,6 +658,11 @@ export class WebDevFeatureComponent {
               route: 'store-navigation',
               image: '/assets/images/store-navigation.png',
             },
+            {
+              label: 'Side Navbar',
+              route: 'side-nav-bar',
+              image: '/assets/images/store-navigation.png',
+            },
           ],
         },
       ],

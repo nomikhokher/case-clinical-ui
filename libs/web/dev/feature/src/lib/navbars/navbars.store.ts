@@ -25,7 +25,7 @@ const config: Configs = {
   ],
   directory: '/libs/web/dev/feature/src/lib/navbars/navbars.component.ts',
   items: {
-    quickAction: 'button', //it can be [button, search, or empty if you do not want any qiuck action bar]
+    quickAction: 'Leroy Jenkins',
     background: 'indigo',
     optionList: [{ item: 'Your Profile' }, { item: 'Setting' }, { item: 'Sign out' }],
     menuItems: [{ menu: 'Dashboard' }, { menu: 'Team' }, { menu: 'Project' }, { menu: 'Calendar' }],
