@@ -168,5 +168,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/mask',
     '<rootDir>/libs/web/ui/pills',
     '<rootDir>/libs/web/ui/list-group',
+    '<rootDir>/libs/web/ui/side-nav-bar',
   ],
 }

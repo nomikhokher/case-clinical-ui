@@ -3061,6 +3061,28 @@
         }
       }
     },
+    "web-ui-side-nav-bar": {
+      "projectType": "library",
+      "root": "libs/web/ui/side-nav-bar",
+      "sourceRoot": "libs/web/ui/side-nav-bar/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/side-nav-bar/src/**/*.ts", "libs/web/ui/side-nav-bar/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/side-nav-bar"],
+          "options": {
+            "jestConfig": "libs/web/ui/side-nav-bar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-sidebar": {
       "projectType": "library",
       "root": "libs/web/ui/sidebar",
