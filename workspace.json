@@ -1871,6 +1871,28 @@
         }
       }
     },
+    "web-ui-file-input": {
+      "projectType": "library",
+      "root": "libs/web/ui/file-input",
+      "sourceRoot": "libs/web/ui/file-input/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/file-input/src/**/*.ts", "libs/web/ui/file-input/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/file-input"],
+          "options": {
+            "jestConfig": "libs/web/ui/file-input/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-folder-options": {
       "projectType": "library",
       "root": "libs/web/ui/folder-options",

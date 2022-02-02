@@ -12,18 +12,11 @@ export interface Crumbs {
   path?: string
 }
 export interface Item {
-  heading?: string
   background?: string
-  menuItems?: Menu[]
 }
 
 interface Options {
   item?: string
-}
-interface Menu {
-  id?: number
-  icon?: string
-  title?: string
 }
 
 export interface Inputs {

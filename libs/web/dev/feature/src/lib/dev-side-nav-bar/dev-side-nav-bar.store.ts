@@ -23,33 +23,41 @@ const config: Configs = {
   ],
   directory: '/libs/web/dev/feature/src/lib/side-nav-bar/side-nav-bar.component.ts',
   items: {
-    quickAction: 'button', //it can be [button, search, or empty if you do not want any qiuck action bar]
-    background: 'indigo',
-    optionList: [{ item: 'Your Profile' }, { item: 'Setting' }, { item: 'Sign out' }],
-    menuItems: [{ menu: 'Dashboard' }, { menu: 'Team' }, { menu: 'Project' }, { menu: 'Calendar' }],
+    heading: 'Leroy Jenkins',
+    background: 'white-800',
+    menuItems: [
+      { id: 1, icon: 'cube', title: 'Dashboard' },
+      { id: 2, icon: 'search', title: 'Search' },
+      { id: 3, icon: 'chat', title: 'Chat' },
+      { id: 4, icon: 'scale', title: 'Orders' },
+      { id: 5, icon: 'heart', title: 'Wishlist' },
+      { id: 6, icon: 'setting', title: 'Settings' },
+      { id: 7, icon: 'logout', title: 'Logout' },
+    ],
   },
   component_inputs: [
     {
-      label: 'quickAction',
-      prop: '[quickAction]',
-      description: 'Show Quick Button or Quick Search bar',
+      label: 'heading',
+      prop: '[heading]',
+      description: 'Show heading',
       dataType: 'String',
-      type: ['button', 'search', 'none'],
     },
+
     { label: 'Background Color', prop: '[background]', description: 'Adjust background color.', dataType: 'String' },
-    {
-      label: 'Options List',
-      prop: '[optionList]',
-      description: 'Shows the options when click on avatar.',
-      dataType: 'Object',
-      typeArray: [[{ item: 'Your Profile' }], [{ item: 'Setting' }], [{ item: 'Sign out' }]],
-    },
     {
       label: 'Menu Items',
       prop: '[menuItems]',
       description: 'Shows the menu item on navbar.',
       dataType: 'Object',
-      typeArray: [[{ menu: 'Dashboard' }], [{ menu: 'Team' }], [{ menu: 'Project' }], [{ menu: 'Calendar' }]],
+      typeArray: [
+        [{ title: 'Dashboard' }],
+        [{ title: 'Search' }],
+        [{ title: 'Chat' }],
+        [{ title: 'Orders' }],
+        [{ title: 'Wishlist' }],
+        [{ title: 'Settings' }],
+        [{ title: 'Logout' }],
+      ],
     },
   ],
 }
