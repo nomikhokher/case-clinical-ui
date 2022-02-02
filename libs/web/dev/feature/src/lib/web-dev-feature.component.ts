@@ -663,6 +663,11 @@ export class WebDevFeatureComponent {
               route: 'side-nav-bar',
               image: '/assets/images/store-navigation.png',
             },
+            {
+              label: 'File Input',
+              route: 'file-input',
+              image: '/assets/images/store-navigation.png',
+            },
           ],
         },
       ],
