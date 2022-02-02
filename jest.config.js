@@ -170,5 +170,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/list-group',
     '<rootDir>/libs/web/ui/side-nav-bar',
     '<rootDir>/libs/web/ui/file-input',
+    '<rootDir>/libs/web/ui/team-section',
   ],
 }

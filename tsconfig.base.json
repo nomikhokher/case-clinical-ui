@@ -176,6 +176,7 @@
       "@schema-driven/web/ui/table": ["libs/web/ui/table/src/index.ts"],
       "@schema-driven/web/ui/table-lists": ["libs/web/ui/table-lists/src/index.ts"],
       "@schema-driven/web/ui/tag-textarea": ["libs/web/ui/tag-textarea/src/index.ts"],
+      "@schema-driven/web/ui/team-section": ["libs/web/ui/team-section/src/index.ts"],
       "@schema-driven/web/ui/testimonials": ["libs/web/ui/testimonials/src/index.ts"],
       "@schema-driven/web/ui/text-areas": ["libs/web/ui/text-areas/src/index.ts"],
       "@schema-driven/web/ui/timeline": ["libs/web/ui/timeline/src/index.ts"],
