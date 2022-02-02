@@ -498,6 +498,9 @@
     "web-ui-tag-textarea": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-team-section": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-testimonials": {
       "tags": ["scope:web", "type:ui"]
     },

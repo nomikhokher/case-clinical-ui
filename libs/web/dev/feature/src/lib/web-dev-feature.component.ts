@@ -668,6 +668,11 @@ export class WebDevFeatureComponent {
               route: 'file-input',
               image: '/assets/images/store-navigation.png',
             },
+            {
+              label: 'Team Section',
+              route: 'team-section',
+              image: '/assets/images/store-navigation.png',
+            },
           ],
         },
       ],

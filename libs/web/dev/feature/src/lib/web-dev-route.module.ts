@@ -474,4 +474,8 @@ export const routes: Routes = [
     path: 'file-input',
     loadChildren: () => import('./dev-file-input/dev-file-input.module').then((m) => m.DevFileInputModule),
   },
+  {
+    path: 'team-section',
+    loadChildren: () => import('./dev-team-section/dev-team-section.module').then((m) => m.DevTeamSectionModule),
+  },
 ]
