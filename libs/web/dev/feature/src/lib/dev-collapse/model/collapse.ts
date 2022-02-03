@@ -11,10 +11,11 @@ export interface Crumbs {
   path?: string
 }
 export interface Item {
+  btnText: string
+  btnColor: string
   collapse?: Collapse[]
 }
 export interface Collapse {
-  btnText: string
   description: string
   show: boolean
   icon?: string

@@ -7,10 +7,14 @@ import { Component, Input } from '@angular/core'
       <p class="md:space-x-1 space-y-1 md:space-y-0 mb-4">
         <button
           (click)="item.show = !item.show"
-          class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-700 ease-in-out"
+          class="inline-block px-6 py-2.5 bg-{{
+            btnColor
+          }}-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-{{
+            btnColor
+          }}-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-700 ease-in-out"
           type="button"
         >
-          {{ item.btnText }}
+          {{ btnText }}
         </button>
       </p>
       <div *ngIf="item.show" class="block p-6 rounded-lg shadow-lg bg-white transition duration-700 ease-in-out">
@@ -21,6 +25,8 @@ import { Component, Input } from '@angular/core'
 })
 export class WebUiCollapseComponent {
   @Input() collapse?: Collapse[]
+  @Input() btnColor?: string
+  @Input() btnText?: string
   ngOnInit(): void {
     console.log(this.collapse)
   }

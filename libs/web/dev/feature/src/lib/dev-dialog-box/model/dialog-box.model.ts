@@ -14,9 +14,8 @@ export interface Crumbs {
 }
 export interface Item {
   isActive?: boolean
-  closeButton?: boolean
-  display?: boolean
   width?: string
+  desc?: string
   buttons?: Buttons[]
 }
 
