@@ -105,6 +105,7 @@
       "@schema-driven/web/ui/full-calendar": ["libs/web/ui/full-calendar/src/index.ts"],
       "@schema-driven/web/ui/grid-list": ["libs/web/ui/grid-list/src/index.ts"],
       "@schema-driven/web/ui/group-button": ["libs/web/ui/group-button/src/index.ts"],
+      "@schema-driven/web/ui/header": ["libs/web/ui/header/src/index.ts"],
       "@schema-driven/web/ui/icon": ["libs/web/ui/icon/src/index.ts"],
       "@schema-driven/web/ui/icon-button": ["libs/web/ui/icon-button/src/index.ts"],
       "@schema-driven/web/ui/incentives": ["libs/web/ui/incentives/src/index.ts"],
