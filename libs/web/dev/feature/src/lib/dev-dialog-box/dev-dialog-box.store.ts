@@ -25,20 +25,25 @@ const config: Configs = {
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-dialog-box.component.ts',
   items: {
-    isActive: false,
-    closeButton: true,
-    display: true,
+    isActive: true,
+    desc: 'Description message',
     width: '2xl', // width can be [sm, md, lg, xl, 1xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl0, full]
     buttons: [
       {
         text: 'Open Dialog Box',
         color: 'indigo',
         fontColor: 'white',
-        hoverColor: 'gray',
+        hoverColor: 'indigo',
       },
     ],
   },
   component_inputs: [
+    {
+      label: 'Description',
+      prop: '[desc]',
+      description: 'Description message',
+      dataType: 'string',
+    },
     {
       label: 'Active',
       prop: '[isActive]',
@@ -66,7 +71,9 @@ const config: Configs = {
       prop: '[buttons]',
       description: 'Show buttons in section heading',
       dataType: 'Array',
-      typeArray: [[{ text: 'Open Dialog Box' }, { color: 'white' }, { fontColor: 'gray' }, { hoverColor: 'gray' }]],
+      typeArray: [
+        [{ text: 'Open Dialog Box' }, { color: 'indigo' }, { fontColor: 'white ' }, { hoverColor: 'indigo' }],
+      ],
     },
   ],
 }

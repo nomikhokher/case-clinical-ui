@@ -84,6 +84,14 @@ const config: Configs = {
       },
     ],
   },
+  component_inputs: [
+    {
+      label: 'Multiple Alert',
+      prop: '[tabsData]',
+      description: 'Multiple alerts showing on different conditions',
+      dataType: 'Array',
+    },
+  ],
 }
 
 @Injectable()

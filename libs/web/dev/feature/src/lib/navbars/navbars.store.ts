@@ -25,7 +25,7 @@ const config: Configs = {
   ],
   directory: '/libs/web/dev/feature/src/lib/navbars/navbars.component.ts',
   items: {
-    quickAction: 'button', //it can be [button, search, or empty if you do not want any qiuck action bar]
+    quickAction: 'Leroy Jenkins',
     background: 'indigo',
     optionList: [{ item: 'Your Profile' }, { item: 'Setting' }, { item: 'Sign out' }],
     menuItems: [{ menu: 'Dashboard' }, { menu: 'Team' }, { menu: 'Project' }, { menu: 'Calendar' }],
@@ -39,20 +39,6 @@ const config: Configs = {
       type: ['button', 'search', 'none'],
     },
     { label: 'Background Color', prop: '[background]', description: 'Adjust background color.', dataType: 'String' },
-    {
-      label: 'Options List',
-      prop: '[optionList]',
-      description: 'Shows the options when click on avatar.',
-      dataType: 'Object',
-      typeArray: [[{ item: 'Your Profile' }], [{ item: 'Setting' }], [{ item: 'Sign out' }]],
-    },
-    {
-      label: 'Menu Items',
-      prop: '[menuItems]',
-      description: 'Shows the menu item on navbar.',
-      dataType: 'Object',
-      typeArray: [[{ menu: 'Dashboard' }], [{ menu: 'Team' }], [{ menu: 'Project' }], [{ menu: 'Calendar' }]],
-    },
   ],
 }
 

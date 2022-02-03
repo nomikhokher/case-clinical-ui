@@ -26,9 +26,10 @@ const config: Configs = {
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-collapse.component.ts',
   items: {
+    btnColor: 'red',
+    btnText: 'Collapse 1',
     collapse: [
       {
-        btnText: 'Collapse 1',
         description: `Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
         officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
         wolf moon tempor, sunt aliqua put a bird on `,
@@ -41,9 +42,20 @@ const config: Configs = {
     {
       label: 'Collapse',
       prop: '[collapse]',
-      description:
-        'The collapse is a graphical control element comprising a vertically stacked list of items, such as labels or thumbnails. Each item can be "expanded" or "collapsed" to reveal the content associated with that item.',
-      dataType: 'Array',
+      description: 'Collapse',
+      dataType: 'string',
+    },
+    {
+      label: 'Button Color',
+      prop: '[btnColor]',
+      description: 'Button Color',
+      dataType: 'string',
+    },
+    {
+      label: 'Button Text',
+      prop: '[btnText]',
+      description: 'Button Text',
+      dataType: 'string',
     },
   ],
 }
