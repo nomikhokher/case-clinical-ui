@@ -93,4 +93,12 @@ export enum UiIcon {
   search = 'search',
   chat = 'chat',
   scale = 'scale',
+  chartBar = 'chartBar',
+  viewGrid = 'viewGrid',
+  play = 'play',
+  newspaper = 'newspaper',
+  userGroup = 'userGroup',
+  globeAlt = 'globeAlt',
+  bookMark = 'bookMark',
+  desktopComputer = 'desktopComputer',
 }

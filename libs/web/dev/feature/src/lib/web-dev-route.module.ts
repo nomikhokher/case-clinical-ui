@@ -478,4 +478,8 @@ export const routes: Routes = [
     path: 'team-section',
     loadChildren: () => import('./dev-team-section/dev-team-section.module').then((m) => m.DevTeamSectionModule),
   },
+  {
+    path: 'header',
+    loadChildren: () => import('./dev-header/dev-header.module').then((m) => m.DevHeaderModule),
+  },
 ]

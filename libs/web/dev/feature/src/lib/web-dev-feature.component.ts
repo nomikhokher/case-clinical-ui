@@ -673,6 +673,11 @@ export class WebDevFeatureComponent {
               route: 'team-section',
               image: '/assets/images/store-navigation.png',
             },
+            {
+              label: 'Header',
+              route: 'header',
+              image: '/assets/images/store-navigation.png',
+            },
           ],
         },
       ],

@@ -2025,6 +2025,28 @@
         }
       }
     },
+    "web-ui-header": {
+      "projectType": "library",
+      "root": "libs/web/ui/header",
+      "sourceRoot": "libs/web/ui/header/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/header/src/**/*.ts", "libs/web/ui/header/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/header"],
+          "options": {
+            "jestConfig": "libs/web/ui/header/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-icon": {
       "projectType": "library",
       "root": "libs/web/ui/icon",

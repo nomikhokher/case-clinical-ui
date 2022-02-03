@@ -285,6 +285,9 @@
     "web-ui-group-button": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-header": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-icon": {
       "tags": ["scope:web", "type:ui"]
     },
