@@ -6,28 +6,17 @@ import { Component, HostListener, Input, SimpleChanges } from '@angular/core'
     <ng-container>
       <div>
         <button
-          *ngFor="let button of buttons; i as index"
+          [disabled]="isActive === 'false'"
+          *ngFor="let button of buttons"
           type="button"
-          (click)="openDialogBox()"
-          [ngClass]="i == 0 ? '' : 'ml-2'"
-          class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-{{
+          (click)="toggleDialoge()"
+          class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm  font-medium text-{{
             button.fontColor
-          }}-200 bg-{{ button.color }}-500 hover:bg-{{ button.hoverColor }}-600 dark:text-{{
-            button.fontColor
+          }} bg-{{ button.color }}-500 hover:bg-{{ button.hoverColor }}-400 
           }}-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
           {{ button.text }}
         </button>
-        <!-- <button
-          (click)="openDialogBox()"
-          type="button"
-          class="inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
-        >
-          Open Dialog Box
-        </button> -->
-        <div class="pt-2 pl-2" *ngIf="name">
-          Your Name :<span class="font-bold"> {{ name }}</span>
-        </div>
       </div>
     </ng-container>
     <div>
@@ -36,7 +25,7 @@ import { Component, HostListener, Input, SimpleChanges } from '@angular/core'
         aria-labelledby="modal-title"
         role="dialog"
         aria-modal="true"
-        *ngIf="dialogHide == false"
+        *ngIf="dialog"
       >
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity " aria-hidden="true"></div>
@@ -47,7 +36,7 @@ import { Component, HostListener, Input, SimpleChanges } from '@angular/core'
             class="inline-block align-bottom bg-white border dark:bg-gray-800 rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full sm:p-6"
             [ngClass]="width ? 'sm:max-w-' + width : 'sm:max-w-sm'"
           >
-            <div class="hidden sm:block absolute top-0 right-0 pt-4 pr-4" *ngIf="closeButton == true">
+            <div class="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
               <button
                 type="button"
                 class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -60,13 +49,14 @@ import { Component, HostListener, Input, SimpleChanges } from '@angular/core'
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   aria-hidden="true"
-                  (click)="closeDialog()"
+                  (click)="toggleDialoge()"
                 >
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
-            <ng-content></ng-content>
+            {{ desc }}
+            <!-- <ng-content></ng-content> -->
           </div>
         </div>
       </div>
@@ -74,34 +64,34 @@ import { Component, HostListener, Input, SimpleChanges } from '@angular/core'
   `,
 })
 export class WebUiDialogBoxComponent {
-  public dialogHide = true
-
-  @Input() closeButton?: boolean
+  @Input() dialog?: boolean
+  // @Input() closeButton?: boolean
   @Input() display?: boolean
   @Input() width?: string
   @Input() isActive?: boolean
-  @Input() name?: string
+  @Input() desc?: string
   @Input() buttons?: Buttons
-  @HostListener('click')
-  clicked() {
-    this.dialogHide = this.display === this.dialogHide ? true : false
+  // @HostListener('click')
+  // clicked() {
+  //   this.dialog = true
+  // }
+
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   this.closeDialog(Boolean(changes.isActive.firstChange))
+  //   // console.log(this.name);
+  // }
+
+  toggleDialoge() {
+    this.dialog = !this.dialog
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.closeDialog(Boolean(changes.isActive.firstChange))
-    // console.log(this.name);
-  }
-
-  closeDialog(val: any) {
-    this.dialogHide = true
-    // console.log(this.name);
-  }
-
-  openDialogBox() {
-    this.dialogHide = !this.dialogHide
-    // console.log(this.name);
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    console.log(this.buttons)
   }
 }
+
 interface Buttons {
   text: string
   color: string

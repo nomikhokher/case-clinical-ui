@@ -264,6 +264,9 @@
     "web-ui-feed": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-file-input": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-folder-options": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -280,6 +283,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-group-button": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-header": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-icon": {
@@ -423,6 +429,9 @@
     "web-ui-shopping-cart": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-side-nav-bar": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-sidebar": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -490,6 +499,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-tag-textarea": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-team-section": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-testimonials": {

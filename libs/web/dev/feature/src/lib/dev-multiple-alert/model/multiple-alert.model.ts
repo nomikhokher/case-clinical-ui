@@ -20,8 +20,6 @@ export interface Inputs {
   description?: string
   dataType?: string
   type?
-  typeObj?
-  typeArray?
 }
 export interface Outputs {
   label?: string

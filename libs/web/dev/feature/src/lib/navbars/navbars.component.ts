@@ -31,11 +31,11 @@ export class NavbarsComponent {
   ngOnInit(): void {
     this.vm$.subscribe((result) => {
       this.codePreview = [
-        `import { WebUiNavbarsModule } from '@schema-driven/web/ui/navbars'\n\n 
-        <ui-navbars 
-          [menuItems]='menuItems' 
-          [optionList]='optionList' 
-          [quickAction]='quickAction' 
+        `import { WebUiNavbarsModule } from '@schema-driven/web/ui/navbars'\n\n
+        <ui-navbars
+          [menuItems]='menuItems'
+          [optionList]='optionList'
+          [quickAction]='quickAction'
         >
         </ui-navbars>\n\n
         {
