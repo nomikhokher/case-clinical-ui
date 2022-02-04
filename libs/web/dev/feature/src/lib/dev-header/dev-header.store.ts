@@ -58,28 +58,28 @@ const config: Configs = {
     ],
   },
   component_inputs: [
-    {
-      label: 'Card content',
-      prop: '[contactCard]',
-      description: 'It shows all your detail in contact card. ',
-      dataType: 'Object',
-      typeObj: [
-        [{ id: 1 }, { title: 'Solution' }, { icon: 'chevronDown' }],
-        [{ id: 2 }, { title: 'Pricing' }, { icon: '' }],
-        [{ id: 3 }, { title: 'Docs' }, { icon: '' }],
-        [{ id: 4 }, { title: 'More' }, { icon: 'chevronDown' }],
-      ],
-    },
-    {
-      label: 'Buttons',
-      prop: '[buttons]',
-      description: 'Shows the buttons. ',
-      dataType: 'Object',
-      typeArray: [
-        [{ text: 'Sign In' }, { backColor: 'white' }],
-        [{ text: 'Sign Up' }, { backColor: 'indigo-500' }],
-      ],
-    },
+    // {
+    //   label: 'Card content',
+    //   prop: '[contactCard]',
+    //   description: 'It shows all your detail in contact card. ',
+    //   dataType: 'Object',
+    //    typeObj: [
+    //     [{ id: 1 }, { title: 'Solution' }, { icon: 'chevronDown' }],
+    //     [{ id: 2 }, { title: 'Pricing' }, { icon: '' }],
+    //     [{ id: 3 }, { title: 'Docs' }, { icon: '' }],
+    //     [{ id: 4 }, { title: 'More' }, { icon: 'chevronDown' }],
+    //   ],
+    // },
+    // {
+    //   label: 'Buttons',
+    //   prop: '[buttons]',
+    //   description: 'Shows the buttons. ',
+    //   dataType: 'Object',
+    //   typeArray: [
+    //     [{ text: 'Sign In' }, { backColor: 'white' }],
+    //     [{ text: 'Sign Up' }, { backColor: 'indigo-500' }],
+    //   ],
+    // },
   ],
 }
 
