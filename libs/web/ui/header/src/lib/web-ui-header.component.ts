@@ -429,7 +429,40 @@ import { Component, Input } from '@angular/core'
       From: "opacity-100 scale-100"
       To: "opacity-0 scale-95"
   -->
-      <div class="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+    </div>
+  `,
+})
+export class WebUiHeaderComponent {
+  @Input() contactCard: Contact
+  @Input() buttons: Buttons
+
+  solutionsCard: boolean = false
+  moreCard: boolean = false
+
+  toggleSolution() {
+    this.solutionsCard = !this.solutionsCard
+    this.moreCard = false
+  }
+  togglemoreCard() {
+    this.moreCard = !this.moreCard
+    this.solutionsCard = false
+  }
+  reset() {
+    this.solutionsCard = false
+    this.moreCard = false
+  }
+}
+interface Contact {
+  id?: number
+  title?: string
+  icon?: string
+}
+interface Buttons {
+  text?: string
+  backColor?: string
+}
+
+/**<div class="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
         <div
           class="rounded-lg dark:bg-gray-900 dark:text-white shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50"
         >
@@ -443,7 +476,7 @@ import { Component, Input } from '@angular/core'
                 />
               </div>
               <div class="-mr-2">
-                <button
+                <button       
                   type="button"
                   class="bg-white dark:bg-gray-900 dark:text-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                 >
@@ -568,36 +601,4 @@ import { Component, Input } from '@angular/core'
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  `,
-})
-export class WebUiHeaderComponent {
-  @Input() contactCard: Contact
-  // @Input() buttons: Buttons
-
-  solutionsCard: boolean = false
-  moreCard: boolean = false
-
-  toggleSolution() {
-    this.solutionsCard = !this.solutionsCard
-    this.moreCard = false
-  }
-  togglemoreCard() {
-    this.moreCard = !this.moreCard
-    this.solutionsCard = false
-  }
-  reset() {
-    this.solutionsCard = false
-    this.moreCard = false
-  }
-}
-interface Contact {
-  id?: number
-  title?: string
-  icon?: string
-}
-// interface Buttons {
-//   text?: string
-//   backColor?: string
-// }
+      </di */
