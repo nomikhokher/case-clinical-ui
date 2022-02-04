@@ -102,4 +102,5 @@ export enum UiIcon {
   bookMark = 'bookMark',
   desktopComputer = 'desktopComputer',
   shieldCheck = 'shieldCheck',
+  folderOpen = 'folderOpen',
 }

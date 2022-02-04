@@ -14,7 +14,7 @@ import { DevHeaderStore } from './dev-header.store'
         [component_inputs]="vm.config.component_inputs"
         [codeObj]="vm.config.items"
       >
-        <ui-header [contactCard]="vm.config.items.contactCard" [buttons]="vm.config.items.buttons"></ui-header>
+        <ui-header [buttons]="vm.config.items.buttons"></ui-header>
       </ui-preview>
     </ng-container>
   `,
@@ -35,7 +35,6 @@ export class DevHeaderComponent {
         [buttons]="vm.config.items.buttons"
       ></ui-header>
     \n\n
-        contactCard = ${JSON.stringify(result.config.items.contactCard, null, '\t')}\n
         buttons = ${JSON.stringify(result.config.items.buttons, null, '\t')}\n
       `,
       ]
