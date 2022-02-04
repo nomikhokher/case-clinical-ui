@@ -101,4 +101,5 @@ export enum UiIcon {
   globeAlt = 'globeAlt',
   bookMark = 'bookMark',
   desktopComputer = 'desktopComputer',
+  shieldCheck = 'shieldCheck',
 }
