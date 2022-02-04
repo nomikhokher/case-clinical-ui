@@ -13,7 +13,7 @@ import { DevFileInputStore } from './dev-file-input.store'
         [component_inputs]="vm.config.component_inputs"
         [codeObj]="vm.config.items"
       >
-        <ui-file-input [background]="vm.config.items.background"></ui-file-input>
+        <ui-file-input></ui-file-input>
       </ui-preview>
     </ng-container>
   `,
@@ -28,12 +28,9 @@ export class DevFileInputComponent {
       this.codePreview = [
         `import { WebUiFileInputModule } from '@schema-driven/web/ui/file-input'\n\n
         <ui-file-input
-          [background]='background'
         >
         </ui-file-input>\n\n
-        {
-          background: ${JSON.stringify(result.config.items.background, null, '\t')}
-        }`,
+       `,
       ]
     })
   }

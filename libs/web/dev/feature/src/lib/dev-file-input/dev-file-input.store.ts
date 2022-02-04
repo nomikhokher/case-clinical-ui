@@ -28,7 +28,7 @@ const config: Configs = {
     background: 'white-500',
   },
   component_inputs: [
-    { label: 'Background Color', prop: '[background]', description: 'Adjust background color.', dataType: 'String' },
+    // { label: 'Background Color', prop: '[background]', description: 'Adjust background color.', dataType: 'String' },
   ],
 }
 

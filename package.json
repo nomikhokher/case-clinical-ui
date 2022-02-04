@@ -190,5 +190,8 @@
   },
   "prisma": {
     "schema": "libs/api/core/data-access/src/prisma/schema.prisma"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }
