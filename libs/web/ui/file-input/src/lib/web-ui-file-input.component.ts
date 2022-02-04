@@ -35,7 +35,8 @@ import { Component, Input } from '@angular/core'
       >
         <div class="absolute">
           <div class="flex flex-col items-center">
-            <svg
+            <ui-icon icon="folderOpen"></ui-icon>
+            <!-- <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-14 mb-4 w-14 text-blue-600 dark:text-white"
               fill="none"
@@ -48,7 +49,7 @@ import { Component, Input } from '@angular/core'
                 stroke-width="2"
                 d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z"
               />
-            </svg>
+            </svg> -->
             <span class="block text-gray-500 text-sm font-normal dark:text-white">Drop files here to upload</span>
           </div>
         </div>
