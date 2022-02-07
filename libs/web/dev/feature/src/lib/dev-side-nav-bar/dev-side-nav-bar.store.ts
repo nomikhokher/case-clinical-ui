@@ -4,11 +4,12 @@ import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { of } from 'rxjs'
 import { switchMap, tap } from 'rxjs/operators'
 import { Configs } from './model/index'
+import { UiIcon } from '@schema-driven/web/ui/icon'
 export interface Item {
   id?: string
   name?: string
 }
-
+let icon = Object.values(UiIcon)
 interface DevSideNavBarState {
   items?: Item[]
   loading?: boolean
@@ -50,13 +51,13 @@ const config: Configs = {
       description: 'Shows the menu item on navbar.',
       dataType: 'Object',
       typeArray: [
-        [{ title: 'Dashboard' }],
-        [{ title: 'Search' }],
-        [{ title: 'Chat' }],
-        [{ title: 'Orders' }],
-        [{ title: 'Wishlist' }],
-        [{ title: 'Settings' }],
-        [{ title: 'Logout' }],
+        [{ icon: icon }, { title: 'Dashboard' }],
+        [{ icon: icon }, { title: 'Search' }],
+        [{ icon: icon }, { title: 'Chat' }],
+        [{ icon: icon }, { title: 'Orders' }],
+        [{ icon: icon }, { title: 'Wishlist' }],
+        [{ icon: icon }, { title: 'Settings' }],
+        [{ icon: icon }, { title: 'Logout' }],
       ],
     },
   ],
