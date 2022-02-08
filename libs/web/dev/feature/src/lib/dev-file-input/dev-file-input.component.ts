@@ -13,7 +13,7 @@ import { DevFileInputStore } from './dev-file-input.store'
         [component_inputs]="vm.config.component_inputs"
         [codeObj]="vm.config.items"
       >
-        <ui-file-input></ui-file-input>
+        <ui-file-input [icon]="vm.config.items.icon"></ui-file-input>
       </ui-preview>
     </ng-container>
   `,

@@ -4,11 +4,13 @@ import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
 import { of } from 'rxjs'
 import { switchMap, tap } from 'rxjs/operators'
 import { Configs } from '../dev-file-input/model'
+import { UiIcon } from '@schema-driven/web/ui/icon'
 
 export interface Item {
   id?: string
   name?: string
 }
+let icons = Object.values(UiIcon)
 
 interface DevFileInputState {
   items?: Item[]
@@ -25,10 +27,16 @@ const config: Configs = {
   ],
   directory: '/libs/web/dev/feature/src/lib/file-input/file-input.component.ts',
   items: {
-    background: 'white-500',
+    icon: [{ tempIcon: 'folderOpen' }],
   },
   component_inputs: [
-    // { label: 'Background Color', prop: '[background]', description: 'Adjust background color.', dataType: 'String' },
+    {
+      label: 'Change Icon',
+      prop: '[icon]',
+      description: 'Select the icon.',
+      dataType: 'Object',
+      typeArray: [[{ tempIcon: icons }]],
+    },
   ],
 }
 

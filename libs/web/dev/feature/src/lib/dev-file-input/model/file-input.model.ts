@@ -13,6 +13,10 @@ export interface Crumbs {
 }
 export interface Item {
   background?: string
+  icon?: Icons[]
+}
+export interface Icons {
+  tempIcon: string
 }
 
 interface Options {
