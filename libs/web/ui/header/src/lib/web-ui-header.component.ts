@@ -406,7 +406,9 @@ import { Component, Input } from '@angular/core'
               </div>
             </nav>
             <div class="flex items-center md:ml-12">
-              <button class="text-base dark:bg-gray-900 dark:text-white font-medium text-gray-500 hover:text-gray-900">
+              <button
+                class="text-base dark:bg-gray-900 dark:text-white ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-gray-500 hover:text-gray-900"
+              >
                 Sign in
               </button>
               <button
@@ -476,7 +478,7 @@ interface Buttons {
                 />
               </div>
               <div class="-mr-2">
-                <button       
+                <button
                   type="button"
                   class="bg-white dark:bg-gray-900 dark:text-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                 >

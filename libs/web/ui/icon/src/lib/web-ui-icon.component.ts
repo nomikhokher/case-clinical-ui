@@ -1308,7 +1308,7 @@ import { UiIcon } from './enums/ui-icon.enum'
       <svg
         *ngSwitchCase="UiIcon.folderOpen"
         xmlns="http://www.w3.org/2000/svg"
-        class="h-14 mb-4 w-14 text-blue-600 dark:text-white"
+        class="h-8 mb-4 w-8 text-blue-600 dark:text-white"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
