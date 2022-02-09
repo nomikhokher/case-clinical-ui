@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core'
 @Component({
   selector: 'ui-file-input',
   template: `
-    <div class="flex gap-10">
+    <div class="flex gap-3 flex-wrap">
       <div class="w-3/12">
         <div
           class="w-full h-40 mb-1 border rounded-lg overflow-hidden relative bg-gray-100 border-dashed border-2 border-indigo-600"
@@ -27,30 +27,20 @@ import { Component, Input } from '@angular/core'
           accept="image/*"
           class="hidden"
           type="file"
-          onChange="let file = this.files[0];
-					var reader = new FileReader();
-
-					reader.onload = function (e) {
-						document.getElementById('image').src = e.target.result;
-            document.getElementById('name').textContent = file.name;
-            document.getElementById('size').textContent = file.size + 'kb';
-            document.getElementById('img').hidden = false;
-					};
-
-					reader.readAsDataURL(file);
-				"
+          multiple
+          (change)="getFileDetails($event)"
         />
       </div>
-      <div class="w-3/12" hidden id="img">
+      <div class="w-3/12" id="img" *ngFor="let file of myFiles; let i = index">
         <div
           class="w-full h-40 mb-1 border rounded-lg overflow-hidden relative bg-gray-100 border-dashed border-2 border-indigo-600"
         >
-          <ui-icon size="sm" class="absolute right-0 h-6 w-6" id="cross" icon="x_circle"></ui-icon>
-          <img id="image" class="object-cover w-full h-40" src="https://placehold.co/300x300/e2e8f0/e2e8f0" />
+          <ui-icon size="sm" class="absolute right-0 h-6 w-6" id="cross" icon="x_circle" (click)="remove(i)"></ui-icon>
+          <img id="image" class="object-cover w-full h-40" [src]="localUrl[i]" />
         </div>
         <div class="flex justify-between text-xs">
-          <h3 id="name"></h3>
-          <h3 id="size"></h3>
+          <h3 id="name">{{ file.name }}</h3>
+          <h3 id="size">{{ file.size }}</h3>
         </div>
       </div>
     </div>
@@ -58,9 +48,22 @@ import { Component, Input } from '@angular/core'
 })
 export class WebUiFileInputComponent {
   @Input() icon?: Icon[]
-
-  ngOnInit() {
-    console.log(this.icon)
+  myFiles: string[] = []
+  localUrl: string[] = []
+  ngOnInit() {}
+  remove(i) {
+    this.myFiles.splice(i, 1)
+  }
+  getFileDetails(e) {
+    var reader = new FileReader()
+    reader.onload = (e) => {
+      this.localUrl.push(e.target.result as string)
+      console.log(this.localUrl)
+    }
+    reader.readAsDataURL(e.target.files[0])
+    for (var i = 0; i < e.target.files.length; i++) {
+      this.myFiles.push(e.target.files[i])
+    }
   }
 }
 export interface Icon {
