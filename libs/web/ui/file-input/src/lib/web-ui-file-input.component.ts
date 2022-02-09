@@ -2,10 +2,10 @@ import { Component, Input } from '@angular/core'
 @Component({
   selector: 'ui-file-input',
   template: `
-    <div class="flex gap-3 flex-wrap">
-      <div class="w-3/12">
+    <div class="flex flex-wrap w-full">
+      <div class="w-3/12 pr-2">
         <div
-          class="w-full h-40 mb-1 border rounded-lg overflow-hidden relative bg-gray-100 border-dashed border-2 border-indigo-600"
+          class="w-full h-40 mb-1 border rounded-lg overflow-hidden relative bg-gray-100 dark:bg-gray-500 border-dashed border-2 border-indigo-600"
         >
           <div
             class="absolute top-0 left-0 right-0 bottom-0 w-full h-40 cursor-pointer flex items-center justify-center"
@@ -31,16 +31,16 @@ import { Component, Input } from '@angular/core'
           (change)="getFileDetails($event)"
         />
       </div>
-      <div class="w-3/12" id="img" *ngFor="let file of myFiles; let i = index">
+      <div class="w-3/12 pr-2" id="img" *ngFor="let file of myFiles; let i = index">
         <div
-          class="w-full h-40 mb-1 border rounded-lg overflow-hidden relative bg-gray-100 border-dashed border-2 border-indigo-600"
+          class="w-full h-40 mb-1 border rounded-lg overflow-hidden relative bg-gray-100 border-dashed border-2 border-indigo-600 dark:bg-gray-500"
         >
           <ui-icon size="sm" class="absolute right-0 h-6 w-6" id="cross" icon="x_circle" (click)="remove(i)"></ui-icon>
           <img id="image" class="object-cover w-full h-40" [src]="localUrl[i]" />
         </div>
-        <div class="flex justify-between text-xs">
+        <div class="flex justify-between text-xs dark:text-white">
           <h3 id="name">{{ file.name }}</h3>
-          <h3 id="size">{{ file.size }}</h3>
+          <h3 id="size">{{ file.size }}kb</h3>
         </div>
       </div>
     </div>
@@ -53,12 +53,12 @@ export class WebUiFileInputComponent {
   ngOnInit() {}
   remove(i) {
     this.myFiles.splice(i, 1)
+    this.localUrl.splice(i, 1)
   }
   getFileDetails(e) {
     var reader = new FileReader()
     reader.onload = (e) => {
       this.localUrl.push(e.target.result as string)
-      console.log(this.localUrl)
     }
     reader.readAsDataURL(e.target.files[0])
     for (var i = 0; i < e.target.files.length; i++) {
