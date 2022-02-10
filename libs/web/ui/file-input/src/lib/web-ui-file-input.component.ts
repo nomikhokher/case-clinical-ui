@@ -56,14 +56,16 @@ export class WebUiFileInputComponent {
     this.localUrl.splice(i, 1)
   }
   getFileDetails(e) {
-    var reader = new FileReader()
-    reader.onload = (e) => {
-      this.localUrl.push(e.target.result as string)
-    }
-    reader.readAsDataURL(e.target.files[0])
     for (var i = 0; i < e.target.files.length; i++) {
+      var reader = new FileReader()
+      reader.onload = (e) => {
+        this.localUrl.push(e.target.result as string)
+      }
       this.myFiles.push(e.target.files[i])
+      reader.readAsDataURL(e.target.files[i])
+      console.log(e.target.files[i])
     }
+    console.log(reader.result)
   }
 }
 export interface Icon {
