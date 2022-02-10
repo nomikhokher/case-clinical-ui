@@ -24,7 +24,7 @@ const config: Configs = {
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-header/dev-header.component.ts',
   items: {
-    contactCard: [
+    headernav: [
       {
         id: 1,
         title: 'Solution',

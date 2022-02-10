@@ -57,121 +57,14 @@ import { Component, Input } from '@angular/core'
 
                 <div
                   *ngIf="solutionsCard"
-                  class="hidden dark:bg-gray-900 dark:text-white  md:block absolute z-10 top-full inset-x-0 transform shadow-lg bg-white"
+                  class="hidden dark:bg-gray-900 dark:text-white  md:block absolute z-10 top-full transform shadow-lg bg-white w-3/12"
                 >
-                  <div class="max-w-2xl mx-auto">
-                    <div
-                      class="p-4 max-w-md bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700"
-                    >
-                      <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Latest Customers</h3>
-                      </div>
-                      <div class="flow-root">
-                        <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-                          <li class="py-3 sm:py-4">
-                            <div class="flex items-center space-x-4">
-                              <div class="flex-shrink-0">
-                                <img
-                                  class="w-8 h-8 rounded-full"
-                                  src="https://flowbite.com/docs/images/people/profile-picture-1.jpg"
-                                  alt="Neil image"
-                                />
-                              </div>
-                              <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900 truncate dark:text-white">Neil Sims</p>
-                                <p class="text-sm text-gray-500 truncate dark:text-gray-400">email@windster.com</p>
-                              </div>
-                              <div
-                                class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white"
-                              >
-                                $320
-                              </div>
-                            </div>
-                          </li>
-                          <li class="py-3 sm:py-4">
-                            <div class="flex items-center space-x-4">
-                              <div class="flex-shrink-0">
-                                <img
-                                  class="w-8 h-8 rounded-full"
-                                  src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
-                                  alt="Bonnie image"
-                                />
-                              </div>
-                              <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900 truncate dark:text-white">Bonnie Green</p>
-                                <p class="text-sm text-gray-500 truncate dark:text-gray-400">email@windster.com</p>
-                              </div>
-                              <div
-                                class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white"
-                              >
-                                $3467
-                              </div>
-                            </div>
-                          </li>
-                          <li class="py-3 sm:py-4">
-                            <div class="flex items-center space-x-4">
-                              <div class="flex-shrink-0">
-                                <img
-                                  class="w-8 h-8 rounded-full"
-                                  src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
-                                  alt="Michael image"
-                                />
-                              </div>
-                              <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900 truncate dark:text-white">Michael Gough</p>
-                                <p class="text-sm text-gray-500 truncate dark:text-gray-400">email@windster.com</p>
-                              </div>
-                              <div
-                                class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white"
-                              >
-                                $67
-                              </div>
-                            </div>
-                          </li>
-                          <li class="py-3 sm:py-4">
-                            <div class="flex items-center space-x-4">
-                              <div class="flex-shrink-0">
-                                <img
-                                  class="w-8 h-8 rounded-full"
-                                  src="https://flowbite.com/docs/images/people/profile-picture-4.jpg"
-                                  alt="Lana image"
-                                />
-                              </div>
-                              <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900 truncate dark:text-white">Lana Byrd</p>
-                                <p class="text-sm text-gray-500 truncate dark:text-gray-400">email@windster.com</p>
-                              </div>
-                              <div
-                                class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white"
-                              >
-                                $367
-                              </div>
-                            </div>
-                          </li>
-                          <li class="pt-3 pb-0 sm:pt-4">
-                            <div class="flex items-center space-x-4">
-                              <div class="flex-shrink-0">
-                                <img
-                                  class="w-8 h-8 rounded-full"
-                                  src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                                  alt="Thomas image"
-                                />
-                              </div>
-                              <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900 truncate dark:text-white">Thomes Lean</p>
-                                <p class="text-sm text-gray-500 truncate dark:text-gray-400">email@windster.com</p>
-                              </div>
-                              <div
-                                class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white"
-                              >
-                                $2367
-                              </div>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+                  <ul class=" list-reset flex flex-col">
+                    <li class=" rounded-t relative -mb-px block border p-4 border-grey">Demo Data 1</li>
+                    <li class="relative -mb-px block border p-4 border-grey">Demo Data 2</li>
+                    <li class="relative -mb-px block border p-4 border-grey">Demo Data 3</li>
+                    <li class="relative -mb-px block border p-4 border-grey">Demo Data 4</li>
+                  </ul>
                 </div>
               </div>
               <button
@@ -201,14 +94,14 @@ import { Component, Input } from '@angular/core'
                     icon="chevronDown"
                   ></ui-icon>
                 </button>
-                <div *ngIf="moreCard" class="hidden md:block absolute z-10 top-full inset-x-0 transform shadow-lg">
-                  <div class="absolute inset-0 flex">
-                    <div class="bg-white dark:bg-gray-900 dark:text-white w-1/2"></div>
+                <div *ngIf="moreCard" class="hidden md:block absolute z-10 top-full transform shadow-lg w-3/12">
+                  <div class="absolute">
+                    <div class="bg-white"></div>
                     <div class="bg-gray-50 dark:bg-gray-900 dark:text-white w-1/2"></div>
                   </div>
-                  <div class="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2">
+                  <div class="relative max-w-7xl mx-auto ">
                     <nav
-                      class="grid gap-y-10 px-4 py-8 dark:bg-gray-900 dark:text-white bg-white sm:grid-cols-2 sm:gap-x-8 sm:py-12 sm:px-6 lg:px-8 xl:pr-12"
+                      class=" px-4 py-8 dark:bg-gray-900 dark:text-white bg-white sm:gap-x-8 sm:py-12 sm:px-6 lg:px-8 xl:pr-12"
                     >
                       <div>
                         <h3
@@ -283,22 +176,11 @@ import { Component, Input } from '@angular/core'
           </div>
         </div>
       </div>
-
-      <!--
-    Mobile menu, show/hide based on mobile menu state.
-
-    Entering: "duration-200 ease-out"
-      From: "opacity-0 scale-95"
-      To: "opacity-100 scale-100"
-    Leaving: "duration-100 ease-in"
-      From: "opacity-100 scale-100"
-      To: "opacity-0 scale-95"
-  -->
     </div>
   `,
 })
 export class WebUiHeaderComponent {
-  @Input() contactCard: Contact
+  @Input() headernav: Header
   @Input() buttons: Buttons
 
   solutionsCard: boolean = false
@@ -317,7 +199,7 @@ export class WebUiHeaderComponent {
     this.moreCard = false
   }
 }
-interface Contact {
+interface Header {
   id?: number
   title?: string
   icon?: string
