@@ -661,22 +661,22 @@ export class WebDevFeatureComponent {
             {
               label: 'Side Navbar',
               route: 'side-nav-bar',
-              image: '/assets/images/store-navigation.png',
+              image: '/assets/images/side-nav-bar.png',
             },
             {
               label: 'File Input',
               route: 'file-input',
-              image: '/assets/images/store-navigation.png',
+              image: '/assets/images/file-input.png',
             },
             {
               label: 'Team Section',
               route: 'team-section',
-              image: '/assets/images/store-navigation.png',
+              image: '/assets/images/team-section.png',
             },
             {
               label: 'Header',
               route: 'header',
-              image: '/assets/images/store-navigation.png',
+              image: '/assets/images/header.png',
             },
           ],
         },

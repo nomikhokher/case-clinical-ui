@@ -1,1 +1,1 @@
-export { Configs, Buttons, Contact } from './header.model'
+export { Configs, Buttons } from './header.model'

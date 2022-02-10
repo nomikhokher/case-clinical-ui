@@ -12,7 +12,7 @@ export interface Crumbs {
   path?: string
 }
 export interface Item {
-  contactCard?: Contact[]
+  headernav?: Header[]
   buttons?: Buttons[]
   toggleCard?: String
 }
@@ -34,7 +34,7 @@ export interface Outputs {
   dataType?: string
 }
 
-export interface Contact {
+export interface Header {
   id: number
   title: string
   icon?: string
