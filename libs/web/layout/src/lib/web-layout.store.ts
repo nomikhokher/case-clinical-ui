@@ -49,7 +49,7 @@ export class WebLayoutStore extends ComponentStore<WebLayoutState> {
         {
           mode: 'logo_detail',
           name: 'white',
-          src: '/assets/logos/logo-detail-white.png',
+          src: '/assets/logos/logo.png',
         },
         {
           mode: 'logo',

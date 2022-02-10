@@ -9,7 +9,7 @@ import { FormGroup } from '@angular/forms'
     >
       <div class="sm:mx-auto sm:w-full sm:max-w-md" *ngIf="buttonTitle || (linkTitle && linkPath)">
         <div class="bg-white dark:bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <img class="mx-auto h-40 p-5 w-auto" src="assets/logos/only-logo-blue.png" alt="App Logo" />
+          <img class="mx-auto h-40 p-5 w-auto" src="assets/logos/auth-logo.png" alt="App Logo" />
           <ui-form [form]="form" [fields]="fields" [model]="model" (submitForm)="submitForm.emit(model)">
             <div class="flex flex-col space-y-6 mt-6">
               <button

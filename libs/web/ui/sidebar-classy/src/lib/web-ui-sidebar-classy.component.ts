@@ -307,7 +307,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
           <div class="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto aside-scrollbar">
             <div class="flex justify-between items-center flex-shrink-0 px-4">
               <div>
-                <img *ngIf="logo" [attr.src]="logo" [attr.loading]="'lazy'" class="h-6 w-auto" alt="Workflow" />
+                <img *ngIf="logo" [attr.src]="logo" [attr.loading]="'lazy'" class="h-9 w-auto" alt="Workflow" />
               </div>
               <div>
                 <div class="ml-4 flex items-center md:ml-6">
