@@ -4,10 +4,10 @@ import { DevMobileWrapperStore } from './dev-mobile-wrapper.store'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <!-- <ui-preview> -->
-      <!-- INSERT YOUR UI-COMPONENT HERE  -->
-      <ui-mobile-wrapper> </ui-mobile-wrapper>
-      <!-- </ui-preview> -->
+      <ui-preview [title]="vm.config.headerTitle">
+        <!-- INSERT YOUR UI-COMPONENT HERE  -->
+        <ui-mobile-wrapper> </ui-mobile-wrapper>
+      </ui-preview>
     </ng-container>
   `,
   providers: [DevMobileWrapperStore],
