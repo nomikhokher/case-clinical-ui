@@ -16,6 +16,13 @@ module.exports = {
       animation: {
         'spin-slow': 'spin 3s linear infinite',
       },
+      height: {
+        mobile: '812px',
+      },
+      width: {
+        mobile: '375px',
+        code: '840px',
+      },
     },
     screens: {
       xs: '425px',

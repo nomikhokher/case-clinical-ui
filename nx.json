@@ -327,6 +327,9 @@
     "web-ui-mini-calendar": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-mobile-wrapper": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-modal": {
       "tags": ["scope:web", "type:ui"]
     },

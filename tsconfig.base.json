@@ -119,6 +119,7 @@
       "@schema-driven/web/ui/mask": ["libs/web/ui/mask/src/index.ts"],
       "@schema-driven/web/ui/media-object": ["libs/web/ui/media-object/src/index.ts"],
       "@schema-driven/web/ui/mini-calendar": ["libs/web/ui/mini-calendar/src/index.ts"],
+      "@schema-driven/web/ui/mobile-wrapper": ["libs/web/ui/mobile-wrapper/src/index.ts"],
       "@schema-driven/web/ui/modal": ["libs/web/ui/modal/src/index.ts"],
       "@schema-driven/web/ui/multi-select": ["libs/web/ui/multi-select/src/index.ts"],
       "@schema-driven/web/ui/multiple-alert": ["libs/web/ui/multiple-alert/src/index.ts"],
