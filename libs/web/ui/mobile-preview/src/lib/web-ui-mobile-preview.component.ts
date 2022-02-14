@@ -211,7 +211,7 @@ export interface ComponentProp {
                 <div class="relative">
                   <div class="p-8 bg-white dark:bg-gray-800">
                     <div class="max-w-7xl mx-auto" #child_dom id="child_dom">
-                      <ng-content></ng-content>
+                      <ng-content> </ng-content>
                     </div>
                   </div>
                 </div>
