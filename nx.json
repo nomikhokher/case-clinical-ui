@@ -327,6 +327,12 @@
     "web-ui-mini-calendar": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-mobile-mutator": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-mobile-preview": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-mobile-wrapper": {
       "tags": ["scope:web", "type:ui"]
     },

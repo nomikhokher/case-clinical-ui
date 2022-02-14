@@ -173,5 +173,7 @@ module.exports = {
     '<rootDir>/libs/web/ui/team-section',
     '<rootDir>/libs/web/ui/header',
     '<rootDir>/libs/web/ui/mobile-wrapper',
+    '<rootDir>/libs/web/ui/mobile-preview',
+    '<rootDir>/libs/web/ui/mobile-mutator',
   ],
 }
