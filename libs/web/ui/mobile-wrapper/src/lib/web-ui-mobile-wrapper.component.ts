@@ -49,7 +49,7 @@ import { Component } from '@angular/core'
       <div
         class="absolute right-6 border-8 border-t-8 border-black rounded-lg mx-auto mt-2 bg-gray-200 h-mobile w-mobile"
       >
-        <div class="pt-8 bg-black"></div>
+        <div class="pt-8 bg-white"></div>
         <h1>test</h1>
         <!-- <ng-content></ng-content> -->
       </div>

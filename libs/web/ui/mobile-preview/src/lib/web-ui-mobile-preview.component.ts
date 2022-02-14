@@ -34,7 +34,21 @@ export interface ComponentProp {
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'ui-mobile-preview',
   template: `
-    <ng-template #headerControls>
+    <style>
+      .mobile {
+        border-top-right-radius: 30px;
+        border-top-left-radius: 30px;
+        border-top: 40px solid #000;
+        border-left: 10px solid #000;
+        border-right: 10px solid #000;
+        border-bottom: 10px solid #000;
+        width: 375px;
+        height: 812px;
+        position: relative;
+      }
+    </style>
+
+    <!-- <ng-template #headerControls>
       <ng-container *ngIf="githubURL">
         <ui-button
           [label]="'View on Github'"
@@ -43,22 +57,25 @@ export interface ComponentProp {
           (click)="handleGithubClick()"
         ></ui-button>
       </ng-container>
-    </ng-template>
+      
+      [controlsTemplate]="headerControls"
+    </ng-template> -->
 
-    <ui-page
+    <!-- [headerMeta]="directoryMeta" -->
+    <!-- <ui-page
       containerClass="bg-gray-50 dark:bg-gray-900"
       [breadcrumbs]="breadcrumbs"
       [headerTitle]="title"
-      [headerMeta]="directoryMeta"
-      [controlsTemplate]="headerControls"
-    >
+      
+    > -->
+    <div class="mx-auto max-w-7xl px-3 md:px-6 lg:px-8 mt-10">
       <div class="flex gap-10">
-        <div class="w-3/5" style="margin-top: 60px;">
+        <div class="w-3/5">
+          <h3 class="text-lg font-medium text-gray-700 dark:text-gray-200 mt-2 mb-9">{{ title }}</h3>
           <ui-mobile-mutator [payload]="codeObj"></ui-mobile-mutator>
         </div>
         <div class="">
           <div class="flex md:items-center md:flex-row flex-col justify-between py-2">
-            <!-- <h3 class="text-lg font-medium text-gray-700 dark:text-gray-200">{{ title }}</h3> -->
             <div class="flex items-center">
               <div>
                 <div class="sm:hidden inline-block xs:inline-flex">
@@ -206,11 +223,89 @@ export interface ComponentProp {
               *ngIf="activeTab === DISPLAY_MODE.Preview"
               class="float-right font-mono h-3 mr-8 dark:text-white text-gray-500"
             ></p>
-            <div class="relative dark:bg-gray-600 bg-gray-200 bg-opacity-70 sm:rounded-lg mb-20">
+            <div
+              class="relative dark:bg-gray-600 bg-white bg-opacity-70 mb-20"
+              style="    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;"
+            >
               <ng-container *ngIf="activeTab === DISPLAY_MODE.Preview">
                 <div class="relative">
-                  <div class="p-8 bg-white dark:bg-gray-800">
-                    <div class="max-w-7xl mx-auto" #child_dom id="child_dom">
+                  <div class="mx-auto mt-2 h-mobile w-mobile mobile">
+                    <!-- <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6" style=" left: 90px;  position: absolute; top: -30px;color: #5a5959;"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"
+                      />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-6 w-6" style="left: 110px;  position: absolute; top: -30px;color: #5a5959;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                    </svg> -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      style="left: 140px  ;  position: absolute; top: -30px;color: #5a5959;"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      style="left: 150px  ;  position: absolute; top: -30px;color: #5a5959;"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      style="left: 160px  ;  position: absolute; top: -30px;color: #5a5959;"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      style="left: 170px  ;  position: absolute; top: -30px;color: #5a5959;"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      style="left: 180px  ;  position: absolute; top: -30px;color: #5a5959;"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                    </svg>
+                    <div class="w-full h-auto bg-white" #child_dom id="child_dom">
                       <ng-content> </ng-content>
                     </div>
                   </div>
@@ -277,11 +372,9 @@ export interface ComponentProp {
         </div>
       </div>
 
-      ////
       <div *ngIf="component_inputs?.length > 0 && activeTab === DISPLAY_MODE.Preview" class="flex flex-col my-10">
-        -->
-        <div class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg overflow-x-auto">
-          <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 overflow-x-auto">
+        <!-- <div class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 overflow-x-auto">
             <thead class="bg-white dark:bg-gray-800">
               <tr>
                 <th
@@ -419,10 +512,10 @@ export interface ComponentProp {
                 </tr>
               </div>
             </tbody>
-          </table>
-        </div>
+          </table> 
+        </div> -->
         <!--PROPS-START-->
-        <div class="my-2 overflow-x-auto">
+        <!-- <div class="my-2 overflow-x-auto">
           <div class="pb-2">
             <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100 mt-3 ml-3">API</h3>
           </div>
@@ -483,10 +576,9 @@ export interface ComponentProp {
               </table>
             </div>
           </div>
-        </div>
+        </div> -->
         <!--PROPS END-->
       </div>
-      /////
 
       <div *ngIf="component_outputs?.length > 0" class="flex flex-col my-10">
         <div class="-my-2 overflow-x-auto">
@@ -549,7 +641,8 @@ export interface ComponentProp {
           </div>
         </div>
       </div>
-    </ui-page>
+    </div>
+    <!-- </ui-page> -->
   `,
 })
 export class WebUiMobilePreviewComponent implements OnInit {
