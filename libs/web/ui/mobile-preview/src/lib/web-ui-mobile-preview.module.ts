@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
-import { WebUiCodeModule } from '@schema-driven/web/ui/code'
+import { WebUiMobileCodeModule } from '@schema-driven/web/ui/mobile-code'
 import { WebUiMobilePreviewComponent } from './web-ui-mobile-preview.component'
 import { WebUiPageModule } from '@schema-driven/web/ui/page'
 import { WebUiIconModule } from '@schema-driven/web/ui/icon'
@@ -18,7 +18,7 @@ import { WebUiMobileMutatorModule } from '@schema-driven/web/ui/mobile-mutator'
   imports: [
     CommonModule,
     RouterModule,
-    WebUiCodeModule,
+    WebUiMobileCodeModule,
     WebUiPageModule,
     WebUiIconModule,
     WebUiButtonModule,
