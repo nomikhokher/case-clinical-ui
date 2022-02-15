@@ -6,6 +6,7 @@ import { WebUiPreviewModule } from '@schema-driven/web/ui/preview'
 import { WebUiPageHeadingsModule } from '@schema-driven/web/ui/page-headings'
 import { WebUiPageHeaderModule } from '@schema-driven/web/ui/page-header'
 import { WebUiButtonModule } from '@schema-driven/web/ui/button'
+import { WebUiMobilePreviewModule } from '@schema-driven/web/ui/mobile-preview'
 
 @NgModule({
   declarations: [DevPageHeadingsComponent],
@@ -16,6 +17,7 @@ import { WebUiButtonModule } from '@schema-driven/web/ui/button'
     WebUiPreviewModule,
     WebUiPageHeaderModule,
     WebUiPageHeadingsModule,
+    WebUiMobilePreviewModule,
   ],
 })
 export class DevPageHeadingsModule {}

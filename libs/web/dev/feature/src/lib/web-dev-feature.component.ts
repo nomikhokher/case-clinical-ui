@@ -678,6 +678,11 @@ export class WebDevFeatureComponent {
               route: 'header',
               image: '/assets/images/header.png',
             },
+            {
+              label: 'Mobile Wrapper',
+              route: 'mobile-wrapper',
+              image: '/assets/images/header.png',
+            },
           ],
         },
       ],

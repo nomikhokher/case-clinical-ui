@@ -482,4 +482,8 @@ export const routes: Routes = [
     path: 'header',
     loadChildren: () => import('./dev-header/dev-header.module').then((m) => m.DevHeaderModule),
   },
+  {
+    path: 'mobile-wrapper',
+    loadChildren: () => import('./dev-mobile-wrapper/dev-mobile-wrapper.module').then((m) => m.DevMobileWrapperModule),
+  },
 ]

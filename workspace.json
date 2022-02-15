@@ -2333,6 +2333,94 @@
         }
       }
     },
+    "web-ui-mobile-content": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-content",
+      "sourceRoot": "libs/web/ui/mobile-content/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/mobile-content/src/**/*.ts", "libs/web/ui/mobile-content/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-content"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-content/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-mobile-mutator": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-mutator",
+      "sourceRoot": "libs/web/ui/mobile-mutator/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/mobile-mutator/src/**/*.ts", "libs/web/ui/mobile-mutator/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-mutator"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-mutator/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-mobile-preview": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-preview",
+      "sourceRoot": "libs/web/ui/mobile-preview/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/mobile-preview/src/**/*.ts", "libs/web/ui/mobile-preview/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-preview"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-preview/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-mobile-wrapper": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-wrapper",
+      "sourceRoot": "libs/web/ui/mobile-wrapper/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/mobile-wrapper/src/**/*.ts", "libs/web/ui/mobile-wrapper/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-wrapper"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-wrapper/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-modal": {
       "projectType": "library",
       "root": "libs/web/ui/modal",

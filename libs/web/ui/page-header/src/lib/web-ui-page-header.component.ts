@@ -5,7 +5,9 @@ import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
 @Component({
   selector: 'ui-page-header',
   template: `
-    <div class="sm:flex dark:bg-gray-700 items-center justify-center lg:items-center lg:justify-between  py-5 block">
+    <div
+      class="px-5 sm:flex dark:bg-gray-700 items-center justify-center lg:items-center lg:justify-between  py-5 block"
+    >
       <div class="mr-3" *ngIf="imgSource">
         <img class="h-16 w-16 rounded-full" src="{{ imgSource }}" alt="Invalid URL" />
       </div>
