@@ -28,10 +28,9 @@ export class DevMobileWalletComponent {
   ngOnInit(): void {
     this.vm$.subscribe((result) => {
       this.codePreview = [
-        `import { WebUiMobileWalletModule } from '@schema-driven/web/ui/mobile-wallet' \n\n
-          <ui-mobile-wallet
-          ></ui-mobile-wallet>
-        </div> \n\n        
+        `\nimport { WebUiMobileWalletModule } from '@schema-driven/web/ui/mobile-wallet' \n
+<ui-mobile-wallet></ui-mobile-wallet>
+         \n\n        
         `,
       ]
     })

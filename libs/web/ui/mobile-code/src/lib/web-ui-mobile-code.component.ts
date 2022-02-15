@@ -16,8 +16,10 @@ export type UiMobileCodeLanguage = 'html' | 'graphql' | 'javascript' | 'json' | 
   template: `
     <!--  -->
     <div
-      [ngClass]="theme ? 'bg-gray-600' : 'bg-white'"
-      class="relative rounded-t-none border-solid border-2 border-black"
+      [ngClass]="
+        theme ? 'bg-gray-600 border-solid border-2 border-red-700' : 'bg-white border-solid border-2 border-black'
+      "
+      class="relative rounded-t-none"
     >
       <ngx-numbered-codeblock
         [code]="code"

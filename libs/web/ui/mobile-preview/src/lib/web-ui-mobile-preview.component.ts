@@ -70,7 +70,7 @@ export interface ComponentProp {
     > -->
     <div class="mx-auto max-w-7xl px-3 md:px-6 lg:px-8 mt-10">
       <div class="flex gap-10">
-        <div class="w-3/5">
+        <div class="w-4/5">
           <h3 class="text-lg font-medium text-gray-700 dark:text-gray-200 mt-2 mb-9">{{ title }}</h3>
           <ng-container>
             <ui-mobile-code
@@ -84,7 +84,7 @@ export interface ComponentProp {
           <!-- <ui-mobile-mutator [payload]="codeObj"></ui-mobile-mutator> -->
         </div>
         <div class="">
-          <div class="flex md:items-center md:flex-row flex-col justify-between py-2">
+          <div class="flex md:items-center md:flex-row flex-col justify-end pr-4 py-2">
             <div class="flex items-center">
               <div>
                 <div class="sm:hidden inline-block xs:inline-flex">
@@ -242,7 +242,7 @@ export interface ComponentProp {
                     >
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
                     </svg>
-                    <div class="w-full h-auto bg-white" #child_dom id="child_dom">
+                    <div class="w-full h-screen" #child_dom id="child_dom">
                       <ng-content> </ng-content>
                     </div>
                   </div>
