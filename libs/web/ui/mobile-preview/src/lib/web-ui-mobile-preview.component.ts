@@ -122,7 +122,7 @@ export interface ComponentProp {
                 </div>
                 <div class="hidden sm:block">
                   <nav class="flex space-x-2  " aria-label="Tabs">
-                    <button
+                    <!-- <button
                       (click)="handleTabClick(DISPLAY_MODE.Preview); codePreviewToggler = true"
                       class=" flex items-center px-3 py-2 font-medium text-sm rounded-md focus:outline-none"
                       [class.theme-bg-50]="DISPLAY_MODE.Preview === activeTab"
@@ -137,7 +137,7 @@ export interface ComponentProp {
                     >
                       <ui-icon icon="eye" class="h-5 w-5 mr-1"></ui-icon>
                       Preview
-                    </button>
+                    </button> -->
                     <!-- <button
                     *ngIf="resposiveSection"
                     (click)="handleTabClick(DISPLAY_MODE.Responsive); codePreviewToggler = true"
@@ -226,7 +226,7 @@ export interface ComponentProp {
             <div
               class="relative dark:bg-gray-600 bg-white bg-opacity-70 mb-20"
               style="    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;"
+              border-top-right-radius: 30px;"
             >
               <ng-container *ngIf="activeTab === DISPLAY_MODE.Preview">
                 <div class="relative">
@@ -372,8 +372,8 @@ export interface ComponentProp {
         </div>
       </div>
 
-      <div *ngIf="component_inputs?.length > 0 && activeTab === DISPLAY_MODE.Preview" class="flex flex-col my-10">
-        <!-- <div class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg overflow-x-auto">
+      <!-- <div *ngIf="component_inputs?.length > 0 && activeTab === DISPLAY_MODE.Preview" class="flex flex-col my-10"> -->
+      <!-- <div class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg overflow-x-auto">
               <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 overflow-x-auto">
             <thead class="bg-white dark:bg-gray-800">
               <tr>
@@ -514,8 +514,8 @@ export interface ComponentProp {
             </tbody>
           </table> 
         </div> -->
-        <!--PROPS-START-->
-        <!-- <div class="my-2 overflow-x-auto">
+      <!--PROPS-START-->
+      <!-- <div class="my-2 overflow-x-auto">
           <div class="pb-2">
             <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100 mt-3 ml-3">API</h3>
           </div>
@@ -577,10 +577,10 @@ export interface ComponentProp {
             </div>
           </div>
         </div> -->
-        <!--PROPS END-->
-      </div>
+      <!--PROPS END-->
+      <!-- </div> -->
 
-      <div *ngIf="component_outputs?.length > 0" class="flex flex-col my-10">
+      <!-- <div *ngIf="component_outputs?.length > 0" class="flex flex-col my-10">
         <div class="-my-2 overflow-x-auto">
           <div class="pb-2">
             <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">Outputs</h3>
@@ -640,7 +640,7 @@ export interface ComponentProp {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <!-- </ui-page> -->
   `,
@@ -716,7 +716,6 @@ export class WebUiMobilePreviewComponent implements OnInit {
     this.router.url === '/dev/music-player'
       ? (this.resposiveSection = false)
       : (this.resposiveSection = true)
-    console.log('dsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsds')
   }
   displayTitle(item) {
     //console.log(Object.keys(item), item['key'])
