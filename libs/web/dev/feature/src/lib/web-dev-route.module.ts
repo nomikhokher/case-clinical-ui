@@ -486,4 +486,8 @@ export const routes: Routes = [
     path: 'mobile-wrapper',
     loadChildren: () => import('./dev-mobile-wrapper/dev-mobile-wrapper.module').then((m) => m.DevMobileWrapperModule),
   },
+  {
+    path: 'mobile-wallet',
+    loadChildren: () => import('./dev-mobile-wallet/dev-mobile-wallet.module').then((m) => m.DevMobileWalletModule),
+  },
 ]
