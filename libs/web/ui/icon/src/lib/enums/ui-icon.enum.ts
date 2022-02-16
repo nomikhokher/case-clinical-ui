@@ -103,4 +103,5 @@ export enum UiIcon {
   desktopComputer = 'desktopComputer',
   shieldCheck = 'shieldCheck',
   folderOpen = 'folderOpen',
+  minus = 'minus',
 }

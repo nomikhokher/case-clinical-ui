@@ -186,62 +186,37 @@ export interface ComponentProp {
             ></p>
             <div
               class="relative dark:bg-gray-600 bg-white bg-opacity-70 mb-20"
-              style="    border-top-left-radius: 30px;
+              style="border-top-left-radius: 30px;
               border-top-right-radius: 30px;"
             >
               <ng-container *ngIf="activeTab === DISPLAY_MODE.Preview">
                 <div class="relative">
                   <div class="mx-auto mt-2 h-mobile w-mobile mobile">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
+                    <ui-icon
                       class="h-6 w-6"
-                      style="left: 140px  ;  position: absolute; top: -30px;color: #5a5959;"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
+                      style="left: 140px; position: absolute; top: -30px;color: #5a5959;"
+                      icon="minus"
+                    ></ui-icon>
+                    <ui-icon
                       class="h-6 w-6"
-                      style="left: 150px  ;  position: absolute; top: -30px;color: #5a5959;"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
+                      style="left: 150px; position: absolute; top: -30px;color: #5a5959;"
+                      icon="minus"
+                    ></ui-icon>
+                    <ui-icon
                       class="h-6 w-6"
-                      style="left: 160px  ;  position: absolute; top: -30px;color: #5a5959;"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
+                      style="left: 160px; position: absolute; top: -30px;color: #5a5959;"
+                      icon="minus"
+                    ></ui-icon>
+                    <ui-icon
                       class="h-6 w-6"
-                      style="left: 170px  ;  position: absolute; top: -30px;color: #5a5959;"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
+                      style="left: 170px; position: absolute; top: -30px;color: #5a5959;"
+                      icon="minus"
+                    ></ui-icon>
+                    <ui-icon
                       class="h-6 w-6"
-                      style="left: 180px  ;  position: absolute; top: -30px;color: #5a5959;"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
-                    </svg>
+                      style="left: 180px; position: absolute; top: -30px;color: #5a5959;"
+                      icon="minus"
+                    ></ui-icon>
                     <div class="w-full h-screen" #child_dom id="child_dom">
                       <ng-content> </ng-content>
                     </div>
