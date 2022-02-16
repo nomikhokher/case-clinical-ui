@@ -490,4 +490,8 @@ export const routes: Routes = [
     path: 'mobile-wallet',
     loadChildren: () => import('./dev-mobile-wallet/dev-mobile-wallet.module').then((m) => m.DevMobileWalletModule),
   },
+  {
+    path: 'mobile-profile',
+    loadChildren: () => import('./dev-mobile-profile/dev-mobile-profile.module').then((m) => m.DevMobileProfileModule),
+  },
 ]

@@ -123,6 +123,7 @@
       "@schema-driven/web/ui/mobile-content": ["libs/web/ui/mobile-content/src/index.ts"],
       "@schema-driven/web/ui/mobile-mutator": ["libs/web/ui/mobile-mutator/src/index.ts"],
       "@schema-driven/web/ui/mobile-preview": ["libs/web/ui/mobile-preview/src/index.ts"],
+      "@schema-driven/web/ui/mobile-profile": ["libs/web/ui/mobile-profile/src/index.ts"],
       "@schema-driven/web/ui/mobile-wallet": ["libs/web/ui/mobile-wallet/src/index.ts"],
       "@schema-driven/web/ui/mobile-wrapper": ["libs/web/ui/mobile-wrapper/src/index.ts"],
       "@schema-driven/web/ui/modal": ["libs/web/ui/modal/src/index.ts"],

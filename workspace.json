@@ -2421,6 +2421,28 @@
         }
       }
     },
+    "web-ui-mobile-profile": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-profile",
+      "sourceRoot": "libs/web/ui/mobile-profile/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/mobile-profile/src/**/*.ts", "libs/web/ui/mobile-profile/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-profile"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-profile/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-mobile-wallet": {
       "projectType": "library",
       "root": "libs/web/ui/mobile-wallet",

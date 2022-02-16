@@ -688,6 +688,11 @@ export class WebDevFeatureComponent {
               route: 'mobile-wallet',
               image: '/assets/images/stacked.png',
             },
+            {
+              label: 'Default',
+              route: 'mobile-profile',
+              image: '/assets/images/stacked.png',
+            },
           ],
         },
       ],

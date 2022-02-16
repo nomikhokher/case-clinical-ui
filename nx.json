@@ -339,6 +339,9 @@
     "web-ui-mobile-preview": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-mobile-profile": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-mobile-wallet": {
       "tags": ["scope:web", "type:ui"]
     },
