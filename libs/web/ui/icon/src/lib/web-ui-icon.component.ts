@@ -270,7 +270,6 @@ import { UiIcon } from './enums/ui-icon.enum'
       </svg>
 
       <svg
-        class="w-6 mb-10"
         *ngSwitchCase="UiIcon.chevronLeft"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
