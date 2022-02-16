@@ -678,10 +678,20 @@ export class WebDevFeatureComponent {
               route: 'header',
               image: '/assets/images/header.png',
             },
+          ],
+        },
+        {
+          label: 'Mobile UI',
+          children: [
             {
-              label: 'Mobile Wrapper',
-              route: 'mobile-wrapper',
-              image: '/assets/images/header.png',
+              label: 'Wallet',
+              route: 'mobile-wallet',
+              image: '/assets/images/stacked.png',
+            },
+            {
+              label: 'Default',
+              route: 'mobile-profile',
+              image: '/assets/images/stacked.png',
             },
           ],
         },

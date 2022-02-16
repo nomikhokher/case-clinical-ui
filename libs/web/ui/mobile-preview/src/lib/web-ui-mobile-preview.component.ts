@@ -70,12 +70,21 @@ export interface ComponentProp {
     > -->
     <div class="mx-auto max-w-7xl px-3 md:px-6 lg:px-8 mt-10">
       <div class="flex gap-10">
-        <div class="w-3/5">
+        <div class="w-4/5">
           <h3 class="text-lg font-medium text-gray-700 dark:text-gray-200 mt-2 mb-9">{{ title }}</h3>
-          <ui-mobile-mutator [payload]="codeObj"></ui-mobile-mutator>
+          <ng-container>
+            <ui-mobile-code
+              class="mb-10"
+              [theme]="darkMode"
+              [copyButton]="false"
+              [code]="code"
+              [language]="'json'"
+            ></ui-mobile-code>
+          </ng-container>
+          <!-- <ui-mobile-mutator [payload]="codeObj"></ui-mobile-mutator> -->
         </div>
         <div class="">
-          <div class="flex md:items-center md:flex-row flex-col justify-between py-2">
+          <div class="flex md:items-center md:flex-row flex-col justify-end pr-4 py-2">
             <div class="flex items-center">
               <div>
                 <div class="sm:hidden inline-block xs:inline-flex">
@@ -122,54 +131,6 @@ export interface ComponentProp {
                 </div>
                 <div class="hidden sm:block">
                   <nav class="flex space-x-2  " aria-label="Tabs">
-                    <button
-                      (click)="handleTabClick(DISPLAY_MODE.Preview); codePreviewToggler = true"
-                      class=" flex items-center px-3 py-2 font-medium text-sm rounded-md focus:outline-none"
-                      [class.theme-bg-50]="DISPLAY_MODE.Preview === activeTab"
-                      [class.theme-color-700]="DISPLAY_MODE.Preview === activeTab"
-                      [class.dark:text-gray-400]="DISPLAY_MODE.Preview !== activeTab"
-                      [class.dark:hover:text-gray-300]="DISPLAY_MODE.Preview !== activeTab"
-                      [class.dark:theme-bg-800]="DISPLAY_MODE.Preview === activeTab"
-                      [class.dark:theme-color-100]="DISPLAY_MODE.Preview === activeTab"
-                      [class.text-gray-500]="DISPLAY_MODE.Preview !== activeTab"
-                      [class.hover:text-gray-700]="DISPLAY_MODE.Preview !== activeTab"
-                      aria-current="page"
-                    >
-                      <ui-icon icon="eye" class="h-5 w-5 mr-1"></ui-icon>
-                      Preview
-                    </button>
-                    <!-- <button
-                    *ngIf="resposiveSection"
-                    (click)="handleTabClick(DISPLAY_MODE.Responsive); codePreviewToggler = true"
-                    class="flex items-center px-3 py-2 font-medium text-sm rounded-md focus:outline-none"
-                    [class.theme-bg-50]="DISPLAY_MODE.Responsive === activeTab"
-                    [class.theme-color-700]="DISPLAY_MODE.Responsive === activeTab"
-                    [class.dark:text-gray-400]="DISPLAY_MODE.Responsive !== activeTab"
-                    [class.dark:hover:text-gray-300]="DISPLAY_MODE.Responsive !== activeTab"
-                    [class.dark:theme-bg-800]="DISPLAY_MODE.Responsive === activeTab"
-                    [class.dark:theme-color-100]="DISPLAY_MODE.Responsive === activeTab"
-                    [class.text-gray-500]="DISPLAY_MODE.Responsive !== activeTab"
-                    [class.hover:text-gray-700]="DISPLAY_MODE.Responsive !== activeTab"
-                  >
-                    <ui-icon icon="template" class="h-5 w-5 mr-1"></ui-icon>
-                    Responsive
-                  </button> -->
-                    <button
-                      (click)="handleTabClick(DISPLAY_MODE.Code); codePreviewToggler = false"
-                      class="flex items-center px-3 py-2 font-medium text-sm rounded-md focus:outline-none"
-                      [class.theme-bg-50]="DISPLAY_MODE.Code === activeTab"
-                      [class.theme-color-700]="DISPLAY_MODE.Code === activeTab"
-                      [class.text-gray-500]="DISPLAY_MODE.Code !== activeTab"
-                      [class.dark:text-gray-400]="DISPLAY_MODE.Code !== activeTab"
-                      [class.dark:hover:text-gray-300]="DISPLAY_MODE.Code !== activeTab"
-                      [class.dark:theme-bg-800]="DISPLAY_MODE.Code === activeTab"
-                      [class.dark:theme-color-100]="DISPLAY_MODE.Code === activeTab"
-                      [class.hover:text-gray-700]="DISPLAY_MODE.Code !== activeTab"
-                      aria-current="page"
-                    >
-                      <ui-icon icon="code" class="h-5 w-5  "></ui-icon>
-                      Code
-                    </button>
                     <ui-icon
                       [ngClass]="darkMode ? 'opacity-40' : 'text-yellow-500'"
                       size="lg"
@@ -225,87 +186,38 @@ export interface ComponentProp {
             ></p>
             <div
               class="relative dark:bg-gray-600 bg-white bg-opacity-70 mb-20"
-              style="    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;"
+              style="border-top-left-radius: 30px;
+              border-top-right-radius: 30px;"
             >
               <ng-container *ngIf="activeTab === DISPLAY_MODE.Preview">
                 <div class="relative">
                   <div class="mx-auto mt-2 h-mobile w-mobile mobile">
-                    <!-- <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6" style=" left: 90px;  position: absolute; top: -30px;color: #5a5959;"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"
-                      />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                     class="h-6 w-6" style="left: 110px;  position: absolute; top: -30px;color: #5a5959;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                    </svg> -->
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
+                    <ui-icon
                       class="h-6 w-6"
-                      style="left: 140px  ;  position: absolute; top: -30px;color: #5a5959;"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
+                      style="left: 140px; position: absolute; top: -30px;color: #5a5959;"
+                      icon="minus"
+                    ></ui-icon>
+                    <ui-icon
                       class="h-6 w-6"
-                      style="left: 150px  ;  position: absolute; top: -30px;color: #5a5959;"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
+                      style="left: 150px; position: absolute; top: -30px;color: #5a5959;"
+                      icon="minus"
+                    ></ui-icon>
+                    <ui-icon
                       class="h-6 w-6"
-                      style="left: 160px  ;  position: absolute; top: -30px;color: #5a5959;"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
+                      style="left: 160px; position: absolute; top: -30px;color: #5a5959;"
+                      icon="minus"
+                    ></ui-icon>
+                    <ui-icon
                       class="h-6 w-6"
-                      style="left: 170px  ;  position: absolute; top: -30px;color: #5a5959;"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
+                      style="left: 170px; position: absolute; top: -30px;color: #5a5959;"
+                      icon="minus"
+                    ></ui-icon>
+                    <ui-icon
                       class="h-6 w-6"
-                      style="left: 180px  ;  position: absolute; top: -30px;color: #5a5959;"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
-                    </svg>
-                    <div class="w-full h-auto bg-white" #child_dom id="child_dom">
+                      style="left: 180px; position: absolute; top: -30px;color: #5a5959;"
+                      icon="minus"
+                    ></ui-icon>
+                    <div class="w-full h-screen" #child_dom id="child_dom">
                       <ng-content> </ng-content>
                     </div>
                   </div>
@@ -357,292 +269,11 @@ export interface ComponentProp {
                   </div>
                 </div>
               </ng-container>
-
-              <ng-container *ngIf="activeTab === DISPLAY_MODE.Code">
-                <ui-code
-                  class="mb-10"
-                  [theme]="darkMode"
-                  [copyButton]="false"
-                  [code]="code"
-                  [language]="'json'"
-                ></ui-code>
-              </ng-container>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div *ngIf="component_inputs?.length > 0 && activeTab === DISPLAY_MODE.Preview" class="flex flex-col my-10">
-        <!-- <div class="shadow overflow-hidden border-b border-gray-200 dark:border-gray-700 sm:rounded-lg overflow-x-auto">
-              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 overflow-x-auto">
-            <thead class="bg-white dark:bg-gray-800">
-              <tr>
-                <th
-                  scope="col"
-                  class="px-3 py-3 relative text-center text-xs font-medium text-indigo-700 dark:text-gray-400 uppercase tracking-wider"
-                >
-                  <svg
-                    *ngIf="secondBody || thirdBody"
-                    (click)="secondBody ? tableToggler('toggle') : tableToggler('third_toggle')"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6 cursor-pointer mx-3 my-2 hover:text-gray-500 absolute left-0 top-0"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                  </svg>
-                  Play Ground
-                </th>
-              </tr>
-            </thead>
-            <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700" *ngIf="firstBody">
-              <tr *ngFor="let item of codeObj | keyvalue; let i = index">
-                <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-700 dark:text-gray-200 ">
-                  <div class="flex rounded-md shadow-sm">
-                    <div class="w-full relative flex" *ngIf="input_enabled(item)">
-                      <label class="pt-2 pr-2">{{ item.key }} : </label>
-                      <input
-                        [id]="account_number + '_' + i"
-                        [value]="stringify(item.value)"
-                        type="text"
-                        name="account_number"
-                        id="account_number"
-                        class="focus:ring-indigo-500 focus:border-indigo-500 w-full block sm:text-sm border-gray-300 rounded-md"
-                        placeholder="Default Value"
-                        [ngModel]="stringify(item.value)"
-                        (ngModelChange)="modelChangeFn(item.key, $event)"
-                      />
-                      <span
-                        class="absolute right-0 top-2 cursor-pointer text-gray-400 hover:text-gray-800"
-                        *ngIf="input_icon(item)"
-                      >
-                        <svg
-                          (click)="tableToggler(select_options(item))"
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </span>
-                    </div>
-
-                    <div class="w-full relative flex" *ngIf="!input_enabled(item)">
-                      <label class="pr-1 pt-2">{{ item.key }} : </label>
-                      <select
-                        (change)="selectChange(item.key, $event.target.value)"
-                        class="rounded-lg border-gray-400 w-full"
-                      >
-                        <option class="rounded" *ngFor="let i of select_options(item)" [selected]="i === item.value">
-                          {{ i }}
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-            <tbody
-              class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700 w-full"
-              *ngIf="secondBody"
-            >
-              <tr class="my-2 text-left w-full space-y-2" *ngFor="let item of tableData; let i = index">
-                <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-700 dark:text-gray-200">
-                  <div class="w-full relative flex" *ngIf="!input_second_enabled(item)">
-                    <label class="mt-2 mr-1"> {{ getTitle(item) }} : </label>
-                    <select
-                      class="rounded-lg border-gray-400 w-full"
-                      (change)="selectObjChange(item, $event.target.value)"
-                    >
-                      <option *ngFor="let val of object_first_value(item)">{{ val }}</option>
-                    </select>
-                  </div>
-                  <div class="flex" *ngIf="input_second_enabled(item)">
-                    <label class="pt-2 pr-0.5"> {{ getTitle(item) }} : </label>
-                    <input
-                      [id]="'secondBody_' + i"
-                      [value]="stringify_value(item)"
-                      type="text"
-                      name="account_number"
-                      id="account_number"
-                      class="focus:ring-indigo-500  focus:border-indigo-500 w-full block sm:text-sm border-gray-300 rounded-md"
-                      placeholder="Default Value"
-                      [ngModel]="stringify_value(item)"
-                      (ngModelChange)="selectObjChange(item, $event)"
-                    />
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-            <tbody
-              class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700 w-full"
-              *ngIf="thirdBody"
-            >
-              <div class="w-full my-3" *ngFor="let values of thirdBodyData; let i = index">
-                <label for="" class="text-theme-500 ml-3 text-">{{ objectKeys | uppercase }} {{ i + 1 }}</label>
-                <tr class="my-2 text-left grid grid-cols-1" *ngFor="let item of values; let j = index">
-                  <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-700 dark:text-gray-200">
-                    <div class="w-full relative flex" *ngIf="!input_second_enabled(item)">
-                      <label class="mt-3 mr-1"> {{ getTitle(item) }} : </label>
-                      <select
-                        class="rounded-lg border-gray-400 w-full"
-                        (change)="selectArrayChange(item, $event.target.value, i)"
-                      >
-                        <option *ngFor="let val of object_first_value(item)">{{ val }}</option>
-                      </select>
-                    </div>
-                    <div class="flex" *ngIf="input_second_enabled(item)">
-                      <label class="mt-2 mr-2"> {{ getTitle(item) }} : </label>
-                      <input
-                        [id]="'thirdBody' + i + j"
-                        [value]="stringify_value(item)"
-                        type="text"
-                        name="account_number"
-                        id="account_number"
-                        class="focus:ring-indigo-500  focus:border-indigo-500 w-full block sm:text-sm border-gray-300 rounded-md"
-                        placeholder="Default Value"
-                        [ngModel]="stringify_value(item)"
-                        (ngModelChange)="selectArrayChange(item, $event, i)"
-                      />
-                    </div>
-                  </td>
-                </tr>
-              </div>
-            </tbody>
-          </table> 
-        </div> -->
-        <!--PROPS-START-->
-        <!-- <div class="my-2 overflow-x-auto">
-          <div class="pb-2">
-            <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100 mt-3 ml-3">API</h3>
-          </div>
-          <div class="p-4 bg-white rounded-xl align-middle">
-            <div class="shadow border-b border-gray-200 dark:border-gray-700 sm:rounded-lg overflow-x-auto">
-              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 ">
-                <thead class="bg-white dark:bg-gray-800">
-                  <tr>
-                    <th
-                      scope="col"
-                      class="px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
-                    >
-                      Prop
-                    </th>
-                    <th
-                      scope="col"
-                      class="px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
-                    >
-                      Data Type
-                    </th>
-                    <th
-                      scope="col"
-                      class="px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
-                    >
-                      Default
-                    </th>
-                    <th
-                      scope="col"
-                      class="px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
-                    >
-                      Description
-                    </th>
-                  </tr>
-                </thead>
-                <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                  <tr
-                    *ngFor="let input of component_inputs; let i = index"
-                    [class]="i % 2 === 0 ? 'bg-gray-50' : 'bg-gray-100'"
-                  >
-                    <td class="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-200">
-                      {{ input.prop }}
-                    </td>
-                    <td class="px-3 py-4 whitespace-nowrap text-sm text-pink-500">
-                      <code>
-                        {{ input.dataType }}
-                      </code>
-                    </td>
-                    <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-200 ">
-                      <code>
-                        {{ input.prop }}
-                      </code>
-                    </td>
-                    <td class="px-3 py-4 text-sm text-gray-500 dark:text-gray-400 break-all	whitespace-normal">
-                      {{ input.description }}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div> -->
-        <!--PROPS END-->
-      </div>
-
-      <div *ngIf="component_outputs?.length > 0" class="flex flex-col my-10">
-        <div class="-my-2 overflow-x-auto">
-          <div class="pb-2">
-            <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">Outputs</h3>
-          </div>
-          <div class="py-2 align-middle inline-block min-w-full">
-            <div class="shadow border-b border-gray-200 dark:border-gray-700 sm:rounded-lg">
-              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 overflow-x-auto">
-                <thead class="bg-white dark:bg-gray-800">
-                  <tr>
-                    <th
-                      scope="col"
-                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
-                    >
-                      Name
-                    </th>
-                    <th
-                      scope="col"
-                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
-                    >
-                      Description
-                    </th>
-                    <th
-                      scope="col"
-                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
-                    >
-                      Data Type
-                    </th>
-                    <th
-                      scope="col"
-                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
-                    >
-                      Attribute
-                    </th>
-                  </tr>
-                </thead>
-                <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                  <tr *ngFor="let outputs of component_outputs">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-200">
-                      {{ outputs.label }}
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                      {{ outputs.description }}
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-pink-500">
-                      <code>
-                        {{ outputs.dataType }}
-                      </code>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-200">
-                      <code>
-                        {{ outputs.prop }}
-                      </code>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- </ui-page> -->
   `,
 })
 export class WebUiMobilePreviewComponent implements OnInit {
@@ -716,7 +347,6 @@ export class WebUiMobilePreviewComponent implements OnInit {
     this.router.url === '/dev/music-player'
       ? (this.resposiveSection = false)
       : (this.resposiveSection = true)
-    console.log('dsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsds')
   }
   displayTitle(item) {
     //console.log(Object.keys(item), item['key'])

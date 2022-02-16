@@ -4,7 +4,7 @@ import { DevPageHeadingsStore } from './dev-page-headings.store'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <ui-mobile-preview
+      <!-- <ui-mobile-preview
         [title]="vm.headerTitle"
         [githubURL]="vm.githubURL"
         [directory]="vm.directory"
@@ -20,9 +20,9 @@ import { DevPageHeadingsStore } from './dev-page-headings.store'
           </ng-container>
         </ng-template>
         <ui-page-header [meta]="vm.items.meta" [controlsTemplate]="vm.items.headerControls"></ui-page-header>
-      </ui-mobile-preview>
+      </ui-mobile-preview> -->
 
-      <!-- <ui-preview
+      <ui-preview
         [title]="vm.headerTitle"
         [githubURL]="vm.githubURL"
         [directory]="vm.directory"
@@ -38,7 +38,7 @@ import { DevPageHeadingsStore } from './dev-page-headings.store'
           </ng-container>
         </ng-template>
         <ui-page-header [meta]="vm.items.meta" [controlsTemplate]="vm.items.headerControls"></ui-page-header>
-      </ui-preview> -->
+      </ui-preview>
     </ng-container>
   `,
   providers: [DevPageHeadingsStore],

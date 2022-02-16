@@ -178,7 +178,7 @@ export const uiIconMap: Map<UiIcon, string> = new Map<UiIcon, string>()
   .set(
     UiIcon.chevronLeft,
     `
-    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"  fill="currentColor" aria-hidden="true">
       <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
     </svg>
 `,
@@ -721,6 +721,14 @@ export const uiIconMap: Map<UiIcon, string> = new Map<UiIcon, string>()
     `
     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 mb-4 w-8 text-blue-600 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z" />
+</svg>
+`,
+  )
+  .set(
+    UiIcon.minus,
+    `
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
 </svg>
 `,
   )

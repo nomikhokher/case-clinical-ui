@@ -176,5 +176,8 @@ module.exports = {
     '<rootDir>/libs/web/ui/mobile-preview',
     '<rootDir>/libs/web/ui/mobile-mutator',
     '<rootDir>/libs/web/ui/mobile-content',
+    '<rootDir>/libs/web/ui/mobile-code',
+    '<rootDir>/libs/web/ui/mobile-wallet',
+    '<rootDir>/libs/web/ui/mobile-profile',
   ],
 }

@@ -327,6 +327,9 @@
     "web-ui-mini-calendar": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-mobile-code": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-mobile-content": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -334,6 +337,12 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-mobile-preview": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-mobile-profile": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-mobile-wallet": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-mobile-wrapper": {
