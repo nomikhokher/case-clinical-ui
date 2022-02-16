@@ -31,7 +31,7 @@ import { Component } from '@angular/core'
             <input
               type="text"
               name="text"
-              class="bg-transparent mt-1 focus:outline-none border-0 block w-full text-lg focus:ring-0"
+              class="px-0 bg-transparent mt-1 focus:outline-none border-0 block w-full text-lg focus:ring-0"
               placeholder="Enter Your Display Name"
             />
           </label>
@@ -41,13 +41,12 @@ import { Component } from '@angular/core'
         <div class="col-start-1 col-end-7">
           <label class="block">
             <span class=" text-lg font-lg text-black font-lg dark:text-white"> Bio </span>
-
             <textarea
               rows="4"
               name="message"
               id="message"
               placeholder="Tell about yourself in few words"
-              class=" border-0 resize-none bg-transparent focus:outline-none block w-full text-lg h-16"
+              class="px-0 border-0 resize-none bg-transparent focus:outline-none block w-full text-lg h-16"
             ></textarea>
           </label>
         </div>
@@ -59,7 +58,7 @@ import { Component } from '@angular/core'
             <input
               type="email"
               name="email"
-              class="bg-transparent mt-1 focus:outline-none block w-full sm:text-lg focus:ring-0 border-0"
+              class="px-0 bg-transparent mt-1 focus:outline-none block w-full sm:text-lg focus:ring-0 border-0"
               placeholder="Your email for marketplace"
             />
           </label>
