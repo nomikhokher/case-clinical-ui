@@ -4,7 +4,9 @@ import { Component } from '@angular/core'
   selector: 'ui-mobile-profile',
   template: `
     <div class="bg-white head-cl  relative h-screen pt-8 dark:bg-gray-600">
-      <div class="flex px-5 justify-between items-center gap-4 border-b">
+      <div
+        class="flex px-5 justify-between items-center gap-4 border-b dark:border-solid dark:border-2 dark:border-gray-500"
+      >
         <!-- <div ><i  class="fa fa-angle-left fa-solid fa-2x py-1"></i></div> -->
         <ui-icon size="lg" icon="chevronLeft" class=" py-8 w-8 dark:text-white"></ui-icon>
         <div>
@@ -66,7 +68,7 @@ import { Component } from '@angular/core'
       </div>
       <div class="btn">
         <div class="absolute inset-x-0 bottom-0 ">
-          <hr class="mb-3" />
+          <div class="mb-3 p-1 border-t dark:border-solid dark:border-2 dark:border-gray-500"></div>
           <div class="flex justify-center mb-8">
             <button
               class="w-full rounded-full text-white bg-indigo-500  py-2  mx-5 px-6 focus:outline-none hover:bg-indigo-600  text-lg"

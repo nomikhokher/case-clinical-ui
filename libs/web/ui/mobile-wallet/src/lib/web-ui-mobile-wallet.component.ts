@@ -10,7 +10,13 @@ import { Component } from '@angular/core'
       }
     </style>
     <div class="py-4 pt-10 pb-8 ring-gray-900/5 sm:max-w-lg sm:mx-auto lg sm:px-5 head-cl dark:bg-gray-600">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        aria-hidden="true"
+        class="dark:text-white"
+      >
         <path
           fill-rule="evenodd"
           d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
