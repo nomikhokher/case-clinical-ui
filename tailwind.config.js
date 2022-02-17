@@ -23,6 +23,12 @@ module.exports = {
         mobile: '375px',
         code: '840px',
       },
+      invert: {
+        1: '1',
+        25: '.25',
+        50: '.5',
+        75: '.75',
+      },
     },
     screens: {
       xs: '425px',

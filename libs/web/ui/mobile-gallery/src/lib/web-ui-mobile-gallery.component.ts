@@ -11,14 +11,21 @@ import { Component } from '@angular/core'
         <div>
           <h2 class="text-2xl font-medium title-font pl-1 text-gray-900 dark:text-white">Gallery</h2>
         </div>
-        <div class="text-white">
-          <img
-            src="/assets/mobile-ui/assets/images/camera.png"
-            alt=""
-            class="lg:w-7 h-7"
-            style="dark:filter: invert(1);"
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-8 w-8 dark:text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
           />
-        </div>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
       </div>
 
       <div class="flex gap-2 px-5">
