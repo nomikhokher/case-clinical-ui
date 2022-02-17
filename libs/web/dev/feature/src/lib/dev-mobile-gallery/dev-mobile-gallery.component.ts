@@ -14,7 +14,7 @@ import { DevMobileGalleryStore } from './dev-mobile-gallery.store'
         [code]="codePreview[0]"
         [codeObj]="vm.items"
       >
-        <!-- INSERT YOUR UI-COMPONENT HERE  -->
+        <ui-mobile-gallery></ui-mobile-gallery>
       </ui-mobile-preview>
     </ng-container>
   `,
