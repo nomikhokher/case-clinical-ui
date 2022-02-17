@@ -693,6 +693,11 @@ export class WebDevFeatureComponent {
               route: 'mobile-profile',
               image: '/assets/images/stacked.png',
             },
+            {
+              label: 'Gallery',
+              route: 'mobile-gallery',
+              image: '/assets/images/stacked.png',
+            },
           ],
         },
       ],
