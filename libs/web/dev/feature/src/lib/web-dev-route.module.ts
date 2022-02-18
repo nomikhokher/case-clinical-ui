@@ -498,4 +498,9 @@ export const routes: Routes = [
     path: 'mobile-gallery',
     loadChildren: () => import('./dev-mobile-gallery/dev-mobile-gallery.module').then((m) => m.DevMobileGalleryModule),
   },
+  {
+    path: 'mobile-best-seller',
+    loadChildren: () =>
+      import('./dev-mobile-best-seller/dev-mobile-best-seller.module').then((m) => m.DevMobileBestSellerModule),
+  },
 ]
