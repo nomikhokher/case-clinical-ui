@@ -12,7 +12,7 @@ import { Component } from '@angular/core'
           class="bg-gray-600 text-black mx-10 my-5 py-4 px-2 max-w-7xl flex text-center space-y-1 space-x-1 justify-between items-center sm:px-6 lg:px-8 md:justify-start md:space-x-10 dark:bg-gray-500 dark:text-white "
           >                  
           </div>          
-      </textarea
+        </textarea
         >
       </div>
       <div

@@ -121,6 +121,7 @@
       "@schema-driven/web/ui/mini-calendar": ["libs/web/ui/mini-calendar/src/index.ts"],
       "@schema-driven/web/ui/mobile-code": ["libs/web/ui/mobile-code/src/index.ts"],
       "@schema-driven/web/ui/mobile-content": ["libs/web/ui/mobile-content/src/index.ts"],
+      "@schema-driven/web/ui/mobile-gallery": ["libs/web/ui/mobile-gallery/src/index.ts"],
       "@schema-driven/web/ui/mobile-mutator": ["libs/web/ui/mobile-mutator/src/index.ts"],
       "@schema-driven/web/ui/mobile-preview": ["libs/web/ui/mobile-preview/src/index.ts"],
       "@schema-driven/web/ui/mobile-profile": ["libs/web/ui/mobile-profile/src/index.ts"],
