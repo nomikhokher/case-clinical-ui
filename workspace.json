@@ -2333,6 +2333,31 @@
         }
       }
     },
+    "web-ui-mobile-best-seller": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-best-seller",
+      "sourceRoot": "libs/web/ui/mobile-best-seller/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/mobile-best-seller/src/**/*.ts",
+              "libs/web/ui/mobile-best-seller/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-best-seller"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-best-seller/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-mobile-code": {
       "projectType": "library",
       "root": "libs/web/ui/mobile-code",

@@ -698,6 +698,11 @@ export class WebDevFeatureComponent {
               route: 'mobile-gallery',
               image: '/assets/images/stacked.png',
             },
+            {
+              label: 'Best Seller',
+              route: 'mobile-best-seller',
+              image: '/assets/images/stacked.png',
+            },
           ],
         },
       ],
