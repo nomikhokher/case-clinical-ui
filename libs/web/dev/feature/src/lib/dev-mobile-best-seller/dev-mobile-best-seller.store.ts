@@ -62,6 +62,5 @@ export class DevMobileBestSellerStore extends ComponentStore<DevMobileBestSeller
     })
   }
 
-  readonly items$ = this.select(this.state$, (s) => s.items)
-  readonly vm$ = this.select(this.items$, (items) => ({ items }))
+  readonly vm$ = this.select(this.state$, (s) => s)
 }
