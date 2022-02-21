@@ -120,6 +120,7 @@
       "@schema-driven/web/ui/media-object": ["libs/web/ui/media-object/src/index.ts"],
       "@schema-driven/web/ui/mini-calendar": ["libs/web/ui/mini-calendar/src/index.ts"],
       "@schema-driven/web/ui/mobile-best-seller": ["libs/web/ui/mobile-best-seller/src/index.ts"],
+      "@schema-driven/web/ui/mobile-camera": ["libs/web/ui/mobile-camera/src/index.ts"],
       "@schema-driven/web/ui/mobile-code": ["libs/web/ui/mobile-code/src/index.ts"],
       "@schema-driven/web/ui/mobile-content": ["libs/web/ui/mobile-content/src/index.ts"],
       "@schema-driven/web/ui/mobile-gallery": ["libs/web/ui/mobile-gallery/src/index.ts"],
