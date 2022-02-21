@@ -252,7 +252,7 @@ import { Component } from '@angular/core'
                 </div>
                 <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
                   <h3 class="font-semibold text-1x1 dark:text-white">Juliat Laina</h3>
-                  <p class="text-xs text-gray-500 dark:text-indigo-400">1.3650</p>
+                  <p class="text-xs text-gray-500 dark:text-indigo-400">1.3650 ETH</p>
                 </div>
               </div>
             </div>

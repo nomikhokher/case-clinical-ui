@@ -4,7 +4,7 @@ import { DevMobileCameraStore } from './dev-mobile-camera.store'
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <ui-mobile
+      <ui-mobile-preview
         [title]="vm.headerTitle"
         [githubURL]="vm.githubURL"
         [directory]="vm.directory"
@@ -14,8 +14,8 @@ import { DevMobileCameraStore } from './dev-mobile-camera.store'
         [code]="codePreview[0]"
         [codeObj]="vm.items"
       >
-        <!-- INSERT YOUR UI-COMPONENT HERE  -->
-      </ui-mobile>
+        <ui-mobile-camera></ui-mobile-camera>
+      </ui-mobile-preview>
     </ng-container>
   `,
   providers: [DevMobileCameraStore],

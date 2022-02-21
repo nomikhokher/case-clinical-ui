@@ -703,6 +703,11 @@ export class WebDevFeatureComponent {
               route: 'mobile-best-seller',
               image: '/assets/images/stacked.png',
             },
+            {
+              label: 'Camera',
+              route: 'mobile-camera',
+              image: '/assets/images/stacked.png',
+            },
           ],
         },
       ],

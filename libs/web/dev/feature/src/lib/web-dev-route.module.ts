@@ -503,4 +503,8 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./dev-mobile-best-seller/dev-mobile-best-seller.module').then((m) => m.DevMobileBestSellerModule),
   },
+  {
+    path: 'mobile-camera',
+    loadChildren: () => import('./dev-mobile-camera/dev-mobile-camera.module').then((m) => m.DevMobileCameraModule),
+  },
 ]

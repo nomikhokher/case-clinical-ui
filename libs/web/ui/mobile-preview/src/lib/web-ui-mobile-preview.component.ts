@@ -39,8 +39,8 @@ export interface ComponentProp {
         border-top-right-radius: 30px;
         border-top-left-radius: 30px;
         border-top: 40px solid #000;
-        border-left: 10px solid #000;
-        border-right: 10px solid #000;
+        border-left: 8px solid #000;
+        border-right: 8px solid #000;
         border-bottom: 10px solid #000;
         width: 375px;
         height: 812px;
