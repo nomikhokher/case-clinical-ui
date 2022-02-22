@@ -28,49 +28,62 @@ import { Component } from '@angular/core'
         background: #fff;
       }
     </style>
-    <div class="mx-auto mt-2 bg-white">
-      <div class="bg-white pt-8">
-        <div class="flex px-5 justify-between items-center gap-4  pb-1">
+    <div class="mx-auto bg-white ">
+      <div class="bg-white pt-8 dark:bg-black">
+        <div class="flex px-5 justify-between items-center gap-4 pb-1">
           <div>
-            <div class="mt-1 relative  bg-slate-200 rounded-md py-2 search ">
-              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <!-- Heroicon name: solid/mail -->
-                <img src="/assets/mobile-ui/assets/images/search.png" alt="" class="w-5 h-5 " />
-              </div>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                class="bg-slate-200 focus:outline-none block w-full pl-10 pr-4 text-1xl border-gray-300 rounded-md"
-                placeholder="Search or enter NFTs…"
-              />
+            <div class="mt-1 relative bg-slate-200 rounded-md py-2 search">
+              <h1 class="font-bold text-2xl dark:text-white">Home NFTs</h1>
             </div>
           </div>
           <div>
-            <h2 class="text-1xl font-medium title-font pl-1 text-gray-900 text-right">Cancel</h2>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 border-solid border-2 border-black rounded-lg dark:text-white border-b dark:border-solid dark:border-2 dark:border-white"
+              style="padding: 3px;"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
           </div>
         </div>
 
-        <hr class="" />
-        <div class="text-sm color px-5 pt-4">
-          <p>• New Followers</p>
+        <hr class="dark:border-t dark:border-solid dark:border-2 dark:border-gray-600" />
+        <div class="text-sm color px-5 pt-4 pb-5">
+          <p class="">
+            •
+            <span
+              class="dark:text-gray-400 border-b border-white  dark:border-solid dark:border-2 dark:border-gray-400 w-28"
+            >
+              New Followers</span
+            >
+          </p>
         </div>
 
-        <section class=" flex gap-3  pb-4 overflow-x-auto  body-font scroll-section">
+        <section class=" dark:bg-black flex gap-3 pt-5 pb-4 overflow-x-auto body-font scroll-section">
           <div
-            class=" flex-none  first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg rounded-lg "
+            class=" ml-3 flex-none first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-900"
           >
             <div class=" justify-items-center  text-center ">
               <div class=" ">
-                <img src="/assets/mobile-ui/assets/images/Avatar.png" alt="" class="rounded-full mx-auto w-16 h-16 " />
+                <img
+                  src="/assets/mobile-ui/assets/images/Avatar.png"
+                  alt=""
+                  class="rounded-full mx-auto w-16 h-16 "
+                  style="margin-top: -50px;"
+                />
               </div>
               <div class="text-base  mt-2 ml-1">
-                <h3 class="font-normal text-base ">Ollie Barrett</h3>
-                <p class="text-xs">3.842 ETH</p>
+                <h3 class="font-normal text-base dark:text-white">Ollie Barrett</h3>
+                <p class="text-xs dark:text-white">3.842 ETH</p>
               </div>
               <div>
                 <button
-                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600
+                  border dark:border-white
+                  "
                 >
                   Follow
                 </button>
@@ -78,19 +91,25 @@ import { Component } from '@angular/core'
             </div>
           </div>
           <div
-            class=" flex-none  first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg rounded-lg "
+            class=" flex-none first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-900"
           >
             <div class=" justify-items-center  text-center ">
               <div class=" ">
-                <img src="/assets/mobile-ui/assets/images/Avatar.png" alt="" class="rounded-full mx-auto w-16 h-16 " />
+                <img
+                  src="/assets/mobile-ui/assets/images/Avatar.png"
+                  alt=""
+                  class="rounded-full mx-auto w-16 h-16 "
+                  style="margin-top: -50px;"
+                />
               </div>
               <div class="text-base  mt-2 ml-1">
-                <h3 class="font-normal text-base ">Ollie Barrett</h3>
-                <p class="text-xs">3.842 ETH</p>
+                <h3 class="font-normal text-base dark:text-white">Ollie Barrett</h3>
+                <p class="text-xs dark:text-white">3.842 ETH</p>
               </div>
               <div>
                 <button
-                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600
+                  border dark:border-white"
                 >
                   Follow
                 </button>
@@ -98,19 +117,25 @@ import { Component } from '@angular/core'
             </div>
           </div>
           <div
-            class=" flex-none  first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg rounded-lg "
+            class="mr-3 flex-none first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-900"
           >
-            <div class=" justify-items-center  text-center ">
-              <div class=" ">
-                <img src="/assets/mobile-ui/assets/images/Avatar.png" alt="" class="rounded-full mx-auto w-16 h-16 " />
+            <div class="justify-items-center text-center ">
+              <div class="">
+                <img
+                  src="/assets/mobile-ui/assets/images/Avatar.png"
+                  alt=""
+                  class="rounded-full mx-auto w-16 h-16 "
+                  style="margin-top: -50px;"
+                />
               </div>
               <div class="text-base  mt-2 ml-1">
-                <h3 class="font-normal text-base ">Ollie Barrett</h3>
-                <p class="text-xs">3.842 ETH</p>
+                <h3 class="font-normal text-base dark:text-white">Ollie Barrett</h3>
+                <p class="text-xs dark:text-white">3.842 ETH</p>
               </div>
               <div>
                 <button
-                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600
+                  border dark:border-white"
                 >
                   Follow
                 </button>
@@ -128,7 +153,7 @@ import { Component } from '@angular/core'
           >
             <div class=" justify-items-center  text-center ">
               <div class=" ">
-                <img src="/assets/mobile-ui/assets/images/img1.png" alt="" class=" mx-auto w-full  " />
+                <img src="/assets/mobile-ui/assets/images/img1.png" alt="" class=" mx-auto w-full" />
               </div>
               <div class="text-base  mt-2 ml-1">
                 <h3 class="font-normal text-base ">The Cubes of Destiny</h3>
@@ -142,7 +167,12 @@ import { Component } from '@angular/core'
           >
             <div class=" justify-items-center  text-center ">
               <div class=" ">
-                <img src="/assets/mobile-ui/assets/images/img1.png" alt="" class=" mx-auto w-full  " />
+                <img
+                  src="/assets/mobile-ui/assets/images/img1.png"
+                  alt=""
+                  class=" mx-auto w-full"
+                  style="margin-top: -50px;"
+                />
               </div>
               <div class="text-base  mt-2 ml-1">
                 <h3 class="font-normal text-base ">The Cubes of Destiny</h3>
@@ -168,7 +198,7 @@ import { Component } from '@angular/core'
         </section>
       </div>
       <section>
-        <div class="w-full flex justify-between items-center pt-3 px-4 border-t ">
+        <div class="w-full flex justify-between items-center pt-3 px-4 border-t mt-2 pb-2">
           <div class="flex-shrink-0">
             <a href=""><img src="/assets/mobile-ui/assets/images/home.png" alt="" id="" class="w-full h-8" /></a>
           </div>
