@@ -2446,6 +2446,28 @@
         }
       }
     },
+    "web-ui-mobile-home": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-home",
+      "sourceRoot": "libs/web/ui/mobile-home/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/mobile-home/src/**/*.ts", "libs/web/ui/mobile-home/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-home"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-home/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-mobile-mutator": {
       "projectType": "library",
       "root": "libs/web/ui/mobile-mutator",

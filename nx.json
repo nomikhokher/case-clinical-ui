@@ -342,6 +342,9 @@
     "web-ui-mobile-gallery": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-mobile-home": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-mobile-mutator": {
       "tags": ["scope:web", "type:ui"]
     },

@@ -182,5 +182,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/mobile-gallery',
     '<rootDir>/libs/web/ui/mobile-best-seller',
     '<rootDir>/libs/web/ui/mobile-camera',
+    '<rootDir>/libs/web/ui/mobile-home',
   ],
 }

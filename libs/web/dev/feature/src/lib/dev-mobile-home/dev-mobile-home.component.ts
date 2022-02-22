@@ -29,7 +29,7 @@ export class DevMobileHomeComponent {
       this.codePreview = [
         `\nimport { WebUiMobileHomeModule } from '@schema-driven/web/ui/mobile-home' \n
 <ui-mobile-home></ui-mobile-home>
-         \n\n        
+         \n        
         `,
       ]
     })
