@@ -8,6 +8,7 @@ import { UiIcon } from '@schema-driven/web/ui/icon'
 export interface Item {
   meta?: any[]
 }
+
 interface DevMobileProfileState {
   componentProps?: ComponentProps[]
   headerTitle?: string
@@ -37,9 +38,9 @@ export class DevMobileProfileStore extends ComponentStore<DevMobileProfileState>
       ],
       items: {
         meta: [
-          { label: 'Jobs', icon: 'briefcase' },
-          { label: 'Remote', icon: 'locationMarker' },
-          { label: '$120k – $140k', icon: 'currencyDollar' },
+          { label: '', icon: 'briefcase' },
+          { label: '', icon: 'locationMarker' },
+          { label: '', icon: 'currencyDollar' },
         ],
       },
 
@@ -50,9 +51,9 @@ export class DevMobileProfileStore extends ComponentStore<DevMobileProfileState>
           description: 'Show all data of the header',
           dataType: 'Array',
           typeArray: [
-            [{ label: 'Jobs' }, { icon: icon }],
-            [{ label: 'Remote' }, { icon: icon }],
-            [{ label: '$120k – $140k' }, { icon: icon }],
+            [{ label: '' }, { icon: icon }],
+            [{ label: '' }, { icon: icon }],
+            [{ label: '' }, { icon: icon }],
           ],
         },
       ],
