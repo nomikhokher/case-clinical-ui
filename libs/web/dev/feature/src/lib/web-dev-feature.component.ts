@@ -708,6 +708,11 @@ export class WebDevFeatureComponent {
               route: 'mobile-camera',
               image: '/assets/images/stacked.png',
             },
+            {
+              label: 'Home',
+              route: 'mobile-home',
+              image: '/assets/images/stacked.png',
+            },
           ],
         },
       ],

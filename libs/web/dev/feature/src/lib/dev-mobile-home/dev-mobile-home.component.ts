@@ -14,7 +14,7 @@ import { DevMobileHomeStore } from './dev-mobile-home.store'
         [code]="codePreview[0]"
         [codeObj]="vm.items"
       >
-        <!-- INSERT YOUR UI-COMPONENT HERE  -->
+        <ui-mobile-home></ui-mobile-home>
       </ui-mobile-preview>
     </ng-container>
   `,
