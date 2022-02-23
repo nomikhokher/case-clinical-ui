@@ -14,6 +14,7 @@ import { DevComboboxStore } from './dev-combobox.store'
         [component_inputs]="vm.config.component_inputs"
         [codeObj]="vm.config.items"
       >
+        <ui-combobox></ui-combobox>
       </ui-preview>
     </ng-container>
   `,

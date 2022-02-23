@@ -198,6 +198,9 @@
     "web-ui-color-picker": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-combobox": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-contact-card": {
       "tags": ["scope:web", "type:ui"]
     },

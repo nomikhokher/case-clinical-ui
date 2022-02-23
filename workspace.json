@@ -1363,6 +1363,28 @@
         }
       }
     },
+    "web-ui-combobox": {
+      "projectType": "library",
+      "root": "libs/web/ui/combobox",
+      "sourceRoot": "libs/web/ui/combobox/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/combobox/src/**/*.ts", "libs/web/ui/combobox/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/combobox"],
+          "options": {
+            "jestConfig": "libs/web/ui/combobox/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-contact-card": {
       "projectType": "library",
       "root": "libs/web/ui/contact-card",
