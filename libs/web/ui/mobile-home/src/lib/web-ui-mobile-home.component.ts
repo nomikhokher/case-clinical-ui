@@ -7,29 +7,26 @@ import { Component } from '@angular/core'
       /* width */
       .scroll-section::-webkit-scrollbar {
         width: 0px;
-        display: block;
-        width: 10em;
-        overflow: auto;
-        height: 1em;
       }
-      .scroll-section {
-        height: auto;
-        scrollbar-color: white;
-        scrollbar-width: none;
+      .mx-auto .scroll-section {
+        overflow-x: scroll;
+        scrollbar-color: transparent transparent;
+        scrollbar-width: thin;
       }
+
       /* Track */
       .scroll-section::-webkit-scrollbar-track {
-        background: #fff;
+        background: transparent !important;
       }
 
       /* Handle */
       .scroll-section::-webkit-scrollbar-thumb {
-        background: #fff;
+        background: transparent;
       }
 
       /* Handle on hover */
       .scroll-section::-webkit-scrollbar-thumb:hover {
-        background: #fff;
+        background: transparent !important;
       }
     </style>
     <div class="mx-auto bg-white ">

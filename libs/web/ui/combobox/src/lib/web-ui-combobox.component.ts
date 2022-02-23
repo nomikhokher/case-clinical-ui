@@ -39,6 +39,8 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core'
             *ngFor="let item of cboxDetail"
             class="relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900"
             tabindex="-1"
+            (click)="getValue(item)"
+            [ngValue]="item"
           >
             <div class="flex items-center">
               <img
@@ -75,7 +77,7 @@ export class WebUiComboboxComponent implements OnInit {
   listshow?: boolean
   selected?: any
   hero?: string
-  ngOnChanges() {}
+
   ngOnInit() {
     console.log(this.cboxDetail)
     this.listshow = false
@@ -91,6 +93,16 @@ export class WebUiComboboxComponent implements OnInit {
       this.listshow = false
     } else {
       this.listshow = true
+    }
+  }
+  getValue = (item: string) => {
+    this.listshow = false
+    for (let i = 0; i < Object.keys(this.cboxDetail).length; i++) {
+      if (item == this.cboxDetail[i]) {
+        this.cboxDetail[i].tick = true
+      } else {
+        this.cboxDetail[i].tick = false
+      }
     }
   }
 
