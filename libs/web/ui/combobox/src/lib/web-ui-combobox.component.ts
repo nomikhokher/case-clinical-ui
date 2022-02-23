@@ -1,21 +1,21 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, Input, OnChanges, OnInit } from '@angular/core'
 
 @Component({
   selector: 'ui-combobox',
   template: `
     <div>
       <label for="combobox" class="block text-sm font-medium text-gray-700">Assigned to</label>
-      <div class="relative mt-1">
+      <div class="relative mt-1 w-56 ">
         <input
           id="combobox"
           type="text"
-          class="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-12 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
-          role="combobox"
-          aria-controls="options"
-          aria-expanded="false"
+          class=" rounded-md border border-gray-300 bg-white py-2 pl-3 pr-12 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
         />
-        <button type="button" class="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
-          <!-- Heroicon name: solid/selector -->
+        <button
+          (click)="onshow()"
+          type="button"
+          class="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none"
+        >
           <svg
             class="h-5 w-5 text-gray-400"
             xmlns="http://www.w3.org/2000/svg"
@@ -32,15 +32,12 @@ import { Component, Input, OnInit } from '@angular/core'
         </button>
 
         <ul
+          *ngIf="listshow === true"
           class="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
-          id="options"
-          role="listbox"
         >
           <li
             *ngFor="let item of cboxDetail"
             class="relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900"
-            id="option-0"
-            role="option"
             tabindex="-1"
           >
             <div class="flex items-center">
@@ -49,11 +46,10 @@ import { Component, Input, OnInit } from '@angular/core'
                 alt=""
                 class="h-6 w-6 flex-shrink-0 rounded-full"
               />
-              <!-- Selected: "font-semibold" -->
+
               <span class="ml-3 truncate">{{ item.name }}</span>
             </div>
-            <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600">
-              <!-- Heroicon name: solid/check -->
+            <span *ngIf="item.tick == true" class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600">
               <svg
                 class="h-5 w-5"
                 xmlns="http://www.w3.org/2000/svg"
@@ -69,27 +65,42 @@ import { Component, Input, OnInit } from '@angular/core'
               </svg>
             </span>
           </li>
-
-          <!-- More items... -->
         </ul>
       </div>
     </div>
-    <!-- <div class="dark:bg-gray-800 border dark:border-indigo-700 px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
-      <div>
-        <code>ui-combobox</code>
-      </div>
-    </div> -->
   `,
 })
 export class WebUiComboboxComponent implements OnInit {
   @Input() cboxDetail: Contact
-
+  listshow?: boolean
+  selected?: any
+  hero?: string
+  ngOnChanges() {}
   ngOnInit() {
     console.log(this.cboxDetail)
+    this.listshow = false
+  }
+
+  public onOptionsSelected(event) {
+    const value = event.target.value
+    this.selected = value
+    console.log(value)
+  }
+  public onshow() {
+    if (this.listshow == true) {
+      this.listshow = false
+    } else {
+      this.listshow = true
+    }
+  }
+
+  onSelect(hero): void {
+    this.cboxDetail.name = hero
   }
 }
 interface Contact {
   id: string
   name: string
   image?: string
+  tick?: boolean
 }
