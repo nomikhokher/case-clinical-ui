@@ -1,1 +1,1 @@
-export { Configs, Buttons, Contact } from './combobox.model'
+export { Configs, Contact } from './combobox.model'

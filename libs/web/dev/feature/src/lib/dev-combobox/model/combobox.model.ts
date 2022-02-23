@@ -12,9 +12,7 @@ export interface Crumbs {
   path?: string
 }
 export interface Item {
-  contactCard?: Contact
-  buttons?: Buttons[]
-  toggleCard?: String
+  cboxDetail?: Contact[]
 }
 
 export interface Inputs {
@@ -35,16 +33,7 @@ export interface Outputs {
 }
 
 export interface Contact {
-  id: number
-  title: string
-  tagLine?: string
-  email?: string
-  role?: string
-  icon?: string
+  id: string
+  name: string
   image?: string
-}
-
-export interface Buttons {
-  text: string
-  icon?: string
 }

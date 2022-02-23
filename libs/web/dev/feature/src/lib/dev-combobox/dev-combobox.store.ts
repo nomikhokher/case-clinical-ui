@@ -27,42 +27,41 @@ const config: Configs = {
   ],
   directory: '/libs/web/dev/feature/src/lib/dev-combobox/dev-combobox.component.ts',
   items: {
-    contactCard: {
-      id: 1,
-      title: 'Jane Cooper',
-      tagLine: 'Paradigm Representative',
-      email: 'janecooper@example.com',
-      image:
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
-      role: 'Admin',
-      icon: 'user',
-    },
-    toggleCard: 'false',
+    cboxDetail: [
+      {
+        id: '1',
+        name: 'Jane Cooper 1',
+        image:
+          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+      },
+      {
+        id: '2',
+        name: 'Jane Cooper 2',
+        image:
+          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+      },
+      {
+        id: '3',
+        name: 'Jane Cooper 3',
+        image:
+          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+      },
+    ],
   },
   component_inputs: [
     {
-      label: 'Card content',
-      prop: '[contactCard]',
+      label: 'Combobox Detail',
+      prop: '[cboxDetail]',
       description: 'It shows all your detail in contact card. ',
       dataType: 'Object',
       typeObj: [
+        { id: '1' },
         { title: 'Jane Cooper' },
-        { tagLine: 'Paradigm Representative' },
-        { email: 'janecooper@example.com' },
         {
           image:
             'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
         },
-        { role: 'Admin' },
-        { icon: icon },
       ],
-    },
-    {
-      label: 'Card Style',
-      prop: '[toggleCard]',
-      description: 'Change the card style. ',
-      dataType: 'Boolean',
-      type: ['false', 'true'],
     },
   ],
 }
