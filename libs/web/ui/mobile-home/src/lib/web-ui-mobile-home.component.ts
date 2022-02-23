@@ -7,10 +7,14 @@ import { Component } from '@angular/core'
       /* width */
       .scroll-section::-webkit-scrollbar {
         width: 0px;
+        display: block;
+        width: 10em;
+        overflow: auto;
+        height: 1em;
       }
       .scroll-section {
         height: auto;
-        scrollbar-color: white white;
+        scrollbar-color: white;
         scrollbar-width: none;
       }
       /* Track */
@@ -52,11 +56,9 @@ import { Component } from '@angular/core'
 
         <hr class="dark:border-t dark:border-solid dark:border-2 dark:border-gray-600" />
         <div class="text-sm color px-5 pt-4 pb-5">
-          <p class="">
+          <p class="dark:text-gray-400">
             •
-            <span
-              class="dark:text-gray-400 border-b border-white  dark:border-solid dark:border-2 dark:border-gray-400 w-28"
-            >
+            <span class=" border-b border-white  dark:border-solid dark:border-2 dark:border-gray-400 w-28">
               New Followers</span
             >
           </p>
