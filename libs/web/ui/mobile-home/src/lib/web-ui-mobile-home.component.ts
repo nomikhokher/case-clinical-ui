@@ -55,7 +55,7 @@ import { Component } from '@angular/core'
         <div class="text-sm color px-5 pt-4 pb-5">
           <p class="dark:text-gray-400">
             •
-            <span class=" border-b border-white  dark:border-solid dark:border-2 dark:border-gray-400 w-28">
+            <span class="border-b border-white  dark:border-solid dark:border-2 dark:border-gray-400 w-28">
               New Followers</span
             >
           </p>
@@ -90,7 +90,7 @@ import { Component } from '@angular/core'
             </div>
           </div>
           <div
-            class=" flex-none first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-900"
+            class="flex-none first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-900"
           >
             <div class=" justify-items-center  text-center ">
               <div class=" ">
@@ -143,16 +143,22 @@ import { Component } from '@angular/core'
           </div>
         </section>
 
-        <div class="text-sm color px-5 pt-0 pb-4">
-          <p>• Top Collection</p>
+        <div class="text-sm color px-5 pt-4 pb-5">
+          <p class="dark:text-gray-400">
+            •
+            <span class="border-b border-white  dark:border-solid dark:border-2 dark:border-gray-400 w-28">
+              Top Collection</span
+            >
+          </p>
         </div>
-        <section class=" flex gap-3  pb-4 overflow-x-auto  body-font scroll-section">
+
+        <section class="flex gap-3 pb-4 overflow-x-auto body-font scroll-section">
           <div
-            class=" flex-none  first:pl-3 last:pr-3 px-2 pt-0 mt-2 pb-0 mx-auto shadow-lg shadow-blue-500/20 rounded-lg rounded-lg "
+            class="ml-2 flex-none first:pl-3 last:pr-3 px-2 pt-0 mt-2 pb-0 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-900"
           >
             <div class=" justify-items-center  text-center ">
               <div class=" ">
-                <img src="/assets/mobile-ui/assets/images/img1.png" alt="" class=" mx-auto w-full" />
+                <img src="/assets/mobile-ui/assets/images/img1.png" alt="" class=" mx-auto w-full pt-3" />
               </div>
               <div class="text-base  mt-2 ml-1">
                 <h3 class="font-normal text-base ">The Cubes of Destiny</h3>
@@ -162,16 +168,11 @@ import { Component } from '@angular/core'
             </div>
           </div>
           <div
-            class=" flex-none  first:pl-6 last:pr-6 px-2 pt-0 mt-2 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg rounded-lg "
+            class="flex-none first:pl-3 last:pr-3 px-2 pt-0 mt-2 pb-0 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-900"
           >
             <div class=" justify-items-center  text-center ">
               <div class=" ">
-                <img
-                  src="/assets/mobile-ui/assets/images/img1.png"
-                  alt=""
-                  class=" mx-auto w-full"
-                  style="margin-top: -50px;"
-                />
+                <img src="/assets/mobile-ui/assets/images/img1.png" alt="" class=" mx-auto w-full pt-3" />
               </div>
               <div class="text-base  mt-2 ml-1">
                 <h3 class="font-normal text-base ">The Cubes of Destiny</h3>
@@ -181,11 +182,11 @@ import { Component } from '@angular/core'
             </div>
           </div>
           <div
-            class=" flex-none  first:pl-6 last:pr-6 px-2 pt-0 mt-2 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg rounded-lg "
+            class="mr-2 flex-none first:pl-6 last:pr-6 px-2 pt-0 mt-2 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-900"
           >
             <div class=" justify-items-center  text-center ">
               <div class=" ">
-                <img src="/assets/mobile-ui/assets/images/img1.png" alt="" class=" mx-auto w-full  " />
+                <img src="/assets/mobile-ui/assets/images/img1.png" alt="" class=" mx-auto w-full pt-3" />
               </div>
               <div class="text-base  mt-2 ml-1">
                 <h3 class="font-normal text-base ">The Cubes of Destiny</h3>

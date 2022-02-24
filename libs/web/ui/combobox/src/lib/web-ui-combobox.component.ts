@@ -9,7 +9,8 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core'
         <input
           id="combobox"
           type="text"
-          class=" rounded-md border border-gray-300 bg-white py-2 pl-3 pr-12 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
+          value="{{ this.textselect }}"
+          class="rounded-md border border-gray-300 bg-white py-2 pl-3 pr-12 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
         />
         <button
           (click)="onshow()"
@@ -38,9 +39,8 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core'
           <li
             *ngFor="let item of cboxDetail"
             class="relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900"
-            tabindex="-1"
             (click)="getValue(item)"
-            [ngValue]="item"
+            id="this.itemid"
           >
             <div class="flex items-center">
               <img
@@ -77,9 +77,8 @@ export class WebUiComboboxComponent implements OnInit {
   listshow?: boolean
   selected?: any
   hero?: string
-
+  textselect?: string
   ngOnInit() {
-    console.log(this.cboxDetail)
     this.listshow = false
   }
 
@@ -100,6 +99,8 @@ export class WebUiComboboxComponent implements OnInit {
     for (let i = 0; i < Object.keys(this.cboxDetail).length; i++) {
       if (item == this.cboxDetail[i]) {
         this.cboxDetail[i].tick = true
+        this.hero = this.cboxDetail[i].name
+        this.textselect = this.cboxDetail[i].name
       } else {
         this.cboxDetail[i].tick = false
       }
