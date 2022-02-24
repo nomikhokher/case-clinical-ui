@@ -184,5 +184,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/mobile-camera',
     '<rootDir>/libs/web/ui/mobile-home',
     '<rootDir>/libs/web/ui/combobox',
+    '<rootDir>/libs/web/ui/mobile-home-scroll',
   ],
 }
