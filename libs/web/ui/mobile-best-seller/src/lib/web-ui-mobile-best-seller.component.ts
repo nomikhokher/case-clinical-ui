@@ -62,8 +62,8 @@ import { Component } from '@angular/core'
                   <img src="/assets/mobile-ui/assets/images/Avatar.png" alt="" class="rounded-full lg:w-10 h-10 mt-2" />
                 </div>
                 <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
-                  <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
-                  <p class="text-xs text-indigo-400">Co-Founder / CEO</p>
+                  <h3 class="font-semibold text-1x1 dark:text-white">Ollie Barrett</h3>
+                  <p class="text-xs text-gray-500 dark:text-indigo-400">3.842 ETH</p>
                 </div>
               </div>
             </div>
@@ -83,8 +83,8 @@ import { Component } from '@angular/core'
                   <img src="/assets/mobile-ui/assets/images/g1.png" alt="" class="rounded-full lg:w-10 h-10 mt-2" />
                 </div>
                 <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
-                  <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
-                  <p class="text-xs text-indigo-400">Co-Founder / CEO</p>
+                  <h3 class="font-semibold text-1x1 dark:text-white">Ivan Gilbert</h3>
+                  <p class="text-xs text-gray-500 dark:text-indigo-400">3 ETH</p>
                 </div>
               </div>
             </div>
@@ -104,8 +104,8 @@ import { Component } from '@angular/core'
                   <img src="/assets/mobile-ui/assets/images/g2.png" alt="" class="rounded-full lg:w-10 h-10 mt-2" />
                 </div>
                 <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
-                  <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
-                  <p class="text-xs text-indigo-400">Co-Founder / CEO</p>
+                  <h3 class="font-semibold text-1x1 dark:text-white">Dollie Moore</h3>
+                  <p class="text-xs text-gray-500 dark:text-indigo-400">2.5 ETH</p>
                 </div>
               </div>
             </div>
@@ -125,8 +125,8 @@ import { Component } from '@angular/core'
                   <img src="/assets/mobile-ui/assets/images/g3.png" alt="" class="rounded-full lg:w-10 h-10 mt-2" />
                 </div>
                 <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
-                  <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
-                  <p class="text-xs text-indigo-400">Co-Founder / CEO</p>
+                  <h3 class="font-semibold text-1x1 dark:text-white">Julian Crawford</h3>
+                  <p class="text-xs text-gray-500 dark:text-indigo-400">2.341 ETH</p>
                 </div>
               </div>
             </div>
@@ -146,8 +146,8 @@ import { Component } from '@angular/core'
                   <img src="/assets/mobile-ui/assets/images/g4.png" alt="" class="rounded-full lg:w-10 h-10 mt-2" />
                 </div>
                 <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
-                  <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
-                  <p class="text-xs text-indigo-400">Co-Founder / CEO</p>
+                  <h3 class="font-semibold text-1x1 dark:text-white">Verna Mullins</h3>
+                  <p class="text-xs text-gray-500 dark:text-indigo-400">2.28 ETH</p>
                 </div>
               </div>
             </div>
@@ -167,8 +167,8 @@ import { Component } from '@angular/core'
                   <img src="/assets/mobile-ui/assets/images/g5.png" alt="" class="rounded-full lg:w-10 h-10 mt-2" />
                 </div>
                 <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
-                  <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
-                  <p class="text-xs text-indigo-400">Co-Founder / CEO</p>
+                  <h3 class="font-semibold text-1x1 dark:text-white">Shane Ramirez</h3>
+                  <p class="text-xs text-gray-500 dark:text-indigo-400">3 ETH</p>
                 </div>
               </div>
             </div>
@@ -188,8 +188,8 @@ import { Component } from '@angular/core'
                   <img src="/assets/mobile-ui/assets/images/g6.png" alt="" class="rounded-full lg:w-10 h-10 mt-2" />
                 </div>
                 <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
-                  <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
-                  <p class="text-xs text-indigo-400">Co-Founder / CEO</p>
+                  <h3 class="font-semibold text-1x1 dark:text-white">Chester Meyer</h3>
+                  <p class="text-xs text-gray-500 dark:text-indigo-400">1.692 ETH</p>
                 </div>
               </div>
             </div>
@@ -209,8 +209,8 @@ import { Component } from '@angular/core'
                   <img src="/assets/mobile-ui/assets/images/g7.png" alt="" class="rounded-full lg:w-10 h-10 mt-2" />
                 </div>
                 <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
-                  <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
-                  <p class="text-xs text-indigo-400">Co-Founder / CEO</p>
+                  <h3 class="font-semibold text-1x1 dark:text-white">Lelia Wells</h3>
+                  <p class="text-xs text-gray-500 dark:text-indigo-400">1.4058 ETH</p>
                 </div>
               </div>
             </div>
@@ -230,8 +230,8 @@ import { Component } from '@angular/core'
                   <img src="/assets/mobile-ui/assets/images/g9.png" alt="" class="rounded-full lg:w-10 h-10 mt-2" />
                 </div>
                 <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
-                  <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
-                  <p class="text-xs text-indigo-400">Co-Founder / CEO</p>
+                  <h3 class="font-semibold text-1x1 dark:text-white">Jack jaen</h3>
+                  <p class="text-xs text-gray-500 dark:text-indigo-400">0.8520 ETH</p>
                 </div>
               </div>
             </div>
@@ -251,8 +251,8 @@ import { Component } from '@angular/core'
                   <img src="/assets/mobile-ui/assets/images/g8.png" alt="" class="rounded-full lg:w-10 h-10 mt-2" />
                 </div>
                 <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
-                  <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
-                  <p class="text-xs text-indigo-400">Co-Founder / CEO</p>
+                  <h3 class="font-semibold text-1x1 dark:text-white">Juliat Laina</h3>
+                  <p class="text-xs text-gray-500 dark:text-indigo-400">1.3650 ETH</p>
                 </div>
               </div>
             </div>

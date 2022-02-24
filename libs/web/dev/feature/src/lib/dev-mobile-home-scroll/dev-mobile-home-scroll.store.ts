@@ -9,7 +9,7 @@ export interface Item {
   meta?: any[]
 }
 
-interface DevMobileProfileState {
+interface DevMobileHomeScrollState {
   componentProps?: ComponentProps[]
   headerTitle?: string
   githubURL?: string
@@ -20,17 +20,18 @@ interface DevMobileProfileState {
   component_inputs?: Input[]
 }
 let icon = Object.values(UiIcon)
+
 @Injectable()
-export class DevMobileProfileStore extends ComponentStore<DevMobileProfileState> {
+export class DevMobileHomeScrollStore extends ComponentStore<DevMobileHomeScrollState> {
   constructor(private readonly sdk: ApolloAngularSDK) {
     super({
-      headerTitle: 'Profile',
-      githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/mobile-profile/src/lib',
+      headerTitle: 'Home_Scroll',
+      githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/mobile-home-scroll/src/lib',
       breadcrumbs: [
         { label: 'Components', path: '/dev' },
-        { label: 'Profile', path: '/dev/mobile-profile' },
+        { label: 'Home_Scroll', path: '/dev/mobile-home-scroll' },
       ],
-      directory: '/libs/web/dev/feature/src/lib/dev-mobile-profile/dev-mobile-profile.component.ts',
+      directory: '/libs/web/dev/feature/src/lib/dev-mobile-home-scroll/dev-mobile-home-scroll.component.ts',
       componentProps: [
         { name: 'buttons', value: 'buttons' },
         { name: 'lowerSubHeadings', value: 'lowerSubHeadings' },

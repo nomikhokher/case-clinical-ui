@@ -467,6 +467,10 @@ export const routes: Routes = [
     loadChildren: () => import('./dev-pills/dev-pills.module').then((m) => m.DevPillsModule),
   },
   {
+    path: 'combobox',
+    loadChildren: () => import('./dev-combobox/dev-combobox.module').then((m) => m.DevComboboxModule),
+  },
+  {
     path: 'side-nav-bar',
     loadChildren: () => import('./dev-side-nav-bar/dev-side-nav-bar.module').then((m) => m.DevSideNavBarModule),
   },
@@ -502,5 +506,13 @@ export const routes: Routes = [
     path: 'mobile-best-seller',
     loadChildren: () =>
       import('./dev-mobile-best-seller/dev-mobile-best-seller.module').then((m) => m.DevMobileBestSellerModule),
+  },
+  {
+    path: 'mobile-camera',
+    loadChildren: () => import('./dev-mobile-camera/dev-mobile-camera.module').then((m) => m.DevMobileCameraModule),
+  },
+  {
+    path: 'mobile-home',
+    loadChildren: () => import('./dev-mobile-home/dev-mobile-home.module').then((m) => m.DevMobileHomeModule),
   },
 ]

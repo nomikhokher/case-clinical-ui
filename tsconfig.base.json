@@ -70,6 +70,7 @@
       "@schema-driven/web/ui/code": ["libs/web/ui/code/src/index.ts"],
       "@schema-driven/web/ui/collapse": ["libs/web/ui/collapse/src/index.ts"],
       "@schema-driven/web/ui/color-picker": ["libs/web/ui/color-picker/src/index.ts"],
+      "@schema-driven/web/ui/combobox": ["libs/web/ui/combobox/src/index.ts"],
       "@schema-driven/web/ui/contact-card": ["libs/web/ui/contact-card/src/index.ts"],
       "@schema-driven/web/ui/contact-section-slide-brand-panel": [
         "libs/web/ui/contact-section-slide-brand-panel/src/index.ts"
@@ -120,9 +121,12 @@
       "@schema-driven/web/ui/media-object": ["libs/web/ui/media-object/src/index.ts"],
       "@schema-driven/web/ui/mini-calendar": ["libs/web/ui/mini-calendar/src/index.ts"],
       "@schema-driven/web/ui/mobile-best-seller": ["libs/web/ui/mobile-best-seller/src/index.ts"],
+      "@schema-driven/web/ui/mobile-camera": ["libs/web/ui/mobile-camera/src/index.ts"],
       "@schema-driven/web/ui/mobile-code": ["libs/web/ui/mobile-code/src/index.ts"],
       "@schema-driven/web/ui/mobile-content": ["libs/web/ui/mobile-content/src/index.ts"],
       "@schema-driven/web/ui/mobile-gallery": ["libs/web/ui/mobile-gallery/src/index.ts"],
+      "@schema-driven/web/ui/mobile-home": ["libs/web/ui/mobile-home/src/index.ts"],
+      "@schema-driven/web/ui/mobile-home-scroll": ["libs/web/ui/mobile-home-scroll/src/index.ts"],
       "@schema-driven/web/ui/mobile-mutator": ["libs/web/ui/mobile-mutator/src/index.ts"],
       "@schema-driven/web/ui/mobile-preview": ["libs/web/ui/mobile-preview/src/index.ts"],
       "@schema-driven/web/ui/mobile-profile": ["libs/web/ui/mobile-profile/src/index.ts"],

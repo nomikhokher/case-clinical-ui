@@ -1363,6 +1363,28 @@
         }
       }
     },
+    "web-ui-combobox": {
+      "projectType": "library",
+      "root": "libs/web/ui/combobox",
+      "sourceRoot": "libs/web/ui/combobox/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/combobox/src/**/*.ts", "libs/web/ui/combobox/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/combobox"],
+          "options": {
+            "jestConfig": "libs/web/ui/combobox/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-contact-card": {
       "projectType": "library",
       "root": "libs/web/ui/contact-card",
@@ -2358,6 +2380,28 @@
         }
       }
     },
+    "web-ui-mobile-camera": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-camera",
+      "sourceRoot": "libs/web/ui/mobile-camera/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/mobile-camera/src/**/*.ts", "libs/web/ui/mobile-camera/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-camera"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-camera/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-mobile-code": {
       "projectType": "library",
       "root": "libs/web/ui/mobile-code",
@@ -2419,6 +2463,53 @@
           "outputs": ["coverage/libs/web/ui/mobile-gallery"],
           "options": {
             "jestConfig": "libs/web/ui/mobile-gallery/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-mobile-home": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-home",
+      "sourceRoot": "libs/web/ui/mobile-home/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/ui/mobile-home/src/**/*.ts", "libs/web/ui/mobile-home/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-home"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-home/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-mobile-home-scroll": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-home-scroll",
+      "sourceRoot": "libs/web/ui/mobile-home-scroll/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/mobile-home-scroll/src/**/*.ts",
+              "libs/web/ui/mobile-home-scroll/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-home-scroll"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-home-scroll/jest.config.js",
             "passWithNoTests": true
           }
         }

@@ -678,6 +678,11 @@ export class WebDevFeatureComponent {
               route: 'header',
               image: '/assets/images/header.png',
             },
+            {
+              label: 'Combobox',
+              route: 'combobox',
+              image: '/assets/images/header.png',
+            },
           ],
         },
         {
@@ -701,6 +706,16 @@ export class WebDevFeatureComponent {
             {
               label: 'Best Seller',
               route: 'mobile-best-seller',
+              image: '/assets/images/stacked.png',
+            },
+            {
+              label: 'Camera',
+              route: 'mobile-camera',
+              image: '/assets/images/stacked.png',
+            },
+            {
+              label: 'Home',
+              route: 'mobile-home',
               image: '/assets/images/stacked.png',
             },
           ],
