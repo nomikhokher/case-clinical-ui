@@ -4,7 +4,7 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core'
   selector: 'ui-combobox',
   template: `
     <div>
-      <label for="combobox" class="block text-sm font-medium text-gray-700">Assigned to</label>
+      <label for="combobox" class="block text-sm font-medium text-gray-700 dark:text-white">Assigned to</label>
       <div class="relative mt-1 w-56 ">
         <input
           id="combobox"
@@ -48,7 +48,6 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core'
                 alt=""
                 class="h-6 w-6 flex-shrink-0 rounded-full"
               />
-
               <span class="ml-3 truncate">{{ item.name }}</span>
             </div>
             <span *ngIf="item.tick == true" class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600">
