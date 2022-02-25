@@ -59,6 +59,7 @@ import { Component } from '@angular/core'
           </p>
         </div>
 
+        <!-- Scroll Start Point -->
         <div class="scroll-section">
           <div class="mt-4 px-5">
             <div class="dark:bg-gray-700">
@@ -193,33 +194,14 @@ import { Component } from '@angular/core'
               </div>
             </div>
           </div>
-          <!-- <div class="flex justify-between px-5 pt-4 items-center">
-            <div class="col-span-2">
-              <div class="flex gap-2 items-center">
-                <div class="col-start-1 mr-1 col-end-2">
-                  <img src="/assets/mobile-ui/assets/images/Avatar.png" alt="" class="rounded-full lg:w-10 h-10 mt-2" />
-                </div>
-                <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
-                  <h3 class="font-semibold text-1x1 dark:text-white">Ollie Barrett</h3>
-                  <p class="text-xs text-gray-500 dark:text-indigo-400">3.842 ETH</p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <button
-                class="w-full rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 focus:outline-none hover:bg-indigo-600 border dark:border-white"
-              >
-                Follow
-              </button>
-            </div>
-          </div> -->
         </div>
+        <!-- Scroll End Point -->
+
         <section>
           <div
             class="w-full flex justify-between items-center pt-3 px-4 border-t mt-2 pb-2 dark:bg-gray-900 dark:border-solid dark:border-2 dark:border-gray-500"
           >
             <div class="flex-shrink-0">
-              <!-- <a href=""><img src="/assets/mobile-ui/assets/images/home.png" alt="" id="" class="w-full h-8" /></a> -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-8 w-8 dark:text-white"
