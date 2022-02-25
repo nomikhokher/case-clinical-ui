@@ -53,6 +53,50 @@ interface DevSelectState {
   loading?: boolean
   config
 }
+export interface test {
+  id?: number
+  name?: string
+  image?: string
+  tick?: boolean
+}
+const test: test[] = [
+  {
+    id: 1,
+    name: 'Jane Cooper 1',
+    image:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+    tick: false,
+  },
+  {
+    id: 2,
+    name: 'Jane Cooper 2',
+    image:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+    tick: true,
+  },
+  {
+    id: 3,
+    name: 'Jane Cooper 3',
+    image:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+    tick: false,
+  },
+  {
+    id: 4,
+    name: 'Jane Cooper 4',
+    image:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+    tick: false,
+  },
+  {
+    id: 5,
+    name: 'Jane Cooper 5',
+    image:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+    tick: false,
+  },
+]
+
 export interface opts {
   label?: string
   value?: string
@@ -70,13 +114,13 @@ const demos: Demo[] = [
   {
     name: 'Multiple Select Menu',
     model: {},
-    fields: [WebUiFormField.select('Select', { label: 'Select', multiple: true, options: opts })],
+    fields: [WebUiFormField.typeahead('Select', { label: 'Select', multiple: true, options: opts })],
   },
   {
     name: 'Multiple Select Menu with some disabled properties',
     model: {},
     fields: [
-      WebUiFormField.select('Select', {
+      WebUiFormField.typeahead('Select', {
         label: 'Select',
         multiple: true,
         options: [
@@ -93,7 +137,7 @@ const demos: Demo[] = [
     name: 'Single Select Menu',
     model: {},
     fields: [
-      WebUiFormField.select('select', {
+      WebUiFormField.typeahead('select', {
         label: 'select',
         placeholder: 'No Select',
         options: opts,
@@ -103,13 +147,13 @@ const demos: Demo[] = [
   {
     name: 'Disbaled Select Menu',
     model: {},
-    fields: [WebUiFormField.select('Select', { label: 'select', disabled: true, placeholder: 'No Selection' })],
+    fields: [WebUiFormField.typeahead('Select', { label: 'select', disabled: true, placeholder: 'No Selection' })],
   },
   {
     name: 'Select Menu with some disabled properties',
     model: {},
     fields: [
-      WebUiFormField.select('Select', {
+      WebUiFormField.typeahead('Select', {
         label: 'Select',
         placeholder: 'No Selection',
         options: [
@@ -126,7 +170,7 @@ const demos: Demo[] = [
     name: 'Select Menu with label and help text',
     model: {},
     fields: [
-      WebUiFormField.select('Select', {
+      WebUiFormField.typeahead('Select', {
         label: 'Select',
         placeholder: 'No Select',
         options: opts,
@@ -137,28 +181,38 @@ const demos: Demo[] = [
   {
     name: 'Select Menu with validation error',
     model: { select: 'invalid-select' },
-    fields: [WebUiFormField.select('Select', { label: 'Select', required: true, options: opts })],
+    fields: [WebUiFormField.typeahead('Select', { label: 'Select', required: true, options: opts })],
   },
   {
     name: 'Select Menu with hidden label',
     model: {},
-    fields: [WebUiFormField.select('Select', { label: null, placeholder: 'No Selection', options: opts })],
+    fields: [WebUiFormField.typeahead('Select', { label: null, placeholder: 'No Selection', options: opts })],
   },
   {
     name: 'Select Menu with corner hint',
     model: {},
-    fields: [WebUiFormField.select('Select', { label: 'select', hint: 'Optional', options: opts })],
+    fields: [WebUiFormField.typeahead('Select', { label: 'select', hint: 'Optional', options: opts })],
   },
-
   {
     name: 'Select Menu with leading icon',
     model: {},
     fields: [
-      WebUiFormField.select('select', {
+      WebUiFormField.typeahead('select', {
         label: 'select',
         placeholder: 'No Selection',
         options: opts,
         addonLeft: { icon: UiIcon.at },
+      }),
+    ],
+  },
+  {
+    name: 'Select ComboBox',
+    model: {},
+    fields: [
+      WebUiFormField.typeahead('Select', {
+        label: 'select',
+        placeholder: '',
+        options: opts,
       }),
     ],
   },
