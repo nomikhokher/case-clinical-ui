@@ -26,6 +26,10 @@ export class WebUiFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.builder.buildForm(this.form, this.fields, this.model, this.options)
+    console.log(this.form)
+    console.log(this.fields)
+    console.log(this.model)
+    console.log(this.options)
   }
 
   submit() {

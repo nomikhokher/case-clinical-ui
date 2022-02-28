@@ -53,6 +53,36 @@ interface DevSelectState {
   loading?: boolean
   config
 }
+export interface cBox {
+  id: string
+  name: string
+  image?: string
+  tick?: boolean
+}
+const cBox: cBox[] = [
+  {
+    id: '1',
+    name: 'Jane Cooper 1',
+    image:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+    tick: false,
+  },
+  {
+    id: '2',
+    name: 'Jane Cooper 2',
+    image:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+    tick: true,
+  },
+  {
+    id: '3',
+    name: 'Jane Cooper 3',
+    image:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+    tick: false,
+  },
+]
+
 export interface opts {
   label?: string
   value?: string
@@ -158,6 +188,18 @@ const demos: Demo[] = [
         label: 'select',
         placeholder: 'No Selection',
         options: opts,
+        addonLeft: { icon: UiIcon.at },
+      }),
+    ],
+  },
+  {
+    name: 'Select Combobox',
+    model: {},
+    fields: [
+      WebUiFormField.typeahead('TypeaHead', {
+        label: '',
+        placeholder: 'No Selection',
+        options: cBox,
         addonLeft: { icon: UiIcon.at },
       }),
     ],

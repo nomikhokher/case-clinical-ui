@@ -17,7 +17,7 @@ import { Component } from '@angular/core'
         <div></div>
       </div>
       <!-- This example requires Tailwind CSS v2.0+ -->
-      <div class="flex px-5 gap-5 items-center gap-2 pt-4 sm:px-5">
+      <div class="flex px-5 gap-5 items-center pt-4 sm:px-5">
         <div class="col-start-1 col-end-2">
           <img class=" rounded-full w-16 h-16" src="/assets/mobile-ui/assets/images/profile-blk.png" alt="" />
         </div>

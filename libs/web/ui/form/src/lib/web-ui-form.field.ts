@@ -94,7 +94,7 @@ export class WebUiFormField implements FormlyFieldConfig {
     return this.input(key, { ...defaults, ...templateOptions }, options)
   }
 
-  static typeahead(key: string, templateOptions: FormlyTemplateOptions = {}, options: any = {}): FormlyFieldConfig {
+  static typeahead(key: string, templateOptions?: FormlyTemplateOptions, options?: any): FormlyFieldConfig {
     return this.field(key, 'typeahead', templateOptions, options)
   }
 

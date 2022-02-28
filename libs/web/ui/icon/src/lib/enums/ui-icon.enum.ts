@@ -104,4 +104,5 @@ export enum UiIcon {
   shieldCheck = 'shieldCheck',
   folderOpen = 'folderOpen',
   minus = 'minus',
+  bell = 'bell',
 }
