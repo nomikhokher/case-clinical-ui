@@ -2,14 +2,14 @@ import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { DevMobileBestSellerScrollComponent } from './dev-mobile-best-seller-scroll.component'
-import { WebUiPreviewModule } from '@schema-driven/web/ui/preview'
+import { WebUiMobilePreviewModule } from '@schema-driven/web/ui/mobile-preview'
 
 @NgModule({
   declarations: [DevMobileBestSellerScrollComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([{ path: '', component: DevMobileBestSellerScrollComponent }]),
-    WebUiPreviewModule,
+    WebUiMobilePreviewModule,
   ],
 })
 export class DevMobileBestSellerScrollModule {}
