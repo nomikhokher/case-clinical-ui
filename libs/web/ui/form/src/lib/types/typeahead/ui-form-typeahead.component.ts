@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, OnInit, Input } from '@angular/core'
 import { FormControl } from '@angular/forms'
-import { FieldType } from '@ngx-formly/core'
+import { FieldType, FormlyFormOptions } from '@ngx-formly/core'
 import { Subject, Observable } from 'rxjs'
 
 interface Item {
@@ -85,32 +85,26 @@ export class UiFormTypeaheadComponent extends FieldType implements OnInit {
   search$ = new Subject<string>()
   static = false
   selectedItem: Item
-  items: Observable<Item[]>
-  options$: Observable<string[]>
+  //items: Observable<Item[]>
+  //options$: Observable<string[]>
+  @Input() options$: Contact
   public value: any
 
-  @Input() cboxDetail: Contact
+  cboxDetail: any
   listshow?: boolean
+  obs?: boolean = true
   selected?: any
   hero?: string
   textselect?: string
 
   onChange(selection) {
-    console.log('ljhkjh')
-
     if (this.to.onChange) {
       return this.to.onChange(selection)
     }
     return selection
   }
 
-  onSearch({ term }) {
-    // console.log('searching', this.formState, this.options$, term)
-    // console.log(this.search$);
-    // console.log(this.options$);
-    // console.log(this.selectedItem);
-    // console.log(this.items);
-  }
+  onSearch({ term }) {}
 
   inputMapFn(e: any) {
     if (this.to.mapFn) {
@@ -130,7 +124,8 @@ export class UiFormTypeaheadComponent extends FieldType implements OnInit {
   }
   ngOnInit() {
     this.listshow = false
-    console.log(this.to?.options)
+
+    //console.log(this.to?.options)
   }
 
   public onOptionsSelected(event) {
@@ -147,13 +142,13 @@ export class UiFormTypeaheadComponent extends FieldType implements OnInit {
   }
   getValue = (item: string) => {
     this.listshow = false
-    for (let i = 0; i < Object.keys(this.cboxDetail).length; i++) {
-      if (item == this.cboxDetail[i]) {
-        this.cboxDetail[i].tick = true
-        this.hero = this.cboxDetail[i].name
-        this.textselect = this.cboxDetail[i].name
+    for (let i = 0; i < Object.keys(this.to?.options).length; i++) {
+      if (item == this.to?.options[i]) {
+        this.hero = this.to?.options[i].name
+        this.textselect = this.to?.options[i].name
+        //this.to?.options[i].tick
       } else {
-        this.cboxDetail[i].tick = false
+        //this.to?.options[i].tick(false)
       }
     }
   }

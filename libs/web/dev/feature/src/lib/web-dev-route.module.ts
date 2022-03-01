@@ -466,10 +466,10 @@ export const routes: Routes = [
     path: 'pills',
     loadChildren: () => import('./dev-pills/dev-pills.module').then((m) => m.DevPillsModule),
   },
-  {
-    path: 'combobox',
-    loadChildren: () => import('./dev-combobox/dev-combobox.module').then((m) => m.DevComboboxModule),
-  },
+  // {
+  //   path: 'combobox',
+  //   loadChildren: () => import('./dev-combobox/dev-combobox.module').then((m) => m.DevComboboxModule),
+  // },
   {
     path: 'side-nav-bar',
     loadChildren: () => import('./dev-side-nav-bar/dev-side-nav-bar.module').then((m) => m.DevSideNavBarModule),
