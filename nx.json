@@ -333,6 +333,9 @@
     "web-ui-mobile-best-seller": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-mobile-best-seller-scroll": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-mobile-camera": {
       "tags": ["scope:web", "type:ui"]
     },
