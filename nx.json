@@ -465,6 +465,9 @@
     "web-ui-reviews": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-search-screen": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-section-headings": {
       "tags": ["scope:web", "type:ui"]
     },
