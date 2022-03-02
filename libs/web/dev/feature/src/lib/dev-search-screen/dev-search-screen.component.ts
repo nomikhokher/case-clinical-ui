@@ -5,7 +5,7 @@ import { DevSearchScreenStore } from './dev-search-screen.store'
   template: `
     <ng-container *ngIf="vm$ | async as vm">
       <ui-preview>
-        <!-- INSERT YOUR UI-COMPONENT HERE  -->
+        <ui-search-screen></ui-search-screen>
       </ui-preview>
     </ng-container>
   `,
