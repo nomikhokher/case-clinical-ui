@@ -520,4 +520,11 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./dev-mobile-home-scroll/dev-mobile-home-scroll.module').then((m) => m.DevMobileHomeScrollModule),
   },
+  {
+    path: 'mobile-notification-list',
+    loadChildren: () =>
+      import('./dev-mobile-notification-list/dev-mobile-notification-list.module').then(
+        (m) => m.DevMobileNotificationListModule,
+      ),
+  },
 ]

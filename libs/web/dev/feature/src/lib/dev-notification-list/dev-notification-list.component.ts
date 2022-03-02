@@ -1,10 +1,10 @@
 import { Component } from '@angular/core'
-import { DevMobileHomeScrollStore } from './dev-mobile-home-scroll.store'
+import { DevNotificationListStore } from './dev-notification-list.store'
 
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <ui-mobile-preview
+      <ui-notification-list-preview
         [title]="vm.headerTitle"
         [githubURL]="vm.githubURL"
         [directory]="vm.directory"
@@ -14,22 +14,23 @@ import { DevMobileHomeScrollStore } from './dev-mobile-home-scroll.store'
         [code]="codePreview[0]"
         [codeObj]="vm.items"
       >
-        <ui-mobile-home-scroll></ui-mobile-home-scroll>
-      </ui-mobile-preview>
+        <ui-notification-list></ui-notification-list>
+      </ui-notification-list-preview>
     </ng-container>
   `,
-  providers: [DevMobileHomeScrollStore],
+  providers: [DevNotificationListStore],
 })
-export class DevMobileHomeScrollComponent {
+export class DevNotificationListComponent {
   readonly vm$ = this.store.vm$
-  constructor(private readonly store: DevMobileHomeScrollStore) {}
+  constructor(private readonly store: DevNotificationListStore) {}
+
   public codePreview: Array<any>
   ngOnInit(): void {
     this.vm$.subscribe((result) => {
       this.codePreview = [
-        `\nimport { WebUiMobileHomeScrollModule } from '@schema-driven/web/ui/mobile-home-scroll' \n
-<ui-mobile-home-scroll></ui-mobile-home-scroll>
-         \n\n
+        `\nimport { WebUiNotificationListModule } from '@schema-driven/web/ui/notification-list' \n
+<ui-notification-list></ui-notification-list>
+         \n
         `,
       ]
     })

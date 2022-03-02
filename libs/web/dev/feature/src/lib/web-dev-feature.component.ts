@@ -723,6 +723,11 @@ export class WebDevFeatureComponent {
               route: 'mobile-home-scroll',
               image: '/assets/images/stacked.png',
             },
+            {
+              label: 'Notification List',
+              route: 'mobile-notification-list',
+              image: '/assets/images/stacked.png',
+            },
           ],
         },
       ],
