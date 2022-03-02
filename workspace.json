@@ -2380,6 +2380,31 @@
         }
       }
     },
+    "web-ui-mobile-best-seller-scroll": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-best-seller-scroll",
+      "sourceRoot": "libs/web/ui/mobile-best-seller-scroll/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/mobile-best-seller-scroll/src/**/*.ts",
+              "libs/web/ui/mobile-best-seller-scroll/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-best-seller-scroll"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-best-seller-scroll/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-mobile-camera": {
       "projectType": "library",
       "root": "libs/web/ui/mobile-camera",

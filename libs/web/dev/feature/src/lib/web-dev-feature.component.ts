@@ -678,11 +678,11 @@ export class WebDevFeatureComponent {
               route: 'header',
               image: '/assets/images/header.png',
             },
-            {
-              label: 'Combobox',
-              route: 'combobox',
-              image: '/assets/images/header.png',
-            },
+            // {
+            //   label: 'Combobox',
+            //   route: 'combobox',
+            //   image: '/assets/images/header.png',
+            // },
           ],
         },
         {
