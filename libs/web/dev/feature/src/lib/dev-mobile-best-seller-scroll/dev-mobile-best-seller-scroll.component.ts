@@ -14,7 +14,7 @@ import { DevMobileBestSellerScrollStore } from './dev-mobile-best-seller-scroll.
         [code]="codePreview[0]"
         [codeObj]="vm.items"
       >
-        <!-- INSERT YOUR UI-COMPONENT HERE  -->
+        <ui-mobile-best-seller-scroll></ui-mobile-best-seller-scroll>
       </ui-mobile-preview>
     </ng-container>
   `,
