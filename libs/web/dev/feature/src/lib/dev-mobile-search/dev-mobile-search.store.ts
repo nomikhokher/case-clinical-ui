@@ -19,7 +19,7 @@ interface DevMobileSearchState {
   loading?: boolean
   component_inputs?: Input[]
 }
-
+let icon = Object.values(UiIcon)
 @Injectable()
 export class DevMobileSearchStore extends ComponentStore<DevMobileSearchState> {
   constructor(private readonly sdk: ApolloAngularSDK) {
