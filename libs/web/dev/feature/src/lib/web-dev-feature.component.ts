@@ -724,8 +724,18 @@ export class WebDevFeatureComponent {
               image: '/assets/images/stacked.png',
             },
             {
+              label: 'Best_Seller_Scroll',
+              route: 'mobile-best-seller-scroll',
+              image: '/assets/images/stacked.png',
+            },
+            {
               label: 'Notification List',
               route: 'mobile-notification-list',
+              image: '/assets/images/stacked.png',
+            },
+            {
+              label: 'Search',
+              route: 'mobile-search',
               image: '/assets/images/stacked.png',
             },
           ],

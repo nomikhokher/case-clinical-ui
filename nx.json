@@ -366,6 +366,9 @@
     "web-ui-mobile-profile": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-mobile-search": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-mobile-wallet": {
       "tags": ["scope:web", "type:ui"]
     },
@@ -466,6 +469,9 @@
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-reviews": {
+      "tags": ["scope:web", "type:ui"]
+    },
+    "web-ui-search-screen": {
       "tags": ["scope:web", "type:ui"]
     },
     "web-ui-section-headings": {
