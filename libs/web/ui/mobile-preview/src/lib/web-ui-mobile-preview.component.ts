@@ -57,7 +57,7 @@ export interface ComponentProp {
           (click)="handleGithubClick()"
         ></ui-button>
       </ng-container>
-      
+
       [controlsTemplate]="headerControls"
     </ng-template> -->
 
@@ -66,7 +66,7 @@ export interface ComponentProp {
       containerClass="bg-gray-50 dark:bg-gray-900"
       [breadcrumbs]="breadcrumbs"
       [headerTitle]="title"
-      
+
     > -->
     <div class="mx-auto max-w-7xl px-3 md:px-6 lg:px-8 mt-10">
       <div class="flex gap-10">

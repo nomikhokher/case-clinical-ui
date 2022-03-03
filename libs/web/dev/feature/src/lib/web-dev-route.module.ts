@@ -529,4 +529,8 @@ export const routes: Routes = [
         (m) => m.DevMobileNotificationListModule,
       ),
   },
+  {
+    path: 'mobile-search',
+    loadChildren: () => import('./dev-mobile-search/dev-mobile-search.module').then((m) => m.DevMobileSearchModule),
+  },
 ]
