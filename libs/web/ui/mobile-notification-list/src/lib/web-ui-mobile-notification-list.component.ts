@@ -9,7 +9,7 @@ import { Component } from '@angular/core'
         width: 0px;
       }
       .scroll-section {
-        height: 580px;
+        height: 620px;
         overflow-y: scroll;
         scrollbar-color: white white;
         scrollbar-width: none;
@@ -221,7 +221,7 @@ import { Component } from '@angular/core'
 
         <section>
           <div
-            class="w-full flex justify-between items-center pt-3 px-4 border-t mt-2 pb-2 dark:bg-gray-900 dark:border-solid dark:border-2 dark:border-gray-500"
+            class="w-full flex justify-between items-center pt-3 px-4 border-t mt-0 pb-2 dark:bg-gray-900 dark:border-solid dark:border-2 dark:border-gray-500"
           >
             <div class="flex-shrink-0">
               <svg
