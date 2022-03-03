@@ -188,6 +188,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/mobile-best-seller-scroll',
 
     '<rootDir>/libs/web/ui/mobile-notification-list',
-
+    '<rootDir>/libs/web/ui/mobile-search',
   ],
 }
