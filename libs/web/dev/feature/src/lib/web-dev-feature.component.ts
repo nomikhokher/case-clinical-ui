@@ -723,6 +723,11 @@ export class WebDevFeatureComponent {
               route: 'mobile-home-scroll',
               image: '/assets/images/stacked.png',
             },
+            {
+              label: 'Best_Seller_Scroll',
+              route: 'mobile-best-seller-scroll',
+              image: '/assets/images/stacked.png',
+            },
           ],
         },
       ],

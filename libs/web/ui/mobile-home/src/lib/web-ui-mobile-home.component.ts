@@ -205,7 +205,7 @@ import { Component } from '@angular/core'
             <!-- <a href=""><img src="/assets/mobile-ui/assets/images/home.png" alt="" id="" class="w-full h-8" /></a> -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8 dark:text-white"
+              class="h-7 w-7 dark:text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -222,7 +222,7 @@ import { Component } from '@angular/core'
             <!-- <a href=""><img src="/assets/mobile-ui/assets/images/search.png" alt="" id="" class="w-full h-8  " /></a> -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8 dark:text-white"
+              class="h-7 w-7 dark:text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -242,7 +242,7 @@ import { Component } from '@angular/core'
             <!-- <a href=""><img src="/assets/mobile-ui/assets/images/notify.png" alt="" id="" class="w-full h-8 " /></a> -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8 dark:text-white"
+              class="h-7 w-7 dark:text-white"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -255,7 +255,7 @@ import { Component } from '@angular/core'
             <!-- <a href=""><img src="/assets/mobile-ui/assets/images/pro-img.png" alt="" id="" class="w-full h-8 " /></a> -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8 dark:text-white"
+              class="h-7 w-7 dark:text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
