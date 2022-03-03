@@ -26,7 +26,6 @@ export class DevMobileNotificationListComponent {
 
   public codePreview: Array<any>
   ngOnInit(): void {
-    console.log('notification')
     this.vm$.subscribe((result) => {
       this.codePreview = [
         `\nimport { WebUiMobileNotificationListModule } from '@schema-driven/web/ui/mobile-notification-list' \n
