@@ -186,6 +186,7 @@ module.exports = {
     '<rootDir>/libs/web/ui/combobox',
     '<rootDir>/libs/web/ui/mobile-home-scroll',
     '<rootDir>/libs/web/ui/mobile-best-seller-scroll',
-    '<rootDir>/libs/web/ui/search-screen',
+    '<rootDir>/libs/web/ui/mobile-notification-list',
+
   ],
 }

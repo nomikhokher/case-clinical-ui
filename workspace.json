@@ -2562,6 +2562,31 @@
         }
       }
     },
+    "web-ui-mobile-notification-list": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-notification-list",
+      "sourceRoot": "libs/web/ui/mobile-notification-list/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/mobile-notification-list/src/**/*.ts",
+              "libs/web/ui/mobile-notification-list/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-notification-list"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-notification-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-mobile-preview": {
       "projectType": "library",
       "root": "libs/web/ui/mobile-preview",
