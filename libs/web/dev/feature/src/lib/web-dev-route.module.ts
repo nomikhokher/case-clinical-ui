@@ -522,4 +522,11 @@ export const routes: Routes = [
         (m) => m.DevMobileBestSellerScrollModule,
       ),
   },
+  {
+    path: 'mobile-notification-list',
+    loadChildren: () =>
+      import('./dev-mobile-notification-list/dev-mobile-notification-list.module').then(
+        (m) => m.DevMobileNotificationListModule,
+      ),
+  },
 ]
