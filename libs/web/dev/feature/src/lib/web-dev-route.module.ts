@@ -516,6 +516,11 @@ export const routes: Routes = [
     loadChildren: () => import('./dev-mobile-home/dev-mobile-home.module').then((m) => m.DevMobileHomeModule),
   },
   {
+    path: 'mobile-home-scroll',
+    loadChildren: () =>
+      import('./dev-mobile-home-scroll/dev-mobile-home-scroll.module').then((m) => m.DevMobileHomeScrollModule),
+  },
+  {
     path: 'mobile-best-seller-scroll',
     loadChildren: () =>
       import('./dev-mobile-best-seller-scroll/dev-mobile-best-seller-scroll.module').then(

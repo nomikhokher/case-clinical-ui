@@ -11,7 +11,18 @@ import { Component } from '@angular/core'
             <h1 class="text-2xl font-bold text-white">Discovery</h1>
           </div>
           <div class="">
-            <a href=""><img src="/assets/image/plus.png" alt="" id="" class="w-full h-8" /></a>
+            <a href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 border-solid border-2 border-black rounded-lg dark:text-white border-b dark:border-solid dark:border-2 dark:border-white"
+                style="padding: 3px;"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
@@ -19,14 +30,23 @@ import { Component } from '@angular/core'
 
       <!-- Main -->
       <section>
-        <div class="w-full">
-          <img src="/assets/image/girlFull.png" alt="" class="w-full object-cover h-full" />
+        <div class=" ">
+          <img
+            src="/assets/mobile-ui/assets/images/girlFull.png"
+            alt=""
+            class="w-full object-cover "
+            style="height:709px;"
+          />
         </div>
         <!--User Detail-->
         <div class="absolute bottom-28 px-4 w-full">
           <div class="flex w-full gap-2 items-center">
             <div class="">
-              <img src="/assets/image/DiscoveryUser.png" alt="" class="w-10 h-10 object-cover rounded-full" />
+              <img
+                src="/assets/mobile-ui/assets/images/DiscoveryUser.png"
+                alt=""
+                class="w-10 h-10 object-cover rounded-full"
+              />
             </div>
             <div class="text-white">
               <small class="text-xs">Creator</small>
@@ -44,7 +64,7 @@ import { Component } from '@angular/core'
               <h2>⏳ 1h 28m 11s</h2>
             </div>
             <div class="flex items-center gap-4 text-white">
-              <a href=""><img src="/assets/image/Heart.png" alt="" id="" class="w-full h-full" /></a>
+              <a href=""><img src="/assets/mobile-ui/assets/images/Filled.png" alt="" id="" class="w-full h-full" /></a>
               <a href="">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +127,16 @@ import { Component } from '@angular/core'
             </svg>
           </div>
           <div class="flex-shrink-0">
-            <a href=""><img src="/assets/mobile-ui/assets/images/compass.png" alt="" id="" class="w-full h-8" /></a>
+            <a href=""
+              ><img src="/assets/mobile-ui/assets/images/compass.png" alt="" id="" class="object-contain w-full h-8" />
+              <img
+                src="/assets/mobile-ui/assets/images/compass.png"
+                alt=""
+                id=""
+                class="object-contain w-full h-8 hidden"
+                style="filter: invert(1);"
+              />
+            </a>
           </div>
           <div class="flex-shrink-0">
             <!-- <a href=""><img src="/assets/mobile-ui/assets/images/notify.png" alt="" id="" class="w-full h-8 " /></a> -->
