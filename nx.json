@@ -345,6 +345,9 @@
     "web-ui-mobile-content": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-mobile-discovery": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-mobile-gallery": {
       "tags": ["scope:web", "type:ui"]
     },
