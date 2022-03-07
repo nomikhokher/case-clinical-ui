@@ -12,7 +12,18 @@ import { Component } from '@angular/core'
             <h1 class="text-2xl font-bold text-white">Discovery</h1>
           </div>
           <div class="">
-            <a href=""><img src="/assets/mobile-ui/assets/images/WhitePlus.png" alt="" id="" class="w-full h-8" /></a>
+            <a href="">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 border-solid border-2 border-black rounded-lg dark:text-white border-b dark:border-solid dark:border-2 dark:border-white"
+                style="padding: 3px;"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
@@ -20,8 +31,13 @@ import { Component } from '@angular/core'
 
       <!-- Main -->
       <section>
-        <div class="w-full">
-          <img src="/assets/mobile-ui/assets/images/girlFull.png" alt="" class="w-full object-cover h-full" />
+        <div class="">
+          <img
+            src="/assets/mobile-ui/assets/images/girlFull.png"
+            alt=""
+            class="w-full object-cover"
+            style="height: 709px;"
+          />
         </div>
 
         <!--LIKED HEART-->
