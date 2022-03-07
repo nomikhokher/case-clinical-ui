@@ -543,4 +543,11 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./dev-mobile-discovery/dev-mobile-discovery.module').then((m) => m.DevMobileDiscoveryModule),
   },
+  {
+    path: 'mobile-discovery-like',
+    loadChildren: () =>
+      import('./dev-mobile-discovery-like/dev-mobile-discovery-like.module').then(
+        (m) => m.DevMobileDiscoveryLikeModule,
+      ),
+  },
 ]
