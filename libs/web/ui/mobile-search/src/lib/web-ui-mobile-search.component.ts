@@ -33,7 +33,6 @@ import { Component } from '@angular/core'
       <section class="absolute top-0 w-full">
         <div class="w-full pt-8 pb-4 px-4 dark:text-white">
           <div class="relative">
-            <!-- <img class="absolute top-4 left-4" src="/assets/mobile-ui/assets/images/search.png" alt="" id=""/> -->
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +61,7 @@ import { Component } from '@angular/core'
       </section>
       <!-- Scroll Start Point -->
       <div class="scroll-section">
-        <section class="pt-28 pb-28">
+        <section class="pt-28 pb-0">
           <div class="w-full flex gap-x-2 justify-center items-center px-6">
             <div class="flex-shrink-0 w-6/12">
               <a href=""
@@ -113,7 +112,7 @@ import { Component } from '@angular/core'
       </div>
       <section>
         <div
-          class="w-full flex justify-between items-center pt-3 px-4 border-t mt-0 pb-2 dark:bg-gray-900 dark:border-solid dark:border-2 dark:border-gray-500"
+          class="w-full flex justify-between items-center pt-4 px-4 border-t mt-0 pb-2 dark:bg-gray-900 dark:border-solid dark:border-2 dark:border-gray-500"
         >
           <div class="flex-shrink-0">
             <svg
@@ -132,7 +131,6 @@ import { Component } from '@angular/core'
             </svg>
           </div>
           <div class="flex-shrink-0">
-            <!-- <a href=""><img src="/assets/mobile-ui/assets/images/search.png" alt="" id="" class="w-full h-8  " /></a> -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-8 w-8 dark:text-white"
@@ -152,7 +150,6 @@ import { Component } from '@angular/core'
             <a href=""><img src="/assets/mobile-ui/assets/images/compass.png" alt="" id="" class="w-full h-8" /></a>
           </div>
           <div class="flex-shrink-0">
-            <!-- <a href=""><img src="/assets/mobile-ui/assets/images/notify.png" alt="" id="" class="w-full h-8 " /></a> -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-8 w-8 dark:text-white"
@@ -165,7 +162,6 @@ import { Component } from '@angular/core'
             </svg>
           </div>
           <div class="flex-shrink-0">
-            <!-- <a href=""><img src="/assets/mobile-ui/assets/images/pro-img.png" alt="" id="" class="w-full h-8 " /></a> -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-8 w-8 dark:text-white"
