@@ -54,8 +54,8 @@ export class WebUiMobileCodeComponent {
     } else {
       this.color = 'teal'
     }
-    console.log(this.color)
-    console.log(this.theme)
+    // console.log(this.color)
+    // console.log(this.theme)
   }
   copyDone(done: boolean) {
     if (done) {

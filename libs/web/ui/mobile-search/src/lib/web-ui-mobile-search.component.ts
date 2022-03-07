@@ -11,7 +11,7 @@ import { Component } from '@angular/core'
       .scroll-section {
         height: 709px;
         overflow-y: scroll;
-        scrollbar-color: white white;
+        scrollbar-color: white;
         scrollbar-width: none;
       }
       /* Track */
@@ -30,7 +30,7 @@ import { Component } from '@angular/core'
       }
     </style>
     <div class="relative">
-      <section class="absolute top-0 w-full">
+      <section class="bg-white absolute top-0 w-full dark:bg-gray-600">
         <div class="w-full pt-8 pb-4 px-4 dark:text-white">
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -183,3 +183,9 @@ import { Component } from '@angular/core'
   `,
 })
 export class WebUiMobileSearchComponent {}
+
+// for(var i=0;i<5;i++){
+// setTimeout(() => {
+//   console.log(i);
+// }, 1000);
+// }
