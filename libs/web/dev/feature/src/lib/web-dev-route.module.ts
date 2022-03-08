@@ -550,4 +550,11 @@ export const routes: Routes = [
         (m) => m.DevMobileDiscoveryLikeModule,
       ),
   },
+  {
+    path: 'mobile-discovery-action',
+    loadChildren: () =>
+      import('./dev-mobile-discovery-action/dev-mobile-discovery-action.module').then(
+        (m) => m.DevMobileDiscoveryActionModule,
+      ),
+  },
 ]
