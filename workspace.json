@@ -2471,6 +2471,81 @@
         }
       }
     },
+    "web-ui-mobile-discovery": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-discovery",
+      "sourceRoot": "libs/web/ui/mobile-discovery/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/mobile-discovery/src/**/*.ts",
+              "libs/web/ui/mobile-discovery/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-discovery"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-discovery/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-mobile-discovery-action": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-discovery-action",
+      "sourceRoot": "libs/web/ui/mobile-discovery-action/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/mobile-discovery-action/src/**/*.ts",
+              "libs/web/ui/mobile-discovery-action/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-discovery-action"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-discovery-action/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-ui-mobile-discovery-like": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-discovery-like",
+      "sourceRoot": "libs/web/ui/mobile-discovery-like/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/mobile-discovery-like/src/**/*.ts",
+              "libs/web/ui/mobile-discovery-like/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-discovery-like"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-discovery-like/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-mobile-gallery": {
       "projectType": "library",
       "root": "libs/web/ui/mobile-gallery",

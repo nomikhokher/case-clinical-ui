@@ -516,6 +516,11 @@ export const routes: Routes = [
     loadChildren: () => import('./dev-mobile-home/dev-mobile-home.module').then((m) => m.DevMobileHomeModule),
   },
   {
+    path: 'mobile-home-scroll',
+    loadChildren: () =>
+      import('./dev-mobile-home-scroll/dev-mobile-home-scroll.module').then((m) => m.DevMobileHomeScrollModule),
+  },
+  {
     path: 'mobile-best-seller-scroll',
     loadChildren: () =>
       import('./dev-mobile-best-seller-scroll/dev-mobile-best-seller-scroll.module').then(
@@ -532,5 +537,24 @@ export const routes: Routes = [
   {
     path: 'mobile-search',
     loadChildren: () => import('./dev-mobile-search/dev-mobile-search.module').then((m) => m.DevMobileSearchModule),
+  },
+  {
+    path: 'mobile-discovery',
+    loadChildren: () =>
+      import('./dev-mobile-discovery/dev-mobile-discovery.module').then((m) => m.DevMobileDiscoveryModule),
+  },
+  {
+    path: 'mobile-discovery-like',
+    loadChildren: () =>
+      import('./dev-mobile-discovery-like/dev-mobile-discovery-like.module').then(
+        (m) => m.DevMobileDiscoveryLikeModule,
+      ),
+  },
+  {
+    path: 'mobile-discovery-action',
+    loadChildren: () =>
+      import('./dev-mobile-discovery-action/dev-mobile-discovery-action.module').then(
+        (m) => m.DevMobileDiscoveryActionModule,
+      ),
   },
 ]

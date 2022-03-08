@@ -738,6 +738,21 @@ export class WebDevFeatureComponent {
               route: 'mobile-search',
               image: '/assets/images/stacked.png',
             },
+            {
+              label: 'Discovery',
+              route: 'mobile-discovery',
+              image: '/assets/images/stacked.png',
+            },
+            {
+              label: 'Discovery Like',
+              route: 'mobile-discovery-like',
+              image: '/assets/images/stacked.png',
+            },
+            {
+              label: 'Discovery Action',
+              route: 'mobile-discovery-action',
+              image: '/assets/images/stacked.png',
+            },
           ],
         },
       ],
