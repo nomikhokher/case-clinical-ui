@@ -4,9 +4,18 @@ import { DevMobileDiscoveryActionStore } from './dev-mobile-discovery-action.sto
 @Component({
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <ui-preview>
-        <!-- INSERT YOUR UI-COMPONENT HERE  -->
-      </ui-preview>
+      <ui-mobile-preview
+        [title]="vm.headerTitle"
+        [githubURL]="vm.githubURL"
+        [directory]="vm.directory"
+        [breadcrumbs]="vm.breadcrumbs"
+        [component_props]="[vm.componentProps]"
+        [component_inputs]="vm.component_inputs"
+        [code]="codePreview[0]"
+        [codeObj]="vm.items"
+      >
+        <ui-mobile-discovery-action></ui-mobile-discovery-action>
+      </ui-mobile-preview>
     </ng-container>
   `,
   providers: [DevMobileDiscoveryActionStore],
@@ -14,4 +23,15 @@ import { DevMobileDiscoveryActionStore } from './dev-mobile-discovery-action.sto
 export class DevMobileDiscoveryActionComponent {
   readonly vm$ = this.store.vm$
   constructor(private readonly store: DevMobileDiscoveryActionStore) {}
+  public codePreview: Array<any>
+  ngOnInit(): void {
+    this.vm$.subscribe((result) => {
+      this.codePreview = [
+        `\nimport { WebUiMobileDiscoveryActionModule } from '@schema-driven/web/ui/mobile-discovery-action' \n
+<ui-mobile-discovery-action></ui-mobile-discovery-action>
+         \n\n
+        `,
+      ]
+    })
+  }
 }
