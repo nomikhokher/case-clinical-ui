@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { DevMobileDiscoveryActionComponent } from './dev-mobile-discovery-action.component'
 import { WebUiMobilePreviewModule } from '@schema-driven/web/ui/mobile-preview'
-//import { WebUiMobileDiscoveryActionModule } from '@schema-driven/web/ui/mobile-discovery'
+import { WebUiMobileDiscoveryActionModule } from '@schema-driven/web/ui/mobile-discovery-action'
 
 @NgModule({
   declarations: [DevMobileDiscoveryActionComponent],
@@ -11,7 +11,7 @@ import { WebUiMobilePreviewModule } from '@schema-driven/web/ui/mobile-preview'
     CommonModule,
     RouterModule.forChild([{ path: '', component: DevMobileDiscoveryActionComponent }]),
     WebUiMobilePreviewModule,
-    //  WebUiMobileDiscoveryActionModule,
+    WebUiMobileDiscoveryActionModule,
   ],
 })
 export class DevMobileDiscoveryActionModule {}

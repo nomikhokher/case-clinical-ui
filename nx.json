@@ -348,6 +348,9 @@
     "web-ui-mobile-discovery": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-mobile-discovery-action": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-mobile-discovery-like": {
       "tags": ["scope:web", "type:ui"]
     },
