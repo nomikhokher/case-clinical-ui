@@ -12,7 +12,18 @@ import { Component } from '@angular/core'
             <h1 class="text-2xl font-bold text-white">Discovery</h1>
           </div>
           <div class="">
-            <a href=""><img src="/assets/mobile-ui/assets/images/WhitePlus.png" alt="" id="" class="w-full h-8" /></a>
+            <a href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 border-solid border-2 border-black rounded-lg dark:text-white border-b dark:border-solid dark:border-2 dark:border-white"
+                style="padding: 3px;"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
@@ -20,8 +31,13 @@ import { Component } from '@angular/core'
 
       <!-- Main -->
       <section>
-        <div class="w-full">
-          <img src="/assets/mobile-ui/assets/images/girlFull.png" alt="" class="w-full object-cover h-full" />
+        <div class="">
+          <img
+            src="/assets/mobile-ui/assets/images/girlFull.png"
+            alt=""
+            class="w-full object-cover "
+            style="height:709px;"
+          />
         </div>
 
         <!--LIKED HEART-->
@@ -181,9 +197,9 @@ import { Component } from '@angular/core'
         <div class=" min-h-screen px-4 text-center">
           <div class="absolute inset-0 bg-black bg-opacity-60 transition-opacity" aria-hidden="true"></div>
           <span class="sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-          <div class="relative inline-block align-bottom bg-white rounded-lg py-6 text-left w-full  mb-20">
+          <div class="relative inline-block align-bottom bg-white rounded-lg py-6 text-left w-full  mb-44">
             <div class="text-center relative">
-              <p (click)="hide_toggle_pop()" class="absolute right-3 -top-3">
+              <p (click)="toggle_pop()" class="absolute right-3 -top-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6"
@@ -215,13 +231,13 @@ import { Component } from '@angular/core'
   `,
 })
 export class WebUiMobileDiscoveryActionComponent {
-  public show: boolean
+  show = false
 
   toggle_pop() {
-    this.show = !this.show
-  }
-
-  hide_toggle_pop(): void {
-    this.show = !this.show
+    if (this.show) {
+      this.show = false
+    } else {
+      this.show = true
+    }
   }
 }
