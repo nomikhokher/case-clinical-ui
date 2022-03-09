@@ -64,7 +64,34 @@ import { Component } from '@angular/core'
               <h2>⏳ 1h 28m 11s</h2>
             </div>
             <div class="flex items-center gap-4 text-white">
-              <a href=""><img src="/assets/mobile-ui/assets/images/Filled.png" alt="" id="" class="w-full h-full" /></a>
+              <a href="javascript:void(0)">
+                <img
+                  *ngIf="isLiked(); else unlikeImage"
+                  (click)="toggle_like()"
+                  src="/assets/mobile-ui/assets/images/Filled.png"
+                  alt=""
+                  id=""
+                  class="w-full h-full"
+                />
+                <ng-template #unlikeImage>
+                  <svg
+                    (click)="toggle_like()"
+                    width="27"
+                    height="26"
+                    viewBox="0 0 27 26"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M6.55722 1.15602C1.79457 2.69122 -0.320178 7.87664 1.2609 12.8129C2.15235 15.5874 4.16261 18.2101 6.94506 20.6674C8.25181 21.8214 9.64682 22.8643 11.0419 23.781C11.2373 23.9095 11.4274 24.0318 11.6113 24.1479L12.1437 24.4774L12.7683 24.8451L12.929 24.9347C13.3028 25.1382 13.7544 25.1374 14.1276 24.9328L14.3943 24.7813L14.6593 24.6253L15.1697 24.3146C15.435 24.1497 15.7149 23.9708 16.007 23.7783C17.397 22.8622 18.787 21.8231 20.089 20.677C22.9026 18.2003 24.9232 15.5715 25.7928 12.8066C27.3697 7.87882 25.2462 2.69029 20.4859 1.15677L20.2045 1.07211C18.0369 0.462571 15.6378 0.760208 13.7169 1.83415L13.52 1.94879C11.4279 0.706185 8.89586 0.407711 6.55722 1.15602ZM12.7775 4.45386C13.2273 4.79054 13.8465 4.78568 14.2911 4.44198C15.7465 3.31668 17.8898 2.94927 19.7207 3.53678C23.0671 4.61482 24.5948 8.34761 23.4098 12.0507C22.7002 14.307 20.9392 16.598 18.4372 18.8004C17.2295 19.8635 15.9304 20.8347 14.6313 21.6909L14.3628 21.8661C14.1866 21.98 14.0161 22.0881 13.852 22.1901L13.524 22.3898L13.1959 22.1903L12.6839 21.8669C12.5956 21.81 12.5059 21.7516 12.4148 21.6918C11.1127 20.8361 9.81053 19.8626 8.59992 18.7935C6.12426 16.6072 4.37088 14.3196 3.64141 12.0493C2.4546 8.34391 3.97537 4.61493 7.32166 3.53628C9.17974 2.94174 11.2134 3.28331 12.7775 4.45386Z"
+                      fill="white"
+                    />
+                  </svg>
+                  <!-- <img (click)="toggle_like()" src="/assets/mobile-ui/assets/images/heart.png" alt="" id="" class="w-full h-full " /> -->
+                </ng-template>
+              </a>
               <a href="javascript:void(0)" (click)="toggle_pop()">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -224,11 +251,28 @@ import { Component } from '@angular/core'
 })
 export class WebUiMobileDiscoveryComponent {
   show = false
+  like = false
+
+  // action button toggle
   toggle_pop() {
     if (this.show) {
       this.show = false
     } else {
       this.show = true
     }
+  }
+
+  // action button toggle
+  toggle_like() {
+    if (this.like) {
+      this.like = false
+    } else {
+      this.like = true
+    }
+  }
+
+  //check if its liked
+  isLiked() {
+    return this.like
   }
 }
