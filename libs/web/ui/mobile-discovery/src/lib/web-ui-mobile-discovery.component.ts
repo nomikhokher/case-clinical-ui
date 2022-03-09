@@ -65,7 +65,7 @@ import { Component } from '@angular/core'
             </div>
             <div class="flex items-center gap-4 text-white">
               <a href=""><img src="/assets/mobile-ui/assets/images/Filled.png" alt="" id="" class="w-full h-full" /></a>
-              <a href="">
+              <a href="javascript:void(0)" (click)="toggle_pop()">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6"
@@ -171,7 +171,64 @@ import { Component } from '@angular/core'
         </div>
       </section>
       <!-- Footer End -->
+
+      <!--POPUP MODAL-->
+      <div
+        *ngIf="show"
+        class="absolute z-10 inset-0 overflow-hidden"
+        aria-labelledby="modal-title"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div class=" min-h-screen px-4 text-center">
+          <div class="absolute inset-0 bg-black bg-opacity-60 transition-opacity" aria-hidden="true"></div>
+          <span class="sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+          <div class="relative inline-block align-bottom bg-white rounded-lg py-6 text-left w-full  mb-44">
+            <div class="text-center relative">
+              <p (click)="toggle_pop()" class="absolute right-3 -top-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </p>
+              <a href="" class="text-base leading-6 font-medium text-gray-900 block pb-4 border-b" id="modal-title"
+                >Share</a
+              >
+              <a href="" class="text-base leading-6 font-medium text-gray-900 block py-4 border-b" id="modal-title"
+                >Report</a
+              >
+              <a
+                (click)="toggle_pop()"
+                href="javascript:void(0)"
+                class="text-base leading-6 font-medium text-gray-900 block pt-4"
+                id="modal-title"
+                >Cancel</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--POPUP MODAL END-->
     </div>
   `,
 })
-export class WebUiMobileDiscoveryComponent {}
+export class WebUiMobileDiscoveryComponent {
+  show = false
+  toggle_pop() {
+    if (this.show) {
+      this.show = false
+    } else {
+      this.show = true
+    }
+  }
+}
