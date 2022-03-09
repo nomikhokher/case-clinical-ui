@@ -3,6 +3,47 @@ import { Component } from '@angular/core'
 @Component({
   selector: 'ui-mobile-discovery',
   template: `
+    <style>
+      .likeImgBig {
+        position: static;
+        animation-name: shakeAnim;
+        animation-duration: 4s;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        bottom: 325px;
+        left: 184px;
+      }
+      .likeImgBig:hover {
+        animation-name: shakeAnim;
+      }
+
+      @keyframes shakeAnim {
+        0% {
+          left: 184px;
+        }
+        1% {
+          left: 177px;
+        }
+        2% {
+          left: 184px;
+        }
+        3% {
+          left: 177px;
+        }
+        4% {
+          left: 184px;
+        }
+        5% {
+          left: 177px;
+        }
+        6% {
+          left: 184px;
+        }
+        7% {
+          left: 184px;
+        }
+      }
+    </style>
     <div class="relative">
       <!-- Header -->
       <section class="absolute w-full">
@@ -38,6 +79,17 @@ import { Component } from '@angular/core'
             style="height:709px;"
           />
         </div>
+
+        <!--LIKED HEART-->
+        <div *ngIf="isLiked()" class="">
+          <img
+            src="/assets/mobile-ui/assets/images/BigHeart.png"
+            alt=""
+            class="w-24 object-cover  absolute  likeImgBig"
+          />
+        </div>
+        <!--LIKED HEART END-->
+
         <!--User Detail-->
         <div class="absolute bottom-28 px-4 w-full">
           <div class="flex w-full gap-2 items-center">
@@ -89,7 +141,6 @@ import { Component } from '@angular/core'
                       fill="white"
                     />
                   </svg>
-                  <!-- <img (click)="toggle_like()" src="/assets/mobile-ui/assets/images/heart.png" alt="" id="" class="w-full h-full " /> -->
                 </ng-template>
               </a>
               <a href="javascript:void(0)" (click)="toggle_pop()">
