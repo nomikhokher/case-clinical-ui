@@ -232,7 +232,6 @@ import { Component } from '@angular/core'
 })
 export class WebUiMobileDiscoveryActionComponent {
   show = false
-
   toggle_pop() {
     if (this.show) {
       this.show = false
