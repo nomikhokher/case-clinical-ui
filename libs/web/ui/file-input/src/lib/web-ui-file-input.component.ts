@@ -33,7 +33,7 @@ import { Component, Input } from '@angular/core'
       </div>
       <div class="w-3/12 pr-2" id="img" *ngFor="let file of myFiles; let i = index">
         <div
-          class="w-full h-40 mb-1 border rounded-lg overflow-hidden relative bg-gray-100 border-dashed border-2 border-indigo-600 dark:bg-gray-500"
+          class="w-full h-40 mb-1 rounded-lg overflow-hidden relative bg-gray-100 border-dashed border-2 border-indigo-600 dark:bg-gray-500"
         >
           <ui-icon size="sm" class="absolute right-0 h-6 w-6" id="cross" icon="x_circle" (click)="remove(i)"></ui-icon>
           <img id="image" class="object-cover w-full h-40" [src]="localUrl[i]" />
@@ -63,9 +63,8 @@ export class WebUiFileInputComponent {
       }
       this.myFiles.push(e.target.files[i])
       reader.readAsDataURL(e.target.files[i])
-      console.log(e.target.files[i])
     }
-    console.log(reader.result)
+    e.target.value = null
   }
 }
 export interface Icon {
