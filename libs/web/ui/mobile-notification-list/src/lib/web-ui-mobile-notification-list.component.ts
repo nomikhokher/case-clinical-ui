@@ -37,6 +37,7 @@ import { Component } from '@angular/core'
             <h2 class="text-2xl font-medium title-font  dark:text-white">Notification List</h2>
           </div>
           <img
+            (click)="toggle_pop()"
             src="/assets/mobile-ui/assets/images/notification.png"
             alt=""
             class="w-7 h-7 text-right border-solid border-2 border-black rounded-lg dark:text-white border-b dark:border-solid dark:border-2 dark:border-white"
@@ -323,11 +324,20 @@ import { Component } from '@angular/core'
                 </svg>
               </p>
               <a href="" class="text-base leading-6 font-medium text-gray-900 block pb-4 border-b" id="modal-title"
-                >Share</a
+                >Purchases</a
               >
-              <a href="" class="text-base leading-6 font-medium text-gray-900 block py-4 border-b" id="modal-title"
-                >Report</a
-              >
+              <a href="" class="text-base leading-6 font-medium text-gray-900 block py-4 border-b" id="modal-title">
+                Transfers
+              </a>
+              <a href="" class="text-base leading-6 font-medium text-gray-900 block py-4 border-b" id="modal-title">
+                Sales
+              </a>
+              <a href="" class="text-base leading-6 font-medium text-gray-900 block py-4 border-b" id="modal-title">
+                Followings
+              </a>
+              <a href="" class="text-base leading-6 font-medium text-gray-900 block py-4 border-b" id="modal-title">
+                Sales
+              </a>
               <a
                 (click)="toggle_pop()"
                 href="javascript:void(0)"
@@ -343,4 +353,15 @@ import { Component } from '@angular/core'
     </div>
   `,
 })
-export class WebUiMobileNotificationListComponent {}
+export class WebUiMobileNotificationListComponent {
+  show = false
+
+  // action button toggle
+  toggle_pop() {
+    if (this.show) {
+      this.show = false
+    } else {
+      this.show = true
+    }
+  }
+}
