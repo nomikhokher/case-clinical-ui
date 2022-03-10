@@ -543,18 +543,9 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./dev-mobile-discovery/dev-mobile-discovery.module').then((m) => m.DevMobileDiscoveryModule),
   },
-  // {
-  //   path: 'mobile-discovery-like',
-  //   loadChildren: () =>
-  //     import('./dev-mobile-discovery-like/dev-mobile-discovery-like.module').then(
-  //       (m) => m.DevMobileDiscoveryLikeModule,
-  //     ),
-  // },
-  // {
-  //   path: 'mobile-discovery-action',
-  //   loadChildren: () =>
-  //     import('./dev-mobile-discovery-action/dev-mobile-discovery-action.module').then(
-  //       (m) => m.DevMobileDiscoveryActionModule,
-  //     ),
-  // },
+  {
+    path: 'mobile-collection',
+    loadChildren: () =>
+      import('./dev-mobile-collection/dev-mobile-collection.module').then((m) => m.DevMobileCollectionModule),
+  },
 ]
