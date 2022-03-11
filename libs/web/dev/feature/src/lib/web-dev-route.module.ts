@@ -548,4 +548,11 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./dev-mobile-collection/dev-mobile-collection.module').then((m) => m.DevMobileCollectionModule),
   },
+  {
+    path: 'mobile-collection-create',
+    loadChildren: () =>
+      import('./dev-mobile-collection-create/dev-mobile-collection-create.module').then(
+        (m) => m.DevMobileCollectionCreateModule,
+      ),
+  },
 ]

@@ -748,6 +748,11 @@ export class WebDevFeatureComponent {
               route: 'mobile-collection',
               image: '/assets/images/stacked.png',
             },
+            {
+              label: 'Collection Create',
+              route: 'mobile-collection-create',
+              image: '/assets/images/stacked.png',
+            },
           ],
         },
       ],
