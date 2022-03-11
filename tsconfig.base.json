@@ -125,6 +125,7 @@
       "@schema-driven/web/ui/mobile-camera": ["libs/web/ui/mobile-camera/src/index.ts"],
       "@schema-driven/web/ui/mobile-code": ["libs/web/ui/mobile-code/src/index.ts"],
       "@schema-driven/web/ui/mobile-collection": ["libs/web/ui/mobile-collection/src/index.ts"],
+      "@schema-driven/web/ui/mobile-collection-create": ["libs/web/ui/mobile-collection-create/src/index.ts"],
       "@schema-driven/web/ui/mobile-content": ["libs/web/ui/mobile-content/src/index.ts"],
       "@schema-driven/web/ui/mobile-discovery": ["libs/web/ui/mobile-discovery/src/index.ts"],
       "@schema-driven/web/ui/mobile-discovery-action": ["libs/web/ui/mobile-discovery-action/src/index.ts"],
