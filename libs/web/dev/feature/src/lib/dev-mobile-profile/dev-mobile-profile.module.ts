@@ -2,14 +2,16 @@ import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { DevMobileProfileComponent } from './dev-mobile-profile.component'
-import { WebUiPreviewModule } from '@schema-driven/web/ui/preview'
+import { WebUiMobilePreviewModule } from '@schema-driven/web/ui/mobile-preview'
+import { WebUiMobileProfileModule } from '@schema-driven/web/ui/mobile-profile'
 
 @NgModule({
   declarations: [DevMobileProfileComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([{ path: '', component: DevMobileProfileComponent }]),
-    WebUiPreviewModule,
+    WebUiMobilePreviewModule,
+    WebUiMobileProfileModule,
   ],
 })
 export class DevMobileProfileModule {}
