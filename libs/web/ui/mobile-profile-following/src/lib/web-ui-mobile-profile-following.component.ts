@@ -11,6 +11,9 @@ import { Component } from '@angular/core'
       .scroll-section-horizontal {
         height: 203px;
       }
+      .scroll-section-follower {
+        height: 546px;
+      }
       .scroll-section::-webkit-scrollbar {
         width: 0px;
       }
@@ -58,211 +61,621 @@ import { Component } from '@angular/core'
         </div>
         <nav class="flex  space-x-4 ml-3 mt-6 ">
           <a
-            href="/dashboard"
-            class="  font-semibold border-b-2  border-black dark:border-white   dark:text-white text-lg  pb-4 px-3 py-2  leading-3"
+            (click)="toggle_tab()"
+            [ngClass]="{ 'border-b-2  border-black dark:border-white ': toggle_tab() }"
+            href="javascript:void(0)"
+            class=" font-semibold dark:text-white text-lg  pb-4 px-3 py-2  leading-3"
             >Following</a
           >
-          <a href="/team" class="font-medium gray-c px-2 py-2  text-lg rounded-lg leading-3  pb-0 dark:text-white"
+          <a
+            (click)="toggle_tab()"
+            [ngClass]="{ 'border-b-2  border-black dark:border-white': toggle_tab() }"
+            href="javascript:void(0)"
+            class=" font-semibold dark:text-white text-lg  pb-4 px-3 py-2  leading-3"
             >Followers</a
           >
         </nav>
         <hr class="border-b dark:border-solid dark:border-1 dark:border-gray-500" />
-        <div class="text-sm color px-5 pt-6 text-gray-500 dark:text-indigo-40">
-          <p>• New Followers</p>
-        </div>
-        <section
-          class=" dark:bg-gray-700 flex gap-3 pt-5 pb-4 overflow-x-auto body-font scroll-section scroll-section-horizontal"
-        >
-          <div
-            class=" ml-3 flex-none first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-900"
+
+        <div *ngIf="toggle_tab(); else followerstab">
+          <div class="text-sm color px-5 pt-6 text-gray-500 dark:text-indigo-40">
+            <p>• New Followers</p>
+          </div>
+          <section
+            class=" dark:bg-gray-700 flex gap-3 pt-5 pb-4 overflow-x-auto body-font scroll-section scroll-section-horizontal"
           >
-            <div class=" justify-items-center  text-center ">
-              <div class=" ">
-                <img
-                  src="/assets/mobile-ui/assets/images/Avatar.png"
-                  alt=""
-                  class="rounded-full mx-auto w-16 h-16 "
-                  style="margin-top: -50px;"
-                />
-              </div>
-              <div class="text-base  mt-2 ml-1">
-                <h3 class="font-normal text-base dark:text-white">Ollie Barrett</h3>
-                <p class="text-xs dark:text-white">3.842 ETH</p>
-              </div>
-              <div>
-                <button
-                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600
+            <div
+              class=" ml-3 flex-none first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-900"
+            >
+              <div class=" justify-items-center  text-center ">
+                <div class=" ">
+                  <img
+                    src="/assets/mobile-ui/assets/images/Avatar.png"
+                    alt=""
+                    class="rounded-full mx-auto w-16 h-16 "
+                    style="margin-top: -50px;"
+                  />
+                </div>
+                <div class="text-base  mt-2 ml-1">
+                  <h3 class="font-normal text-base dark:text-white">Ollie Barrett</h3>
+                  <p class="text-xs dark:text-white">3.842 ETH</p>
+                </div>
+                <div>
+                  <button
+                    class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600
                   border dark:border-white
                   "
-                >
-                  Follow
-                </button>
+                  >
+                    Follow
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            class="flex-none first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-900"
-          >
-            <div class=" justify-items-center  text-center ">
-              <div class=" ">
-                <img
-                  src="/assets/mobile-ui/assets/images/Avatar.png"
-                  alt=""
-                  class="rounded-full mx-auto w-16 h-16 "
-                  style="margin-top: -50px;"
-                />
+            <div
+              class="flex-none first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-900"
+            >
+              <div class=" justify-items-center  text-center ">
+                <div class=" ">
+                  <img
+                    src="/assets/mobile-ui/assets/images/Avatar.png"
+                    alt=""
+                    class="rounded-full mx-auto w-16 h-16 "
+                    style="margin-top: -50px;"
+                  />
+                </div>
+                <div class="text-base  mt-2 ml-1">
+                  <h3 class="font-normal text-base dark:text-white">Ollie Barrett</h3>
+                  <p class="text-xs dark:text-white">3.842 ETH</p>
+                </div>
+                <div>
+                  <button
+                    class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600
+                  border dark:border-white"
+                  >
+                    Follow
+                  </button>
+                </div>
               </div>
-              <div class="text-base  mt-2 ml-1">
-                <h3 class="font-normal text-base dark:text-white">Ollie Barrett</h3>
-                <p class="text-xs dark:text-white">3.842 ETH</p>
+            </div>
+            <div
+              class="mr-3 flex-none first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-900"
+            >
+              <div class="justify-items-center text-center ">
+                <div class="">
+                  <img
+                    src="/assets/mobile-ui/assets/images/Avatar.png"
+                    alt=""
+                    class="rounded-full mx-auto w-16 h-16 "
+                    style="margin-top: -50px;"
+                  />
+                </div>
+                <div class="text-base  mt-2 ml-1">
+                  <h3 class="font-normal text-base dark:text-white">Ollie Barrett</h3>
+                  <p class="text-xs dark:text-white">3.842 ETH</p>
+                </div>
+                <div>
+                  <button
+                    class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600
+                  border dark:border-white"
+                  >
+                    Follow
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="text-sm color px-5 pt-6 text-gray-500 dark:text-indigo-40">
+            <p>• All Followers</p>
+          </div>
+
+          <!-- Scroll Start Point -->
+          <div class="scroll-section scroll-section-vertical">
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
+                </div>
               </div>
               <div>
                 <button
-                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600
-                  border dark:border-white"
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
                 >
                   Follow
                 </button>
               </div>
             </div>
-          </div>
-          <div
-            class="mr-3 flex-none first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-900"
-          >
-            <div class="justify-items-center text-center ">
-              <div class="">
-                <img
-                  src="/assets/mobile-ui/assets/images/Avatar.png"
-                  alt=""
-                  class="rounded-full mx-auto w-16 h-16 "
-                  style="margin-top: -50px;"
-                />
-              </div>
-              <div class="text-base  mt-2 ml-1">
-                <h3 class="font-normal text-base dark:text-white">Ollie Barrett</h3>
-                <p class="text-xs dark:text-white">3.842 ETH</p>
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
+                </div>
               </div>
               <div>
                 <button
-                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600
-                  border dark:border-white"
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                >
+                  Follow
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                >
+                  Follow
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                >
+                  Follow
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
                 >
                   Follow
                 </button>
               </div>
             </div>
           </div>
-        </section>
-
-        <div class="text-sm color px-5 pt-6 text-gray-500 dark:text-indigo-40">
-          <p>• All Followers</p>
         </div>
+        <ng-template #followerstab>
+          <div class="text-sm color px-5 pt-6 text-gray-500 dark:text-indigo-40">
+            <p>• All Followers</p>
+          </div>
 
-        <!-- Scroll Start Point -->
-        <div class="scroll-section scroll-section-vertical">
-          <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
-            <div class="col-span-2">
-              <div class="flex gap-2 items-center">
-                <div class="col-start-1 mr-1 col-end-2">
-                  <img src="/assets/mobile-ui/assets/images/Avatar.png" alt="" class="rounded-full lg:w-10 h-10 mt-2" />
-                </div>
-                <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
-                  <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
-                  <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <button
-                class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
-              >
-                Follow
-              </button>
-            </div>
-          </div>
-          <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
-            <div class="col-span-2">
-              <div class="flex gap-2 items-center">
-                <div class="col-start-1 mr-1 col-end-2">
-                  <img src="/assets/mobile-ui/assets/images/Avatar.png" alt="" class="rounded-full lg:w-10 h-10 mt-2" />
-                </div>
-                <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
-                  <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
-                  <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+          <!-- Scroll Start Point -->
+          <div class="scroll-section scroll-section-follower">
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div>
-              <button
-                class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
-              >
-                Follow
-              </button>
-            </div>
-          </div>
-          <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
-            <div class="col-span-2">
-              <div class="flex gap-2 items-center">
-                <div class="col-start-1 mr-1 col-end-2">
-                  <img src="/assets/mobile-ui/assets/images/Avatar.png" alt="" class="rounded-full lg:w-10 h-10 mt-2" />
-                </div>
-                <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
-                  <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
-                  <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
-                </div>
+              <div>
+                <button
+                  class="w-full rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 focus:outline-none hover:bg-indigo-600 border dark:border-white"
+                >
+                  Unfollow
+                </button>
               </div>
             </div>
-            <div>
-              <button
-                class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
-              >
-                Follow
-              </button>
-            </div>
-          </div>
-          <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
-            <div class="col-span-2">
-              <div class="flex gap-2 items-center">
-                <div class="col-start-1 mr-1 col-end-2">
-                  <img src="/assets/mobile-ui/assets/images/Avatar.png" alt="" class="rounded-full lg:w-10 h-10 mt-2" />
-                </div>
-                <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
-                  <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
-                  <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div>
-              <button
-                class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
-              >
-                Follow
-              </button>
-            </div>
-          </div>
-          <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
-            <div class="col-span-2">
-              <div class="flex gap-2 items-center">
-                <div class="col-start-1 mr-1 col-end-2">
-                  <img src="/assets/mobile-ui/assets/images/Avatar.png" alt="" class="rounded-full lg:w-10 h-10 mt-2" />
-                </div>
-                <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
-                  <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
-                  <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
-                </div>
+              <div>
+                <button
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                >
+                  Unfollow
+                </button>
               </div>
             </div>
-            <div>
-              <button
-                class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
-              >
-                Follow
-              </button>
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                >
+                  Unfollow
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                >
+                  Unfollow
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                >
+                  Unfollow
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                >
+                  Unfollow
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                >
+                  Unfollow
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                >
+                  Unfollow
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                >
+                  Unfollow
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                >
+                  Unfollow
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                >
+                  Unfollow
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                >
+                  Unfollow
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                >
+                  Unfollow
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                >
+                  Unfollow
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+              <div class="col-span-2">
+                <div class="flex gap-2 items-center">
+                  <div class="col-start-1 mr-1 col-end-2">
+                    <img
+                      src="/assets/mobile-ui/assets/images/Avatar.png"
+                      alt=""
+                      class="rounded-full lg:w-10 h-10 mt-2"
+                    />
+                  </div>
+                  <div class="text-base col-start-2 col-span-4 mt-2 ml-1">
+                    <h3 class="font-semibold text-1x1 dark:text-white">Leslie Alexander</h3>
+                    <p class="text-xs text-gray-500 dark:text-indigo-400">Co-Founder / CEO</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button
+                  class=" rounded-full text-white bg-indigo-500 text-xs py-1.5 px-3 mt-2 focus:outline-none hover:bg-indigo-600"
+                >
+                  Unfollow
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </ng-template>
       </div>
     </div>
   `,
 })
-export class WebUiMobileProfileFollowingComponent {}
+export class WebUiMobileProfileFollowingComponent {
+  follower = false
+
+  // action button toggle
+  toggle_tab() {
+    if (this.follower) {
+      this.follower = false
+    } else {
+      this.follower = true
+    }
+    return this.follower
+  }
+}
