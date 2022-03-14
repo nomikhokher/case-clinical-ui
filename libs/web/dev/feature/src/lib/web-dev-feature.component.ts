@@ -753,6 +753,11 @@ export class WebDevFeatureComponent {
               route: 'mobile-collection-create',
               image: '/assets/images/stacked.png',
             },
+            {
+              label: 'Profile Following',
+              route: 'mobile-profile-following',
+              image: '/assets/images/stacked.png',
+            },
           ],
         },
       ],
