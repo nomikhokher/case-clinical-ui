@@ -137,6 +137,7 @@
       "@schema-driven/web/ui/mobile-notification-list": ["libs/web/ui/mobile-notification-list/src/index.ts"],
       "@schema-driven/web/ui/mobile-preview": ["libs/web/ui/mobile-preview/src/index.ts"],
       "@schema-driven/web/ui/mobile-profile": ["libs/web/ui/mobile-profile/src/index.ts"],
+      "@schema-driven/web/ui/mobile-profile-following": ["libs/web/ui/mobile-profile-following/src/index.ts"],
       "@schema-driven/web/ui/mobile-search": ["libs/web/ui/mobile-search/src/index.ts"],
       "@schema-driven/web/ui/mobile-wallet": ["libs/web/ui/mobile-wallet/src/index.ts"],
       "@schema-driven/web/ui/mobile-wrapper": ["libs/web/ui/mobile-wrapper/src/index.ts"],
