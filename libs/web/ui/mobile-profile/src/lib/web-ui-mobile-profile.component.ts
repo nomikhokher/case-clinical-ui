@@ -3,7 +3,7 @@ import { Component } from '@angular/core'
 @Component({
   selector: 'ui-mobile-profile',
   template: `
-    <div class="bg-white head-cl  relative h-screen pt-8 dark:bg-gray-600">
+    <div class="bg-white head-cl  relative pt-8 dark:bg-gray-600">
       <div
         class="flex px-5 justify-between items-center gap-4 border-b dark:border-solid dark:border-2 dark:border-gray-500"
       >
@@ -66,8 +66,8 @@ import { Component } from '@angular/core'
           </label>
         </div>
       </div>
-      <div class="btn">
-        <div class="absolute inset-x-0 bottom-0 ">
+      <div class="btn mt-32">
+        <div class=" inset-x-0 bottom-0 ">
           <div class="mb-3 p-1 border-t dark:border-solid dark:border-2 dark:border-gray-500"></div>
           <div class="flex justify-center mb-8">
             <button
