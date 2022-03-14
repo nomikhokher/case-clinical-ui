@@ -2756,6 +2756,31 @@
         }
       }
     },
+    "web-ui-mobile-profile-following": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-profile-following",
+      "sourceRoot": "libs/web/ui/mobile-profile-following/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/mobile-profile-following/src/**/*.ts",
+              "libs/web/ui/mobile-profile-following/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-profile-following"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-profile-following/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-mobile-search": {
       "projectType": "library",
       "root": "libs/web/ui/mobile-search",

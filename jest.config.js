@@ -194,5 +194,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/mobile-discovery-action',
     '<rootDir>/libs/web/ui/mobile-collection',
     '<rootDir>/libs/web/ui/mobile-collection-create',
+    '<rootDir>/libs/web/ui/mobile-profile-following',
   ],
 }

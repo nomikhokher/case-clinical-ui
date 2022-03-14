@@ -6,12 +6,10 @@ import { ComponentProps, Config, Input } from './model'
 import { UiIcon } from '@schema-driven/web/ui/icon'
 
 export interface Item {
-  id?: string
-  name?: string
   meta?: any[]
 }
 
-interface DevMobileCollectionCreateState {
+interface DevMobileProfileFollowingState {
   componentProps?: ComponentProps[]
   headerTitle?: string
   githubURL?: string
@@ -23,16 +21,16 @@ interface DevMobileCollectionCreateState {
 }
 let icon = Object.values(UiIcon)
 @Injectable()
-export class DevMobileCollectionCreateStore extends ComponentStore<DevMobileCollectionCreateState> {
+export class DevMobileProfileFollowingStore extends ComponentStore<DevMobileProfileFollowingState> {
   constructor(private readonly sdk: ApolloAngularSDK) {
     super({
-      headerTitle: 'Collection Create',
-      githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/mobile-collection-create/src/lib',
+      headerTitle: 'Profile Following',
+      githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/mobile-profile-following/src/lib',
       breadcrumbs: [
         { label: 'Components', path: '/dev' },
-        { label: 'Collection Create', path: '/dev/mobile-collection-create' },
+        { label: 'Profile', path: '/dev/mobile-profile-following' },
       ],
-      directory: '/libs/web/dev/feature/src/lib/dev-mobile-collection/dev-mobile-collection-create.component.ts',
+      directory: '/libs/web/dev/feature/src/lib/dev-mobile-profile-following/dev-mobile-profile-following.component.ts',
       componentProps: [
         { name: 'buttons', value: 'buttons' },
         { name: 'lowerSubHeadings', value: 'lowerSubHeadings' },

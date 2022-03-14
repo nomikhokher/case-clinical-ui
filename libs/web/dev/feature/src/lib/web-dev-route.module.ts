@@ -555,4 +555,11 @@ export const routes: Routes = [
         (m) => m.DevMobileCollectionCreateModule,
       ),
   },
+  {
+    path: 'mobile-profile-following',
+    loadChildren: () =>
+      import('./dev-mobile-profile-following/dev-mobile-profile-following.module').then(
+        (m) => m.DevMobileProfileFollowingModule,
+      ),
+  },
 ]
