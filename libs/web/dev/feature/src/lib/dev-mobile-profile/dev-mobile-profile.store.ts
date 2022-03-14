@@ -1,63 +1,40 @@
 import { Injectable } from '@angular/core'
-import { ComponentStore } from '@ngrx/component-store'
+import { ComponentStore, tapResponse } from '@ngrx/component-store'
 import { ApolloAngularSDK } from '@schema-driven/web/core/data-access'
-import { Crumb } from '@schema-driven/web/ui/breadcrumbs'
-import { ComponentProps, Config, Input } from './model'
-import { UiIcon } from '@schema-driven/web/ui/icon'
+import { of } from 'rxjs'
+import { switchMap, tap } from 'rxjs/operators'
 
 export interface Item {
-  meta?: any[]
+  id?: string
+  name?: string
 }
 
 interface DevMobileProfileState {
-  componentProps?: ComponentProps[]
-  headerTitle?: string
-  githubURL?: string
-  breadcrumbs?: Crumb[]
-  directory?: string
-  items?: Item
+  items?: Item[]
   loading?: boolean
-  component_inputs?: Input[]
 }
-let icon = Object.values(UiIcon)
+
 @Injectable()
 export class DevMobileProfileStore extends ComponentStore<DevMobileProfileState> {
   constructor(private readonly sdk: ApolloAngularSDK) {
-    super({
-      headerTitle: 'Profile',
-      githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/mobile-profile/src/lib',
-      breadcrumbs: [
-        { label: 'Components', path: '/dev' },
-        { label: 'Profile', path: '/dev/mobile-profile' },
-      ],
-      directory: '/libs/web/dev/feature/src/lib/dev-mobile-profile/dev-mobile-profile.component.ts',
-      componentProps: [
-        { name: 'buttons', value: 'buttons' },
-        { name: 'lowerSubHeadings', value: 'lowerSubHeadings' },
-        { name: 'upperSubHeadings', value: 'upperSubHeadings' },
-      ],
-      items: {
-        meta: [
-          { label: '', icon: 'briefcase' },
-          { label: '', icon: 'locationMarker' },
-          { label: '', icon: 'currencyDollar' },
-        ],
-      },
-
-      component_inputs: [
-        {
-          label: 'Data',
-          prop: '[meta]',
-          description: 'Show all data of the header',
-          dataType: 'Array',
-          typeArray: [
-            [{ label: '' }, { icon: icon }],
-            [{ label: '' }, { icon: icon }],
-            [{ label: '' }, { icon: icon }],
-          ],
-        },
-      ],
-    })
+    super({})
+    this.loadItemsEffect()
   }
-  readonly vm$ = this.select(this.state$, (s) => s)
+
+  readonly items$ = this.select(this.state$, (s) => s.items)
+  readonly vm$ = this.select(this.items$, (items) => ({ items }))
+
+  readonly loadItemsEffect = this.effect(($) =>
+    $.pipe(
+      tap(() => this.patchState({ loading: true })),
+      switchMap(() =>
+        of([{ id: Date.now().toString(), name: 'Item 1' }]).pipe(
+          tapResponse(
+            (res) => this.patchState({ items: res }),
+            (e: any) => console.error('An error occurred', e),
+          ),
+        ),
+      ),
+    ),
+  )
 }
