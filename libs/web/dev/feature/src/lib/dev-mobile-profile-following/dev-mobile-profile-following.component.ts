@@ -27,7 +27,8 @@ export class DevMobileProfileFollowingComponent {
   ngOnInit(): void {
     this.vm$.subscribe((result) => {
       this.codePreview = [
-        `\nimport { WebUiMobileProfileModule } from '@schema-driven/web/ui/mobile-profile-following' \n
+        `\nimport { WebUiMobileProfileModule } from '@schema-driven/web/ui/\n
+        mobile-profile-following' \n
 <ui-mobile-profile-following></ui-mobile-profile-following>
          \n\n
         `,

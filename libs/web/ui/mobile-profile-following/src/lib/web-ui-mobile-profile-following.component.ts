@@ -16,10 +16,11 @@ import { Component } from '@angular/core'
       }
       .scroll-section::-webkit-scrollbar {
         width: 0px;
+        height: 0px;
       }
       .scroll-section {
         overflow-y: scroll;
-        scrollbar-color: white white;
+        scrollbar-color: transparent;
         scrollbar-width: none;
       }
       /* Track */
@@ -61,15 +62,15 @@ import { Component } from '@angular/core'
         </div>
         <nav class="flex  space-x-4 ml-3 mt-6 ">
           <a
-            (click)="toggle_tab()"
-            [ngClass]="{ 'border-b-2  border-black dark:border-white ': toggle_tab() }"
+            (click)="change_tab()"
+            [ngClass]="{ 'border-b-2  border-black dark:border-white ': toggle_tab() == true }"
             href="javascript:void(0)"
             class=" font-semibold dark:text-white text-lg  pb-4 px-3 py-2  leading-3"
             >Following</a
           >
           <a
-            (click)="toggle_tab()"
-            [ngClass]="{ 'border-b-2  border-black dark:border-white': toggle_tab() }"
+            (click)="change_tab()"
+            [ngClass]="{ 'border-b-2  border-black dark:border-white': toggle_tab() == false }"
             href="javascript:void(0)"
             class=" font-semibold dark:text-white text-lg  pb-4 px-3 py-2  leading-3"
             >Followers</a
@@ -82,10 +83,10 @@ import { Component } from '@angular/core'
             <p>• New Followers</p>
           </div>
           <section
-            class=" dark:bg-gray-700 flex gap-3 pt-5 pb-4 overflow-x-auto body-font scroll-section scroll-section-horizontal"
+            class=" dark:bg-gray-900 flex gap-3 pt-5 pb-4 overflow-x-auto body-font scroll-section scroll-section-horizontal"
           >
             <div
-              class=" ml-3 flex-none first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-900"
+              class=" ml-3 flex-none first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-700"
             >
               <div class=" justify-items-center  text-center ">
                 <div class=" ">
@@ -112,7 +113,7 @@ import { Component } from '@angular/core'
               </div>
             </div>
             <div
-              class="flex-none first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-900"
+              class="flex-none first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-700"
             >
               <div class=" justify-items-center  text-center ">
                 <div class=" ">
@@ -138,7 +139,7 @@ import { Component } from '@angular/core'
               </div>
             </div>
             <div
-              class="mr-3 flex-none first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-900"
+              class="mr-3 flex-none first:pl-6 last:pr-6 px-5 pt-4 mt-6 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:bg-gray-700"
             >
               <div class="justify-items-center text-center ">
                 <div class="">
@@ -219,7 +220,7 @@ import { Component } from '@angular/core'
                 </button>
               </div>
             </div>
-            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+            <div class="flex justify-between px-5 pt-3 pb-3 items-center">
               <div class="col-span-2">
                 <div class="flex gap-2 items-center">
                   <div class="col-start-1 mr-1 col-end-2">
@@ -243,7 +244,7 @@ import { Component } from '@angular/core'
                 </button>
               </div>
             </div>
-            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+            <div class="flex justify-between px-5 pt-3 pb-3 items-center">
               <div class="col-span-2">
                 <div class="flex gap-2 items-center">
                   <div class="col-start-1 mr-1 col-end-2">
@@ -267,7 +268,7 @@ import { Component } from '@angular/core'
                 </button>
               </div>
             </div>
-            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+            <div class="flex justify-between px-5 pt-3 pb-3 items-center">
               <div class="col-span-2">
                 <div class="flex gap-2 items-center">
                   <div class="col-start-1 mr-1 col-end-2">
@@ -300,7 +301,7 @@ import { Component } from '@angular/core'
 
           <!-- Scroll Start Point -->
           <div class="scroll-section scroll-section-follower">
-            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+            <div class="flex justify-between px-5 pt-3 pb-3 items-center">
               <div class="col-span-2">
                 <div class="flex gap-2 items-center">
                   <div class="col-start-1 mr-1 col-end-2">
@@ -324,7 +325,7 @@ import { Component } from '@angular/core'
                 </button>
               </div>
             </div>
-            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+            <div class="flex justify-between px-5 pt-3 pb-3 items-center">
               <div class="col-span-2">
                 <div class="flex gap-2 items-center">
                   <div class="col-start-1 mr-1 col-end-2">
@@ -348,7 +349,7 @@ import { Component } from '@angular/core'
                 </button>
               </div>
             </div>
-            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+            <div class="flex justify-between px-5 pt-3 pb-3 items-center">
               <div class="col-span-2">
                 <div class="flex gap-2 items-center">
                   <div class="col-start-1 mr-1 col-end-2">
@@ -372,7 +373,7 @@ import { Component } from '@angular/core'
                 </button>
               </div>
             </div>
-            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+            <div class="flex justify-between px-5 pt-3 pb-3 items-center">
               <div class="col-span-2">
                 <div class="flex gap-2 items-center">
                   <div class="col-start-1 mr-1 col-end-2">
@@ -396,7 +397,7 @@ import { Component } from '@angular/core'
                 </button>
               </div>
             </div>
-            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+            <div class="flex justify-between px-5 pt-3 pb-3 items-center">
               <div class="col-span-2">
                 <div class="flex gap-2 items-center">
                   <div class="col-start-1 mr-1 col-end-2">
@@ -420,7 +421,7 @@ import { Component } from '@angular/core'
                 </button>
               </div>
             </div>
-            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+            <div class="flex justify-between px-5 pt-3 pb-3 items-center">
               <div class="col-span-2">
                 <div class="flex gap-2 items-center">
                   <div class="col-start-1 mr-1 col-end-2">
@@ -444,7 +445,7 @@ import { Component } from '@angular/core'
                 </button>
               </div>
             </div>
-            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+            <div class="flex justify-between px-5 pt-3 pb-3 items-center">
               <div class="col-span-2">
                 <div class="flex gap-2 items-center">
                   <div class="col-start-1 mr-1 col-end-2">
@@ -468,7 +469,7 @@ import { Component } from '@angular/core'
                 </button>
               </div>
             </div>
-            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+            <div class="flex justify-between px-5 pt-3 pb-3 items-center">
               <div class="col-span-2">
                 <div class="flex gap-2 items-center">
                   <div class="col-start-1 mr-1 col-end-2">
@@ -492,7 +493,7 @@ import { Component } from '@angular/core'
                 </button>
               </div>
             </div>
-            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+            <div class="flex justify-between px-5 pt-3 pb-3 items-center">
               <div class="col-span-2">
                 <div class="flex gap-2 items-center">
                   <div class="col-start-1 mr-1 col-end-2">
@@ -516,7 +517,7 @@ import { Component } from '@angular/core'
                 </button>
               </div>
             </div>
-            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+            <div class="flex justify-between px-5 pt-3 pb-3 items-center">
               <div class="col-span-2">
                 <div class="flex gap-2 items-center">
                   <div class="col-start-1 mr-1 col-end-2">
@@ -540,7 +541,7 @@ import { Component } from '@angular/core'
                 </button>
               </div>
             </div>
-            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+            <div class="flex justify-between px-5 pt-3 pb-3 items-center">
               <div class="col-span-2">
                 <div class="flex gap-2 items-center">
                   <div class="col-start-1 mr-1 col-end-2">
@@ -564,7 +565,7 @@ import { Component } from '@angular/core'
                 </button>
               </div>
             </div>
-            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+            <div class="flex justify-between px-5 pt-3 pb-3 items-center">
               <div class="col-span-2">
                 <div class="flex gap-2 items-center">
                   <div class="col-start-1 mr-1 col-end-2">
@@ -588,7 +589,7 @@ import { Component } from '@angular/core'
                 </button>
               </div>
             </div>
-            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+            <div class="flex justify-between px-5 pt-3 pb-3 items-center">
               <div class="col-span-2">
                 <div class="flex gap-2 items-center">
                   <div class="col-start-1 mr-1 col-end-2">
@@ -612,7 +613,7 @@ import { Component } from '@angular/core'
                 </button>
               </div>
             </div>
-            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+            <div class="flex justify-between px-5 pt-3 pb-3 items-center">
               <div class="col-span-2">
                 <div class="flex gap-2 items-center">
                   <div class="col-start-1 mr-1 col-end-2">
@@ -636,7 +637,7 @@ import { Component } from '@angular/core'
                 </button>
               </div>
             </div>
-            <div class="flex justify-between items-center px-5 pt-3 pb-3 items-center">
+            <div class="flex justify-between px-5 pt-3 pb-3 items-center">
               <div class="col-span-2">
                 <div class="flex gap-2 items-center">
                   <div class="col-start-1 mr-1 col-end-2">
@@ -667,15 +668,18 @@ import { Component } from '@angular/core'
   `,
 })
 export class WebUiMobileProfileFollowingComponent {
-  follower = false
+  follower = true
 
   // action button toggle
   toggle_tab() {
+    return this.follower
+  }
+
+  change_tab() {
     if (this.follower) {
       this.follower = false
     } else {
       this.follower = true
     }
-    return this.follower
   }
 }
