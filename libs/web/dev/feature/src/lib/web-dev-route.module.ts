@@ -562,4 +562,9 @@ export const routes: Routes = [
         (m) => m.DevMobileProfileFollowingModule,
       ),
   },
+  {
+    path: 'mobile-nft-create',
+    loadChildren: () =>
+      import('./dev-mobile-nft-create/dev-mobile-nft-create.module').then((m) => m.DevMobileNftCreateModule),
+  },
 ]

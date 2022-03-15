@@ -758,6 +758,11 @@ export class WebDevFeatureComponent {
               route: 'mobile-profile-following',
               image: '/assets/images/stacked.png',
             },
+            {
+              label: 'NFT Create',
+              route: 'mobile-nft-create',
+              image: '/assets/images/stacked.png',
+            },
           ],
         },
       ],
