@@ -41,7 +41,7 @@ import { Component } from '@angular/core'
         width: 0px;
       }
       .scroll-section {
-        height: 633px;
+        height: 571px;
         overflow-y: scroll;
         scrollbar-color: white white;
         scrollbar-width: none;
@@ -125,13 +125,17 @@ import { Component } from '@angular/core'
 
           <nav class="flex 9 space-x-4 ml-3 mt-3">
             <a
+              (click)="swith_tab('fix')"
               href="javascript:void(0)"
-              class="font-medium dark:text-white text-lg  pb-4 px-3 py-2  leading-3 border-b-2  border-black dark:border-white"
+              [ngClass]="{ 'border-b-2  border-black dark:border-white': active_tab() == 'fix' }"
+              class="font-medium dark:text-white text-lg  pb-4 px-3 py-2  leading-3 "
               >Fix Price</a
             >
             <a
+              (click)="swith_tab('auction')"
+              [ngClass]="{ 'border-b-2  border-black dark:border-white': active_tab() == 'auction' }"
               href="javascript:void(0)"
-              class="  font-semibold  dark:text-white text-lg  pb-4 px-3 py-2  leading-3 border-b-2  border-black dark:border-white"
+              class="  font-semibold  dark:text-white text-lg  pb-4 px-3 py-2  leading-3"
               >Auction</a
             >
           </nav>
@@ -140,7 +144,7 @@ import { Component } from '@angular/core'
             <div class=" pro-box   my-7 py-5  rounded-md pro-box dark:bg-gray-700 px-3">
               <label class="flex gap-4">
                 <div>
-                  <span class=" text-sm font-medium dark:text-white font-medium"> Token </span>
+                  <span class=" text-sm  dark:text-white font-medium"> Token </span>
                   <input
                     type="text"
                     name="text"
@@ -158,7 +162,7 @@ import { Component } from '@angular/core'
             <div class="    my-7 py-5 rounded-md pro-box dark:bg-gray-700 px-3">
               <div class="">
                 <label class="block">
-                  <span class=" text-sm font-medium dark:text-white font-medium"> Minimum bid </span>
+                  <span class=" text-sm  dark:text-white font-medium"> Minimum bid </span>
                   <input
                     type="text"
                     name="text"
@@ -169,55 +173,57 @@ import { Component } from '@angular/core'
               </div>
             </div>
           </div>
-          <p class="px-6 text-sm color my-4 text-gray-500 dark:text-gray-200">
+          <p *ngIf="active_tab() == 'fix'" class="px-6 text-sm color my-4 text-gray-500 dark:text-gray-200">
             Service fee 2.5%. You will receive 0.488 ETH
           </p>
-          <div class=" flex  mx-5">
-            <div class=" pro-box  w-full   py-5 rounded-md pro-box dark:bg-gray-700 px-3">
-              <label class="flex gap-4">
-                <div class="text-left">
-                  <span class=" text-sm float-left font-medium dark:text-white font-medium"> Starting Date </span>
-                  <input
-                    type="text"
-                    name="text"
-                    class="mt-1  w-full block focus:outline-none  border-0   text-sm focus:ring-0"
-                    placeholder="Right After Listing"
+          <div *ngIf="active_tab() == 'auction'">
+            <div class=" flex  mx-5">
+              <div class=" pro-box  w-full   py-5 rounded-md pro-box dark:bg-gray-700 px-3">
+                <label class="flex gap-4">
+                  <div class="text-left">
+                    <span class=" text-sm float-left  dark:text-white font-medium"> Starting Date </span>
+                    <input
+                      type="text"
+                      name="text"
+                      class="mt-1  w-full block focus:outline-none  border-0   text-sm focus:ring-0"
+                      placeholder="Right After Listing"
+                    />
+                  </div>
+                  <img
+                    class=" rounded-full w-8 h-8 float-right"
+                    src="/assets/mobile-ui/assets/images/btn-select.png"
+                    alt=""
                   />
-                </div>
-                <img
-                  class=" rounded-full w-8 h-8 float-right"
-                  src="/assets/mobile-ui/assets/images/btn-select.png"
-                  alt=""
-                />
-              </label>
+                </label>
+              </div>
             </div>
-          </div>
-          <div class=" flex  mx-5">
-            <div class=" pro-box  w-full mt-6   py-5 rounded-md pro-box dark:bg-gray-700 px-3">
-              <label class="flex gap-4">
-                <div class="text-left">
-                  <span class=" text-sm float-left font-medium dark:text-white font-medium"> Starting Date </span>
-                  <input
-                    type="text"
-                    name="text"
-                    class="mt-1  w-full block focus:outline-none  border-0   text-sm focus:ring-0"
-                    placeholder="Right After Listing"
+            <div class=" flex  mx-5">
+              <div class=" pro-box  w-full mt-6   py-5 rounded-md pro-box dark:bg-gray-700 px-3">
+                <label class="flex gap-4">
+                  <div class="text-left">
+                    <span class=" text-sm float-left  dark:text-white font-medium"> Starting Date </span>
+                    <input
+                      type="text"
+                      name="text"
+                      class="mt-1  w-full block focus:outline-none  border-0   text-sm focus:ring-0"
+                      placeholder="Right After Listing"
+                    />
+                  </div>
+                  <img
+                    class=" rounded-full w-8 h-8 float-right"
+                    src="/assets/mobile-ui/assets/images/btn-select.png"
+                    alt=""
                   />
-                </div>
-                <img
-                  class=" rounded-full w-8 h-8 float-right"
-                  src="/assets/mobile-ui/assets/images/btn-select.png"
-                  alt=""
-                />
-              </label>
+                </label>
+              </div>
             </div>
+            <p class="px-6 text-sm color my-4 text-gray-500 dark:text-gray-200">
+              Any bid placed in the last 10 minutes extends the auction by 10 minutes Learn more
+            </p>
           </div>
-          <p class="px-6 text-sm color my-4 text-gray-500 dark:text-gray-200">
-            Any bid placed in the last 10 minutes extends the auction by 10 minutes Learn more
-          </p>
           <div class="   btn ">
-            <hr class="mt-24 border-b dark:border-solid dark:border-2 dark:border-gray-500 w-full" />
             <div class="mr-4 absolute inset-x-0 bottom-0 ">
+              <hr class="mt-24 mb-5  dark:border-solid dark:border-2 dark:border-gray-500 w-full" />
               <div class="flex justify-center mb-4">
                 <button class="w-full rounded-full text-white   py-2  mx-5 px-6 focus:outline-none   text-lg">
                   Create Item
@@ -230,4 +236,13 @@ import { Component } from '@angular/core'
     </div>
   `,
 })
-export class WebUiMobileNftCreateComponent {}
+export class WebUiMobileNftCreateComponent {
+  showtab = 'fix'
+  swith_tab(param) {
+    this.showtab = param
+  }
+
+  active_tab() {
+    return this.showtab
+  }
+}
