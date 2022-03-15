@@ -2781,6 +2781,31 @@
         }
       }
     },
+    "web-ui-mobile-profile-home": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-profile-home",
+      "sourceRoot": "libs/web/ui/mobile-profile-home/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/mobile-profile-home/src/**/*.ts",
+              "libs/web/ui/mobile-profile-home/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-profile-home"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-profile-home/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-mobile-search": {
       "projectType": "library",
       "root": "libs/web/ui/mobile-search",

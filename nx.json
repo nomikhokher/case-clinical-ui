@@ -384,6 +384,9 @@
     "web-ui-mobile-profile-following": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-mobile-profile-home": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-mobile-search": {
       "tags": ["scope:web", "type:ui"]
     },
