@@ -196,5 +196,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/mobile-collection-create',
     '<rootDir>/libs/web/ui/mobile-profile-following',
     '<rootDir>/libs/web/ui/mobile-nft-create',
+    '<rootDir>/libs/web/ui/mobile-profile-home'
   ],
 }

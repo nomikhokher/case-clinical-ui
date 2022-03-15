@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { DevMobileProfileFollowingStore } from './dev-mobile-profile-following.store'
+import { DevMobileProfileHomeStore } from './dev-mobile-profile-home.store'
 
 @Component({
   template: `
@@ -14,23 +14,22 @@ import { DevMobileProfileFollowingStore } from './dev-mobile-profile-following.s
         [code]="codePreview[0]"
         [codeObj]="vm.items"
       >
-        <ui-mobile-profile-following></ui-mobile-profile-following>
+        <!-- INSERT YOUR UI-COMPONENT HERE  -->
       </ui-mobile-preview>
     </ng-container>
   `,
-  providers: [DevMobileProfileFollowingStore],
+  providers: [DevMobileProfileHomeStore],
 })
-export class DevMobileProfileFollowingComponent {
+export class DevMobileProfileHomeComponent {
   readonly vm$ = this.store.vm$
-  constructor(private readonly store: DevMobileProfileFollowingStore) {}
+  constructor(private readonly store: DevMobileProfileHomeStore) {}
   public codePreview: Array<any>
   ngOnInit(): void {
     this.vm$.subscribe((result) => {
       this.codePreview = [
-        `\nimport { WebUiMobileProfileModule } from '@schema-driven/web/ui/\n
-        mobile-profile-following' \n
-<ui-mobile-profile-following></ui-mobile-profile-following>
-         \n\n
+        `\nimport { WebUiMobileProfileHomeModule } from '@schema-driven/web/ui/mobile-profile-home' \n
+<ui-mobile-profile-home></ui-mobile-profile-home>
+         \n        
         `,
       ]
     })
