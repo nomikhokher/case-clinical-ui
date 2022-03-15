@@ -2687,6 +2687,31 @@
         }
       }
     },
+    "web-ui-mobile-nft-create": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-nft-create",
+      "sourceRoot": "libs/web/ui/mobile-nft-create/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/mobile-nft-create/src/**/*.ts",
+              "libs/web/ui/mobile-nft-create/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-nft-create"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-nft-create/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-mobile-notification-list": {
       "projectType": "library",
       "root": "libs/web/ui/mobile-notification-list",
