@@ -124,19 +124,23 @@ import { Component } from '@angular/core'
           </div>
 
           <nav class="flex 9 space-x-4 ml-3 mt-3">
-            <a href="/team" class="font-medium px-2 py-2 text-black text-lg rounded-lg leading-3  pb-0">Fix Price</a>
             <a
-              href="/dashboard"
-              class="  font-semibold border-b-2 border-black text-black text-lg  pb-4 px-3 py-2  leading-3"
+              href="javascript:void(0)"
+              class="font-medium dark:text-white text-lg  pb-4 px-3 py-2  leading-3 border-b-2  border-black dark:border-white"
+              >Fix Price</a
+            >
+            <a
+              href="javascript:void(0)"
+              class="  font-semibold  dark:text-white text-lg  pb-4 px-3 py-2  leading-3 border-b-2  border-black dark:border-white"
               >Auction</a
             >
           </nav>
           <hr class="" />
           <div class=" flex  gap-2 mx-5">
-            <div class=" pro-box   my-7 py-5 rounded-md pro-box px-3">
+            <div class=" pro-box   my-7 py-5  rounded-md pro-box dark:bg-gray-700 px-3">
               <label class="flex gap-4">
                 <div>
-                  <span class=" text-sm font-medium text-black font-medium"> Token </span>
+                  <span class=" text-sm font-medium dark:text-white font-medium"> Token </span>
                   <input
                     type="text"
                     name="text"
@@ -144,13 +148,17 @@ import { Component } from '@angular/core'
                     placeholder="ETH"
                   />
                 </div>
-                <img class=" rounded-full w-8 h-8 float-right" src="/assets/image/btn-select.png" alt="" />
+                <img
+                  class=" rounded-full w-8 h-8 float-right"
+                  src="/assets/mobile-ui/assets/images/btn-select.png"
+                  alt=""
+                />
               </label>
             </div>
-            <div class="    my-7 py-5 rounded-md pro-box px-3">
+            <div class="    my-7 py-5 rounded-md pro-box dark:bg-gray-700 px-3">
               <div class="">
                 <label class="block">
-                  <span class=" text-sm font-medium text-black font-medium"> Minimum bid </span>
+                  <span class=" text-sm font-medium dark:text-white font-medium"> Minimum bid </span>
                   <input
                     type="text"
                     name="text"
@@ -161,11 +169,14 @@ import { Component } from '@angular/core'
               </div>
             </div>
           </div>
+          <p class="px-6 text-sm color my-4 text-gray-500 dark:text-gray-200">
+            Service fee 2.5%. You will receive 0.488 ETH
+          </p>
           <div class=" flex  mx-5">
-            <div class=" pro-box  w-full   py-5 rounded-md pro-box px-3">
+            <div class=" pro-box  w-full   py-5 rounded-md pro-box dark:bg-gray-700 px-3">
               <label class="flex gap-4">
                 <div class="text-left">
-                  <span class=" text-sm float-left font-medium text-black font-medium"> Starting Date </span>
+                  <span class=" text-sm float-left font-medium dark:text-white font-medium"> Starting Date </span>
                   <input
                     type="text"
                     name="text"
@@ -173,15 +184,19 @@ import { Component } from '@angular/core'
                     placeholder="Right After Listing"
                   />
                 </div>
-                <img class=" rounded-full w-8 h-8 float-right" src="/assets/image/btn-select.png" alt="" />
+                <img
+                  class=" rounded-full w-8 h-8 float-right"
+                  src="/assets/mobile-ui/assets/images/btn-select.png"
+                  alt=""
+                />
               </label>
             </div>
           </div>
           <div class=" flex  mx-5">
-            <div class=" pro-box  w-full mt-6   py-5 rounded-md pro-box px-3">
+            <div class=" pro-box  w-full mt-6   py-5 rounded-md pro-box dark:bg-gray-700 px-3">
               <label class="flex gap-4">
                 <div class="text-left">
-                  <span class=" text-sm float-left font-medium text-black font-medium"> Starting Date </span>
+                  <span class=" text-sm float-left font-medium dark:text-white font-medium"> Starting Date </span>
                   <input
                     type="text"
                     name="text"
@@ -189,11 +204,15 @@ import { Component } from '@angular/core'
                     placeholder="Right After Listing"
                   />
                 </div>
-                <img class=" rounded-full w-8 h-8 float-right" src="/assets/image/btn-select.png" alt="" />
+                <img
+                  class=" rounded-full w-8 h-8 float-right"
+                  src="/assets/mobile-ui/assets/images/btn-select.png"
+                  alt=""
+                />
               </label>
             </div>
           </div>
-          <p class="px-6 text-sm color my-4">
+          <p class="px-6 text-sm color my-4 text-gray-500 dark:text-gray-200">
             Any bid placed in the last 10 minutes extends the auction by 10 minutes Learn more
           </p>
           <div class="   btn ">
