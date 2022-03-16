@@ -52,7 +52,7 @@ export interface ComponentProp {
       [headerMeta]="directoryMeta"
       [controlsTemplate]="headerControls"
     >
-      <ui-mutator [payload]="codeObj"></ui-mutator>
+      <!-- <ui-mutator [payload]="codeObj"></ui-mutator> -->
       <div>
         <div class="flex md:items-center md:flex-row flex-col justify-between py-2">
           <h3 class="text-lg font-medium text-gray-700 dark:text-gray-200">{{ title }}</h3>
