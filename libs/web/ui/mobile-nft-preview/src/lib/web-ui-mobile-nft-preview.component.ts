@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'ui-mobile-nft-create',
+  selector: 'ui-mobile-nft-preview',
   template: `
     <style>
       .border-b {
@@ -74,36 +74,17 @@ import { Component } from '@angular/core'
         </div>
         <!-- This example requires Tailwind CSS v2.0+ -->
         <div class="scroll-section">
-          <div class="mx-5 mt-8 pb-12 rounded-md pro-box px-3 dark:bg-gray-700">
-            <div class="mt-1 px-6 pt-5 pb-11  rounded-md">
-              <div class="space-y-1 text-center">
-                <h2 class="text-xl dark:text-white">Upload Image</h2>
-                <p class="pl-1 text-sm">500 x 500 recommended</p>
-                <div class="text-sm text-gray-600 pt-4">
-                  <label for="file-upload" class="top-2 relative cursor-pointer ">
-                    <span
-                      class="w-full rounded-full text-white bg- py-2 bg-c px-3 focus:outline-none hover:bg-indigo-600  text-sm"
-                      >Choose File</span
-                    >
-                    <div class="flex-shrink-0">
-                      <input id="file-upload" name="file-upload" type="file" class=" sr-only" />
-                    </div>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
+          <img
+            alt="content"
+            class="object-cover object-center px-5 mt-5 w-full"
+            src="/assets/mobile-ui/assets/images/ntf-img.png"
+          />
 
           <div class="mx-5 mt-4 mb-2 py-4 rounded-md pro-box px-3 dark:bg-gray-700">
             <div class="col-start-1 col-end-7">
               <label class="block">
                 <span class=" text-sm font-medium dark:text-white "> Original artwork title </span>
-                <input
-                  type="text"
-                  name="text"
-                  class="mt-1 focus:outline-none  border-0 block w-full text-sm focus:ring-0"
-                  placeholder="Example: Treasures of the Sea"
-                />
+                <p class="mt-1 focus:outline-none  border-0 block w-full text-sm focus:ring-0">Minimilistic</p>
               </label>
             </div>
           </div>
@@ -112,13 +93,9 @@ import { Component } from '@angular/core'
             <div class="col-start-1 col-end-7">
               <label class="block">
                 <span class=" text-sm font-medium dark:text-white "> Description </span>
-                <textarea
-                  rows="3"
-                  name="message"
-                  id="message"
-                  placeholder="Infomation your collection"
-                  class=" border-0 resize-none bg-transparent focus:outline-none block w-full text-sm "
-                ></textarea>
+                <p class=" border-0 resize-none bg-transparent focus:outline-none block w-full text-sm ">
+                  That feeling when you get thought
+                </p>
               </label>
             </div>
           </div>
@@ -145,12 +122,7 @@ import { Component } from '@angular/core'
               <label class="flex gap-4">
                 <div>
                   <span class=" text-sm  dark:text-white font-medium"> Token </span>
-                  <input
-                    type="text"
-                    name="text"
-                    class="mt-1  w-12 block focus:outline-none  border-0   text-sm focus:ring-0"
-                    placeholder="ETH"
-                  />
+                  <p class="mt-1  w-12 block focus:outline-none  border-0   text-sm focus:ring-0">ETH</p>
                 </div>
                 <img
                   class=" rounded-full w-8 h-8 float-right"
@@ -163,12 +135,7 @@ import { Component } from '@angular/core'
               <div class="">
                 <label class="block">
                   <span class=" text-sm  dark:text-white font-medium"> Minimum bid </span>
-                  <input
-                    type="text"
-                    name="text"
-                    class="mt-1 focus:outline-none  border-0 block w-full text-sm focus:ring-0"
-                    placeholder="Enter Minimum bid"
-                  />
+                  <p class="mt-1 focus:outline-none  border-0 block w-full text-sm focus:ring-0">Enter Minimum bid</p>
                 </label>
               </div>
             </div>
@@ -182,12 +149,9 @@ import { Component } from '@angular/core'
                 <label class="flex gap-4">
                   <div class="text-left">
                     <span class=" text-sm float-left  dark:text-white font-medium"> Starting Date </span>
-                    <input
-                      type="text"
-                      name="text"
-                      class="mt-1  w-full block focus:outline-none  border-0   text-sm focus:ring-0"
-                      placeholder="Right After Listing"
-                    />
+                    <p class="mt-1  w-full block focus:outline-none  border-0   text-sm focus:ring-0">
+                      Right After Listing
+                    </p>
                   </div>
                   <img
                     class=" rounded-full w-8 h-8 float-right"
@@ -202,12 +166,9 @@ import { Component } from '@angular/core'
                 <label class="flex gap-4">
                   <div class="text-left">
                     <span class=" text-sm float-left  dark:text-white font-medium"> Starting Date </span>
-                    <input
-                      type="text"
-                      name="text"
-                      class="mt-1  w-full block focus:outline-none  border-0   text-sm focus:ring-0"
-                      placeholder="Right After Listing"
-                    />
+                    <p class="mt-1  w-full block focus:outline-none  border-0   text-sm focus:ring-0">
+                      Right After Listing
+                    </p>
                   </div>
                   <img
                     class=" rounded-full w-8 h-8 float-right"
@@ -226,7 +187,7 @@ import { Component } from '@angular/core'
               <hr class="mt-24 mb-5  dark:border-solid dark:border-2 dark:border-gray-500 w-full" />
               <div class="flex justify-center mb-4">
                 <button class="w-full rounded-full text-white   py-2  mx-5 px-6 focus:outline-none   text-lg">
-                  Preview Item
+                  Create Item
                 </button>
               </div>
             </div>
@@ -236,7 +197,7 @@ import { Component } from '@angular/core'
     </div>
   `,
 })
-export class WebUiMobileNftCreateComponent {
+export class WebUiMobileNftPreviewComponent {
   showtab = 'fix'
   swith_tab(param) {
     this.showtab = param
