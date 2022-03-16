@@ -2712,6 +2712,31 @@
         }
       }
     },
+    "web-ui-mobile-nft-preview": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-nft-preview",
+      "sourceRoot": "libs/web/ui/mobile-nft-preview/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/mobile-nft-preview/src/**/*.ts",
+              "libs/web/ui/mobile-nft-preview/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-nft-preview"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-nft-preview/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-mobile-notification-list": {
       "projectType": "library",
       "root": "libs/web/ui/mobile-notification-list",

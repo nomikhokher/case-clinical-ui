@@ -375,6 +375,9 @@
     "web-ui-mobile-nft-create": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-mobile-nft-preview": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-mobile-notification-list": {
       "tags": ["scope:web", "type:ui"]
     },
