@@ -11,7 +11,8 @@ interface Item {
 @Component({
   template: `
     <div>
-      <label for="combobox" class="block text-sm font-medium text-gray-700 dark:text-white">Assigned to</label>
+      <label for="combobox" class="block text-sm font-medium text-gray-700 dark:text-white">{{ this.label }}</label>
+
       <div class="relative mt-1 w-56 ">
         <input
           id="combobox"
@@ -50,11 +51,6 @@ interface Item {
             id="this.itemid"
           >
             <div class="flex items-center">
-              <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
-                class="h-6 w-6 flex-shrink-0 rounded-full"
-              />
               <span class="ml-3 truncate">{{ item.name }}</span>
             </div>
             <span *ngIf="item.tick == true" class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600">
@@ -89,7 +85,7 @@ export class UiFormTypeaheadComponent extends FieldType implements OnInit {
   //options$: Observable<string[]>
   @Input() options$: Contact
   public value: any
-
+  @Input() label
   cboxDetail: any
   listshow?: boolean
   obs?: boolean = true
@@ -124,14 +120,11 @@ export class UiFormTypeaheadComponent extends FieldType implements OnInit {
   }
   ngOnInit() {
     this.listshow = false
-
-    //console.log(this.to?.options)
   }
 
   public onOptionsSelected(event) {
     const value = event.target.value
     this.selected = value
-    console.log(value)
   }
   public onshow() {
     if (this.listshow == true) {
@@ -146,9 +139,9 @@ export class UiFormTypeaheadComponent extends FieldType implements OnInit {
       if (item == this.to?.options[i]) {
         this.hero = this.to?.options[i].name
         this.textselect = this.to?.options[i].name
-        //this.to?.options[i].tick
+        this.to.options[i].tick = true
       } else {
-        //this.to?.options[i].tick(false)
+        this.to.options[i].tick = false
       }
     }
   }

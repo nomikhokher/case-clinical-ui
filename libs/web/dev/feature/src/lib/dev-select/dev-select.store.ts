@@ -197,7 +197,7 @@ const demos: Demo[] = [
     model: {},
     fields: [
       WebUiFormField.typeahead('TypeaHead', {
-        label: '',
+        label: 'Select Option',
         placeholder: 'No Selection',
         options: cBox,
         addonLeft: { icon: UiIcon.at },
