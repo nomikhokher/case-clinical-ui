@@ -567,4 +567,9 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./dev-mobile-nft-create/dev-mobile-nft-create.module').then((m) => m.DevMobileNftCreateModule),
   },
+  {
+    path: 'mobile-nft-preview',
+    loadChildren: () =>
+      import('./dev-mobile-nft-preview/dev-mobile-nft-preview.module').then((m) => m.DevMobileNftPreviewModule),
+  },
 ]
