@@ -134,6 +134,7 @@
       "@schema-driven/web/ui/mobile-home": ["libs/web/ui/mobile-home/src/index.ts"],
       "@schema-driven/web/ui/mobile-home-scroll": ["libs/web/ui/mobile-home-scroll/src/index.ts"],
       "@schema-driven/web/ui/mobile-mutator": ["libs/web/ui/mobile-mutator/src/index.ts"],
+      "@schema-driven/web/ui/mobile-nft-complete": ["libs/web/ui/mobile-nft-complete/src/index.ts"],
       "@schema-driven/web/ui/mobile-nft-create": ["libs/web/ui/mobile-nft-create/src/index.ts"],
       "@schema-driven/web/ui/mobile-nft-preview": ["libs/web/ui/mobile-nft-preview/src/index.ts"],
       "@schema-driven/web/ui/mobile-notification-list": ["libs/web/ui/mobile-notification-list/src/index.ts"],

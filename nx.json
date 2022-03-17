@@ -372,6 +372,9 @@
     "web-ui-mobile-mutator": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-mobile-nft-complete": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-mobile-nft-create": {
       "tags": ["scope:web", "type:ui"]
     },
