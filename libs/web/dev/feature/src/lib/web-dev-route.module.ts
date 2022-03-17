@@ -572,4 +572,9 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./dev-mobile-nft-preview/dev-mobile-nft-preview.module').then((m) => m.DevMobileNftPreviewModule),
   },
+  {
+    path: 'mobile-nft-complete',
+    loadChildren: () =>
+      import('./dev-mobile-nft-complete/dev-mobile-nft-complete.module').then((m) => m.DevMobileNftCompleteModule),
+  },
 ]
