@@ -198,5 +198,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/mobile-nft-create',
     '<rootDir>/libs/web/ui/mobile-profile-home',
     '<rootDir>/libs/web/ui/mobile-nft-preview',
+    '<rootDir>/libs/web/ui/mobile-nft-complete',
   ],
 }
