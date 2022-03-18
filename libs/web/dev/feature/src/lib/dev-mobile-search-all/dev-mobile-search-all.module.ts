@@ -2,14 +2,15 @@ import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { DevMobileSearchAllComponent } from './dev-mobile-search-all.component'
-import { WebUiPreviewModule } from '@schema-driven/web/ui/preview'
-
+import { WebUiMobilePreviewModule } from '@schema-driven/web/ui/mobile-preview'
+//import { WebUiMobileSearchAllModule } from '@schema-driven/web/ui/mobile-search-all'
 @NgModule({
   declarations: [DevMobileSearchAllComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([{ path: '', component: DevMobileSearchAllComponent }]),
-    WebUiPreviewModule,
+    WebUiMobilePreviewModule,
+    //  WebUiMobileSearchAllModule,
   ],
 })
 export class DevMobileSearchAllModule {}
