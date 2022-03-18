@@ -2903,6 +2903,31 @@
         }
       }
     },
+    "web-ui-mobile-search-all": {
+      "projectType": "library",
+      "root": "libs/web/ui/mobile-search-all",
+      "sourceRoot": "libs/web/ui/mobile-search-all/src",
+      "prefix": "ui",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/ui/mobile-search-all/src/**/*.ts",
+              "libs/web/ui/mobile-search-all/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/ui/mobile-search-all"],
+          "options": {
+            "jestConfig": "libs/web/ui/mobile-search-all/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "web-ui-mobile-wallet": {
       "projectType": "library",
       "root": "libs/web/ui/mobile-wallet",

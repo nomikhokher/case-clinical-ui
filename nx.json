@@ -399,6 +399,9 @@
     "web-ui-mobile-search": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-mobile-search-all": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-mobile-wallet": {
       "tags": ["scope:web", "type:ui"]
     },
