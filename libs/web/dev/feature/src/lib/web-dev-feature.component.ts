@@ -739,6 +739,11 @@ export class WebDevFeatureComponent {
               image: '/assets/images/stacked.png',
             },
             {
+              label: 'Search All',
+              route: 'mobile-search-all',
+              image: '/assets/images/stacked.png',
+            },
+            {
               label: 'Discovery',
               route: 'mobile-discovery',
               image: '/assets/images/stacked.png',
