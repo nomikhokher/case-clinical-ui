@@ -671,17 +671,6 @@ import { empty } from 'rxjs'
 })
 export class WebUiMobileProfileFollowingComponent {
   follower = true
-  items = [
-    { name: 'Bike', price: 100 },
-    { name: 'Tv', price: 200 },
-    { name: 'Album', price: 10 },
-    { name: 'Book', price: 5 },
-    { name: 'Phone', price: 500 },
-    { name: 'Computer', price: 100 },
-    { name: 'KeyBoard', price: 25 },
-  ]
-
-  include = [1, 2, 3, 4, 5, 6, 7]
   // action button toggle
   toggle_tab() {
     return this.follower
@@ -693,45 +682,5 @@ export class WebUiMobileProfileFollowingComponent {
     } else {
       this.follower = true
     }
-  }
-
-  testingDataFunction(item) {
-    //  Filter Array method
-    //  const filterArray=this.items.filter((item)=>{
-    //  return item.price<=100;
-    //})
-    //Map Array Method
-    //const mapArray=this.items.map((item)=>{
-    //return item.name
-    //})
-    //Find Array Method
-    // const findArray=this.items.find((item)=>{
-    //   return item.name='computer'
-    // })
-    //ForEach Mrthod
-    //this.items.forEach((item)=>{
-    //console.log(item.price);
-    //})
-    //Some Array Method
-    //const someArray=this.items.some((item)=>{
-    //  return item.price<=5
-    //})
-    //Every Array method
-    //const everyArray=this.items.every((item)=>{
-    // return item.price<=5
-    //})
-    //ReduCE Array Method
-    //const reduceArray =this.items.reduce((currentValue,item)=>{
-    //  return item.price+currentValue
-    //},0)
-    //Include Array Method
-    //const InculdeArray=this.include.includes(8);
-    //febonacci method
-    //let n = 10, firstTerm = 0, secondTerm = 1;
-    //for (let i = 1; i <= n; ++i) {
-    //  let nextTerm = firstTerm + secondTerm;
-    //  firstTerm = secondTerm;
-    //  secondTerm = nextTerm;}
-    //console.log();
   }
 }
