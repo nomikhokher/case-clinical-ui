@@ -71,7 +71,7 @@ import { Component } from '@angular/core'
             class="w-full flex justify-between items-center px-4 text-black font-medium text-lg pt-2 search-all-main"
           >
             <div class="flex-shrink-0 h-10">
-              <a href=""
+              <a href="dev/mobile-search-all"
                 ><p
                   class="pb-2 text-gray-400 dark:text-white border-black border-b-2  hover:border-black dark:border-white hoverBorder"
                 >
@@ -80,7 +80,7 @@ import { Component } from '@angular/core'
               >
             </div>
             <div class="flex-shrink-0  h-10">
-              <a href=""
+              <a href="dev/mobile-search-creator"
                 ><p class="pb-2 text-gray-400 dark:text-white  hover:border-black dark:border-white hoverBorder">
                   Creator
                 </p></a
