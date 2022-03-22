@@ -551,6 +551,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'mobile-search-artwork',
+    loadChildren: () =>
+      import('./dev-mobile-search-artwork/dev-mobile-search-artwork.module').then(
+        (m) => m.DevMobileSearchArtworkModule,
+      ),
+  },
+  {
     path: 'mobile-discovery',
     loadChildren: () =>
       import('./dev-mobile-discovery/dev-mobile-discovery.module').then((m) => m.DevMobileDiscoveryModule),
