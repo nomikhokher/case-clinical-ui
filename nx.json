@@ -402,6 +402,9 @@
     "web-ui-mobile-search-all": {
       "tags": ["scope:web", "type:ui"]
     },
+    "web-ui-mobile-search-artwork": {
+      "tags": ["scope:web", "type:ui"]
+    },
     "web-ui-mobile-search-creator": {
       "tags": ["scope:web", "type:ui"]
     },
