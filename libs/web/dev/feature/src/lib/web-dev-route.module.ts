@@ -558,6 +558,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'mobile-search-artwork',
+    loadChildren: () =>
+      import('./dev-mobile-search-collection/dev-mobile-search-collection.module').then(
+        (m) => m.DevMobileSearchCollectionModule,
+      ),
+  },
+  {
     path: 'mobile-discovery',
     loadChildren: () =>
       import('./dev-mobile-discovery/dev-mobile-discovery.module').then((m) => m.DevMobileDiscoveryModule),
