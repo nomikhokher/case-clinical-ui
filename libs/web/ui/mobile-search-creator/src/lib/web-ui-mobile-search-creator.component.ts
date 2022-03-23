@@ -94,7 +94,7 @@ import { Component } from '@angular/core'
               >
             </div>
             <div class="flex-shrink-0  h-10">
-              <a href=""
+              <a href="dev/mobile-search-collection"
                 ><p class="pb-2 text-gray-400 dark:text-white  hover:border-black dark:border-white hoverBorder">
                   Collection
                 </p></a

@@ -92,7 +92,7 @@ import { Component } from '@angular/core'
               >
             </div>
             <div class="flex-shrink-0  h-10">
-              <a href=""
+              <a href="dev/mobile-search-collection"
                 ><p
                   class="pb-2 text-gray-400 dark:text-white border-black border-b-2  hover:border-black dark:border-white hoverBorder"
                 >
@@ -104,7 +104,9 @@ import { Component } from '@angular/core'
         </section>
         <section class="scroll-section scroll-section-vertical ">
           <section class=" body-font">
-            <div class=" px-5 pt-4 pb-5 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:text-white">
+            <div
+              class=" px-5 pt-4 pb-5 mx-auto shadow-lg shadow-blue-500/20 rounded-lg dark:text-white dark:bg-gray-700"
+            >
               <div class="flex flex-wrap -mx-4 -mb-10 text-center">
                 <div class=" mb-10 px-4">
                   <div class="rounded-lg h-64 overflow-hidden">
@@ -114,12 +116,12 @@ import { Component } from '@angular/core'
                       src="/assets/mobile-ui/assets/images/img1.png"
                     />
                   </div>
-                  <h2 class="title-font text-base font-bold font-medium dark:text-white mt-2 ">The Cubes of Destiny</h2>
+                  <h2 class="title-font text-base font-bold dark:text-white mt-2 ">The Cubes of Destiny</h2>
                   <p class="leading-relaxed dark:text-blue-300">ERC-1155</p>
                 </div>
               </div>
             </div>
-            <div class=" px-5 pt-4 mt-5 pb-3 mx-auto shadow-lg shadow-blue-500/20 rounded-lg rounded-lg ">
+            <div class=" px-5 pt-4 mt-5 pb-3 mx-auto shadow-lg shadow-blue-500/20  rounded-lg dark:bg-gray-700">
               <div class="flex flex-wrap -mx-4 -mb-10 text-center">
                 <div class=" mb-10 px-4">
                   <div class="rounded-lg h-64 overflow-hidden">
@@ -129,7 +131,7 @@ import { Component } from '@angular/core'
                       src="/assets/mobile-ui/assets/images/img2.png"
                     />
                   </div>
-                  <h2 class="title-font text-base font-bold font-medium dark:text-white mt-2 ">The Cubes of Destiny</h2>
+                  <h2 class="title-font text-base font-bold dark:text-white mt-2 ">The Cubes of Destiny</h2>
                   <p class="leading-relaxed dark:text-blue-300">ERC-1155</p>
                 </div>
               </div>
