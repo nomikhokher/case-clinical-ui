@@ -24,11 +24,11 @@ let icon = Object.values(UiIcon)
 export class DevMobileSearchCollectionStore extends ComponentStore<DevMobileSearchCollectionState> {
   constructor(private readonly sdk: ApolloAngularSDK) {
     super({
-      headerTitle: 'Mobile Search Artwork',
+      headerTitle: 'Mobile Search Collection',
       githubURL: 'https://github.com/Schema-Driven/metadata/tree/main/libs/web/ui/mobile-search-collection/src/lib',
       breadcrumbs: [
         { label: 'Components', path: '/dev' },
-        { label: 'Mobile Search Artwork', path: '/dev/mobile-search-collection' },
+        { label: 'Mobile Search Collection', path: '/dev/mobile-search-collection' },
       ],
       directory: '/libs/web/dev/feature/src/lib/dev-mobile-search-collection/dev-mobile-search-collection.component.ts',
       componentProps: [

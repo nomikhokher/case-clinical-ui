@@ -558,7 +558,7 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'mobile-search-artwork',
+    path: 'mobile-search-collection',
     loadChildren: () =>
       import('./dev-mobile-search-collection/dev-mobile-search-collection.module').then(
         (m) => m.DevMobileSearchCollectionModule,
