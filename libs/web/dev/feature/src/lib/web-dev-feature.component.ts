@@ -793,6 +793,11 @@ export class WebDevFeatureComponent {
               route: 'mobile-nft-complete',
               image: '/assets/images/stacked.png',
             },
+            {
+              label: 'Detail',
+              route: 'mobile-detail',
+              image: '/assets/images/stacked.png',
+            },
           ],
         },
       ],

@@ -603,4 +603,8 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./dev-mobile-nft-complete/dev-mobile-nft-complete.module').then((m) => m.DevMobileNftCompleteModule),
   },
+  {
+    path: 'mobile-detail',
+    loadChildren: () => import('./dev-mobile-detail/dev-mobile-detail.module').then((m) => m.DevMobileDetailModule),
+  },
 ]
