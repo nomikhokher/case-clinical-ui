@@ -112,7 +112,8 @@ import { Component } from '@angular/core'
               </div>
               <div class="">
                 <a
-                  href="#"
+                  href="javascript:void(0)"
+                  (click)="toggle_pop()"
                   class="create-button text-white font-medium text-base h-12 rounded-full flex justify-center items-center px-6"
                   >Place a Bid</a
                 >
@@ -123,7 +124,137 @@ import { Component } from '@angular/core'
         <!--User Detail End-->
       </section>
       <!-- Main End -->
+
+      <style>
+        .border-b {
+          border-bottom: 1px solid #e1e1e1;
+        }
+
+        .pro-box {
+          background-color: #f6f6f6;
+        }
+        .pro-box span {
+          font-size: 15px;
+          line-height: 21px;
+        }
+
+        .pro-box input {
+          font-size: 16px;
+          line-height: 24px;
+          border: none;
+          background: transparent;
+          color: #8e8e93;
+        }
+        .btn button {
+          height: 56px;
+          background-color: #0066ff;
+        }
+
+        .bg-c {
+          background-color: #0066ff;
+        }
+        .pro-box p {
+          color: #8e8e93;
+        }
+        .g-color {
+          color: #8e8e93;
+        }
+      </style>
+      <!--POPUP MODAL-->
+      <div
+        *ngIf="show"
+        class="absolute z-10 inset-0 overflow-hidden"
+        aria-labelledby="modal-title"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div class=" min-h-screen px-4 text-center">
+          <div class="absolute inset-0 bg-black bg-opacity-60 transition-opacity" aria-hidden="true"></div>
+          <span class="sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+          <div class="relative inline-block align-bottom bg-white rounded-lg py-6 text-left w-full  mb-44">
+            <div class="bg-white  relative">
+              <div class="flex head-cl px-5 justify-between items-center gap-4 pb-2 border-b">
+                <ui-icon (click)="toggle_pop()" size="lg" icon="chevronLeft" class="w-8 dark:text-white"></ui-icon>
+                <div>
+                  <h2 class="text-2xl font-medium title-font  text-gray-900">Place a Bid</h2>
+                </div>
+                <div></div>
+              </div>
+              <!-- This example requires Tailwind CSS v2.0+ -->
+
+              <div class=" flex   pt-5 gap-7  mx-5">
+                <div class=" ">
+                  <img src="/assets/mobile-ui/assets/images/mask-img.png" alt="" id="" class="w-full " />
+                </div>
+                <div class="mt-5 ">
+                  <p class="text-sm font-norma g-color pb-2 pl-3">⏳ 1h 28m 11s</p>
+                  <h3 class="text-xl font-bold">Sugar Rush</h3>
+                  <p class="text-sm font-normal g-color">You must bid at least <br />0.825 ETH</p>
+                </div>
+              </div>
+
+              <div class="  items-center ">
+                <div class=" flex  gap-2 mx-5">
+                  <div class=" pro-box   my-7 py-5 rounded-md pro-box px-3">
+                    <label class="flex gap-4">
+                      <div>
+                        <span class=" text-sm font-medium text-black font-medium"> Token </span>
+                        <input
+                          type="text"
+                          name="text"
+                          class="mt-1  w-12 block focus:outline-none  border-0   text-sm focus:ring-0"
+                          placeholder="ETH"
+                        />
+                      </div>
+                      <img
+                        class=" rounded-full w-8 h-8 text-right"
+                        src="/assets/mobile-ui/assets/images/btn-select.png"
+                        alt=""
+                      />
+                    </label>
+                  </div>
+                  <div class="    my-7 py-5 rounded-md pro-box px-3">
+                    <div class="">
+                      <label class="block">
+                        <span class=" text-sm font-medium text-black font-medium"> Minimum bid </span>
+                        <input
+                          type="text"
+                          name="text"
+                          class="mt-1 focus:outline-none  border-0 block w-full text-sm focus:ring-0"
+                          placeholder="Enter Minimum bid"
+                        />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="   btn">
+                  <div class="mr-4  inset-x-0 bottom-0 ">
+                    <hr class="mb-3" />
+                    <div class="flex justify-center mb-4">
+                      <button class="w-full rounded-full text-white   py-2  mx-5 px-6 focus:outline-none   text-lg">
+                        Create Item
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--POPUP MODAL END-->
+      </div>
     </div>
   `,
 })
-export class WebUiMobileDetailComponent {}
+export class WebUiMobileDetailComponent {
+  show = false
+
+  // action button toggle
+  toggle_pop() {
+    if (this.show) {
+      this.show = false
+    } else {
+      this.show = true
+    }
+  }
+}
