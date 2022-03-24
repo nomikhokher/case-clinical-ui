@@ -127,6 +127,7 @@
       "@schema-driven/web/ui/mobile-collection": ["libs/web/ui/mobile-collection/src/index.ts"],
       "@schema-driven/web/ui/mobile-collection-create": ["libs/web/ui/mobile-collection-create/src/index.ts"],
       "@schema-driven/web/ui/mobile-content": ["libs/web/ui/mobile-content/src/index.ts"],
+      "@schema-driven/web/ui/mobile-detail": ["libs/web/ui/mobile-detail/src/index.ts"],
       "@schema-driven/web/ui/mobile-discovery": ["libs/web/ui/mobile-discovery/src/index.ts"],
       "@schema-driven/web/ui/mobile-discovery-action": ["libs/web/ui/mobile-discovery-action/src/index.ts"],
       "@schema-driven/web/ui/mobile-discovery-like": ["libs/web/ui/mobile-discovery-like/src/index.ts"],

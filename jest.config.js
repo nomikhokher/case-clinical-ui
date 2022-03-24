@@ -203,5 +203,6 @@ module.exports = {
     '<rootDir>/libs/web/ui/mobile-search-creator',
     '<rootDir>/libs/web/ui/mobile-search-artwork',
     '<rootDir>/libs/web/ui/mobile-search-collection',
+    '<rootDir>/libs/web/ui/mobile-detail',
   ],
 }
