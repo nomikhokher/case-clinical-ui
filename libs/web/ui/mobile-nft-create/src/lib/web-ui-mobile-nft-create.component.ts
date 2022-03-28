@@ -101,7 +101,7 @@ import { Component } from '@angular/core'
                 <input
                   type="text"
                   name="text"
-                  class="mt-1 focus:outline-none  border-0 block w-full text-sm focus:ring-0"
+                  class="mt-1 focus:outline-none  border-0 block w-full text-sm focus:ring-0 dark:text-white"
                   placeholder="Example: Treasures of the Sea"
                 />
               </label>
@@ -117,7 +117,7 @@ import { Component } from '@angular/core'
                   name="message"
                   id="message"
                   placeholder="Infomation your collection"
-                  class=" border-0 resize-none bg-transparent focus:outline-none block w-full text-sm "
+                  class=" border-0 resize-none bg-transparent focus:outline-none block w-full text-sm dark:text-white"
                 ></textarea>
               </label>
             </div>
@@ -145,12 +145,6 @@ import { Component } from '@angular/core'
               <label class="flex gap-4">
                 <div>
                   <span class=" text-sm  dark:text-white font-medium"> Token </span>
-                  <input
-                    type="text"
-                    name="text"
-                    class="mt-1  w-12 block focus:outline-none  border-0   text-sm focus:ring-0"
-                    placeholder="ETH"
-                  />
                 </div>
                 <img
                   class=" rounded-full w-8 h-8 float-right"
@@ -158,6 +152,12 @@ import { Component } from '@angular/core'
                   alt=""
                 />
               </label>
+              <input
+                type="text"
+                name="text"
+                class="mt-1 w-12 block focus:outline-none border-0 text-sm focus:ring-0 dark:text-white"
+                placeholder="ETH"
+              />
             </div>
             <div class="    my-7 py-5 rounded-md pro-box dark:bg-gray-700 px-3">
               <div class="">
@@ -166,7 +166,7 @@ import { Component } from '@angular/core'
                   <input
                     type="text"
                     name="text"
-                    class="mt-1 focus:outline-none  border-0 block w-full text-sm focus:ring-0"
+                    class="mt-1 focus:outline-none  border-0 block w-full text-sm focus:ring-0 dark:text-white"
                     placeholder="Enter Minimum bid"
                   />
                 </label>
@@ -185,7 +185,7 @@ import { Component } from '@angular/core'
                     <input
                       type="text"
                       name="text"
-                      class="mt-1  w-full block focus:outline-none  border-0   text-sm focus:ring-0"
+                      class="mt-1 w-full block focus:outline-none border-0 text-sm focus:ring-0 dark:text-white"
                       placeholder="Right After Listing"
                     />
                   </div>
@@ -201,11 +201,11 @@ import { Component } from '@angular/core'
               <div class=" pro-box  w-full mt-6   py-5 rounded-md pro-box dark:bg-gray-700 px-3">
                 <label class="flex gap-4">
                   <div class="text-left">
-                    <span class=" text-sm float-left  dark:text-white font-medium"> Starting Date </span>
+                    <span class=" text-sm float-left  dark:text-white font-medium"> Starting Date</span>
                     <input
                       type="text"
                       name="text"
-                      class="mt-1  w-full block focus:outline-none  border-0   text-sm focus:ring-0"
+                      class="mt-1  w-full block focus:outline-none border-0 text-sm focus:ring-0 dark:text-white"
                       placeholder="Right After Listing"
                     />
                   </div>
