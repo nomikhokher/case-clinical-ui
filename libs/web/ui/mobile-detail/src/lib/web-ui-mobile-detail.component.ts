@@ -70,6 +70,21 @@ import { Component } from '@angular/core'
             class="flex gap-6 font-medium items-center text-lg  relative px-4 border-b dark:border-solid dark:border-2 dark:border-gray-500 w-full"
           >
             <a
+              (click)="toggle_pop('fix')"
+              href="javascript:void(0)"
+              [ngClass]="{ 'border-b-2  border-black dark:border-white': active_tab() == 'fix' }"
+              class="font-medium dark:text-white text-lg  pb-4 px-3 py-2  leading-3 "
+              >Fix Price</a
+            >
+            <a
+              (click)="toggle_pop('auction')"
+              [ngClass]="{ 'border-b-2  border-black dark:border-white': active_tab() == 'auction' }"
+              href="javascript:void(0)"
+              class="  font-semibold  dark:text-white text-lg  pb-4 px-3 py-2  leading-3"
+              >Auction</a
+            >
+
+            <a
               href=""
               class="text-gray-900 dark:text-white border-black border-b-2  hover:border-black dark:border-white hoverBorder  py-2"
               >Information</a
@@ -198,7 +213,7 @@ import { Component } from '@angular/core'
                   <div class=" pro-box   my-7 py-5 rounded-md pro-box px-3">
                     <label class="flex gap-4">
                       <div>
-                        <span class=" text-sm font-medium text-black font-medium"> Token </span>
+                        <span class=" text-sm text-black font-medium"> Token </span>
                         <input
                           type="text"
                           name="text"
@@ -216,7 +231,7 @@ import { Component } from '@angular/core'
                   <div class="    my-7 py-5 rounded-md pro-box px-3">
                     <div class="">
                       <label class="block">
-                        <span class=" text-sm font-medium text-black font-medium"> Minimum bid </span>
+                        <span class=" text-sm text-black font-medium"> Minimum bid </span>
                         <input
                           type="text"
                           name="text"
