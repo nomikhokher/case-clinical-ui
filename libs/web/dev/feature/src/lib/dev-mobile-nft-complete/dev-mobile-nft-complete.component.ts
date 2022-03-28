@@ -27,7 +27,8 @@ export class DevMobileNftCompleteComponent {
   ngOnInit(): void {
     this.vm$.subscribe((result) => {
       this.codePreview = [
-        `\nimport { WebUiMobileNftCompleteModule } from '@schema-driven/web/ui/mobile-nft-complete' \n
+        `\nimport { WebUiMobileNftCompleteModule } from '@schema-driven/web/ui/
+mobile-nft-complete' \n
 <ui-mobile-nft-complete></ui-mobile-nft-complete>
          \n\n
         `,

@@ -124,11 +124,6 @@ import { Component } from '@angular/core'
                   <span class=" text-sm  dark:text-white font-medium"> Token </span>
                   <p class="mt-1  w-12 block focus:outline-none  border-0   text-sm focus:ring-0">ETH</p>
                 </div>
-                <img
-                  class=" rounded-full w-8 h-8 float-right"
-                  src="/assets/mobile-ui/assets/images/btn-select.png"
-                  alt=""
-                />
               </label>
             </div>
             <div class="    my-7 py-5 rounded-md pro-box dark:bg-gray-700 px-3">
@@ -140,7 +135,7 @@ import { Component } from '@angular/core'
               </div>
             </div>
           </div>
-          <p *ngIf="active_tab() == 'fix'" class="px-6 text-sm color my-4 text-gray-500 dark:text-gray-200">
+          <p *ngIf="active_tab() == 'fix'" class="px-6 text-sm color my-4 text-gray-500 dark:text-gray-400">
             Service fee 2.5%. You will receive 0.488 ETH
           </p>
           <div *ngIf="active_tab() == 'auction'">
@@ -153,11 +148,6 @@ import { Component } from '@angular/core'
                       Right After Listing
                     </p>
                   </div>
-                  <img
-                    class=" rounded-full w-8 h-8 float-right"
-                    src="/assets/mobile-ui/assets/images/btn-select.png"
-                    alt=""
-                  />
                 </label>
               </div>
             </div>
@@ -170,15 +160,10 @@ import { Component } from '@angular/core'
                       Right After Listing
                     </p>
                   </div>
-                  <img
-                    class=" rounded-full w-8 h-8 float-right"
-                    src="/assets/mobile-ui/assets/images/btn-select.png"
-                    alt=""
-                  />
                 </label>
               </div>
             </div>
-            <p class="px-6 text-sm color my-4 text-gray-500 dark:text-gray-200">
+            <p class="px-6 text-sm color my-4 text-gray-500 dark:text-gray-400">
               Any bid placed in the last 10 minutes extends the auction by 10 minutes Learn more
             </p>
           </div>

@@ -140,7 +140,7 @@ import { Component } from '@angular/core'
             </div>
           </div>
           <div class="   btn ">
-            <div class="mr-4 absolute inset-x-0 bottom-0 ">
+            <div class="mr-0 absolute inset-x-0 bottom-0">
               <hr class="mt-24 mb-5  dark:border-solid dark:border-2 dark:border-gray-500 w-full" />
               <div class="flex justify-center mb-4">
                 <button class="w-full rounded-full text-white   py-2  mx-5 px-6 focus:outline-none   text-lg">
