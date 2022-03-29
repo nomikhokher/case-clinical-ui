@@ -98,7 +98,7 @@ import { empty } from 'rxjs'
                     style="margin-top: -50px;"
                   />
                 </div>
-                <div class="text-base  mt-2 ml-1">
+                <div class="text-base mt-2 ml-1">
                   <h3 class="font-normal text-base dark:text-white">Ollie Barrett</h3>
                   <p class="text-xs dark:text-white">3.842 ETH</p>
                 </div>

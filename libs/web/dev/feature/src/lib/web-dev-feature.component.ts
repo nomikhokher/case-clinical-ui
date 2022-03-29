@@ -798,6 +798,11 @@ export class WebDevFeatureComponent {
               route: 'mobile-detail',
               image: '/assets/images/stacked.png',
             },
+            {
+              label: 'Profile Home',
+              route: 'mobile-profile-home',
+              image: '/assets/images/stacked.png',
+            },
           ],
         },
       ],
