@@ -32,7 +32,7 @@ import { Component } from '@angular/core'
     <div class="mb-3 md:mb-6 rounded-lg shadow dark:bg-gray-800">
       <div>
         <code
-          ><div class="bg-white h-screen pt-8 dark:bg-gray-800">
+          ><div class="bg-white pt-8 dark:bg-gray-800">
             <div class="border-b dark:border-gray-300 flex px-3 gap-2">
               <div><i class="fa fa-angle-left fa-solid fa-2x py-1"></i></div>
               <div>
@@ -103,13 +103,103 @@ import { Component } from '@angular/core'
                           src="/assets/mobile-ui/assets/images/img1.png"
                         />
                       </div>
-                      <h2 class="title-font text-base font-medium text-gray-900 mt-2 ">The Cubes of Destiny</h2>
-                      <p class="leading-relaxed text-base">ERC-1155</p>
+                      <h2 class="title-font text-base font-medium text-gray-900 mt-2 dark:text-white">
+                        The Cubes of Destiny
+                      </h2>
+                      <p class="leading-relaxed text-base dark:text-gray-300">ERC-1155</p>
+                    </div>
+
+                    <div class="mb-2 px-2 dark:bg-gray-800">
+                      <div class="rounded-lg h-64 overflow-hidden">
+                        <img
+                          alt="content"
+                          class="object-cover object-center h-full w-full"
+                          src="/assets/mobile-ui/assets/images/img1.png"
+                        />
+                      </div>
+                      <h2 class="title-font text-base font-medium text-gray-900 mt-2 dark:text-white">
+                        The Cubes of Destiny
+                      </h2>
+                      <p class="leading-relaxed text-base dark:text-gray-300">ERC-1155</p>
                     </div>
                   </div>
                 </div>
               </section>
             </div>
+            <section>
+              <div
+                class="w-full flex justify-between items-center pt-3 px-4 border-t mt-0 pb-2 dark:bg-gray-900 dark:border-solid dark:border-2 dark:border-gray-500"
+              >
+                <div class="flex-shrink-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-8 w-8 dark:text-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                    />
+                  </svg>
+                </div>
+                <div class="flex-shrink-0">
+                  <!-- <a href=""><img src="/assets/mobile-ui/assets/images/search.png" alt="" id="" class="w-full h-8  " /></a> -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-8 w-8 dark:text-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                  </svg>
+                </div>
+                <div class="flex-shrink-0">
+                  <a href=""
+                    ><img src="/assets/mobile-ui/assets/images/compass.png" alt="" id="" class="w-full h-8"
+                  /></a>
+                </div>
+                <div class="flex-shrink-0">
+                  <!-- <a href=""><img src="/assets/mobile-ui/assets/images/notify.png" alt="" id="" class="w-full h-8 " /></a> -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-8 w-8 dark:text-white"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"
+                    />
+                  </svg>
+                </div>
+                <div class="flex-shrink-0">
+                  <!-- <a href=""><img src="/assets/mobile-ui/assets/images/pro-img.png" alt="" id="" class="w-full h-8 " /></a> -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-8 w-8 dark:text-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </section>
           </div>
         </code>
       </div>
