@@ -607,4 +607,9 @@ export const routes: Routes = [
     path: 'mobile-detail',
     loadChildren: () => import('./dev-mobile-detail/dev-mobile-detail.module').then((m) => m.DevMobileDetailModule),
   },
+  {
+    path: 'mobile-profile-home',
+    loadChildren: () =>
+      import('./dev-mobile-profile-home/dev-mobile-profile-home.module').then((m) => m.DevMobileProfileHomeModule),
+  },
 ]
