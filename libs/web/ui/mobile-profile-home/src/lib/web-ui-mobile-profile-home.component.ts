@@ -3,6 +3,32 @@ import { Component } from '@angular/core'
 @Component({
   selector: 'ui-mobile-profile-home',
   template: `
+    <style>
+      /* width */
+      .scroll-section::-webkit-scrollbar {
+        width: 0px;
+      }
+      .scroll-section {
+        height: 250px;
+        overflow-y: scroll;
+        scrollbar-color: white white;
+        scrollbar-width: none;
+      }
+      /* Track */
+      .scroll-section::-webkit-scrollbar-track {
+        background: #fff;
+      }
+
+      /* Handle */
+      .scroll-section::-webkit-scrollbar-thumb {
+        background: #fff;
+      }
+
+      /* Handle on hover */
+      .scroll-section::-webkit-scrollbar-thumb:hover {
+        background: #fff;
+      }
+    </style>
     <div class="mb-3 md:mb-6 rounded-lg shadow dark:bg-gray-800">
       <div>
         <code
@@ -32,54 +58,58 @@ import { Component } from '@angular/core'
             </div>
 
             <div class="px-5 mt-5">
-              <p class="font-bold text-base mb-3">BIO</p>
-              <p class="text-gray-400 text-sm">
+              <p class="font-bold text-base mb-2 dark:text-white">BIO</p>
+              <p class="text-gray-400 text-sm dark:text-gray-300">
                 My work oscillates between several media through which I question the existence of the image and its
                 production.
               </p>
             </div>
 
             <div
-              class="grid-cols-2 grid divide-x  align-middle items-center px-5 rounded-lg py-3 mt-4 mx-5 text-center bg-gray-100 g-color"
+              class="grid-cols-2 grid divide-x align-middle items-center px-5 rounded-lg py-3 mt-4 mx-5 text-center bg-gray-100 g-color dark:bg-gray-700"
             >
-              <div class="py-3">
+              <div class="py-3 dark:text-white">
                 <h5 class="text-2xl font-bold">124</h5>
                 <p class="text-sm font-normal ">Folowers</p>
               </div>
 
-              <div class="py-3">
+              <div class="py-3 dark:text-white">
                 <h5 class="text-2xl font-bold">124</h5>
                 <p class="text-sm font-normal">Folowers</p>
               </div>
             </div>
 
-            <nav class="flex space-x-4 ml-3 mt-9">
+            <nav class="flex space-x-4 ml-3 mt-9 dark:bg-gray-800">
               <a
                 href="/dashboard"
-                class="font-semibold border-b-2 border-black text-black text-lg pb-4 px-3 py-2 leading-3"
-                >Following</a
+                class="font-semibold border-b-2 border-black dark:border-gray-300 text-lg pb-4 px-3 py-2 leading-3 dark:text-white"
+                >Artworks</a
               >
-              <a href="/team" class="font-medium gray-c px-2 py-2 text-lg rounded-lg leading-3 pb-0">Followers</a>
+              <a href="/team" class="font-medium gray-c px-2 py-2 text-lg rounded-lg leading-3 pb-0 dark:text-white"
+                >Collection</a
+              >
             </nav>
             <hr class="" />
 
-            <section class=" body-fon mt-4">
-              <div class="container px-5 pt-4 pb-5  shadow-lg shadow-blue-500/20 rounded-lg bg-white">
-                <div class="flex flex-wrap -mx-4 -mb-10 text-center">
-                  <div class="sm:w-1/2 mb-10 px-4">
-                    <div class="rounded-lg h-64 overflow-hidden">
-                      <img
-                        alt="content"
-                        class="object-cover object-center h-full w-full"
-                        src="/assets/image/img1.png"
-                      />
+            <div class="scroll-section">
+              <section class=" body-fon mt-4 dark:bg-gray-800">
+                <div class="container shadow-lg shadow-blue-500/20 rounded-lg bg-white">
+                  <div class="flex flex-wrap text-center dark:bg-gray-800">
+                    <div class="mb-2 px-2 dark:bg-gray-800">
+                      <div class="rounded-lg h-64 overflow-hidden">
+                        <img
+                          alt="content"
+                          class="object-cover object-center h-full w-full"
+                          src="/assets/mobile-ui/assets/images/img1.png"
+                        />
+                      </div>
+                      <h2 class="title-font text-base font-medium text-gray-900 mt-2 ">The Cubes of Destiny</h2>
+                      <p class="leading-relaxed text-base">ERC-1155</p>
                     </div>
-                    <h2 class="title-font text-base font-bold font-medium text-gray-900 mt-2 ">The Cubes of Destiny</h2>
-                    <p class="leading-relaxed text-base">ERC-1155</p>
                   </div>
                 </div>
-              </div>
-            </section>
+              </section>
+            </div>
           </div>
         </code>
       </div>
