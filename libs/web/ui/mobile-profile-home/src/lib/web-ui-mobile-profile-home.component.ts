@@ -3,28 +3,31 @@ import { Component } from '@angular/core'
 @Component({
   selector: 'ui-mobile-profile-home',
   template: `
-    <div class="dark:bg-gray-800 border dark:border-indigo-700 px-6 py-4 mb-3 md:mb-6 rounded-lg shadow">
+    <div class="mb-3 md:mb-6 rounded-lg shadow dark:bg-gray-800">
       <div>
         <code
-          ><div class="bg-white h-screen pt-8">
-            <div class="flex px-5 justify-between items-center gap-4 border-b">
+          ><div class="bg-white h-screen pt-8 dark:bg-gray-800">
+            <div class="border-b dark:border-gray-300 flex px-3 gap-2">
               <div><i class="fa fa-angle-left fa-solid fa-2x py-1"></i></div>
               <div>
-                <h2 class="text-2xl font-medium title-font text-gray-900">Profile</h2>
+                <h2 class="text-2xl font-medium title-font text-gray-900 mb-1 dark:text-white">Profile</h2>
               </div>
               <div></div>
             </div>
-            <div class="flex px-5 gap-5 items-center justify-between gap-2 mt-4">
+            <div class="flex px-2 items-center justify-between gap-1 mt-4">
               <div>
-                <img class="rounded-full w-18 float-left mr-4" src="/assets/image/user-pic.png" alt="" />
+                <img
+                  class="rounded-full w-18 float-left mr-4"
+                  src="/assets/mobile-ui/assets/images/user-pic.png"
+                  alt=""
+                />
                 <div class="float-right">
-                  <h3 class="text-xl font-bold pt-1">Kevin</h3>
-                  <p class="text-sm g-color">114 followers</p>
+                  <h3 class="text-xl font-bold pt-1 dark:text-white">Kevin</h3>
+                  <p class="text-sm g-color dark:text-gray-300">114 followers</p>
                 </div>
               </div>
-
               <div>
-                <button class="w-full rounded-full text-white py-2 px-5 c-btn text-sm">Edit profile</button>
+                <button class="w-32 bg-indigo-600 rounded-full text-white py-2 px-5 c-btn text-xs">Edit profile</button>
               </div>
             </div>
 
