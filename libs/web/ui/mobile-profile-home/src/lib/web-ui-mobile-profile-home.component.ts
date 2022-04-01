@@ -92,7 +92,7 @@ import { Component } from '@angular/core'
             <hr class="" />
 
             <div class="scroll-section">
-              <section class=" body-fon mt-4 dark:bg-gray-800">
+              <section *ngIf="this.artWorkAction == true" class=" body-fon mt-4 dark:bg-gray-800">
                 <div class="container shadow-lg shadow-blue-500/20 rounded-lg bg-white">
                   <div class="flex flex-wrap text-center dark:bg-gray-800">
                     <div class="mb-2 px-2 dark:bg-gray-800">
@@ -169,7 +169,6 @@ import { Component } from '@angular/core'
                   /></a>
                 </div>
                 <div class="flex-shrink-0">
-                  <!-- <a href=""><img src="/assets/mobile-ui/assets/images/notify.png" alt="" id="" class="w-full h-8 " /></a> -->
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-8 w-8 dark:text-white"
@@ -182,7 +181,6 @@ import { Component } from '@angular/core'
                   </svg>
                 </div>
                 <div class="flex-shrink-0">
-                  <!-- <a href=""><img src="/assets/mobile-ui/assets/images/pro-img.png" alt="" id="" class="w-full h-8 " /></a> -->
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-8 w-8 dark:text-white"
@@ -206,4 +204,16 @@ import { Component } from '@angular/core'
     </div>
   `,
 })
-export class WebUiMobileProfileHomeComponent {}
+export class WebUiMobileProfileHomeComponent {
+  artWorkAction = true
+  collectionAction = false
+
+  changeartWorkAction() {
+    this.artWorkAction = true
+    this.collectionAction = false
+  }
+  changeCollectionAction() {
+    this.collectionAction = true
+    this.artWorkAction = false
+  }
+}
