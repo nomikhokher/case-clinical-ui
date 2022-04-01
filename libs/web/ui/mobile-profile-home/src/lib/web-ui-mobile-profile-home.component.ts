@@ -81,11 +81,13 @@ import { Component } from '@angular/core'
 
             <nav class="flex space-x-4 ml-3 mt-9 dark:bg-gray-800">
               <a
-                href="/dashboard"
+                (click)="this.changeartWorkAction()"
                 class="font-semibold border-b-2 border-black dark:border-gray-300 text-lg pb-4 px-3 py-2 leading-3 dark:text-white"
                 >Artworks</a
               >
-              <a href="/team" class="font-medium gray-c px-2 py-2 text-lg rounded-lg leading-3 pb-0 dark:text-white"
+              <a
+                (click)="this.changeCollectionAction()"
+                class="font-medium gray-c px-2 py-2 text-lg rounded-lg leading-3 pb-0 dark:text-white"
                 >Collection</a
               >
             </nav>
@@ -185,6 +187,7 @@ import { Component } from '@angular/core'
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-8 w-8 dark:text-white"
                     fill="none"
+                    (click)="this.toggle_pop()"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
@@ -195,6 +198,58 @@ import { Component } from '@angular/core'
                       d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                     />
                   </svg>
+
+                  <div
+                    *ngIf="this.menu == true"
+                    class="absolute z-10 inset-0 overflow-hidden"
+                    aria-labelledby="modal-title"
+                    role="dialog"
+                    aria-modal="true"
+                  >
+                    <div class=" min-h-screen px-4 text-center">
+                      <div class="absolute inset-0 bg-black bg-opacity-60 transition-opacity" aria-hidden="true"></div>
+                      <span class="sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                      <div class="relative inline-block align-bottom bg-white rounded-lg py-6 text-left w-full  mb-44">
+                        <div class="text-center relative">
+                          <p (click)="toggle_pop()" class="absolute right-3 -top-3">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="h-6 w-6"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              stroke-width="2"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                              />
+                            </svg>
+                          </p>
+                          <a
+                            href=""
+                            class="text-base leading-6 font-medium text-gray-900 block pb-4 border-b"
+                            id="modal-title"
+                            >Share</a
+                          >
+                          <a
+                            href=""
+                            class="text-base leading-6 font-medium text-gray-900 block py-4 border-b"
+                            id="modal-title"
+                            >Report</a
+                          >
+                          <a
+                            (click)="toggle_pop()"
+                            href="javascript:void(0)"
+                            class="text-base leading-6 font-medium text-gray-900 block pt-4"
+                            id="modal-title"
+                            >Cancel</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
@@ -207,6 +262,7 @@ import { Component } from '@angular/core'
 export class WebUiMobileProfileHomeComponent {
   artWorkAction = true
   collectionAction = false
+  menu = false
 
   changeartWorkAction() {
     this.artWorkAction = true
@@ -215,5 +271,12 @@ export class WebUiMobileProfileHomeComponent {
   changeCollectionAction() {
     this.collectionAction = true
     this.artWorkAction = false
+  }
+  toggle_pop() {
+    if (this.menu) {
+      this.menu = false
+    } else {
+      this.menu = true
+    }
   }
 }
