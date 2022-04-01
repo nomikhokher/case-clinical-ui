@@ -127,6 +127,80 @@ import { Component } from '@angular/core'
                   </div>
                 </div>
               </section>
+              <div *ngIf="this.collectionAction == true">
+                <div class="">
+                  <div class="px-5">
+                    <img
+                      src="/assets/mobile-ui/assets/images/congratsImage.png"
+                      alt=""
+                      class=" w-full object-cover rounded-lg  "
+                    />
+                  </div>
+                  <div class="shadow-blue-100 shadow-xl  rounded-br-xl rounded-bl-xl">
+                    <div class="shadow-blue-100 shadow-xl px-8 py-4 ">
+                      <div class="flex justify-between items-center">
+                        <div class="bg-gray-100 py-1.5 px-4 rounded-3xl text-gray-900 font-medium">
+                          <h2>⏳ 1h 28m 11s</h2>
+                        </div>
+                        <div class="flex items-center gap-4 dark:text-white">
+                          <a href=""
+                            ><img
+                              src="/assets/mobile-ui/assets/images/BlackHeart.png"
+                              alt=""
+                              id=""
+                              class="w-full h-full"
+                          /></a>
+                          <a href="">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="h-6 w-6"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                              />
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
+                      <h2 class="text-3xl font-bold dark:text-white pt-4">Minimalistic</h2>
+                    </div>
+                    <div class="px-8 pt-4 pb-6 flex justify-between items-center">
+                      <div class="flex w-full gap-2 items-center">
+                        <div class="">
+                          <img
+                            src="/assets/mobile-ui/assets/images/Avatar.png"
+                            alt=""
+                            class="w-10 h-10 object-cover rounded-full"
+                          />
+                        </div>
+                        <div class="dark:text-white">
+                          <small class="text-xs text-gray-400">Creator</small>
+                          <p class="text-base font-bold">Kevin</p>
+                        </div>
+                      </div>
+                      <div class="flex w-full gap-2 items-center justify-end">
+                        <div class="py-2 px-3 bg-gray-100 rounded-full">
+                          <img
+                            src="/assets/mobile-ui/assets/images/ethereumCurr.png"
+                            alt=""
+                            class="w-full h-7 rounded-full"
+                          />
+                        </div>
+                        <div class="dark:text-white">
+                          <small class="text-xs text-gray-400">Reserve price</small>
+                          <p class="text-base font-bold">0.32 ETH</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <section>
               <div
