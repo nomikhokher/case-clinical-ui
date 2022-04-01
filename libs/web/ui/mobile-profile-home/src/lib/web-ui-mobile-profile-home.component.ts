@@ -209,7 +209,7 @@ import { Component } from '@angular/core'
                     <div class=" min-h-screen px-4 text-center">
                       <div class="absolute inset-0 bg-black bg-opacity-60 transition-opacity" aria-hidden="true"></div>
                       <span class="sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-                      <div class="relative inline-block align-bottom bg-white rounded-lg py-6 text-left w-full  mb-44">
+                      <div class="relative inline-block align-bottom bg-white rounded-lg py-6 text-left w-full mb-10">
                         <div class="text-center relative">
                           <p (click)="toggle_pop()" class="absolute right-3 -top-3">
                             <svg
@@ -231,13 +231,19 @@ import { Component } from '@angular/core'
                             href=""
                             class="text-base leading-6 font-medium text-gray-900 block pb-4 border-b"
                             id="modal-title"
-                            >Share</a
+                            >Report User</a
+                          >
+                          <a
+                            href=""
+                            class="text-base leading-6 font-medium text-gray-900 block pb-4 border-b"
+                            id="modal-title"
+                            >Share Profile</a
                           >
                           <a
                             href=""
                             class="text-base leading-6 font-medium text-gray-900 block py-4 border-b"
                             id="modal-title"
-                            >Report</a
+                            >More Option</a
                           >
                           <a
                             (click)="toggle_pop()"
