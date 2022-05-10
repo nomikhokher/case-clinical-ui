@@ -34,6 +34,7 @@ interface Tasks {
   status: TaskStatus
   type: TaskType
   priority: TaskPriority
+  date: string
 }
 
 @Component({
@@ -41,10 +42,177 @@ interface Tasks {
   styleUrls: [`./web-ui-draggable.scss`],
   encapsulation: ViewEncapsulation.None,
   template: `
-    <div class="flex flex-start items-start overflow-x-scroll pb-8">
+    <style>
+      /* reset start */
+      * {
+        margin: 0;
+        padding: 0;
+        outline: 0;
+        box-sizing: border-box;
+      }
+
+      .toggle-btn a {
+        text-decoration: none;
+      }
+
+      .toggle-btn li {
+        list-style-type: none;
+      }
+      /* reset end */
+
+      /* our code start */
+      .toggle-btn {
+        position: relative;
+        text-align: center;
+      }
+
+      .toggle-btn #button {
+        display: none;
+      }
+
+      .toggle-btn label {
+        width: 126px;
+        overflow: hidden;
+        display: inline-block;
+        background: #f2f0fd;
+        height: auto;
+        padding: 8px;
+        cursor: pointer;
+        color: #9181f0;
+      }
+
+      .toggle-btn label span {
+        width: auto;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 0;
+      }
+
+      .toggle-btn ul {
+        width: 126px;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) scaleY(0.5);
+        transform-origin: top center;
+        text-align: left;
+        white-space: no-wrap;
+        padding: 10px 0 15px;
+        visibility: hidden;
+        opacity: 0;
+        box-shadow: 0 1px 10px #00000040;
+        background: #fff;
+        border-radius: 6px;
+
+        transition: all 0.3s ease;
+      }
+
+      #button:checked ~ ul {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(-50%) scaleY(1);
+      }
+
+      .toggle-btn ul a {
+        color: #000;
+        display: block;
+        text-transform: capitalize;
+        transition: all 0.5s ease;
+      }
+      .toggle-btn ul li {
+        padding: 6px 25px;
+        font-size: 16px;
+      }
+      .toggle-btn ul li:first-child {
+        color: #9181f0;
+        font-weight: bold;
+      }
+      .toggle-btn ul a:hover {
+        background: #fff;
+        color: #333;
+      }
+      /* our code end */
+    </style>
+    <div class=" flex-start items-start pb-8">
+      <div class="flex md:items-center md:flex-row flex-col justify-end py-2">
+        <ng-container *ngFor="let items of draggableData; let i = index">
+          <div class="flex items-center">
+            <div>
+              <nav class="flex space-x-2">
+                <header class="toggle-btn">
+                  <input type="checkbox" id="button" />
+                  <label for="button">
+                    <span (click)="onshow()" class="flex items-center text-sm gap-1 justify-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"
+                        />
+                      </svg>
+                      Group By
+                    </span>
+                  </label>
+
+                  <ul *ngIf="menu === true">
+                    <li>Group By</li>
+                    <li (click)="getaaDate(items.tasks)" class="flex items-center gap-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        />
+                      </svg>
+                      Date
+                      <!-- <button>Date</button> -->
+                    </li>
+
+                    <li class="flex items-center gap-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
+                        />
+                      </svg>
+                      <button>None</button>
+                    </li>
+                  </ul>
+                </header>
+              </nav>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
       <ng-container *ngFor="let items of draggableData; let i = index">
-        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg px-3 py-3 mr-4">
-          <h2 class="text-gray-700 dark:text-white font-semibold font-sans tracking-wide text-sm">{{ items.title }}</h2>
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg px-3 py-3 mr-0">
+          <h2 class="text-gray-700 dark:text-white font- semibold font-sans tracking-wide text-sm">
+            {{ items.title }}
+          </h2>
 
           <div
             cdkDropList
@@ -92,6 +260,10 @@ interface Tasks {
                 <span class="text-sm text-gray-600 dark:text-white">{{ item.title }}</span>
                 <!-- <badge>hh</badge> -->
               </div>
+              <div class="flex mt-4 justify-between items-center mx-3">
+                <span class="text-sm text-gray-600 dark:text-white">Due Date : {{ item.date }}</span>
+                <!-- <badge>hh</badge> -->
+              </div>
             </div>
           </div>
           <div
@@ -111,14 +283,20 @@ interface Tasks {
             <p (click)="currentCard = 0; items.isActive = true">Add Card</p>
           </div>
           <div *ngIf="currentCard == items.id" class="mt-2">
-            <textarea
-              class="bg-white mr-3 shadow-md rounded border"
-              name=""
-              id=""
-              cols="5"
-              rows="2"
-              [(ngModel)]="addTitle"
-            ></textarea>
+            <div class="border border-gray-300 dark:border-gray-600 p-2 mb-4" style="width:300px;">
+              <div>
+                <textarea
+                  class="bg-white mr-3 shadow-md rounded border"
+                  name=""
+                  id=""
+                  cols="5"
+                  rows="2"
+                  [(ngModel)]="addTitle"
+                >
+                </textarea>
+                <label>Date: <input type="date" [(ngModel)]="addDate" /> </label>
+              </div>
+            </div>
             <div class="flex space-x-2 items-center">
               <button class="bg-indigo-600 text-gray-50 px-4 py-1.5 rounded text-sm" (click)="save(items)">
                 Add Card
@@ -183,10 +361,12 @@ export class WebUiDraggableComponent {
   @Input() draggableData: Draggable[] | any
 
   public connectedTo = []
-
+  menu?: boolean
   public editMode: boolean = false
   editTitle: string
   addTitle: string
+  editDate: string
+  addDate: string
   editId: any
   isCardEditing: boolean = false
   currentCard: number = 0
@@ -195,6 +375,13 @@ export class WebUiDraggableComponent {
     for (let items of this.draggableData) {
       this.connectedTo.push(items.id)
     }
+    this.menu = false
+  }
+  getaaDate(tasks) {
+    // console.log(tasks);
+    tasks.sort((a, b) => a.date - b.date)
+    console.log(tasks.sort((a, b) => a.date - b.date))
+    this.onshow()
   }
 
   drop(event: CdkDragDrop<Draggable[]>) {
@@ -212,18 +399,25 @@ export class WebUiDraggableComponent {
         if (task.id == data.id) {
           this.editTitle = task.title
           this.editId = task.id
+          this.editDate = task.date
         }
       }
     }
     this.editMode = true
   }
-
+  public onshow() {
+    if (this.menu == true) {
+      this.menu = false
+    } else {
+      this.menu = true
+    }
+  }
   edit(): void {
     this.draggableData = this.draggableData.map((items) => {
       items.tasks.map((task) => {
         if (task.id == this.editId) {
           task.title = this.editTitle
-
+          task.date = this.editDate
           return task
         }
 
@@ -242,6 +436,7 @@ export class WebUiDraggableComponent {
       status: 'Selected',
       title: this.addTitle,
       type: 'Story',
+      date: this.addDate,
     }
 
     for (const items of this.draggableData) {
@@ -251,5 +446,6 @@ export class WebUiDraggableComponent {
     }
 
     this.addTitle = ''
+    this.addDate = ''
   }
 }

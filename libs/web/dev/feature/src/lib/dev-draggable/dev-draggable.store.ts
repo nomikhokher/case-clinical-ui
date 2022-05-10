@@ -15,6 +15,7 @@ interface DevDraggableState {
   loading?: boolean
   config?: Configs
 }
+var today = new Date()
 
 const config: Configs = {
   headerTitle: 'Draggable',
@@ -32,64 +33,66 @@ const config: Configs = {
         title: 'Backlog',
         tasks: [
           {
-            id: '0001',
+            id: '1',
             priority: TaskPriority.MEDIUM,
             status: TaskStatus.BACKLOG,
             title: 'Behind the 900 stars - Update 08/2020',
             type: TaskType.STORY,
+            date: today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + (today.getDate() + 1),
           },
           {
-            id: '0002',
+            id: '2',
             priority: TaskPriority.MEDIUM,
             status: TaskStatus.BACKLOG,
             title: 'Who is the author of Angular Jira clone?',
             type: TaskType.STORY,
+            date: today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(),
           },
         ],
       },
-      {
-        id: TaskStatus.SELECTED,
-        isActive: true,
-        title: 'Selected',
-        tasks: [
-          {
-            id: '0003',
-            priority: TaskPriority.MEDIUM,
-            status: TaskStatus.SELECTED,
-            title: 'Set up Akita state management',
-            type: TaskType.STORY,
-          },
-        ],
-      },
-      {
-        id: TaskStatus.IN_PROGRESS,
-        isActive: true,
-        title: 'In Progress',
-        tasks: [
-          {
-            id: '0004',
-            priority: TaskPriority.MEDIUM,
-            status: TaskStatus.IN_PROGRESS,
-            title: 'Preparing backend API with GraphQL',
-            type: TaskType.STORY,
-          },
-        ],
-      },
-      {
-        id: TaskStatus.DONE,
-        isActive: true,
+      // {
+      //   id: TaskStatus.SELECTED,
+      //   isActive: true,
+      //   title: 'Selected',
+      //   tasks: [
+      //     {
+      //       id: '0003',
+      //       priority: TaskPriority.MEDIUM,
+      //       status: TaskStatus.SELECTED,
+      //       title: 'Set up Akita state management',
+      //       type: TaskType.STORY,
+      //     },
+      //   ],
+      // },
+      // {
+      //   id: TaskStatus.IN_PROGRESS,
+      //   isActive: true,
+      //   title: 'In Progress',
+      //   tasks: [
+      //     {
+      //       id: '0004',
+      //       priority: TaskPriority.MEDIUM,
+      //       status: TaskStatus.IN_PROGRESS,
+      //       title: 'Preparing backend API with GraphQL',
+      //       type: TaskType.STORY,
+      //     },
+      //   ],
+      // },
+      // {
+      //   id: TaskStatus.DONE,
+      //   isActive: true,
 
-        title: 'Done',
-        tasks: [
-          {
-            id: '0005',
-            priority: TaskPriority.MEDIUM,
-            status: TaskStatus.DONE,
-            title: 'Preparing backend API with GraphQL',
-            type: TaskType.STORY,
-          },
-        ],
-      },
+      //   title: 'Done',
+      //   tasks: [
+      //     {
+      //       id: '0005',
+      //       priority: TaskPriority.MEDIUM,
+      //       status: TaskStatus.DONE,
+      //       title: 'Preparing backend API with GraphQL',
+      //       type: TaskType.STORY,
+      //     },
+      //   ],
+      // },
     ],
   },
 }

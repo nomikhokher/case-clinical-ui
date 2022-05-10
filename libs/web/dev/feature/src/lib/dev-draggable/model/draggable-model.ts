@@ -63,4 +63,5 @@ export interface Tasks {
   status: TaskStatus
   type: TaskType
   priority: TaskPriority
+  date: string
 }
