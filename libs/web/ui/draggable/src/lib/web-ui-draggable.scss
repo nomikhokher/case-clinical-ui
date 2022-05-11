@@ -233,3 +233,96 @@ body .nch-button {
 .showhim:hover .showme {
   display: block;
 }
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+.toggle-btn a {
+  text-decoration: none;
+}
+
+.toggle-btn li {
+  list-style-type: none;
+}
+/* reset end */
+
+/* our code start */
+.toggle-btn {
+  position: relative;
+  text-align: center;
+}
+
+.toggle-btn #button {
+  display: none;
+}
+
+.toggle-btn label {
+  width: 126px;
+  overflow: hidden;
+  display: inline-block;
+  background: #f2f0fd;
+  height: auto;
+  padding: 8px;
+  cursor: pointer;
+  color: #9181f0;
+}
+
+.toggle-btn label span {
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0;
+}
+
+.toggle-btn ul {
+  width: 126px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) scaleY(0.5);
+  transform-origin: top center;
+  text-align: left;
+  white-space: no-wrap;
+  padding: 10px 0 15px;
+  visibility: hidden;
+  opacity: 0;
+  box-shadow: 0 1px 10px #00000040;
+  background: #fff;
+  border-radius: 6px;
+
+  transition: all 0.3s ease;
+}
+
+#button:checked ~ ul {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) scaleY(1);
+}
+
+.toggle-btn ul a {
+  color: #000;
+  display: block;
+  text-transform: capitalize;
+  transition: all 0.5s ease;
+}
+.toggle-btn ul li {
+  padding: 6px 25px;
+  font-size: 16px;
+}
+.toggle-btn ul li:first-child {
+  color: #9181f0;
+  font-weight: bold;
+}
+.toggle-btn ul a:hover {
+  background: #fff;
+  color: #333;
+}
+.date-picker {
+  width: 100%;
+  margin-bottom: 0 !important;
+  background-color: #fff;
+}

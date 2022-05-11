@@ -42,98 +42,6 @@ interface Tasks {
   styleUrls: [`./web-ui-draggable.scss`],
   encapsulation: ViewEncapsulation.None,
   template: `
-    <style>
-      /* reset start */
-      * {
-        margin: 0;
-        padding: 0;
-        outline: 0;
-        box-sizing: border-box;
-      }
-
-      .toggle-btn a {
-        text-decoration: none;
-      }
-
-      .toggle-btn li {
-        list-style-type: none;
-      }
-      /* reset end */
-
-      /* our code start */
-      .toggle-btn {
-        position: relative;
-        text-align: center;
-      }
-
-      .toggle-btn #button {
-        display: none;
-      }
-
-      .toggle-btn label {
-        width: 126px;
-        overflow: hidden;
-        display: inline-block;
-        background: #f2f0fd;
-        height: auto;
-        padding: 8px;
-        cursor: pointer;
-        color: #9181f0;
-      }
-
-      .toggle-btn label span {
-        width: auto;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-        margin-bottom: 0;
-      }
-
-      .toggle-btn ul {
-        width: 126px;
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%) scaleY(0.5);
-        transform-origin: top center;
-        text-align: left;
-        white-space: no-wrap;
-        padding: 10px 0 15px;
-        visibility: hidden;
-        opacity: 0;
-        box-shadow: 0 1px 10px #00000040;
-        background: #fff;
-        border-radius: 6px;
-
-        transition: all 0.3s ease;
-      }
-
-      #button:checked ~ ul {
-        visibility: visible;
-        opacity: 1;
-        transform: translateX(-50%) scaleY(1);
-      }
-
-      .toggle-btn ul a {
-        color: #000;
-        display: block;
-        text-transform: capitalize;
-        transition: all 0.5s ease;
-      }
-      .toggle-btn ul li {
-        padding: 6px 25px;
-        font-size: 16px;
-      }
-      .toggle-btn ul li:first-child {
-        color: #9181f0;
-        font-weight: bold;
-      }
-      .toggle-btn ul a:hover {
-        background: #fff;
-        color: #333;
-      }
-      /* our code end */
-    </style>
     <div class=" flex-start items-start pb-8">
       <div class="flex md:items-center md:flex-row flex-col justify-end py-2">
         <ng-container *ngFor="let items of draggableData; let i = index">
@@ -142,8 +50,8 @@ interface Tasks {
               <nav class="flex space-x-2">
                 <header class="toggle-btn">
                   <input type="checkbox" id="button" />
-                  <label for="button">
-                    <span (click)="onshow()" class="flex items-center text-sm gap-1 justify-center">
+                  <label for="button" class="dark:bg-gray-700 rounded">
+                    <span (click)="onshow()" class="flex items-center text-sm gap-1 justify-center dark:text-blue-300">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="h-4 w-4"
@@ -158,12 +66,12 @@ interface Tasks {
                           d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"
                         />
                       </svg>
-                      Group By
+                      Sort By
                     </span>
                   </label>
 
                   <ul *ngIf="menu === true">
-                    <li>Group By</li>
+                    <li>Sort By</li>
                     <li (click)="getaaDate(items.tasks)" class="flex items-center gap-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -283,7 +191,10 @@ interface Tasks {
             <p (click)="currentCard = 0; items.isActive = true">Add Card</p>
           </div>
           <div *ngIf="currentCard == items.id" class="mt-2">
-            <div class="border border-gray-300 dark:border-gray-600 p-2 mb-4" style="width:300px;">
+            <div
+              class="border border-gray-300 dark:border-gray-300 rounded p-2 mb-4 dark:bg-gray-600"
+              style="width:300px;    background-color: #e7e7e7;"
+            >
               <div>
                 <textarea
                   class="bg-white mr-3 shadow-md rounded border"
@@ -294,7 +205,18 @@ interface Tasks {
                   [(ngModel)]="addTitle"
                 >
                 </textarea>
-                <label>Date: <input type="date" [(ngModel)]="addDate" /> </label>
+                <label class="flex items-center gap-3 dark:text-white"
+                  >Due Date:
+                  <span
+                    class="block border border-gray-300 dark:border-gray-600 rounded"
+                    style="border-radius: 10px !important;"
+                    ><input
+                      class="w-48 date-picker"
+                      type="date"
+                      [(ngModel)]="addDate"
+                      style="border-radius: 10px !important;color: #747070;"
+                    /> </span
+                ></label>
               </div>
             </div>
             <div class="flex space-x-2 items-center">
@@ -322,8 +244,11 @@ interface Tasks {
 
     <div class="quick-card-editor is-covered flex justify-center items-center" *ngIf="editMode">
       <span class="icon-lg icon-close quick-card-editor-close-icon js-close-editor"></span>
-      <div class="quick-card-editor-card" style="width: 256px;">
-        <div class="list-card list-card-quick-edit js-stop is-covered" style="width: 256px;">
+      <div class="quick-card-editor-card border dark:border-gray-300 p-2 rounded" style="width: 380px;">
+        <div
+          class="list-card list-card-quick-edit js-stop is-covered dark:bg-gray-900"
+          style="width: 100%; max-width:100%;"
+        >
           <div
             class="list-card-cover js-card-cover color-card-cover color-card-cover-green"
             style="height: 32px;"
@@ -331,20 +256,31 @@ interface Tasks {
           <div class="list-card-stickers-area js-stickers-area hide">
             <div class="stickers js-card-stickers" style="height: 32px;"></div>
           </div>
-          <div class="list-card-details js-card-details">
+          <div class="list-card-details js-card-details pt-5">
             <textarea
-              class="list-card-edit-title js-edit-card-title pt-1"
-              style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 90px;"
+              js-card-details
+              class="list-card-edit-title js-edit-card-title pt-1 dark:border-gray-300 dark:text-gray-300"
+              style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 65px;border:1px solid;;padding: 13px !important;border-radius: 10px;"
               [(ngModel)]="editTitle"
             ></textarea>
           </div>
+          <label class="pl-2 pr-2 flex pb-5 text-black mt-3 items-center gap-2 dark:text-gray-300"
+            >Due Date:
+            <span
+              ><input
+                class="w-full dark:border-gray-300"
+                type="date"
+                [(ngModel)]="editDate"
+                style="margin-bottom:0px; border-radius: 10px !important; color: #747070; border: 1px solid;width: 256px !important;"
+              /> </span
+          ></label>
           <p class="list-card-dropzone" *ngIf="false">Drop files to upload.</p>
           <p class="list-card-dropzone-limited" *ngIf="false">Too many attachments.</p>
           <p class="list-card-dropzone-restricted" *ngIf="false">Not allowed by your enterprise.</p>
         </div>
         <button class="bg-indigo-600 text-gray-100 py-2 px-6 rounded-md cursor-pointer" (click)="edit()">Save</button>
         <button class="bg-gray-500 text-gray-100 py-2 px-6 rounded-md cursor-pointer ml-2" (click)="editMode = false">
-          cancel
+          Cancel
         </button>
         <div class="quick-card-editor-buttons fade-in">
           <a class="quick-card-editor-buttons-item" href="/c/uEyASsV5/151-component-tag-textarea"
@@ -381,7 +317,7 @@ export class WebUiDraggableComponent {
     // console.log(tasks);
     tasks.sort((a, b) => a.date - b.date)
     console.log(tasks.sort((a, b) => a.date - b.date))
-    this.onshow()
+    this.menu = false
   }
 
   drop(event: CdkDragDrop<Draggable[]>) {
@@ -406,11 +342,11 @@ export class WebUiDraggableComponent {
     this.editMode = true
   }
   public onshow() {
-    if (this.menu == true) {
-      this.menu = false
-    } else {
-      this.menu = true
-    }
+    // if (this.menu === true) {
+    this.menu = true
+    // } else {
+    // this.menu = true
+    // }
   }
   edit(): void {
     this.draggableData = this.draggableData.map((items) => {
