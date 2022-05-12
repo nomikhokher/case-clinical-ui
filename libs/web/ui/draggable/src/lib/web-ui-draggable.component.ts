@@ -179,7 +179,9 @@ interface Tasks {
                   />
                 </svg>
               </span>
-              <p class="capitalize text-gray-900 text-sm">Sort by: <span>None</span></p>
+              <p class="capitalize text-gray-900 text-sm">
+                Sort by: <span>{{ sortbyTitle }}</span>
+              </p>
             </div>
             <div class="sortMain p-3 rounded-md bg-white absolute top-6 left-0 w-36" *ngIf="sort1By">
               <ng-container *ngFor="let items of draggableData; let i = index">
@@ -212,7 +214,7 @@ interface Tasks {
                     Priority
                   </p></span
                 >
-                <span (click)="orderByDate(items.tasks)"
+                <span (click)="orderByDate()"
                   ><p
                     class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
                   >
@@ -262,6 +264,78 @@ interface Tasks {
                   </p></span
                 >
               </ng-container>
+            </div>
+          </div>
+          <div class="relative flex items-center gap-1 hover:bg-gray-200 px-2 py-0.5 rounded-md cursor-pointer">
+            <div class="flex items-center gap-1" (click)="groupByToggle()">
+              <span href="" class="text-gray-900">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                  />
+                </svg>
+              </span>
+              <p class="capitalize text-gray-900 text-sm">
+                Group By: <span>{{ sortbyTitle }}</span>
+              </p>
+            </div>
+            <div class="flex items-center gap-1" (click)="groupByToggle()">
+              <div class="sortMain p-3 rounded-md bg-white absolute top-6 left-0 w-36" *ngIf="groupBy">
+                <ng-container>
+                  <h2 class="uppercase text-gray-900 text-sm font-medium pl-2">Group By</h2>
+                  <span class="flex gap-1 items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <p
+                      class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                    >
+                      Due Date
+                    </p></span
+                  >
+                  <span class="flex gap-1 items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
+                      />
+                    </svg>
+                    <p
+                      class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                    >
+                      None
+                    </p></span
+                  >
+                </ng-container>
+              </div>
             </div>
           </div>
           <div class="relative flex items-center gap-1 hover:bg-gray-200 px-2 py-0.5 rounded-md cursor-pointer">
@@ -698,131 +772,132 @@ interface Tasks {
           </div>
         </ng-container>
       </div> -->
+      <div class="flex overflow-auto">
+        <ng-container *ngFor="let items of draggableData; let i = index">
+          <div class="bg-gray-50 dark:bg-gray-700 rounded-lg px-3 py-3 mr-0">
+            <h2 class="text-gray-700 dark:text-white font- semibold font-sans tracking-wide text-sm">
+              {{ items.title }}
+            </h2>
 
-      <ng-container *ngFor="let items of draggableData; let i = index">
-        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg px-3 py-3 mr-0">
-          <h2 class="text-gray-700 dark:text-white font- semibold font-sans tracking-wide text-sm">
-            {{ items.title }}
-          </h2>
-
-          <div
-            cdkDropList
-            [cdkDropListData]="items.tasks"
-            [id]="items.id"
-            [cdkDropListConnectedTo]="connectedTo"
-            (cdkDropListDropped)="drop($event)"
-            class="draggable-list dark:bg-gray-600"
-          >
             <div
-              class="bg-white dark:bg-gray-600 shadow rounded pb-5 border showhim border-white mt-3 cursor-move draggable-box"
-              *ngFor="let item of items.tasks"
-              cdkDrag
-              [cdkDragData]="item"
+              cdkDropList
+              [cdkDropListData]="items.tasks"
+              [id]="items.id"
+              [cdkDropListConnectedTo]="connectedTo"
+              (cdkDropListDropped)="drop($event)"
+              class="draggable-list dark:bg-gray-600"
             >
-              <div class="bg-green-500 h-8 mb-2 flex justify-end items-center rounded-t">
+              <div
+                class="bg-white dark:bg-gray-600 shadow rounded pb-5 border showhim border-white mt-3 cursor-move draggable-box"
+                *ngFor="let item of items.tasks"
+                cdkDrag
+                [cdkDragData]="item"
+              >
+                <div class="bg-green-500 h-8 mb-2 flex justify-end items-center rounded-t">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 showme text-white cursor-pointer mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    (click)="editEvent(item)"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                    />
+                  </svg>
+                </div>
+                <div class="flex justify-between mx-3">
+                  <p class="text-gray-700 dark:text-white font-semibold font-sans tracking-wide text-sm">
+                    {{ item.title }}
+                  </p>
+
+                  <img
+                    class="w-6 h-6 rounded-full ml-3"
+                    src="https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
+                    alt="Avatar"
+                  />
+                </div>
+                <div class="flex mt-4 justify-between items-center mx-3">
+                  <span class="text-sm text-gray-600 dark:text-white">{{ item.title }}</span>
+                  <!-- <badge>hh</badge> -->
+                </div>
+                <div class="flex mt-4 justify-between items-center mx-3">
+                  <span class="text-sm text-gray-600 dark:text-white">Due Date : {{ item.date }}</span>
+                  <!-- <badge>hh</badge> -->
+                </div>
+              </div>
+            </div>
+            <div
+              *ngIf="items.isActive"
+              (click)="currentCard = items.id; items.isActive = false"
+              class="flex w-full mt-2 mr-2 px-3 text-gray-500 space-x-1 py-1 rounded-md hover:bg-gray-200 cursor-pointer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              </svg>
+              <p (click)="currentCard = 0; items.isActive = true">Add Card</p>
+            </div>
+            <div *ngIf="currentCard == items.id" class="mt-2">
+              <div
+                class="border border-gray-300 dark:border-gray-300 rounded p-2 mb-4 dark:bg-gray-600"
+                style="width:300px;    background-color: #e7e7e7;"
+              >
+                <div>
+                  <textarea
+                    class="bg-white mr-3 shadow-md rounded border"
+                    name=""
+                    id=""
+                    cols="5"
+                    rows="2"
+                    [(ngModel)]="addTitle"
+                  >
+                  </textarea>
+                  <label class="flex items-center gap-3 dark:text-white"
+                    >Due Date:
+                    <span
+                      class="block border border-gray-300 dark:border-gray-600 rounded"
+                      style="border-radius: 10px !important;"
+                      ><input
+                        class="w-48 date-picker"
+                        type="date"
+                        [(ngModel)]="addDate"
+                        style="border-radius: 10px !important;color: #747070;"
+                      /> </span
+                  ></label>
+                </div>
+              </div>
+              <div class="flex space-x-2 items-center">
+                <button class="bg-indigo-600 text-gray-50 px-4 py-1.5 rounded text-sm" (click)="save(items)">
+                  Add Card
+                </button>
                 <svg
+                  (click)="currentCard = 0; items.isActive = true"
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 showme text-white cursor-pointer mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  (click)="editEvent(item)"
+                  class="h-6 w-6 text-gray-500 font-semibold"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                    fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
                   />
                 </svg>
               </div>
-              <div class="flex justify-between mx-3">
-                <p class="text-gray-700 dark:text-white font-semibold font-sans tracking-wide text-sm">
-                  {{ item.title }}
-                </p>
-
-                <img
-                  class="w-6 h-6 rounded-full ml-3"
-                  src="https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
-                  alt="Avatar"
-                />
-              </div>
-              <div class="flex mt-4 justify-between items-center mx-3">
-                <span class="text-sm text-gray-600 dark:text-white">{{ item.title }}</span>
-                <!-- <badge>hh</badge> -->
-              </div>
-              <div class="flex mt-4 justify-between items-center mx-3">
-                <span class="text-sm text-gray-600 dark:text-white">Due Date : {{ item.date }}</span>
-                <!-- <badge>hh</badge> -->
-              </div>
             </div>
           </div>
-          <div
-            *ngIf="items.isActive"
-            (click)="currentCard = items.id; items.isActive = false"
-            class="flex w-full mt-2 mr-2 px-3 text-gray-500 space-x-1 py-1 rounded-md hover:bg-gray-200 cursor-pointer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-            </svg>
-            <p (click)="currentCard = 0; items.isActive = true">Add Card</p>
-          </div>
-          <div *ngIf="currentCard == items.id" class="mt-2">
-            <div
-              class="border border-gray-300 dark:border-gray-300 rounded p-2 mb-4 dark:bg-gray-600"
-              style="width:300px;    background-color: #e7e7e7;"
-            >
-              <div>
-                <textarea
-                  class="bg-white mr-3 shadow-md rounded border"
-                  name=""
-                  id=""
-                  cols="5"
-                  rows="2"
-                  [(ngModel)]="addTitle"
-                >
-                </textarea>
-                <label class="flex items-center gap-3 dark:text-white"
-                  >Due Date:
-                  <span
-                    class="block border border-gray-300 dark:border-gray-600 rounded"
-                    style="border-radius: 10px !important;"
-                    ><input
-                      class="w-48 date-picker"
-                      type="date"
-                      [(ngModel)]="addDate"
-                      style="border-radius: 10px !important;color: #747070;"
-                    /> </span
-                ></label>
-              </div>
-            </div>
-            <div class="flex space-x-2 items-center">
-              <button class="bg-indigo-600 text-gray-50 px-4 py-1.5 rounded text-sm" (click)="save(items)">
-                Add Card
-              </button>
-              <svg
-                (click)="currentCard = 0; items.isActive = true"
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-gray-500 font-semibold"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </ng-container>
+        </ng-container>
+      </div>
     </div>
 
     <div class="quick-card-editor is-covered flex justify-center items-center" *ngIf="editMode">
@@ -878,9 +953,10 @@ interface Tasks {
 })
 export class WebUiDraggableComponent {
   @Input() draggableData: Draggable[] | any
-
+  sortbyTitle: string = 'None'
   filter: boolean = false
   sort1By: boolean = false
+  groupBy: boolean = false
   subTasks: boolean = false
   shw: boolean = false
   dotted: boolean = false
@@ -919,7 +995,13 @@ export class WebUiDraggableComponent {
     this.subTasks = false
     this.shw = false
   }
-
+  groupByToggle() {
+    this.groupBy = !this.groupBy
+    this.filter = false
+    this.sort1By = false
+    this.subTasks = false
+    this.shw = false
+  }
   public connectedTo = []
   menu?: boolean
   public editMode: boolean = false
@@ -938,25 +1020,14 @@ export class WebUiDraggableComponent {
     this.menu = false
   }
 
-  getaaDate(tasks) {
-    // console.log(tasks);
-    tasks.sort((a, b) => a.date - b.date)
-    console.log(tasks.sort((a, b) => a.date - b.date))
-    this.menu = false
-  }
-
-  orderByDate(task) {
+  orderByDate() {
     var isDescending = true
     this.draggableData = this.draggableData.map((items) => {
-      console.log('before', items.tasks)
       items.tasks = items.tasks.sort((a, b) => new Date(a.date).getDate() - new Date(b.date).getDate())
-      console.log('after', items.tasks)
-
+      this.sortbyTitle = 'Due Date'
+      this.sort1By = false
       return items
     })
-    console.log(this.draggableData)
-    //console.log(task.sort((a,b) => isDescending ? new Date(b).getTime() - new Date(a).getTime() : new Date(a).getTime() - new Date(b).getTime()));
-    //console.log(_.sortBy(this.draggableData.Tasks, 'date'));
   }
 
   drop(event: CdkDragDrop<Draggable[]>) {
@@ -1022,5 +1093,8 @@ export class WebUiDraggableComponent {
 
     this.addTitle = ''
     this.addDate = ''
+    if (this.sortbyTitle === 'Due Date') {
+      this.orderByDate()
+    }
   }
 }

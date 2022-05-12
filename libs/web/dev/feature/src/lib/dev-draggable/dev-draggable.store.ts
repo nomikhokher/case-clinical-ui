@@ -50,49 +50,52 @@ const config: Configs = {
           },
         ],
       },
-      // {
-      //   id: TaskStatus.SELECTED,
-      //   isActive: true,
-      //   title: 'Selected',
-      //   tasks: [
-      //     {
-      //       id: '0003',
-      //       priority: TaskPriority.MEDIUM,
-      //       status: TaskStatus.SELECTED,
-      //       title: 'Set up Akita state management',
-      //       type: TaskType.STORY,
-      //     },
-      //   ],
-      // },
-      // {
-      //   id: TaskStatus.IN_PROGRESS,
-      //   isActive: true,
-      //   title: 'In Progress',
-      //   tasks: [
-      //     {
-      //       id: '0004',
-      //       priority: TaskPriority.MEDIUM,
-      //       status: TaskStatus.IN_PROGRESS,
-      //       title: 'Preparing backend API with GraphQL',
-      //       type: TaskType.STORY,
-      //     },
-      //   ],
-      // },
-      // {
-      //   id: TaskStatus.DONE,
-      //   isActive: true,
+      {
+        id: TaskStatus.SELECTED,
+        isActive: true,
+        title: 'Selected',
+        tasks: [
+          {
+            id: '0003',
+            priority: TaskPriority.MEDIUM,
+            status: TaskStatus.SELECTED,
+            title: 'Set up Akita state management',
+            type: TaskType.STORY,
+            date: today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(),
+          },
+        ],
+      },
+      {
+        id: TaskStatus.IN_PROGRESS,
+        isActive: true,
+        title: 'In Progress',
+        tasks: [
+          {
+            id: '0004',
+            priority: TaskPriority.MEDIUM,
+            status: TaskStatus.IN_PROGRESS,
+            title: 'Preparing backend API with GraphQL',
+            type: TaskType.STORY,
+            date: today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(),
+          },
+        ],
+      },
+      {
+        id: TaskStatus.DONE,
+        isActive: true,
 
-      //   title: 'Done',
-      //   tasks: [
-      //     {
-      //       id: '0005',
-      //       priority: TaskPriority.MEDIUM,
-      //       status: TaskStatus.DONE,
-      //       title: 'Preparing backend API with GraphQL',
-      //       type: TaskType.STORY,
-      //     },
-      //   ],
-      // },
+        title: 'Done',
+        tasks: [
+          {
+            id: '0005',
+            priority: TaskPriority.MEDIUM,
+            status: TaskStatus.DONE,
+            title: 'Preparing backend API with GraphQL',
+            type: TaskType.STORY,
+            date: today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(),
+          },
+        ],
+      },
     ],
   },
 }
