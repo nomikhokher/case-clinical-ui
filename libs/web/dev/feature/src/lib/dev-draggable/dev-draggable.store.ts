@@ -33,7 +33,7 @@ const config: Configs = {
         title: 'Backlog',
         tasks: [
           {
-            id: '1',
+            id: '2',
             priority: TaskPriority.MEDIUM,
             status: TaskStatus.BACKLOG,
             title: 'Behind the 900 stars - Update 08/2020',
@@ -41,7 +41,7 @@ const config: Configs = {
             date: today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + (today.getDate() + 1),
           },
           {
-            id: '2',
+            id: '1',
             priority: TaskPriority.MEDIUM,
             status: TaskStatus.BACKLOG,
             title: 'Who is the author of Angular Jira clone?',

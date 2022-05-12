@@ -181,85 +181,87 @@ interface Tasks {
               </span>
               <p class="capitalize text-gray-900 text-sm">Sort by: <span>None</span></p>
             </div>
-            <div class="sortMain p-3 rounded-md bg-white absolute top-6 left-0 w-36" *ngIf="sortBy">
-              <h2 class="uppercase text-gray-900 text-sm font-medium pl-2">Sort By</h2>
-              <span
-                ><p
-                  class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+            <div class="sortMain p-3 rounded-md bg-white absolute top-6 left-0 w-36" *ngIf="sort1By">
+              <ng-container *ngFor="let items of draggableData; let i = index">
+                <h2 class="uppercase text-gray-900 text-sm font-medium pl-2">Sort By</h2>
+                <span
+                  ><p
+                    class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                  >
+                    Status
+                  </p></span
                 >
-                  Status
-                </p></span
-              >
-              <span
-                ><p
-                  class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                <span
+                  ><p
+                    class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                  >
+                    Task Name
+                  </p></span
                 >
-                  Task Name
-                </p></span
-              >
-              <span
-                ><p
-                  class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                <span
+                  ><p
+                    class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                  >
+                    Assignee
+                  </p></span
                 >
-                  Assignee
-                </p></span
-              >
-              <span
-                ><p
-                  class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                <span
+                  ><p
+                    class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                  >
+                    Priority
+                  </p></span
                 >
-                  Priority
-                </p></span
-              >
-              <span
-                ><p
-                  class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                <span (click)="orderByDate(items.tasks)"
+                  ><p
+                    class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                  >
+                    Due Date
+                  </p></span
                 >
-                  Due Date
-                </p></span
-              >
-              <span
-                ><p
-                  class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                <span
+                  ><p
+                    class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                  >
+                    Start Date
+                  </p></span
                 >
-                  Start Date
-                </p></span
-              >
-              <span
-                ><p
-                  class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                <span
+                  ><p
+                    class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                  >
+                    Date Created
+                  </p></span
                 >
-                  Date Created
-                </p></span
-              >
-              <span
-                ><p
-                  class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                <span
+                  ><p
+                    class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                  >
+                    Date Updated
+                  </p></span
                 >
-                  Date Updated
-                </p></span
-              >
-              <span
-                ><p
-                  class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                <span
+                  ><p
+                    class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                  >
+                    Closed
+                  </p></span
                 >
-                  Closed
-                </p></span
-              >
-              <span
-                ><p
-                  class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                <span
+                  ><p
+                    class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                  >
+                    Time Track
+                  </p></span
                 >
-                  Time Track
-                </p></span
-              >
-              <span
-                ><p
-                  class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                <span
+                  ><p
+                    class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                  >
+                    Time Estimate
+                  </p></span
                 >
-                  Time Estimate
-                </p></span
-              >
+              </ng-container>
             </div>
           </div>
           <div class="relative flex items-center gap-1 hover:bg-gray-200 px-2 py-0.5 rounded-md cursor-pointer">
@@ -878,19 +880,19 @@ export class WebUiDraggableComponent {
   @Input() draggableData: Draggable[] | any
 
   filter: boolean = false
-  sortBy: boolean = false
+  sort1By: boolean = false
   subTasks: boolean = false
   shw: boolean = false
   dotted: boolean = false
   filterToggle() {
     this.filter = !this.filter
-    this.sortBy = false
+    this.sort1By = false
     this.subTasks = false
     this.shw = false
     this.dotted = false
   }
   sortByToggle() {
-    this.sortBy = !this.sortBy
+    this.sort1By = !this.sort1By
     this.filter = false
     this.subTasks = false
     this.shw = false
@@ -899,21 +901,21 @@ export class WebUiDraggableComponent {
   subTasksToggle() {
     this.subTasks = !this.subTasks
     this.filter = false
-    this.sortBy = false
+    this.sort1By = false
     this.shw = false
     this.dotted = false
   }
   shwToggle() {
     this.shw = !this.shw
     this.filter = false
-    this.sortBy = false
+    this.sort1By = false
     this.subTasks = false
     this.dotted = false
   }
   dottedToggle() {
     this.dotted = !this.dotted
     this.filter = false
-    this.sortBy = false
+    this.sort1By = false
     this.subTasks = false
     this.shw = false
   }
@@ -941,6 +943,20 @@ export class WebUiDraggableComponent {
     tasks.sort((a, b) => a.date - b.date)
     console.log(tasks.sort((a, b) => a.date - b.date))
     this.menu = false
+  }
+
+  orderByDate(task) {
+    var isDescending = true
+    this.draggableData = this.draggableData.map((items) => {
+      console.log('before', items.tasks)
+      items.tasks = items.tasks.sort((a, b) => new Date(a.date).getDate() - new Date(b.date).getDate())
+      console.log('after', items.tasks)
+
+      return items
+    })
+    console.log(this.draggableData)
+    //console.log(task.sort((a,b) => isDescending ? new Date(b).getTime() - new Date(a).getTime() : new Date(a).getTime() - new Date(b).getTime()));
+    //console.log(_.sortBy(this.draggableData.Tasks, 'date'));
   }
 
   drop(event: CdkDragDrop<Draggable[]>) {
