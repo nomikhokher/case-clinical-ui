@@ -184,7 +184,7 @@ interface Tasks {
               </p>
             </div>
             <div class="sortMain p-3 rounded-md bg-white absolute top-6 left-0 w-36" *ngIf="sort1By">
-              <ng-container *ngFor="let items of draggableData; let i = index">
+              <ng-container>
                 <h2 class="uppercase text-gray-900 text-sm font-medium pl-2">Sort By</h2>
                 <span
                   ><p
@@ -311,8 +311,8 @@ interface Tasks {
                       class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
                     >
                       Due Date
-                    </p></span
-                  >
+                    </p>
+                  </span>
                   <span class="flex gap-1 items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -699,79 +699,6 @@ interface Tasks {
           </div>
         </div>
       </div>
-
-      <!-- <div class="flex md:items-center md:flex-row flex-col justify-end py-2" *ngIf="true">
-        <ng-container *ngFor="let items of draggableData; let i = index">
-          <div class="flex items-center">
-            <div>
-              <nav class="flex space-x-2">
-                <header class="toggle-btn">
-                  <input type="checkbox" id="button" />
-                  <label for="button" class="dark:bg-gray-700 rounded">
-                    <span (click)="onshow()" class="flex items-center text-sm gap-1 justify-center dark:text-blue-300">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"
-                        />
-                      </svg>
-                      Sort By
-                    </span>
-                  </label>
-
-                  <ul *ngIf="menu === true">
-                    <li>Sort By</li>
-                    <li (click)="getaaDate(items.tasks)" class="flex items-center gap-1 hover:bg-gray-200 px-2 py-0.5 rounded-md cursor-pointer">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        />
-                      </svg>
-                      Date
-                     
-                    </li>
-
-                    <li class="flex items-center gap-1 hover:bg-gray-200 px-2 py-0.5 rounded-md cursor-pointer">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
-                        />
-                      </svg>
-                      <button>None</button>
-                    </li>
-                  </ul>
-                </header>
-              </nav>
-            </div>
-          </div>
-        </ng-container>
-      </div> -->
       <div class="flex overflow-auto">
         <ng-container *ngFor="let items of draggableData; let i = index">
           <div class="bg-gray-50 dark:bg-gray-700 rounded-lg px-3 py-3 mr-0">
@@ -814,7 +741,6 @@ interface Tasks {
                   <p class="text-gray-700 dark:text-white font-semibold font-sans tracking-wide text-sm">
                     {{ item.title }}
                   </p>
-
                   <img
                     class="w-6 h-6 rounded-full ml-3"
                     src="https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
@@ -966,6 +892,7 @@ export class WebUiDraggableComponent {
     this.subTasks = false
     this.shw = false
     this.dotted = false
+    this.groupBy = false
   }
   sortByToggle() {
     this.sort1By = !this.sort1By
@@ -973,6 +900,7 @@ export class WebUiDraggableComponent {
     this.subTasks = false
     this.shw = false
     this.dotted = false
+    this.groupBy = false
   }
   subTasksToggle() {
     this.subTasks = !this.subTasks
@@ -980,6 +908,7 @@ export class WebUiDraggableComponent {
     this.sort1By = false
     this.shw = false
     this.dotted = false
+    this.groupBy = false
   }
   shwToggle() {
     this.shw = !this.shw
@@ -987,6 +916,7 @@ export class WebUiDraggableComponent {
     this.sort1By = false
     this.subTasks = false
     this.dotted = false
+    this.groupBy = false
   }
   dottedToggle() {
     this.dotted = !this.dotted
@@ -994,6 +924,7 @@ export class WebUiDraggableComponent {
     this.sort1By = false
     this.subTasks = false
     this.shw = false
+    this.groupBy = false
   }
   groupByToggle() {
     this.groupBy = !this.groupBy
@@ -1001,6 +932,7 @@ export class WebUiDraggableComponent {
     this.sort1By = false
     this.subTasks = false
     this.shw = false
+    this.dotted = false
   }
   public connectedTo = []
   menu?: boolean
@@ -1021,7 +953,6 @@ export class WebUiDraggableComponent {
   }
 
   orderByDate() {
-    var isDescending = true
     this.draggableData = this.draggableData.map((items) => {
       items.tasks = items.tasks.sort((a, b) => new Date(a.date).getDate() - new Date(b.date).getDate())
       this.sortbyTitle = 'Due Date'
@@ -1052,11 +983,7 @@ export class WebUiDraggableComponent {
     this.editMode = true
   }
   public onshow() {
-    // if (this.menu === true) {
     this.menu = true
-    // } else {
-    // this.menu = true
-    // }
   }
   edit(): void {
     this.draggableData = this.draggableData.map((items) => {
