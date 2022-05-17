@@ -56,7 +56,7 @@ const config: Configs = {
         title: 'Selected',
         tasks: [
           {
-            id: '0003',
+            id: '3',
             priority: TaskPriority.MEDIUM,
             status: TaskStatus.SELECTED,
             title: 'Set up Akita state management',
@@ -71,7 +71,7 @@ const config: Configs = {
         title: 'In Progress',
         tasks: [
           {
-            id: '0004',
+            id: '4',
             priority: TaskPriority.MEDIUM,
             status: TaskStatus.IN_PROGRESS,
             title: 'Preparing backend API with GraphQL',
@@ -87,7 +87,7 @@ const config: Configs = {
         title: 'Done',
         tasks: [
           {
-            id: '0005',
+            id: '5',
             priority: TaskPriority.MEDIUM,
             status: TaskStatus.DONE,
             title: 'Preparing backend API with GraphQL',

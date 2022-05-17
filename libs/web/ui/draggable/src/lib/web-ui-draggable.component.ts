@@ -42,195 +42,6 @@ interface Tasks {
   styleUrls: [`./web-ui-draggable.scss`],
   encapsulation: ViewEncapsulation.None,
   template: `
-    <style>
-      .cu-dashboard-board__content {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        min-height: 0;
-        flex-grow: 1;
-      }
-      .cu-dashboard__router-outlet_v6 .cu-dashboard-board__body-inner {
-        padding-top: 15px;
-        padding-left: 15px;
-      }
-      .cu-dashboard-board__body-inner {
-        flex-grow: 1;
-        transition: linear 0.3s;
-        display: flex;
-        flex-wrap: nowrap;
-        align-content: flex-start;
-        justify-content: flex-start;
-        overflow-x: auto;
-        overflow-y: hidden;
-        padding-left: 0px;
-      }
-      .cu-dashboard-board__column {
-        position: relative;
-        flex-shrink: 0;
-        display: flex;
-        flex-direction: column;
-        width: 270px;
-        padding: 0 5px 0 0;
-      }
-      .cu-panel-board.cu-panel-board_caption {
-        flex-shrink: 0;
-        margin-right: 10px;
-        margin-bottom: 9px;
-        padding: 14px 10px 12px;
-      }
-      .cu-panel-board.cu-panel-board_caption:before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: currentColor;
-        border-radius: 3px 3px 0 0;
-      }
-      .cu-panel-board__header-status {
-        justify-content: space-between;
-        flex-direction: row;
-      }
-      .cu-panel-board__status-info {
-        display: flex;
-        align-items: center;
-        -webkit-user-select: none;
-        user-select: none;
-        position: relative;
-        min-width: 0;
-      }
-      .cu-dashboard-board-header__group-label {
-        display: flex;
-        width: calc(100% - 10px);
-        margin-right: 4px;
-      }
-      .cu-data-view-group-label__main-title_due-date {
-        text-transform: none;
-      }
-      .cu-data-view-group-label__main-title {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-size: 13px;
-        font-weight: 500;
-        line-height: 1.3;
-        margin: 0;
-        color: #544d61;
-        text-transform: uppercase;
-      }
-      .cu-panel-board__controls {
-        flex-shrink: 0;
-      }
-      .cu-wip-limit__widget.off {
-        background-color: transparent !important;
-        border: 1px solid #e9ebf0;
-      }
-      section.cu-panel-board.cu-panel-board_caption.cu-panel-board__header-box {
-        box-shadow: 0 1px 2px #0000004d;
-      }
-      .cu-wip-limit__widget {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        font-size: 11px;
-        font-weight: 500;
-        line-height: 1;
-        color: #292d34;
-        height: 20px;
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 6px;
-        min-width: 25px;
-      }
-      .cu-panel-board__header-options {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-shrink: 0;
-        margin-left: 15px;
-      }
-      .cu-panel-board__header-options .cu-dashboard-board__collapse-icon {
-        transform: rotate(-180deg);
-        display: none;
-        cursor: pointer;
-      }
-      .cu-dashboard-board__collapse-icon {
-        transition: all 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
-        width: 16px;
-        height: 16px;
-        fill: #34343499;
-        margin-top: 1px;
-        margin-left: 4px;
-        transform: rotate(-90deg);
-      }
-      .icon svg {
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
-      .cu-panel-board__header-options .cu-panel-board__quick-action {
-        display: flex;
-      }
-      .cu-dropdown {
-        position: relative;
-      }
-      .cu-panel-board__plus {
-        font-size: 20px;
-        font-weight: 500;
-        line-height: 1;
-        padding: 9px 10px 9px 2px;
-        margin: -10px -10px -10px 4px;
-        -webkit-user-select: none;
-        user-select: none;
-        cursor: pointer;
-      }
-      .contrast_high .cu-panel-board {
-        box-shadow: 0 1px 2px #0000004d;
-      }
-      .cu-panel-board__header {
-        display: flex;
-      }
-      .contrast_high .cu-panel-board__quick-action-ellipsis {
-        fill: #979797;
-      }
-      .cu-panel-board__quick-action-ellipsis {
-        width: 24px !important;
-        height: 20px !important;
-        padding: 0 4px;
-        cursor: pointer;
-        fill: #858585;
-      }
-      .icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-grow: 0;
-        flex-shrink: 0;
-        width: 100%;
-        height: 100%;
-      }
-      .cu-panel-board {
-        margin: 6px 0 6px 6px;
-        border-radius: 3px;
-        background: #fff;
-        box-shadow: 0 1px 2px 1px #0000000f;
-        cursor: pointer;
-        position: relative;
-      }
-      .add-to-card {
-        display: none;
-        border-radius: 0;
-        box-shadow: none !important;
-        padding: 6px 10px 6px !important;
-      }
-      .add-to-card:before {
-        display: none !important;
-      }
-    </style>
     <div class=" flex-start items-start pb-8">
       <div class="flex justify-between items-center">
         <div class="w-64 relative leftContent ">
@@ -499,6 +310,7 @@ interface Tasks {
                     </svg>
                     <p
                       class="hover:bg-gray-200 cursor-pointerhover:bg-gray-200 px-2 py-0.5 text-base rounded-md cursor-pointer my-1"
+                      (click)="fillData()"
                     >
                       Due Date
                     </p>
@@ -1020,7 +832,7 @@ interface Tasks {
         </ng-container>
       </div>
       <div *ngIf="dueDateDiv">
-        <div class="flex overflow-auto pb-7 pt-7 h-screen">
+        <div class="flex overflow-auto pb-7 pt-7 h-full">
           <div class="cu-dashboard-board__content ng-tns-c1006-26 ng-star-inserted">
             <div class="cu-dashboard-board__body-inner ng-tns-c1005-28">
               <div class="cu-dashboard-board__column ng-trigger ng-trigger-flyInOut ng-tns-c1005-28 ng-star-inserted">
@@ -1121,7 +933,7 @@ interface Tasks {
                       </div>
                     </header>
                   </section>
-                  <ng-container *ngFor="let items of draggableData; let i = index">
+                  <!-- <ng-container *ngFor="let items of draggableData; let i = index">
                     <div
                       class="bg-white dark:bg-gray-600 shadow rounded pb-5 border showhim border-white mt-3 cursor-move draggable-box"
                       *ngFor="let item of items.tasks"
@@ -1164,7 +976,7 @@ interface Tasks {
                         </div>
                       </div>
                     </div>
-                  </ng-container>
+                  </ng-container> -->
 
                   <div
                     class="add-to-card flex border-none cu-panel-board cu-panel-board_caption rounded-md hover:bg-gray-200 space-x-1 text-gray-500"
@@ -1222,7 +1034,7 @@ interface Tasks {
                               wip-feature="false"
                               wip-limit-index="0"
                             >
-                              <!----><span>0</span
+                              <!----><span>{{ todayArray.length }}</span
                               ><!----><span
                               ></span
                               ><!---->
@@ -1303,142 +1115,48 @@ interface Tasks {
                     <div></div>
                     <!---->
                   </section>
-                  <div
-                    class="add-to-card flex border-none cu-panel-board cu-panel-board_caption rounded-md hover:bg-gray-200 space-x-1 text-gray-500"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      class="h-6 w-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                      ></path>
-                    </svg>
-                    <p>Add Card</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="cu-dashboard-board__content ng-tns-c1006-26 ng-star-inserted">
-            <div class="cu-dashboard-board__body-inner ng-tns-c1005-28">
-              <div class="cu-dashboard-board__column ng-trigger ng-trigger-flyInOut ng-tns-c1005-28 ng-star-inserted">
-                <div>
-                  <section
-                    class="cu-panel-board cu-panel-board_caption cu-panel-board__header-box"
-                    data-test="panel-board-header-status__"
+                  <div
+                    class="bg-white dark:bg-gray-600 shadow rounded pb-5 border showhim border-white mt-3 cursor-move draggable-box"
+                    *ngFor="let item of todayArray"
+                    cdkDrag
+                    [cdkDragData]="item"
                   >
-                    <header class="cu-panel-board__header cu-panel-board__header-status">
-                      <div class="cu-panel-board__status-info">
-                        <cu-data-view-group-label
-                          class="cu-data-view-group-label cu-dashboard-board-header__group-label"
-                        >
-                          <!----><!----><!----><!----><!----><!---->
-                          <div
-                            class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
-                            style=""
-                          >
-                            Overdue
-                          </div>
-                          <!----><!---->
-                        </cu-data-view-group-label>
-                        <div data-test="dashboard-board-header__panel-board__controls" class="cu-panel-board__controls">
-                          <cu-dashboard-board-header-wip-limit data-cns-disable="" class="ng-star-inserted" style="">
-                            <div
-                              data-cns-disable=""
-                              tooltiplifetime="15000"
-                              class="cu-wip-limit__widget off cu-wip-limit__info-no-limit ng-star-inserted"
-                              data-test="wip-limit__wip__widget-status-"
-                              wip-feature="false"
-                              wip-limit-index="0"
-                            >
-                              <!----><span>0</span
-                              ><!----><span
-                              ></span
-                              ><!---->
-                            </div>
-                            <!----><!----><!----><!----><!----><!---->
-                          </cu-dashboard-board-header-wip-limit>
-                          <!----><!---->
-                        </div>
-                        <div class="nav-category__editor"></div>
-                        <div></div>
-                        <!---->
-                      </div>
-                      <div class="cu-panel-board__header-options">
-                        <div
-                          data-cns-disable=""
-                          cutooltip="Collapse column"
-                          class="cu-dashboard-board__collapse-icon icon ng-star-inserted"
-                          data-test="dashboard-board__collapse-icon__"
-                          style=""
-                        >
-                          <!---->
-                        </div>
-                        <!---->
-                        <div class="cu-panel-board__quick-action ng-star-inserted" style="">
-                          <cu-dashboard-board-header-menu>
-                            <div cudropdown="" class="nav-menu cu-dropdown menu-options">
-                              <div
-                                data-test="dropdown__toggle"
-                                cudropdowntoggle=""
-                                class="cu-dropdown__toggle"
-                                tabindex="0"
-                                role="button"
-                                aria-label="Dropdown menu"
-                                aria-expanded="false"
-                              >
-                                <div
-                                  data-test="board-header__quick-action-ellipsis"
-                                  data-cns-disable=""
-                                  class="cu-panel-board__quick-action-ellipsis icon"
-                                >
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="h-6 w-6"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                  >
-                                    <path
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-                                    />
-                                  </svg>
-                                  <!---->
-                                </div>
-                              </div>
-                              <!---->
-                            </div>
-                            <!---->
-                          </cu-dashboard-board-header-menu>
-                        </div>
-                        <!---->
-                        <div
-                          data-test="dashboard-board-header__panel-board__plus"
-                          data-cns-disable=""
-                          cutooltip="Create task"
-                          class="cu-panel-board__plus ng-star-inserted"
-                          style=""
-                        >
-                          +
-                        </div>
-                        <!---->
-                      </div>
-                    </header>
-                    <div></div>
-                    <div></div>
-                    <!---->
-                  </section>
+                    <div class="bg-green-500 h-8 mb-2 flex justify-end items-center rounded-t">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 showme text-white cursor-pointer mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        (click)="editEvent(item)"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="flex justify-between mx-3">
+                      <p class="text-gray-700 dark:text-white font-semibold font-sans tracking-wide text-sm">
+                        {{ item.title }}
+                      </p>
+                      <img
+                        class="w-6 h-6 rounded-full ml-3"
+                        src="https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
+                        alt="Avatar"
+                      />
+                    </div>
+                    <div class="flex mt-4 justify-between items-center mx-3">
+                      <span class="text-sm text-gray-600 dark:text-white">{{ item.title }}</span>
+                    </div>
+                    <div class="flex mt-4 justify-between items-center mx-3">
+                      <span class="text-sm text-gray-600 dark:text-white">Due Date : {{ item.date }}</span>
+                    </div>
+                  </div>
+
                   <div
                     class="add-to-card flex border-none cu-panel-board cu-panel-board_caption rounded-md hover:bg-gray-200 space-x-1 text-gray-500"
                   >
@@ -1495,411 +1213,7 @@ interface Tasks {
                               wip-feature="false"
                               wip-limit-index="0"
                             >
-                              <!----><span>0</span
-                              ><!----><span
-                              ></span
-                              ><!---->
-                            </div>
-                            <!----><!----><!----><!----><!----><!---->
-                          </cu-dashboard-board-header-wip-limit>
-                          <!----><!---->
-                        </div>
-                        <div class="nav-category__editor"></div>
-                        <div></div>
-                        <!---->
-                      </div>
-                      <div class="cu-panel-board__header-options">
-                        <div
-                          data-cns-disable=""
-                          cutooltip="Collapse column"
-                          class="cu-dashboard-board__collapse-icon icon ng-star-inserted"
-                          data-test="dashboard-board__collapse-icon__"
-                          style=""
-                        >
-                          <!---->
-                        </div>
-                        <!---->
-                        <div class="cu-panel-board__quick-action ng-star-inserted" style="">
-                          <cu-dashboard-board-header-menu>
-                            <div cudropdown="" class="nav-menu cu-dropdown menu-options">
-                              <div
-                                data-test="dropdown__toggle"
-                                cudropdowntoggle=""
-                                class="cu-dropdown__toggle"
-                                tabindex="0"
-                                role="button"
-                                aria-label="Dropdown menu"
-                                aria-expanded="false"
-                              >
-                                <div
-                                  data-test="board-header__quick-action-ellipsis"
-                                  data-cns-disable=""
-                                  class="cu-panel-board__quick-action-ellipsis icon"
-                                >
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="h-6 w-6"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                  >
-                                    <path
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-                                    />
-                                  </svg>
-                                  <!---->
-                                </div>
-                              </div>
-                              <!---->
-                            </div>
-                            <!---->
-                          </cu-dashboard-board-header-menu>
-                        </div>
-                        <!---->
-                        <div
-                          data-test="dashboard-board-header__panel-board__plus"
-                          data-cns-disable=""
-                          cutooltip="Create task"
-                          class="cu-panel-board__plus ng-star-inserted"
-                          style=""
-                        >
-                          +
-                        </div>
-                        <!---->
-                      </div>
-                    </header>
-                    <div></div>
-                    <div></div>
-                    <!---->
-                  </section>
-                  <div
-                    class="add-to-card flex border-none cu-panel-board cu-panel-board_caption rounded-md hover:bg-gray-200 space-x-1 text-gray-500"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      class="h-6 w-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                      ></path>
-                    </svg>
-                    <p>Add Card</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="cu-dashboard-board__content ng-tns-c1006-26 ng-star-inserted">
-            <div class="cu-dashboard-board__body-inner ng-tns-c1005-28">
-              <div class="cu-dashboard-board__column ng-trigger ng-trigger-flyInOut ng-tns-c1005-28 ng-star-inserted">
-                <div>
-                  <section
-                    class="cu-panel-board cu-panel-board_caption cu-panel-board__header-box"
-                    data-test="panel-board-header-status__"
-                  >
-                    <header class="cu-panel-board__header cu-panel-board__header-status">
-                      <div class="cu-panel-board__status-info">
-                        <cu-data-view-group-label
-                          class="cu-data-view-group-label cu-dashboard-board-header__group-label"
-                        >
-                          <!----><!----><!----><!----><!----><!---->
-                          <div
-                            class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
-                            style=""
-                          >
-                            Wednesday
-                          </div>
-                          <!----><!---->
-                        </cu-data-view-group-label>
-                        <div data-test="dashboard-board-header__panel-board__controls" class="cu-panel-board__controls">
-                          <cu-dashboard-board-header-wip-limit data-cns-disable="" class="ng-star-inserted" style="">
-                            <div
-                              data-cns-disable=""
-                              tooltiplifetime="15000"
-                              class="cu-wip-limit__widget off cu-wip-limit__info-no-limit ng-star-inserted"
-                              data-test="wip-limit__wip__widget-status-"
-                              wip-feature="false"
-                              wip-limit-index="0"
-                            >
-                              <!----><span>0</span
-                              ><!----><span
-                              ></span
-                              ><!---->
-                            </div>
-                            <!----><!----><!----><!----><!----><!---->
-                          </cu-dashboard-board-header-wip-limit>
-                          <!----><!---->
-                        </div>
-                        <div class="nav-category__editor"></div>
-                        <div></div>
-                        <!---->
-                      </div>
-                      <div class="cu-panel-board__header-options">
-                        <div
-                          data-cns-disable=""
-                          cutooltip="Collapse column"
-                          class="cu-dashboard-board__collapse-icon icon ng-star-inserted"
-                          data-test="dashboard-board__collapse-icon__"
-                          style=""
-                        ></div>
-                        <!---->
-                        <div class="cu-panel-board__quick-action ng-star-inserted" style="">
-                          <cu-dashboard-board-header-menu>
-                            <div cudropdown="" class="nav-menu cu-dropdown menu-options">
-                              <div
-                                data-test="dropdown__toggle"
-                                cudropdowntoggle=""
-                                class="cu-dropdown__toggle"
-                                tabindex="0"
-                                role="button"
-                                aria-label="Dropdown menu"
-                                aria-expanded="false"
-                              >
-                                <div
-                                  data-test="board-header__quick-action-ellipsis"
-                                  data-cns-disable=""
-                                  class="cu-panel-board__quick-action-ellipsis icon"
-                                >
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="h-6 w-6"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                  >
-                                    <path
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-                                    />
-                                  </svg>
-                                  <!---->
-                                </div>
-                              </div>
-                              <!---->
-                            </div>
-                            <!---->
-                          </cu-dashboard-board-header-menu>
-                        </div>
-                        <!---->
-                        <div
-                          data-test="dashboard-board-header__panel-board__plus"
-                          data-cns-disable=""
-                          cutooltip="Create task"
-                          class="cu-panel-board__plus ng-star-inserted"
-                          style=""
-                        >
-                          +
-                        </div>
-                        <!---->
-                      </div>
-                    </header>
-                    <div></div>
-                    <div></div>
-                    <!---->
-                  </section>
-                  <div
-                    class="add-to-card flex border-none cu-panel-board cu-panel-board_caption rounded-md hover:bg-gray-200 space-x-1 text-gray-500"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      class="h-6 w-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                      ></path>
-                    </svg>
-                    <p>Add Card</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="cu-dashboard-board__content ng-tns-c1006-26 ng-star-inserted">
-            <div class="cu-dashboard-board__body-inner ng-tns-c1005-28">
-              <div class="cu-dashboard-board__column ng-trigger ng-trigger-flyInOut ng-tns-c1005-28 ng-star-inserted">
-                <div>
-                  <section
-                    class="cu-panel-board cu-panel-board_caption cu-panel-board__header-box"
-                    data-test="panel-board-header-status__"
-                  >
-                    <header class="cu-panel-board__header cu-panel-board__header-status">
-                      <div class="cu-panel-board__status-info">
-                        <cu-data-view-group-label
-                          class="cu-data-view-group-label cu-dashboard-board-header__group-label"
-                        >
-                          <!----><!----><!----><!----><!----><!---->
-                          <div
-                            class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
-                            style=""
-                          >
-                            Wednesday
-                          </div>
-                          <!----><!---->
-                        </cu-data-view-group-label>
-                        <div data-test="dashboard-board-header__panel-board__controls" class="cu-panel-board__controls">
-                          <cu-dashboard-board-header-wip-limit data-cns-disable="" class="ng-star-inserted" style="">
-                            <div
-                              data-cns-disable=""
-                              tooltiplifetime="15000"
-                              class="cu-wip-limit__widget off cu-wip-limit__info-no-limit ng-star-inserted"
-                              data-test="wip-limit__wip__widget-status-"
-                              wip-feature="false"
-                              wip-limit-index="0"
-                            >
-                              <!----><span>0</span
-                              ><!----><span
-                              ></span
-                              ><!---->
-                            </div>
-                            <!----><!----><!----><!----><!----><!---->
-                          </cu-dashboard-board-header-wip-limit>
-                          <!----><!---->
-                        </div>
-                        <div class="nav-category__editor"></div>
-                        <div></div>
-                        <!---->
-                      </div>
-                      <div class="cu-panel-board__header-options">
-                        <div
-                          data-cns-disable=""
-                          cutooltip="Collapse column"
-                          class="cu-dashboard-board__collapse-icon icon ng-star-inserted"
-                          data-test="dashboard-board__collapse-icon__"
-                          style=""
-                        ></div>
-                        <!---->
-                        <div class="cu-panel-board__quick-action ng-star-inserted" style="">
-                          <cu-dashboard-board-header-menu>
-                            <div cudropdown="" class="nav-menu cu-dropdown menu-options">
-                              <div
-                                data-test="dropdown__toggle"
-                                cudropdowntoggle=""
-                                class="cu-dropdown__toggle"
-                                tabindex="0"
-                                role="button"
-                                aria-label="Dropdown menu"
-                                aria-expanded="false"
-                              >
-                                <div
-                                  data-test="board-header__quick-action-ellipsis"
-                                  data-cns-disable=""
-                                  class="cu-panel-board__quick-action-ellipsis icon"
-                                >
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="h-6 w-6"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                  >
-                                    <path
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-                                    />
-                                  </svg>
-                                  <!---->
-                                </div>
-                              </div>
-                              <!---->
-                            </div>
-                            <!---->
-                          </cu-dashboard-board-header-menu>
-                        </div>
-                        <!---->
-                        <div
-                          data-test="dashboard-board-header__panel-board__plus"
-                          data-cns-disable=""
-                          cutooltip="Create task"
-                          class="cu-panel-board__plus ng-star-inserted"
-                          style=""
-                        >
-                          +
-                        </div>
-                        <!---->
-                      </div>
-                    </header>
-                    <div></div>
-                    <div></div>
-                    <!---->
-                  </section>
-                  <div
-                    class="add-to-card flex border-none cu-panel-board cu-panel-board_caption rounded-md hover:bg-gray-200 space-x-1 text-gray-500"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      class="h-6 w-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                      ></path>
-                    </svg>
-                    <p>Add Card</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="cu-dashboard-board__content ng-tns-c1006-26 ng-star-inserted">
-            <div class="cu-dashboard-board__body-inner ng-tns-c1005-28">
-              <div class="cu-dashboard-board__column ng-trigger ng-trigger-flyInOut ng-tns-c1005-28 ng-star-inserted">
-                <div>
-                  <section
-                    class="cu-panel-board cu-panel-board_caption cu-panel-board__header-box"
-                    data-test="panel-board-header-status__"
-                  >
-                    <header class="cu-panel-board__header cu-panel-board__header-status">
-                      <div class="cu-panel-board__status-info">
-                        <cu-data-view-group-label
-                          class="cu-data-view-group-label cu-dashboard-board-header__group-label"
-                        >
-                          <!----><!----><!----><!----><!----><!---->
-                          <div
-                            class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
-                            style=""
-                          >
-                            Thursday
-                          </div>
-                          <!----><!---->
-                        </cu-data-view-group-label>
-                        <div data-test="dashboard-board-header__panel-board__controls" class="cu-panel-board__controls">
-                          <cu-dashboard-board-header-wip-limit data-cns-disable="" class="ng-star-inserted" style="">
-                            <div
-                              data-cns-disable=""
-                              tooltiplifetime="15000"
-                              class="cu-wip-limit__widget off cu-wip-limit__info-no-limit ng-star-inserted"
-                              data-test="wip-limit__wip__widget-status-"
-                              wip-feature="false"
-                              wip-limit-index="0"
-                            >
-                              <!----><span>0</span
+                              <!----><span>{{ tomorrowArray.length }}</span
                               ><!----><span
                               ></span
                               ><!---->
@@ -1981,139 +1295,46 @@ interface Tasks {
                   </section>
 
                   <div
-                    class="add-to-card flex border-none cu-panel-board cu-panel-board_caption rounded-md hover:bg-gray-200 space-x-1 text-gray-500"
+                    class="bg-white dark:bg-gray-600 shadow rounded pb-5 border showhim border-white mt-3 cursor-move draggable-box"
+                    *ngFor="let item of tomorrowArray"
+                    cdkDrag
+                    [cdkDragData]="item"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      class="h-6 w-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                      ></path>
-                    </svg>
-                    <p>Add Card</p>
+                    <div class="bg-green-500 h-8 mb-2 flex justify-end items-center rounded-t">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 showme text-white cursor-pointer mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        (click)="editEvent(item)"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="flex justify-between mx-3">
+                      <p class="text-gray-700 dark:text-white font-semibold font-sans tracking-wide text-sm">
+                        {{ item.title }}
+                      </p>
+                      <img
+                        class="w-6 h-6 rounded-full ml-3"
+                        src="https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
+                        alt="Avatar"
+                      />
+                    </div>
+                    <div class="flex mt-4 justify-between items-center mx-3">
+                      <span class="text-sm text-gray-600 dark:text-white">{{ item.title }}</span>
+                    </div>
+                    <div class="flex mt-4 justify-between items-center mx-3">
+                      <span class="text-sm text-gray-600 dark:text-white">Due Date : {{ item.date }}</span>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="cu-dashboard-board__content ng-tns-c1006-26 ng-star-inserted">
-            <div class="cu-dashboard-board__body-inner ng-tns-c1005-28">
-              <div class="cu-dashboard-board__column ng-trigger ng-trigger-flyInOut ng-tns-c1005-28 ng-star-inserted">
-                <div>
-                  <section
-                    class="cu-panel-board cu-panel-board_caption cu-panel-board__header-box"
-                    data-test="panel-board-header-status__"
-                  >
-                    <header class="cu-panel-board__header cu-panel-board__header-status">
-                      <div class="cu-panel-board__status-info">
-                        <cu-data-view-group-label
-                          class="cu-data-view-group-label cu-dashboard-board-header__group-label"
-                        >
-                          <!----><!----><!----><!----><!----><!---->
-                          <div
-                            class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
-                            style=""
-                          >
-                            Friday
-                          </div>
-                          <!----><!---->
-                        </cu-data-view-group-label>
-                        <div data-test="dashboard-board-header__panel-board__controls" class="cu-panel-board__controls">
-                          <cu-dashboard-board-header-wip-limit data-cns-disable="" class="ng-star-inserted" style="">
-                            <div
-                              data-cns-disable=""
-                              tooltiplifetime="15000"
-                              class="cu-wip-limit__widget off cu-wip-limit__info-no-limit ng-star-inserted"
-                              data-test="wip-limit__wip__widget-status-"
-                              wip-feature="false"
-                              wip-limit-index="0"
-                            >
-                              <!----><span>0</span
-                              ><!----><span
-                              ></span
-                              ><!---->
-                            </div>
-                            <!----><!----><!----><!----><!----><!---->
-                          </cu-dashboard-board-header-wip-limit>
-                          <!----><!---->
-                        </div>
-                        <div class="nav-category__editor"></div>
-                        <div></div>
-                        <!---->
-                      </div>
-                      <div class="cu-panel-board__header-options">
-                        <div
-                          data-cns-disable=""
-                          cutooltip="Collapse column"
-                          class="cu-dashboard-board__collapse-icon icon ng-star-inserted"
-                          data-test="dashboard-board__collapse-icon__"
-                          style=""
-                        ></div>
-                        <!---->
-                        <div class="cu-panel-board__quick-action ng-star-inserted" style="">
-                          <cu-dashboard-board-header-menu>
-                            <div cudropdown="" class="nav-menu cu-dropdown menu-options">
-                              <div
-                                data-test="dropdown__toggle"
-                                cudropdowntoggle=""
-                                class="cu-dropdown__toggle"
-                                tabindex="0"
-                                role="button"
-                                aria-label="Dropdown menu"
-                                aria-expanded="false"
-                              >
-                                <div
-                                  data-test="board-header__quick-action-ellipsis"
-                                  data-cns-disable=""
-                                  class="cu-panel-board__quick-action-ellipsis icon"
-                                >
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="h-6 w-6"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                  >
-                                    <path
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-                                    />
-                                  </svg>
-                                  <!---->
-                                </div>
-                              </div>
-                              <!---->
-                            </div>
-                            <!---->
-                          </cu-dashboard-board-header-menu>
-                        </div>
-                        <!---->
-                        <div
-                          data-test="dashboard-board-header__panel-board__plus"
-                          data-cns-disable=""
-                          cutooltip="Create task"
-                          class="cu-panel-board__plus ng-star-inserted"
-                          style=""
-                        >
-                          +
-                        </div>
-                        <!---->
-                      </div>
-                    </header>
-                    <div></div>
-                    <div></div>
-                    <!---->
-                  </section>
                   <div
                     class="add-to-card flex border-none cu-panel-board cu-panel-board_caption rounded-md hover:bg-gray-200 space-x-1 text-gray-500"
                   >
@@ -2156,7 +1377,7 @@ interface Tasks {
                             class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
                             style=""
                           >
-                            Saturday
+                            {{ wednesdayName }}
                           </div>
                           <!----><!---->
                         </cu-data-view-group-label>
@@ -2170,7 +1391,7 @@ interface Tasks {
                               wip-feature="false"
                               wip-limit-index="0"
                             >
-                              <!----><span>0</span
+                              <!----><span>{{ wednesdayArray.length }}</span
                               ><!----><span
                               ></span
                               ><!---->
@@ -2248,6 +1469,48 @@ interface Tasks {
                     <div></div>
                     <!---->
                   </section>
+
+                  <div
+                    class="bg-white dark:bg-gray-600 shadow rounded pb-5 border showhim border-white mt-3 cursor-move draggable-box"
+                    *ngFor="let item of wednesdayArray"
+                    cdkDrag
+                    [cdkDragData]="item"
+                  >
+                    <div class="bg-green-500 h-8 mb-2 flex justify-end items-center rounded-t">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 showme text-white cursor-pointer mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        (click)="editEvent(item)"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="flex justify-between mx-3">
+                      <p class="text-gray-700 dark:text-white font-semibold font-sans tracking-wide text-sm">
+                        {{ item.title }}
+                      </p>
+                      <img
+                        class="w-6 h-6 rounded-full ml-3"
+                        src="https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
+                        alt="Avatar"
+                      />
+                    </div>
+                    <div class="flex mt-4 justify-between items-center mx-3">
+                      <span class="text-sm text-gray-600 dark:text-white">{{ item.title }}</span>
+                    </div>
+                    <div class="flex mt-4 justify-between items-center mx-3">
+                      <span class="text-sm text-gray-600 dark:text-white">Due Date : {{ item.date }}</span>
+                    </div>
+                  </div>
+
                   <div
                     class="add-to-card flex border-none cu-panel-board cu-panel-board_caption rounded-md hover:bg-gray-200 space-x-1 text-gray-500"
                   >
@@ -2290,7 +1553,7 @@ interface Tasks {
                             class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
                             style=""
                           >
-                            Sunday
+                            {{ thursdayName }}
                           </div>
                           <!----><!---->
                         </cu-data-view-group-label>
@@ -2304,7 +1567,185 @@ interface Tasks {
                               wip-feature="false"
                               wip-limit-index="0"
                             >
-                              <!----><span>0</span
+                              <!----><span>{{ thursdayArray.length }}</span
+                              ><!----><span
+                              ></span
+                              ><!---->
+                            </div>
+                            <!----><!----><!----><!----><!----><!---->
+                          </cu-dashboard-board-header-wip-limit>
+                          <!----><!---->
+                        </div>
+                        <div class="nav-category__editor"></div>
+                        <div></div>
+                        <!---->
+                      </div>
+                      <div class="cu-panel-board__header-options">
+                        <div
+                          data-cns-disable=""
+                          cutooltip="Collapse column"
+                          class="cu-dashboard-board__collapse-icon icon ng-star-inserted"
+                          data-test="dashboard-board__collapse-icon__"
+                          style=""
+                        >
+                          <!---->
+                        </div>
+                        <!---->
+                        <div class="cu-panel-board__quick-action ng-star-inserted" style="">
+                          <cu-dashboard-board-header-menu>
+                            <div cudropdown="" class="nav-menu cu-dropdown menu-options">
+                              <div
+                                data-test="dropdown__toggle"
+                                cudropdowntoggle=""
+                                class="cu-dropdown__toggle"
+                                tabindex="0"
+                                role="button"
+                                aria-label="Dropdown menu"
+                                aria-expanded="false"
+                              >
+                                <div
+                                  data-test="board-header__quick-action-ellipsis"
+                                  data-cns-disable=""
+                                  class="cu-panel-board__quick-action-ellipsis icon"
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                  >
+                                    <path
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                                    />
+                                  </svg>
+                                  <!---->
+                                </div>
+                              </div>
+                              <!---->
+                            </div>
+                            <!---->
+                          </cu-dashboard-board-header-menu>
+                        </div>
+                        <!---->
+                        <div
+                          data-test="dashboard-board-header__panel-board__plus"
+                          data-cns-disable=""
+                          cutooltip="Create task"
+                          class="cu-panel-board__plus ng-star-inserted"
+                          style=""
+                        >
+                          +
+                        </div>
+                        <!---->
+                      </div>
+                    </header>
+                    <div></div>
+                    <div></div>
+                    <!---->
+                  </section>
+
+                  <div
+                    class="bg-white dark:bg-gray-600 shadow rounded pb-5 border showhim border-white mt-3 cursor-move draggable-box"
+                    *ngFor="let item of thursdayArray"
+                    cdkDrag
+                    [cdkDragData]="item"
+                  >
+                    <div class="bg-green-500 h-8 mb-2 flex justify-end items-center rounded-t">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 showme text-white cursor-pointer mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        (click)="editEvent(item)"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="flex justify-between mx-3">
+                      <p class="text-gray-700 dark:text-white font-semibold font-sans tracking-wide text-sm">
+                        {{ item.title }}
+                      </p>
+                      <img
+                        class="w-6 h-6 rounded-full ml-3"
+                        src="https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
+                        alt="Avatar"
+                      />
+                    </div>
+                    <div class="flex mt-4 justify-between items-center mx-3">
+                      <span class="text-sm text-gray-600 dark:text-white">{{ item.title }}</span>
+                    </div>
+                    <div class="flex mt-4 justify-between items-center mx-3">
+                      <span class="text-sm text-gray-600 dark:text-white">Due Date : {{ item.date }}</span>
+                    </div>
+                  </div>
+
+                  <div
+                    class="add-to-card flex border-none cu-panel-board cu-panel-board_caption rounded-md hover:bg-gray-200 space-x-1 text-gray-500"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      class="h-6 w-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                      ></path>
+                    </svg>
+                    <p>Add Card</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cu-dashboard-board__content ng-tns-c1006-26 ng-star-inserted">
+            <div class="cu-dashboard-board__body-inner ng-tns-c1005-28">
+              <div class="cu-dashboard-board__column ng-trigger ng-trigger-flyInOut ng-tns-c1005-28 ng-star-inserted">
+                <div>
+                  <section
+                    class="cu-panel-board cu-panel-board_caption cu-panel-board__header-box"
+                    data-test="panel-board-header-status__"
+                  >
+                    <header class="cu-panel-board__header cu-panel-board__header-status">
+                      <div class="cu-panel-board__status-info">
+                        <cu-data-view-group-label
+                          class="cu-data-view-group-label cu-dashboard-board-header__group-label"
+                        >
+                          <!----><!----><!----><!----><!----><!---->
+                          <div
+                            class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
+                            style=""
+                          >
+                            {{ fridayName }}
+                          </div>
+                          <!----><!---->
+                        </cu-data-view-group-label>
+                        <div data-test="dashboard-board-header__panel-board__controls" class="cu-panel-board__controls">
+                          <cu-dashboard-board-header-wip-limit data-cns-disable="" class="ng-star-inserted" style="">
+                            <div
+                              data-cns-disable=""
+                              tooltiplifetime="15000"
+                              class="cu-wip-limit__widget off cu-wip-limit__info-no-limit ng-star-inserted"
+                              data-test="wip-limit__wip__widget-status-"
+                              wip-feature="false"
+                              wip-limit-index="0"
+                            >
+                              <!----><span>{{ fridayArray.length }}</span
                               ><!----><span
                               ></span
                               ><!---->
@@ -2382,6 +1823,399 @@ interface Tasks {
                     <div></div>
                     <!---->
                   </section>
+
+                  <div
+                    class="bg-white dark:bg-gray-600 shadow rounded pb-5 border showhim border-white mt-3 cursor-move draggable-box"
+                    *ngFor="let item of fridayArray"
+                    cdkDrag
+                    [cdkDragData]="item"
+                  >
+                    <div class="bg-green-500 h-8 mb-2 flex justify-end items-center rounded-t">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 showme text-white cursor-pointer mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        (click)="editEvent(item)"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="flex justify-between mx-3">
+                      <p class="text-gray-700 dark:text-white font-semibold font-sans tracking-wide text-sm">
+                        {{ item.title }}
+                      </p>
+                      <img
+                        class="w-6 h-6 rounded-full ml-3"
+                        src="https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
+                        alt="Avatar"
+                      />
+                    </div>
+                    <div class="flex mt-4 justify-between items-center mx-3">
+                      <span class="text-sm text-gray-600 dark:text-white">{{ item.title }}</span>
+                    </div>
+                    <div class="flex mt-4 justify-between items-center mx-3">
+                      <span class="text-sm text-gray-600 dark:text-white">Due Date : {{ item.date }}</span>
+                    </div>
+                  </div>
+
+                  <div
+                    class="add-to-card flex border-none cu-panel-board cu-panel-board_caption rounded-md hover:bg-gray-200 space-x-1 text-gray-500"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      class="h-6 w-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                      ></path>
+                    </svg>
+                    <p>Add Card</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cu-dashboard-board__content ng-tns-c1006-26 ng-star-inserted">
+            <div class="cu-dashboard-board__body-inner ng-tns-c1005-28">
+              <div class="cu-dashboard-board__column ng-trigger ng-trigger-flyInOut ng-tns-c1005-28 ng-star-inserted">
+                <div>
+                  <section
+                    class="cu-panel-board cu-panel-board_caption cu-panel-board__header-box"
+                    data-test="panel-board-header-status__"
+                  >
+                    <header class="cu-panel-board__header cu-panel-board__header-status">
+                      <div class="cu-panel-board__status-info">
+                        <cu-data-view-group-label
+                          class="cu-data-view-group-label cu-dashboard-board-header__group-label"
+                        >
+                          <!----><!----><!----><!----><!----><!---->
+                          <div
+                            class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
+                            style=""
+                          >
+                            {{ saturdayName }}
+                          </div>
+                          <!----><!---->
+                        </cu-data-view-group-label>
+                        <div data-test="dashboard-board-header__panel-board__controls" class="cu-panel-board__controls">
+                          <cu-dashboard-board-header-wip-limit data-cns-disable="" class="ng-star-inserted" style="">
+                            <div
+                              data-cns-disable=""
+                              tooltiplifetime="15000"
+                              class="cu-wip-limit__widget off cu-wip-limit__info-no-limit ng-star-inserted"
+                              data-test="wip-limit__wip__widget-status-"
+                              wip-feature="false"
+                              wip-limit-index="0"
+                            >
+                              <!----><span>{{ saturdayArray.length }}</span
+                              ><!----><span
+                              ></span
+                              ><!---->
+                            </div>
+                            <!----><!----><!----><!----><!----><!---->
+                          </cu-dashboard-board-header-wip-limit>
+                          <!----><!---->
+                        </div>
+                        <div class="nav-category__editor"></div>
+                        <div></div>
+                        <!---->
+                      </div>
+                      <div class="cu-panel-board__header-options">
+                        <div
+                          data-cns-disable=""
+                          cutooltip="Collapse column"
+                          class="cu-dashboard-board__collapse-icon icon ng-star-inserted"
+                          data-test="dashboard-board__collapse-icon__"
+                          style=""
+                        ></div>
+                        <!---->
+                        <div class="cu-panel-board__quick-action ng-star-inserted" style="">
+                          <cu-dashboard-board-header-menu>
+                            <div cudropdown="" class="nav-menu cu-dropdown menu-options">
+                              <div
+                                data-test="dropdown__toggle"
+                                cudropdowntoggle=""
+                                class="cu-dropdown__toggle"
+                                tabindex="0"
+                                role="button"
+                                aria-label="Dropdown menu"
+                                aria-expanded="false"
+                              >
+                                <div
+                                  data-test="board-header__quick-action-ellipsis"
+                                  data-cns-disable=""
+                                  class="cu-panel-board__quick-action-ellipsis icon"
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                  >
+                                    <path
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                                    />
+                                  </svg>
+                                  <!---->
+                                </div>
+                              </div>
+                              <!---->
+                            </div>
+                            <!---->
+                          </cu-dashboard-board-header-menu>
+                        </div>
+                        <!---->
+                        <div
+                          data-test="dashboard-board-header__panel-board__plus"
+                          data-cns-disable=""
+                          cutooltip="Create task"
+                          class="cu-panel-board__plus ng-star-inserted"
+                          style=""
+                        >
+                          +
+                        </div>
+                        <!---->
+                      </div>
+                    </header>
+                    <div></div>
+                    <div></div>
+                    <!---->
+                  </section>
+
+                  <div
+                    class="bg-white dark:bg-gray-600 shadow rounded pb-5 border showhim border-white mt-3 cursor-move draggable-box"
+                    *ngFor="let item of saturdayArray"
+                    cdkDrag
+                    [cdkDragData]="item"
+                  >
+                    <div class="bg-green-500 h-8 mb-2 flex justify-end items-center rounded-t">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 showme text-white cursor-pointer mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        (click)="editEvent(item)"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="flex justify-between mx-3">
+                      <p class="text-gray-700 dark:text-white font-semibold font-sans tracking-wide text-sm">
+                        {{ item.title }}
+                      </p>
+                      <img
+                        class="w-6 h-6 rounded-full ml-3"
+                        src="https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
+                        alt="Avatar"
+                      />
+                    </div>
+                    <div class="flex mt-4 justify-between items-center mx-3">
+                      <span class="text-sm text-gray-600 dark:text-white">{{ item.title }}</span>
+                    </div>
+                    <div class="flex mt-4 justify-between items-center mx-3">
+                      <span class="text-sm text-gray-600 dark:text-white">Due Date : {{ item.date }}</span>
+                    </div>
+                  </div>
+
+                  <div
+                    class="add-to-card flex border-none cu-panel-board cu-panel-board_caption rounded-md hover:bg-gray-200 space-x-1 text-gray-500"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      class="h-6 w-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                      ></path>
+                    </svg>
+                    <p>Add Card</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cu-dashboard-board__content ng-tns-c1006-26 ng-star-inserted">
+            <div class="cu-dashboard-board__body-inner ng-tns-c1005-28">
+              <div class="cu-dashboard-board__column ng-trigger ng-trigger-flyInOut ng-tns-c1005-28 ng-star-inserted">
+                <div>
+                  <section
+                    class="cu-panel-board cu-panel-board_caption cu-panel-board__header-box"
+                    data-test="panel-board-header-status__"
+                  >
+                    <header class="cu-panel-board__header cu-panel-board__header-status">
+                      <div class="cu-panel-board__status-info">
+                        <cu-data-view-group-label
+                          class="cu-data-view-group-label cu-dashboard-board-header__group-label"
+                        >
+                          <!----><!----><!----><!----><!----><!---->
+                          <div
+                            class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
+                            style=""
+                          >
+                            {{ sundayName }}
+                          </div>
+                          <!----><!---->
+                        </cu-data-view-group-label>
+                        <div data-test="dashboard-board-header__panel-board__controls" class="cu-panel-board__controls">
+                          <cu-dashboard-board-header-wip-limit data-cns-disable="" class="ng-star-inserted" style="">
+                            <div
+                              data-cns-disable=""
+                              tooltiplifetime="15000"
+                              class="cu-wip-limit__widget off cu-wip-limit__info-no-limit ng-star-inserted"
+                              data-test="wip-limit__wip__widget-status-"
+                              wip-feature="false"
+                              wip-limit-index="0"
+                            >
+                              <!----><span>{{ sundayArray.length }}</span
+                              ><!----><span
+                              ></span
+                              ><!---->
+                            </div>
+                            <!----><!----><!----><!----><!----><!---->
+                          </cu-dashboard-board-header-wip-limit>
+                          <!----><!---->
+                        </div>
+                        <div class="nav-category__editor"></div>
+                        <div></div>
+                        <!---->
+                      </div>
+                      <div class="cu-panel-board__header-options">
+                        <div
+                          data-cns-disable=""
+                          cutooltip="Collapse column"
+                          class="cu-dashboard-board__collapse-icon icon ng-star-inserted"
+                          data-test="dashboard-board__collapse-icon__"
+                          style=""
+                        ></div>
+                        <!---->
+                        <div class="cu-panel-board__quick-action ng-star-inserted" style="">
+                          <cu-dashboard-board-header-menu>
+                            <div cudropdown="" class="nav-menu cu-dropdown menu-options">
+                              <div
+                                data-test="dropdown__toggle"
+                                cudropdowntoggle=""
+                                class="cu-dropdown__toggle"
+                                tabindex="0"
+                                role="button"
+                                aria-label="Dropdown menu"
+                                aria-expanded="false"
+                              >
+                                <div
+                                  data-test="board-header__quick-action-ellipsis"
+                                  data-cns-disable=""
+                                  class="cu-panel-board__quick-action-ellipsis icon"
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                  >
+                                    <path
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                                    />
+                                  </svg>
+                                  <!---->
+                                </div>
+                              </div>
+                              <!---->
+                            </div>
+                            <!---->
+                          </cu-dashboard-board-header-menu>
+                        </div>
+                        <!---->
+                        <div
+                          data-test="dashboard-board-header__panel-board__plus"
+                          data-cns-disable=""
+                          cutooltip="Create task"
+                          class="cu-panel-board__plus ng-star-inserted"
+                          style=""
+                        >
+                          +
+                        </div>
+                        <!---->
+                      </div>
+                    </header>
+                    <div></div>
+                    <div></div>
+                    <!---->
+                  </section>
+
+                  <div
+                    class="bg-white dark:bg-gray-600 shadow rounded pb-5 border showhim border-white mt-3 cursor-move draggable-box"
+                    *ngFor="let item of sundayArray"
+                    cdkDrag
+                    [cdkDragData]="item"
+                  >
+                    <div class="bg-green-500 h-8 mb-2 flex justify-end items-center rounded-t">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 showme text-white cursor-pointer mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        (click)="editEvent(item)"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="flex justify-between mx-3">
+                      <p class="text-gray-700 dark:text-white font-semibold font-sans tracking-wide text-sm">
+                        {{ item.title }}
+                      </p>
+                      <img
+                        class="w-6 h-6 rounded-full ml-3"
+                        src="https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
+                        alt="Avatar"
+                      />
+                    </div>
+                    <div class="flex mt-4 justify-between items-center mx-3">
+                      <span class="text-sm text-gray-600 dark:text-white">{{ item.title }}</span>
+                    </div>
+                    <div class="flex mt-4 justify-between items-center mx-3">
+                      <span class="text-sm text-gray-600 dark:text-white">Due Date : {{ item.date }}</span>
+                    </div>
+                  </div>
 
                   <div
                     class="add-to-card flex border-none cu-panel-board cu-panel-board_caption rounded-md hover:bg-gray-200 space-x-1 text-gray-500"
@@ -2810,140 +2644,6 @@ interface Tasks {
               </div>
             </div>
           </div>
-
-          <div class="cu-dashboard-board__content ng-tns-c1006-26 ng-star-inserted">
-            <div class="cu-dashboard-board__body-inner ng-tns-c1005-28">
-              <div class="cu-dashboard-board__column ng-trigger ng-trigger-flyInOut ng-tns-c1005-28 ng-star-inserted">
-                <div>
-                  <section
-                    class="cu-panel-board cu-panel-board_caption cu-panel-board__header-box"
-                    data-test="panel-board-header-status__"
-                  >
-                    <header class="cu-panel-board__header cu-panel-board__header-status">
-                      <div class="cu-panel-board__status-info">
-                        <cu-data-view-group-label
-                          class="cu-data-view-group-label cu-dashboard-board-header__group-label"
-                        >
-                          <!----><!----><!----><!----><!----><!---->
-                          <div
-                            class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
-                            style=""
-                          >
-                            Overdue
-                          </div>
-                          <!----><!---->
-                        </cu-data-view-group-label>
-                        <div data-test="dashboard-board-header__panel-board__controls" class="cu-panel-board__controls">
-                          <cu-dashboard-board-header-wip-limit data-cns-disable="" class="ng-star-inserted" style="">
-                            <div
-                              data-cns-disable=""
-                              tooltiplifetime="15000"
-                              class="cu-wip-limit__widget off cu-wip-limit__info-no-limit ng-star-inserted"
-                              data-test="wip-limit__wip__widget-status-"
-                              wip-feature="false"
-                              wip-limit-index="0"
-                            >
-                              <!----><span>0</span
-                              ><!----><span
-                              ></span
-                              ><!---->
-                            </div>
-                            <!----><!----><!----><!----><!----><!---->
-                          </cu-dashboard-board-header-wip-limit>
-                          <!----><!---->
-                        </div>
-                        <div class="nav-category__editor"></div>
-                        <div></div>
-                        <!---->
-                      </div>
-                      <div class="cu-panel-board__header-options">
-                        <div
-                          data-cns-disable=""
-                          cutooltip="Collapse column"
-                          class="cu-dashboard-board__collapse-icon icon ng-star-inserted"
-                          data-test="dashboard-board__collapse-icon__"
-                          style=""
-                        ></div>
-                        <!---->
-                        <div class="cu-panel-board__quick-action ng-star-inserted" style="">
-                          <cu-dashboard-board-header-menu>
-                            <div cudropdown="" class="nav-menu cu-dropdown menu-options">
-                              <div
-                                data-test="dropdown__toggle"
-                                cudropdowntoggle=""
-                                class="cu-dropdown__toggle"
-                                tabindex="0"
-                                role="button"
-                                aria-label="Dropdown menu"
-                                aria-expanded="false"
-                              >
-                                <div
-                                  data-test="board-header__quick-action-ellipsis"
-                                  data-cns-disable=""
-                                  class="cu-panel-board__quick-action-ellipsis icon"
-                                >
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="h-6 w-6"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                  >
-                                    <path
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-                                    />
-                                  </svg>
-                                  <!---->
-                                </div>
-                              </div>
-                              <!---->
-                            </div>
-                            <!---->
-                          </cu-dashboard-board-header-menu>
-                        </div>
-                        <!---->
-                        <div
-                          data-test="dashboard-board-header__panel-board__plus"
-                          data-cns-disable=""
-                          cutooltip="Create task"
-                          class="cu-panel-board__plus ng-star-inserted"
-                          style=""
-                        >
-                          +
-                        </div>
-                        <!---->
-                      </div>
-                    </header>
-                    <div></div>
-                    <div></div>
-                    <!---->
-                  </section>
-                  <div
-                    class="add-to-card flex border-none cu-panel-board cu-panel-board_caption rounded-md hover:bg-gray-200 space-x-1 text-gray-500"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      class="h-6 w-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                      ></path>
-                    </svg>
-                    <p>Add Card</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -3001,6 +2701,21 @@ interface Tasks {
 })
 export class WebUiDraggableComponent {
   @Input() draggableData: Draggable[] | any
+
+  overDueArray: any[] = []
+  todayArray: any[] = []
+  tomorrowArray: any[] = []
+  wednesdayArray: any[] = []
+  thursdayArray: any[] = []
+  fridayArray: any[] = []
+  saturdayArray: any[] = []
+  sundayArray: any[] = []
+  futureArray: any[] = []
+  doneArray: any[] = []
+  nodueDateArray: any[] = []
+  today = new Date()
+
+  days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
   sortbyTitle: string = 'None'
   filter: boolean = false
   sort1By: boolean = false
@@ -3075,6 +2790,11 @@ export class WebUiDraggableComponent {
   addTitle: string
   editDate: string
   addDate: string
+  wednesdayName: string
+  thursdayName: string
+  fridayName: string
+  saturdayName: string
+  sundayName: string
   editId: any
   isCardEditing: boolean = false
   currentCard: number = 0
@@ -3094,6 +2814,62 @@ export class WebUiDraggableComponent {
       this.sort1By = false
       return items
     })
+  }
+
+  fillData() {
+    console.log('fillData function ', this.draggableData)
+    this.draggableData = this.draggableData.map((items) => {
+      for (let index of items.tasks) {
+        if (index.date === this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + this.today.getDate()) {
+          this.todayArray.push(index)
+        } else if (
+          index.date ===
+          this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + (this.today.getDate() + 1)
+        ) {
+          this.tomorrowArray.push(index)
+        } else if (
+          index.date ===
+          this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + (this.today.getDate() + 2)
+        ) {
+          this.wednesdayArray.push(index)
+        } else if (
+          index.date ===
+          this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + (this.today.getDate() + 3)
+        ) {
+          this.thursdayArray.push(index)
+        } else if (
+          index.date ===
+          this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + (this.today.getDate() + 4)
+        ) {
+          this.fridayArray.push(index)
+        } else if (
+          index.date ===
+          this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + (this.today.getDate() + 5)
+        ) {
+          this.saturdayArray.push(index)
+        } else if (
+          index.date ===
+          this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + (this.today.getDate() + 6)
+        ) {
+          this.sundayArray.push(index)
+        }
+      }
+      return items
+    })
+    var d = new Date(this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + (this.today.getDate() + 2))
+    this.wednesdayName = this.days[d.getDay()]
+
+    var d = new Date(this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + (this.today.getDate() + 3))
+    this.thursdayName = this.days[d.getDay()]
+
+    var d = new Date(this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + (this.today.getDate() + 4))
+    this.fridayName = this.days[d.getDay()]
+
+    var d = new Date(this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + (this.today.getDate() + 5))
+    this.saturdayName = this.days[d.getDay()]
+
+    var d = new Date(this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + (this.today.getDate() + 6))
+    this.sundayName = this.days[d.getDay()]
   }
 
   drop(event: CdkDragDrop<Draggable[]>) {
