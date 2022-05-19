@@ -57,7 +57,13 @@ interface Tasks {
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </span>
-          <input type="text" placeholder="Search tasks..." class="text-gray-400 w-full pl-8" />
+          <input
+            type="text"
+            placeholder="Search tasks..."
+            class="text-gray-400 w-full pl-8"
+            (keyup)="searchData($event.target.value)"
+            value=""
+          />
           <span href="" class="absolute top-2 right-2 text-gray-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -846,7 +852,6 @@ interface Tasks {
                         <cu-data-view-group-label
                           class="cu-data-view-group-label cu-dashboard-board-header__group-label"
                         >
-                          <!----><!----><!----><!----><!----><!---->
                           <div
                             class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
                             style=""
@@ -865,10 +870,7 @@ interface Tasks {
                               wip-feature="false"
                               wip-limit-index="0"
                             >
-                              <!----><span>0</span
-                              ><!----><span
-                              ></span
-                              ><!---->
+                              <span>{{ overDueArray.length }}</span>
                             </div>
                           </cu-dashboard-board-header-wip-limit>
                         </div>
@@ -914,15 +916,11 @@ interface Tasks {
                                       d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
                                     />
                                   </svg>
-                                  <!---->
                                 </div>
                               </div>
-                              <!---->
                             </div>
-                            <!---->
                           </cu-dashboard-board-header-menu>
                         </div>
-                        <!---->
                         <div
                           data-test="dashboard-board-header__panel-board__plus"
                           data-cns-disable=""
@@ -933,192 +931,9 @@ interface Tasks {
                       </div>
                     </header>
                   </section>
-                  <!-- <ng-container *ngFor="let items of draggableData; let i = index">
-                    <div
-                      class="bg-white dark:bg-gray-600 shadow rounded pb-5 border showhim border-white mt-3 cursor-move draggable-box"
-                      *ngFor="let item of items.tasks"
-                      cdkDrag
-                      [cdkDragData]="item"
-                    >
-                      <div *ngIf="item.status === 'Backlog'">
-                        <div class="bg-green-500 h-8 mb-2 flex justify-end items-center rounded-t">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6 showme text-white cursor-pointer mr-2"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            (click)="editEvent(item)"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                            />
-                          </svg>
-                        </div>
-                        <div class="flex justify-between mx-3">
-                          <p class="text-gray-700 dark:text-white font-semibold font-sans tracking-wide text-sm">
-                            {{ item.title }}
-                          </p>
-                          <img
-                            class="w-6 h-6 rounded-full ml-3"
-                            src="https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
-                            alt="Avatar"
-                          />
-                        </div>
-                        <div class="flex mt-4 justify-between items-center mx-3">
-                          <span class="text-sm text-gray-600 dark:text-white">{{ item.title }}</span>
-                        </div>
-                        <div class="flex mt-4 justify-between items-center mx-3">
-                          <span class="text-sm text-gray-600 dark:text-white">Due Date : {{ item.date }}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </ng-container> -->
-
-                  <div
-                    class="add-to-card flex border-none cu-panel-board cu-panel-board_caption rounded-md hover:bg-gray-200 space-x-1 text-gray-500"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      class="h-6 w-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                      ></path>
-                    </svg>
-                    <p>Add Card</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="cu-dashboard-board__content ng-tns-c1006-26 ng-star-inserted">
-            <div class="cu-dashboard-board__body-inner ng-tns-c1005-28">
-              <div class="cu-dashboard-board__column ng-trigger ng-trigger-flyInOut ng-tns-c1005-28 ng-star-inserted">
-                <div>
-                  <section
-                    class="cu-panel-board cu-panel-board_caption cu-panel-board__header-box"
-                    data-test="panel-board-header-status__"
-                  >
-                    <header class="cu-panel-board__header cu-panel-board__header-status">
-                      <div class="cu-panel-board__status-info">
-                        <cu-data-view-group-label
-                          class="cu-data-view-group-label cu-dashboard-board-header__group-label"
-                        >
-                          <!----><!----><!----><!----><!----><!---->
-                          <div
-                            class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
-                            style=""
-                          >
-                            Today
-                          </div>
-                          <!----><!---->
-                        </cu-data-view-group-label>
-                        <div data-test="dashboard-board-header__panel-board__controls" class="cu-panel-board__controls">
-                          <cu-dashboard-board-header-wip-limit data-cns-disable="" class="ng-star-inserted" style="">
-                            <div
-                              data-cns-disable=""
-                              tooltiplifetime="15000"
-                              class="cu-wip-limit__widget off cu-wip-limit__info-no-limit ng-star-inserted"
-                              data-test="wip-limit__wip__widget-status-"
-                              wip-feature="false"
-                              wip-limit-index="0"
-                            >
-                              <!----><span>{{ todayArray.length }}</span
-                              ><!----><span
-                              ></span
-                              ><!---->
-                            </div>
-                            <!----><!----><!----><!----><!----><!---->
-                          </cu-dashboard-board-header-wip-limit>
-                          <!----><!---->
-                        </div>
-                        <div class="nav-category__editor"></div>
-                        <div></div>
-                        <!---->
-                      </div>
-                      <div class="cu-panel-board__header-options">
-                        <div
-                          data-cns-disable=""
-                          cutooltip="Collapse column"
-                          class="cu-dashboard-board__collapse-icon icon ng-star-inserted"
-                          data-test="dashboard-board__collapse-icon__"
-                          style=""
-                        >
-                          <svg class="ng-star-inserted"></svg>
-                          <!---->
-                        </div>
-                        <!---->
-                        <div class="cu-panel-board__quick-action ng-star-inserted" style="">
-                          <cu-dashboard-board-header-menu>
-                            <div cudropdown="" class="nav-menu cu-dropdown menu-options">
-                              <div
-                                data-test="dropdown__toggle"
-                                cudropdowntoggle=""
-                                class="cu-dropdown__toggle"
-                                tabindex="0"
-                                role="button"
-                                aria-label="Dropdown menu"
-                                aria-expanded="false"
-                              >
-                                <div
-                                  data-test="board-header__quick-action-ellipsis"
-                                  data-cns-disable=""
-                                  class="cu-panel-board__quick-action-ellipsis icon"
-                                >
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="h-6 w-6"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                  >
-                                    <path
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-                                    />
-                                  </svg>
-                                  <!---->
-                                </div>
-                              </div>
-                              <!---->
-                            </div>
-                            <!---->
-                          </cu-dashboard-board-header-menu>
-                        </div>
-                        <!---->
-                        <div
-                          data-test="dashboard-board-header__panel-board__plus"
-                          data-cns-disable=""
-                          cutooltip="Create task"
-                          class="cu-panel-board__plus ng-star-inserted"
-                          style=""
-                        >
-                          +
-                        </div>
-                        <!---->
-                      </div>
-                    </header>
-                    <div></div>
-                    <div></div>
-                    <!---->
-                  </section>
-
                   <div
                     class="bg-white dark:bg-gray-600 shadow rounded pb-5 border showhim border-white mt-3 cursor-move draggable-box"
-                    *ngFor="let item of todayArray"
+                    *ngFor="let item of overDueArray"
                     cdkDrag
                     [cdkDragData]="item"
                   >
@@ -1184,6 +999,166 @@ interface Tasks {
           <div class="cu-dashboard-board__content ng-tns-c1006-26 ng-star-inserted">
             <div class="cu-dashboard-board__body-inner ng-tns-c1005-28">
               <div class="cu-dashboard-board__column ng-trigger ng-trigger-flyInOut ng-tns-c1005-28 ng-star-inserted">
+                <section
+                  class="cu-panel-board cu-panel-board_caption cu-panel-board__header-box"
+                  data-test="panel-board-header-status__"
+                >
+                  <header class="cu-panel-board__header cu-panel-board__header-status">
+                    <div class="cu-panel-board__status-info">
+                      <cu-data-view-group-label class="cu-data-view-group-label cu-dashboard-board-header__group-label">
+                        <div
+                          class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
+                          style=""
+                        >
+                          Today
+                        </div>
+                        <!----><!---->
+                      </cu-data-view-group-label>
+                      <div data-test="dashboard-board-header__panel-board__controls" class="cu-panel-board__controls">
+                        <cu-dashboard-board-header-wip-limit data-cns-disable="" class="ng-star-inserted" style="">
+                          <div
+                            data-cns-disable=""
+                            tooltiplifetime="15000"
+                            class="cu-wip-limit__widget off cu-wip-limit__info-no-limit ng-star-inserted"
+                            data-test="wip-limit__wip__widget-status-"
+                            wip-feature="false"
+                            wip-limit-index="0"
+                          >
+                            <!----><span>{{ todayArray.length }}</span>
+                          </div>
+                        </cu-dashboard-board-header-wip-limit>
+                      </div>
+                      <div class="nav-category__editor"></div>
+                    </div>
+                    <div class="cu-panel-board__header-options">
+                      <div
+                        data-cns-disable=""
+                        cutooltip="Collapse column"
+                        class="cu-dashboard-board__collapse-icon icon ng-star-inserted"
+                        data-test="dashboard-board__collapse-icon__"
+                        style=""
+                      >
+                        <svg class="ng-star-inserted"></svg>
+                        <!---->
+                      </div>
+                      <!---->
+                      <div class="cu-panel-board__quick-action ng-star-inserted" style="">
+                        <cu-dashboard-board-header-menu>
+                          <div cudropdown="" class="nav-menu cu-dropdown menu-options">
+                            <div
+                              data-test="dropdown__toggle"
+                              cudropdowntoggle=""
+                              class="cu-dropdown__toggle"
+                              tabindex="0"
+                              role="button"
+                              aria-label="Dropdown menu"
+                              aria-expanded="false"
+                            >
+                              <div
+                                data-test="board-header__quick-action-ellipsis"
+                                data-cns-disable=""
+                                class="cu-panel-board__quick-action-ellipsis icon"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  class="h-6 w-6"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </cu-dashboard-board-header-menu>
+                      </div>
+                      <div
+                        data-test="dashboard-board-header__panel-board__plus"
+                        data-cns-disable=""
+                        cutooltip="Create task"
+                        class="cu-panel-board__plus ng-star-inserted"
+                        style=""
+                      >
+                        +
+                      </div>
+                      <!---->
+                    </div>
+                  </header>
+                </section>
+
+                <div
+                  class="bg-white dark:bg-gray-600 shadow rounded pb-5 border showhim border-white mt-3 cursor-move draggable-box"
+                  *ngFor="let item of todayArray"
+                  cdkDrag
+                  [cdkDragData]="item"
+                >
+                  <div class="bg-green-500 h-8 mb-2 flex justify-end items-center rounded-t">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6 showme text-white cursor-pointer mr-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      (click)="editEvent(item)"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex justify-between mx-3">
+                    <p class="text-gray-700 dark:text-white font-semibold font-sans tracking-wide text-sm">
+                      {{ item.title }}
+                    </p>
+                    <img
+                      class="w-6 h-6 rounded-full ml-3"
+                      src="https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
+                      alt="Avatar"
+                    />
+                  </div>
+                  <div class="flex mt-4 justify-between items-center mx-3">
+                    <span class="text-sm text-gray-600 dark:text-white">{{ item.title }}</span>
+                  </div>
+                  <div class="flex mt-4 justify-between items-center mx-3">
+                    <span class="text-sm text-gray-600 dark:text-white">Due Date : {{ item.date }}</span>
+                  </div>
+                </div>
+
+                <div
+                  class="add-to-card flex border-none cu-panel-board cu-panel-board_caption rounded-md hover:bg-gray-200 space-x-1 text-gray-500"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    class="h-6 w-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    ></path>
+                  </svg>
+                  <p>Add Card</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cu-dashboard-board__content ng-tns-c1006-26 ng-star-inserted">
+            <div class="cu-dashboard-board__body-inner ng-tns-c1005-28">
+              <div class="cu-dashboard-board__column ng-trigger ng-trigger-flyInOut ng-tns-c1005-28 ng-star-inserted">
                 <div>
                   <section
                     class="cu-panel-board cu-panel-board_caption cu-panel-board__header-box"
@@ -1194,7 +1169,6 @@ interface Tasks {
                         <cu-data-view-group-label
                           class="cu-data-view-group-label cu-dashboard-board-header__group-label"
                         >
-                          <!----><!----><!----><!----><!----><!---->
                           <div
                             class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
                             style=""
@@ -1233,10 +1207,7 @@ interface Tasks {
                           class="cu-dashboard-board__collapse-icon icon ng-star-inserted"
                           data-test="dashboard-board__collapse-icon__"
                           style=""
-                        >
-                          <!---->
-                        </div>
-                        <!---->
+                        ></div>
                         <div class="cu-panel-board__quick-action ng-star-inserted" style="">
                           <cu-dashboard-board-header-menu>
                             <div cudropdown="" class="nav-menu cu-dropdown menu-options">
@@ -1286,12 +1257,8 @@ interface Tasks {
                         >
                           +
                         </div>
-                        <!---->
                       </div>
                     </header>
-                    <div></div>
-                    <div></div>
-                    <!---->
                   </section>
 
                   <div
@@ -1462,12 +1429,8 @@ interface Tasks {
                         >
                           +
                         </div>
-                        <!---->
                       </div>
                     </header>
-                    <div></div>
-                    <div></div>
-                    <!---->
                   </section>
 
                   <div
@@ -1640,12 +1603,8 @@ interface Tasks {
                         >
                           +
                         </div>
-                        <!---->
                       </div>
                     </header>
-                    <div></div>
-                    <div></div>
-                    <!---->
                   </section>
 
                   <div
@@ -1726,7 +1685,6 @@ interface Tasks {
                         <cu-data-view-group-label
                           class="cu-data-view-group-label cu-dashboard-board-header__group-label"
                         >
-                          <!----><!----><!----><!----><!----><!---->
                           <div
                             class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
                             style=""
@@ -1755,8 +1713,6 @@ interface Tasks {
                           <!----><!---->
                         </div>
                         <div class="nav-category__editor"></div>
-                        <div></div>
-                        <!---->
                       </div>
                       <div class="cu-panel-board__header-options">
                         <div
@@ -1902,14 +1858,12 @@ interface Tasks {
                         <cu-data-view-group-label
                           class="cu-data-view-group-label cu-dashboard-board-header__group-label"
                         >
-                          <!----><!----><!----><!----><!----><!---->
                           <div
                             class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
                             style=""
                           >
                             {{ saturdayName }}
                           </div>
-                          <!----><!---->
                         </cu-data-view-group-label>
                         <div data-test="dashboard-board-header__panel-board__controls" class="cu-panel-board__controls">
                           <cu-dashboard-board-header-wip-limit data-cns-disable="" class="ng-star-inserted" style="">
@@ -1921,18 +1875,12 @@ interface Tasks {
                               wip-feature="false"
                               wip-limit-index="0"
                             >
-                              <!----><span>{{ saturdayArray.length }}</span
-                              ><!----><span
-                              ></span
-                              ><!---->
+                              <span>{{ saturdayArray.length }}</span
+                              ><span></span>
                             </div>
-                            <!----><!----><!----><!----><!----><!---->
                           </cu-dashboard-board-header-wip-limit>
-                          <!----><!---->
                         </div>
                         <div class="nav-category__editor"></div>
-                        <div></div>
-                        <!---->
                       </div>
                       <div class="cu-panel-board__header-options">
                         <div
@@ -2078,14 +2026,12 @@ interface Tasks {
                         <cu-data-view-group-label
                           class="cu-data-view-group-label cu-dashboard-board-header__group-label"
                         >
-                          <!----><!----><!----><!----><!----><!---->
                           <div
                             class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
                             style=""
                           >
                             {{ sundayName }}
                           </div>
-                          <!----><!---->
                         </cu-data-view-group-label>
                         <div data-test="dashboard-board-header__panel-board__controls" class="cu-panel-board__controls">
                           <cu-dashboard-board-header-wip-limit data-cns-disable="" class="ng-star-inserted" style="">
@@ -2097,18 +2043,12 @@ interface Tasks {
                               wip-feature="false"
                               wip-limit-index="0"
                             >
-                              <!----><span>{{ sundayArray.length }}</span
-                              ><!----><span
-                              ></span
-                              ><!---->
+                              <span>{{ sundayArray.length }}</span>
                             </div>
-                            <!----><!----><!----><!----><!----><!---->
                           </cu-dashboard-board-header-wip-limit>
-                          <!----><!---->
                         </div>
                         <div class="nav-category__editor"></div>
                         <div></div>
-                        <!---->
                       </div>
                       <div class="cu-panel-board__header-options">
                         <div
@@ -2150,15 +2090,11 @@ interface Tasks {
                                       d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
                                     />
                                   </svg>
-                                  <!---->
                                 </div>
                               </div>
-                              <!---->
                             </div>
-                            <!---->
                           </cu-dashboard-board-header-menu>
                         </div>
-                        <!---->
                         <div
                           data-test="dashboard-board-header__panel-board__plus"
                           data-cns-disable=""
@@ -2168,12 +2104,8 @@ interface Tasks {
                         >
                           +
                         </div>
-                        <!---->
                       </div>
                     </header>
-                    <div></div>
-                    <div></div>
-                    <!---->
                   </section>
 
                   <div
@@ -2254,14 +2186,12 @@ interface Tasks {
                         <cu-data-view-group-label
                           class="cu-data-view-group-label cu-dashboard-board-header__group-label"
                         >
-                          <!----><!----><!----><!----><!----><!---->
                           <div
                             class="cu-data-view-group-label__main-title cu-data-view-group-label__main-title_due-date ng-star-inserted"
                             style=""
                           >
                             Future
                           </div>
-                          <!----><!---->
                         </cu-data-view-group-label>
                         <div data-test="dashboard-board-header__panel-board__controls" class="cu-panel-board__controls">
                           <cu-dashboard-board-header-wip-limit data-cns-disable="" class="ng-star-inserted" style="">
@@ -2273,18 +2203,11 @@ interface Tasks {
                               wip-feature="false"
                               wip-limit-index="0"
                             >
-                              <!----><span>0</span
-                              ><!----><span
-                              ></span
-                              ><!---->
+                              <span>{{ futureArray.length }}</span>
                             </div>
-                            <!----><!----><!----><!----><!----><!---->
                           </cu-dashboard-board-header-wip-limit>
-                          <!----><!---->
                         </div>
                         <div class="nav-category__editor"></div>
-                        <div></div>
-                        <!---->
                       </div>
                       <div class="cu-panel-board__header-options">
                         <div
@@ -2294,7 +2217,6 @@ interface Tasks {
                           data-test="dashboard-board__collapse-icon__"
                           style=""
                         ></div>
-                        <!---->
                         <div class="cu-panel-board__quick-action ng-star-inserted" style="">
                           <cu-dashboard-board-header-menu>
                             <div cudropdown="" class="nav-menu cu-dropdown menu-options">
@@ -2326,15 +2248,11 @@ interface Tasks {
                                       d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
                                     />
                                   </svg>
-                                  <!---->
                                 </div>
                               </div>
-                              <!---->
                             </div>
-                            <!---->
                           </cu-dashboard-board-header-menu>
                         </div>
-                        <!---->
                         <div
                           data-test="dashboard-board-header__panel-board__plus"
                           data-cns-disable=""
@@ -2344,13 +2262,51 @@ interface Tasks {
                         >
                           +
                         </div>
-                        <!---->
                       </div>
                     </header>
-                    <div></div>
-                    <div></div>
-                    <!---->
                   </section>
+
+                  <div
+                    class="bg-white dark:bg-gray-600 shadow rounded pb-5 border showhim border-white mt-3 cursor-move draggable-box"
+                    *ngFor="let item of futureArray"
+                    cdkDrag
+                    [cdkDragData]="item"
+                  >
+                    <div class="bg-green-500 h-8 mb-2 flex justify-end items-center rounded-t">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 showme text-white cursor-pointer mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        (click)="editEvent(item)"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="flex justify-between mx-3">
+                      <p class="text-gray-700 dark:text-white font-semibold font-sans tracking-wide text-sm">
+                        {{ item.title }}
+                      </p>
+                      <img
+                        class="w-6 h-6 rounded-full ml-3"
+                        src="https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
+                        alt="Avatar"
+                      />
+                    </div>
+                    <div class="flex mt-4 justify-between items-center mx-3">
+                      <span class="text-sm text-gray-600 dark:text-white">{{ item.title }}</span>
+                    </div>
+                    <div class="flex mt-4 justify-between items-center mx-3">
+                      <span class="text-sm text-gray-600 dark:text-white">Due Date : {{ item.date }}</span>
+                    </div>
+                  </div>
+
                   <div
                     class="add-to-card flex border-none cu-panel-board cu-panel-board_caption rounded-md hover:bg-gray-200 space-x-1 text-gray-500"
                   >
@@ -2530,7 +2486,6 @@ interface Tasks {
                           >
                             No Due Date
                           </div>
-                          <!----><!---->
                         </cu-data-view-group-label>
                         <div data-test="dashboard-board-header__panel-board__controls" class="cu-panel-board__controls">
                           <cu-dashboard-board-header-wip-limit data-cns-disable="" class="ng-star-inserted" style="">
@@ -2542,10 +2497,7 @@ interface Tasks {
                               wip-feature="false"
                               wip-limit-index="0"
                             >
-                              <!----><span>0</span
-                              ><!----><span
-                              ></span
-                              ><!---->
+                              <!----><span>{{ nodueDateArray.length }}</span>
                             </div>
                             <!----><!----><!----><!----><!----><!---->
                           </cu-dashboard-board-header-wip-limit>
@@ -2613,13 +2565,50 @@ interface Tasks {
                         >
                           +
                         </div>
-                        <!---->
                       </div>
                     </header>
-                    <div></div>
-                    <div></div>
-                    <!---->
                   </section>
+
+                  <div
+                    class="bg-white dark:bg-gray-600 shadow rounded pb-5 border showhim border-white mt-3 cursor-move draggable-box"
+                    *ngFor="let item of nodueDateArray"
+                    cdkDrag
+                    [cdkDragData]="item"
+                  >
+                    <div class="bg-green-500 h-8 mb-2 flex justify-end items-center rounded-t">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 showme text-white cursor-pointer mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        (click)="editEvent(item)"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="flex justify-between mx-3">
+                      <p class="text-gray-700 dark:text-white font-semibold font-sans tracking-wide text-sm">
+                        {{ item.title }}
+                      </p>
+                      <img
+                        class="w-6 h-6 rounded-full ml-3"
+                        src="https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
+                        alt="Avatar"
+                      />
+                    </div>
+                    <div class="flex mt-4 justify-between items-center mx-3">
+                      <span class="text-sm text-gray-600 dark:text-white">{{ item.title }}</span>
+                    </div>
+                    <div class="flex mt-4 justify-between items-center mx-3">
+                      <span class="text-sm text-gray-600 dark:text-white">Due Date : {{ item.date }}</span>
+                    </div>
+                  </div>
 
                   <div
                     class="add-to-card flex border-none cu-panel-board cu-panel-board_caption rounded-md hover:bg-gray-200 space-x-1 text-gray-500"
@@ -2815,7 +2804,21 @@ export class WebUiDraggableComponent {
       return items
     })
   }
+  searchData(val) {
+    this.draggableData = this.draggableData.map((items) => {
+      items.tasks = items.tasks.filter((obj) => obj.title >= val)
+      return items
+    })
 
+    //console.log("array data: ",this.draggableData);
+
+    // this.draggableData = this.draggableData.map((items) => {
+    //   items.tasks = items.tasks.filter(obj=>obj.title >= val);
+    //   return items
+    // })
+
+    //console.log("Search Data: " , val);
+  }
   fillData() {
     console.log('fillData function ', this.draggableData)
     this.draggableData = this.draggableData.map((items) => {
@@ -2852,6 +2855,18 @@ export class WebUiDraggableComponent {
           this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + (this.today.getDate() + 6)
         ) {
           this.sundayArray.push(index)
+        } else if (
+          index.date <
+          this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + this.today.getDate()
+        ) {
+          this.overDueArray.push(index)
+        } else if (
+          index.date >
+          this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + (this.today.getDate() + 6)
+        ) {
+          this.futureArray.push(index)
+        } else if (index.date === '') {
+          this.nodueDateArray.push(index)
         }
       }
       return items

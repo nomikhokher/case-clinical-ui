@@ -159,7 +159,7 @@ import { ServiceCodepreview } from '../../../codepreview.service'
                     *ngIf="showSearchBar"
                     id="search_field"
                     class="block w-full dark:bg-gray-800 focus:outline-none border-1 border-gray-300 rounded-full bg-white dark:text-gray-100 h-full pl-8 pr-3 py-2 text-gray-900 placeholder-gray-500  focus:placeholder-gray-400 sm:text-sm"
-                    placeholder="Search"
+                    placeholder="sdfs"
                     #searchBarInput
                     autocomplete="off"
                     type="search"
