@@ -1,5 +1,6 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop'
 import { Component, Input, ViewEncapsulation } from '@angular/core'
+import { empty } from 'rxjs'
 
 enum TaskStatus {
   BACKLOG = 'Backlog',
@@ -715,7 +716,7 @@ interface Tasks {
 
       <div *ngIf="iData">
         <div class="flex overflow-auto pb-7 pt-7 h-screen">
-          <ng-container *ngFor="let items of draggableData; let i = index">
+          <ng-container *ngFor="let items of inputData; let i = index">
             <div class="bg-gray-50 dark:bg-gray-700 rounded-lg px-3 py-3 mr-0" *ngIf="iData">
               <h2 class="text-gray-700 dark:text-white font- semibold font-sans tracking-wide text-sm">
                 {{ items.title }}
@@ -2892,19 +2893,23 @@ export class WebUiDraggableComponent {
     })
   }
   searchData(val) {
-    //this.inputData = this.draggableData
-    this.inputData = this.draggableData.map((items) => items)
-
-    console.log('Dragable Data: ', this.draggableData)
-    console.log('Input Data: ', this.inputData)
-    console.log('Input Value: ', val)
-
+    this.inputData = this.draggableData.map((item) => {
+      return {
+        ...item,
+        tasks: [...item.tasks],
+      }
+    })
     this.inputData = this.inputData.map((items) => {
-      items.tasks = items.tasks.filter((obj) => obj.title === val)
+      items.tasks = items.tasks.filter((obj) => obj.title.includes(val))
       return items
     })
-    this.iData = true
-    this.main = false
+    if (val == '') {
+      this.iData = false
+      this.main = true
+    } else {
+      this.iData = true
+      this.main = false
+    }
   }
   fillData() {
     console.log('fillData function ', this.draggableData)
