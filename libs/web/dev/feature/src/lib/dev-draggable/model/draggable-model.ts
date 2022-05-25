@@ -63,5 +63,7 @@ export interface Tasks {
   status: TaskStatus
   type: TaskType
   priority: TaskPriority
-  date: string
+  dueDate: string
+  createdDate: string
+  updatedDate: string
 }

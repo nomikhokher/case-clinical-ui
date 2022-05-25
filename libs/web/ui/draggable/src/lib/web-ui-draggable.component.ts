@@ -36,6 +36,8 @@ interface Tasks {
   type: TaskType
   priority: TaskPriority
   date: string
+  createdDate: string
+  updatedDate: string
 }
 
 @Component({
@@ -2874,7 +2876,6 @@ export class WebUiDraggableComponent {
   currentCard: number = 0
 
   ngOnInit(): void {
-    this.inputData = this.draggableData
     for (let items of this.draggableData) {
       this.connectedTo.push(items.id)
     }
@@ -2884,8 +2885,28 @@ export class WebUiDraggableComponent {
 
   orderByDate() {
     this.draggableData = this.draggableData.map((items) => {
-      items.tasks = items.tasks.sort((a, b) => new Date(a.date).getDate() - new Date(b.date).getDate())
+      items.tasks = items.tasks.sort((a, b) => new Date(a.dueDate).getDate() - new Date(b.dueDate).getDate())
       this.sortbyTitle = 'Due Date'
+      this.sort1By = false
+      this.iData = false
+      this.main = true
+      return items
+    })
+  }
+  orderByCreatedDate() {
+    this.draggableData = this.draggableData.map((items) => {
+      items.tasks = items.tasks.sort((a, b) => new Date(a.createdDate).getDate() - new Date(b.createdDate).getDate())
+      this.sortbyTitle = 'Created Date'
+      this.sort1By = false
+      this.iData = false
+      this.main = true
+      return items
+    })
+  }
+  orderByUpdatedDate() {
+    this.draggableData = this.draggableData.map((items) => {
+      items.tasks = items.tasks.sort((a, b) => new Date(a.updatedDate).getDate() - new Date(b.updatedDate).getDate())
+      this.sortbyTitle = 'Updated Date'
       this.sort1By = false
       this.iData = false
       this.main = true
